@@ -25,14 +25,14 @@
             "id": "c33a1db60ccdeec2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "wiki/synthesis/synthesis-认知与逻辑的互补.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/plugins/obsidian-weread-plugin/data.json",
+                "bFile": ".obsidian/plugins/obsidian-weread-plugin/data.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "synthesis-认知与逻辑的互补"
+              "icon": "diff",
+              "title": "Diff: data.json  (Working Tree)"
             }
           }
         ],
@@ -189,14 +189,23 @@
               "icon": "message-circle",
               "title": "微信聊天"
             }
+          },
+          {
+            "id": "17bbd78fa5731669",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,6 +226,7 @@
   },
   "active": "c33a1db60ccdeec2",
   "lastOpenFiles": [
+    "wiki/synthesis/synthesis-认知与逻辑的互补.md",
     "wiki/concepts/复辟时代.md",
     "wiki/concepts/历史哲学.md",
     "wiki/concepts/罗陀斯岛.md",
@@ -242,7 +252,6 @@
     "wiki/entities/荷尔德林.md",
     "wiki/entities/尼塔麦.md",
     "wiki/entities/拿破仑.md",
-    "wiki/entities/马克思.md",
     "_raw/视频总结/未确认 358718.crdownload",
     "_raw/视频总结/未确认 307621.crdownload",
     "_raw/视频总结/未确认 593115.crdownload",
