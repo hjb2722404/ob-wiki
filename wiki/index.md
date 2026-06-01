@@ -1225,4 +1225,28 @@ updated: 2026-06-01T11:44
 - [[sources/柏拉图全集第一卷|柏拉图全集第一卷]] `aliases: Plato's Complete Works Volume 1, 柏拉图对话录第一卷`
 - [[sources/有效学习|有效学习]] `aliases: Make It Stick: The Science of Successful Learning, 有效学习的科学`
 - [[sources/最早来到山丹的两位古代帝王|最早来到山丹的两位古代帝王]] `aliases: Two Earliest Ancient Emperors to Arrive in Shandan, 山丹最早的两位帝王`
-- [[sources/曼昆经济学原理二|曼昆经济学原理二]] `aliases: Mankiw's Princip
+- [[sources/曼昆经济学原理二|曼昆经济学原理二]] `aliases: Mankiw's Principles of Economics (Part 2), 曼昆经济学原理读书笔记（二）`
+- [[sources/曼昆经济学原理三|曼昆经济学原理三]] `aliases: Mankiw's Principles of Economics (Volume 3), 曼昆经济学原理第三卷`
+- [[sources/房间里的大象——生活中的沉默和否认|房间里的大象——生活中的沉默和否认]] `aliases: The Elephant in the Room: Silence and Denial in Everyday Life`
+- [[sources/必然|必然]] `aliases: The Inevitable, 必然：理解数字世界的十二个趋势`
+- [[sources/必然-美凯文·凯利|必然-美凯文·凯利]] `aliases: The Inevitable, 凯文·凯利《必然》微信读书笔记`
+- [[sources/局外人读书笔记|局外人读书笔记]] `aliases: The Stranger Reading Notes, 加缪《局外人》读书笔记`
+- [[sources/局外人-法加缪|局外人-法加缪]] `aliases: The Stranger (Camus' Short Stories Collection) - WeChat Reading Notes, 微信读书笔记-局外人`
+- [[sources/尼采的蛛丝马迹|尼采的蛛丝马迹]] `aliases: Traces of Nietzsche, 尼采《瞧，这个人》核心观点摘录`
+- [[sources/尼采导读|尼采导读]] `aliases: Introduction to Nietzsche, 尼采哲学导读`
+- [[sources/导出-人间失格由村上春树1Q84翻译施小炜倾情献译-的-Kindle-笔记本|导出-人间失格由村上春树1Q84翻译施小炜倾情献译-的-Kindle-笔记本]] `aliases: No Longer Human Kindle Notebook, 《人间失格》Kindle读书笔记`
+- [[sources/娱乐至死笔记|娱乐至死笔记]] `aliases: Amusing Ourselves to Death Notes, 娱乐至死 读书笔记`
+- [[sources/如何阅读一本书|如何阅读一本书]]
+- [[sources/大问题|大问题]] `aliases: ["Big Questions", "伟大的问题"]  # REQUIRED: at least 1 alias`
+- [[sources/图解后现代主义|图解后现代主义]] `aliases: Illustrated Postmodernism, 图解后现代主义读书笔记`
+- [[sources/动机与人格|动机与人格]] `aliases: Motivation and Personality, 动机与人格（马斯洛）`
+- [[sources/冰与火之歌粉丝升级手册|冰与火之歌粉丝升级手册]] `aliases: A Philosophical Guide to Game of Thrones, Game of Thrones Philosophy Guide`
+- [[sources/冰与火之歌|冰与火之歌]] `aliases: A Song of Ice and Fire, 权力的游戏`
+- [[sources/修炼之道|修炼之道]] `aliases: The Way of Practice, 互联网产品修炼之道`
+- [[sources/乡土中国|乡土中国]] `aliases: From the Soil: The Foundations of Chinese Society, From the Soil`
+- [[sources/乌合之众|乌合之众]] `aliases: The Crowd`
+- [[sources/一个自由而负责的新闻界|一个自由而负责的新闻界]] `aliases: A Free and Responsible Press`
+- [[sources/一个村庄里的中国|一个村庄里的中国]] `aliases: China in a Village, 一个村庄里的中国`
+- [[sources/“良意”“良情”“良知”之统一——康德“良心”概念解读|“良意”“良情”“良知”之统一——康德“良心”概念解读]] `aliases: Kant's Conception of Conscience, An Analysis of Kant's Concept of Conscience, 康德良心概念解读`
+- [[sources/“否定”的意义——研读黑格尔精神现象学的一点体会_叶秀山|“否定”的意义——研读黑格尔精神现象学的一点体会_叶秀山]] `aliases: The Meaning of Negation: Reflections on Reading Hegel's Phenomenology of Spirit, 黑格尔《精神现象学》研读笔记`
+- [[sources/KindleEar|KindleEar]] `aliases: ["KindleEar阅读标注", "Kindle电子阅读标注笔记"]  # REQUIRED: at least 1 alias, must NOT be empty`
