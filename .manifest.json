@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "ingested_at": "2026-05-13T21:43:00+08:00",
+  "stats": {
+    "total_sources_ingested": 601,
+    "total_pages": 79
+  },
+  "sources": [
+    {
+      "path": "D:/documents/个人/test-obsidian-wiki/test-ob-wiki/weRead/",
+      "ingested_at": "2026-05-25T16:57:00+08:00",
+      "size_bytes": 0,
+      "source_type": "weread",
+      "pages_created": [
+        "references/weRead/必然.md",
+        "references/weRead/科技想要什么.md",
+        "references/weRead/失控.md",
+        "references/weRead/新经济新规则.md",
+        "references/weRead/置身事内.md",
+        "references/weRead/经济解释.md",
+        "references/weRead/经济学的思维方式.md",
+        "references/weRead/结构性改革.md",
+        "references/weRead/中国经济2018.md",
+        "references/weRead/鼠疫.md",
+        "references/weRead/局外人.md",
+        "references/weRead/重访美丽新世界.md",
+        "references/weRead/1984.md",
+        "references/weRead/浮士德.md",
+        "references/weRead/动物农场.md",
+        "references/weRead/富兰克林自传.md",
+        "references/weRead/尚书.md",
+        "references/weRead/周易六十四卦通解.md",
+        "references/weRead/史记.md",
+        "references/weRead/中国近代史十五讲.md",
+        "references/weRead/毛泽东选集.md",
+        "references/weRead/新教伦理与资本主义精神.md",
+        "references/weRead/临高启明.md",
+        "references/weRead/清明上河图密码.md",
+        "references/weRead/马文柯林斯教育之道.md",
+        "references/weRead/高效能人士七个习惯.md",
+        "references/weRead/我与你.md",
+        "references/weRead/文明冲突.md",
+        "references/weRead/10人以下小团队管理手册.md",
+        "references/weRead/辞海.md",
+        "references/weRead/中国哲学史大纲.md",
+        "references/weRead/论语.md",
+        "references/weRead/大学.md",
+        "references/weRead/中庸.md",
+        "references/weRead/孟子.md",
+        "references/weRead/诗经.md",
+        "references/weRead/礼记.md",
+        "references/weRead/喻世明言.md",
+        "references/weRead/月亮与六便士.md",
+        "references/weRead/九州缥缈录.md",
+        "references/weRead/我的第一本英语百科全书.md",
+        "references/weRead/可怕的2岁孩子.md",
+        "references/weRead/基金投资入门.md",
+        "references/weRead/剑桥中华民国史.md",
+        "references/weRead/旧五代史.md",
+        "concepts/极权与自由.md",
+        "concepts/技术进化与失控.md",
+        "concepts/中国经济思维.md"
+      ],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-ai-editor-for-media/memory/feedback_chat_history.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 430,
+      "source_type": "claude_memory",
+      "project": "ai-editor-for-media",
+      "pages_created": ["projects/ai-editor-for-media/skills/对话历史记录规范.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-ai-editor-for-media/memory/feedback_retrospective.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 750,
+      "source_type": "claude_memory",
+      "project": "ai-editor-for-media",
+      "pages_created": ["projects/ai-editor-for-media/skills/对话复盘规范.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-ai-editor-for-media/memory/project_senseedit.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 580,
+      "source_type": "claude_memory",
+      "project": "ai-editor-for-media",
+      "pages_created": ["projects/ai-editor-for-media/entities/SenseEdit-编辑器项目.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-ai-editor-for-media/memory/feedback_gstack_docs.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 580,
+      "source_type": "claude_memory",
+      "project": "ai-editor-for-media",
+      "pages_created": ["projects/ai-editor-for-media/skills/gstack文档规范.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-ai-editor-for-media/memory/undo-fix-status.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 1200,
+      "source_type": "claude_memory",
+      "project": "ai-editor-for-media",
+      "pages_created": ["projects/ai-editor-for-media/skills/Undo隔离修复记录.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-intelligence-synergy/memory/feedback_jira_sync.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 450,
+      "source_type": "claude_memory",
+      "project": "intelligence-synergy",
+      "pages_created": ["projects/intelligence-synergy/skills/JIRA同步行为偏好.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "C:/Users/Administrator/.claude/projects/D--projects-studyProjects-sketch-plugin/memory/project_sketch_to_react_skill.md",
+      "ingested_at": "2026-05-13T18:09:00+08:00",
+      "size_bytes": 3200,
+      "source_type": "claude_memory",
+      "project": "sketch-plugin",
+      "pages_created": ["projects/sketch-plugin/skills/Sketch转React代码技能.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/叔本华、尼采与音乐.md",
+      "ingested_at": "2026-05-13T21:41:00+08:00",
+      "size_bytes": 41103,
+      "source_type": "external_doc",
+      "pages_created": ["concepts/意志主义.md", "concepts/世界作为意志与表象.md", "entities/叔本华.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/"深刻的片面"｜对话李泽厚：关于马克思的理论及其他（一）.md",
+      "ingested_at": "2026-05-13T21:43:00+08:00",
+      "size_bytes": 45461,
+      "source_type": "external_doc",
+      "pages_created": ["entities/李泽厚.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/叔本华《人生的智慧》经典语句.md",
+      "ingested_at": "2026-05-13T21:43:00+08:00",
+      "size_bytes": 51162,
+      "source_type": "external_doc",
+      "pages_created": [],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/三种视角——黑格尔左派、黑格尔右派和尼采.md",
+      "ingested_at": "2026-05-13T21:50:00+08:00",
+      "size_bytes": 46428,
+      "source_type": "external_doc",
+      "pages_created": ["concepts/现代性话语.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/从达观走向乐观：叔本华与尼采.md",
+      "ingested_at": "2026-05-13T21:48:00+08:00",
+      "size_bytes": 22344,
+      "source_type": "external_doc",
+      "pages_created": ["concepts/悲剧精神.md"],
+      "pages_updated": ["entities/尼采.md", "concepts/权力意志.md"]
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/邓晓芒：康德哲学的当代意义.md",
+      "ingested_at": "2026-05-13T21:52:00+08:00",
+      "size_bytes": 28078,
+      "source_type": "external_doc",
+      "pages_created": ["entities/邓晓芒.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/科耶夫：黑格尔哲学中的死亡概念（一）.md",
+      "ingested_at": "2026-05-13T22:05:00+08:00",
+      "size_bytes": 67581,
+      "source_type": "external_doc",
+      "pages_created": ["concepts/死亡与否定.md", "entities/科耶夫.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/以赛亚·伯林《卡尔·马克思》导言.md",
+      "ingested_at": "2026-05-13T22:08:00+08:00",
+      "size_bytes": 72704,
+      "source_type": "external_doc",
+      "pages_created": ["concepts/伯林论马克思.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/回忆埃德蒙德·胡塞尔.md",
+      "ingested_at": "2026-05-13T22:12:00+08:00",
+      "size_bytes": 71680,
+      "source_type": "external_doc",
+      "pages_created": ["entities/罗曼-英加尔登.md"],
+      "pages_updated": []
+    },
+    {
+      "path": "D:/documents/坚果云/我的坚果云/知识库/输入/爱好/叔本华论性爱｜所有的爱恋激情都根植于性欲.md",
+      "ingested_at": "2026-05-13T22:15:00+08:00",
+      "size_bytes": 99328,
+      "source_type": "external_doc",
+      "pages_created": ["concepts/性爱形而上学.md"],
+      "pages_updated": []
+    },
+  ],
+  "projects": {
+    "ai-editor-for-media": {
+      "source_path": "C:/Users/Administrator/.claude/projects/D--projects-ai-editor-for-media",
+      "vault_path": "projects/ai-editor-for-media",
+      "last_ingested": "2026-05-13T18:09:00+08:00",
+      "memory_files_ingested": 5
+    },
+    "intelligence-synergy": {
+      "source_path": "C:/Users/Administrator/.claude/projects/D--projects-intelligence-synergy",
+      "vault_path": "projects/intelligence-synergy",
+      "last_ingested": "2026-05-13T18:09:00+08:00",
+      "memory_files_ingested": 2
+    },
+    "sketch-plugin": {
+      "source_path": "C:/Users/Administrator/.claude/projects/D--projects-studyProjects-sketch-plugin",
+      "vault_path": "projects/sketch-plugin",
+      "last_ingested": "2026-05-13T18:09:00+08:00",
+      "memory_files_ingested": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "provider": "anthropic-compatible",
+  "apiKey": "sk-cp-OJjl3yST7K3VEvrFCNFznj4so6kAETNPPBZcPcpHe5i93Dm19ET8oO7f20wUp5Ylfct5ciqUofg86GrM5c0TOFp2_q-fv4IaozSe5kVORyEkSwCi7p1hN7A",
+  "baseUrl": "https://api.minimaxi.com/anthropic",
+  "model": "MiniMax-M2.7",
+  "wikiFolder": "wiki",
+  "language": "zh",
+  "wikiLanguage": "zh",
+  "useCustomWikiLanguage": false,
+  "availableModels": [
+    "MiniMax-M2",
+    "MiniMax-M2.1",
+    "MiniMax-M2.1-highspeed",
+    "MiniMax-M2.5",
+    "MiniMax-M2.5-highspeed",
+    "MiniMax-M2.7",
+    "MiniMax-M2.7-highspeed"
+  ],
+  "useCustomModel": false,
+  "maxConversationHistory": 30,
+  "queryHistory": [],
+  "enableSchema": true,
+  "extractionGranularity": "fine",
+  "autoWatchSources": true,
+  "autoWatchMode": "auto",
+  "autoWatchDebounceMs": 5000,
+  "watchedFolders": [
+    "Clippings/",
+    "_raw/"
+  ],
+  "periodicLint": "daily",
+  "startupCheck": true,
+  "pageGenerationConcurrency": 3,
+  "batchDelayMs": 500,
+  "lastOfferedQueryHash": "",
+  "llmReady": true
+}

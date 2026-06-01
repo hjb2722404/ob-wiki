@@ -1,0 +1,266 @@
+{
+  "main": {
+    "id": "a3aaf74cecc6cac4",
+    "type": "split",
+    "children": [
+      {
+        "id": "10dec15afb688090",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0767520152e9ac25",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_raw/读书笔记/科学技术/科技想要什么.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "科技想要什么"
+            }
+          },
+          {
+            "id": "c33a1db60ccdeec2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/synthesis/synthesis-认知与逻辑的互补.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "synthesis-认知与逻辑的互补"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ba91a93edcf3bd38",
+    "type": "split",
+    "children": [
+      {
+        "id": "f023cc7201d1c83a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e72c6bf8ac65c6c1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "850cc19a15f28696",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "e3cad8e6ba67f024",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "49848737ee73f85c",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb83fdb933c5f92e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8c4804ea3efe3963",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "index 的反向链接列表"
+            }
+          },
+          {
+            "id": "b480b8cf373272ba",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "index 的出链列表"
+            }
+          },
+          {
+            "id": "42701a692df9dfd1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "aebedc9e89663909",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "7adb955b45ef5853",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "index 的大纲"
+            }
+          },
+          {
+            "id": "c36cf7068dba9035",
+            "type": "leaf",
+            "state": {
+              "type": "wechat-sync-chat",
+              "state": {},
+              "icon": "message-circle",
+              "title": "微信聊天"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "project-manager:Project manager": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-wechat-sync:WeChat Sync": false,
+      "obsidian-weread-plugin:打开微信读书书架": false,
+      "karpathywiki:摄入当前文件": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "c33a1db60ccdeec2",
+  "lastOpenFiles": [
+    "wiki/concepts/复辟时代.md",
+    "wiki/concepts/历史哲学.md",
+    "wiki/concepts/罗陀斯岛.md",
+    "wiki/concepts/解释世界与改变世界.md",
+    "wiki/concepts/青春天才.md",
+    "wiki/concepts/大革命的时代.md",
+    "wiki/concepts/拿破仑法典.md",
+    "wiki/concepts/理性国家制度.md",
+    "wiki/concepts/人民宗教.md",
+    "wiki/concepts/君主立宪制.md",
+    "wiki/concepts/启蒙运动.md",
+    "wiki/concepts/中间等级.md",
+    "wiki/concepts/波拿巴主义者.md",
+    "wiki/concepts/绝对自由与恐怖.md",
+    "wiki/concepts/法哲学原理.md",
+    "wiki/concepts/世界精神.md",
+    "wiki/concepts/法国大革命.md",
+    "wiki/concepts/高卢的雄鸡.md",
+    "wiki/concepts/密纳发的猫头鹰.md",
+    "wiki/entities/罗伯斯庇尔.md",
+    "wiki/entities/赵敦华.md",
+    "wiki/entities/谢林.md",
+    "wiki/entities/荷尔德林.md",
+    "wiki/entities/尼塔麦.md",
+    "wiki/entities/拿破仑.md",
+    "wiki/entities/马克思.md",
+    "_raw/视频总结/未确认 358718.crdownload",
+    "_raw/视频总结/未确认 307621.crdownload",
+    "_raw/视频总结/未确认 593115.crdownload",
+    "_raw/视频总结/未确认 568907.crdownload",
+    "_raw/视频总结/未确认 597995.crdownload",
+    "_raw/视频总结/未确认 836494.crdownload",
+    "_raw/视频总结/未确认 536834.crdownload",
+    "_raw/视频总结/未确认 962203.crdownload",
+    "_raw/视频总结/未确认 327224.crdownload",
+    "_raw/视频总结/未确认 443039.crdownload",
+    "未命名.canvas",
+    "wechat_img_1779543430626_175.jpg",
+    "wechat_img_1779543432632_233.jpg",
+    "wechat_img_1779543432531_232.jpg",
+    "wechat_img_1779543432388_189.jpg",
+    "wechat_img_1779543432156_485.jpg",
+    "wechat_img_1779543431799_143.jpg",
+    "wechat_img_1779543431352_773.jpg",
+    "wechat_img_1779543430977_527.jpg"
+  ]
+}

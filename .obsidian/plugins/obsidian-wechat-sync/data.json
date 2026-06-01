@@ -1,0 +1,16 @@
+{
+  "syncFolder": "references/WeChat Inbox",
+  "autoSync": true,
+  "syncIntervalMinutes": 5,
+  "conflictStrategy": "create_conflict",
+  "syncDirection": "bidirectional",
+  "enableGroupSync": true,
+  "enableMediaDownload": true,
+  "mediaFolder": "attachments/wechat",
+  "dailyNoteFormat": "YYYY-MM-DD",
+  "checkUpdateOnStartup": true,
+  "giteeAccessToken": "",
+  "enableFrontmatter": true,
+  "enableBidirectionalSync": true,
+  "maxMessageHistory": 100
+}

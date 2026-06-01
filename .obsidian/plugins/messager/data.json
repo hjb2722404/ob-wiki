@@ -1,0 +1,13 @@
+{
+  "apikey": "4b6c0f7e03faee8c43175e9eb2514da5",
+  "savedFolder": "WeChat Inbox",
+  "filenameRule": "",
+  "conflictFileRule": "",
+  "refreshInterval": "180",
+  "fixedTitle": "",
+  "insertPosition": "ending",
+  "contentSuffix": "",
+  "contentPrefix": "",
+  "templateName": "",
+  "fetchWechatArticleContent": true
+}

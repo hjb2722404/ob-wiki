@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-wechat-sync",
+  "name": "WeChat Sync",
+  "version": "1.0.0-beta.7",
+  "minAppVersion": "1.0.0",
+  "description": "通过iLink协议实现微信ClawBot与Obsidian Vault双向同步",
+  "author": "",
+  "authorUrl": "",
+  "isDesktopOnly": true
+}
