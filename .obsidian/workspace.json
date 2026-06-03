@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "10dec15afb688090",
+        "id": "68d30b12ccaaaf27",
         "type": "tabs",
         "children": [
           {
-            "id": "0767520152e9ac25",
+            "id": "e3a1ee48a36dbc27",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_raw/读书笔记/科学技术/科技想要什么.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "科技想要什么"
-            }
-          },
-          {
-            "id": "c33a1db60ccdeec2",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/plugins/obsidian-weread-plugin/data.json",
-                "bFile": ".obsidian/plugins/obsidian-weread-plugin/data.json",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: data.json  (Working Tree)"
+              "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -171,13 +152,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "_raw/西哲/阿伦特：在公共权力之下，我们何以有追寻自由的权力？.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "阿伦特：在公共权力之下，我们何以有追寻自由的权力？ 的大纲"
             }
           },
           {
@@ -221,37 +202,38 @@
       "obsidian-wechat-sync:WeChat Sync": false,
       "obsidian-weread-plugin:打开微信读书书架": false,
       "karpathywiki:摄入当前文件": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "random-note:开始漫游笔记": false
     }
   },
-  "active": "c33a1db60ccdeec2",
+  "active": "e3a1ee48a36dbc27",
   "lastOpenFiles": [
-    "wiki/synthesis/synthesis-认知与逻辑的互补.md",
-    "wiki/concepts/复辟时代.md",
-    "wiki/concepts/历史哲学.md",
-    "wiki/concepts/罗陀斯岛.md",
-    "wiki/concepts/解释世界与改变世界.md",
-    "wiki/concepts/青春天才.md",
-    "wiki/concepts/大革命的时代.md",
-    "wiki/concepts/拿破仑法典.md",
-    "wiki/concepts/理性国家制度.md",
-    "wiki/concepts/人民宗教.md",
-    "wiki/concepts/君主立宪制.md",
-    "wiki/concepts/启蒙运动.md",
-    "wiki/concepts/中间等级.md",
-    "wiki/concepts/波拿巴主义者.md",
-    "wiki/concepts/绝对自由与恐怖.md",
-    "wiki/concepts/法哲学原理.md",
-    "wiki/concepts/世界精神.md",
-    "wiki/concepts/法国大革命.md",
-    "wiki/concepts/高卢的雄鸡.md",
-    "wiki/concepts/密纳发的猫头鹰.md",
-    "wiki/entities/罗伯斯庇尔.md",
-    "wiki/entities/赵敦华.md",
-    "wiki/entities/谢林.md",
-    "wiki/entities/荷尔德林.md",
-    "wiki/entities/尼塔麦.md",
-    "wiki/entities/拿破仑.md",
+    "wiki/concepts/中国特色社会主义市场经济.md",
+    "wiki/concepts/共产党宣言.md",
+    "wiki/concepts/哲学的贫困.md",
+    "wiki/concepts/断裂论.md",
+    "wiki/concepts/国民经济学.md",
+    "wiki/concepts/资本.md",
+    "wiki/concepts/德意志意识形态.md",
+    "wiki/concepts/自然分工.md",
+    "wiki/concepts/双重断裂.md",
+    "wiki/entities/卜祥记.md",
+    "wiki/sources/卜祥记-_-资本论的理论空间与哲学性质.md",
+    "_raw/西哲/阿伦特：笛卡尔怀疑的产生.md",
+    "wiki/concepts/意识形态.md",
+    "wiki/concepts/自然与历史的区分.md",
+    "wiki/concepts/超验原则.md",
+    "wiki/concepts/思想史.md",
+    "wiki/concepts/主观善与客观善.md",
+    "wiki/concepts/新教伦理与资本主义精神.md",
+    "wiki/entities/马丁·海德格尔.md",
+    "wiki/concepts/政治实用主义.md",
+    "wiki/concepts/善与成功等同.md",
+    "wiki/concepts/扬弃物化.md",
+    "wiki/concepts/制度史.md",
+    "wiki/entities/堂吉诃德.md",
+    "wiki/concepts/客观历史观念.md",
+    "wiki/entities/梅特涅.md",
     "_raw/视频总结/未确认 358718.crdownload",
     "_raw/视频总结/未确认 307621.crdownload",
     "_raw/视频总结/未确认 593115.crdownload",
