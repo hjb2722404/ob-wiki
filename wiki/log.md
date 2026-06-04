@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-03T18:42
+updated: 2026-06-04T16:24
 ---
 # Wiki 操作日志
 
@@ -735,4 +735,52 @@ updated: 2026-06-03T18:42
 **创建页面**：[[sources/从奥古斯丁到汤因比-——思辨的历史哲学.md]], [[entities/奥古斯丁.md]], [[entities/伏尔泰.md]], [[entities/维科.md]], [[entities/黑格尔.md]], [[entities/康德.md]], [[entities/赫尔德.md]], [[entities/汤因比.md]], [[entities/鲍修哀.md]], [[entities/斯宾格勒.md]], [[entities/巴克尔.md]], [[entities/孔多赛.md]], [[entities/孔德.md]], [[entities/泰纳.md]], [[entities/雷蒙·阿隆.md]], [[entities/兰克.md]], [[entities/卡西勒.md]], [[entities/沃尔什.md]], [[entities/伊格尔斯.md]], [[entities/雅斯贝尔斯.md]], [[entities/柯林武德.md]], [[entities/梅尼克.md]], [[concepts/历史哲学.md]], [[concepts/思辨的历史哲学.md]], [[concepts/历史哲学.md]], [[concepts/历史哲学世俗化.md]], [[concepts/基督教历史哲学.md]], [[concepts/实证主义.md]], [[concepts/德国唯心主义.md]], [[concepts/新科学.md]], [[concepts/文化形态史学.md]], [[concepts/风俗论.md]], [[concepts/挑战和应战.md]], [[concepts/历史循环论.md]]
 
 **更新页面**：[[奥古斯丁]], [[康德]], [[黑格尔]], [[雅斯贝尔斯]], [[历史哲学]], [[思辨的历史哲学]], [[德国唯心主义]]
+
+
+
+## [2026-06-04] ingest | 悲观主义与达观主义——叔本华、尼采哲学的内在精神
+
+**创建页面**：[[sources/从达观走向乐观叔本华与尼采.md]], [[entities/尼采.md]], [[entities/苏格拉底.md]], [[entities/叔本华.md]], [[concepts/悲观主义.md]], [[concepts/达观主义.md]], [[entities/基督教.md]], [[concepts/悲剧精神.md]], [[concepts/意志.md]], [[concepts/直觉主义.md]], [[concepts/永远轮回.md]], [[concepts/酒神世界观.md]], [[concepts/狄奥尼索斯情态.md]], [[concepts/超人.md]], [[concepts/摩耶.md]], [[concepts/权力意志.md]], [[concepts/达观主义.md]], [[concepts/表象世界.md]], [[concepts/生命哲学.md]], [[concepts/痛苦.md]]
+
+**更新页面**：[[叔本华]], [[尼采]], [[苏格拉底]], [[悲观主义]], [[悲剧精神]], [[意志]], [[强力意志]]
+
+
+
+## [2026-06-04] ingest | 辩证本体论和逻辑学的统一
+
+**创建页面**：[[sources/从黑格尔逻辑学到资本论的逻辑.md]], [[entities/刘珍英.md]], [[entities/黑格尔.md]], [[entities/马克思.md]], [[entities/皮埃尔-约瑟夫·蒲鲁东.md]], [[entities/苏格拉底.md]], [[entities/康德.md]], [[entities/列宁.md]], [[entities/亚里士多德.md]], [[entities/柏拉图.md]], [[concepts/辩证逻辑.md]], [[concepts/逻辑学.md]], [[concepts/辩证法.md]], [[concepts/扬弃.md]], [[concepts/思辨逻辑.md]], [[concepts/知性逻辑.md]], [[concepts/对立统一.md]], [[concepts/二律背反.md]], [[concepts/政治经济学批判.md]], [[concepts/异化劳动.md]], [[concepts/劳动.md]], [[concepts/从抽象上升到具体.md]], [[concepts/形式逻辑.md]], [[concepts/逻辑与历史的一致.md]], [[concepts/研究的两条道路.md]], [[concepts/绝对精神.md]], [[concepts/矛盾.md]], [[concepts/理性狡计.md]], [[concepts/概念辩证法.md]], [[concepts/具体劳动与抽象劳动.md]], [[concepts/否定的辩证法.md]], [[concepts/抽象劳动.md]], [[concepts/剩余价值理论.md]], [[concepts/政治经济学的形而上学.md]], [[concepts/资本主义生产方式.md]], [[concepts/实际上真实.md]], [[concepts/经济范畴.md]]
+
+**更新页面**：[[马克思]], [[黑格尔]], [[皮埃尔-约瑟夫·蒲鲁东]], [[苏格拉底]], [[康德]], [[列宁]], [[柏拉图]], [[亚里士多德]], [[辩证法]], [[逻辑学]], [[辩证逻辑]], [[扬弃]], [[对立统一]], [[二律背反]], [[从抽象上升到具体]], [[异化劳动]], [[形式逻辑]], [[绝对精神]], [[概念辩证法]], [[抽象劳动]]
+
+
+
+## [2026-06-04] ingest | 19世纪德国悲剧美学的精神演变——从黑格尔到尼采
+
+**创建页面**：[[sources/从黑格尔到尼采的德国悲剧精神.md]], [[entities/叔本华.md]], [[entities/马克思.md]], [[entities/黑格尔.md]], [[entities/卡尔·洛维特.md]], [[entities/尼采.md]], [[entities/康德.md]], [[entities/伊格尔顿.md]], [[entities/杨晓华.md]], [[concepts/悲剧美学.md]], [[concepts/永恒正义.md]], [[concepts/非理性悲剧.md]], [[concepts/理性主体性悲剧.md]], [[concepts/权力意志.md]], [[concepts/酒神精神.md]], [[concepts/生命意志.md]], [[concepts/乐观主义悲剧精神.md]], [[concepts/形而上的慰藉.md]], [[concepts/日神精神.md]], [[concepts/审美拯救.md]], [[concepts/悲观主义.md]], [[concepts/悲剧的冲突.md]], [[concepts/超人.md]], [[concepts/审美现代性.md]]
+
+**更新页面**：[[黑格尔]], [[马克思]], [[叔本华]], [[尼采]], [[康德]], [[伊格尔顿]], [[权力意志]], [[悲观主义]], [[超人]]
+
+
+
+## [2026-06-04] ingest | 康德道德哲学思想的起源和理论转向
+
+**创建页面**：[[sources/戴兆国-_-康德道德哲学思想的起源和理论转向.md]], [[entities/卢梭.md]], [[entities/戴兆国.md]], [[entities/康德.md]], [[concepts/理论转向.md]], [[concepts/前批判时期.md]], [[concepts/批判时期.md]], [[concepts/道德哲学形式主义.md]], [[concepts/实践哲学.md]], [[concepts/就职论文.md]], [[concepts/责任.md]], [[concepts/定言命令.md]], [[concepts/假言命令.md]], [[concepts/普遍法则.md]], [[concepts/英国道德学家.md]], [[concepts/自由意志.md]], [[concepts/双重影响.md]], [[concepts/自然人理论.md]], [[concepts/道德情感.md]], [[concepts/幸福原则.md]], [[concepts/道德完善.md]], [[concepts/一般实践哲学.md]], [[concepts/就职论文.md]], [[concepts/道德形而上学基础.md]], [[concepts/关于神学与道德原则之明晰性的研究.md]], [[concepts/伦理学讲演录.md]], [[concepts/纯粹理性批判.md]], [[concepts/形而上学.md]]
+
+**更新页面**：[[康德]], [[卢梭]], [[定言命令]], [[假言命令]], [[责任]], [[自由意志]], [[第一批判]], [[形而上学]]
+
+
+
+## [2026-06-04] ingest | 100个经典思维模型第30讲：拆解塔勒布《反脆弱》，在不确定性中越打越强
+
+**创建页面**：[[sources/100个经典思维模型第30讲拆解塔勒布反脆弱在不确定性中越打越强-2026年06月04日-来自Get-笔记.md]], [[entities/塔勒布.md]], [[entities/史泰龙.md]], [[entities/苏轼.md]], [[entities/比尔·阿克曼.md]], [[entities/贝鲁特.md]], [[concepts/反脆弱.md]], [[concepts/过度补偿.md]], [[concepts/凸性.md]], [[concepts/黑天鹅事件.md]], [[concepts/杠铃策略.md]], [[concepts/可选性.md]], [[concepts/林迪效应.md]], [[concepts/利益相关.md]], [[concepts/减法之道.md]], [[concepts/脆弱.md]], [[concepts/三条铁律边界.md]], [[concepts/五层嵌套金字塔模型.md]], [[concepts/强韧.md]], [[concepts/强韧.md]], [[concepts/达摩克利斯之剑.md]], [[concepts/九头蛇.md]], [[concepts/詹森不等式.md]], [[concepts/沃尔夫定律.md]]
+
+**更新页面**：
+
+
+
+## [2026-06-04] ingest | 信息熵：一把丈量不确定性的尺子——经典思维模型第22讲
+
+**创建页面**：[[sources/信息熵一把丈量不确定性的尺子——经典思维模型第22讲-2026年06月04日-来自Get-笔记.md]], [[entities/斯科特·佩奇.md]], [[entities/香农.md]], [[entities/贝尔实验室.md]], [[concepts/信息熵.md]], [[concepts/最大熵原则.md]], [[concepts/比特.md]], [[concepts/热力学熵增.md]], [[concepts/四种熵状态.md]], [[concepts/对数.md]], [[concepts/正态分布.md]], [[concepts/均匀分布.md]], [[concepts/指数分布.md]], [[concepts/可分解性.md]], [[concepts/熵思维链路.md]], [[concepts/二进制计算机.md]], [[concepts/加权平均.md]]
+
+**更新页面**：[[信息熵]], [[正态分布]]
 
