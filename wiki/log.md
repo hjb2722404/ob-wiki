@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-04T16:24
+updated: 2026-06-04T18:04
 ---
 # Wiki 操作日志
 
@@ -783,4 +783,28 @@ updated: 2026-06-04T16:24
 **创建页面**：[[sources/信息熵一把丈量不确定性的尺子——经典思维模型第22讲-2026年06月04日-来自Get-笔记.md]], [[entities/斯科特·佩奇.md]], [[entities/香农.md]], [[entities/贝尔实验室.md]], [[concepts/信息熵.md]], [[concepts/最大熵原则.md]], [[concepts/比特.md]], [[concepts/热力学熵增.md]], [[concepts/四种熵状态.md]], [[concepts/对数.md]], [[concepts/正态分布.md]], [[concepts/均匀分布.md]], [[concepts/指数分布.md]], [[concepts/可分解性.md]], [[concepts/熵思维链路.md]], [[concepts/二进制计算机.md]], [[concepts/加权平均.md]]
 
 **更新页面**：[[信息熵]], [[正态分布]]
+
+
+
+## [2026-06-04] ingest | 从热力学熵到信息熵：熵增定律的完整解析与个人、组织应用指南
+
+**创建页面**：[[sources/从热力学熵到信息熵熵增定律的完整解析与个人组织应用指南-2026年06月04日-来自Get-笔记.md]], [[entities/鲁道夫·克劳修斯.md]], [[entities/香农.md]], [[entities/路德维希·波尔兹曼.md]], [[entities/华为.md]], [[entities/任正非.md]], [[entities/罗尔夫·朗道尔.md]], [[entities/普里高金.md]], [[entities/约翰·冯·诺依曼.md]], [[entities/NBA.md]], [[concepts/统计力学熵.md]], [[concepts/热力学熵增.md]], [[concepts/信息熵.md]], [[concepts/耗散结构理论.md]], [[concepts/朗道尔原理.md]], [[concepts/熵增定律.md]], [[concepts/熵管理.md]], [[concepts/降熵.md]], [[concepts/保熵.md]], [[concepts/波兹曼常数.md]], [[concepts/热力学第二定律.md]], [[concepts/微观状态数.md]], [[concepts/孤立系统.md]], [[concepts/邓巴数.md]], [[concepts/开放系统.md]]
+
+**更新页面**：[[香农]], [[热力学熵增]], [[信息熵]]
+
+
+
+## [2026-06-04] ingest | 伊利亚·普里高金耗散结构理论完整拆解：从蜡烛、台风到生命，用物理学重新理解有序与活着
+
+**创建页面**：[[sources/伊利亚·普里高金耗散结构理论完整拆解从蜡烛台风到生命用物理学重新理解有序与活着-2026年06月04日-来自Get-笔记.md]], [[entities/普里高金.md]], [[entities/克里伊曼纽尔.md]], [[entities/迈克尔·法拉第.md]], [[entities/BZ反应.md]], [[entities/薛定谔.md]], [[entities/罗彻斯特大学.md]], [[concepts/耗散结构理论.md]], [[concepts/平衡结构.md]], [[concepts/耗散结构理论.md]], [[concepts/非线性反馈.md]], [[concepts/开放系统.md]], [[concepts/远离平衡.md]], [[concepts/熵增定律.md]], [[concepts/负熵.md]], [[concepts/失稳涨落分叉.md]], [[concepts/非线性反馈.md]], [[concepts/结构必然细节偶然.md]], [[concepts/临界值.md]], [[concepts/贝纳尔对流.md]], [[concepts/熵变水池模型.md]], [[concepts/瑞利数.md]], [[concepts/生命.md]], [[concepts/台风.md]], [[concepts/WISH机制.md]], [[concepts/蜡烛.md]], [[concepts/睡眠.md]]
+
+**更新页面**：[[普里高金]], [[耗散结构理论]], [[熵增定律]]
+
+
+
+## [2026-06-04] ingest | 思维模型讲解：冗余设计——提前给逆境修好第二条路
+
+**创建页面**：[[sources/思维模型讲解冗余设计——提前给逆境修好第二条路-2026年06月04日-来自Get-笔记.md]], [[entities/香农.md]], [[entities/摩尔.md]], [[entities/约翰·冯·诺依曼.md]], [[entities/奈特-莱维森实验.md]], [[entities/福岛第一核电站.md]], [[entities/弗雷德·艾默里.md]], [[entities/东京电力公司.md]], [[concepts/冗余设计.md]], [[entities/波音737MAX.md]], [[concepts/可靠性理论.md]], [[concepts/信息论.md]], [[concepts/墨菲定律.md]], [[concepts/部件冗余.md]], [[concepts/功能冗余.md]], [[concepts/单点故障.md]], [[concepts/路径冗余.md]], [[concepts/认知冗余.md]], [[concepts/信息冗余.md]], [[concepts/七步执行流程.md]], [[concepts/时间冗余.md]], [[concepts/系统韧性.md]], [[concepts/必要多样性原则.md]]
+
+**更新页面**：[[约翰·冯·诺依曼]], [[香农]]
 

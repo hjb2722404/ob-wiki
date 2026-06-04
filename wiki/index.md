@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-04T16:24
+updated: 2026-06-04T18:04
 ---
 # Wiki Index
 
@@ -10,6 +10,25 @@ updated: 2026-06-04T16:24
 
 ## 实体
 
+- [[entities/波音737MAX|波音737MAX]] `aliases: Boeing 737MAX, 波音737 MAX, 737 MAX空难` - type: entity
+- [[entities/东京电力公司|东京电力公司]] `aliases: Tokyo Electric Power Company, TEPCO, 东京电力` - type: entity
+- [[entities/弗雷德·艾默里|弗雷德·艾默里]] `aliases: Fred Emery, Fred Emory` - type: entity
+- [[entities/福岛第一核电站|福岛第一核电站]] `aliases: Fukushima Daiichi Nuclear Power Plant, 福岛核电站, 东京电力福岛核电站` - type: entity
+- [[entities/奈特-莱维森实验|奈特-莱维森实验]] `aliases: Knight-Leveson Experiment, 奈特与莱维森实验, Knight and Leveson Experiment` - type: entity
+- [[entities/摩尔|摩尔]] `aliases: Moore, 摩尔 (计算机科学家), 摩尔` - type: entity
+- [[entities/罗彻斯特大学|罗彻斯特大学]] `aliases: University of Rochester, UR` - type: entity
+- [[entities/薛定谔|薛定谔]] `aliases: Erwin Schrödinger, 埃尔温·薛定谔` - type: entity
+- [[entities/BZ反应|BZ反应]] `aliases: BZ reaction, Bélousov-Zhabotinsky反应, 贝洛索夫-扎博京斯基反应` - type: entity
+- [[entities/迈克尔·法拉第|迈克尔·法拉第]] `aliases: Michael Faraday, 法拉第` - type: entity
+- [[entities/克里伊曼纽尔|克里伊曼纽尔]] `aliases: Kerry Emanuel` - type: entity
+- [[entities/NBA|NBA]] `aliases: National Basketball Association, 美国职业篮球联赛` - type: entity
+- [[entities/约翰·冯·诺依曼|约翰·冯·诺依曼]] `aliases: John von Neumann, 冯·诺依曼, 约翰·冯·诺依曼` - type: entity
+- [[entities/普里高金|普里高金]] `aliases: Ilya Prigogine, 伊利亚·普里高金` - type: entity
+- [[entities/罗尔夫·朗道尔|罗尔夫·朗道尔]] `aliases: Rolf Landauer, Landauer` - type: entity
+- [[entities/任正非|任正非]] - type: entity
+- [[entities/华为|华为]] `aliases: Huawei, 华为技术有限公司` - type: entity
+- [[entities/路德维希·波尔兹曼|路德维希·波尔兹曼]] `aliases: Ludwig Boltzmann, 玻尔兹曼, L. Boltzmann` - type: entity
+- [[entities/鲁道夫·克劳修斯|鲁道夫·克劳修斯]] `aliases: Rudolf Clausius, R. Clausius` - type: entity
 - [[entities/贝尔实验室|贝尔实验室]] `aliases: Bell Labs, AT&T贝尔实验室, AT&T Bell Laboratories` - type: entity
 - [[entities/香农|香农]] `aliases: Claude Shannon, 克劳德·香农, C.E. Shannon` - type: entity
 - [[entities/斯科特·佩奇|斯科特·佩奇]] `aliases: Scott Page, 模型思维作者, The Model Thinker Author` - type: entity
@@ -447,6 +466,48 @@ updated: 2026-06-04T16:24
 
 ## 概念
 
+- [[concepts/必要多样性原则|必要多样性原则]] `aliases: Law of Requisite Variety, 艾迪斯比多样性原则, 必要多样性法则` - type: concept
+- [[concepts/系统韧性|系统韧性]] `aliases: System Resilience, 系统弹性` - type: concept
+- [[concepts/时间冗余|时间冗余]] `aliases: Time Redundancy, 时间缓冲设计, 时间留白` - type: concept
+- [[concepts/七步执行流程|七步执行流程]] `aliases: 七步冗余设计流程, Redundancy Design Seven-Step Process` - type: concept
+- [[concepts/信息冗余|信息冗余]] `aliases: Information Redundancy, 信息冗余设计` - type: concept
+- [[concepts/认知冗余|认知冗余]] `aliases: Cognitive Redundancy, 认知层面的冗余设计` - type: concept
+- [[concepts/路径冗余|路径冗余]] `aliases: Path Redundancy, 路径冗余设计` - type: concept
+- [[concepts/单点故障|单点故障]] `aliases: Single Point of Failure, SPOF, 单点依赖` - type: concept
+- [[concepts/功能冗余|功能冗余]] `aliases: Functional Redundancy, 能力冗余` - type: concept
+- [[concepts/部件冗余|部件冗余]] `aliases: Component Redundancy` - type: concept
+- [[concepts/墨菲定律|墨菲定律]] `aliases: Murphy's Law, 墨菲法则` - type: concept
+- [[concepts/信息论|信息论]] `aliases: Information Theory, Shannon Information Theory, 香农信息论` - type: concept
+- [[concepts/可靠性理论|可靠性理论]] `aliases: Reliability Theory, 冯·诺依曼可靠性理论, 冗余设计理论基础` - type: concept
+- [[concepts/冗余设计|冗余设计]] `aliases: Redundancy Design, 冗余配置, 备份设计` - type: concept
+- [[concepts/睡眠|睡眠]] `aliases: Sleep` - type: concept
+- [[concepts/蜡烛|蜡烛]] `aliases: candle, 蜡烛燃烧, Candle` - type: concept
+- [[concepts/WISH机制|WISH机制]] `aliases: Warm Moist Air Intake and Swirl Heat Mechanism, WISH Mechanism` - type: concept
+- [[concepts/台风|台风]] `aliases: 热带气旋, Typhoon` - type: concept
+- [[concepts/生命|生命]] `aliases: Life, Living, 生物` - type: concept
+- [[concepts/瑞利数|瑞利数]] `aliases: Rayleigh number` - type: concept
+- [[concepts/熵变水池模型|熵变水池模型]] `aliases: Entropy Pool Model, 熵池模型` - type: concept
+- [[concepts/贝纳尔对流|贝纳尔对流]] `aliases: Bénard Convection, Benard Effect, 贝纳尔对流效应` - type: concept
+- [[concepts/临界值|临界值]] `aliases: critical value, 阈值, threshold value` - type: concept
+- [[concepts/结构必然细节偶然|结构必然细节偶然]] `aliases: Structural Necessity with Contingent Details` - type: concept
+- [[concepts/失稳涨落分叉|失稳涨落分叉]] `aliases: Instability-Fluctuation Bifurcation, 失稳-涨落分叉` - type: concept
+- [[concepts/负熵|负熵]] `aliases: Negentropy, negative entropy, 负熵概念` - type: concept
+- [[concepts/远离平衡|远离平衡]] `aliases: far from equilibrium, 非平衡态, 非平衡热力学` - type: concept
+- [[concepts/非线性反馈|非线性反馈]] `aliases: Nonlinear Feedback, 自催化反馈, 正反馈放大机制` - type: concept
+- [[concepts/平衡结构|平衡结构]] `aliases: 静态有序, Equilibrium Structure` - type: concept
+- [[concepts/开放系统|开放系统]] `aliases: Open System, 开放, Open System` - type: concept
+- [[concepts/邓巴数|邓巴数]] `aliases: Dunbar's Number, 150人定律` - type: concept
+- [[concepts/孤立系统|孤立系统]] `aliases: Isolated System` - type: concept
+- [[concepts/微观状态数|微观状态数]] `aliases: Number of Microstates, Microstate Count, Ω` - type: concept
+- [[concepts/热力学第二定律|热力学第二定律]] `aliases: Second Law of Thermodynamics, 热力学第二定律表述, 熵增原理` - type: concept
+- [[concepts/波兹曼常数|波兹曼常数]] `aliases: Boltzmann Constant, k_B, 玻尔兹曼常数` - type: concept
+- [[concepts/保熵|保熵]] `aliases: Entropy Preservation, Entropy Maintenance, 高熵维护` - type: concept
+- [[concepts/降熵|降熵]] `aliases: Entropy Reduction, 降低熵增, 负熵管理` - type: concept
+- [[concepts/熵管理|熵管理]] `aliases: Entropy Management, 系统熵调控方法, 熵判断框架` - type: concept
+- [[concepts/熵增定律|熵增定律]] `aliases: Entropy Increase Law, 熵增加原理, Entropy Law` - type: concept
+- [[concepts/朗道尔原理|朗道尔原理]] `aliases: Landauer's Principle, 兰道尔原理` - type: concept
+- [[concepts/耗散结构理论|耗散结构理论]] `aliases: 耗散结构, Dissipative Structure Theory, Prigogine's Theory` - type: concept
+- [[concepts/统计力学熵|统计力学熵]] `aliases: Boltzmann Entropy, 玻尔兹曼熵, 统计熵` - type: concept
 - [[concepts/加权平均|加权平均]] `aliases: Weighted Average, 加权平均法` - type: concept
 - [[concepts/二进制计算机|二进制计算机]] `aliases: binary computer, 二进制, 二进制系统` - type: concept
 - [[concepts/熵思维链路|熵思维链路]] `aliases: Entropy Thinking Chain, 信息熵六步分析法, 熵分析操作方法` - type: concept
@@ -1765,6 +1826,9 @@ updated: 2026-06-04T16:24
 
 ## 来源
 
+- [[sources/思维模型讲解冗余设计——提前给逆境修好第二条路-2026年06月04日-来自Get-笔记|思维模型讲解冗余设计——提前给逆境修好第二条路-2026年06月04日-来自Get-笔记]] `aliases: Redundancy Design: Building a Second Path for Adversity in Advance`
+- [[sources/伊利亚·普里高金耗散结构理论完整拆解从蜡烛台风到生命用物理学重新理解有序与活着-2026年06月04日-来自Get-笔记|伊利亚·普里高金耗散结构理论完整拆解从蜡烛台风到生命用物理学重新理解有序与活着-2026年06月04日-来自Get-笔记]] `aliases: Ilya Prigogine's Dissipative Structure Theory: From Candles to Typhoons to Life, 从蜡烛到生命的耗散结构理论解读`
+- [[sources/从热力学熵到信息熵熵增定律的完整解析与个人组织应用指南-2026年06月04日-来自Get-笔记|从热力学熵到信息熵熵增定律的完整解析与个人组织应用指南-2026年06月04日-来自Get-笔记]] `aliases: From Thermodynamic Entropy to Information Entropy: Law of Increasing Entropy Analysis and Application Guide`
 - [[sources/信息熵一把丈量不确定性的尺子——经典思维模型第22讲-2026年06月04日-来自Get-笔记|信息熵一把丈量不确定性的尺子——经典思维模型第22讲-2026年06月04日-来自Get-笔记]] `aliases: Information Entropy: A Ruler for Measuring Uncertainty - Classic Thinking Models Lecture 22, 信息熵 经典思维模型 第22讲`
 - [[sources/100个经典思维模型第30讲拆解塔勒布反脆弱在不确定性中越打越强-2026年06月04日-来自Get-笔记|100个经典思维模型第30讲拆解塔勒布反脆弱在不确定性中越打越强-2026年06月04日-来自Get-笔记]] `aliases: Anti-Fragile by Taleb - Building Strength in Uncertainty, 塔勒布《反脆弱》思维模型解读`
 - [[sources/戴兆国-_-康德道德哲学思想的起源和理论转向|戴兆国-_-康德道德哲学思想的起源和理论转向]] `aliases: The Origin and Theoretical Turn of Kant's Moral Philosophy, 康德道德哲学的起源与理论转向`
