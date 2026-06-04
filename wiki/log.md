@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-03T10:29
+updated: 2026-06-03T18:42
 ---
 # Wiki 操作日志
 
@@ -707,4 +707,32 @@ updated: 2026-06-03T10:29
 **创建页面**：[[sources/卜祥记-_-资本论的理论空间与哲学性质.md]], [[entities/阿尔杜塞.md]], [[entities/马克思.md]], [[entities/卜祥记.md]], [[entities/皮埃尔-约瑟夫·蒲鲁东.md]], [[entities/恩格斯.md]], [[concepts/唯物史观.md]], [[concepts/资本逻辑.md]], [[concepts/双重断裂.md]], [[concepts/异化劳动.md]], [[concepts/总问题.md]], [[concepts/自然分工.md]], [[concepts/德意志意识形态.md]], [[concepts/资本.md]], [[concepts/私有制.md]], [[concepts/国民经济学.md]], [[concepts/断裂论.md]], [[concepts/1844年经济学哲学手稿.md]], [[concepts/哲学的贫困.md]], [[concepts/资本论.md]], [[concepts/共产党宣言.md]], [[concepts/中国特色社会主义市场经济.md]]
 
 **更新页面**：[[马克思]], [[皮埃尔-约瑟夫·蒲鲁东]], [[恩格斯]], [[唯物史观]], [[资本逻辑]], [[异化劳动]], [[总问题]], [[1844年经济学哲学手稿]], [[资本论Das-Kapital]]
+
+
+
+## [2026-06-03] ingest | 从邓晓芒老师讲黑格尔想到的
+
+**创建页面**：[[sources/从_邓晓芒老师讲黑格尔_想到的.md]], [[entities/邓晓芒.md]], [[entities/朋霍费尔.md]], [[entities/黑格尔.md]], [[entities/福柯.md]], [[entities/马丁·海德格尔.md]], [[entities/雅克·德里达.md]], [[entities/胡塞尔.md]], [[entities/笛卡尔.md]], [[entities/康德.md]], [[entities/慧田哲学.md]], [[concepts/句读.md]], [[concepts/感悟式阅读.md]], [[concepts/精神现象学.md]], [[concepts/小逻辑.md]], [[concepts/逻各斯.md]], [[concepts/辩证逻辑.md]], [[concepts/现象学.md]], [[concepts/形而上学.md]], [[concepts/解构.md]], [[concepts/后现代属性.md]], [[concepts/虚无主义.md]], [[concepts/逻各斯.md]]
+
+**更新页面**：[[邓晓芒]], [[黑格尔]], [[马丁·海德格尔]], [[福柯]], [[胡塞尔]], [[笛卡尔]], [[康德]], [[精神现象学]], [[辩证逻辑]], [[形而上学]], [[解构]]
+
+
+
+## [2026-06-03] ingest | 黑格尔与处女座：一位女文青的哲学絮语
+
+**创建页面**：[[sources/处女座的黑格尔.md]], [[entities/马克思.md]], [[entities/黑格尔.md]], [[entities/叔本华.md]], [[entities/歌德.md]], [[entities/斯宾诺莎.md]], [[entities/康德.md]], [[entities/拿破仑.md]], [[entities/罗素.md]], [[entities/钱锺书.md]], [[concepts/绝对精神.md]], [[concepts/扬弃.md]], [[concepts/辩证法.md]], [[concepts/体系.md]], [[concepts/逻辑学.md]], [[concepts/德国古典哲学.md]], [[concepts/世界精神.md]], [[concepts/精神哲学.md]], [[concepts/概念辩证法.md]], [[concepts/哲学史.md]], [[concepts/自然哲学.md]], [[concepts/方法论.md]]
+
+**更新页面**：[[黑格尔]], [[马克思]], [[叔本华]], [[康德]], [[斯宾诺莎]], [[拿破仑]], [[罗素]], [[辩证法]], [[扬弃]], [[德国古典哲学]], [[体系]], [[逻辑学]], [[精神哲学]], [[世界精神]], [[自然哲学]]
+
+**发现矛盾**：
+- 黑格尔评价孔子“《论语》不过是孔子给弟子们普及一些常识道德”，“没什么思辨哲学” vs [[entities/孔子]]
+- 黑格尔认为“中国无历史”，“任何进步都无法从中产生” vs [[entities/中国历史]]
+- 黑格尔认为汉语“根本不适合哲学思辨” vs [[concepts/汉语哲学]]
+
+
+## [2026-06-03] ingest | 邓晓芒：真诚、虚伪与自欺
+
+**创建页面**：[[sources/从奥古斯丁到汤因比-——思辨的历史哲学.md]], [[entities/奥古斯丁.md]], [[entities/伏尔泰.md]], [[entities/维科.md]], [[entities/黑格尔.md]], [[entities/康德.md]], [[entities/赫尔德.md]], [[entities/汤因比.md]], [[entities/鲍修哀.md]], [[entities/斯宾格勒.md]], [[entities/巴克尔.md]], [[entities/孔多赛.md]], [[entities/孔德.md]], [[entities/泰纳.md]], [[entities/雷蒙·阿隆.md]], [[entities/兰克.md]], [[entities/卡西勒.md]], [[entities/沃尔什.md]], [[entities/伊格尔斯.md]], [[entities/雅斯贝尔斯.md]], [[entities/柯林武德.md]], [[entities/梅尼克.md]], [[concepts/历史哲学.md]], [[concepts/思辨的历史哲学.md]], [[concepts/历史哲学.md]], [[concepts/历史哲学世俗化.md]], [[concepts/基督教历史哲学.md]], [[concepts/实证主义.md]], [[concepts/德国唯心主义.md]], [[concepts/新科学.md]], [[concepts/文化形态史学.md]], [[concepts/风俗论.md]], [[concepts/挑战和应战.md]], [[concepts/历史循环论.md]]
+
+**更新页面**：[[奥古斯丁]], [[康德]], [[黑格尔]], [[雅斯贝尔斯]], [[历史哲学]], [[思辨的历史哲学]], [[德国唯心主义]]
 
