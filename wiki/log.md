@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-05T15:36
+updated: 2026-06-08T14:56
 ---
 # Wiki 操作日志
 
@@ -863,4 +863,92 @@ updated: 2026-06-05T15:36
 **创建页面**：[[sources/百论全品深度解读提婆菩萨的中观破执智慧与当代应用-2026年06月04日-来自Get-笔记.md]], [[entities/吉藏.md]], [[entities/提婆菩萨.md]], [[entities/龙树菩萨.md]], [[entities/鸠摩罗什.md]], [[entities/三论宗.md]], [[entities/百字论.md]], [[entities/百论.md]], [[entities/波吒厘城.md]], [[entities/大自在天.md]], [[entities/四百论.md]], [[entities/十二门论.md]], [[concepts/缘起性空.md]], [[concepts/中观学派.md]], [[entities/中论.md]], [[concepts/神我论.md]], [[concepts/恶取空.md]], [[concepts/因中无果论.md]], [[concepts/因中有果论.md]], [[concepts/二谛圆融.md]], [[concepts/无所得观.md]], [[concepts/无常.md]], [[concepts/极微论.md]], [[concepts/权智与实智.md]], [[concepts/破邪显正.md]], [[concepts/涅槃.md]], [[concepts/十恶.md]], [[concepts/戏论.md]], [[concepts/假名我.md]], [[concepts/中道因果观.md]], [[concepts/止观双运.md]], [[concepts/杂毒饭.md]], [[concepts/观待.md]], [[concepts/五蕴.md]], [[concepts/归谬法.md]]
 
 **更新页面**：[[龙树菩萨]], [[涅槃]], [[止观双运]], [[归谬法]], [[五蕴]]
+
+
+
+## [2026-06-08] ingest | 《大乘密严经》核心教义深度解读：如来藏与阿赖耶识的不二实相，以及现代语境下的修行启示
+
+**创建页面**：[[sources/大乘密严经核心教义深度解读如来藏与阿赖耶识的不二实相以及现代语境下的修行启示-2026年06月04日-来自Get-笔记.md]], [[entities/大乘密严经.md]], [[entities/六祖惠能.md]], [[entities/法藏.md]], [[entities/Get达人.md]], [[entities/玄奘.md]], [[concepts/密严法界.md]], [[concepts/阿赖耶识.md]], [[concepts/末那识.md]], [[concepts/如来藏.md]], [[concepts/真妄和合.md]], [[concepts/五法.md]], [[concepts/三性.md]], [[concepts/二无我.md]], [[concepts/五大修行位次.md]], [[concepts/转识成智.md]], [[concepts/性常圆洁.md]], [[concepts/智慧火观.md]], [[concepts/四智.md]], [[concepts/意生身.md]], [[concepts/自心现量.md]], [[concepts/种子.md]], [[concepts/智成身.md]], [[concepts/密严净土.md]], [[concepts/华严宗.md]], [[concepts/法相宗.md]], [[concepts/法性宗.md]], [[concepts/禅宗.md]], [[concepts/非二元论.md]], [[concepts/观察者效应.md]], [[concepts/如来藏缘起论.md]], [[concepts/意识频率.md]]
+
+**更新页面**：
+
+
+
+## [2026-06-08] ingest | 《四十二章经》深度解读：从东来缘起，到当下修行的完整智慧
+
+**创建页面**：[[sources/四十二章经深度解读从东来缘起到当下修行的完整智慧-2026年06月04日-来自Get-笔记.md]], [[entities/迦叶摩腾.md]], [[entities/四十二章经.md]], [[entities/汉明帝刘庄.md]], [[entities/竺法兰.md]], [[entities/傅毅.md]], [[entities/白马寺.md]], [[entities/守遂禅师.md]], [[entities/高丽藏.md]], [[concepts/离欲寂静.md]], [[concepts/识心达本.md]], [[concepts/十恶.md]], [[concepts/四果.md]], [[concepts/中道因果观.md]], [[concepts/格义翻译法.md]], [[concepts/二十难.md]], [[concepts/无常.md]], [[concepts/正念.md]], [[concepts/大乘无修之修.md]], [[concepts/意如功曹.md]], [[concepts/认知行为疗法.md]], [[concepts/因果.md]], [[concepts/忍辱.md]], [[concepts/善知识.md]], [[concepts/渐修.md]], [[concepts/出家.md]]
+
+**更新页面**：[[十恶]], [[中道因果观]], [[无常]]
+
+
+
+## [2026-06-08] ingest | 《药师经》深度解读：现世安心的生命康复蓝图
+
+**创建页面**：[[sources/药师经深度解读现世安心的生命康复蓝图-2026年06月04日-来自Get-笔记.md]], [[entities/药师琉璃光如来.md]], [[entities/玄奘.md]], [[entities/药师琉璃光如来本愿功德经.md]], [[entities/月光遍照菩萨.md]], [[entities/日光遍照菩萨.md]], [[entities/文殊师利菩萨.md]], [[entities/救脱菩萨.md]], [[entities/十二药叉大将.md]], [[entities/广严城.md]], [[entities/Get达人.md]], [[concepts/药师法门.md]], [[entities/尼采.md]], [[concepts/药师灌顶真言.md]], [[concepts/东方净琉璃世界.md]], [[concepts/十二大愿.md]], [[concepts/琉璃光.md]], [[concepts/现世安心.md]], [[concepts/九横死.md]], [[concepts/净土法门.md]], [[concepts/业力对治.md]], [[concepts/延寿仪轨.md]], [[concepts/当代心灵困境.md]], [[concepts/信受奉行.md]]
+
+**更新页面**：[[玄奘]], [[尼采]], [[Get达人]]
+
+
+
+## [2026-06-08] ingest | 《圆觉经》全解：十二菩萨问法带你体证本自具足的圆觉自性
+
+**创建页面**：[[sources/圆觉经全解十二菩萨问法带你体证本自具足的圆觉自性-2026年06月04日-来自Get-笔记.md]], [[entities/文殊师利菩萨.md]], [[entities/普贤菩萨.md]], [[entities/圆觉经.md]], [[entities/弥勒菩萨.md]], [[entities/普眼菩萨.md]], [[entities/金刚藏菩萨.md]], [[entities/威德自在菩萨.md]], [[entities/清净慧菩萨.md]], [[entities/辨音菩萨.md]], [[entities/贤善首菩萨.md]], [[entities/普觉菩萨.md]], [[entities/净诸业障菩萨.md]], [[entities/Get达人.md]], [[concepts/无明.md]], [[concepts/圆觉自性.md]], [[concepts/二十五轮.md]], [[concepts/以幻修幻.md]], [[concepts/四相.md]], [[concepts/指月之喻.md]], [[concepts/销金矿喻.md]], [[concepts/翳目空华比喻.md]], [[concepts/奢摩他.md]], [[concepts/知幻即离.md]], [[concepts/四大禅病.md]], [[concepts/轮回.md]], [[concepts/禅那.md]], [[concepts/三摩钵提.md]], [[concepts/善知识.md]], [[concepts/根性.md]], [[concepts/习气.md]], [[concepts/我执.md]], [[concepts/安居法门.md]]
+
+**更新页面**：[[文殊师利菩萨]], [[弥勒菩萨]], [[Get达人]], [[无明]], [[善知识]], [[我执]]
+
+
+
+## [2026-06-08] ingest | 拆解《金刚经》"应无所住而生其心"：破除"着相"枷锁，获得人生自在的佛法智慧
+
+**创建页面**：[[sources/拆解金刚经“应无所住而生其心”破除“着相”枷锁获得人生自在的佛法智慧-2026年06月04日-来自Get-笔记.md]], [[entities/六祖惠能.md]], [[entities/金刚经.md]], [[entities/释迦牟尼佛.md]], [[concepts/着相.md]], [[concepts/色相.md]], [[concepts/应无所住而生其心.md]], [[concepts/法相.md]], [[concepts/四相.md]], [[concepts/非法相.md]], [[concepts/众生相.md]], [[concepts/我相.md]], [[concepts/人相.md]], [[concepts/中道因果观.md]], [[concepts/空.md]], [[concepts/寿者相.md]], [[concepts/离相.md]], [[concepts/六喻正观.md]], [[concepts/筏喻.md]], [[concepts/自性.md]], [[concepts/开悟.md]], [[concepts/本心.md]], [[concepts/筏喻.md]], [[concepts/看假与化空.md]], [[concepts/顽空.md]], [[concepts/无常.md]], [[concepts/重罪轻报转念.md]], [[concepts/三次视角切换.md]], [[concepts/因果.md]], [[concepts/诸相非相.md]], [[concepts/开悟.md]]
+
+**更新页面**：[[六祖惠能]], [[释迦牟尼佛]], [[空]], [[中道因果观]], [[无常]], [[因果]]
+
+
+
+## [2026-06-08] ingest | 汉传佛教五大部经典《大宝积经》深度讲解：核心法义与当代修行指南
+
+**创建页面**：[[sources/汉传佛教五大部经典大宝积经深度讲解核心法义与当代修行指南-2026年06月04日-来自Get-笔记.md]], [[entities/菩提流志.md]], [[entities/支谶.md]], [[entities/大宝积经.md]], [[entities/玄奘.md]], [[entities/普明菩萨会.md]], [[entities/菩萨藏会.md]], [[entities/胜鬘夫人会.md]], [[entities/郁伽长者会.md]], [[entities/密迹金刚力士会.md]], [[entities/不动如来会.md]], [[entities/无量寿如来会.md]], [[entities/鸠摩罗什.md]], [[concepts/名字菩萨与真实菩萨.md]], [[concepts/宝积法门.md]], [[entities/竺法护.md]], [[concepts/六度.md]], [[concepts/四摄法.md]], [[concepts/三十二种菩萨品德.md]], [[concepts/如来藏.md]], [[concepts/般若与方便.md]], [[concepts/空性与中道正观.md]], [[concepts/如来三密.md]], [[concepts/三轮体空.md]], [[concepts/法船譬喻.md]], [[concepts/四十九会.md]], [[concepts/居家菩萨.md]], [[concepts/佛性平等.md]]
+
+**更新页面**：[[玄奘]], [[鸠摩罗什]], [[如来藏]]
+
+
+
+## [2026-06-08] ingest | 跨越一千六百年的失译经典：《分别功德论》的考证、义理与修行智慧
+
+**创建页面**：[[sources/跨越一千六百年的失译经典分别功德论的考证义理与修行智慧-2026年06月04日-来自Get-笔记.md]], [[entities/帕伦博.md]], [[entities/分别功德论.md]], [[entities/道安.md]], [[entities/阿难.md]], [[entities/大迦叶.md]], [[entities/阿育王.md]], [[entities/增一阿含经.md]], [[entities/竺佛念.md]], [[entities/昙摩难提.md]], [[entities/印顺导师.md]], [[entities/吕澂.md]], [[entities/善觉比丘.md]], [[entities/舍利弗.md]], [[entities/弥勒菩萨.md]], [[concepts/失译经典.md]], [[concepts/十念法门.md]], [[concepts/定慧相依.md]], [[concepts/第一结集.md]], [[concepts/菩萨藏.md]], [[concepts/功德观.md]], [[concepts/弟子品.md]], [[concepts/长安译场.md]], [[concepts/本母.md]], [[concepts/业力与功德.md]], [[concepts/止观双运.md]], [[concepts/五藏体系.md]], [[concepts/大众部.md]], [[concepts/无我.md]], [[concepts/语言学考证.md]], [[concepts/高僧传.md]], [[concepts/有为功德与无为功德.md]]
+
+**更新页面**：[[阿难]], [[增一阿含经]], [[印顺导师]], [[舍利弗]], [[弥勒菩萨]], [[止观双运]]
+
+
+
+## [2026-06-08] ingest | 龙树菩萨《十二门论》全解析：十二门入空性，悲智双运证解脱
+
+**创建页面**：[[sources/龙树菩萨十二门论全解析十二门入空性悲智双运证解脱-2026年06月04日-来自Get-笔记.md]], [[entities/鸠摩罗什法师.md]], [[entities/龙树菩萨.md]], [[entities/Get达人.md]], [[concepts/自性.md]], [[concepts/缘起性空.md]], [[concepts/十二门论.md]], [[concepts/八不中道.md]], [[concepts/二谛圆融.md]], [[concepts/中观学派.md]], [[concepts/归谬法.md]], [[concepts/一切法无生.md]], [[concepts/空.md]], [[concepts/缘起论.md]], [[concepts/因果.md]], [[concepts/大乘佛法.md]], [[concepts/悲智双运.md]], [[concepts/三解脱门.md]], [[concepts/六度.md]], [[concepts/无常.md]], [[concepts/四缘.md]], [[concepts/无生法忍.md]], [[concepts/法执与我执.md]], [[concepts/造物主信仰批判.md]], [[concepts/空宗四论.md]], [[concepts/观三时门.md]], [[concepts/观因缘门.md]], [[concepts/观生门.md]], [[concepts/中道因果观.md]], [[concepts/空执.md]], [[concepts/他性.md]], [[concepts/共性.md]]
+
+**更新页面**：[[龙树菩萨]], [[Get达人]], [[十二门论]], [[缘起性空]], [[本心]], [[归谬法]], [[缘起论]], [[因果]], [[悲智双运]], [[无常]], [[中道因果观]]
+
+
+
+## [2026-06-08] ingest | 南传佛教经典《清净道论》完整修行体系讲解：从持戒到涅槃的七级清净阶梯
+
+**创建页面**：[[sources/南传佛教经典清净道论完整修行体系讲解从持戒到涅槃的七级清净阶梯-2026年06月04日-来自Get-笔记.md]], [[entities/觉音尊者.md]], [[entities/清净道论.md]], [[entities/斯里兰卡大寺派.md]], [[concepts/戒定慧.md]], [[concepts/七种清净.md]], [[concepts/戒清净.md]], [[concepts/心清净.md]], [[concepts/四种遍净戒.md]], [[concepts/十三头陀支.md]], [[concepts/四梵住.md]], [[concepts/四十种业处.md]], [[concepts/安那般那念.md]], [[concepts/五蕴.md]], [[concepts/慧学.md]], [[concepts/四种禅那.md]], [[concepts/十二因缘.md]], [[concepts/见清净.md]], [[concepts/四谛.md]], [[concepts/道非道智见清净.md]], [[concepts/十六观智.md]], [[concepts/度疑清净.md]], [[concepts/种姓智.md]], [[concepts/涅槃.md]], [[concepts/四道四果.md]], [[concepts/无我.md]], [[concepts/观之染.md]], [[concepts/无常.md]]
+
+**更新页面**：[[戒定慧]], [[五蕴]], [[十二因缘]], [[四谛]], [[涅槃]], [[无我]], [[无常]]
+
+
+
+## [2026-06-08] ingest | 污泥中绽放的大悲白莲：《悲华经》核心精神与现代意义深度解读
+
+**创建页面**：[[sources/污泥中绽放的大悲白莲悲华经核心精神与现代意义深度解读-2026年06月04日-来自Get-笔记.md]], [[entities/释迦牟尼佛.md]], [[entities/宝海梵志.md]], [[entities/悲华经.md]], [[entities/宝藏如来.md]], [[entities/阿弥陀佛.md]], [[entities/无正念王.md]], [[entities/昙无谶.md]], [[entities/大势至菩萨.md]], [[entities/观世音菩萨.md]], [[entities/印顺导师.md]], [[entities/蕅益大师.md]], [[entities/证严上人.md]], [[entities/极乐世界.md]], [[entities/王舍城灵鹫山.md]], [[concepts/大悲心.md]], [[concepts/五百大愿.md]], [[concepts/五浊恶世.md]], [[concepts/秽土成佛.md]], [[concepts/净土与秽土互补.md]], [[concepts/净土法门.md]], [[concepts/依正不二.md]], [[concepts/人间佛教.md]], [[concepts/中道修行.md]]
+
+**更新页面**：[[释迦牟尼佛]], [[印顺导师]], [[人间佛教]]
+
+
+
+## [2026-06-08] ingest | 用华严经智慧拆解人际关系烦恼：你所见的他人，皆是你内心的镜子
+
+**创建页面**：[[sources/用华严经智慧拆解人际关系烦恼你所见的他人皆是你内心的镜子-2026年06月04日-来自Get-笔记.md]], [[entities/江本胜.md]], [[entities/华严经.md]], [[entities/Get达人.md]], [[entities/寒山拾得.md]], [[entities/约翰·惠勒.md]], [[entities/荣格.md]], [[entities/普贤十大愿.md]], [[entities/毗卢遮那佛.md]], [[concepts/三界唯心万法唯识.md]], [[concepts/末那识.md]], [[concepts/阿赖耶识.md]], [[concepts/唯识学八识系统.md]], [[concepts/荣格阴影理论.md]], [[concepts/因陀罗网.md]], [[concepts/一即一切一切即一.md]], [[concepts/三毒.md]], [[concepts/心理投射.md]], [[concepts/预设偏见.md]], [[concepts/贪欲.md]], [[concepts/疑.md]], [[concepts/嗔.md]], [[concepts/转识成智.md]], [[concepts/饿鬼道.md]], [[concepts/地狱道.md]], [[concepts/内观.md]], [[concepts/觉察暂停.md]], [[concepts/四种清净智慧.md]], [[concepts/布施波罗蜜.md]], [[concepts/恒顺众生.md]], [[concepts/智慧转化.md]], [[concepts/忍辱.md]], [[concepts/逆增上缘.md]], [[concepts/随喜功德.md]], [[concepts/观察者效应.md]], [[concepts/参与者宇宙.md]], [[concepts/水结晶实验.md]], [[concepts/人格面具.md]], [[concepts/平等性智.md]], [[concepts/圆觉自性.md]], [[concepts/大圆镜智.md]]
+
+**更新页面**：[[Get达人]], [[华严经]], [[荣格]], [[三毒]], [[贪欲]], [[转识成智]], [[忍辱]]
 

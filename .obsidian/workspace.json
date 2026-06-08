@@ -4,39 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "8bd3d805e249094b",
+        "id": "286299375a041e89",
         "type": "tabs",
         "children": [
           {
-            "id": "723d12cd0e6e1089",
+            "id": "043f82f8fb03676e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_raw/西哲/当代中国马克思主义哲学研究的困惑与反思.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "当代中国马克思主义哲学研究的困惑与反思"
-            }
-          },
-          {
-            "id": "6e0e1a7dd820f59d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/concepts/按劳分配.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "按劳分配"
+              "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -225,44 +206,44 @@
       "random-note:开始漫游笔记": false
     }
   },
-  "active": "6e0e1a7dd820f59d",
+  "active": "e72c6bf8ac65c6c1",
   "lastOpenFiles": [
-    "wiki/concepts/安那般那念.md",
-    "wiki/concepts/1844年经济学哲学手稿.md",
-    "concepts/整体美.md",
-    "concepts/塔木德.md",
-    "concepts/强力意志.md",
-    "concepts/个人独特性.md",
-    "_raw/视频总结/《百论》全品深度解读：提婆菩萨的中观破执智慧与当代应用-2026年06月04日-来自【Get 笔记】.md",
-    "_raw/视频总结/《痴华鬘：千年佛教典籍百喻经的智慧与现代启示》-2026年06月04日-来自【Get 笔记】.md",
-    "wiki/concepts/观待.md",
-    "wiki/concepts/杂毒饭.md",
-    "wiki/concepts/中道因果观.md",
-    "wiki/concepts/假名我.md",
-    "wiki/concepts/戏论.md",
-    "wiki/concepts/十恶.md",
-    "wiki/concepts/破邪显正.md",
-    "wiki/concepts/权智与实智.md",
-    "wiki/concepts/极微论.md",
-    "wiki/concepts/无常.md",
-    "wiki/concepts/无所得观.md",
-    "wiki/concepts/二谛圆融.md",
-    "wiki/concepts/因中有果论.md",
-    "wiki/concepts/因中无果论.md",
-    "wiki/concepts/恶取空.md",
-    "wiki/concepts/神我论.md",
-    "wiki/entities/中论.md",
-    "wiki/concepts/中观学派.md",
+    "wiki/concepts/大圆镜智.md",
+    "wiki/concepts/平等性智.md",
+    "wiki/concepts/人格面具.md",
+    "wiki/concepts/水结晶实验.md",
+    "wiki/concepts/参与者宇宙.md",
+    "wiki/concepts/随喜功德.md",
+    "wiki/concepts/逆增上缘.md",
+    "wiki/concepts/智慧转化.md",
+    "wiki/concepts/恒顺众生.md",
+    "wiki/concepts/四种清净智慧.md",
+    "wiki/concepts/觉察暂停.md",
+    "wiki/concepts/内观.md",
+    "wiki/concepts/地狱道.md",
+    "wiki/concepts/饿鬼道.md",
+    "wiki/concepts/嗔.md",
+    "wiki/concepts/疑.md",
+    "wiki/concepts/预设偏见.md",
+    "wiki/concepts/心理投射.md",
+    "wiki/concepts/一即一切一切即一.md",
+    "wiki/concepts/因陀罗网.md",
+    "wiki/concepts/荣格阴影理论.md",
+    "wiki/concepts/唯识学八识系统.md",
+    "wiki/concepts/三界唯心万法唯识.md",
+    "wiki/entities/毗卢遮那佛.md",
+    "wiki/entities/普贤十大愿.md",
+    "wiki/entities/约翰·惠勒.md",
+    "references/视频总结/未确认 152968.crdownload",
+    "references/视频总结/未确认 796814.crdownload",
+    "references/视频总结/未确认 342345.crdownload",
+    "references/视频总结/未确认 943375.crdownload",
     "_archives/公众号/国王说",
     "_archives/公众号/新建文件夹",
     "_archives/公众号",
     "_archives/新建文件夹",
     "references/视频总结/未确认 937321.crdownload",
     "references/视频总结/未确认 694722.crdownload",
-    "references/视频总结/未确认 718024.crdownload",
-    "references/视频总结/未确认 916107.crdownload",
-    "references/视频总结/未确认 695288.crdownload",
-    "references/视频总结/未确认 988408.crdownload",
     "未命名.canvas",
     "wechat_img_1779543430626_175.jpg",
     "wechat_img_1779543432632_233.jpg",
