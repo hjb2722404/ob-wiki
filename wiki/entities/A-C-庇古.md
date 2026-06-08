@@ -1,14 +1,16 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-05-29
-sources: ["[[_raw/读书笔记/哲学/牛津通识读本 (1).md]]"]
-tags: [person]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/牛津通识读本 (1)]]"
+tags:
+  - person
 aliases:
-  - "Arthur Cecil Pigou"
-  - "阿瑟·塞西尔·庇古"
-  - "A.C. Pigou"
-  - "庇古"
+  - Arthur Cecil Pigou
+  - 阿瑟·塞西尔·庇古
+  - A.C. Pigou
+  - 庇古
 ---
 
 

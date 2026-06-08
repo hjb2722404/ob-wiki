@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-01
-sources: ["[[_raw/西哲/阿伦特：在公共权力之下，我们何以有追寻自由的权力？.md]]"]
-tags: [term]
+updated: 2026-06-07T21:51
+sources:
+  - "[[sources/阿伦特：在公共权力之下，我们何以有追寻自由的权力？]]"
+tags:
+  - term
 aliases:
-  - "Liberation vs Freedom"
-  - "解放与自由"
-  - "解放与自由的关系"
+  - Liberation vs Freedom
+  - 解放与自由
+  - 解放与自由的关系
 ---
 
 
@@ -46,9 +48,9 @@ aliases:
 ## 相关实体
 
 - [[entities/罗伯斯庇尔|罗伯斯庇尔]]
-- [[entities/法国大革命|法国大革命]]
+- [[concepts/法国大革命|法国大革命]]
 - [[entities/美国革命|美国革命]]
-- [[entities/汉娜・阿伦特|汉娜・阿伦特]]
+- [[entities/汉娜·阿伦特|汉娜・阿伦特]]
 - [[entities/托克维尔|托克维尔]]
 
 ## 来源提及

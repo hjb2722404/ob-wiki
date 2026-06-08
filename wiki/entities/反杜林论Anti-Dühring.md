@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-02
-sources: ["[[_raw/西哲/波普尔：辩证法是什么（二）.md]]"]
-tags: [product]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/波普尔：辩证法是什么（二）]]"
+tags:
+  - product
 aliases:
-  - "Anti-Dühring"
-  - "反杜林论"
+  - Anti-Dühring
+  - 反杜林论
   - "Anti-Dühring: Herrn Eugen Dühring's Revolution in Science"
 ---
 

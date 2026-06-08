@@ -1,11 +1,13 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-02
-sources: ["[[_raw/西哲/阿伦特：康德政治哲学十三讲（五）.md]]"]
-tags: [person]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/阿伦特：康德政治哲学十三讲（五）]]"
+tags:
+  - person
 aliases:
-  - "Eric Weil"
+  - Eric Weil
 ---
 
 

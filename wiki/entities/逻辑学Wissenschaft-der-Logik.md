@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-02
-sources: ["[[_raw/西哲/波普尔：辩证法是什么（二）.md]]"]
-tags: [product]
+updated: 2026-06-07T21:39
+sources:
+  - "[[sources/波普尔：辩证法是什么（二）]]"
+tags:
+  - product
 aliases:
-  - "Wissenschaft der Logik"
-  - "黑格尔逻辑学"
-  - "Hegel's Science of Logic"
+  - Wissenschaft der Logik
+  - 黑格尔逻辑学
+  - Hegel's Science of Logic
 ---
 
 
@@ -26,7 +28,7 @@ aliases:
 ## 相关实体
 
 - [[entities/黑格尔|黑格尔]] — 《逻辑学》的作者
-- [[entities/马克思Karl-Marx|卡尔·马克思]] — 黑格尔哲学的继承者和发展者
+- [[entities/马克思|卡尔·马克思]] — 黑格尔哲学的继承者和发展者
 - [[entities/马克思|马克思]] — 马克思主义的创立者
 
 ## 相关概念

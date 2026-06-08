@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-01
-sources: ["[[sources/阿伦特在公共权力之下我们何以有追寻自由的权力]]"]
-tags: [term]
+updated: 2026-06-07T21:51
+sources:
+  - "[[sources/阿伦特在公共权力之下我们何以有追寻自由的权力]]"
+tags:
+  - term
 aliases:
-  - "Citizen vs. Private Individual"
-  - "citoyen与bourgeois的区分"
+  - Citizen vs. Private Individual
+  - citoyen与bourgeois的区分
 ---
 
 
@@ -41,7 +43,7 @@ aliases:
 ## 相关实体
 
 - [[entities/克雷夫科尔]]
-- [[entities/汉娜・阿伦特]]
+- [[entities/汉娜·阿伦特]]
 
 ## 来源提及
 

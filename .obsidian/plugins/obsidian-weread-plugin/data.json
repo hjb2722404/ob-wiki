@@ -6,7 +6,7 @@
   "insertAfter": "<!-- start of weread -->",
   "insertBefore": "<!-- end of weread -->",
   "dailyNotesFormat": "YYYY-MM-DD",
-  "lastCookieTime": 1780563956348,
+  "lastCookieTime": 1780875352302,
   "isCookieValid": false,
   "user": "",
   "userVid": "",
@@ -39,10 +39,100 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 180,
-  "lastSyncTime": 1780563956365,
+  "lastSyncTime": 1780875352310,
   "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1780875350459",
+      "timestamp": 1780875350459,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 1.851,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780839369560",
+      "timestamp": 1780839369560,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.625,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780838774437",
+      "timestamp": 1780838774437,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 1.533,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780763774133",
+      "timestamp": 1780763774133,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.688,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780752974126",
+      "timestamp": 1780752974126,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.907,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780751243767",
+      "timestamp": 1780751243767,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.755,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780655774244",
+      "timestamp": 1780655774244,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 2.468,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780644974262",
+      "timestamp": 1780644974262,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.782,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1780634174294",
+      "timestamp": 1780634174294,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.553,
+      "notes": [],
+      "success": true
+    },
     {
       "id": "sync-1780563955773",
       "timestamp": 1780563955773,
@@ -50,96 +140,6 @@
       "syncedBooks": 0,
       "skippedBooks": 0,
       "duration": 0.592,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780553155844",
-      "timestamp": 1780553155844,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.601,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780535560892",
-      "timestamp": 1780535560892,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 2.962,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780473916711",
-      "timestamp": 1780473916711,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.633,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780463116668",
-      "timestamp": 1780463116668,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.585,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780415889190",
-      "timestamp": 1780415889190,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.503,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780414288479",
-      "timestamp": 1780414288479,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.525,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780394288922",
-      "timestamp": 1780394288922,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.573,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780307172947",
-      "timestamp": 1780307172947,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.499,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1780296372938",
-      "timestamp": 1780296372938,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.623,
       "notes": [],
       "success": true
     }

@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-05-29
-sources: ["[[_raw/读书笔记/精品小说/导出 人间失格（由村上春树《1Q84》翻译施小炜倾情献译！！！） 的 Kindle 笔记本.md]]"]
-tags: [organization]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/导出 人间失格（由村上春树《1Q84》翻译施小炜倾情献译！！！） 的 Kindle 笔记本]]"
+tags:
+  - organization
 aliases:
-  - "亚马逊"
-  - "Amazon"
-  - "Amazon.com Inc."
+  - 亚马逊
+  - Amazon
+  - Amazon.com Inc.
 ---
 
 

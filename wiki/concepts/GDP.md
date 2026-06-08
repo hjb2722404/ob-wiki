@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-05-29
-updated: 2026-05-29
-sources: ["[[_raw/读书笔记/哲学/牛津通识读本 (1).md]]"]
-tags: [term]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/牛津通识读本 (1)]]"
+tags:
+  - term
 aliases:
-  - "国内生产总值"
-  - "Gross Domestic Product"
+  - 国内生产总值
+  - Gross Domestic Product
 ---
 
 

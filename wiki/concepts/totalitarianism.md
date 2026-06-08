@@ -1,10 +1,10 @@
 ---
 type: concept
 created: 2026-05-30
-updated: 2026-05-30T10:16
+updated: 2026-06-05T11:28
 sources:
   - "[[sources/一个自由而负责的新闻界]]"
-  - "[[_raw/读书笔记/精品小说/重访美丽新世界-阿道斯·赫胥黎.md]]"
+  - "[[sources/重访美丽新世界-阿道斯·赫胥黎]]"
 tags:
   - theory
 aliases:

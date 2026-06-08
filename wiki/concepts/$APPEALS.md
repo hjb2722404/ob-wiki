@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-05-30
-updated: 2026-05-30
-sources: ["[[sources/修炼之道|修炼之道]]"]
-tags: [method]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/修炼之道]]"
+tags:
+  - method
 aliases:
-  - "IBM客户需求分析方法"
-  - "客户需求$APPEALS分析"
+  - IBM客户需求分析方法
+  - 客户需求$APPEALS分析
 ---
 
 

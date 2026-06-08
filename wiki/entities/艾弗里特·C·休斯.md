@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-05-29
-sources: ["[[_raw/读书笔记/社会心理学/房间里的大象——生活中的沉默和否认.md]]"]
-tags: [person]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/房间里的大象——生活中的沉默和否认]]"
+tags:
+  - person
 aliases:
-  - "Everett C. Hughes"
-  - "E. C. Hughes"
+  - Everett C. Hughes
+  - E. C. Hughes
 ---
 
 

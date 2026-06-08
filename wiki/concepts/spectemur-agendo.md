@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-01
-sources: ["[[_raw/西哲/阿伦特：在公共权力之下，我们何以有追寻自由的权力？.md]]"]
-tags: [term]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/阿伦特：在公共权力之下，我们何以有追寻自由的权力？]]"
+tags:
+  - term
 aliases:
-  - "让我们在行动中被人看到"
-  - "Spectemur Agendo"
+  - 让我们在行动中被人看到
+  - Spectemur Agendo
 ---
 
 

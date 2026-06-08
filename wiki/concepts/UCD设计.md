@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-05-30
-updated: 2026-05-30
-sources: ["[[_raw/读书笔记/经济理财/修炼之道.md]]"]
-tags: [method]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/修炼之道]]"
+tags:
+  - method
 aliases:
-  - "User-Centered Design"
-  - "以用户为中心的设计"
-  - "UCD"
+  - User-Centered Design
+  - 以用户为中心的设计
+  - UCD
 ---
 
 

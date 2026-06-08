@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-01
-updated: 2026-06-01
-sources: ["[[_raw/西哲/“深刻的片面”｜对话李泽厚：关于马克思的理论及其他（一）.md]]"]
-tags: [person]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/“深刻的片面”｜对话李泽厚：关于马克思的理论及其他（一）]]"
+tags:
+  - person
 aliases:
-  - "Jon Elster"
-  - "乔恩·埃尔斯特"
+  - Jon Elster
+  - 乔恩·埃尔斯特
 ---
 
 

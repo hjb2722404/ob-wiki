@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-05-30
-updated: 2026-05-30
-sources: ["[[_raw/读书笔记/社会心理学/一个自由而负责的新闻界.md]]"]
-tags: [theory]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/一个自由而负责的新闻界]]"
+tags:
+  - theory
 aliases:
-  - "权威主义"
-  - "威权主义"
-  - "独裁主义"
+  - 权威主义
+  - 威权主义
+  - 独裁主义
 ---
 
 

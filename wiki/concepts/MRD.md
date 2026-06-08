@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-05-30
-updated: 2026-05-30
-sources: ["[[_raw/读书笔记/经济理财/修炼之道.md]]"]
-tags: [term]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/修炼之道]]"
+tags:
+  - term
 aliases:
-  - "Market Requirements Document"
-  - "市场需求文档"
+  - Market Requirements Document
+  - 市场需求文档
 ---
 
 

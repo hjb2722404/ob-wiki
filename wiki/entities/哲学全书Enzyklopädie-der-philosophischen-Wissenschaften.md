@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-02
-sources: ["[[_raw/西哲/波普尔：辩证法是什么（二）.md]]"]
-tags: [product]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/波普尔：辩证法是什么（二）]]"
+tags:
+  - product
 aliases:
-  - "Enzyklopädie der philosophischen Wissenschaften"
-  - "黑格尔哲学全书"
-  - "Hegel's Encyclopedia of the Philosophical Sciences"
+  - Enzyklopädie der philosophischen Wissenschaften
+  - 黑格尔哲学全书
+  - Hegel's Encyclopedia of the Philosophical Sciences
 ---
 
 

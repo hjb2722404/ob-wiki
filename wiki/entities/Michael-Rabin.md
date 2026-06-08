@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-05-29
-sources: ["[[_raw/读书笔记/科学技术/黑客与画家.md]]"]
-tags: [person]
+updated: 2026-06-05T11:27
+sources:
+  - "[[sources/黑客与画家]]"
+tags:
+  - person
 aliases:
-  - "Michael O. Rabin"
-  - "迈克尔·拉宾"
+  - Michael O. Rabin
+  - 迈克尔·拉宾
 ---
 
 

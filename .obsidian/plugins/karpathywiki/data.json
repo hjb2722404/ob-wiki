@@ -1,0 +1,50 @@
+{
+  "provider": "anthropic-compatible",
+  "apiKey": "sk-cp-OJjl3yST7K3VEvrFCNFznj4so6kAETNPPBZcPcpHe5i93Dm19ET8oO7f20wUp5Ylfct5ciqUofg86GrM5c0TOFp2_q-fv4IaozSe5kVORyEkSwCi7p1hN7A",
+  "baseUrl": "https://api.minimaxi.com/anthropic",
+  "model": "MiniMax-M3",
+  "wikiFolder": "wiki",
+  "language": "zh",
+  "wikiLanguage": "zh",
+  "useCustomWikiLanguage": false,
+  "availableModels": [
+    "MiniMax-M2",
+    "MiniMax-M2.1",
+    "MiniMax-M2.1-highspeed",
+    "MiniMax-M2.5",
+    "MiniMax-M2.5-highspeed",
+    "MiniMax-M2.7",
+    "MiniMax-M2.7-highspeed",
+    "MiniMax-M3"
+  ],
+  "useCustomModel": false,
+  "maxConversationHistory": 30,
+  "queryHistory": [
+    {
+      "role": "user",
+      "content": "熵的概念涉及哪些学科\n",
+      "timestamp": 1780630409027
+    },
+    {
+      "role": "assistant",
+      "content": "# 熵的概念所涉及的学科\n\n根据知识库内容，**熵**这一概念横跨多个学科领域，是一个具有强大跨学科穿透力的核心概念。以下是其主要涉及的学科：\n\n---\n\n## 一、物理学领域\n\n### 1. 热力学\n- [[wiki/concepts/热力学第二定律|热力学第二定律]]（又称熵增原理）是熵概念的源头\n- [[wiki/concepts/热力学熵增|热力学熵增]]涉及孤立系统中熵值的不可逆变化\n- 由[[wiki/entities/鲁道夫·克劳修斯|克劳修斯]]（Rudolf Clausius）首先提出\n\n### 2. 统计力学\n- [[wiki/concepts/统计力学熵|统计力学熵]]（玻尔兹曼熵）将熵与微观状态数联系起来\n- [[wiki/entities/路德维希·波尔兹曼|玻尔兹曼]]提出 S = k log W 公式\n- [[wiki/concepts/微观状态数|微观状态数]]Ω是统计力学的核心概念\n- [[wiki/concepts/波兹曼常数|波兹曼常数]]k_B 是连接宏观与微观的关键常量\n\n### 3. 非平衡态物理学\n- [[wiki/concepts/耗散结构理论|耗散结构理论]]由[[wiki/entities/普里高金|普里高金]]提出\n- [[wiki/concepts/远离平衡|远离平衡]]条件下的自组织现象\n- [[wiki/concepts/贝纳尔对流|贝纳尔对流]]是耗散结构的经典案例\n\n---\n\n## 二、信息科学领域\n\n### 1. 信息论\n- [[wiki/concepts/信息熵|信息熵]]由[[wiki/entities/香农|香农]]（Claude Shannon）创立\n- [[wiki/concepts/信息论|信息论]]将熵作为度量不确定性的核心工具\n- 来源：[[wiki/sources/信息熵一把丈量不确定性的尺子——经典思维模型第22讲-2026年06月04日-来自Get-笔记|信息熵：经典思维模型第22讲]]\n\n### 2. 计算科学\n- [[wiki/entities/罗尔夫·朗道尔|朗道尔原理]]（Landauer's Principle）将信息擦除与热力学熵增联系起来\n- [[wiki/concepts/运算可逆性|运算可逆性]]与[[wiki/concepts/可逆运算|可逆运算]]探讨计算与熵的关系\n\n---\n\n## 三、生物学与生命科学\n\n- [[wiki/entities/薛定谔|薛定谔]]在《生命是什么》中引入[[wiki/concepts/负熵|负熵]]概念，认为生命以负熵为食\n- [[wiki/entities/贝达朗菲|贝塔朗菲]]的一般系统论将熵概念引入生命系统\n- 自组织、生命演化与[[wiki/concepts/四种熵状态|四种熵状态]]密切相关\n\n---\n\n## 四、概率论与统计学\n\n- [[wiki/concepts/最大熵原则|最大熵原则]]是概率推断的重要方法论\n- [[wiki/concepts/信息复杂性|信息复杂性]]涉及熵的应用\n- [[wiki/concepts/指数分布|指数分布]]、[[wiki/concepts/均匀分布|均匀分布]]、[[wiki/concepts/正态分布|正态分布]]是最大熵原则的典型分布\n\n---\n\n## 五、系统论与管理学\n\n### 1. 系统科学\n- [[wiki/concepts/孤立系统|孤立系统]]与[[wiki/concepts/开放系统|开放系统]]的概念划分\n- [[wiki/concepts/平衡结构|平衡结构]]（静态有序）vs 非平衡耗散结构\n- [[wiki/concepts/自组织|自组织]]与[[wiki/concepts/自适应系统|自适应系统]]\n\n### 2. 个人与组织管理\n- [[wiki/concepts/熵管理|熵管理]]作为[[wiki/concepts/熵思维链路|熵思维链路]]的核心方法\n- [[wiki/concepts/降熵|降熵]]（[[wiki/concepts/负熵|负熵]]管理）、[[wiki/concepts/保熵|保熵]]（高熵维护）等实操框架\n- [[wiki/concepts/熵变水池模型|熵变水池模型]]作为分析工具\n- 来源：[[wiki/sources/从热力学熵到信息熵熵增定律的完整解析与个人组织应用指南-2026年06月04日-来自Get-笔记|从热力学熵到信息熵的完整解析与应用指南]]\n\n---\n\n## 六、化学\n\n- [[wiki/concepts/BZ反应|BZ反应]]（贝洛索夫-扎博京斯基反应）是化学自组织的经典案例\n- 涉及[[wiki/concepts/非线性反馈|非线性反馈]]机制\n- [[wiki/concepts/自组织自适应系统|自组织自适应系统]]在化学反应中体现\n\n---\n\n## 总结：熵的学科分布图\n\n| 学科领域 | 代表概念 | 代表人物 |\n|---------|---------|---------|\n| 经典热力学 | 熵增定律、热力学第二定律 | 克劳修斯 |\n| 统计力学 | 玻尔兹曼熵、微观状态数 | 玻尔兹曼 |\n| 信息论 | 信息熵 | 香农 |\n| 非平衡态物理 | 耗散结构、远离平衡 | 普里高金 |\n| 生物学 | 负熵、生命秩序 | 薛定谔 |\n| 计算科学 | 朗道尔原理、可逆运算 | 朗道尔 |\n| 系统论/管理 | 熵管理、熵思维链路 | — |\n| 化学 | BZ反应、自催化 | — |\n\n熵从最初的物理学概念出发，**逐步渗透到信息科学、生命科学、计算机科学、系统科学乃至个人管理领域**，成为现代科学中为数不多的\"超级跨学科概念\"。\n\n---\n\n## 参考文献\n\n1. [[wiki/concepts/热力学第二定律|热力学第二定律]] — 熵概念的物理学源头\n2. [[wiki/concepts/统计力学熵|统计力学熵]] — 玻尔兹曼对熵的统计解释\n3. [[wiki/concepts/信息熵|信息熵]] — 香农将熵引入信息科学\n4. [[wiki/concepts/耗散结构理论|耗散结构理论]] — 普里高金的非平衡自组织理论\n5. [[wiki/concepts/负熵|负熵]] — 薛定谔关于生命与熵的论述\n6. [[wiki/concepts/熵管理|熵管理]] — 熵在个人与组织管理中的应用\n7. [[wiki/concepts/最大熵原则|最大熵原则]] — 概率论与统计学中的熵应用\n8. [[wiki/sources/从热力学熵到信息熵熵增定律的完整解析与个人组织应用指南-2026年06月04日-来自Get-笔记|从热力学熵到信息熵的完整解析]] — 跨学科熵概念的整合性资料\n9. [[wiki/sources/伊利亚·普里高金耗散结构理论完整拆解从蜡烛台风到生命用物理学重新理解有序与活着-2026年06月04日-来自Get-笔记|普里高金耗散结构理论完整拆解]] — 熵在非平衡态物理学中的应用\n10. [[wiki/sources/信息熵一把丈量不确定性的尺子——经典思维模型第22讲-2026年06月04日-来自Get-笔记|信息熵：经典思维模型第22讲]] — 信息熵的详细解析",
+      "timestamp": 1780630501106
+    }
+  ],
+  "enableSchema": true,
+  "extractionGranularity": "fine",
+  "autoWatchSources": true,
+  "autoWatchMode": "auto",
+  "autoWatchDebounceMs": 20000,
+  "watchedFolders": [
+    "_raw/",
+    "Clippings/"
+  ],
+  "periodicLint": "hourly",
+  "startupCheck": true,
+  "pageGenerationConcurrency": 5,
+  "batchDelayMs": 700,
+  "lastOfferedQueryHash": "",
+  "llmReady": true,
+  "maxTokensPerCall": 0
+}

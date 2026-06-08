@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-05-29
-updated: 2026-05-29
-sources: ["[[_raw/视频总结/黑天鹅效应.md]]"]
-tags: [term]
+updated: 2026-06-05T11:28
+sources:
+  - "[[sources/黑天鹅效应]]"
+tags:
+  - term
 aliases:
-  - "缓存-计算比率"
-  - "Cache-Compute Ratio"
-  - "缓存计算比率"
+  - 缓存-计算比率
+  - Cache-Compute Ratio
+  - 缓存计算比率
 ---
 
 
