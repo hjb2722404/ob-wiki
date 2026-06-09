@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-06-05T11:27
+updated: 2026-06-09T12:44
 sources:
-  - "[[sources/牛津通识读本 (1)]]"
+  - "[[sources/牛津通识读本|牛津通识读本]]"
 tags:
   - person
 aliases:
@@ -19,14 +19,14 @@ aliases:
 - Source: [[sources/牛津通识读本-1|牛津通识读本-1]]
 
 ## 描述
-T.H.马歇尔（Thomas Humphrey Marshall, 1893-1981）是一位英国社会学家，以其对现代[[concepts/公民身份|公民身份]]概念的理论化工作著称。他在社会学研究领域做出了重要贡献，尤其关注公民权利与社会发展的关系。马歇尔提出公民身份由三个维度构成：[[concepts/公民自由|公民自由]]（civil freedom）、[[concepts/政治自由|政治自由]]（political freedom）和[[concepts/社会经济自由|社会经济自由]]（social and economic freedom）。这一理论框架深刻影响了后来的公民权研究和社会政策讨论。
+T.H.马歇尔（Thomas Humphrey Marshall, 1893-1981）是一位英国社会学家，以其对现代[[concepts/公民身份|公民身份]]概念的理论化工作著称。他在社会学研究领域做出了重要贡献，尤其关注公民权利与社会发展的关系。马歇尔提出公民身份由三个维度构成：[[concepts/政治自由|政治自由]]（civil freedom）、[[concepts/政治自由|政治自由]]（political freedom）和[[concepts/社会经济自由|社会经济自由]]（social and economic freedom）。这一理论框架深刻影响了后来的公民权研究和社会政策讨论。
 
 ## 相关实体
 暂无相关实体记录。
 
 ## 相关概念
 - [[concepts/公民身份|公民身份]]
-- [[concepts/公民自由|公民自由]]
+- [[concepts/政治自由|政治自由]]
 - [[concepts/政治自由|政治自由]]
 - [[concepts/社会经济自由|社会经济自由]]
 

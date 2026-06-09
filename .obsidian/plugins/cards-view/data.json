@@ -1,0 +1,8 @@
+{
+  "baseQuery": "",
+  "minCardWidth": 200,
+  "launchOnStart": false,
+  "showDeleteButton": false,
+  "displayTitle": "Title",
+  "pinnedFiles": []
+}

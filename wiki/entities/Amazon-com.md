@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-06-05T11:27
+updated: 2026-06-09T12:48
 sources:
-  - "[[sources/导出 人间失格（由村上春树《1Q84》翻译施小炜倾情献译！！！） 的 Kindle 笔记本]]"
+  - "[[sources/导出-人间失格由村上春树1Q84翻译施小炜倾情献译-的-Kindle-笔记本|导出-人间失格由村上春树1Q84翻译施小炜倾情献译-的-Kindle-笔记本]]"
 tags:
   - organization
 aliases:

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "286299375a041e89",
+        "id": "58c63d113f9bab03",
         "type": "tabs",
         "children": [
           {
-            "id": "043f82f8fb03676e",
+            "id": "8e6fbd40af836b79",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -68,6 +68,16 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "书签"
+            }
+          },
+          {
+            "id": "12a00fa2b8011211",
+            "type": "leaf",
+            "state": {
+              "type": "TwoHopLinksView",
+              "state": {},
+              "icon": "network",
+              "title": "2Hop Links"
             }
           }
         ]
@@ -203,37 +213,38 @@
       "obsidian-weread-plugin:打开微信读书书架": false,
       "karpathywiki:摄入当前文件": false,
       "obsidian-git:Open Git source control": false,
-      "random-note:开始漫游笔记": false
+      "random-note:开始漫游笔记": false,
+      "cards-view:Card view": false
     }
   },
-  "active": "e72c6bf8ac65c6c1",
+  "active": "17bbd78fa5731669",
   "lastOpenFiles": [
-    "wiki/concepts/大圆镜智.md",
-    "wiki/concepts/平等性智.md",
-    "wiki/concepts/人格面具.md",
-    "wiki/concepts/水结晶实验.md",
-    "wiki/concepts/参与者宇宙.md",
-    "wiki/concepts/随喜功德.md",
-    "wiki/concepts/逆增上缘.md",
-    "wiki/concepts/智慧转化.md",
-    "wiki/concepts/恒顺众生.md",
-    "wiki/concepts/四种清净智慧.md",
-    "wiki/concepts/觉察暂停.md",
-    "wiki/concepts/内观.md",
-    "wiki/concepts/地狱道.md",
-    "wiki/concepts/饿鬼道.md",
-    "wiki/concepts/嗔.md",
-    "wiki/concepts/疑.md",
-    "wiki/concepts/预设偏见.md",
-    "wiki/concepts/心理投射.md",
-    "wiki/concepts/一即一切一切即一.md",
-    "wiki/concepts/因陀罗网.md",
-    "wiki/concepts/荣格阴影理论.md",
-    "wiki/concepts/唯识学八识系统.md",
-    "wiki/concepts/三界唯心万法唯识.md",
-    "wiki/entities/毗卢遮那佛.md",
-    "wiki/entities/普贤十大愿.md",
-    "wiki/entities/约翰·惠勒.md",
+    "_raw/西哲/邓晓芒：康德的_能力_和_形式_.md",
+    "wiki/concepts/我慢.md",
+    "wiki/concepts/我见.md",
+    "wiki/concepts/我痴.md",
+    "wiki/entities/胜鬘夫人.md",
+    "wiki/concepts/法界.md",
+    "wiki/concepts/修行.md",
+    "wiki/concepts/如如.md",
+    "wiki/concepts/正智.md",
+    "wiki/concepts/分别.md",
+    "wiki/concepts/名.md",
+    "wiki/concepts/圆成实性.md",
+    "wiki/concepts/依他起性.md",
+    "wiki/concepts/遍计所执性.md",
+    "wiki/concepts/解脱.md",
+    "wiki/concepts/人无我.md",
+    "wiki/concepts/究竟位.md",
+    "wiki/concepts/修道位.md",
+    "wiki/concepts/见道位.md",
+    "wiki/concepts/加行位.md",
+    "wiki/concepts/资粮位.md",
+    "wiki/concepts/四大智.md",
+    "wiki/concepts/八识.md",
+    "wiki/concepts/自我贬斥.md",
+    "wiki/concepts/烦恼.md",
+    "wiki/concepts/空间与时间.md",
     "references/视频总结/未确认 152968.crdownload",
     "references/视频总结/未确认 796814.crdownload",
     "references/视频总结/未确认 342345.crdownload",

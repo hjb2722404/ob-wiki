@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-07T21:39
+updated: 2026-06-09T00:33
 sources:
-  - "[[sources/波普尔：辩证法是什么（二）]]"
+  - "[[sources/邓晓芒波普尔压根就没读懂过黑格尔就开始批判|邓晓芒波普尔压根就没读懂过黑格尔就开始批判]]"
 tags:
   - product
 aliases:

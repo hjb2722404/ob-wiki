@@ -1,17 +1,32 @@
 ---
 title: 本性与本质
 category: concepts
-tags: [哲学, 康德, 本性, 本质, 中庸, 道德哲学, 主体性自由]
+tags:
+  - 哲学
+  - 康德
+  - 本性
+  - 本质
+  - 中庸
+  - 道德哲学
+  - 主体性自由
 summary: 康德道德哲学中"本性"(Natur) 与"本质"(Wesen/essence)的区分——本性指人的现实生存状态之本质，恶性（radical evil）是人的本质上的倾向；与《中庸》的"天命之谓性"形成对话。
 provenance:
-  source_file: "康德道德哲学中本性_与本质辨析.md"
-  extraction_rate: 0.80
+  source_file: 康德道德哲学中本性_与本质辨析.md
+  extraction_rate: 0.8
   inference: 0.15
   ambiguity: 0.05
 base_confidence: 0.85
 lifecycle: draft
 created: 2026-05-13T23:50:00+08:00
-updated: 2026-05-13T23:50:00+08:00
+updated: 2026-06-08T22:21
+aliases:
+  - Nature vs Essence Kant
+  - 根本恶
+  - Kant Natur vs Wesen
+  - 本性 本质 哲学
+  - 中庸 康德 对话
+  - radical evil Kant philosophy
+  - 主体性自由
 ---
 
 # 本性与本质
