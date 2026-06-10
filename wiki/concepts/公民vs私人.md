@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-07T21:51
+updated: 2026-06-10T11:25
 sources:
   - "[[sources/阿伦特在公共权力之下我们何以有追寻自由的权力]]"
 tags:
@@ -35,10 +35,10 @@ aliases:
 
 ## 相关概念
 
-- [[synthesis/对政治自由之喜好]]
-- [[synthesis/内心良知领域]]
-- [[synthesis/公共幸福]]
-- [[synthesis/私人幸福]]
+- [[concepts/对政治自由之喜好|对政治自由之喜好]]
+- [[concepts/内心良知领域|内心良知领域]]
+- [[concepts/公共幸福|公共幸福]]
+- [[concepts/私人幸福|私人幸福]]
 
 ## 相关实体
 

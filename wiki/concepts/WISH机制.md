@@ -1,9 +1,9 @@
 ---
 type: concept
 created: 2026-06-04
-updated: 2026-06-05T11:28
+updated: 2026-06-10T12:33
 sources:
-  - "[[sources/伊利亚·普里高金耗散结构理论完整拆解：从蜡烛、台风到生命，用物理学重新理解有序与活着-2026年06月04日-来自【Get 笔记】]]"
+  - "[[concepts/伊利亚·普里高金耗散结构理论|伊利亚·普里高金耗散结构理论]]"
 tags:
   - theory
 aliases:
@@ -36,7 +36,7 @@ WISH机制（Warm Moist Air Intake and Swirl Heat Mechanism，热湿空气吸入
 
 ## 相关概念
 
-- [[synthesis/演化与自组织|演化与自组织]] — 自组织理论与WISH机制的理论关联
+- [[synthesis/synthesis-演化与自组织|演化与自组织]] — 自组织理论与WISH机制的理论关联
 - [[sources/伊利亚·普里高金耗散结构理论完整拆解从蜡烛台风到生命用物理学重新理解有序与活着-2026年06月04日-来自Get-笔记|耗散结构理论]] — WISH机制作为耗散结构在气象学的典型应用
 
 ## 相关实体

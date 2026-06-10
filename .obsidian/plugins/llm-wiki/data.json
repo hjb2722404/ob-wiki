@@ -30,7 +30,7 @@
   ],
   "periodicLint": "daily",
   "startupCheck": true,
-  "pageGenerationConcurrency": 3,
+  "pageGenerationConcurrency": 5,
   "batchDelayMs": 500,
   "lastOfferedQueryHash": "",
   "llmReady": true

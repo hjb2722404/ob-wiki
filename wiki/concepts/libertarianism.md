@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-05-30
-updated: 2026-06-05T11:28
+updated: 2026-06-10T12:35
 sources:
   - "[[sources/一个自由而负责的新闻界]]"
 tags:
@@ -36,12 +36,12 @@ aliases:
 ## 相关概念
 
 - [[concepts/保守自由主义]]
-- [[concepts/极权主义]]
+- [[concepts/极权与自由|极权与自由]]
 
 ## 相关实体
 
 - [[entities/毛寿龙]]
-- [[entities/弗里德里希·哈耶克]]
+- [[entities/弗里德里希·冯·哈耶克|弗里德里希·冯·哈耶克]]
 - [[entities/罗伯特·诺齐克]]
 - [[entities/米塞斯]]
 
