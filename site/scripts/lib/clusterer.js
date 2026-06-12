@@ -62,16 +62,13 @@ export function buildClusters(rawNodes) {
     }
   })
 
-  // 为集群生成标签
+  // 为集群生成标签（使用代表节点名，而非 tags）
   const clusters = []
   for (const [id, data] of clusterMap) {
-    const topTags = Object.entries(data.tags)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 2)
-      .map(t => t[0])
-    const label = topTags.length > 0
-      ? topTags.join(' · ')
-      : data.nodes.slice(0, 2).join(' · ')
+    // 取该集群中被引用最多的前 3 个节点名作为标签
+    // 简化：取节点名中出现频率最高的字符/词
+    // 更实用的方案：直接取集群中按链接数排序的 top 节点名
+    const label = data.nodes.slice(0, 3).join(' · ')
     clusters.push({
       id,
       label,
