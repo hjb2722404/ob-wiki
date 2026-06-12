@@ -23,11 +23,11 @@
 import { ref, computed } from 'vue'
 
 const TYPE_COLORS = {
-  entity: '#22d3ee',
-  concept: '#34d399',
-  source: '#fbbf24',
-  synthesis: '#a78bfa',
-  contradiction: '#f87171'
+  entity: '#7dd3c8',
+  concept: '#86c9a3',
+  source: '#d4b87a',
+  synthesis: '#a39bc9',
+  contradiction: '#c9918e'
 }
 
 const visible = ref(false)
@@ -35,7 +35,7 @@ const x = ref(0)
 const y = ref(0)
 const preview = ref({ title: '', type: '', tags: [], summary: '' })
 
-const typeColor = computed(() => TYPE_COLORS[preview.value.type] || '#71717a')
+const typeColor = computed(() => TYPE_COLORS[preview.value.type] || '#8a8a94')
 
 function show(nodePreview, event) {
   preview.value = nodePreview
@@ -62,7 +62,7 @@ defineExpose({ show, hide })
   position: fixed;
   z-index: 9999;
   width: 260px;
-  background: #18181b;
+  background: var(--bg-surface);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
   padding: 14px;
@@ -87,7 +87,7 @@ defineExpose({ show, hide })
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #f4f4f5;
+  color: var(--text-primary);
 }
 
 .preview-type {
@@ -108,7 +108,7 @@ defineExpose({ show, hide })
   padding: 2px 7px;
   border-radius: 4px;
   font-size: 10px;
-  color: #71717a;
+  color: var(--text-secondary);
   font-family: 'Geist Mono', monospace;
 }
 
@@ -116,7 +116,7 @@ defineExpose({ show, hide })
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 12px;
   line-height: 1.5;
-  color: #a1a1aa;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
@@ -125,7 +125,7 @@ defineExpose({ show, hide })
   padding-top: 8px;
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 11px;
-  color: #22d3ee;
+  color: var(--accent);
   opacity: 0.7;
 }
 </style>

@@ -48,7 +48,7 @@ onMounted(async () => {
 
 <style scoped>
 .cluster-view {
-  background: #0a0a0f;
+  background: var(--bg-deep);
   position: relative;
 }
 
@@ -69,21 +69,21 @@ onMounted(async () => {
 }
 
 .crumb-link {
-  color: #71717a;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .crumb-link:hover {
-  color: #22d3ee;
+  color: var(--accent);
 }
 
 .crumb-sep {
-  color: #3f3f46;
+  color: #3a3a42;
 }
 
 .crumb-current {
-  color: #e4e4e7;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -100,13 +100,13 @@ onMounted(async () => {
 .stat {
   font-family: 'Geist Mono', monospace;
   font-size: 11px;
-  color: #52525b;
+  color: var(--text-muted);
 }
 
 .stat-divider {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #3f3f46;
+  background: #3a3a42;
 }
 </style>

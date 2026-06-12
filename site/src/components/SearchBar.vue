@@ -61,7 +61,7 @@ function goToPage(id) {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
-  color: #e4e4e7;
+  color: var(--text-primary);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 13px;
   outline: none;
@@ -70,11 +70,11 @@ function goToPage(id) {
 }
 
 .search-input::placeholder {
-  color: #52525b;
+  color: var(--text-muted);
 }
 
 .search-input:focus {
-  border-color: rgba(34, 211, 238, 0.25);
+  border-color: rgba(125, 211, 200, 0.25);
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -83,7 +83,7 @@ function goToPage(id) {
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  background: #18181b;
+  background: var(--bg-surface);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
   max-height: 320px;
@@ -107,13 +107,13 @@ function goToPage(id) {
 .search-item-title {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 13px;
-  color: #e4e4e7;
+  color: var(--text-primary);
 }
 
 .search-item-type {
   font-family: 'Geist Mono', monospace;
   font-size: 10px;
-  color: #52525b;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

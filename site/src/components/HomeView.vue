@@ -14,7 +14,7 @@ import SearchBar from './SearchBar.vue'
 
 <style scoped>
 .home-view {
-  background: #0a0a0f;
+  background: var(--bg-deep);
   position: relative;
 }
 

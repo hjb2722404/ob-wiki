@@ -20,11 +20,11 @@ import * as d3 from 'd3'
 import { useGraphData } from '../composables/useGraphData.js'
 
 const TYPE_COLORS = {
-  entity: '#22d3ee',
-  concept: '#34d399',
-  source: '#fbbf24',
-  synthesis: '#a78bfa',
-  contradiction: '#f87171'
+  entity: '#7dd3c8',
+  concept: '#86c9a3',
+  source: '#d4b87a',
+  synthesis: '#a39bc9',
+  contradiction: '#c9918e'
 }
 
 const props = defineProps({
@@ -84,7 +84,7 @@ function render() {
     .filter(n => n.cluster === props.clusterId)
     .map(n => ({
       ...n,
-      color: TYPE_COLORS[n.type] || '#71717a',
+      color: TYPE_COLORS[n.type] || '#8a8a94',
       r: 6
     }))
 
@@ -186,7 +186,7 @@ function render() {
   nodeGroups.append('text')
     .attr('text-anchor', 'middle')
     .attr('dy', -12)
-    .attr('fill', '#a1a1aa')
+    .attr('fill', '#8a8a94')
     .attr('font-size', 10)
     .attr('font-family', "'Geist', 'Noto Sans SC', system-ui, sans-serif")
     .attr('opacity', 0)
@@ -214,7 +214,7 @@ function render() {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #0a0a0f;
+  background: var(--bg-deep);
   overflow: hidden;
 }
 
@@ -236,8 +236,8 @@ svg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid rgba(34, 211, 238, 0.2);
-  border-top-color: #22d3ee;
+  border: 2px solid rgba(125, 211, 200, 0.2);
+  border-top-color: var(--accent);
   animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -248,6 +248,6 @@ svg {
 .loading-text {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 13px;
-  color: #71717a;
+  color: var(--text-secondary);
 }
 </style>

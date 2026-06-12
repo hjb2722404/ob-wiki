@@ -34,14 +34,14 @@ import * as d3 from 'd3'
 import { useGraphData } from '../composables/useGraphData.js'
 
 const CLUSTER_PALETTE = [
-  '#22d3ee', // cyan
-  '#34d399', // emerald
-  '#fbbf24', // amber
-  '#f87171', // rose
-  '#a78bfa', // violet
-  '#fb923c', // orange
-  '#38bdf8', // sky
-  '#4ade80', // green
+  'var(--accent)', // cyan
+  '#86c9a3'  // sage
+  '#d4b87a'  // warm
+  '#c9918e'  // muted-rose
+  '#a39bc9'  // lavender
+  '#c9a87a'  // sand
+  '#8bbdd3'  // steel
+  '#8ec9a3'  // mint
 ]
 
 const router = useRouter()
@@ -195,7 +195,7 @@ function render() {
     .attr('class', 'node-label')
     .attr('text-anchor', 'middle')
     .attr('dy', '0.15em')
-    .attr('fill', '#e4e4e7')
+    .attr('fill', 'var(--text-primary)')
     .attr('font-size', d => Math.min(d.r * 0.28, 13))
     .attr('font-family', "'Geist', 'Noto Sans SC', system-ui, sans-serif")
     .attr('font-weight', '500')
@@ -206,7 +206,7 @@ function render() {
   nodeGroups.append('text')
     .attr('text-anchor', 'middle')
     .attr('dy', d => d.r * 0.28 + 12)
-    .attr('fill', '#71717a')
+    .attr('fill', 'var(--text-secondary)')
     .attr('font-size', 10)
     .attr('font-family', "'Geist Mono', 'JetBrains Mono', monospace")
     .attr('opacity', 0.6)
@@ -237,7 +237,7 @@ function render() {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #0a0a0f;
+  background: var(--bg-deep);
   overflow: hidden;
 }
 
@@ -260,7 +260,7 @@ svg {
   height: 48px;
   border-radius: 50%;
   border: 2px solid rgba(34, 211, 238, 0.2);
-  border-top-color: #22d3ee;
+  border-top-color: var(--accent);
   animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -271,7 +271,7 @@ svg {
 .loading-text {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 13px;
-  color: #71717a;
+  color: var(--text-secondary);
   letter-spacing: 0.02em;
 }
 
@@ -281,7 +281,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f87171;
+  color: #c9918e;
   font-family: 'Geist', system-ui, sans-serif;
   font-size: 14px;
 }
@@ -303,7 +303,7 @@ svg {
 .stat {
   font-family: 'Geist Mono', 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: #52525b;
+  color: var(--text-muted);
   letter-spacing: 0.04em;
 }
 
@@ -311,6 +311,6 @@ svg {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #3f3f46;
+  background: #3a3a42;
 }
 </style>

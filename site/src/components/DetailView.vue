@@ -68,11 +68,11 @@ import { useGraphData } from '../composables/useGraphData.js'
 import HoverPreview from './HoverPreview.vue'
 
 const TYPE_COLORS = {
-  entity: '#22d3ee',
-  concept: '#34d399',
-  source: '#fbbf24',
-  synthesis: '#a78bfa',
-  contradiction: '#f87171'
+  entity: '#7dd3c8',
+  concept: '#86c9a3',
+  source: '#d4b87a',
+  synthesis: '#a39bc9',
+  contradiction: '#c9918e'
 }
 
 const route = useRoute()
@@ -99,7 +99,7 @@ const clusterLabel = computed(() => {
 })
 
 const typeColor = computed(() =>
-  TYPE_COLORS[pageData.value?.type] || '#71717a'
+  TYPE_COLORS[pageData.value?.type] || '#8a8a94'
 )
 
 const allLinks = computed(() => {
@@ -166,8 +166,8 @@ function handleLinkLeave(event) {
 <style scoped>
 .detail-view {
   min-height: 100vh;
-  background: #0a0a0f;
-  color: #e4e4e7;
+  background: var(--bg-deep);
+  color: var(--text-primary);
 }
 
 .breadcrumb {
@@ -178,7 +178,7 @@ function handleLinkLeave(event) {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(10, 10, 15, 0.9);
+  background: rgba(21, 21, 24, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
@@ -186,21 +186,21 @@ function handleLinkLeave(event) {
 }
 
 .crumb-link {
-  color: #71717a;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .crumb-link:hover {
-  color: #22d3ee;
+  color: var(--accent);
 }
 
 .crumb-sep {
-  color: #3f3f46;
+  color: #3a3a42;
 }
 
 .crumb-current {
-  color: #e4e4e7;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -212,7 +212,7 @@ function handleLinkLeave(event) {
 
 .loading-bar {
   height: 3px;
-  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
   border-radius: 2px;
   animation: shimmer 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
@@ -236,7 +236,7 @@ function handleLinkLeave(event) {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 28px;
   font-weight: 600;
-  color: #f4f4f5;
+  color: var(--text-primary);
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -260,7 +260,7 @@ function handleLinkLeave(event) {
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 11px;
-  color: #71717a;
+  color: var(--text-secondary);
   font-family: 'Geist Mono', monospace;
 }
 
@@ -268,14 +268,14 @@ function handleLinkLeave(event) {
   font-family: 'Noto Sans SC', system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.8;
-  color: #d4d4d8;
+  color: var(--text-primary);
 }
 
 .detail-body :deep(h2) {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 20px;
   font-weight: 600;
-  color: #f4f4f5;
+  color: var(--text-primary);
   margin: 32px 0 16px;
   letter-spacing: -0.01em;
 }
@@ -284,7 +284,7 @@ function handleLinkLeave(event) {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #e4e4e7;
+  color: var(--text-primary);
   margin: 24px 0 12px;
 }
 
@@ -293,12 +293,12 @@ function handleLinkLeave(event) {
 }
 
 .detail-body :deep(strong) {
-  color: #f4f4f5;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .detail-body :deep(em) {
-  color: #a1a1aa;
+  color: var(--text-secondary);
 }
 
 .detail-body :deep(ul),
@@ -312,14 +312,14 @@ function handleLinkLeave(event) {
 }
 
 .detail-body :deep(a.wiki-link) {
-  color: #22d3ee;
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px dashed rgba(34, 211, 238, 0.3);
+  border-bottom: 1px dashed rgba(125, 211, 200, 0.3);
   transition: border-color 0.15s;
 }
 
 .detail-body :deep(a.wiki-link:hover) {
-  border-bottom-color: #22d3ee;
+  border-bottom-color: var(--accent);
 }
 
 .detail-links {
@@ -333,7 +333,7 @@ function handleLinkLeave(event) {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #52525b;
+  color: var(--text-muted);
   margin-bottom: 14px;
 }
 
@@ -350,15 +350,15 @@ function handleLinkLeave(event) {
   border-radius: 6px;
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 12px;
-  color: #a1a1aa;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .link-pill:hover {
-  background: rgba(34, 211, 238, 0.06);
-  border-color: rgba(34, 211, 238, 0.15);
-  color: #22d3ee;
+  background: rgba(125, 211, 200, 0.06);
+  border-color: rgba(125, 211, 200, 0.15);
+  color: #7dd3c8;
 }
 
 .detail-error {
@@ -366,7 +366,7 @@ function handleLinkLeave(event) {
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  color: #f87171;
+  color: #c9918e;
   font-family: 'Geist', system-ui, sans-serif;
   font-size: 14px;
 }
