@@ -1,5 +1,5 @@
 <template>
-  <div class="cluster-view">
+  <div class="cluster-view graph-fullscreen">
     <nav class="breadcrumb">
       <router-link :to="{ name: 'home' }" class="crumb-link">Graph</router-link>
       <span class="crumb-sep">/</span>
@@ -48,8 +48,6 @@ onMounted(async () => {
 
 <style scoped>
 .cluster-view {
-  width: 100vw;
-  height: 100vh;
   background: #0a0a0f;
   position: relative;
 }

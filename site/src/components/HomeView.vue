@@ -1,5 +1,5 @@
 <template>
-  <div class="home-view">
+  <div class="home-view graph-fullscreen">
     <div class="search-slot">
       <SearchBar />
     </div>
@@ -14,8 +14,6 @@ import SearchBar from './SearchBar.vue'
 
 <style scoped>
 .home-view {
-  width: 100vw;
-  height: 100vh;
   background: #0a0a0f;
   position: relative;
 }
