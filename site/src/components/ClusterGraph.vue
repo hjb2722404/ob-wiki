@@ -130,7 +130,7 @@ function render() {
     .force('center', d3.forceCenter(width.value / 2, height.value / 2))
     .force('charge', d3.forceManyBody().strength(-200))
     .force('collision', d3.forceCollide().radius(d => d.r + 8).strength(0.8))
-    .force('link', d3.forceLink(interClusterEdges).distance(180).strength(0.15))
+    .force('link', d3.forceLink(interClusterEdges).id(d => d.id).distance(180).strength(0.15))
     .force('x', d3.forceX(width.value / 2).strength(0.04))
     .force('y', d3.forceY(height.value / 2).strength(0.04))
     .alphaDecay(0.02)
