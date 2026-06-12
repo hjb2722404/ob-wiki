@@ -4,5 +4,6 @@
   "launchOnStart": false,
   "showDeleteButton": false,
   "displayTitle": "Title",
-  "pinnedFiles": []
+  "pinnedFiles": [],
+  "savedSearch": []
 }
