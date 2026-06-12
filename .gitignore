@@ -1,0 +1,16 @@
+# Dependencies
+site/node_modules/
+
+# Build output
+site/dist/
+site/public/data/
+
+# Obsidian workspace (user-specific)
+.obsidian/workspace.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Superpowers brainstorming
+.superpowers/
