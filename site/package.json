@@ -1,0 +1,28 @@
+{
+  "name": "ob-wiki-site",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/build-data.js && vite build",
+    "build:data": "node scripts/build-data.js",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "fuse.js": "^7.4.2",
+    "graphology": "^0.26.0",
+    "graphology-communities-louvain": "^2.0.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.2.0",
+    "vue": "^3.5.34",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.6",
+    "vite": "^8.0.12",
+    "vitest": "^4.1.8"
+  }
+}
