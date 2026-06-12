@@ -3,6 +3,7 @@
   "name": "ob-wiki",
   "compatibility_date": "2026-06-12",
   "assets": {
-    "directory": "site/dist"
+    "directory": "site/dist",
+    "not_found_handling": "single-page-application"
   }
 }
