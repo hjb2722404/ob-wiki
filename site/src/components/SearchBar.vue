@@ -88,7 +88,7 @@ function goToPage(id) {
   border-radius: 10px;
   max-height: 320px;
   overflow-y: auto;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .search-item {

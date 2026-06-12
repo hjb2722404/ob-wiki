@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-deep: #151518;
-  --bg-surface: #1c1c21;
-  --bg-elevated: #232329;
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-muted: rgba(255, 255, 255, 0.08);
-  --text-primary: #c8c8cd;
-  --text-secondary: #8a8a94;
-  --text-muted: #5a5a64;
-  --accent: #7dd3c8;
-  --accent-dim: rgba(125, 211, 200, 0.12);
+  --bg-deep: #f5f7fb;
+  --bg-surface: #ffffff;
+  --bg-elevated: #eef1f8;
+  --border-subtle: rgba(0, 0, 0, 0.07);
+  --border-muted: rgba(0, 0, 0, 0.12);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --accent: #6366f1;
+  --accent-dim: rgba(99, 102, 241, 0.08);
 }
 
 *,
@@ -43,8 +43,8 @@ html, body {
 }
 
 ::selection {
-  background: var(--accent-dim);
-  color: #fff;
+  background: rgba(99, 102, 241, 0.15);
+  color: #312e81;
 }
 
 ::-webkit-scrollbar {
@@ -56,10 +56,10 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a30;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a42;
+  background: #94a3b8;
 }

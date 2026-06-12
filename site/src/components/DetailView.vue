@@ -68,11 +68,11 @@ import { useGraphData } from '../composables/useGraphData.js'
 import HoverPreview from './HoverPreview.vue'
 
 const TYPE_COLORS = {
-  entity: '#7dd3c8',
-  concept: '#86c9a3',
-  source: '#d4b87a',
-  synthesis: '#a39bc9',
-  contradiction: '#c9918e'
+  entity: '#6366f1',
+  concept: '#10b981',
+  source: '#f59e0b',
+  synthesis: '#8b5cf6',
+  contradiction: '#ef4444'
 }
 
 const route = useRoute()
@@ -99,7 +99,7 @@ const clusterLabel = computed(() => {
 })
 
 const typeColor = computed(() =>
-  TYPE_COLORS[pageData.value?.type] || '#8a8a94'
+  TYPE_COLORS[pageData.value?.type] || '#94a3b8'
 )
 
 const allLinks = computed(() => {
@@ -178,8 +178,8 @@ function handleLinkLeave(event) {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(21, 21, 24, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(245, 247, 251, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(12px);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 15px;
@@ -256,7 +256,7 @@ function handleLinkLeave(event) {
 }
 
 .meta-tag {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.04);
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 11px;
@@ -314,7 +314,7 @@ function handleLinkLeave(event) {
 .detail-body :deep(a.wiki-link) {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px dashed rgba(125, 211, 200, 0.3);
+  border-bottom: 1px dashed rgba(99, 102, 241, 0.3);
   transition: border-color 0.15s;
 }
 
@@ -325,7 +325,7 @@ function handleLinkLeave(event) {
 .detail-links {
   margin-top: 48px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .links-section-title {
@@ -345,7 +345,7 @@ function handleLinkLeave(event) {
 
 .link-pill {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   padding: 5px 12px;
   border-radius: 6px;
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
@@ -356,8 +356,8 @@ function handleLinkLeave(event) {
 }
 
 .link-pill:hover {
-  background: rgba(125, 211, 200, 0.06);
-  border-color: rgba(125, 211, 200, 0.15);
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.15);
   color: #7dd3c8;
 }
 
@@ -366,7 +366,7 @@ function handleLinkLeave(event) {
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-  color: #c9918e;
+  color: #ef4444;
   font-family: 'Geist', system-ui, sans-serif;
   font-size: 14px;
 }

@@ -20,11 +20,11 @@ import * as d3 from 'd3'
 import { useGraphData } from '../composables/useGraphData.js'
 
 const TYPE_COLORS = {
-  entity: '#7dd3c8',
-  concept: '#86c9a3',
-  source: '#d4b87a',
-  synthesis: '#a39bc9',
-  contradiction: '#c9918e'
+  entity: '#6366f1',
+  concept: '#10b981',
+  source: '#f59e0b',
+  synthesis: '#8b5cf6',
+  contradiction: '#ef4444'
 }
 
 const props = defineProps({
@@ -84,7 +84,7 @@ function render() {
     .filter(n => n.cluster === props.clusterId)
     .map(n => ({
       ...n,
-      color: TYPE_COLORS[n.type] || '#8a8a94',
+      color: TYPE_COLORS[n.type] || '#94a3b8',
       r: 6
     }))
 
@@ -120,7 +120,7 @@ function render() {
   const edgeSelection = edgesG.selectAll('line')
     .data(clusterEdges)
     .join('line')
-    .attr('stroke', 'rgba(255,255,255,0.04)')
+    .attr('stroke', 'rgba(0,0,0,0.06)')
     .attr('stroke-width', 0.8)
 
   // Nodes
@@ -162,7 +162,7 @@ function render() {
       edgeSelection
         .attr('stroke', e =>
           (e.source.id || e.source) === d.id || (e.target.id || e.target) === d.id
-            ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.04)'
+            ? 'rgba(99,102,241,0.3)' : 'rgba(0,0,0,0.06)'
         )
     })
     .on('mouseleave', function (event, d) {
@@ -175,7 +175,7 @@ function render() {
         .transition().duration(200)
         .attr('opacity', 0)
 
-      edgeSelection.attr('stroke', 'rgba(255,255,255,0.04)')
+      edgeSelection.attr('stroke', 'rgba(0,0,0,0.06)')
     })
 
   nodeGroups.append('circle')
@@ -186,7 +186,7 @@ function render() {
   nodeGroups.append('text')
     .attr('text-anchor', 'middle')
     .attr('dy', -12)
-    .attr('fill', '#8a8a94')
+    .attr('fill', '#64748b')
     .attr('font-size', 12)
     .attr('font-family', "'Geist', 'Noto Sans SC', system-ui, sans-serif")
     .attr('opacity', 0)
@@ -236,7 +236,7 @@ svg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid rgba(125, 211, 200, 0.2);
+  border: 2px solid rgba(99, 102, 241, 0.2);
   border-top-color: var(--accent);
   animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }

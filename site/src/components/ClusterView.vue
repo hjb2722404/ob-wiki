@@ -62,8 +62,8 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(10, 10, 15, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(245, 247, 251, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 15px;
 }

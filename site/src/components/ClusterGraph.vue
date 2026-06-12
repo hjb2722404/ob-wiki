@@ -9,9 +9,8 @@
     </div>
     <svg ref="svg" :width="width" :height="height">
       <defs>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        <filter id="shadow">
+          <feDropShadow dx="0" dy="1" stdDeviation="3" flood-opacity="0.1" />
         </filter>
       </defs>
       <g class="zoom-layer" ref="zoomLayer">
@@ -34,14 +33,14 @@ import * as d3 from 'd3'
 import { useGraphData } from '../composables/useGraphData.js'
 
 const CLUSTER_PALETTE = [
-  '#7dd3c8', // teal
-  '#86c9a3', // sage
-  '#d4b87a', // warm
-  '#c9918e', // muted-rose
-  '#a39bc9', // lavender
-  '#c9a87a', // sand
-  '#8bbdd3', // steel
-  '#8ec9a3', // mint
+  '#6366f1', // indigo
+  '#06b6d4', // cyan
+  '#10b981', // emerald
+  '#f59e0b', // amber
+  '#ec4899', // pink
+  '#8b5cf6', // violet
+  '#f97316', // orange
+  '#14b8a6', // teal
 ]
 
 const router = useRouter()
@@ -68,7 +67,6 @@ onMounted(async () => {
   })
   resizeObserver.observe(container.value)
 
-  // Initial size
   const rect = container.value.getBoundingClientRect()
   width.value = rect.width
   height.value = rect.height
@@ -93,7 +91,6 @@ function render() {
   const edgesG = zoomG.select('.edges-layer')
   const nodesG = zoomG.select('.nodes-layer')
 
-  // Zoom behavior
   const zoom = d3.zoom()
     .scaleExtent([0.3, 4])
     .on('zoom', (event) => {
@@ -101,14 +98,12 @@ function render() {
     })
   svgEl.call(zoom)
 
-  // Prepare cluster nodes for simulation
   const clusterNodes = data.clusters.map((c, i) => ({
     ...c,
     r: Math.sqrt(c.count) * 4 + 12,
     color: CLUSTER_PALETTE[i % CLUSTER_PALETTE.length]
   }))
 
-  // Build inter-cluster edges
   const nodeClusterMap = new Map()
   for (const node of data.nodes) {
     nodeClusterMap.set(node.id, node.cluster)
@@ -125,7 +120,6 @@ function render() {
     interClusterEdges.push({ source: sc, target: tc })
   }
 
-  // Force simulation
   simulation = d3.forceSimulation(clusterNodes)
     .force('center', d3.forceCenter(width.value / 2, height.value / 2))
     .force('charge', d3.forceManyBody().strength(-200))
@@ -140,7 +134,7 @@ function render() {
   const edgeSelection = edgesG.selectAll('line')
     .data(interClusterEdges)
     .join('line')
-    .attr('stroke', 'rgba(255,255,255,0.06)')
+    .attr('stroke', '#cbd5e1')
     .attr('stroke-width', 1)
     .attr('stroke-dasharray', '4,6')
 
@@ -159,7 +153,7 @@ function render() {
         .duration(200)
         .ease(d3.easeCubicOut)
         .attr('r', d.r * 1.12)
-        .attr('stroke-opacity', 0.5)
+        .attr('stroke-opacity', 0.7)
 
       d3.select(this).select('.node-label')
         .transition()
@@ -172,47 +166,46 @@ function render() {
         .duration(300)
         .ease(d3.easeCubicOut)
         .attr('r', d.r)
-        .attr('stroke-opacity', 0.2)
+        .attr('stroke-opacity', 0.3)
 
       d3.select(this).select('.node-label')
         .transition()
         .duration(250)
-        .attr('opacity', 0.85)
+        .attr('opacity', 0.9)
     })
 
-  // Outer glow ring
+  // Circle with soft fill
   nodeGroups.append('circle')
     .attr('r', d => d.r)
     .attr('fill', d => d.color)
-    .attr('fill-opacity', 0.08)
+    .attr('fill-opacity', 0.12)
     .attr('stroke', d => d.color)
-    .attr('stroke-width', 1.5)
-    .attr('stroke-opacity', 0.2)
-    .attr('filter', 'url(#glow)')
+    .attr('stroke-width', 2)
+    .attr('stroke-opacity', 0.3)
+    .attr('filter', 'url(#shadow)')
 
   // Label
   nodeGroups.append('text')
     .attr('class', 'node-label')
     .attr('text-anchor', 'middle')
     .attr('dy', '0.15em')
-    .attr('fill', 'var(--text-primary)')
-    .attr('font-size', d => Math.min(d.r * 0.28, 13))
+    .attr('fill', '#1e293b')
+    .attr('font-size', d => Math.min(d.r * 0.28, 15))
     .attr('font-family', "'Geist', 'Noto Sans SC', system-ui, sans-serif")
-    .attr('font-weight', '500')
-    .attr('opacity', 0.85)
+    .attr('font-weight', '600')
+    .attr('opacity', 0.9)
     .text(d => d.label.length > 14 ? d.label.slice(0, 12) + '...' : d.label)
 
   // Count below label
   nodeGroups.append('text')
     .attr('text-anchor', 'middle')
     .attr('dy', d => d.r * 0.28 + 12)
-    .attr('fill', 'var(--text-secondary)')
-    .attr('font-size', 10)
+    .attr('fill', '#94a3b8')
+    .attr('font-size', 12)
     .attr('font-family', "'Geist Mono', 'JetBrains Mono', monospace")
-    .attr('opacity', 0.6)
+    .attr('opacity', 0.7)
     .text(d => `${d.count}`)
 
-  // Tick
   simulation.on('tick', () => {
     edgeSelection
       .attr('x1', d => d.source.x)
@@ -224,7 +217,6 @@ function render() {
       .attr('transform', d => `translate(${d.x},${d.y})`)
   })
 
-  // Initial zoom to fit
   svgEl.call(zoom.transform, d3.zoomIdentity
     .translate(width.value * 0.05, height.value * 0.05)
     .scale(0.9)
@@ -237,7 +229,7 @@ function render() {
   position: relative;
   width: 100%;
   height: 100%;
-  background: var(--bg-deep);
+  background: #f5f7fb;
   overflow: hidden;
 }
 
@@ -259,8 +251,8 @@ svg {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid rgba(34, 211, 238, 0.2);
-  border-top-color: var(--accent);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  border-top-color: #6366f1;
   animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -271,7 +263,7 @@ svg {
 .loading-text {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
   font-size: 13px;
-  color: var(--text-secondary);
+  color: #64748b;
   letter-spacing: 0.02em;
 }
 
@@ -281,7 +273,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #c9918e;
+  color: #ef4444;
   font-family: 'Geist', system-ui, sans-serif;
   font-size: 14px;
 }
@@ -296,14 +288,14 @@ svg {
   justify-content: center;
   gap: 12px;
   padding: 10px 16px;
-  background: rgba(10, 10, 15, 0.85);
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(245, 247, 251, 0.9);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .stat {
   font-family: 'Geist Mono', 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: var(--text-muted);
+  color: #94a3b8;
   letter-spacing: 0.04em;
 }
 
@@ -311,6 +303,6 @@ svg {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #3a3a42;
+  background: #cbd5e1;
 }
 </style>

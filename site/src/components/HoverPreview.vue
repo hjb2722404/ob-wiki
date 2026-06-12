@@ -23,11 +23,11 @@
 import { ref, computed } from 'vue'
 
 const TYPE_COLORS = {
-  entity: '#7dd3c8',
-  concept: '#86c9a3',
-  source: '#d4b87a',
-  synthesis: '#a39bc9',
-  contradiction: '#c9918e'
+  entity: '#6366f1',
+  concept: '#10b981',
+  source: '#f59e0b',
+  synthesis: '#8b5cf6',
+  contradiction: '#ef4444'
 }
 
 const visible = ref(false)
@@ -35,7 +35,7 @@ const x = ref(0)
 const y = ref(0)
 const preview = ref({ title: '', type: '', tags: [], summary: '' })
 
-const typeColor = computed(() => TYPE_COLORS[preview.value.type] || '#8a8a94')
+const typeColor = computed(() => TYPE_COLORS[preview.value.type] || '#94a3b8')
 
 function show(nodePreview, event) {
   preview.value = nodePreview
@@ -66,7 +66,7 @@ defineExpose({ show, hide })
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
   padding: 14px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   pointer-events: none;
   animation: fadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
