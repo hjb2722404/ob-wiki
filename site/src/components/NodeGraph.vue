@@ -187,7 +187,7 @@ function render() {
     .attr('text-anchor', 'middle')
     .attr('dy', -12)
     .attr('fill', '#8a8a94')
-    .attr('font-size', 10)
+    .attr('font-size', 12)
     .attr('font-family', "'Geist', 'Noto Sans SC', system-ui, sans-serif")
     .attr('opacity', 0)
     .text(d => d.id.length > 16 ? d.id.slice(0, 14) + '...' : d.id)

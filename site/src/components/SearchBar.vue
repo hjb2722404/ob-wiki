@@ -63,7 +63,7 @@ function goToPage(id) {
   border-radius: 10px;
   color: var(--text-primary);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   outline: none;
   transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -106,13 +106,13 @@ function goToPage(id) {
 
 .search-item-title {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-primary);
 }
 
 .search-item-type {
   font-family: 'Geist Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;

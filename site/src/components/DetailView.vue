@@ -182,7 +182,7 @@ function handleLinkLeave(event) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .crumb-link {
@@ -234,7 +234,7 @@ function handleLinkLeave(event) {
 
 .detail-title {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -266,14 +266,14 @@ function handleLinkLeave(event) {
 
 .detail-body {
   font-family: 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--text-primary);
 }
 
 .detail-body :deep(h2) {
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--text-primary);
   margin: 32px 0 16px;
@@ -330,7 +330,7 @@ function handleLinkLeave(event) {
 
 .links-section-title {
   font-family: 'Geist Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text-muted);
@@ -349,7 +349,7 @@ function handleLinkLeave(event) {
   padding: 5px 12px;
   border-radius: 6px;
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);

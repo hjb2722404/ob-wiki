@@ -65,7 +65,7 @@ onMounted(async () => {
   background: rgba(10, 10, 15, 0.85);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   font-family: 'Geist', 'Noto Sans SC', system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .crumb-link {
