@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ob-wiki",
   "compatibility_date": "2026-06-12",
-  "pages_build_output_dir": "site/dist",
-  "compatibility_flags": ["nodejs_compat"]
+  "assets": {
+    "directory": "site/dist"
+  }
 }
