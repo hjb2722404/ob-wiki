@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-11T23:17
+updated: 2026-06-12T12:11
 ---
 # Wiki 操作日志
 
@@ -7622,4 +7622,60 @@ updated: 2026-06-11T23:17
 **创建页面**：[[sources/伽达默尔黑格尔及其后继者海德格尔.md]], [[entities/张志伟.md]], [[entities/伽达默尔.md]], [[entities/光明日报出版社.md]], [[entities/马丁·海德格尔.md]], [[entities/黑格尔.md]], [[entities/叔本华.md]], [[entities/克尔凯郭尔.md]], [[entities/柏拉图.md]], [[entities/马克思.md]], [[entities/亚里士多德.md]], [[concepts/形而上学超越.md]], [[entities/尼采.md]], [[concepts/形而上学超越.md]], [[concepts/西方形而上学.md]], [[concepts/绝对观念论.md]], [[concepts/绝对知识.md]], [[concepts/时代精神.md]], [[concepts/思辨思维方式.md]], [[concepts/反思的内在无限性.md]], [[concepts/历史哲学.md]], [[concepts/基督教思想.md]], [[concepts/经受.md]], [[concepts/痊愈.md]]
 
 **更新页面**：[[伽达默尔]], [[黑格尔]], [[马丁·海德格尔]], [[张志伟]], [[柏拉图]], [[亚里士多德]], [[叔本华]], [[克尔凯郭尔]], [[马克思]], [[尼采]], [[形而上学超越]], [[绝对知识]], [[时代精神]], [[历史]]
+
+
+
+## [2026-06-12] ingest | 洛维特｜谢林、克尔凯郭尔和马克思
+
+**创建页面**：[[sources/洛维特｜谢林克尔凯郭尔和马克思.md]], [[entities/卡尔·洛维特.md]], [[entities/kierkegaard.md]], [[entities/谢林.md]], [[entities/黑格尔.md]], [[entities/马克思.md]], [[entities/jacob-burckhardt.md]], [[entities/bakunin.md]], [[entities/胡塞尔.md]], [[entities/恩格斯.md]], [[entities/马丁·海德格尔.md]], [[entities/托马斯·阿奎拉.md]], [[entities/帕斯卡尔.md]], [[entities/让·保罗·萨特.md]], [[entities/汉娜·阿伦特.md]], [[entities/笛卡儿René-Descartes.md]], [[entities/kierkegaard.md]], [[concepts/存在主义.md]], [[concepts/本质与实存.md]], [[entities/谢林.md]], [[entities/柏拉图.md]], [[concepts/potenzen.md]], [[concepts/现代性.md]], [[concepts/世界筹划.md]], [[concepts/实存的偶然性.md]], [[concepts/存在本身.md]], [[concepts/社会主义.md]], [[concepts/商品和货币.md]], [[concepts/决断.md]], [[concepts/实际生存.md]], [[concepts/反讽厌倦和绝望.md]], [[concepts/存在与时间.md]], [[concepts/肯定.md]], [[concepts/存在与无的统一.md]], [[concepts/否定哲学.md]], [[concepts/现象学还原.md]], [[concepts/谢林柏林讲座.md]]
+
+**更新页面**：[[卡尔·洛维特]], [[谢林]], [[黑格尔]], [[恩格斯]], [[托马斯·阿奎拉]], [[让·保罗·萨特]], [[柏拉图]], [[克尔凯郭尔]], [[存在主义]], [[现代性]], [[社会主义]], [[存在与时间]], [[现象学还原]], [[肯定]]
+
+
+
+## [2026-06-12] ingest | 黑格尔哲学中的死亡概念（二）
+
+**创建页面**：[[sources/科耶夫黑格尔哲学中的死亡概念二.md]], [[entities/谢林.md]], [[entities/科耶夫.md]], [[entities/马丁·海德格尔.md]], [[entities/黑格尔.md]], [[entities/马克思.md]], [[concepts/死亡.md]], [[concepts/绝对自由.md]], [[entities/拿破仑革命军队.md]], [[entities/译林出版社.md]], [[entities/姜志辉.md]], [[concepts/为承认而斗争.md]], [[concepts/主奴关系.md]], [[concepts/主人.md]], [[concepts/恐怖.md]], [[concepts/奴隶.md]], [[concepts/否定的辩证法.md]], [[concepts/虚无.md]], [[concepts/耶拿讲演.md]], [[concepts/历史的终结.md]], [[concepts/精神现象学.md]], [[concepts/劳动.md]], [[concepts/国家.md]], [[concepts/个人独特性.md]], [[concepts/为了死亡的生命.md]], [[concepts/战争.md]], [[concepts/教育.md]], [[concepts/人类学.md]], [[concepts/纯荣誉.md]], [[concepts/世俗化的基督教神学.md]]
+
+**更新页面**：[[科耶夫]], [[黑格尔]], [[马丁·海德格尔]], [[马克思]], [[谢林]], [[死亡]], [[绝对自由]], [[为承认而斗争]], [[主奴关系]], [[精神现象学]], [[否定的辩证法]], [[虚无]], [[个人独特性]], [[劳动]], [[国家]], [[人类学]], [[教育]]
+
+
+
+## [2026-06-12] ingest | 科耶夫与黑格尔
+
+**创建页面**：[[sources/科耶夫与黑格尔｜孙向晨.md]], [[entities/亚历山大·科亚雷.md]], [[entities/雷蒙德·昆诺.md]], [[entities/孙向晨.md]], [[entities/科耶夫.md]], [[entities/罗伯特·马约林.md]], [[entities/姜志辉.md]], [[entities/弗朗西斯·福山.md]], [[entities/关贸总协定.md]], [[entities/欧洲煤炭钢铁联盟.md]], [[entities/高等应用学校.md]], [[entities/梅洛-庞蒂.md]], [[entities/历史的终结与最后的人.md]], [[entities/黑格尔导读.md]], [[concepts/历史终结.md]], [[concepts/主奴关系.md]], [[concepts/法国黑格尔主义.md]], [[concepts/承认的欲望.md]]
+
+**更新页面**：[[科耶夫]], [[弗朗西斯·福山]], [[姜志辉]], [[梅洛-庞蒂]], [[主奴关系]], [[历史终结]]
+
+
+
+## [2026-06-12] ingest | 里尔克：我明白，你是孤独的
+
+**创建页面**：[[sources/里尔克我明白你是孤独的.md]], [[entities/里尔克.md]], [[concepts/孤独.md]], [[entities/臧棣.md]], [[concepts/神性.md]], [[concepts/生与死.md]], [[concepts/神秘主义.md]], [[concepts/体验.md]], [[concepts/时间与永恒.md]], [[concepts/诗歌翻译.md]]
+
+**更新页面**：[[里尔克]], [[孤独]], [[体验]], [[神秘主义]]
+
+
+
+## [2026-06-12] ingest | 理论复调：作为马克思主义者的鲍德里亚
+
+**创建页面**：[[sources/理论复调作为马克思主义者的鲍德里亚.md]], [[entities/让·鲍德里亚.md]], [[entities/盛宁.md]], [[entities/巴特勒.md]], [[entities/童小畅.md]], [[entities/道格拉斯·凯尔纳.md]], [[entities/仰海峰.md]], [[entities/巴塔耶.md]], [[entities/巴赫金.md]], [[entities/张一兵.md]], [[entities/马克思.md]], [[entities/霍克海默.md]], [[entities/阿多诺.md]], [[entities/涂尔干.md]], [[entities/莫斯.md]], [[entities/布鲁姆.md]], [[entities/列斐伏尔.md]], [[entities/卡勒.md]], [[entities/克里斯蒂娃.md]], [[entities/卢卡奇.md]], [[entities/梅林.md]], [[concepts/西方马克思主义.md]], [[concepts/消费社会.md]], [[concepts/生产之镜.md]], [[concepts/互文性.md]], [[concepts/复调.md]], [[concepts/物体系.md]], [[concepts/符号政治经济学批判.md]], [[concepts/影响焦虑.md]], [[concepts/礼物交换.md]], [[concepts/象征交换与死亡.md]], [[concepts/五月风暴.md]]
+
+**更新页面**：[[让·鲍德里亚]], [[仰海峰]], [[马克思]], [[涂尔干]], [[霍克海默]], [[阿多尔诺]], [[卢卡奇]], [[列斐伏尔]], [[消费社会]], [[西方马克思主义]]
+
+
+
+## [2026-06-12] ingest | 雅克·董特《黑格尔传》的解读：还原作为"人"的黑格尔
+
+**创建页面**：[[sources/另一个黑格尔遮蔽在思辨哲学背后的现实生命.md]], [[entities/谢林.md]], [[entities/雅克·董特.md]], [[entities/黑格尔.md]], [[entities/荷尔德林.md]], [[entities/拿破仑.md]], [[entities/普鲁士王国.md]], [[entities/精神现象学.md]], [[entities/马克思.md]], [[entities/邓晓芒.md]], [[entities/黑格尔传.md]], [[entities/慧田哲学.md]], [[concepts/外传哲学.md]], [[concepts/秘传哲学.md]], [[concepts/双重语言.md]], [[concepts/时代精神.md]], [[concepts/官僚体制.md]], [[concepts/生命自我否定的运动.md]], [[concepts/异化.md]], [[concepts/辩证法.md]], [[concepts/文化世界.md]], [[concepts/私生子问题.md]], [[concepts/经验的科学.md]]
+
+**更新页面**：[[黑格尔]], [[谢林]], [[荷尔德林]], [[拿破仑]], [[邓晓芒]], [[马克思]], [[普鲁士王国]], [[青年黑格尔派]], [[精神现象学]], [[慧田哲学]], [[时代精神]], [[异化]], [[辩证法思想]]
+
+
+
+## [2026-06-12] ingest | 另一个马克思：一种人本主义化的诠释——弗罗姆《马克思关于人的概念》解读
+
+**创建页面**：[[sources/另一个马克思——弗罗姆马克思关于人的概念解读｜张一兵.md]], [[entities/张一兵.md]], [[entities/弗罗姆.md]], [[entities/恩格斯.md]], [[entities/孙伯揆.md]], [[entities/马克思.md]], [[entities/ernst-bloch.md]], [[entities/raya-dunayevskaya.md]], [[entities/卢卡契.md]], [[entities/考茨基.md]], [[entities/马尔库塞.md]], [[entities/伯恩斯坦.md]], [[entities/普列汉诺夫.md]], [[entities/karl-korsch.md]], [[entities/葛兰西.md]], [[entities/列宁.md]]
+
+**更新页面**：
 
