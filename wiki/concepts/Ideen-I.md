@@ -1,14 +1,16 @@
 ---
 type: concept
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[_raw/西哲/回忆埃德蒙德·胡塞尔.md]]"]
-tags: [theory]
+updated: 2026-06-12T09:29
+sources:
+  - "[[sources/回忆埃德蒙德·胡塞尔]]"
+tags:
+  - theory
 aliases:
-  - "Ideas I"
-  - "纯粹现象学通论"
-  - "观念I"
-  - "现象学观念"
+  - Ideas I
+  - 纯粹现象学通论
+  - 观念I
+  - 现象学观念
 ---
 
 

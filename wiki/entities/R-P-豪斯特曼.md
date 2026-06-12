@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[_raw/西哲/霍耐特：伦理的规范性 ——黑格尔学说作为康德伦理学的替代性选择（王凤才译）.md]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/霍耐特：伦理的规范性 ——黑格尔学说作为康德伦理学的替代性选择（王凤才译）]]"
+tags:
+  - person
 aliases:
-  - "Rolf-Peter Horstmann"
-  - "罗尔夫-彼得·豪斯特曼"
-  - "R-P. Horstmann"
+  - Rolf-Peter Horstmann
+  - 罗尔夫-彼得·豪斯特曼
+  - R-P. Horstmann
 ---
 
 

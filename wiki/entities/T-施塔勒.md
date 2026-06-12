@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[sources/霍耐特伦理的规范性-——黑格尔学说作为康德伦理学的替代性选择王凤才译|霍耐特伦理的规范性-——黑格尔学说作为康德伦理学的替代性选择王凤才译]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/霍耐特伦理的规范性-——黑格尔学说作为康德伦理学的替代性选择王凤才译]]"
+tags:
+  - person
 aliases:
-  - "Titus Stahl"
-  - "提图斯·施塔勒"
+  - Titus Stahl
+  - 提图斯·施塔勒
 ---
 
 

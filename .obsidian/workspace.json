@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "8ecd0cc8fb24ccae",
+        "id": "a0ce60c0c173f7a8",
         "type": "tabs",
         "children": [
           {
-            "id": "7bd9d1b1e385c503",
+            "id": "48ecb7dee7652ad8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_raw/西哲/康德、黑格尔与马克思.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "康德、黑格尔与马克思"
+              "title": "新标签页"
             }
           }
         ]
@@ -221,9 +217,10 @@
       "cards-view:Card view": false
     }
   },
-  "active": "e72c6bf8ac65c6c1",
+  "active": "48ecb7dee7652ad8",
   "lastOpenFiles": [
     "references/WeChat Inbox/微信-2026-06-12.md",
+    "_raw/西哲/康德、黑格尔与马克思.md",
     "wiki/site/concepts/鼠疫.html",
     "wiki/site/concepts/默摈法.html",
     "wiki/site/concepts/黑格尔辩证法.html",
@@ -258,7 +255,6 @@
     "wiki/concepts/新保守主义.md",
     "wiki/concepts/新哲学家.md",
     "wiki/entities/约翰·邓恩.md",
-    "wiki/concepts/明见性.md",
     "未命名.canvas",
     "wechat_img_1779543430626_175.jpg",
     "wechat_img_1779543432632_233.jpg",

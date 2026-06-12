@@ -1,9 +1,9 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-09T15:25
+updated: 2026-06-12T09:28
 sources:
-  - "[[sources/阿伦特在公共权力之下我们何以有追寻自由的权力|阿伦特在公共权力之下我们何以有追寻自由的权力]]"
+  - "[[sources/阿伦特在公共权力之下我们何以有追寻自由的权力]]"
 tags:
   - term
 aliases:

@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-10
-updated: 2026-06-10
-sources: ["[[_raw/西哲/福柯VS康德：何为启蒙？.md]]"]
-tags: [term]
+updated: 2026-06-12T09:29
+sources:
+  - "[[sources/福柯VS康德：何为启蒙？]]"
+tags:
+  - term
 aliases:
-  - "要有勇气运用你自己的理智"
-  - "Dare to Know!"
-  - "Sapere Aude"
+  - 要有勇气运用你自己的理智
+  - Dare to Know!
+  - Sapere Aude
 ---
 
 

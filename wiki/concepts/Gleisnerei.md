@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-09
-updated: 2026-06-09
-sources: ["[[_raw/西哲/邓晓芒：康德黑格尔论伪善.md]]"]
-tags: [term]
+updated: 2026-06-12T09:29
+sources:
+  - "[[sources/邓晓芒：康德黑格尔论伪善]]"
+tags:
+  - term
 aliases:
-  - "道貌岸然式伪善"
-  - "伪善的第一层次"
-  - "Gleisnerei (Kantian hypocrisy)"
+  - 道貌岸然式伪善
+  - 伪善的第一层次
+  - Gleisnerei (Kantian hypocrisy)
 ---
 
 

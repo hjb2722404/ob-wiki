@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-10
-updated: 2026-06-10
-sources: ["[[_raw/西哲/福柯：什么是启蒙？康德所希望人类走向的成熟状态是什么？.md]]"]
-tags: [other]
+updated: 2026-06-12T09:29
+sources:
+  - "[[sources/福柯：什么是启蒙？康德所希望人类走向的成熟状态是什么？]]"
+tags:
+  - other
 aliases:
-  - "犹太启蒙运动"
-  - "Jewish Enlightenment"
-  - "哈斯卡拉"
+  - 犹太启蒙运动
+  - Jewish Enlightenment
+  - 哈斯卡拉
 ---
 
 

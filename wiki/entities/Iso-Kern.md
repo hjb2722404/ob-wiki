@@ -1,11 +1,13 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[_raw/西哲/回忆埃德蒙德·胡塞尔.md]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/回忆埃德蒙德·胡塞尔]]"
+tags:
+  - person
 aliases:
-  - "Iso Kern"
+  - Iso Kern
 ---
 
 

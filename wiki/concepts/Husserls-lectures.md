@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[_raw/西哲/回忆埃德蒙德·胡塞尔.md]]"]
-tags: [theory]
+updated: 2026-06-12T09:29
+sources:
+  - "[[sources/回忆埃德蒙德·胡塞尔]]"
+tags:
+  - theory
 aliases:
-  - "Husserl Lectures"
-  - "胡塞尔讲座研究"
+  - Husserl Lectures
+  - 胡塞尔讲座研究
 ---
 
 

@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-10
-updated: 2026-06-10
-sources: ["[[_raw/西哲/访叔本华墓.md]]"]
-tags: [location]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/访叔本华墓]]"
+tags:
+  - location
 aliases:
-  - "Hauptfriedhof"
-  - "法兰克福主墓地"
+  - Hauptfriedhof
+  - 法兰克福主墓地
 ---
 
 

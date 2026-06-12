@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[sources/回忆埃德蒙德·胡塞尔|回忆埃德蒙德·胡塞尔]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/回忆埃德蒙德·胡塞尔]]"
+tags:
+  - person
 aliases:
-  - "Alois Roth"
-  - "阿洛伊斯·洛特"
+  - Alois Roth
+  - 阿洛伊斯·洛特
 ---
 
 

@@ -1,9 +1,9 @@
 ---
 type: concept
 created: 2026-06-08
-updated: 2026-06-09T12:54
+updated: 2026-06-12T09:29
 sources:
-  - "[[_raw/西哲/邓安庆：康德伦理学体系的构成（上）.md]]"
+  - "[[sources/邓安庆：康德伦理学体系的构成（上）]]"
 tags:
   - term
 aliases:

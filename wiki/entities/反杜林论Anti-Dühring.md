@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-09T12:08
+updated: 2026-06-12T09:27
 sources:
-  - "[[sources/邓晓芒波普尔压根就没读懂过黑格尔就开始批判|邓晓芒波普尔压根就没读懂过黑格尔就开始批判]]"
+  - "[[sources/邓晓芒波普尔压根就没读懂过黑格尔就开始批判]]"
 tags:
   - product
 aliases:

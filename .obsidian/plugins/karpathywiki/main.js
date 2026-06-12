@@ -28,7 +28,7 @@ __export(main_exports, {
   default: () => LLMWikiPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian11 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 
 // src/types.ts
 var WIKI_LANGUAGES = {
@@ -41,8 +41,20 @@ var WIKI_LANGUAGES = {
   "es": "Espa\xF1ol",
   "pt": "Portugu\xEAs"
 };
-var VALID_ENTITY_TAGS = ["person", "organization", "project", "product", "event", "location", "other"];
-var VALID_CONCEPT_TAGS = ["theory", "method", "technology", "term", "other"];
+var VALID_ENTITY_TAGS = ["person", "organization", "project", "product", "event", "place", "other"];
+var VALID_CONCEPT_TAGS = ["theory", "method", "field", "phenomenon", "standard", "term", "other"];
+var DEFAULT_ENTITY_TAG = "other";
+var DEFAULT_CONCEPT_TAG = "term";
+var VALID_SOURCE_TAGS = [
+  "paper",
+  "article",
+  "book",
+  "transcript",
+  "clippings",
+  "notes",
+  "other"
+];
+var DEFAULT_SOURCE_TAG = "other";
 var PREDEFINED_PROVIDERS = {
   openai: {
     id: "openai",
@@ -50,7 +62,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "OpenAI",
     nameZh: "OpenAI",
     baseUrl: "https://api.openai.com/v1",
-    defaultModel: "gpt-4o",
     apiKeyPlaceholder: "sk-...",
     apiKeyPlaceholderEn: "sk-...",
     apiKeyPlaceholderZh: "sk-...",
@@ -62,7 +73,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "Anthropic (Claude)",
     nameZh: "Anthropic (Claude)",
     baseUrl: "",
-    defaultModel: "claude-sonnet-4-6",
     apiKeyPlaceholder: "sk-ant-...",
     apiKeyPlaceholderEn: "sk-ant-...",
     apiKeyPlaceholderZh: "sk-ant-...",
@@ -74,7 +84,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "Google Gemini",
     nameZh: "Google Gemini",
     baseUrl: "https://generativelanguage.googleapis.com/v1beta/openai",
-    defaultModel: "gemini-2.5-pro",
     apiKeyPlaceholder: "AIza...",
     apiKeyPlaceholderEn: "AIza...",
     apiKeyPlaceholderZh: "AIza...",
@@ -86,7 +95,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "OpenRouter",
     nameZh: "OpenRouter",
     baseUrl: "https://openrouter.ai/api/v1",
-    defaultModel: "openai/gpt-4o",
     apiKeyPlaceholder: "sk-or-...",
     apiKeyPlaceholderEn: "sk-or-...",
     apiKeyPlaceholderZh: "sk-or-...",
@@ -98,7 +106,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "DeepSeek",
     nameZh: "DeepSeek",
     baseUrl: "https://api.deepseek.com/v1",
-    defaultModel: "deepseek-chat",
     apiKeyPlaceholder: "sk-...",
     apiKeyPlaceholderEn: "sk-...",
     apiKeyPlaceholderZh: "sk-...",
@@ -110,7 +117,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "MiniMax",
     nameZh: "MiniMax",
     baseUrl: "https://api.minimaxi.com/v1",
-    defaultModel: "MiniMax-M2.7",
     apiKeyPlaceholder: "sk-cp-...",
     apiKeyPlaceholderEn: "sk-cp-...",
     apiKeyPlaceholderZh: "sk-cp-...",
@@ -122,7 +128,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "Kimi (Moonshot)",
     nameZh: "Kimi (Moonshot)",
     baseUrl: "https://api.moonshot.cn/v1",
-    defaultModel: "moonshot-v1-8k",
     apiKeyPlaceholder: "sk-...",
     apiKeyPlaceholderEn: "sk-...",
     apiKeyPlaceholderZh: "sk-...",
@@ -134,7 +139,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "GLM (Zhipu AI)",
     nameZh: "GLM (\u667A\u8C31AI)",
     baseUrl: "https://open.bigmodel.cn/api/paas/v4",
-    defaultModel: "glm-4",
     apiKeyPlaceholder: "...",
     apiKeyPlaceholderEn: "...",
     apiKeyPlaceholderZh: "...",
@@ -146,7 +150,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "Ollama (Local)",
     nameZh: "Ollama (\u672C\u5730)",
     baseUrl: "http://localhost:11434/v1",
-    defaultModel: "llama3",
     apiKeyPlaceholder: "ollama (no Key required)",
     apiKeyPlaceholderEn: "ollama (no Key required)",
     apiKeyPlaceholderZh: "ollama (\u65E0\u9700Key)",
@@ -158,7 +161,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "LM Studio (Local)",
     nameZh: "LM Studio\uFF08\u672C\u5730\uFF09",
     baseUrl: "http://localhost:1234/v1",
-    defaultModel: "local-model",
     apiKeyPlaceholder: "lmstudio",
     apiKeyPlaceholderEn: "lmstudio (optional)",
     apiKeyPlaceholderZh: "lmstudio\uFF08\u53EF\u9009\uFF09",
@@ -170,7 +172,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "Custom OpenAI-Compatible",
     nameZh: "\u81EA\u5B9A\u4E49 OpenAI \u517C\u5BB9",
     baseUrl: "",
-    defaultModel: "",
     apiKeyPlaceholder: "API Key",
     apiKeyPlaceholderEn: "API Key",
     apiKeyPlaceholderZh: "API Key",
@@ -182,7 +183,6 @@ var PREDEFINED_PROVIDERS = {
     nameEn: "Custom Anthropic-Compatible",
     nameZh: "\u81EA\u5B9A\u4E49 Anthropic \u517C\u5BB9",
     baseUrl: "",
-    defaultModel: "",
     apiKeyPlaceholder: "API Key",
     apiKeyPlaceholderEn: "API Key",
     apiKeyPlaceholderZh: "API Key",
@@ -193,7 +193,8 @@ var DEFAULT_SETTINGS = {
   provider: "anthropic",
   apiKey: "",
   baseUrl: "",
-  model: "claude-sonnet-4-6",
+  model: "",
+  // No hardcoded default — user must fetch models or enter manually
   wikiFolder: "wiki",
   language: "en",
   wikiLanguage: "en",
@@ -204,6 +205,10 @@ var DEFAULT_SETTINGS = {
   queryHistory: [],
   // Schema
   enableSchema: true,
+  // Issue #85: tag vocabulary
+  tagVocabularyMode: "default",
+  customEntityTags: "",
+  customConceptTags: "",
   // Extraction
   extractionGranularity: "standard",
   // Auto-maintenance
@@ -224,7 +229,14 @@ var DEFAULT_SETTINGS = {
   // Issue #75: cap max_tokens per LLM call. 0 = no cap (cloud default).
   // Local model users can set this when the provider is Ollama, LM Studio,
   // custom, or anthropic-compatible.
-  maxTokensPerCall: 0
+  maxTokensPerCall: 0,
+  // Issue #99 v2: default ON so thinking-capable models (Gemma 4,
+  // DeepSeek-R1, QwQ) output final answer only — no mid-response CoT
+  // or duplicated body. The v1.16.2 Layer A parameter existed but the
+  // production call sites never passed it; this default makes the
+  // wiring complete. Users with non-thinking models can leave true;
+  // users with thinking models wanting CoT can set false.
+  disableThinking: true
 };
 
 // src/constants.ts
@@ -234,6 +246,11 @@ var WIKI_SUBFOLDERS = {
   sources: "sources"
 };
 var PAGES_CACHE_TTL_MS = 5e3;
+var CUSTOM_LIMIT_MAX = 500;
+var CUSTOM_LIMIT_MIN = 1;
+var CUSTOM_BATCH_SIZE_MAX = 50;
+var TOKENS_PER_ITEM_BUDGET = 400;
+var SOURCE_ANALYZER_RETRY_MULTIPLIER = 3;
 var MAX_TOKENS_BATCH = 16e3;
 var TOKENS_PAGE_GENERATION = 8e3;
 var TOKENS_APPEND_REVIEWED = 4e3;
@@ -261,2171 +278,12 @@ var NOTICE_ABORT = 6e3;
 var NOTICE_ERROR = 8e3;
 var NOTICE_RATE_LIMIT = 1e4;
 
-// node_modules/@anthropic-ai/sdk/error.mjs
-var error_exports = {};
-__export(error_exports, {
-  APIConnectionError: () => APIConnectionError,
-  APIConnectionTimeoutError: () => APIConnectionTimeoutError,
-  APIError: () => APIError,
-  APIUserAbortError: () => APIUserAbortError,
-  AnthropicError: () => AnthropicError,
-  AuthenticationError: () => AuthenticationError,
-  BadRequestError: () => BadRequestError,
-  ConflictError: () => ConflictError,
-  InternalServerError: () => InternalServerError,
-  NotFoundError: () => NotFoundError,
-  PermissionDeniedError: () => PermissionDeniedError,
-  RateLimitError: () => RateLimitError,
-  UnprocessableEntityError: () => UnprocessableEntityError
-});
-
-// node_modules/@anthropic-ai/sdk/version.mjs
-var VERSION = "0.24.3";
-
-// node_modules/@anthropic-ai/sdk/_shims/registry.mjs
-var auto = false;
-var kind = void 0;
-var fetch2 = void 0;
-var Request2 = void 0;
-var Response2 = void 0;
-var Headers2 = void 0;
-var FormData2 = void 0;
-var Blob2 = void 0;
-var File2 = void 0;
-var ReadableStream2 = void 0;
-var getMultipartRequestOptions = void 0;
-var getDefaultAgent = void 0;
-var fileFromPath = void 0;
-var isFsReadStream = void 0;
-function setShims(shims, options = { auto: false }) {
-  if (auto) {
-    throw new Error(`you must \`import '@anthropic-ai/sdk/shims/${shims.kind}'\` before importing anything else from @anthropic-ai/sdk`);
-  }
-  if (kind) {
-    throw new Error(`can't \`import '@anthropic-ai/sdk/shims/${shims.kind}'\` after \`import '@anthropic-ai/sdk/shims/${kind}'\``);
-  }
-  auto = options.auto;
-  kind = shims.kind;
-  fetch2 = shims.fetch;
-  Request2 = shims.Request;
-  Response2 = shims.Response;
-  Headers2 = shims.Headers;
-  FormData2 = shims.FormData;
-  Blob2 = shims.Blob;
-  File2 = shims.File;
-  ReadableStream2 = shims.ReadableStream;
-  getMultipartRequestOptions = shims.getMultipartRequestOptions;
-  getDefaultAgent = shims.getDefaultAgent;
-  fileFromPath = shims.fileFromPath;
-  isFsReadStream = shims.isFsReadStream;
-}
-
-// node_modules/@anthropic-ai/sdk/_shims/MultipartBody.mjs
-var MultipartBody = class {
-  constructor(body) {
-    this.body = body;
-  }
-  get [Symbol.toStringTag]() {
-    return "MultipartBody";
-  }
-};
-
-// node_modules/@anthropic-ai/sdk/_shims/web-runtime.mjs
-function getRuntime({ manuallyImported } = {}) {
-  const recommendation = manuallyImported ? `You may need to use polyfills` : `Add one of these imports before your first \`import \u2026 from '@anthropic-ai/sdk'\`:
-- \`import '@anthropic-ai/sdk/shims/node'\` (if you're running on Node)
-- \`import '@anthropic-ai/sdk/shims/web'\` (otherwise)
-`;
-  let _fetch, _Request, _Response, _Headers;
-  try {
-    _fetch = fetch;
-    _Request = Request;
-    _Response = Response;
-    _Headers = Headers;
-  } catch (error) {
-    throw new Error(`this environment is missing the following Web Fetch API type: ${error.message}. ${recommendation}`);
-  }
-  return {
-    kind: "web",
-    fetch: _fetch,
-    Request: _Request,
-    Response: _Response,
-    Headers: _Headers,
-    FormData: (
-      // @ts-ignore
-      typeof FormData !== "undefined" ? FormData : class FormData {
-        // @ts-ignore
-        constructor() {
-          throw new Error(`file uploads aren't supported in this environment yet as 'FormData' is undefined. ${recommendation}`);
-        }
-      }
-    ),
-    Blob: typeof Blob !== "undefined" ? Blob : class Blob {
-      constructor() {
-        throw new Error(`file uploads aren't supported in this environment yet as 'Blob' is undefined. ${recommendation}`);
-      }
-    },
-    File: (
-      // @ts-ignore
-      typeof File !== "undefined" ? File : class File {
-        // @ts-ignore
-        constructor() {
-          throw new Error(`file uploads aren't supported in this environment yet as 'File' is undefined. ${recommendation}`);
-        }
-      }
-    ),
-    ReadableStream: (
-      // @ts-ignore
-      typeof ReadableStream !== "undefined" ? ReadableStream : class ReadableStream {
-        // @ts-ignore
-        constructor() {
-          throw new Error(`streaming isn't supported in this environment yet as 'ReadableStream' is undefined. ${recommendation}`);
-        }
-      }
-    ),
-    getMultipartRequestOptions: async (form, opts) => ({
-      ...opts,
-      body: new MultipartBody(form)
-    }),
-    getDefaultAgent: (url) => void 0,
-    fileFromPath: () => {
-      throw new Error("The `fileFromPath` function is only supported in Node. See the README for more details: https://www.github.com/anthropics/anthropic-sdk-typescript#file-uploads");
-    },
-    isFsReadStream: (value) => false
-  };
-}
-
-// node_modules/@anthropic-ai/sdk/_shims/index.mjs
-if (!kind) setShims(getRuntime(), { auto: true });
-
-// node_modules/@anthropic-ai/sdk/streaming.mjs
-var Stream = class _Stream {
-  constructor(iterator, controller) {
-    this.iterator = iterator;
-    this.controller = controller;
-  }
-  static fromSSEResponse(response, controller) {
-    let consumed = false;
-    async function* iterator() {
-      if (consumed) {
-        throw new Error("Cannot iterate over a consumed stream, use `.tee()` to split the stream.");
-      }
-      consumed = true;
-      let done = false;
-      try {
-        for await (const sse of _iterSSEMessages(response, controller)) {
-          if (sse.event === "completion") {
-            try {
-              yield JSON.parse(sse.data);
-            } catch (e) {
-              console.error(`Could not parse message into JSON:`, sse.data);
-              console.error(`From chunk:`, sse.raw);
-              throw e;
-            }
-          }
-          if (sse.event === "message_start" || sse.event === "message_delta" || sse.event === "message_stop" || sse.event === "content_block_start" || sse.event === "content_block_delta" || sse.event === "content_block_stop") {
-            try {
-              yield JSON.parse(sse.data);
-            } catch (e) {
-              console.error(`Could not parse message into JSON:`, sse.data);
-              console.error(`From chunk:`, sse.raw);
-              throw e;
-            }
-          }
-          if (sse.event === "ping") {
-            continue;
-          }
-          if (sse.event === "error") {
-            const errText = sse.data;
-            const errJSON = safeJSON(errText);
-            const errMessage = errJSON ? void 0 : errText;
-            throw APIError.generate(void 0, errJSON, errMessage, createResponseHeaders(response.headers));
-          }
-        }
-        done = true;
-      } catch (e) {
-        if (e instanceof Error && e.name === "AbortError")
-          return;
-        throw e;
-      } finally {
-        if (!done)
-          controller.abort();
-      }
-    }
-    return new _Stream(iterator, controller);
-  }
-  /**
-   * Generates a Stream from a newline-separated ReadableStream
-   * where each item is a JSON value.
-   */
-  static fromReadableStream(readableStream, controller) {
-    let consumed = false;
-    async function* iterLines() {
-      const lineDecoder = new LineDecoder();
-      const iter = readableStreamAsyncIterable(readableStream);
-      for await (const chunk of iter) {
-        for (const line of lineDecoder.decode(chunk)) {
-          yield line;
-        }
-      }
-      for (const line of lineDecoder.flush()) {
-        yield line;
-      }
-    }
-    async function* iterator() {
-      if (consumed) {
-        throw new Error("Cannot iterate over a consumed stream, use `.tee()` to split the stream.");
-      }
-      consumed = true;
-      let done = false;
-      try {
-        for await (const line of iterLines()) {
-          if (done)
-            continue;
-          if (line)
-            yield JSON.parse(line);
-        }
-        done = true;
-      } catch (e) {
-        if (e instanceof Error && e.name === "AbortError")
-          return;
-        throw e;
-      } finally {
-        if (!done)
-          controller.abort();
-      }
-    }
-    return new _Stream(iterator, controller);
-  }
-  [Symbol.asyncIterator]() {
-    return this.iterator();
-  }
-  /**
-   * Splits the stream into two streams which can be
-   * independently read from at different speeds.
-   */
-  tee() {
-    const left = [];
-    const right = [];
-    const iterator = this.iterator();
-    const teeIterator = (queue) => {
-      return {
-        next: () => {
-          if (queue.length === 0) {
-            const result = iterator.next();
-            left.push(result);
-            right.push(result);
-          }
-          return queue.shift();
-        }
-      };
-    };
-    return [
-      new _Stream(() => teeIterator(left), this.controller),
-      new _Stream(() => teeIterator(right), this.controller)
-    ];
-  }
-  /**
-   * Converts this stream to a newline-separated ReadableStream of
-   * JSON stringified values in the stream
-   * which can be turned back into a Stream with `Stream.fromReadableStream()`.
-   */
-  toReadableStream() {
-    const self = this;
-    let iter;
-    const encoder = new TextEncoder();
-    return new ReadableStream2({
-      async start() {
-        iter = self[Symbol.asyncIterator]();
-      },
-      async pull(ctrl) {
-        try {
-          const { value, done } = await iter.next();
-          if (done)
-            return ctrl.close();
-          const bytes = encoder.encode(JSON.stringify(value) + "\n");
-          ctrl.enqueue(bytes);
-        } catch (err) {
-          ctrl.error(err);
-        }
-      },
-      async cancel() {
-        var _a2;
-        await ((_a2 = iter.return) == null ? void 0 : _a2.call(iter));
-      }
-    });
-  }
-};
-async function* _iterSSEMessages(response, controller) {
-  if (!response.body) {
-    controller.abort();
-    throw new AnthropicError(`Attempted to iterate over a response with no body`);
-  }
-  const sseDecoder = new SSEDecoder();
-  const lineDecoder = new LineDecoder();
-  const iter = readableStreamAsyncIterable(response.body);
-  for await (const sseChunk of iterSSEChunks(iter)) {
-    for (const line of lineDecoder.decode(sseChunk)) {
-      const sse = sseDecoder.decode(line);
-      if (sse)
-        yield sse;
-    }
-  }
-  for (const line of lineDecoder.flush()) {
-    const sse = sseDecoder.decode(line);
-    if (sse)
-      yield sse;
-  }
-}
-async function* iterSSEChunks(iterator) {
-  let data = new Uint8Array();
-  for await (const chunk of iterator) {
-    if (chunk == null) {
-      continue;
-    }
-    const binaryChunk = chunk instanceof ArrayBuffer ? new Uint8Array(chunk) : typeof chunk === "string" ? new TextEncoder().encode(chunk) : chunk;
-    let newData = new Uint8Array(data.length + binaryChunk.length);
-    newData.set(data);
-    newData.set(binaryChunk, data.length);
-    data = newData;
-    let patternIndex;
-    while ((patternIndex = findDoubleNewlineIndex(data)) !== -1) {
-      yield data.slice(0, patternIndex);
-      data = data.slice(patternIndex);
-    }
-  }
-  if (data.length > 0) {
-    yield data;
-  }
-}
-function findDoubleNewlineIndex(buffer) {
-  const newline = 10;
-  const carriage = 13;
-  for (let i = 0; i < buffer.length - 2; i++) {
-    if (buffer[i] === newline && buffer[i + 1] === newline) {
-      return i + 2;
-    }
-    if (buffer[i] === carriage && buffer[i + 1] === carriage) {
-      return i + 2;
-    }
-    if (buffer[i] === carriage && buffer[i + 1] === newline && i + 3 < buffer.length && buffer[i + 2] === carriage && buffer[i + 3] === newline) {
-      return i + 4;
-    }
-  }
-  return -1;
-}
-var SSEDecoder = class {
-  constructor() {
-    this.event = null;
-    this.data = [];
-    this.chunks = [];
-  }
-  decode(line) {
-    if (line.endsWith("\r")) {
-      line = line.substring(0, line.length - 1);
-    }
-    if (!line) {
-      if (!this.event && !this.data.length)
-        return null;
-      const sse = {
-        event: this.event,
-        data: this.data.join("\n"),
-        raw: this.chunks
-      };
-      this.event = null;
-      this.data = [];
-      this.chunks = [];
-      return sse;
-    }
-    this.chunks.push(line);
-    if (line.startsWith(":")) {
-      return null;
-    }
-    let [fieldname, _, value] = partition(line, ":");
-    if (value.startsWith(" ")) {
-      value = value.substring(1);
-    }
-    if (fieldname === "event") {
-      this.event = value;
-    } else if (fieldname === "data") {
-      this.data.push(value);
-    }
-    return null;
-  }
-};
-var LineDecoder = class _LineDecoder {
-  constructor() {
-    this.buffer = [];
-    this.trailingCR = false;
-  }
-  decode(chunk) {
-    let text = this.decodeText(chunk);
-    if (this.trailingCR) {
-      text = "\r" + text;
-      this.trailingCR = false;
-    }
-    if (text.endsWith("\r")) {
-      this.trailingCR = true;
-      text = text.slice(0, -1);
-    }
-    if (!text) {
-      return [];
-    }
-    const trailingNewline = _LineDecoder.NEWLINE_CHARS.has(text[text.length - 1] || "");
-    let lines = text.split(_LineDecoder.NEWLINE_REGEXP);
-    if (trailingNewline) {
-      lines.pop();
-    }
-    if (lines.length === 1 && !trailingNewline) {
-      this.buffer.push(lines[0]);
-      return [];
-    }
-    if (this.buffer.length > 0) {
-      lines = [this.buffer.join("") + lines[0], ...lines.slice(1)];
-      this.buffer = [];
-    }
-    if (!trailingNewline) {
-      this.buffer = [lines.pop() || ""];
-    }
-    return lines;
-  }
-  decodeText(bytes) {
-    var _a2;
-    if (bytes == null)
-      return "";
-    if (typeof bytes === "string")
-      return bytes;
-    if (typeof Buffer !== "undefined") {
-      if (bytes instanceof Buffer) {
-        return bytes.toString();
-      }
-      if (bytes instanceof Uint8Array) {
-        return Buffer.from(bytes).toString();
-      }
-      throw new AnthropicError(`Unexpected: received non-Uint8Array (${bytes.constructor.name}) stream chunk in an environment with a global "Buffer" defined, which this library assumes to be Node. Please report this error.`);
-    }
-    if (typeof TextDecoder !== "undefined") {
-      if (bytes instanceof Uint8Array || bytes instanceof ArrayBuffer) {
-        (_a2 = this.textDecoder) != null ? _a2 : this.textDecoder = new TextDecoder("utf8");
-        return this.textDecoder.decode(bytes);
-      }
-      throw new AnthropicError(`Unexpected: received non-Uint8Array/ArrayBuffer (${bytes.constructor.name}) in a web platform. Please report this error.`);
-    }
-    throw new AnthropicError(`Unexpected: neither Buffer nor TextDecoder are available as globals. Please report this error.`);
-  }
-  flush() {
-    if (!this.buffer.length && !this.trailingCR) {
-      return [];
-    }
-    const lines = [this.buffer.join("")];
-    this.buffer = [];
-    this.trailingCR = false;
-    return lines;
-  }
-};
-LineDecoder.NEWLINE_CHARS = /* @__PURE__ */ new Set(["\n", "\r"]);
-LineDecoder.NEWLINE_REGEXP = /\r\n|[\n\r]/g;
-function partition(str, delimiter) {
-  const index = str.indexOf(delimiter);
-  if (index !== -1) {
-    return [str.substring(0, index), delimiter, str.substring(index + delimiter.length)];
-  }
-  return [str, "", ""];
-}
-function readableStreamAsyncIterable(stream) {
-  if (stream[Symbol.asyncIterator])
-    return stream;
-  const reader = stream.getReader();
-  return {
-    async next() {
-      try {
-        const result = await reader.read();
-        if (result == null ? void 0 : result.done)
-          reader.releaseLock();
-        return result;
-      } catch (e) {
-        reader.releaseLock();
-        throw e;
-      }
-    },
-    async return() {
-      const cancelPromise = reader.cancel();
-      reader.releaseLock();
-      await cancelPromise;
-      return { done: true, value: void 0 };
-    },
-    [Symbol.asyncIterator]() {
-      return this;
-    }
-  };
-}
-
-// node_modules/@anthropic-ai/sdk/uploads.mjs
-var isResponseLike = (value) => value != null && typeof value === "object" && typeof value.url === "string" && typeof value.blob === "function";
-var isFileLike = (value) => value != null && typeof value === "object" && typeof value.name === "string" && typeof value.lastModified === "number" && isBlobLike(value);
-var isBlobLike = (value) => value != null && typeof value === "object" && typeof value.size === "number" && typeof value.type === "string" && typeof value.text === "function" && typeof value.slice === "function" && typeof value.arrayBuffer === "function";
-async function toFile(value, name, options) {
-  var _a2, _b, _c;
-  value = await value;
-  options != null ? options : options = isFileLike(value) ? { lastModified: value.lastModified, type: value.type } : {};
-  if (isResponseLike(value)) {
-    const blob = await value.blob();
-    name || (name = (_a2 = new URL(value.url).pathname.split(/[\\/]/).pop()) != null ? _a2 : "unknown_file");
-    return new File2([blob], name, options);
-  }
-  const bits = await getBytes(value);
-  name || (name = (_b = getName(value)) != null ? _b : "unknown_file");
-  if (!options.type) {
-    const type = (_c = bits[0]) == null ? void 0 : _c.type;
-    if (typeof type === "string") {
-      options = { ...options, type };
-    }
-  }
-  return new File2(bits, name, options);
-}
-async function getBytes(value) {
-  var _a2;
-  let parts = [];
-  if (typeof value === "string" || ArrayBuffer.isView(value) || // includes Uint8Array, Buffer, etc.
-  value instanceof ArrayBuffer) {
-    parts.push(value);
-  } else if (isBlobLike(value)) {
-    parts.push(await value.arrayBuffer());
-  } else if (isAsyncIterableIterator(value)) {
-    for await (const chunk of value) {
-      parts.push(chunk);
-    }
-  } else {
-    throw new Error(`Unexpected data type: ${typeof value}; constructor: ${(_a2 = value == null ? void 0 : value.constructor) == null ? void 0 : _a2.name}; props: ${propsForError(value)}`);
-  }
-  return parts;
-}
-function propsForError(value) {
-  const props = Object.getOwnPropertyNames(value);
-  return `[${props.map((p) => `"${p}"`).join(", ")}]`;
-}
-function getName(value) {
-  var _a2;
-  return getStringFromMaybeBuffer(value.name) || getStringFromMaybeBuffer(value.filename) || // For fs.ReadStream
-  ((_a2 = getStringFromMaybeBuffer(value.path)) == null ? void 0 : _a2.split(/[\\/]/).pop());
-}
-var getStringFromMaybeBuffer = (x) => {
-  if (typeof x === "string")
-    return x;
-  if (typeof Buffer !== "undefined" && x instanceof Buffer)
-    return String(x);
-  return void 0;
-};
-var isAsyncIterableIterator = (value) => value != null && typeof value === "object" && typeof value[Symbol.asyncIterator] === "function";
-var isMultipartBody = (body) => body && typeof body === "object" && body.body && body[Symbol.toStringTag] === "MultipartBody";
-
-// node_modules/@anthropic-ai/sdk/core.mjs
-var __classPrivateFieldSet = function(receiver, state, value, kind2, f) {
-  if (kind2 === "m") throw new TypeError("Private method is not writable");
-  if (kind2 === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return kind2 === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
-};
-var __classPrivateFieldGet = function(receiver, state, kind2, f) {
-  if (kind2 === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind2 === "m" ? f : kind2 === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var _AbstractPage_client;
-async function defaultParseResponse(props) {
-  const { response } = props;
-  if (props.options.stream) {
-    debug("response", response.status, response.url, response.headers, response.body);
-    if (props.options.__streamClass) {
-      return props.options.__streamClass.fromSSEResponse(response, props.controller);
-    }
-    return Stream.fromSSEResponse(response, props.controller);
-  }
-  if (response.status === 204) {
-    return null;
-  }
-  if (props.options.__binaryResponse) {
-    return response;
-  }
-  const contentType = response.headers.get("content-type");
-  const isJSON = (contentType == null ? void 0 : contentType.includes("application/json")) || (contentType == null ? void 0 : contentType.includes("application/vnd.api+json"));
-  if (isJSON) {
-    const json = await response.json();
-    debug("response", response.status, response.url, response.headers, json);
-    return json;
-  }
-  const text = await response.text();
-  debug("response", response.status, response.url, response.headers, text);
-  return text;
-}
-var APIPromise = class _APIPromise extends Promise {
-  constructor(responsePromise, parseResponse = defaultParseResponse) {
-    super((resolve) => {
-      resolve(null);
-    });
-    this.responsePromise = responsePromise;
-    this.parseResponse = parseResponse;
-  }
-  _thenUnwrap(transform) {
-    return new _APIPromise(this.responsePromise, async (props) => transform(await this.parseResponse(props)));
-  }
-  /**
-   * Gets the raw `Response` instance instead of parsing the response
-   * data.
-   *
-   * If you want to parse the response body but still get the `Response`
-   * instance, you can use {@link withResponse()}.
-   *
-   * 👋 Getting the wrong TypeScript type for `Response`?
-   * Try setting `"moduleResolution": "NodeNext"` if you can,
-   * or add one of these imports before your first `import … from '@anthropic-ai/sdk'`:
-   * - `import '@anthropic-ai/sdk/shims/node'` (if you're running on Node)
-   * - `import '@anthropic-ai/sdk/shims/web'` (otherwise)
-   */
-  asResponse() {
-    return this.responsePromise.then((p) => p.response);
-  }
-  /**
-   * Gets the parsed response data and the raw `Response` instance.
-   *
-   * If you just want to get the raw `Response` instance without parsing it,
-   * you can use {@link asResponse()}.
-   *
-   *
-   * 👋 Getting the wrong TypeScript type for `Response`?
-   * Try setting `"moduleResolution": "NodeNext"` if you can,
-   * or add one of these imports before your first `import … from '@anthropic-ai/sdk'`:
-   * - `import '@anthropic-ai/sdk/shims/node'` (if you're running on Node)
-   * - `import '@anthropic-ai/sdk/shims/web'` (otherwise)
-   */
-  async withResponse() {
-    const [data, response] = await Promise.all([this.parse(), this.asResponse()]);
-    return { data, response };
-  }
-  parse() {
-    if (!this.parsedPromise) {
-      this.parsedPromise = this.responsePromise.then(this.parseResponse);
-    }
-    return this.parsedPromise;
-  }
-  then(onfulfilled, onrejected) {
-    return this.parse().then(onfulfilled, onrejected);
-  }
-  catch(onrejected) {
-    return this.parse().catch(onrejected);
-  }
-  finally(onfinally) {
-    return this.parse().finally(onfinally);
-  }
-};
-var APIClient = class {
-  constructor({
-    baseURL,
-    maxRetries = 2,
-    timeout = 6e5,
-    // 10 minutes
-    httpAgent,
-    fetch: overridenFetch
-  }) {
-    this.baseURL = baseURL;
-    this.maxRetries = validatePositiveInteger("maxRetries", maxRetries);
-    this.timeout = validatePositiveInteger("timeout", timeout);
-    this.httpAgent = httpAgent;
-    this.fetch = overridenFetch != null ? overridenFetch : fetch2;
-  }
-  authHeaders(opts) {
-    return {};
-  }
-  /**
-   * Override this to add your own default headers, for example:
-   *
-   *  {
-   *    ...super.defaultHeaders(),
-   *    Authorization: 'Bearer 123',
-   *  }
-   */
-  defaultHeaders(opts) {
-    return {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      "User-Agent": this.getUserAgent(),
-      ...getPlatformHeaders(),
-      ...this.authHeaders(opts)
-    };
-  }
-  /**
-   * Override this to add your own headers validation:
-   */
-  validateHeaders(headers, customHeaders) {
-  }
-  defaultIdempotencyKey() {
-    return `stainless-node-retry-${uuid4()}`;
-  }
-  get(path, opts) {
-    return this.methodRequest("get", path, opts);
-  }
-  post(path, opts) {
-    return this.methodRequest("post", path, opts);
-  }
-  patch(path, opts) {
-    return this.methodRequest("patch", path, opts);
-  }
-  put(path, opts) {
-    return this.methodRequest("put", path, opts);
-  }
-  delete(path, opts) {
-    return this.methodRequest("delete", path, opts);
-  }
-  methodRequest(method, path, opts) {
-    return this.request(Promise.resolve(opts).then(async (opts2) => {
-      const body = opts2 && isBlobLike(opts2 == null ? void 0 : opts2.body) ? new DataView(await opts2.body.arrayBuffer()) : (opts2 == null ? void 0 : opts2.body) instanceof DataView ? opts2.body : (opts2 == null ? void 0 : opts2.body) instanceof ArrayBuffer ? new DataView(opts2.body) : opts2 && ArrayBuffer.isView(opts2 == null ? void 0 : opts2.body) ? new DataView(opts2.body.buffer) : opts2 == null ? void 0 : opts2.body;
-      return { method, path, ...opts2, body };
-    }));
-  }
-  getAPIList(path, Page, opts) {
-    return this.requestAPIList(Page, { method: "get", path, ...opts });
-  }
-  calculateContentLength(body) {
-    if (typeof body === "string") {
-      if (typeof Buffer !== "undefined") {
-        return Buffer.byteLength(body, "utf8").toString();
-      }
-      if (typeof TextEncoder !== "undefined") {
-        const encoder = new TextEncoder();
-        const encoded = encoder.encode(body);
-        return encoded.length.toString();
-      }
-    } else if (ArrayBuffer.isView(body)) {
-      return body.byteLength.toString();
-    }
-    return null;
-  }
-  buildRequest(options) {
-    var _a2, _b, _c, _d, _e, _f;
-    const { method, path, query, headers = {} } = options;
-    const body = ArrayBuffer.isView(options.body) || options.__binaryRequest && typeof options.body === "string" ? options.body : isMultipartBody(options.body) ? options.body.body : options.body ? JSON.stringify(options.body, null, 2) : null;
-    const contentLength = this.calculateContentLength(body);
-    const url = this.buildURL(path, query);
-    if ("timeout" in options)
-      validatePositiveInteger("timeout", options.timeout);
-    const timeout = (_a2 = options.timeout) != null ? _a2 : this.timeout;
-    const httpAgent = (_c = (_b = options.httpAgent) != null ? _b : this.httpAgent) != null ? _c : getDefaultAgent(url);
-    const minAgentTimeout = timeout + 1e3;
-    if (typeof ((_d = httpAgent == null ? void 0 : httpAgent.options) == null ? void 0 : _d.timeout) === "number" && minAgentTimeout > ((_e = httpAgent.options.timeout) != null ? _e : 0)) {
-      httpAgent.options.timeout = minAgentTimeout;
-    }
-    if (this.idempotencyHeader && method !== "get") {
-      if (!options.idempotencyKey)
-        options.idempotencyKey = this.defaultIdempotencyKey();
-      headers[this.idempotencyHeader] = options.idempotencyKey;
-    }
-    const reqHeaders = this.buildHeaders({ options, headers, contentLength });
-    const req = {
-      method,
-      ...body && { body },
-      headers: reqHeaders,
-      ...httpAgent && { agent: httpAgent },
-      // @ts-ignore node-fetch uses a custom AbortSignal type that is
-      // not compatible with standard web types
-      signal: (_f = options.signal) != null ? _f : null
-    };
-    return { req, url, timeout };
-  }
-  buildHeaders({ options, headers, contentLength }) {
-    const reqHeaders = {};
-    if (contentLength) {
-      reqHeaders["content-length"] = contentLength;
-    }
-    const defaultHeaders = this.defaultHeaders(options);
-    applyHeadersMut(reqHeaders, defaultHeaders);
-    applyHeadersMut(reqHeaders, headers);
-    if (isMultipartBody(options.body) && kind !== "node") {
-      delete reqHeaders["content-type"];
-    }
-    this.validateHeaders(reqHeaders, headers);
-    return reqHeaders;
-  }
-  /**
-   * Used as a callback for mutating the given `FinalRequestOptions` object.
-   */
-  async prepareOptions(options) {
-  }
-  /**
-   * Used as a callback for mutating the given `RequestInit` object.
-   *
-   * This is useful for cases where you want to add certain headers based off of
-   * the request properties, e.g. `method` or `url`.
-   */
-  async prepareRequest(request, { url, options }) {
-  }
-  parseHeaders(headers) {
-    return !headers ? {} : Symbol.iterator in headers ? Object.fromEntries(Array.from(headers).map((header) => [...header])) : { ...headers };
-  }
-  makeStatusError(status, error, message, headers) {
-    return APIError.generate(status, error, message, headers);
-  }
-  request(options, remainingRetries = null) {
-    return new APIPromise(this.makeRequest(options, remainingRetries));
-  }
-  async makeRequest(optionsInput, retriesRemaining) {
-    var _a2, _b, _c;
-    const options = await optionsInput;
-    if (retriesRemaining == null) {
-      retriesRemaining = (_a2 = options.maxRetries) != null ? _a2 : this.maxRetries;
-    }
-    await this.prepareOptions(options);
-    const { req, url, timeout } = this.buildRequest(options);
-    await this.prepareRequest(req, { url, options });
-    debug("request", url, options, req.headers);
-    if ((_b = options.signal) == null ? void 0 : _b.aborted) {
-      throw new APIUserAbortError();
-    }
-    const controller = new AbortController();
-    const response = await this.fetchWithTimeout(url, req, timeout, controller).catch(castToError);
-    if (response instanceof Error) {
-      if ((_c = options.signal) == null ? void 0 : _c.aborted) {
-        throw new APIUserAbortError();
-      }
-      if (retriesRemaining) {
-        return this.retryRequest(options, retriesRemaining);
-      }
-      if (response.name === "AbortError") {
-        throw new APIConnectionTimeoutError();
-      }
-      throw new APIConnectionError({ cause: response });
-    }
-    const responseHeaders = createResponseHeaders(response.headers);
-    if (!response.ok) {
-      if (retriesRemaining && this.shouldRetry(response)) {
-        const retryMessage2 = `retrying, ${retriesRemaining} attempts remaining`;
-        debug(`response (error; ${retryMessage2})`, response.status, url, responseHeaders);
-        return this.retryRequest(options, retriesRemaining, responseHeaders);
-      }
-      const errText = await response.text().catch((e) => castToError(e).message);
-      const errJSON = safeJSON(errText);
-      const errMessage = errJSON ? void 0 : errText;
-      const retryMessage = retriesRemaining ? `(error; no more retries left)` : `(error; not retryable)`;
-      debug(`response (error; ${retryMessage})`, response.status, url, responseHeaders, errMessage);
-      const err = this.makeStatusError(response.status, errJSON, errMessage, responseHeaders);
-      throw err;
-    }
-    return { response, options, controller };
-  }
-  requestAPIList(Page, options) {
-    const request = this.makeRequest(options, null);
-    return new PagePromise(this, request, Page);
-  }
-  buildURL(path, query) {
-    const url = isAbsoluteURL(path) ? new URL(path) : new URL(this.baseURL + (this.baseURL.endsWith("/") && path.startsWith("/") ? path.slice(1) : path));
-    const defaultQuery = this.defaultQuery();
-    if (!isEmptyObj(defaultQuery)) {
-      query = { ...defaultQuery, ...query };
-    }
-    if (typeof query === "object" && query && !Array.isArray(query)) {
-      url.search = this.stringifyQuery(query);
-    }
-    return url.toString();
-  }
-  stringifyQuery(query) {
-    return Object.entries(query).filter(([_, value]) => typeof value !== "undefined").map(([key, value]) => {
-      if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
-        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
-      }
-      if (value === null) {
-        return `${encodeURIComponent(key)}=`;
-      }
-      throw new AnthropicError(`Cannot stringify type ${typeof value}; Expected string, number, boolean, or null. If you need to pass nested query parameters, you can manually encode them, e.g. { query: { 'foo[key1]': value1, 'foo[key2]': value2 } }, and please open a GitHub issue requesting better support for your use case.`);
-    }).join("&");
-  }
-  async fetchWithTimeout(url, init, ms, controller) {
-    const { signal, ...options } = init || {};
-    if (signal)
-      signal.addEventListener("abort", () => controller.abort());
-    const timeout = setTimeout(() => controller.abort(), ms);
-    return this.getRequestClient().fetch.call(void 0, url, { signal: controller.signal, ...options }).finally(() => {
-      clearTimeout(timeout);
-    });
-  }
-  getRequestClient() {
-    return { fetch: this.fetch };
-  }
-  shouldRetry(response) {
-    const shouldRetryHeader = response.headers.get("x-should-retry");
-    if (shouldRetryHeader === "true")
-      return true;
-    if (shouldRetryHeader === "false")
-      return false;
-    if (response.status === 408)
-      return true;
-    if (response.status === 409)
-      return true;
-    if (response.status === 429)
-      return true;
-    if (response.status >= 500)
-      return true;
-    return false;
-  }
-  async retryRequest(options, retriesRemaining, responseHeaders) {
-    var _a2;
-    let timeoutMillis;
-    const retryAfterMillisHeader = responseHeaders == null ? void 0 : responseHeaders["retry-after-ms"];
-    if (retryAfterMillisHeader) {
-      const timeoutMs = parseFloat(retryAfterMillisHeader);
-      if (!Number.isNaN(timeoutMs)) {
-        timeoutMillis = timeoutMs;
-      }
-    }
-    const retryAfterHeader = responseHeaders == null ? void 0 : responseHeaders["retry-after"];
-    if (retryAfterHeader && !timeoutMillis) {
-      const timeoutSeconds = parseFloat(retryAfterHeader);
-      if (!Number.isNaN(timeoutSeconds)) {
-        timeoutMillis = timeoutSeconds * 1e3;
-      } else {
-        timeoutMillis = Date.parse(retryAfterHeader) - Date.now();
-      }
-    }
-    if (!(timeoutMillis && 0 <= timeoutMillis && timeoutMillis < 60 * 1e3)) {
-      const maxRetries = (_a2 = options.maxRetries) != null ? _a2 : this.maxRetries;
-      timeoutMillis = this.calculateDefaultRetryTimeoutMillis(retriesRemaining, maxRetries);
-    }
-    await sleep(timeoutMillis);
-    return this.makeRequest(options, retriesRemaining - 1);
-  }
-  calculateDefaultRetryTimeoutMillis(retriesRemaining, maxRetries) {
-    const initialRetryDelay = 0.5;
-    const maxRetryDelay = 8;
-    const numRetries = maxRetries - retriesRemaining;
-    const sleepSeconds = Math.min(initialRetryDelay * Math.pow(2, numRetries), maxRetryDelay);
-    const jitter = 1 - Math.random() * 0.25;
-    return sleepSeconds * jitter * 1e3;
-  }
-  getUserAgent() {
-    return `${this.constructor.name}/JS ${VERSION}`;
-  }
-};
-var AbstractPage = class {
-  constructor(client, response, body, options) {
-    _AbstractPage_client.set(this, void 0);
-    __classPrivateFieldSet(this, _AbstractPage_client, client, "f");
-    this.options = options;
-    this.response = response;
-    this.body = body;
-  }
-  hasNextPage() {
-    const items = this.getPaginatedItems();
-    if (!items.length)
-      return false;
-    return this.nextPageInfo() != null;
-  }
-  async getNextPage() {
-    const nextInfo = this.nextPageInfo();
-    if (!nextInfo) {
-      throw new AnthropicError("No next page expected; please check `.hasNextPage()` before calling `.getNextPage()`.");
-    }
-    const nextOptions = { ...this.options };
-    if ("params" in nextInfo && typeof nextOptions.query === "object") {
-      nextOptions.query = { ...nextOptions.query, ...nextInfo.params };
-    } else if ("url" in nextInfo) {
-      const params = [...Object.entries(nextOptions.query || {}), ...nextInfo.url.searchParams.entries()];
-      for (const [key, value] of params) {
-        nextInfo.url.searchParams.set(key, value);
-      }
-      nextOptions.query = void 0;
-      nextOptions.path = nextInfo.url.toString();
-    }
-    return await __classPrivateFieldGet(this, _AbstractPage_client, "f").requestAPIList(this.constructor, nextOptions);
-  }
-  async *iterPages() {
-    let page = this;
-    yield page;
-    while (page.hasNextPage()) {
-      page = await page.getNextPage();
-      yield page;
-    }
-  }
-  async *[(_AbstractPage_client = /* @__PURE__ */ new WeakMap(), Symbol.asyncIterator)]() {
-    for await (const page of this.iterPages()) {
-      for (const item of page.getPaginatedItems()) {
-        yield item;
-      }
-    }
-  }
-};
-var PagePromise = class extends APIPromise {
-  constructor(client, request, Page) {
-    super(request, async (props) => new Page(client, props.response, await defaultParseResponse(props), props.options));
-  }
-  /**
-   * Allow auto-paginating iteration on an unawaited list call, eg:
-   *
-   *    for await (const item of client.items.list()) {
-   *      console.log(item)
-   *    }
-   */
-  async *[Symbol.asyncIterator]() {
-    const page = await this;
-    for await (const item of page) {
-      yield item;
-    }
-  }
-};
-var createResponseHeaders = (headers) => {
-  return new Proxy(Object.fromEntries(
-    // @ts-ignore
-    headers.entries()
-  ), {
-    get(target, name) {
-      const key = name.toString();
-      return target[key.toLowerCase()] || target[key];
-    }
-  });
-};
-var getPlatformProperties = () => {
-  var _a2, _b;
-  if (typeof Deno !== "undefined" && Deno.build != null) {
-    return {
-      "X-Stainless-Lang": "js",
-      "X-Stainless-Package-Version": VERSION,
-      "X-Stainless-OS": normalizePlatform(Deno.build.os),
-      "X-Stainless-Arch": normalizeArch(Deno.build.arch),
-      "X-Stainless-Runtime": "deno",
-      "X-Stainless-Runtime-Version": typeof Deno.version === "string" ? Deno.version : (_b = (_a2 = Deno.version) == null ? void 0 : _a2.deno) != null ? _b : "unknown"
-    };
-  }
-  if (typeof EdgeRuntime !== "undefined") {
-    return {
-      "X-Stainless-Lang": "js",
-      "X-Stainless-Package-Version": VERSION,
-      "X-Stainless-OS": "Unknown",
-      "X-Stainless-Arch": `other:${EdgeRuntime}`,
-      "X-Stainless-Runtime": "edge",
-      "X-Stainless-Runtime-Version": process.version
-    };
-  }
-  if (Object.prototype.toString.call(typeof process !== "undefined" ? process : 0) === "[object process]") {
-    return {
-      "X-Stainless-Lang": "js",
-      "X-Stainless-Package-Version": VERSION,
-      "X-Stainless-OS": normalizePlatform(process.platform),
-      "X-Stainless-Arch": normalizeArch(process.arch),
-      "X-Stainless-Runtime": "node",
-      "X-Stainless-Runtime-Version": process.version
-    };
-  }
-  const browserInfo = getBrowserInfo();
-  if (browserInfo) {
-    return {
-      "X-Stainless-Lang": "js",
-      "X-Stainless-Package-Version": VERSION,
-      "X-Stainless-OS": "Unknown",
-      "X-Stainless-Arch": "unknown",
-      "X-Stainless-Runtime": `browser:${browserInfo.browser}`,
-      "X-Stainless-Runtime-Version": browserInfo.version
-    };
-  }
-  return {
-    "X-Stainless-Lang": "js",
-    "X-Stainless-Package-Version": VERSION,
-    "X-Stainless-OS": "Unknown",
-    "X-Stainless-Arch": "unknown",
-    "X-Stainless-Runtime": "unknown",
-    "X-Stainless-Runtime-Version": "unknown"
-  };
-};
-function getBrowserInfo() {
-  if (typeof navigator === "undefined" || !navigator) {
-    return null;
-  }
-  const browserPatterns = [
-    { key: "edge", pattern: /Edge(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/ },
-    { key: "ie", pattern: /MSIE(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/ },
-    { key: "ie", pattern: /Trident(?:.*rv\:(\d+)\.(\d+)(?:\.(\d+))?)?/ },
-    { key: "chrome", pattern: /Chrome(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/ },
-    { key: "firefox", pattern: /Firefox(?:\W+(\d+)\.(\d+)(?:\.(\d+))?)?/ },
-    { key: "safari", pattern: /(?:Version\W+(\d+)\.(\d+)(?:\.(\d+))?)?(?:\W+Mobile\S*)?\W+Safari/ }
-  ];
-  for (const { key, pattern } of browserPatterns) {
-    const match = pattern.exec(navigator.userAgent);
-    if (match) {
-      const major = match[1] || 0;
-      const minor = match[2] || 0;
-      const patch = match[3] || 0;
-      return { browser: key, version: `${major}.${minor}.${patch}` };
-    }
-  }
-  return null;
-}
-var normalizeArch = (arch) => {
-  if (arch === "x32")
-    return "x32";
-  if (arch === "x86_64" || arch === "x64")
-    return "x64";
-  if (arch === "arm")
-    return "arm";
-  if (arch === "aarch64" || arch === "arm64")
-    return "arm64";
-  if (arch)
-    return `other:${arch}`;
-  return "unknown";
-};
-var normalizePlatform = (platform) => {
-  platform = platform.toLowerCase();
-  if (platform.includes("ios"))
-    return "iOS";
-  if (platform === "android")
-    return "Android";
-  if (platform === "darwin")
-    return "MacOS";
-  if (platform === "win32")
-    return "Windows";
-  if (platform === "freebsd")
-    return "FreeBSD";
-  if (platform === "openbsd")
-    return "OpenBSD";
-  if (platform === "linux")
-    return "Linux";
-  if (platform)
-    return `Other:${platform}`;
-  return "Unknown";
-};
-var _platformHeaders;
-var getPlatformHeaders = () => {
-  return _platformHeaders != null ? _platformHeaders : _platformHeaders = getPlatformProperties();
-};
-var safeJSON = (text) => {
-  try {
-    return JSON.parse(text);
-  } catch (err) {
-    return void 0;
-  }
-};
-var startsWithSchemeRegexp = new RegExp("^(?:[a-z]+:)?//", "i");
-var isAbsoluteURL = (url) => {
-  return startsWithSchemeRegexp.test(url);
-};
-var sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-var validatePositiveInteger = (name, n) => {
-  if (typeof n !== "number" || !Number.isInteger(n)) {
-    throw new AnthropicError(`${name} must be an integer`);
-  }
-  if (n < 0) {
-    throw new AnthropicError(`${name} must be a positive integer`);
-  }
-  return n;
-};
-var castToError = (err) => {
-  if (err instanceof Error)
-    return err;
-  return new Error(err);
-};
-var readEnv = (env) => {
-  var _a2, _b, _c, _d, _e, _f;
-  if (typeof process !== "undefined") {
-    return (_c = (_b = (_a2 = process.env) == null ? void 0 : _a2[env]) == null ? void 0 : _b.trim()) != null ? _c : void 0;
-  }
-  if (typeof Deno !== "undefined") {
-    return (_f = (_e = (_d = Deno.env) == null ? void 0 : _d.get) == null ? void 0 : _e.call(_d, env)) == null ? void 0 : _f.trim();
-  }
-  return void 0;
-};
-function isEmptyObj(obj) {
-  if (!obj)
-    return true;
-  for (const _k in obj)
-    return false;
-  return true;
-}
-function hasOwn(obj, key) {
-  return Object.prototype.hasOwnProperty.call(obj, key);
-}
-function applyHeadersMut(targetHeaders, newHeaders) {
-  for (const k in newHeaders) {
-    if (!hasOwn(newHeaders, k))
-      continue;
-    const lowerKey = k.toLowerCase();
-    if (!lowerKey)
-      continue;
-    const val = newHeaders[k];
-    if (val === null) {
-      delete targetHeaders[lowerKey];
-    } else if (val !== void 0) {
-      targetHeaders[lowerKey] = val;
-    }
-  }
-}
-function debug(action, ...args) {
-  var _a2;
-  if (typeof process !== "undefined" && ((_a2 = process == null ? void 0 : process.env) == null ? void 0 : _a2["DEBUG"]) === "true") {
-    console.log(`Anthropic:DEBUG:${action}`, ...args);
-  }
-}
-var uuid4 = () => {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-    const r = Math.random() * 16 | 0;
-    const v = c === "x" ? r : r & 3 | 8;
-    return v.toString(16);
-  });
-};
-
-// node_modules/@anthropic-ai/sdk/error.mjs
-var AnthropicError = class extends Error {
-};
-var APIError = class _APIError extends AnthropicError {
-  constructor(status, error, message, headers) {
-    super(`${_APIError.makeMessage(status, error, message)}`);
-    this.status = status;
-    this.headers = headers;
-    this.error = error;
-  }
-  static makeMessage(status, error, message) {
-    const msg = (error == null ? void 0 : error.message) ? typeof error.message === "string" ? error.message : JSON.stringify(error.message) : error ? JSON.stringify(error) : message;
-    if (status && msg) {
-      return `${status} ${msg}`;
-    }
-    if (status) {
-      return `${status} status code (no body)`;
-    }
-    if (msg) {
-      return msg;
-    }
-    return "(no status code or body)";
-  }
-  static generate(status, errorResponse, message, headers) {
-    if (!status) {
-      return new APIConnectionError({ cause: castToError(errorResponse) });
-    }
-    const error = errorResponse;
-    if (status === 400) {
-      return new BadRequestError(status, error, message, headers);
-    }
-    if (status === 401) {
-      return new AuthenticationError(status, error, message, headers);
-    }
-    if (status === 403) {
-      return new PermissionDeniedError(status, error, message, headers);
-    }
-    if (status === 404) {
-      return new NotFoundError(status, error, message, headers);
-    }
-    if (status === 409) {
-      return new ConflictError(status, error, message, headers);
-    }
-    if (status === 422) {
-      return new UnprocessableEntityError(status, error, message, headers);
-    }
-    if (status === 429) {
-      return new RateLimitError(status, error, message, headers);
-    }
-    if (status >= 500) {
-      return new InternalServerError(status, error, message, headers);
-    }
-    return new _APIError(status, error, message, headers);
-  }
-};
-var APIUserAbortError = class extends APIError {
-  constructor({ message } = {}) {
-    super(void 0, void 0, message || "Request was aborted.", void 0);
-    this.status = void 0;
-  }
-};
-var APIConnectionError = class extends APIError {
-  constructor({ message, cause }) {
-    super(void 0, void 0, message || "Connection error.", void 0);
-    this.status = void 0;
-    if (cause)
-      this.cause = cause;
-  }
-};
-var APIConnectionTimeoutError = class extends APIConnectionError {
-  constructor({ message } = {}) {
-    super({ message: message != null ? message : "Request timed out." });
-  }
-};
-var BadRequestError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 400;
-  }
-};
-var AuthenticationError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 401;
-  }
-};
-var PermissionDeniedError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 403;
-  }
-};
-var NotFoundError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 404;
-  }
-};
-var ConflictError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 409;
-  }
-};
-var UnprocessableEntityError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 422;
-  }
-};
-var RateLimitError = class extends APIError {
-  constructor() {
-    super(...arguments);
-    this.status = 429;
-  }
-};
-var InternalServerError = class extends APIError {
-};
-
-// node_modules/@anthropic-ai/sdk/resource.mjs
-var APIResource = class {
-  constructor(client) {
-    this._client = client;
-  }
-};
-
-// node_modules/@anthropic-ai/sdk/resources/completions.mjs
-var Completions = class extends APIResource {
-  create(body, options) {
-    var _a2;
-    return this._client.post("/v1/complete", {
-      body,
-      timeout: 6e5,
-      ...options,
-      stream: (_a2 = body.stream) != null ? _a2 : false
-    });
-  }
-};
-/* @__PURE__ */ (function(Completions2) {
-})(Completions || (Completions = {}));
-
-// node_modules/@anthropic-ai/sdk/_vendor/partial-json-parser/parser.mjs
-var tokenize = (input) => {
-  let current = 0;
-  let tokens = [];
-  while (current < input.length) {
-    let char = input[current];
-    if (char === "\\") {
-      current++;
-      continue;
-    }
-    if (char === "{") {
-      tokens.push({
-        type: "brace",
-        value: "{"
-      });
-      current++;
-      continue;
-    }
-    if (char === "}") {
-      tokens.push({
-        type: "brace",
-        value: "}"
-      });
-      current++;
-      continue;
-    }
-    if (char === "[") {
-      tokens.push({
-        type: "paren",
-        value: "["
-      });
-      current++;
-      continue;
-    }
-    if (char === "]") {
-      tokens.push({
-        type: "paren",
-        value: "]"
-      });
-      current++;
-      continue;
-    }
-    if (char === ":") {
-      tokens.push({
-        type: "separator",
-        value: ":"
-      });
-      current++;
-      continue;
-    }
-    if (char === ",") {
-      tokens.push({
-        type: "delimiter",
-        value: ","
-      });
-      current++;
-      continue;
-    }
-    if (char === '"') {
-      let value = "";
-      let danglingQuote = false;
-      char = input[++current];
-      while (char !== '"') {
-        if (current === input.length) {
-          danglingQuote = true;
-          break;
-        }
-        if (char === "\\") {
-          current++;
-          if (current === input.length) {
-            danglingQuote = true;
-            break;
-          }
-          value += char + input[current];
-          char = input[++current];
-        } else {
-          value += char;
-          char = input[++current];
-        }
-      }
-      char = input[++current];
-      if (!danglingQuote) {
-        tokens.push({
-          type: "string",
-          value
-        });
-      }
-      continue;
-    }
-    let WHITESPACE = /\s/;
-    if (char && WHITESPACE.test(char)) {
-      current++;
-      continue;
-    }
-    let NUMBERS = /[0-9]/;
-    if (char && NUMBERS.test(char) || char === "-" || char === ".") {
-      let value = "";
-      if (char === "-") {
-        value += char;
-        char = input[++current];
-      }
-      while (char && NUMBERS.test(char) || char === ".") {
-        value += char;
-        char = input[++current];
-      }
-      tokens.push({
-        type: "number",
-        value
-      });
-      continue;
-    }
-    let LETTERS = /[a-z]/i;
-    if (char && LETTERS.test(char)) {
-      let value = "";
-      while (char && LETTERS.test(char)) {
-        if (current === input.length) {
-          break;
-        }
-        value += char;
-        char = input[++current];
-      }
-      if (value == "true" || value == "false" || value === "null") {
-        tokens.push({
-          type: "name",
-          value
-        });
-      } else {
-        current++;
-        continue;
-      }
-      continue;
-    }
-    current++;
-  }
-  return tokens;
-};
-var strip = (tokens) => {
-  if (tokens.length === 0) {
-    return tokens;
-  }
-  let lastToken = tokens[tokens.length - 1];
-  switch (lastToken.type) {
-    case "separator":
-      tokens = tokens.slice(0, tokens.length - 1);
-      return strip(tokens);
-      break;
-    case "number":
-      let lastCharacterOfLastToken = lastToken.value[lastToken.value.length - 1];
-      if (lastCharacterOfLastToken === "." || lastCharacterOfLastToken === "-") {
-        tokens = tokens.slice(0, tokens.length - 1);
-        return strip(tokens);
-      }
-    case "string":
-      let tokenBeforeTheLastToken = tokens[tokens.length - 2];
-      if ((tokenBeforeTheLastToken == null ? void 0 : tokenBeforeTheLastToken.type) === "delimiter") {
-        tokens = tokens.slice(0, tokens.length - 1);
-        return strip(tokens);
-      } else if ((tokenBeforeTheLastToken == null ? void 0 : tokenBeforeTheLastToken.type) === "brace" && tokenBeforeTheLastToken.value === "{") {
-        tokens = tokens.slice(0, tokens.length - 1);
-        return strip(tokens);
-      }
-      break;
-    case "delimiter":
-      tokens = tokens.slice(0, tokens.length - 1);
-      return strip(tokens);
-      break;
-  }
-  return tokens;
-};
-var unstrip = (tokens) => {
-  let tail = [];
-  tokens.map((token) => {
-    if (token.type === "brace") {
-      if (token.value === "{") {
-        tail.push("}");
-      } else {
-        tail.splice(tail.lastIndexOf("}"), 1);
-      }
-    }
-    if (token.type === "paren") {
-      if (token.value === "[") {
-        tail.push("]");
-      } else {
-        tail.splice(tail.lastIndexOf("]"), 1);
-      }
-    }
-  });
-  if (tail.length > 0) {
-    tail.reverse().map((item) => {
-      if (item === "}") {
-        tokens.push({
-          type: "brace",
-          value: "}"
-        });
-      } else if (item === "]") {
-        tokens.push({
-          type: "paren",
-          value: "]"
-        });
-      }
-    });
-  }
-  return tokens;
-};
-var generate = (tokens) => {
-  let output = "";
-  tokens.map((token) => {
-    switch (token.type) {
-      case "string":
-        output += '"' + token.value + '"';
-        break;
-      default:
-        output += token.value;
-        break;
-    }
-  });
-  return output;
-};
-var partialParse = (input) => JSON.parse(generate(unstrip(strip(tokenize(input)))));
-
-// node_modules/@anthropic-ai/sdk/lib/MessageStream.mjs
-var __classPrivateFieldSet2 = function(receiver, state, value, kind2, f) {
-  if (kind2 === "m") throw new TypeError("Private method is not writable");
-  if (kind2 === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return kind2 === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
-};
-var __classPrivateFieldGet2 = function(receiver, state, kind2, f) {
-  if (kind2 === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind2 === "m" ? f : kind2 === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var _MessageStream_instances;
-var _MessageStream_currentMessageSnapshot;
-var _MessageStream_connectedPromise;
-var _MessageStream_resolveConnectedPromise;
-var _MessageStream_rejectConnectedPromise;
-var _MessageStream_endPromise;
-var _MessageStream_resolveEndPromise;
-var _MessageStream_rejectEndPromise;
-var _MessageStream_listeners;
-var _MessageStream_ended;
-var _MessageStream_errored;
-var _MessageStream_aborted;
-var _MessageStream_catchingPromiseCreated;
-var _MessageStream_getFinalMessage;
-var _MessageStream_getFinalText;
-var _MessageStream_handleError;
-var _MessageStream_beginRequest;
-var _MessageStream_addStreamEvent;
-var _MessageStream_endRequest;
-var _MessageStream_accumulateMessage;
-var JSON_BUF_PROPERTY = "__json_buf";
-var MessageStream = class _MessageStream {
-  constructor() {
-    _MessageStream_instances.add(this);
-    this.messages = [];
-    this.receivedMessages = [];
-    _MessageStream_currentMessageSnapshot.set(this, void 0);
-    this.controller = new AbortController();
-    _MessageStream_connectedPromise.set(this, void 0);
-    _MessageStream_resolveConnectedPromise.set(this, () => {
-    });
-    _MessageStream_rejectConnectedPromise.set(this, () => {
-    });
-    _MessageStream_endPromise.set(this, void 0);
-    _MessageStream_resolveEndPromise.set(this, () => {
-    });
-    _MessageStream_rejectEndPromise.set(this, () => {
-    });
-    _MessageStream_listeners.set(this, {});
-    _MessageStream_ended.set(this, false);
-    _MessageStream_errored.set(this, false);
-    _MessageStream_aborted.set(this, false);
-    _MessageStream_catchingPromiseCreated.set(this, false);
-    _MessageStream_handleError.set(this, (error) => {
-      __classPrivateFieldSet2(this, _MessageStream_errored, true, "f");
-      if (error instanceof Error && error.name === "AbortError") {
-        error = new APIUserAbortError();
-      }
-      if (error instanceof APIUserAbortError) {
-        __classPrivateFieldSet2(this, _MessageStream_aborted, true, "f");
-        return this._emit("abort", error);
-      }
-      if (error instanceof AnthropicError) {
-        return this._emit("error", error);
-      }
-      if (error instanceof Error) {
-        const anthropicError = new AnthropicError(error.message);
-        anthropicError.cause = error;
-        return this._emit("error", anthropicError);
-      }
-      return this._emit("error", new AnthropicError(String(error)));
-    });
-    __classPrivateFieldSet2(this, _MessageStream_connectedPromise, new Promise((resolve, reject) => {
-      __classPrivateFieldSet2(this, _MessageStream_resolveConnectedPromise, resolve, "f");
-      __classPrivateFieldSet2(this, _MessageStream_rejectConnectedPromise, reject, "f");
-    }), "f");
-    __classPrivateFieldSet2(this, _MessageStream_endPromise, new Promise((resolve, reject) => {
-      __classPrivateFieldSet2(this, _MessageStream_resolveEndPromise, resolve, "f");
-      __classPrivateFieldSet2(this, _MessageStream_rejectEndPromise, reject, "f");
-    }), "f");
-    __classPrivateFieldGet2(this, _MessageStream_connectedPromise, "f").catch(() => {
-    });
-    __classPrivateFieldGet2(this, _MessageStream_endPromise, "f").catch(() => {
-    });
-  }
-  /**
-   * Intended for use on the frontend, consuming a stream produced with
-   * `.toReadableStream()` on the backend.
-   *
-   * Note that messages sent to the model do not appear in `.on('message')`
-   * in this context.
-   */
-  static fromReadableStream(stream) {
-    const runner = new _MessageStream();
-    runner._run(() => runner._fromReadableStream(stream));
-    return runner;
-  }
-  static createMessage(messages, params, options) {
-    const runner = new _MessageStream();
-    for (const message of params.messages) {
-      runner._addMessageParam(message);
-    }
-    runner._run(() => runner._createMessage(messages, { ...params, stream: true }, { ...options, headers: { ...options == null ? void 0 : options.headers, "X-Stainless-Helper-Method": "stream" } }));
-    return runner;
-  }
-  _run(executor) {
-    executor().then(() => {
-      this._emitFinal();
-      this._emit("end");
-    }, __classPrivateFieldGet2(this, _MessageStream_handleError, "f"));
-  }
-  _addMessageParam(message) {
-    this.messages.push(message);
-  }
-  _addMessage(message, emit = true) {
-    this.receivedMessages.push(message);
-    if (emit) {
-      this._emit("message", message);
-    }
-  }
-  async _createMessage(messages, params, options) {
-    var _a2;
-    const signal = options == null ? void 0 : options.signal;
-    if (signal) {
-      if (signal.aborted)
-        this.controller.abort();
-      signal.addEventListener("abort", () => this.controller.abort());
-    }
-    __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_beginRequest).call(this);
-    const stream = await messages.create({ ...params, stream: true }, { ...options, signal: this.controller.signal });
-    this._connected();
-    for await (const event of stream) {
-      __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_addStreamEvent).call(this, event);
-    }
-    if ((_a2 = stream.controller.signal) == null ? void 0 : _a2.aborted) {
-      throw new APIUserAbortError();
-    }
-    __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_endRequest).call(this);
-  }
-  _connected() {
-    if (this.ended)
-      return;
-    __classPrivateFieldGet2(this, _MessageStream_resolveConnectedPromise, "f").call(this);
-    this._emit("connect");
-  }
-  get ended() {
-    return __classPrivateFieldGet2(this, _MessageStream_ended, "f");
-  }
-  get errored() {
-    return __classPrivateFieldGet2(this, _MessageStream_errored, "f");
-  }
-  get aborted() {
-    return __classPrivateFieldGet2(this, _MessageStream_aborted, "f");
-  }
-  abort() {
-    this.controller.abort();
-  }
-  /**
-   * Adds the listener function to the end of the listeners array for the event.
-   * No checks are made to see if the listener has already been added. Multiple calls passing
-   * the same combination of event and listener will result in the listener being added, and
-   * called, multiple times.
-   * @returns this MessageStream, so that calls can be chained
-   */
-  on(event, listener) {
-    const listeners = __classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event] || (__classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event] = []);
-    listeners.push({ listener });
-    return this;
-  }
-  /**
-   * Removes the specified listener from the listener array for the event.
-   * off() will remove, at most, one instance of a listener from the listener array. If any single
-   * listener has been added multiple times to the listener array for the specified event, then
-   * off() must be called multiple times to remove each instance.
-   * @returns this MessageStream, so that calls can be chained
-   */
-  off(event, listener) {
-    const listeners = __classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event];
-    if (!listeners)
-      return this;
-    const index = listeners.findIndex((l) => l.listener === listener);
-    if (index >= 0)
-      listeners.splice(index, 1);
-    return this;
-  }
-  /**
-   * Adds a one-time listener function for the event. The next time the event is triggered,
-   * this listener is removed and then invoked.
-   * @returns this MessageStream, so that calls can be chained
-   */
-  once(event, listener) {
-    const listeners = __classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event] || (__classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event] = []);
-    listeners.push({ listener, once: true });
-    return this;
-  }
-  /**
-   * This is similar to `.once()`, but returns a Promise that resolves the next time
-   * the event is triggered, instead of calling a listener callback.
-   * @returns a Promise that resolves the next time given event is triggered,
-   * or rejects if an error is emitted.  (If you request the 'error' event,
-   * returns a promise that resolves with the error).
-   *
-   * Example:
-   *
-   *   const message = await stream.emitted('message') // rejects if the stream errors
-   */
-  emitted(event) {
-    return new Promise((resolve, reject) => {
-      __classPrivateFieldSet2(this, _MessageStream_catchingPromiseCreated, true, "f");
-      if (event !== "error")
-        this.once("error", reject);
-      this.once(event, resolve);
-    });
-  }
-  async done() {
-    __classPrivateFieldSet2(this, _MessageStream_catchingPromiseCreated, true, "f");
-    await __classPrivateFieldGet2(this, _MessageStream_endPromise, "f");
-  }
-  get currentMessage() {
-    return __classPrivateFieldGet2(this, _MessageStream_currentMessageSnapshot, "f");
-  }
-  /**
-   * @returns a promise that resolves with the the final assistant Message response,
-   * or rejects if an error occurred or the stream ended prematurely without producing a Message.
-   */
-  async finalMessage() {
-    await this.done();
-    return __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_getFinalMessage).call(this);
-  }
-  /**
-   * @returns a promise that resolves with the the final assistant Message's text response, concatenated
-   * together if there are more than one text blocks.
-   * Rejects if an error occurred or the stream ended prematurely without producing a Message.
-   */
-  async finalText() {
-    await this.done();
-    return __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_getFinalText).call(this);
-  }
-  _emit(event, ...args) {
-    if (__classPrivateFieldGet2(this, _MessageStream_ended, "f"))
-      return;
-    if (event === "end") {
-      __classPrivateFieldSet2(this, _MessageStream_ended, true, "f");
-      __classPrivateFieldGet2(this, _MessageStream_resolveEndPromise, "f").call(this);
-    }
-    const listeners = __classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event];
-    if (listeners) {
-      __classPrivateFieldGet2(this, _MessageStream_listeners, "f")[event] = listeners.filter((l) => !l.once);
-      listeners.forEach(({ listener }) => listener(...args));
-    }
-    if (event === "abort") {
-      const error = args[0];
-      if (!__classPrivateFieldGet2(this, _MessageStream_catchingPromiseCreated, "f") && !(listeners == null ? void 0 : listeners.length)) {
-        Promise.reject(error);
-      }
-      __classPrivateFieldGet2(this, _MessageStream_rejectConnectedPromise, "f").call(this, error);
-      __classPrivateFieldGet2(this, _MessageStream_rejectEndPromise, "f").call(this, error);
-      this._emit("end");
-      return;
-    }
-    if (event === "error") {
-      const error = args[0];
-      if (!__classPrivateFieldGet2(this, _MessageStream_catchingPromiseCreated, "f") && !(listeners == null ? void 0 : listeners.length)) {
-        Promise.reject(error);
-      }
-      __classPrivateFieldGet2(this, _MessageStream_rejectConnectedPromise, "f").call(this, error);
-      __classPrivateFieldGet2(this, _MessageStream_rejectEndPromise, "f").call(this, error);
-      this._emit("end");
-    }
-  }
-  _emitFinal() {
-    const finalMessage = this.receivedMessages.at(-1);
-    if (finalMessage) {
-      this._emit("finalMessage", __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_getFinalMessage).call(this));
-    }
-  }
-  async _fromReadableStream(readableStream, options) {
-    var _a2;
-    const signal = options == null ? void 0 : options.signal;
-    if (signal) {
-      if (signal.aborted)
-        this.controller.abort();
-      signal.addEventListener("abort", () => this.controller.abort());
-    }
-    __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_beginRequest).call(this);
-    this._connected();
-    const stream = Stream.fromReadableStream(readableStream, this.controller);
-    for await (const event of stream) {
-      __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_addStreamEvent).call(this, event);
-    }
-    if ((_a2 = stream.controller.signal) == null ? void 0 : _a2.aborted) {
-      throw new APIUserAbortError();
-    }
-    __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_endRequest).call(this);
-  }
-  [(_MessageStream_currentMessageSnapshot = /* @__PURE__ */ new WeakMap(), _MessageStream_connectedPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_resolveConnectedPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_rejectConnectedPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_endPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_resolveEndPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_rejectEndPromise = /* @__PURE__ */ new WeakMap(), _MessageStream_listeners = /* @__PURE__ */ new WeakMap(), _MessageStream_ended = /* @__PURE__ */ new WeakMap(), _MessageStream_errored = /* @__PURE__ */ new WeakMap(), _MessageStream_aborted = /* @__PURE__ */ new WeakMap(), _MessageStream_catchingPromiseCreated = /* @__PURE__ */ new WeakMap(), _MessageStream_handleError = /* @__PURE__ */ new WeakMap(), _MessageStream_instances = /* @__PURE__ */ new WeakSet(), _MessageStream_getFinalMessage = function _MessageStream_getFinalMessage2() {
-    if (this.receivedMessages.length === 0) {
-      throw new AnthropicError("stream ended without producing a Message with role=assistant");
-    }
-    return this.receivedMessages.at(-1);
-  }, _MessageStream_getFinalText = function _MessageStream_getFinalText2() {
-    if (this.receivedMessages.length === 0) {
-      throw new AnthropicError("stream ended without producing a Message with role=assistant");
-    }
-    const textBlocks = this.receivedMessages.at(-1).content.filter((block) => block.type === "text").map((block) => block.text);
-    if (textBlocks.length === 0) {
-      throw new AnthropicError("stream ended without producing a content block with type=text");
-    }
-    return textBlocks.join(" ");
-  }, _MessageStream_beginRequest = function _MessageStream_beginRequest2() {
-    if (this.ended)
-      return;
-    __classPrivateFieldSet2(this, _MessageStream_currentMessageSnapshot, void 0, "f");
-  }, _MessageStream_addStreamEvent = function _MessageStream_addStreamEvent2(event) {
-    if (this.ended)
-      return;
-    const messageSnapshot = __classPrivateFieldGet2(this, _MessageStream_instances, "m", _MessageStream_accumulateMessage).call(this, event);
-    this._emit("streamEvent", event, messageSnapshot);
-    switch (event.type) {
-      case "content_block_delta": {
-        const content = messageSnapshot.content.at(-1);
-        if (event.delta.type === "text_delta" && content.type === "text") {
-          this._emit("text", event.delta.text, content.text || "");
-        } else if (event.delta.type === "input_json_delta" && content.type === "tool_use") {
-          if (content.input) {
-            this._emit("inputJson", event.delta.partial_json, content.input);
-          }
-        }
-        break;
-      }
-      case "message_stop": {
-        this._addMessageParam(messageSnapshot);
-        this._addMessage(messageSnapshot, true);
-        break;
-      }
-      case "content_block_stop": {
-        this._emit("contentBlock", messageSnapshot.content.at(-1));
-        break;
-      }
-      case "message_start": {
-        __classPrivateFieldSet2(this, _MessageStream_currentMessageSnapshot, messageSnapshot, "f");
-        break;
-      }
-      case "content_block_start":
-      case "message_delta":
-        break;
-    }
-  }, _MessageStream_endRequest = function _MessageStream_endRequest2() {
-    if (this.ended) {
-      throw new AnthropicError(`stream has ended, this shouldn't happen`);
-    }
-    const snapshot = __classPrivateFieldGet2(this, _MessageStream_currentMessageSnapshot, "f");
-    if (!snapshot) {
-      throw new AnthropicError(`request ended without sending any chunks`);
-    }
-    __classPrivateFieldSet2(this, _MessageStream_currentMessageSnapshot, void 0, "f");
-    return snapshot;
-  }, _MessageStream_accumulateMessage = function _MessageStream_accumulateMessage2(event) {
-    let snapshot = __classPrivateFieldGet2(this, _MessageStream_currentMessageSnapshot, "f");
-    if (event.type === "message_start") {
-      if (snapshot) {
-        throw new AnthropicError(`Unexpected event order, got ${event.type} before receiving "message_stop"`);
-      }
-      return event.message;
-    }
-    if (!snapshot) {
-      throw new AnthropicError(`Unexpected event order, got ${event.type} before "message_start"`);
-    }
-    switch (event.type) {
-      case "message_stop":
-        return snapshot;
-      case "message_delta":
-        snapshot.stop_reason = event.delta.stop_reason;
-        snapshot.stop_sequence = event.delta.stop_sequence;
-        snapshot.usage.output_tokens = event.usage.output_tokens;
-        return snapshot;
-      case "content_block_start":
-        snapshot.content.push(event.content_block);
-        return snapshot;
-      case "content_block_delta": {
-        const snapshotContent = snapshot.content.at(event.index);
-        if ((snapshotContent == null ? void 0 : snapshotContent.type) === "text" && event.delta.type === "text_delta") {
-          snapshotContent.text += event.delta.text;
-        } else if ((snapshotContent == null ? void 0 : snapshotContent.type) === "tool_use" && event.delta.type === "input_json_delta") {
-          let jsonBuf = snapshotContent[JSON_BUF_PROPERTY] || "";
-          jsonBuf += event.delta.partial_json;
-          Object.defineProperty(snapshotContent, JSON_BUF_PROPERTY, {
-            value: jsonBuf,
-            enumerable: false,
-            writable: true
-          });
-          if (jsonBuf) {
-            snapshotContent.input = partialParse(jsonBuf);
-          }
-        }
-        return snapshot;
-      }
-      case "content_block_stop":
-        return snapshot;
-    }
-  }, Symbol.asyncIterator)]() {
-    const pushQueue = [];
-    const readQueue = [];
-    let done = false;
-    this.on("streamEvent", (event) => {
-      const reader = readQueue.shift();
-      if (reader) {
-        reader.resolve(event);
-      } else {
-        pushQueue.push(event);
-      }
-    });
-    this.on("end", () => {
-      done = true;
-      for (const reader of readQueue) {
-        reader.resolve(void 0);
-      }
-      readQueue.length = 0;
-    });
-    this.on("abort", (err) => {
-      done = true;
-      for (const reader of readQueue) {
-        reader.reject(err);
-      }
-      readQueue.length = 0;
-    });
-    this.on("error", (err) => {
-      done = true;
-      for (const reader of readQueue) {
-        reader.reject(err);
-      }
-      readQueue.length = 0;
-    });
-    return {
-      next: async () => {
-        if (!pushQueue.length) {
-          if (done) {
-            return { value: void 0, done: true };
-          }
-          return new Promise((resolve, reject) => readQueue.push({ resolve, reject })).then((chunk2) => chunk2 ? { value: chunk2, done: false } : { value: void 0, done: true });
-        }
-        const chunk = pushQueue.shift();
-        return { value: chunk, done: false };
-      },
-      return: async () => {
-        this.abort();
-        return { value: void 0, done: true };
-      }
-    };
-  }
-  toReadableStream() {
-    const stream = new Stream(this[Symbol.asyncIterator].bind(this), this.controller);
-    return stream.toReadableStream();
-  }
-};
-
-// node_modules/@anthropic-ai/sdk/resources/messages.mjs
-var Messages = class extends APIResource {
-  create(body, options) {
-    var _a2;
-    return this._client.post("/v1/messages", {
-      body,
-      timeout: 6e5,
-      ...options,
-      stream: (_a2 = body.stream) != null ? _a2 : false
-    });
-  }
-  /**
-   * Create a Message stream
-   */
-  stream(body, options) {
-    return MessageStream.createMessage(this, body, options);
-  }
-};
-/* @__PURE__ */ (function(Messages2) {
-})(Messages || (Messages = {}));
-
-// node_modules/@anthropic-ai/sdk/index.mjs
-var _a;
-var Anthropic = class extends APIClient {
-  /**
-   * API Client for interfacing with the Anthropic API.
-   *
-   * @param {string | null | undefined} [opts.apiKey=process.env['ANTHROPIC_API_KEY'] ?? null]
-   * @param {string | null | undefined} [opts.authToken=process.env['ANTHROPIC_AUTH_TOKEN'] ?? null]
-   * @param {string} [opts.baseURL=process.env['ANTHROPIC_BASE_URL'] ?? https://api.anthropic.com] - Override the default base URL for the API.
-   * @param {number} [opts.timeout=10 minutes] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
-   * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
-   * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
-   * @param {number} [opts.maxRetries=2] - The maximum number of times the client will retry a request.
-   * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
-   * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
-   */
-  constructor({ baseURL = readEnv("ANTHROPIC_BASE_URL"), apiKey = ((_a2) => (_a2 = readEnv("ANTHROPIC_API_KEY")) != null ? _a2 : null)(), authToken = ((_b) => (_b = readEnv("ANTHROPIC_AUTH_TOKEN")) != null ? _b : null)(), ...opts } = {}) {
-    var _a3;
-    const options = {
-      apiKey,
-      authToken,
-      ...opts,
-      baseURL: baseURL || `https://api.anthropic.com`
-    };
-    super({
-      baseURL: options.baseURL,
-      timeout: (_a3 = options.timeout) != null ? _a3 : 6e5,
-      httpAgent: options.httpAgent,
-      maxRetries: options.maxRetries,
-      fetch: options.fetch
-    });
-    this.completions = new Completions(this);
-    this.messages = new Messages(this);
-    this._options = options;
-    this.apiKey = apiKey;
-    this.authToken = authToken;
-  }
-  defaultQuery() {
-    return this._options.defaultQuery;
-  }
-  defaultHeaders(opts) {
-    return {
-      ...super.defaultHeaders(opts),
-      "anthropic-version": "2023-06-01",
-      ...this._options.defaultHeaders
-    };
-  }
-  validateHeaders(headers, customHeaders) {
-    if (this.apiKey && headers["x-api-key"]) {
-      return;
-    }
-    if (customHeaders["x-api-key"] === null) {
-      return;
-    }
-    if (this.authToken && headers["authorization"]) {
-      return;
-    }
-    if (customHeaders["authorization"] === null) {
-      return;
-    }
-    throw new Error('Could not resolve authentication method. Expected either apiKey or authToken to be set. Or for one of the "X-Api-Key" or "Authorization" headers to be explicitly omitted');
-  }
-  authHeaders(opts) {
-    const apiKeyAuth = this.apiKeyAuth(opts);
-    const bearerAuth = this.bearerAuth(opts);
-    if (apiKeyAuth != null && !isEmptyObj(apiKeyAuth)) {
-      return apiKeyAuth;
-    }
-    if (bearerAuth != null && !isEmptyObj(bearerAuth)) {
-      return bearerAuth;
-    }
-    return {};
-  }
-  apiKeyAuth(opts) {
-    if (this.apiKey == null) {
-      return {};
-    }
-    return { "X-Api-Key": this.apiKey };
-  }
-  bearerAuth(opts) {
-    if (this.authToken == null) {
-      return {};
-    }
-    return { Authorization: `Bearer ${this.authToken}` };
-  }
-};
-_a = Anthropic;
-Anthropic.Anthropic = _a;
-Anthropic.HUMAN_PROMPT = "\n\nHuman:";
-Anthropic.AI_PROMPT = "\n\nAssistant:";
-Anthropic.AnthropicError = AnthropicError;
-Anthropic.APIError = APIError;
-Anthropic.APIConnectionError = APIConnectionError;
-Anthropic.APIConnectionTimeoutError = APIConnectionTimeoutError;
-Anthropic.APIUserAbortError = APIUserAbortError;
-Anthropic.NotFoundError = NotFoundError;
-Anthropic.ConflictError = ConflictError;
-Anthropic.RateLimitError = RateLimitError;
-Anthropic.BadRequestError = BadRequestError;
-Anthropic.AuthenticationError = AuthenticationError;
-Anthropic.InternalServerError = InternalServerError;
-Anthropic.PermissionDeniedError = PermissionDeniedError;
-Anthropic.UnprocessableEntityError = UnprocessableEntityError;
-Anthropic.toFile = toFile;
-Anthropic.fileFromPath = fileFromPath;
-var { HUMAN_PROMPT, AI_PROMPT } = Anthropic;
-var { AnthropicError: AnthropicError2, APIError: APIError2, APIConnectionError: APIConnectionError2, APIConnectionTimeoutError: APIConnectionTimeoutError2, APIUserAbortError: APIUserAbortError2, NotFoundError: NotFoundError2, ConflictError: ConflictError2, RateLimitError: RateLimitError2, BadRequestError: BadRequestError2, AuthenticationError: AuthenticationError2, InternalServerError: InternalServerError2, PermissionDeniedError: PermissionDeniedError2, UnprocessableEntityError: UnprocessableEntityError2 } = error_exports;
-(function(Anthropic2) {
-  Anthropic2.Completions = Completions;
-  Anthropic2.Messages = Messages;
-})(Anthropic || (Anthropic = {}));
-var sdk_default = Anthropic;
-
 // src/llm-client.ts
 var import_obsidian = require("obsidian");
 
 // src/core/sse-parser.ts
 function parseSSEEvents(responseText, format) {
-  var _a2, _b, _c, _d, _e, _f;
+  var _a, _b, _c, _d, _e, _f;
   const normalized = responseText.replace(/\r\n/g, "\n");
   const events = normalized.split("\n\n");
   const deltas = [];
@@ -2443,7 +301,7 @@ function parseSSEEvents(responseText, format) {
       const parsed = JSON.parse(dataLine.substring(jsonStart));
       if (format === "anthropic") {
         const anth = parsed;
-        if (anth.type === "content_block_delta" && ((_a2 = anth.delta) == null ? void 0 : _a2.type) === "text_delta" && anth.delta.text) {
+        if (anth.type === "content_block_delta" && ((_a = anth.delta) == null ? void 0 : _a.type) === "text_delta" && anth.delta.text) {
           deltas.push({ text: anth.delta.text });
         }
       } else {
@@ -2462,13 +320,13 @@ function parseSSEEvents(responseText, format) {
 // src/core/truncation-retry.ts
 var DEFAULT_MAX_CAP = MAX_TOKENS_BATCH;
 async function withTruncationRetry(opts) {
-  var _a2, _b;
+  var _a, _b;
   const initialResponse = await opts.initialFn();
   let text = opts.extractText(initialResponse);
   if (!opts.isTruncated(initialResponse)) {
     return text;
   }
-  const cap = (_a2 = opts.maxCap) != null ? _a2 : DEFAULT_MAX_CAP;
+  const cap = (_a = opts.maxCap) != null ? _a : DEFAULT_MAX_CAP;
   const currentMax = opts.getMaxTokens();
   const retryMaxTokens = Math.min(currentMax * 2, cap);
   const stopReason = (_b = opts.getStopReason) == null ? void 0 : _b.call(opts, initialResponse);
@@ -2483,6 +341,11 @@ async function withTruncationRetry(opts) {
 
 // src/llm-client.ts
 var RETRYABLE = /status 5\d{2}|status 429|overload|network|fetch|econnrefused|etimedout|timeout|abort/i;
+var isThinkingControlError = (e) => {
+  const msg = e instanceof Error ? e.message : "";
+  if (!/status 400|HTTP 400|Bad Request/i.test(msg)) return false;
+  return /unknown field|unsupported field|invalid parameter|not supported|reasoning_effort|thinking/i.test(msg);
+};
 function errMsg(err) {
   return err instanceof Error ? err.message : String(err);
 }
@@ -2516,15 +379,18 @@ var AnthropicCompatibleClient = class {
     return (textBlock == null ? void 0 : textBlock.text) || "";
   }
   async createMessage(params) {
-    var _a2;
+    var _a, _b;
     const body = {
       model: params.model,
       max_tokens: params.max_tokens,
-      messages: ((_a2 = params.response_format) == null ? void 0 : _a2.type) === "json_object" ? [...params.messages, { role: "assistant", content: "{" }] : params.messages
+      messages: ((_a = params.response_format) == null ? void 0 : _a.type) === "json_object" ? [...params.messages, { role: "assistant", content: "{" }] : params.messages
     };
     if (params.system) body.system = params.system;
-    return withRetry(async () => {
-      var _a3, _b, _c;
+    if (params.disableThinking) {
+      body.thinking = { type: "disabled" };
+    }
+    const anthropicDoRequest = async (requestBody) => withRetry(async () => {
+      var _a2, _b2, _c;
       const response = await (0, import_obsidian.requestUrl)({
         url: this.baseUrl + "/messages",
         method: "POST",
@@ -2533,14 +399,14 @@ var AnthropicCompatibleClient = class {
           "Anthropic-Version": this.apiVersion,
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify(requestBody)
       });
       const data = response.json;
       if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
       console.debug("Anthropic API response:", {
         stop_reason: data.stop_reason,
-        content_length: ((_a3 = data.content) == null ? void 0 : _a3.length) || 0,
-        content_types: ((_b = data.content) == null ? void 0 : _b.map((c) => c.type)) || []
+        content_length: ((_a2 = data.content) == null ? void 0 : _a2.length) || 0,
+        content_types: ((_b2 = data.content) == null ? void 0 : _b2.map((c) => c.type)) || []
       });
       const initialData = data;
       const text = await withTruncationRetry({
@@ -2573,9 +439,27 @@ var AnthropicCompatibleClient = class {
       }
       return text;
     }, 3, "Anthropic-compatible API");
+    try {
+      return await anthropicDoRequest(body);
+    } catch (e) {
+      if (params.disableThinking && isThinkingControlError(e)) {
+        this.thinkingControlSupported = false;
+        console.debug(`[AnthropicCompat] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
+        const fallbackBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: params.system ? [{ role: "system", content: params.system }, ...params.messages] : params.messages
+        };
+        if (((_b = params.response_format) == null ? void 0 : _b.type) === "json_object") {
+          fallbackBody.messages = [...fallbackBody.messages, { role: "assistant", content: "{" }];
+        }
+        return await anthropicDoRequest(fallbackBody);
+      }
+      throw e;
+    }
   }
   async createMessageStream(params) {
-    var _a2;
+    var _a;
     const messages = params.system ? params.messages : [
       ...params.messages,
       {
@@ -2590,13 +474,16 @@ var AnthropicCompatibleClient = class {
       stream: true
     };
     if (params.system) body.system = params.system;
+    if (params.disableThinking) {
+      body.thinking = { type: "disabled" };
+    }
     console.debug(
       "[AnthropicCompat SSE] sending stream request, model:",
       params.model,
       "max_tokens:",
       params.max_tokens,
       "system length:",
-      ((_a2 = params.system) == null ? void 0 : _a2.length) || 0,
+      ((_a = params.system) == null ? void 0 : _a.length) || 0,
       "messages count:",
       messages.length
     );
@@ -2659,60 +546,97 @@ var AnthropicCompatibleClient = class {
 };
 var AnthropicClient = class {
   constructor(apiKey, baseUrl) {
+    this.apiVersion = "2023-06-01";
     this.apiKey = apiKey;
-    this.client = new sdk_default({
-      apiKey,
-      ...baseUrl ? { baseURL: baseUrl } : {}
-    });
+    this.baseUrl = baseUrl || "https://api.anthropic.com";
   }
   async createMessage(params) {
-    var _a2;
-    const messages = params.messages.map((msg, idx) => {
-      if (idx === 0 && msg.role === "user" && params.cacheBreakpoint && params.cacheBreakpoint > 0 && params.cacheBreakpoint < msg.content.length) {
-        const cached = msg.content.substring(0, params.cacheBreakpoint);
-        const rest = msg.content.substring(params.cacheBreakpoint);
-        return {
-          role: "user",
-          content: [
-            { type: "text", text: cached, cache_control: { type: "ephemeral" } },
-            { type: "text", text: rest }
-          ]
-        };
+    var _a, _b;
+    const messages = ((_a = params.response_format) == null ? void 0 : _a.type) === "json_object" ? [...params.messages, { role: "assistant", content: "{" }] : [...params.messages];
+    if (params.cacheBreakpoint && params.cacheBreakpoint > 0 && messages.length > 0) {
+      const first = messages[0];
+      if (first.role === "user" && typeof first.content === "string" && params.cacheBreakpoint < first.content.length) {
+        const text = first.content;
+        first.content = [
+          { type: "text", text: text.substring(0, params.cacheBreakpoint), cache_control: { type: "ephemeral" } },
+          { type: "text", text: text.substring(params.cacheBreakpoint) }
+        ];
       }
-      return msg;
-    });
-    const finalMessages = ((_a2 = params.response_format) == null ? void 0 : _a2.type) === "json_object" ? [...messages, { role: "assistant", content: "{" }] : messages;
-    return withRetry(async () => {
-      var _a3;
-      const initialResponse = await this.client.messages.create({
-        model: params.model,
-        max_tokens: params.max_tokens,
-        system: params.system || void 0,
-        messages: finalMessages
+    }
+    const body = {
+      model: params.model,
+      max_tokens: params.max_tokens,
+      messages
+    };
+    if (params.system) body.system = params.system;
+    if (params.disableThinking) {
+      body.thinking = { type: "disabled" };
+    }
+    const anthropicDoRequest = async (requestBody) => withRetry(async () => {
+      var _a2;
+      const response = await (0, import_obsidian.requestUrl)({
+        url: `${this.baseUrl}/messages`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": this.apiKey,
+          "Anthropic-Version": this.apiVersion
+        },
+        body: JSON.stringify(requestBody)
       });
+      const data = response.json;
+      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
       const text = await withTruncationRetry({
-        initialFn: async () => initialResponse,
-        retryFn: async (retryTokens) => this.client.messages.create({
-          model: params.model,
-          max_tokens: retryTokens,
-          system: params.system || void 0,
-          messages: finalMessages
-        }),
+        initialFn: async () => data,
+        retryFn: async (retryTokens) => {
+          const retryResponse = await (0, import_obsidian.requestUrl)({
+            url: `${this.baseUrl}/messages`,
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": this.apiKey,
+              "Anthropic-Version": this.apiVersion
+            },
+            body: JSON.stringify({ ...requestBody, max_tokens: retryTokens })
+          });
+          const retryData = retryResponse.json;
+          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
+          return retryData;
+        },
         isTruncated: (r) => r.stop_reason === "max_tokens",
         extractText: (r) => {
-          const block = r.content.find((c) => c.type === "text");
-          return block && "text" in block ? block.text : "";
+          var _a3;
+          const block = (_a3 = r.content) == null ? void 0 : _a3.find((c) => c.type === "text");
+          return block && "text" in block ? block.text || "" : "";
         },
         getMaxTokens: () => params.max_tokens,
         getStopReason: (r) => r.stop_reason,
         maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
         label: "Anthropic API"
       });
-      if (((_a3 = params.response_format) == null ? void 0 : _a3.type) === "json_object" && text.length > 0 && text[0] !== "{") {
+      if (((_a2 = params.response_format) == null ? void 0 : _a2.type) === "json_object" && text.length > 0 && text[0] !== "{") {
         return "{" + text;
       }
       return text;
     }, 3, "Anthropic API");
+    try {
+      return await anthropicDoRequest(body);
+    } catch (e) {
+      if (params.disableThinking && isThinkingControlError(e)) {
+        this.thinkingControlSupported = false;
+        console.debug(`[AnthropicClient] thinking.type='disabled' not supported, falling back`);
+        const fallbackBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: params.system ? [{ role: "system", content: params.system }, ...params.messages] : [...params.messages]
+        };
+        if (((_b = params.response_format) == null ? void 0 : _b.type) === "json_object") {
+          fallbackBody.messages = [...fallbackBody.messages, { role: "assistant", content: "{" }];
+        }
+        return await anthropicDoRequest(fallbackBody);
+      }
+      throw e;
+    }
   }
   async createMessageStream(params) {
     const messagesWithLanguageHint = params.system ? params.messages : [
@@ -2722,22 +646,38 @@ var AnthropicClient = class {
         content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
       }
     ];
-    const stream = this.client.messages.stream({
+    const streamBody = {
       model: params.model,
       max_tokens: params.max_tokens,
-      system: params.system || void 0,
-      messages: messagesWithLanguageHint
-    });
+      messages: messagesWithLanguageHint,
+      stream: true
+    };
+    if (params.system) streamBody.system = params.system;
+    if (params.disableThinking) {
+      streamBody.thinking = { type: "disabled" };
+    }
+    const responseText = await (0, import_obsidian.requestUrl)({
+      url: `${this.baseUrl}/messages`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.apiKey,
+        "Anthropic-Version": this.apiVersion
+      },
+      body: JSON.stringify(streamBody)
+    }).then((r) => r.text);
+    const deltas = parseSSEEvents(responseText, "anthropic");
     let fullResponse = "";
-    stream.on("text", (text) => {
-      fullResponse += text;
-      params.onChunk(text);
-    });
-    await stream.finalMessage();
+    for (const d of deltas) {
+      if (d.text) {
+        fullResponse += d.text;
+        params.onChunk(d.text);
+      }
+    }
     return fullResponse;
   }
   async listModels() {
-    var _a2;
+    var _a;
     const response = await (0, import_obsidian.requestUrl)({
       url: "https://api.anthropic.com/v1/models",
       headers: {
@@ -2746,7 +686,7 @@ var AnthropicClient = class {
       }
     });
     const data = response.json;
-    if (!((_a2 = data.data) == null ? void 0 : _a2.length)) return [];
+    if (!((_a = data.data) == null ? void 0 : _a.length)) return [];
     return data.data.map((m) => m.id).filter((id) => !id.includes(":") && !id.includes("/")).sort();
   }
 };
@@ -2771,49 +711,80 @@ var OpenAICompatibleClient = class {
       max_tokens: params.max_tokens,
       messages
     };
-    return withRetry(async () => {
-      var _a2, _b, _c;
-      const response = await (0, import_obsidian.requestUrl)({
-        url: this.baseUrl + "/chat/completions",
-        method: "POST",
-        headers: this.getHeaders(),
-        body: JSON.stringify(body)
-      });
+    if (params.disableThinking && this.thinkingControlSupported !== false) {
+      body.thinking = { type: "disabled" };
+    }
+    const doRequest = (bodyToUse) => withRetry(async () => {
+      var _a, _b, _c;
+      let response;
+      try {
+        response = await (0, import_obsidian.requestUrl)({
+          url: this.baseUrl + "/chat/completions",
+          method: "POST",
+          headers: this.getHeaders(),
+          body: JSON.stringify(bodyToUse)
+        });
+      } catch (err) {
+        const status = err.status;
+        const json = err.json;
+        const text = err.text;
+        if (status === 400) {
+          console.error("[OpenAICompat Debug] 400 error body:", JSON.stringify(json) || text || "no body");
+          console.error("[OpenAICompat Debug] Request body size:", JSON.stringify(bodyToUse).length);
+          console.error("[OpenAICompat Debug] Model:", params.model, "| max_tokens:", params.max_tokens);
+        }
+        throw err;
+      }
       const data = response.json;
       if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
       const initialChoices = data.choices;
-      const initialText = ((_c = (_b = (_a2 = data.choices) == null ? void 0 : _a2[0]) == null ? void 0 : _b.message) == null ? void 0 : _c.content) || "";
+      const initialText = ((_c = (_b = (_a = data.choices) == null ? void 0 : _a[0]) == null ? void 0 : _b.message) == null ? void 0 : _c.content) || "";
       return withTruncationRetry({
         initialFn: async () => ({ choices: initialChoices != null ? initialChoices : [], initialText }),
         retryFn: async (retryTokens) => {
-          var _a3;
+          var _a2;
           const retryResponse = await (0, import_obsidian.requestUrl)({
             url: this.baseUrl + "/chat/completions",
             method: "POST",
             headers: this.getHeaders(),
-            body: JSON.stringify({ ...body, max_tokens: retryTokens })
+            body: JSON.stringify({ ...bodyToUse, max_tokens: retryTokens })
           });
           const retryData = retryResponse.json;
           if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
-          return { choices: (_a3 = retryData.choices) != null ? _a3 : [], initialText };
+          return { choices: (_a2 = retryData.choices) != null ? _a2 : [], initialText };
         },
         isTruncated: (r) => {
-          var _a3;
-          return ((_a3 = r.choices[0]) == null ? void 0 : _a3.finish_reason) === "length";
+          var _a2;
+          return ((_a2 = r.choices[0]) == null ? void 0 : _a2.finish_reason) === "length";
         },
         extractText: (r) => {
-          var _a3, _b2;
-          return ((_b2 = (_a3 = r.choices[0]) == null ? void 0 : _a3.message) == null ? void 0 : _b2.content) || r.initialText;
+          var _a2, _b2;
+          return ((_b2 = (_a2 = r.choices[0]) == null ? void 0 : _a2.message) == null ? void 0 : _b2.content) || r.initialText;
         },
         getMaxTokens: () => params.max_tokens,
         getStopReason: (r) => {
-          var _a3;
-          return (_a3 = r.choices[0]) == null ? void 0 : _a3.finish_reason;
+          var _a2;
+          return (_a2 = r.choices[0]) == null ? void 0 : _a2.finish_reason;
         },
         maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
         label: "OpenAI-compatible API"
       });
     }, 3, "OpenAI-compatible API");
+    try {
+      return await doRequest(body);
+    } catch (e) {
+      if (params.disableThinking && isThinkingControlError(e)) {
+        this.thinkingControlSupported = false;
+        console.debug(`[OpenAICompat] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
+        const fallbackBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: params.system ? [{ role: "system", content: params.system }, ...params.messages] : params.messages
+        };
+        return await doRequest(fallbackBody);
+      }
+      throw e;
+    }
   }
   async createMessageStream(params) {
     const messages = params.system ? [{ role: "system", content: params.system }, ...params.messages] : [
@@ -2829,13 +800,16 @@ var OpenAICompatibleClient = class {
       messages,
       stream: true
     };
-    return withRetry(async () => {
-      var _a2, _b, _c;
+    if (params.disableThinking && this.thinkingControlSupported !== false) {
+      body.thinking = { type: "disabled" };
+    }
+    const doRequest = (bodyToUse) => withRetry(async () => {
+      var _a, _b, _c;
       const response = await (0, import_obsidian.requestUrl)({
         url: this.baseUrl + "/chat/completions",
         method: "POST",
         headers: this.getHeaders(),
-        body: JSON.stringify(body)
+        body: JSON.stringify(bodyToUse)
       });
       const responseText = response.text;
       const deltas = parseSSEEvents(responseText, "openai");
@@ -2851,7 +825,7 @@ var OpenAICompatibleClient = class {
         try {
           const data = JSON.parse(responseText);
           if (data.error) throw new Error(data.error.message);
-          const text = ((_c = (_b = (_a2 = data.choices) == null ? void 0 : _a2[0]) == null ? void 0 : _b.message) == null ? void 0 : _c.content) || "";
+          const text = ((_c = (_b = (_a = data.choices) == null ? void 0 : _a[0]) == null ? void 0 : _b.message) == null ? void 0 : _c.content) || "";
           if (text) {
             console.debug("[OpenAICompat SSE] Non-streaming fallback successful, length:", text.length);
             fullText = text;
@@ -2868,6 +842,22 @@ var OpenAICompatibleClient = class {
       }
       return fullText;
     }, 3, "OpenAI-compatible stream");
+    try {
+      return await doRequest(body);
+    } catch (e) {
+      if (params.disableThinking && isThinkingControlError(e)) {
+        this.thinkingControlSupported = false;
+        console.debug(`[OpenAICompat SSE] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
+        const fallbackBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages,
+          stream: true
+        };
+        return await doRequest(fallbackBody);
+      }
+      throw e;
+    }
   }
   async listModels() {
     try {
@@ -2889,11 +879,14 @@ var OpenAICompatibleClient = class {
 
 // src/core/token-cap.ts
 function capMaxTokens(requested, settings) {
-  var _a2;
-  const ceiling = (_a2 = settings.maxTokensPerCall) != null ? _a2 : 0;
+  var _a;
+  const ceiling = (_a = settings.maxTokensPerCall) != null ? _a : 0;
   if (ceiling <= 0) return requested;
   return Math.min(requested, ceiling);
 }
+
+// src/wiki/schema-analyze.ts
+var import_obsidian2 = require("obsidian");
 
 // src/texts/en.ts
 var EN_TEXTS = {
@@ -2956,14 +949,19 @@ var EN_TEXTS = {
   fetchSuccess: "Success! {} models available",
   fetchFailed: "Failed or empty list, please input model name manually",
   fetchNotSupported: "Provider doesn't support model list query",
+  fetchErrorAuth: "Authentication failed (HTTP 401/403). Verify your API Key, or enter a Model ID below and click Test Connection to validate.",
+  fetchErrorEndpoint: "Endpoint not found (HTTP 404). Verify the BaseURL, or enter a Model ID and click Test Connection to validate.",
+  fetchErrorServer: "Provider server error (HTTP 5xx). Try again later, or enter a Model ID and click Test Connection to validate.",
+  fetchErrorEmpty: "Provider has no model list endpoint. Enter a Model ID below and click Test Connection to validate.",
+  fetchErrorNetwork: "Network request failed. Check your internet connection, BaseURL, or proxy settings. You can also enter a Model ID below and click Test Connection to validate.",
   selectModelName: "Select Model",
   selectModelDesc: "Choose from {} available models",
   customInputOption: "Custom input...",
   customInputHint: 'To use other models, select "Custom input..."',
   modelName: "Model Name",
   modelDescCustom: "Using custom model (click above button to re-fetch list)",
-  modelDescRecommended: "Recommended: {}",
-  modelDescManual: "Manually input model name",
+  modelDescFetchFailed: "Model list fetch failed. Verify your API Key and Endpoint URL, or enter a Model ID below and click Test Connection to validate.",
+  modelInputPlaceholder: "Enter Model ID, then Test Connection",
   switchToDropdown: "Switch to Dropdown Selection",
   useDropdownButton: "Use Dropdown",
   // Test & Save
@@ -2998,7 +996,7 @@ var EN_TEXTS = {
   maxConversationHistoryDesc: "Limit conversation messages to avoid token overflow",
   maxConversationHistoryHint: "Recommended: not exceed 50 rounds",
   numberRangeValidation: "Please enter a number between 1-50",
-  numberRangeClamped: "Value exceeds range (1-300), automatically set to {}",
+  numberRangeClamped: "Value exceeds range (1-500), automatically set to {}",
   // Query Modal UI
   queryModalTitle: "Query Wiki - Conversational Query",
   queryModalPlaceholder: "Enter question...",
@@ -3030,16 +1028,27 @@ var EN_TEXTS = {
   lintScanningLinks: "Scanning dead links...",
   lintScanningLinksProgress: "Scanning dead links: {current}/{total}...",
   lintCheckingDuplicates: "Checking for duplicate pages...",
+  lintCheckingDuplicatesProgress: "Verifying duplicates: batch {current} ...",
+  lintFixingPolluted: "Fixing polluted page {current}/{total}: {title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} Fix polluted pages ({count})",
   lintDuplicateCheckFailed: "Duplicate detection failed \u2014 see console for details",
   lintDuplicateCheckFailedDetail: "Duplicate check failed at {step}: {error}",
   lintMergeItemFailed: "Merge failed: {source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "Aliases missing: {count} page(s) without aliases",
-  lintAliasesSection: "Pages missing aliases (detected)",
+  lintAliasesSection: "Pages missing aliases [{count}]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "Complete aliases ({count})",
   lintAliasesFilling: "Generating aliases {current}/{total}: {page}",
   lintAliasesFilled: "Alias completion complete. Filled {filled}/{total} pages.",
   lintAliasesFillFailed: "Alias generation failed: {page} \u2014 {error}",
+  // Issue #85 v7: tag-violation retag notifications
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintFixItemFailed: "Fix failed: [[{target}]] \u2014 {error}",
   lintLinkItemFailed: "Link failed: {page} \u2014 {error}",
   lintRetrying: "Retrying ({attempt}/{max}) after error...",
@@ -3106,16 +1115,30 @@ var EN_TEXTS = {
   // Extraction Settings
   extractionSectionTitle: "Extraction",
   extractionGranularityName: "Extraction Granularity",
-  extractionGranularityDesc: "Controls entities/concepts extracted per source file. Higher = more pages, more API tokens.\nFine: deep analysis. Standard: daily notes. Coarse: quick overview. Minimal: batch 100+ files. Custom: set your own (up to 300).\nTip: Use Minimal/Coarse for folders with many files to save time and cost.",
+  extractionGranularityDesc: "Controls entities/concepts extracted per source file. Higher = more pages, more API tokens.\nFine: deep analysis. Standard: daily notes. Coarse: quick overview. Minimal: batch 100+ files. Custom: set your own (up to 500).\nTip: Use Minimal/Coarse for folders with many files to save time and cost.",
   extractionGranularityFine: "Fine \u2014 deep analysis (\u2264100 items)",
   extractionGranularityStandard: "Standard \u2014 daily notes (\u226450 items)",
   extractionGranularityCoarse: "Coarse \u2014 quick overview (\u226410 items)",
   extractionGranularityMinimal: "Minimal \u2014 batch 100+ files (\u22645 items)",
-  extractionGranularityCustom: "Custom \u2014 set your own limits (1~300)",
+  extractionGranularityCustom: "Custom \u2014 set your own limits (1~500)",
   customEntityLimitName: "Custom Entity Limit",
-  customEntityLimitDesc: "Maximum number of entities to extract per source file (1-300)",
+  customEntityLimitDesc: "Maximum number of entities to extract per source file (1-500)",
   customConceptLimitName: "Custom Concept Limit",
-  customConceptLimitDesc: "Maximum number of concepts to extract per source file (1-300)",
+  customConceptLimitDesc: "Maximum number of concepts to extract per source file (1-500)",
+  // Issue #85 v2: Tag Vocabulary (chip input UX, embedded in Wiki Configuration)
+  tagVocabularyInlineDesc: 'Controlled vocabulary for entity and concept frontmatter tags. Obsidian nested tags with "/" are preserved.',
+  tagVocabularyModeName: "Tag Vocabulary Configuration",
+  tagVocabularyModeDescDefault: "Default uses built-in tags: {}. Switch to Custom to define your own.",
+  tagVocabularyModeDescCustom: "Custom: define your own entity and concept tags below. Use the chip input \u2014 Enter or comma to add, \xD7 to remove.",
+  tagVocabularyModeDefault: "Default (built-in subtype tags)",
+  tagVocabularyModeCustom: "Custom (user-defined)",
+  customEntityTagsName: "Custom Entity Tags",
+  customEntityTagsDesc: 'Press Enter or comma to add a chip. Click \xD7 to remove. Nested tags with "/" are preserved.',
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "Custom Concept Tags",
+  customConceptTagsDesc: 'Press Enter or comma to add a chip. Click \xD7 to remove. Nested tags with "/" are preserved.',
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "Duplicate tag skipped",
   // Ingestion Acceleration
   accelerationSectionTitle: "Ingestion Acceleration",
   pageGenerationConcurrencyName: "LLM Concurrency",
@@ -3217,15 +1240,15 @@ var EN_TEXTS = {
   crossTypeCollisionNotice: "{count} items merged as cross-type aliases (entity \u2194 concept duplicates prevented)",
   // Lint Report
   lintReportTitle: "Wiki lint report",
-  lintReportSummary: "Wiki status overview: {total} pages total, {aliasesMissing} pages missing aliases, {duplicates} duplicate pages, {deadLinks} dead links ({deadLinkFromDup} involve duplicates), {orphans} orphan pages ({orphanFromDup} are duplicates), {emptyPages} empty pages",
-  lintDeadLinkSection: "Dead links (detected)",
-  lintEmptyPageSection: "Empty pages (detected)",
-  lintOrphanSection: "Orphan pages (detected)",
+  lintReportSummary: "Wiki status overview: {total} pages total, {aliasesMissing} pages missing aliases, {duplicates} duplicate pages, {deadLinks} dead links ({deadLinkFromDup} involve duplicates), {orphans} orphan pages ({orphanFromDup} are duplicates), {emptyPages} empty pages. Lint elapsed: {elapsedSeconds}s",
+  lintDeadLinkSection: "Dead links (detected) [{count}]",
+  lintEmptyPageSection: "Empty pages (detected) [{count}]",
+  lintOrphanSection: "Orphan pages (detected) [{count}]",
   lintContradictionSection: "Contradictions (detected)",
   lintDuplicateSection: "Duplicate pages (detected)",
-  lintPollutedSection: "Polluted pages (detected)",
+  lintPollutedSection: "Polluted pages (detected) [{count}]",
   lintPollutedItem: '- [[{page}]] \u2192 should be "{clean}"',
-  lintSourcesNormalizedSection: "Sources normalized (auto-fixed)",
+  lintSourcesNormalizedSection: "Sources normalized (auto-fixed) [{files} files / {entries} entries]",
   lintSourcesNormalizedItem: "Cleaned {entries} polluted sources entries across {files} file(s) (external paths, .md extensions, alias pipes removed and deduplicated).",
   lintNoIssuesFound: "No duplicates, dead links, empty pages, or orphan pages detected.",
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (page does not exist){dupFlag}",
@@ -3248,6 +1271,8 @@ var EN_TEXTS = {
   lintFixDeadComplete: "Dead link fix complete. Fixed {fixed}/{total} items.",
   lintFillProgress: "Expanding {current}/{total}: {page}",
   lintFillComplete: "Page expansion complete. Filled {filled}/{total} pages.",
+  lintDeleteCompleted: "Deleted {count} empty stubs",
+  lintDeleteFailed: "Failed to delete {failed}/{total} empty stubs (see console for details)",
   lintFillFailed: "Failed to expand: {page} \u2014 {error}",
   lintLinkProgress: "Linking {current}/{total}: {page}",
   lintLinkComplete: "Orphan linking complete. Linked {linked} pages.",
@@ -3259,8 +1284,10 @@ var EN_TEXTS = {
   operationFailed: "Failed: ",
   // Lint Report Modal
   lintModalActionsTitle: "Fix suggestions (requires LLM tokens):",
+  lintLogReference: "Full report saved to log.md",
   lintModalFixDeadLinks: "Fix dead links ({count})",
   lintModalExpandEmpty: "Expand empty pages ({count})",
+  lintModalDeleteEmpty: "Delete empty stubs ({count})",
   lintModalLinkOrphans: "Link orphan pages ({count})",
   lintModalAnalyzeSchema: "Analyze schema",
   lintModalMergeDuplicates: "Merge duplicates ({count})",
@@ -3352,14 +1379,19 @@ var ZH_TEXTS = {
   fetchSuccess: "\u83B7\u53D6\u6210\u529F\uFF01\u5171 {} \u4E2A\u53EF\u7528\u6A21\u578B",
   fetchFailed: "\u83B7\u53D6\u5931\u8D25\u6216\u5217\u8868\u4E3A\u7A7A\uFF0C\u8BF7\u624B\u52A8\u8F93\u5165\u6A21\u578B\u540D\u79F0",
   fetchNotSupported: "\u8BE5 Provider \u4E0D\u652F\u6301\u6A21\u578B\u5217\u8868\u67E5\u8BE2",
+  fetchErrorAuth: "\u8BA4\u8BC1\u5931\u8D25\uFF08HTTP 401/403\uFF09\u3002\u8BF7\u68C0\u67E5 API Key \u662F\u5426\u6B63\u786E\uFF0C\u6216\u76F4\u63A5\u8F93\u5165\u6A21\u578B ID \u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5\u8FDB\u884C\u9A8C\u8BC1\u3002",
+  fetchErrorEndpoint: "\u63A5\u5165\u70B9\u672A\u627E\u5230\uFF08HTTP 404\uFF09\u3002\u8BF7\u68C0\u67E5 BaseURL \u662F\u5426\u6B63\u786E\uFF0C\u6216\u76F4\u63A5\u8F93\u5165\u6A21\u578B ID \u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5\u3002",
+  fetchErrorServer: "Provider \u670D\u52A1\u7AEF\u9519\u8BEF\uFF08HTTP 5xx\uFF09\u3002\u7A0D\u540E\u91CD\u8BD5\uFF0C\u6216\u76F4\u63A5\u8F93\u5165\u6A21\u578B ID \u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5\u3002",
+  fetchErrorEmpty: "\u8BE5\u63A5\u5165\u70B9\u4E0D\u652F\u6301\u5217\u51FA\u6A21\u578B\u5217\u8868\u3002\u8BF7\u76F4\u63A5\u8F93\u5165\u6A21\u578B ID \u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5\u8FDB\u884C\u9A8C\u8BC1\u3002",
+  fetchErrorNetwork: "\u7F51\u7EDC\u8BF7\u6C42\u5931\u8D25\u3002\u8BF7\u68C0\u67E5\u7F51\u7EDC\u8FDE\u63A5\u3001BaseURL \u6216\u4EE3\u7406\u8BBE\u7F6E\u3002\u60A8\u4E5F\u53EF\u4EE5\u76F4\u63A5\u8F93\u5165\u6A21\u578B ID \u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5\u8FDB\u884C\u9A8C\u8BC1\u3002",
   selectModelName: "\u9009\u62E9\u6A21\u578B",
   selectModelDesc: "\u4ECE {} \u4E2A\u53EF\u7528\u6A21\u578B\u4E2D\u9009\u62E9",
   customInputOption: "\u81EA\u5B9A\u4E49\u8F93\u5165...",
   customInputHint: '\u5982\u9700\u4F7F\u7528\u5176\u4ED6\u6A21\u578B\uFF0C\u8BF7\u9009\u62E9"\u81EA\u5B9A\u4E49\u8F93\u5165..."',
   modelName: "\u6A21\u578B\u540D\u79F0",
   modelDescCustom: "\u5F53\u524D\u4F7F\u7528\u81EA\u5B9A\u4E49\u6A21\u578B\uFF08\u53EF\u91CD\u65B0\u83B7\u53D6\u5217\u8868\uFF09",
-  modelDescRecommended: "\u63A8\u8350\uFF1A{}",
-  modelDescManual: "\u624B\u52A8\u8F93\u5165\u6A21\u578B\u540D\u79F0",
+  modelDescFetchFailed: "\u6A21\u578B\u5217\u8868\u83B7\u53D6\u5931\u8D25\u3002\u8BF7\u68C0\u67E5 API Key \u548C\u63A5\u5165\u70B9 URL\uFF0C\u6216\u76F4\u63A5\u8F93\u5165\u6A21\u578B ID \u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5\u8FDB\u884C\u9A8C\u8BC1\u3002",
+  modelInputPlaceholder: "\u8F93\u5165\u6A21\u578B ID\uFF0C\u7136\u540E\u70B9\u51FB\u6D4B\u8BD5\u8FDE\u63A5",
   switchToDropdown: "\u5207\u6362\u5230\u4E0B\u62C9\u9009\u62E9",
   useDropdownButton: "\u4F7F\u7528\u4E0B\u62C9\u9009\u62E9",
   // 测试 & 保存
@@ -3390,7 +1422,7 @@ var ZH_TEXTS = {
   maxConversationHistoryDesc: "\u9650\u5236\u5BF9\u8BDD\u6D88\u606F\u6570\uFF0C\u907F\u514D\u8D85\u51FALLM token\u9650\u5236",
   maxConversationHistoryHint: "\u63A8\u8350\uFF1A\u4E0D\u8D85\u8FC750\u8F6E",
   numberRangeValidation: "\u8BF7\u8F93\u51651-50\u4E4B\u95F4\u7684\u6570\u5B57",
-  numberRangeClamped: "\u6570\u503C\u8D85\u51FA\u8303\u56F4\uFF081-300\uFF09\uFF0C\u5DF2\u81EA\u52A8\u8BBE\u5B9A\u4E3A {}",
+  numberRangeClamped: "\u6570\u503C\u8D85\u51FA\u8303\u56F4\uFF081-500\uFF09\uFF0C\u5DF2\u81EA\u52A8\u8BBE\u5B9A\u4E3A {}",
   // Query Modal UI
   queryModalTitle: "Query Wiki - \u5BF9\u8BDD\u5F0F\u67E5\u8BE2",
   queryModalPlaceholder: "\u8F93\u5165\u95EE\u9898...",
@@ -3422,15 +1454,25 @@ var ZH_TEXTS = {
   lintScanningLinks: "\u6B63\u5728\u626B\u63CF\u65AD\u94FE...",
   lintScanningLinksProgress: "\u6B63\u5728\u626B\u63CF\u65AD\u94FE\uFF1A{current}/{total}...",
   lintCheckingDuplicates: "\u6B63\u5728\u68C0\u67E5\u91CD\u590D\u9875\u9762...",
+  lintCheckingDuplicatesProgress: "\u6B63\u5728\u6821\u9A8C\u91CD\u590D\u9879\uFF1A\u6279\u6B21 {current} ...",
+  lintFixingPolluted: "\u6B63\u5728\u4FEE\u590D\u6C61\u67D3\u9875\u9762 {current}/{total}\uFF1A{title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} \u4FEE\u590D\u6C61\u67D3\u9875\u9762\uFF08{count}\uFF09",
   lintDuplicateCheckFailed: "\u91CD\u590D\u68C0\u6D4B\u5931\u8D25 \u2014 \u8BE6\u89C1\u63A7\u5236\u53F0",
   lintDuplicateCheckFailedDetail: "\u91CD\u590D\u68C0\u6D4B\u5728{step}\u5931\u8D25\uFF1A{error}",
   lintMergeItemFailed: "\u5408\u5E76\u5931\u8D25\uFF1A{source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "\u68C0\u6D4B\u5230 {count} \u4E2A\u9875\u9762\u7F3A\u5C11\u522B\u540D",
-  lintAliasesSection: "\u7F3A\u5C11\u522B\u540D\u7684\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
+  lintAliasesSection: "\u7F3A\u5931\u522B\u540D\u7684\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "\u8865\u5168\u522B\u540D\uFF08{count}\uFF09",
   lintAliasesFilling: "\u751F\u6210\u522B\u540D {current}/{total}\uFF1A{page}",
   lintAliasesFilled: "\u522B\u540D\u8865\u5168\u5B8C\u6210\u3002\u5DF2\u586B\u5145 {filled}/{total} \u9875\u3002",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\u522B\u540D\u751F\u6210\u5931\u8D25\uFF1A{page} \u2014 {error}",
   lintFixItemFailed: "\u4FEE\u590D\u5931\u8D25\uFF1A[[{target}]] \u2014 {error}",
   lintLinkItemFailed: "\u94FE\u63A5\u5931\u8D25\uFF1A{page} \u2014 {error}",
@@ -3506,11 +1548,25 @@ var ZH_TEXTS = {
   extractionGranularityStandard: "\u6807\u51C6 \u2014 \u65E5\u5E38\u7B14\u8BB0\uFF08\u226450\u4E2A\uFF09",
   extractionGranularityCoarse: "\u7C97\u653E \u2014 \u5FEB\u901F\u6982\u89C8\uFF08\u226410\u4E2A\uFF09",
   extractionGranularityMinimal: "\u6781\u7B80 \u2014 \u6279\u91CF100+\u6587\u4EF6\uFF08\u22645\u4E2A\uFF09",
-  extractionGranularityCustom: "\u81EA\u5B9A\u4E49 \u2014 \u81EA\u884C\u8BBE\u5B9A\u4E0A\u9650\uFF081~300\uFF09",
+  extractionGranularityCustom: "\u81EA\u5B9A\u4E49 \u2014 \u81EA\u884C\u8BBE\u5B9A\u4E0A\u9650\uFF081~500\uFF09",
   customEntityLimitName: "\u81EA\u5B9A\u4E49\u5B9E\u4F53\u4E0A\u9650",
-  customEntityLimitDesc: "\u6BCF\u7BC7\u6E90\u6587\u4EF6\u6700\u591A\u63D0\u53D6\u7684\u5B9E\u4F53\u6570\u91CF\uFF081-300\uFF09",
+  customEntityLimitDesc: "\u6BCF\u7BC7\u6E90\u6587\u4EF6\u6700\u591A\u63D0\u53D6\u7684\u5B9E\u4F53\u6570\u91CF\uFF081-500\uFF09",
   customConceptLimitName: "\u81EA\u5B9A\u4E49\u6982\u5FF5\u4E0A\u9650",
-  customConceptLimitDesc: "\u6BCF\u7BC7\u6E90\u6587\u4EF6\u6700\u591A\u63D0\u53D6\u7684\u6982\u5FF5\u6570\u91CF\uFF081-300\uFF09",
+  customConceptLimitDesc: "\u6BCF\u7BC7\u6E90\u6587\u4EF6\u6700\u591A\u63D0\u53D6\u7684\u6982\u5FF5\u6570\u91CF\uFF081-500\uFF09",
+  // Issue #85 v2: 标签词汇表 (chip input 交互, 嵌入 Wiki 配置)
+  tagVocabularyInlineDesc: '\u4E3A entity \u548C concept frontmatter \u6807\u7B7E\u8BBE\u7F6E\u53D7\u63A7\u8BCD\u6C47\u3002Obsidian \u5D4C\u5957\u6807\u7B7E "/" \u4F1A\u88AB\u4FDD\u7559\u3002',
+  tagVocabularyModeName: "\u6807\u7B7E\uFF08Tags)\u8BCD\u6C47\u8868\u914D\u7F6E",
+  tagVocabularyModeDescDefault: '\u9ED8\u8BA4\u4F7F\u7528\u5185\u7F6E\u6807\u7B7E: {}\u3002\u5207\u6362\u5230"\u81EA\u5B9A\u4E49"\u53EF\u5B9A\u4E49\u60A8\u81EA\u5DF1\u7684\u8BCD\u6C47\u3002',
+  tagVocabularyModeDescCustom: "\u81EA\u5B9A\u4E49\uFF1A\u5728\u4E0B\u65B9\u4F7F\u7528 chip \u8F93\u5165\u5B9A\u4E49\u60A8\u81EA\u5DF1\u7684 entity \u4E0E concept \u6807\u7B7E\u3002\u56DE\u8F66\u6216\u9017\u53F7\u6DFB\u52A0, \xD7 \u5220\u9664\u3002",
+  tagVocabularyModeDefault: "\u9ED8\u8BA4 (\u5185\u7F6E\u5B50\u7C7B\u578B\u6807\u7B7E)",
+  tagVocabularyModeCustom: "\u81EA\u5B9A\u4E49 (\u7528\u6237\u5B9A\u4E49)",
+  customEntityTagsName: "\u81EA\u5B9A\u4E49\u5B9E\u4F53\u6807\u7B7E",
+  customEntityTagsDesc: '\u6309\u56DE\u8F66\u6216\u9017\u53F7\u6DFB\u52A0 chip, \u70B9 \xD7 \u5220\u9664\u3002\u5D4C\u5957\u6807\u7B7E "/" \u4F1A\u88AB\u4FDD\u7559\u3002',
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "\u81EA\u5B9A\u4E49\u6982\u5FF5\u6807\u7B7E",
+  customConceptTagsDesc: '\u6309\u56DE\u8F66\u6216\u9017\u53F7\u6DFB\u52A0 chip, \u70B9 \xD7 \u5220\u9664\u3002\u5D4C\u5957\u6807\u7B7E "/" \u4F1A\u88AB\u4FDD\u7559\u3002',
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "\u91CD\u590D\u6807\u7B7E\u5DF2\u8DF3\u8FC7",
   // 摄入加速
   accelerationSectionTitle: "\u6444\u5165\u52A0\u901F",
   pageGenerationConcurrencyName: "LLM \u5E76\u53D1\u5EA6",
@@ -3613,10 +1669,10 @@ var ZH_TEXTS = {
   // 维护报告
   lintReportTitle: "Wiki \u7EF4\u62A4\u62A5\u544A",
   lintReportPageCount: "\u5171 {count} \u4E2A Wiki \u9875\u9762",
-  lintReportSummary: "Wiki \u72B6\u6001\u6982\u89C8\uFF1A\u5171 {total} \u4E2A\u9875\u9762\uFF0C{aliasesMissing} \u4E2A\u7F3A\u5931\u522B\u540D\uFF0C\u91CD\u590D {duplicates} \u4E2A\uFF0C\u65AD\u94FE {deadLinks} \u4E2A\uFF08\u5176\u4E2D {deadLinkFromDup} \u4E2A\u6D89\u53CA\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u5B64\u7ACB {orphans} \u4E2A\uFF08\u5176\u4E2D {orphanFromDup} \u4E2A\u662F\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u7A7A\u6D1E {emptyPages} \u4E2A",
-  lintDeadLinkSection: "\u65AD\u94FE\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
-  lintEmptyPageSection: "\u7A7A\u6D1E\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
-  lintOrphanSection: "\u5B64\u7ACB\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
+  lintReportSummary: "Wiki \u72B6\u6001\u6982\u89C8\uFF1A\u5171 {total} \u4E2A\u9875\u9762\uFF0C{aliasesMissing} \u4E2A\u7F3A\u5931\u522B\u540D\uFF0C\u91CD\u590D {duplicates} \u4E2A\uFF0C\u65AD\u94FE {deadLinks} \u4E2A\uFF08\u5176\u4E2D {deadLinkFromDup} \u4E2A\u6D89\u53CA\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u5B64\u7ACB {orphans} \u4E2A\uFF08\u5176\u4E2D {orphanFromDup} \u4E2A\u662F\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u7A7A\u6D1E {emptyPages} \u4E2A\u3002\u672C\u6B21 Lint \u8017\u65F6 {elapsedSeconds} \u79D2",
+  lintDeadLinkSection: "\u65AD\u94FE\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
+  lintEmptyPageSection: "\u7A7A\u6D1E\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
+  lintOrphanSection: "\u5B64\u7ACB\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
   lintContradictionSection: "\u77DB\u76FE\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}**\uFF08\u9875\u9762\u4E0D\u5B58\u5728\uFF09{dupFlag}",
   lintDeadLinkMore: "- ... \u5171 {count} \u5904\u65AD\u94FE",
@@ -3638,6 +1694,8 @@ var ZH_TEXTS = {
   lintFixDeadComplete: "\u65AD\u94FE\u4FEE\u590D\u5B8C\u6210\u3002\u5DF2\u4FEE\u590D {fixed}/{total} \u9879\u3002",
   lintFillProgress: "\u6269\u5145\u7A7A\u6D1E {current}/{total}\uFF1A{page}",
   lintFillComplete: "\u9875\u9762\u6269\u5145\u5B8C\u6210\u3002\u5DF2\u586B\u5145 {filled}/{total} \u9875\u3002",
+  lintDeleteCompleted: "\u5DF2\u5220\u9664 {count} \u4E2A\u7A7A\u6D1E\u9875\u9762",
+  lintDeleteFailed: "\u5220\u9664\u5931\u8D25 {failed}/{total} \u4E2A\u7A7A\u767D stub\uFF08\u8BE6\u60C5\u89C1\u63A7\u5236\u53F0\uFF09",
   lintFillFailed: "\u6269\u5145\u5931\u8D25\uFF1A{page} \u2014 {error}",
   lintLinkProgress: "\u94FE\u63A5\u5B64\u7ACB {current}/{total}\uFF1A{page}",
   lintLinkComplete: "\u5B64\u7ACB\u9875\u9762\u94FE\u63A5\u5B8C\u6210\u3002\u5DF2\u94FE\u63A5 {linked} \u9875\u3002",
@@ -3649,16 +1707,18 @@ var ZH_TEXTS = {
   lintFixAllComplete: "\u6240\u6709\u4FEE\u590D\u5DF2\u5B8C\u6210\u3002\u8BE6\u60C5\u89C1\u65E5\u5FD7\u3002",
   // 维护报告弹窗
   lintModalActionsTitle: "\u4FEE\u590D\u5EFA\u8BAE\uFF08\u9700\u6D88\u8017LLM Token\uFF09\uFF1A",
+  lintLogReference: "\u5B8C\u6574\u62A5\u544A\u5DF2\u4FDD\u5B58\u81F3 log.md",
   lintModalFixDeadLinks: "\u4FEE\u590D\u65AD\u94FE\uFF08{count}\uFF09",
   lintModalExpandEmpty: "\u6269\u5145\u7A7A\u6D1E\u9875\u9762\uFF08{count}\uFF09",
+  lintModalDeleteEmpty: "\u5220\u9664\u7A7A\u6D1E\u9875\u9762\uFF08{count}\uFF09",
   lintModalLinkOrphans: "\u94FE\u63A5\u5B64\u7ACB\u9875\u9762\uFF08{count}\uFF09",
   lintModalAnalyzeSchema: "\u5206\u6790 Schema",
   lintModalMergeDuplicates: "\u5408\u5E76\u91CD\u590D\u9875\u9762\uFF08{count}\uFF09",
   lintModalFixAll: "\u4E00\u952E\u4FEE\u590D\u6240\u6709\u95EE\u9898\uFF08{count}\uFF09",
   lintDuplicateSection: "\u91CD\u590D\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
-  lintPollutedSection: "\u8DEF\u5F84\u6C61\u67D3\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09",
+  lintPollutedSection: "\u6C61\u67D3\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
   lintPollutedItem: '- [[{page}]] \u2192 \u5E94\u4E3A "{clean}"',
-  lintSourcesNormalizedSection: "Sources \u5DF2\u5F52\u4E00\u5316\uFF08\u81EA\u52A8\u4FEE\u590D\uFF09",
+  lintSourcesNormalizedSection: "Sources \u5DF2\u5F52\u4E00\u5316\uFF08\u81EA\u52A8\u4FEE\u590D\uFF09[\u5171 {files} \u4E2A\u6587\u4EF6 / {entries} \u5904]",
   lintSourcesNormalizedItem: "\u6E05\u7406\u4E86 {files} \u4E2A\u6587\u4EF6\u4E2D\u7684 {entries} \u5904 sources \u6761\u76EE\uFF08\u5DF2\u79FB\u9664\u5916\u90E8\u8DEF\u5F84\u3001.md \u540E\u7F00\u3001\u522B\u540D\u7BA1\u9053\uFF0C\u5E76\u53BB\u91CD\uFF09\u3002",
   lintDuplicateItem: "- [[{target}]] \u4E0E [[{source}]] \u2014 {reason}",
   lintMergeProgress: "\u5408\u5E76 {current}/{total}\uFF1A{source} \u2192 {target}",
@@ -3748,14 +1808,19 @@ var JA_TEXTS = {
   fetchSuccess: "\u53D6\u5F97\u6210\u529F\uFF01{}\u4EF6\u306E\u30E2\u30C7\u30EB\u304C\u5229\u7528\u53EF\u80FD\u3067\u3059",
   fetchFailed: "\u53D6\u5F97\u306B\u5931\u6557\u3057\u305F\u304B\u30EA\u30B9\u30C8\u304C\u7A7A\u3067\u3059\u3002\u30E2\u30C7\u30EB\u540D\u3092\u624B\u52D5\u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044",
   fetchNotSupported: "\u3053\u306E\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306F\u30E2\u30C7\u30EB\u4E00\u89A7\u306E\u53D6\u5F97\u306B\u5BFE\u5FDC\u3057\u3066\u3044\u307E\u305B\u3093",
+  fetchErrorAuth: "\u8A8D\u8A3C\u306B\u5931\u6557\u3057\u307E\u3057\u305F\uFF08HTTP 401/403\uFF09\u3002API \u30AD\u30FC\u3092\u78BA\u8A8D\u3059\u308B\u304B\u3001\u30E2\u30C7\u30EB ID \u3092\u76F4\u63A5\u5165\u529B\u3057\u3066\u300C\u30C6\u30B9\u30C8\u63A5\u7D9A\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u691C\u8A3C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  fetchErrorEndpoint: "\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\uFF08HTTP 404\uFF09\u3002BaseURL \u3092\u78BA\u8A8D\u3059\u308B\u304B\u3001\u30E2\u30C7\u30EB ID \u3092\u76F4\u63A5\u5165\u529B\u3057\u3066\u300C\u30C6\u30B9\u30C8\u63A5\u7D9A\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u691C\u8A3C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  fetchErrorServer: "\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u30B5\u30FC\u30D0\u30FC\u30A8\u30E9\u30FC\uFF08HTTP 5xx\uFF09\u3002\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u304A\u8A66\u3057\u3044\u305F\u3060\u304F\u304B\u3001\u30E2\u30C7\u30EB ID \u3092\u76F4\u63A5\u5165\u529B\u3057\u3066\u300C\u30C6\u30B9\u30C8\u63A5\u7D9A\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u691C\u8A3C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  fetchErrorEmpty: "\u3053\u306E\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8\u306F\u30E2\u30C7\u30EB\u4E00\u89A7\u3092\u63D0\u4F9B\u3057\u3066\u3044\u307E\u305B\u3093\u3002\u30E2\u30C7\u30EB ID \u3092\u76F4\u63A5\u5165\u529B\u3057\u3066\u300C\u30C6\u30B9\u30C8\u63A5\u7D9A\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u691C\u8A3C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  fetchErrorNetwork: "\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u30EA\u30AF\u30A8\u30B9\u30C8\u304C\u5931\u6557\u3057\u307E\u3057\u305F\u3002\u30A4\u30F3\u30BF\u30FC\u30CD\u30C3\u30C8\u63A5\u7D9A\u3001BaseURL\u3001\u307E\u305F\u306F\u30D7\u30ED\u30AD\u30B7\u8A2D\u5B9A\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u30E2\u30C7\u30EB ID \u3092\u76F4\u63A5\u5165\u529B\u3057\u3066\u300C\u30C6\u30B9\u30C8\u63A5\u7D9A\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u691C\u8A3C\u3059\u308B\u3053\u3068\u3082\u3067\u304D\u307E\u3059\u3002",
   selectModelName: "\u30E2\u30C7\u30EB\u3092\u9078\u629E",
   selectModelDesc: "{}\u4EF6\u306E\u5229\u7528\u53EF\u80FD\u306A\u30E2\u30C7\u30EB\u304B\u3089\u9078\u629E",
   customInputOption: "\u30AB\u30B9\u30BF\u30E0\u5165\u529B...",
   customInputHint: "\u4ED6\u306E\u30E2\u30C7\u30EB\u3092\u4F7F\u7528\u3059\u308B\u306B\u306F\u300C\u30AB\u30B9\u30BF\u30E0\u5165\u529B...\u300D\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044",
   modelName: "\u30E2\u30C7\u30EB\u540D",
   modelDescCustom: "\u30AB\u30B9\u30BF\u30E0\u30E2\u30C7\u30EB\u3092\u4F7F\u7528\u4E2D\uFF08\u4E0A\u306E\u30DC\u30BF\u30F3\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u4E00\u89A7\u3092\u518D\u53D6\u5F97\uFF09",
-  modelDescRecommended: "\u63A8\u5968\uFF1A{}",
-  modelDescManual: "\u30E2\u30C7\u30EB\u540D\u3092\u624B\u52D5\u3067\u5165\u529B",
+  modelDescFetchFailed: "\u30E2\u30C7\u30EB\u4E00\u89A7\u306E\u53D6\u5F97\u306B\u5931\u6557\u3057\u307E\u3057\u305F\u3002API \u30AD\u30FC\u3068\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8 URL \u3092\u78BA\u8A8D\u3059\u308B\u304B\u3001\u30E2\u30C7\u30EB ID \u3092\u76F4\u63A5\u5165\u529B\u3057\u3066\u300C\u30C6\u30B9\u30C8\u63A5\u7D9A\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3057\u3066\u691C\u8A3C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  modelInputPlaceholder: "\u30E2\u30C7\u30EB ID \u3092\u5165\u529B\u3057\u3066\u30C6\u30B9\u30C8\u63A5\u7D9A",
   switchToDropdown: "\u30C9\u30ED\u30C3\u30D7\u30C0\u30A6\u30F3\u9078\u629E\u306B\u5207\u308A\u66FF\u3048",
   useDropdownButton: "\u30C9\u30ED\u30C3\u30D7\u30C0\u30A6\u30F3\u3092\u4F7F\u7528",
   // Test & Save
@@ -3786,7 +1851,7 @@ var JA_TEXTS = {
   maxConversationHistoryDesc: "\u30C8\u30FC\u30AF\u30F3\u30AA\u30FC\u30D0\u30FC\u30D5\u30ED\u30FC\u3092\u9632\u3050\u305F\u3081\u4F1A\u8A71\u30E1\u30C3\u30BB\u30FC\u30B8\u6570\u3092\u5236\u9650\u3057\u307E\u3059",
   maxConversationHistoryHint: "\u63A8\u5968\uFF1A50\u30E9\u30A6\u30F3\u30C9\u4EE5\u5185",
   numberRangeValidation: "1\u301C50\u306E\u6570\u5024\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044",
-  numberRangeClamped: "\u5024\u304C\u7BC4\u56F2\u5916\u3067\u3059\uFF081-300\uFF09\u3001\u81EA\u52D5\u7684\u306B {} \u306B\u8A2D\u5B9A\u3055\u308C\u307E\u3057\u305F",
+  numberRangeClamped: "\u5024\u304C\u7BC4\u56F2\u5916\u3067\u3059\uFF081-500\uFF09\u3001\u81EA\u52D5\u7684\u306B {} \u306B\u8A2D\u5B9A\u3055\u308C\u307E\u3057\u305F",
   // Query Modal UI
   queryModalTitle: "Query Wiki - \u5BFE\u8A71\u578B\u554F\u3044\u5408\u308F\u305B",
   queryModalPlaceholder: "\u8CEA\u554F\u3092\u5165\u529B...",
@@ -3818,15 +1883,25 @@ var JA_TEXTS = {
   lintScanningLinks: "\u30EA\u30F3\u30AF\u5207\u308C\u3092\u30B9\u30AD\u30E3\u30F3\u4E2D...",
   lintScanningLinksProgress: "\u30EA\u30F3\u30AF\u5207\u308C\u30B9\u30AD\u30E3\u30F3\u4E2D\uFF1A{current}/{total}...",
   lintCheckingDuplicates: "\u91CD\u8907\u30DA\u30FC\u30B8\u3092\u78BA\u8A8D\u4E2D...",
+  lintCheckingDuplicatesProgress: "\u91CD\u8907\u30DA\u30FC\u30B8\u3092\u691C\u8A3C\u4E2D\uFF1A\u30D0\u30C3\u30C1 {current} ...",
+  lintFixingPolluted: "\u6C5A\u67D3\u30DA\u30FC\u30B8\u3092\u4FEE\u6B63\u4E2D {current}/{total}\uFF1A{title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} \u6C5A\u67D3\u30DA\u30FC\u30B8\u3092\u4FEE\u6B63\uFF08{count}\uFF09",
   lintDuplicateCheckFailed: "\u91CD\u8907\u691C\u51FA\u306B\u5931\u6557\u3057\u307E\u3057\u305F \u2014 \u30B3\u30F3\u30BD\u30FC\u30EB\u3067\u8A73\u7D30\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044",
   lintDuplicateCheckFailedDetail: "\u91CD\u8907\u30C1\u30A7\u30C3\u30AF\u304C{step}\u3067\u5931\u6557\uFF1A{error}",
   lintMergeItemFailed: "\u30DE\u30FC\u30B8\u5931\u6557\uFF1A{source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "\u5225\u540D\u672A\u8A2D\u5B9A\uFF1A{count}\u4EF6\u306E\u30DA\u30FC\u30B8\u306B\u5225\u540D\u304C\u3042\u308A\u307E\u305B\u3093",
-  lintAliasesSection: "\u30A8\u30A4\u30EA\u30A2\u30B9\u4E0D\u8DB3\u306E\u30DA\u30FC\u30B8\uFF08\u30D7\u30ED\u30B0\u30E9\u30E0\u691C\u51FA\uFF09",
+  lintAliasesSection: "\u30A8\u30A4\u30EA\u30A2\u30B9\u6B20\u843D\u30DA\u30FC\u30B8 [{count} \u4EF6]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "\u5225\u540D\u3092\u88DC\u5B8C\uFF08{count}\u4EF6\uFF09",
   lintAliasesFilling: "\u5225\u540D\u751F\u6210\u4E2D {current}/{total}\uFF1A{page}",
   lintAliasesFilled: "\u5225\u540D\u88DC\u5B8C\u5B8C\u4E86\u3002{filled}/{total}\u30DA\u30FC\u30B8\u306B\u5165\u529B\u3057\u307E\u3057\u305F\u3002",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\u5225\u540D\u751F\u6210\u306B\u5931\u6557\uFF1A{page} \u2014 {error}",
   lintFixItemFailed: "\u4FEE\u5FA9\u5931\u6557\uFF1A[[{target}]] \u2014 {error}",
   lintLinkItemFailed: "\u30EA\u30F3\u30AF\u8A2D\u5B9A\u5931\u6557\uFF1A{page} \u2014 {error}",
@@ -3902,11 +1977,25 @@ var JA_TEXTS = {
   extractionGranularityStandard: "\u6A19\u6E96 \u2014 \u65E5\u5E38\u30CE\u30FC\u30C8\uFF08\u226450\u4EF6\uFF09",
   extractionGranularityCoarse: "\u7C97\u3081 \u2014 \u6982\u8981\uFF08\u226410\u4EF6\uFF09",
   extractionGranularityMinimal: "\u6700\u5C0F \u2014 100+\u30D5\u30A1\u30A4\u30EB\u4E00\u62EC\u51E6\u7406\uFF08\u22645\u4EF6\uFF09",
-  extractionGranularityCustom: "\u30AB\u30B9\u30BF\u30E0 \u2014 \u4E0A\u9650\u3092\u72EC\u81EA\u8A2D\u5B9A\uFF081~300\uFF09",
+  extractionGranularityCustom: "\u30AB\u30B9\u30BF\u30E0 \u2014 \u4E0A\u9650\u3092\u72EC\u81EA\u8A2D\u5B9A\uFF081~500\uFF09",
   customEntityLimitName: "\u30AB\u30B9\u30BF\u30E0\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3\u4E0A\u9650",
-  customEntityLimitDesc: "\u30BD\u30FC\u30B9\u30D5\u30A1\u30A4\u30EB\u3054\u3068\u306E\u6700\u5927\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3\u62BD\u51FA\u6570\uFF081-300\uFF09",
+  customEntityLimitDesc: "\u30BD\u30FC\u30B9\u30D5\u30A1\u30A4\u30EB\u3054\u3068\u306E\u6700\u5927\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3\u62BD\u51FA\u6570\uFF081-500\uFF09",
   customConceptLimitName: "\u30AB\u30B9\u30BF\u30E0\u6982\u5FF5\u4E0A\u9650",
-  customConceptLimitDesc: "\u30BD\u30FC\u30B9\u30D5\u30A1\u30A4\u30EB\u3054\u3068\u306E\u6700\u5927\u6982\u5FF5\u62BD\u51FA\u6570\uFF081-300\uFF09",
+  customConceptLimitDesc: "\u30BD\u30FC\u30B9\u30D5\u30A1\u30A4\u30EB\u3054\u3068\u306E\u6700\u5927\u6982\u5FF5\u62BD\u51FA\u6570\uFF081-500\uFF09",
+  // Issue #85 v2: タグ語彙 (chip 入力 UI, Wiki 設定内に埋め込み)
+  tagVocabularyInlineDesc: 'entity/concept \u30D5\u30ED\u30F3\u30C8\u30DE\u30BF\u30FC\u306E\u30BF\u30B0\u3092\u7BA1\u7406\u8A9E\u5F59\u3067\u5236\u5FA1\u3057\u307E\u3059\u3002"/" \u3092\u542B\u3080\u30CD\u30B9\u30C8\u30BF\u30B0\u306F\u4FDD\u6301\u3055\u308C\u307E\u3059\u3002',
+  tagVocabularyModeName: "\u30BF\u30B0\u8A9E\u5F59\u8A2D\u5B9A",
+  tagVocabularyModeDescDefault: "\u30C7\u30D5\u30A9\u30EB\u30C8\u306F\u7D44\u307F\u8FBC\u307F\u30BF\u30B0\u3092\u4F7F\u7528: {}\u3002\u300C\u30AB\u30B9\u30BF\u30E0\u300D\u306B\u5207\u308A\u66FF\u3048\u308B\u3068\u72EC\u81EA\u306E\u8A9E\u5F59\u3092\u5B9A\u7FA9\u3067\u304D\u307E\u3059\u3002",
+  tagVocabularyModeDescCustom: "\u30AB\u30B9\u30BF\u30E0: \u4E0B\u3067 chip \u5165\u529B\u3092\u4F7F\u3063\u3066\u72EC\u81EA\u306E entity/concept \u30BF\u30B0\u3092\u5B9A\u7FA9\u3057\u307E\u3059\u3002Enter \u307E\u305F\u306F\u30AB\u30F3\u30DE\u3067\u8FFD\u52A0\u3001\xD7 \u3067\u524A\u9664\u3002",
+  tagVocabularyModeDefault: "\u30C7\u30D5\u30A9\u30EB\u30C8 (\u7D44\u307F\u8FBC\u307F\u30B5\u30D6\u30BF\u30A4\u30D7\u30BF\u30B0)",
+  tagVocabularyModeCustom: "\u30AB\u30B9\u30BF\u30E0 (\u30E6\u30FC\u30B6\u30FC\u5B9A\u7FA9)",
+  customEntityTagsName: "\u30AB\u30B9\u30BF\u30E0\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3\u30BF\u30B0",
+  customEntityTagsDesc: 'Enter \u307E\u305F\u306F\u30AB\u30F3\u30DE\u3067 chip \u8FFD\u52A0\u3001\xD7 \u3067\u524A\u9664\u3002"/" \u3092\u542B\u3080\u30CD\u30B9\u30C8\u30BF\u30B0\u306F\u4FDD\u6301\u3055\u308C\u307E\u3059\u3002',
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "\u30AB\u30B9\u30BF\u30E0\u6982\u5FF5\u30BF\u30B0",
+  customConceptTagsDesc: 'Enter \u307E\u305F\u306F\u30AB\u30F3\u30DE\u3067 chip \u8FFD\u52A0\u3001\xD7 \u3067\u524A\u9664\u3002"/" \u3092\u542B\u3080\u30CD\u30B9\u30C8\u30BF\u30B0\u306F\u4FDD\u6301\u3055\u308C\u307E\u3059\u3002',
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "\u91CD\u8907\u30BF\u30B0\u3092\u30B9\u30AD\u30C3\u30D7\u3057\u307E\u3057\u305F",
   // Ingestion Acceleration
   accelerationSectionTitle: "\u53D6\u308A\u8FBC\u307F\u9AD8\u901F\u5316",
   pageGenerationConcurrencyName: "LLM \u4E26\u5217\u5EA6",
@@ -4008,10 +2097,10 @@ var JA_TEXTS = {
   crossTypeCollisionNotice: "{count}\u4EF6\u304C\u30AF\u30ED\u30B9\u30BF\u30A4\u30D7\u5225\u540D\u3068\u3057\u3066\u7D71\u5408\uFF08\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3 \u2194 \u30B3\u30F3\u30BB\u30D7\u30C8\u91CD\u8907\u3092\u9632\u6B62\uFF09",
   // Lint Report
   lintReportTitle: "Wiki Lint\u30EC\u30DD\u30FC\u30C8",
-  lintReportSummary: "Wiki\u72B6\u6CC1\u6982\u8981\uFF1A\u5408\u8A08{total}\u30DA\u30FC\u30B8\u3001\u5225\u540D\u672A\u8A2D\u5B9A{aliasesMissing}\u30DA\u30FC\u30B8\u3001\u91CD\u8907{duplicates}\u30DA\u30FC\u30B8\u3001\u30EA\u30F3\u30AF\u5207\u308C{deadLinks}\u4EF6\uFF08\u3046\u3061\u91CD\u8907\u95A2\u9023{deadLinkFromDup}\u4EF6\uFF09\u3001\u5B64\u7ACB{orphans}\u30DA\u30FC\u30B8\uFF08\u3046\u3061\u91CD\u8907{orphanFromDup}\u30DA\u30FC\u30B8\uFF09\u3001\u7A7A\u30DA\u30FC\u30B8{emptyPages}\u4EF6",
-  lintDeadLinkSection: "\u30EA\u30F3\u30AF\u5207\u308C\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
-  lintEmptyPageSection: "\u7A7A\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
-  lintOrphanSection: "\u5B64\u7ACB\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
+  lintReportSummary: "Wiki \u72B6\u614B\u306E\u6982\u8981: \u5408\u8A08 {total} \u30DA\u30FC\u30B8\u3001{aliasesMissing} \u30DA\u30FC\u30B8\u306B\u30A8\u30A4\u30EA\u30A2\u30B9\u6B20\u843D\u3001\u91CD\u8907 {duplicates}\u3001\u30C7\u30C3\u30C9\u30EA\u30F3\u30AF {deadLinks}\uFF08\u3046\u3061 {deadLinkFromDup} \u306F\u91CD\u8907\u95A2\u9023\uFF09\u3001\u5B64\u7ACB {orphans}\uFF08\u3046\u3061 {orphanFromDup} \u306F\u91CD\u8907\uFF09\u3001\u7A7A\u30DA\u30FC\u30B8 {emptyPages}\u3002Lint \u5B9F\u884C\u6642\u9593: {elapsedSeconds}\u79D2",
+  lintDeadLinkSection: "\u30C7\u30C3\u30C9\u30EA\u30F3\u30AF\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
+  lintEmptyPageSection: "\u7A7A\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
+  lintOrphanSection: "\u5B64\u7ACB\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
   lintContradictionSection: "\u77DB\u76FE\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
   lintDuplicateSection: "\u91CD\u8907\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
   lintNoIssuesFound: "\u91CD\u8907\u3001\u30EA\u30F3\u30AF\u5207\u308C\u3001\u7A7A\u30DA\u30FC\u30B8\u3001\u5B64\u7ACB\u30DA\u30FC\u30B8\u306F\u691C\u51FA\u3055\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002",
@@ -4019,9 +2108,9 @@ var JA_TEXTS = {
   lintDeadLinkMore: "- ... \u4ED6{count}\u4EF6\u306E\u30EA\u30F3\u30AF\u5207\u308C",
   lintEmptyPageItem: "- [[{page}]] \u2014 \u5B9F\u8CEA\u7684\u306A\u30B3\u30F3\u30C6\u30F3\u30C4\u304C50\u6587\u5B57\u672A\u6E80",
   lintOrphanItem: "- [[{page}]] \u2014 \u4ED6\u306EWiki\u30DA\u30FC\u30B8\u304B\u3089\u30EA\u30F3\u30AF\u3055\u308C\u3066\u3044\u307E\u305B\u3093{dupFlag}",
-  lintPollutedSection: "\u30D1\u30B9\u6C5A\u67D3\u30DA\u30FC\u30B8\uFF08\u30D7\u30ED\u30B0\u30E9\u30E0\u691C\u51FA\uFF09",
+  lintPollutedSection: "\u6C5A\u67D3\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
   lintPollutedItem: '- [[{page}]] \u2192 "{clean}"\u306B\u4FEE\u6B63\u5FC5\u8981',
-  lintSourcesNormalizedSection: "Sources \u6B63\u898F\u5316\u6E08\u307F\uFF08\u81EA\u52D5\u4FEE\u6B63\uFF09",
+  lintSourcesNormalizedSection: "Sources \u6B63\u898F\u5316\uFF08\u81EA\u52D5\u4FEE\u6B63\uFF09[{files} \u30D5\u30A1\u30A4\u30EB / {entries} \u4EF6]",
   lintSourcesNormalizedItem: "{files} \u30D5\u30A1\u30A4\u30EB\u5185\u306E {entries} \u4EF6\u306E sources \u30A8\u30F3\u30C8\u30EA\u3092\u4FEE\u6B63\u3057\u307E\u3057\u305F\uFF08\u5916\u90E8\u30D1\u30B9\u3001.md \u62E1\u5F35\u5B50\u3001\u30A8\u30A4\u30EA\u30A2\u30B9\u30D1\u30A4\u30D7\u3092\u524A\u9664\u3057\u91CD\u8907\u6392\u9664\uFF09\u3002",
   lintDuplicateItem: "- [[{target}]] \u3068 [[{source}]] \u2014 {reason}",
   lintDeadLinkAffectedByDup: " \uFF08\u26A0\uFE0F \u91CD\u8907\u30DA\u30FC\u30B8\u304C\u95A2\u9023\uFF09",
@@ -4039,6 +2128,8 @@ var JA_TEXTS = {
   lintFixDeadComplete: "\u30EA\u30F3\u30AF\u5207\u308C\u4FEE\u5FA9\u5B8C\u4E86\u3002{fixed}/{total}\u4EF6\u3092\u4FEE\u5FA9\u3057\u307E\u3057\u305F\u3002",
   lintFillProgress: "\u62E1\u5145\u4E2D {current}/{total}\uFF1A{page}",
   lintFillComplete: "\u30DA\u30FC\u30B8\u62E1\u5145\u5B8C\u4E86\u3002{filled}/{total}\u30DA\u30FC\u30B8\u3092\u5165\u529B\u3057\u307E\u3057\u305F\u3002",
+  lintDeleteCompleted: "{count}\u4EF6\u306E\u7A7A\u30B9\u30BF\u30D6\u3092\u524A\u9664\u3057\u307E\u3057\u305F",
+  lintDeleteFailed: "\u7A7A stub \u306E\u524A\u9664\u306B {failed}/{total} \u4EF6\u5931\u6557\uFF08\u8A73\u7D30\u306F\u30B3\u30F3\u30BD\u30FC\u30EB\uFF09",
   lintFillFailed: "\u62E1\u5145\u306B\u5931\u6557\uFF1A{page} \u2014 {error}",
   lintLinkProgress: "\u30EA\u30F3\u30AF\u8A2D\u5B9A\u4E2D {current}/{total}\uFF1A{page}",
   lintLinkComplete: "\u5B64\u7ACB\u30DA\u30FC\u30B8\u3078\u306E\u30EA\u30F3\u30AF\u5B8C\u4E86\u3002{linked}\u30DA\u30FC\u30B8\u306B\u30EA\u30F3\u30AF\u3092\u8A2D\u5B9A\u3057\u307E\u3057\u305F\u3002",
@@ -4050,8 +2141,10 @@ var JA_TEXTS = {
   lintFixAllComplete: "\u3059\u3079\u3066\u306E\u4FEE\u5FA9\u304C\u5B8C\u4E86\u3057\u307E\u3057\u305F\u3002\u8A73\u7D30\u306F\u30ED\u30B0\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   // Lint Report Modal
   lintModalActionsTitle: "\u4FEE\u5FA9\u63D0\u6848\uFF08LLM\u30C8\u30FC\u30AF\u30F3\u3092\u6D88\u8CBB\uFF09\uFF1A",
+  lintLogReference: "\u5B8C\u5168\u306A\u30EC\u30DD\u30FC\u30C8\u304C log.md \u306B\u4FDD\u5B58\u3055\u308C\u307E\u3057\u305F",
   lintModalFixDeadLinks: "\u30EA\u30F3\u30AF\u5207\u308C\u3092\u4FEE\u5FA9\uFF08{count}\u4EF6\uFF09",
   lintModalExpandEmpty: "\u7A7A\u30DA\u30FC\u30B8\u3092\u62E1\u5145\uFF08{count}\u4EF6\uFF09",
+  lintModalDeleteEmpty: "\u7A7A\u306E\u30B9\u30BF\u30D6\u3092\u524A\u9664\uFF08{count}\u4EF6\uFF09",
   lintModalLinkOrphans: "\u5B64\u7ACB\u30DA\u30FC\u30B8\u306B\u30EA\u30F3\u30AF\uFF08{count}\u4EF6\uFF09",
   lintModalAnalyzeSchema: "\u30B9\u30AD\u30FC\u30DE\u3092\u5206\u6790",
   lintModalMergeDuplicates: "\u91CD\u8907\u3092\u30DE\u30FC\u30B8\uFF08{count}\u4EF6\uFF09",
@@ -4142,14 +2235,19 @@ var KO_TEXTS = {
   fetchSuccess: "\uC131\uACF5! {}\uAC1C\uC758 \uBAA8\uB378 \uC0AC\uC6A9 \uAC00\uB2A5",
   fetchFailed: "\uAC00\uC838\uC624\uAE30 \uC2E4\uD328 \uB610\uB294 \uBE48 \uBAA9\uB85D. \uBAA8\uB378 \uC774\uB984\uC744 \uC218\uB3D9\uC73C\uB85C \uC785\uB825\uD558\uC138\uC694",
   fetchNotSupported: "Provider\uAC00 \uBAA8\uB378 \uBAA9\uB85D \uC870\uD68C\uB97C \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4",
+  fetchErrorAuth: "\uC778\uC99D \uC2E4\uD328 (HTTP 401/403). API \uD0A4\uB97C \uD655\uC778\uD558\uAC70\uB098 \uBAA8\uB378 ID\uB97C \uC9C1\uC811 \uC785\uB825\uD55C \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0\uC744 \uD074\uB9AD\uD558\uC5EC \uAC80\uC99D\uD558\uC138\uC694.",
+  fetchErrorEndpoint: "\uC5D4\uB4DC\uD3EC\uC778\uD2B8\uB97C \uCC3E\uC744 \uC218 \uC5C6\uC74C (HTTP 404). BaseURL\uC744 \uD655\uC778\uD558\uAC70\uB098 \uBAA8\uB378 ID\uB97C \uC9C1\uC811 \uC785\uB825\uD55C \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0\uC744 \uD074\uB9AD\uD558\uC5EC \uAC80\uC99D\uD558\uC138\uC694.",
+  fetchErrorServer: "Provider \uC11C\uBC84 \uC624\uB958 (HTTP 5xx). \uB098\uC911\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uAC70\uB098 \uBAA8\uB378 ID\uB97C \uC9C1\uC811 \uC785\uB825\uD55C \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0\uC744 \uD074\uB9AD\uD558\uC5EC \uAC80\uC99D\uD558\uC138\uC694.",
+  fetchErrorEmpty: "\uC774 \uC5D4\uB4DC\uD3EC\uC778\uD2B8\uB294 \uBAA8\uB378 \uBAA9\uB85D\uC744 \uC81C\uACF5\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uBAA8\uB378 ID\uB97C \uC9C1\uC811 \uC785\uB825\uD55C \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0\uC744 \uD074\uB9AD\uD558\uC5EC \uAC80\uC99D\uD558\uC138\uC694.",
+  fetchErrorNetwork: "\uB124\uD2B8\uC6CC\uD06C \uC694\uCCAD \uC2E4\uD328. \uC778\uD130\uB137 \uC5F0\uACB0, BaseURL \uB610\uB294 \uD504\uB85D\uC2DC \uC124\uC815\uC744 \uD655\uC778\uD558\uC138\uC694. \uBAA8\uB378 ID\uB97C \uC9C1\uC811 \uC785\uB825\uD55C \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0\uC744 \uD074\uB9AD\uD558\uC5EC \uAC80\uC99D\uD560 \uC218\uB3C4 \uC788\uC2B5\uB2C8\uB2E4.",
   selectModelName: "\uBAA8\uB378 \uC120\uD0DD",
   selectModelDesc: "{}\uAC1C\uC758 \uC0AC\uC6A9 \uAC00\uB2A5\uD55C \uBAA8\uB378 \uC911\uC5D0\uC11C \uC120\uD0DD",
   customInputOption: "\uC9C1\uC811 \uC785\uB825...",
   customInputHint: '\uB2E4\uB978 \uBAA8\uB378\uC744 \uC0AC\uC6A9\uD558\uB824\uBA74 "\uC9C1\uC811 \uC785\uB825..."\uC744 \uC120\uD0DD\uD558\uC138\uC694',
   modelName: "\uBAA8\uB378 \uC774\uB984",
   modelDescCustom: "\uC0AC\uC6A9\uC790 \uC815\uC758 \uBAA8\uB378 \uC0AC\uC6A9 (\uC704 \uBC84\uD2BC\uC73C\uB85C \uBAA9\uB85D \uB2E4\uC2DC \uAC00\uC838\uC624\uAE30)",
-  modelDescRecommended: "\uCD94\uCC9C: {}",
-  modelDescManual: "\uBAA8\uB378 \uC774\uB984\uC744 \uC218\uB3D9\uC73C\uB85C \uC785\uB825",
+  modelDescFetchFailed: "\uBAA8\uB378 \uBAA9\uB85D \uAC00\uC838\uC624\uAE30 \uC2E4\uD328. API \uD0A4\uC640 \uC5D4\uB4DC\uD3EC\uC778\uD2B8 URL\uC744 \uD655\uC778\uD558\uAC70\uB098 \uBAA8\uB378 ID\uB97C \uC9C1\uC811 \uC785\uB825\uD55C \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0\uC744 \uD074\uB9AD\uD558\uC5EC \uAC80\uC99D\uD558\uC138\uC694.",
+  modelInputPlaceholder: "\uBAA8\uB378 ID \uC785\uB825 \uD6C4 \uD14C\uC2A4\uD2B8 \uC5F0\uACB0",
   switchToDropdown: "\uB4DC\uB86D\uB2E4\uC6B4 \uC120\uD0DD\uC73C\uB85C \uC804\uD658",
   useDropdownButton: "\uB4DC\uB86D\uB2E4\uC6B4 \uC0AC\uC6A9",
   // Test & Save
@@ -4180,7 +2278,7 @@ var KO_TEXTS = {
   maxConversationHistoryDesc: "\uD1A0\uD070 \uCD08\uACFC\uB97C \uBC29\uC9C0\uD558\uAE30 \uC704\uD574 \uB300\uD654 \uBA54\uC2DC\uC9C0\uB97C \uC81C\uD55C\uD569\uB2C8\uB2E4",
   maxConversationHistoryHint: "\uCD94\uCC9C: 50 \uB77C\uC6B4\uB4DC\uB97C \uCD08\uACFC\uD558\uC9C0 \uC54A\uAE30",
   numberRangeValidation: "1-50 \uC0AC\uC774\uC758 \uC22B\uC790\uB97C \uC785\uB825\uD558\uC138\uC694",
-  numberRangeClamped: "\uAC12\uC774 \uBC94\uC704\uB97C \uCD08\uACFC\uD588\uC2B5\uB2C8\uB2E4 (1-300), \uC790\uB3D9\uC73C\uB85C {}\uC73C\uB85C \uC124\uC815\uB418\uC5C8\uC2B5\uB2C8\uB2E4",
+  numberRangeClamped: "\uAC12\uC774 \uBC94\uC704\uB97C \uCD08\uACFC\uD588\uC2B5\uB2C8\uB2E4 (1-500), \uC790\uB3D9\uC73C\uB85C {}\uC73C\uB85C \uC124\uC815\uB418\uC5C8\uC2B5\uB2C8\uB2E4",
   // Query Modal UI
   queryModalTitle: "\uC704\uD0A4 \uC9C8\uC758 - \uB300\uD654\uD615 \uC9C8\uC758",
   queryModalPlaceholder: "\uC9C8\uBB38\uC744 \uC785\uB825\uD558\uC138\uC694...",
@@ -4212,15 +2310,25 @@ var KO_TEXTS = {
   lintScanningLinks: "\uAE68\uC9C4 \uB9C1\uD06C \uAC80\uC0AC \uC911...",
   lintScanningLinksProgress: "\uAE68\uC9C4 \uB9C1\uD06C \uAC80\uC0AC \uC911: {current}/{total}...",
   lintCheckingDuplicates: "\uC911\uBCF5 \uD398\uC774\uC9C0 \uD655\uC778 \uC911...",
+  lintCheckingDuplicatesProgress: "\uC911\uBCF5 \uD398\uC774\uC9C0 \uD655\uC778 \uC911: \uBC30\uCE58 {current} ...",
+  lintFixingPolluted: "\uC624\uC5FC \uD398\uC774\uC9C0 \uC218\uC815 \uC911 {current}/{total}: {title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} \uC624\uC5FC \uD398\uC774\uC9C0 \uC218\uC815 ({count})",
   lintDuplicateCheckFailed: "\uC911\uBCF5 \uAC10\uC9C0 \uC2E4\uD328 \u2014 \uC790\uC138\uD55C \uB0B4\uC6A9\uC740 \uCF58\uC194\uC744 \uD655\uC778\uD558\uC138\uC694",
   lintDuplicateCheckFailedDetail: "\uC911\uBCF5 \uD655\uC778 \uC2E4\uD328 ({step}): {error}",
   lintMergeItemFailed: "\uBCD1\uD569 \uC2E4\uD328: {source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "\uBCC4\uCE6D \uB204\uB77D: {count}\uAC1C\uC758 \uD398\uC774\uC9C0\uC5D0 \uBCC4\uCE6D\uC774 \uC5C6\uC2B5\uB2C8\uB2E4",
-  lintAliasesSection: "\uBCC4\uCE6D \uB204\uB77D \uD398\uC774\uC9C0 (\uD504\uB85C\uADF8\uB7A8 \uAC10\uC9C0)",
+  lintAliasesSection: "\uBCC4\uCE6D \uB204\uB77D \uD398\uC774\uC9C0 [{count}\uAC1C]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "\uBCC4\uCE6D \uC644\uC131 ({count})",
   lintAliasesFilling: "\uBCC4\uCE6D \uC0DD\uC131 {current}/{total}: {page}",
   lintAliasesFilled: "\uBCC4\uCE6D \uC644\uC131 \uC644\uB8CC. {filled}/{total} \uD398\uC774\uC9C0 \uCC44\uC6C0.",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\uBCC4\uCE6D \uC0DD\uC131 \uC2E4\uD328: {page} \u2014 {error}",
   lintFixItemFailed: "\uC218\uC815 \uC2E4\uD328: [[{target}]] \u2014 {error}",
   lintLinkItemFailed: "\uB9C1\uD06C \uC2E4\uD328: {page} \u2014 {error}",
@@ -4296,11 +2404,25 @@ var KO_TEXTS = {
   extractionGranularityStandard: "\uD45C\uC900 \u2014 \uC77C\uC0C1 \uB178\uD2B8 (\u226450\uAC1C)",
   extractionGranularityCoarse: "\uAD75\uC74C \u2014 \uBE60\uB978 \uAC1C\uC694 (\u226410\uAC1C)",
   extractionGranularityMinimal: "\uCD5C\uC18C \u2014 100+ \uD30C\uC77C \uC77C\uAD04 \uCC98\uB9AC (\u22645\uAC1C)",
-  extractionGranularityCustom: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 \u2014 \uC790\uCCB4 \uC0C1\uD55C \uC124\uC815 (1~300)",
+  extractionGranularityCustom: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 \u2014 \uC790\uCCB4 \uC0C1\uD55C \uC124\uC815 (1~500)",
   customEntityLimitName: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 \uC5D4\uD2F0\uD2F0 \uC0C1\uD55C",
-  customEntityLimitDesc: "\uC18C\uC2A4 \uD30C\uC77C\uB2F9 \uCD5C\uB300 \uC5D4\uD2F0\uD2F0 \uCD94\uCD9C \uC218 (1-300)",
+  customEntityLimitDesc: "\uC18C\uC2A4 \uD30C\uC77C\uB2F9 \uCD5C\uB300 \uC5D4\uD2F0\uD2F0 \uCD94\uCD9C \uC218 (1-500)",
   customConceptLimitName: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 \uCEE8\uC149 \uC0C1\uD55C",
-  customConceptLimitDesc: "\uC18C\uC2A4 \uD30C\uC77C\uB2F9 \uCD5C\uB300 \uCEE8\uC149 \uCD94\uCD9C \uC218 (1-300)",
+  customConceptLimitDesc: "\uC18C\uC2A4 \uD30C\uC77C\uB2F9 \uCD5C\uB300 \uCEE8\uC149 \uCD94\uCD9C \uC218 (1-500)",
+  // Issue #85 v2: 태그 어휘 (chip 입력 UI, Wiki 설정에 임베드)
+  tagVocabularyInlineDesc: 'entity/concept frontmatter \uD0DC\uADF8\uC758 \uAD00\uB9AC \uC5B4\uD718\uC785\uB2C8\uB2E4. "/"\uAC00 \uC788\uB294 \uC911\uCCA9 \uD0DC\uADF8\uB294 \uBCF4\uC874\uB429\uB2C8\uB2E4.',
+  tagVocabularyModeName: "\uD0DC\uADF8 \uC5B4\uD718 \uC124\uC815",
+  tagVocabularyModeDescDefault: '\uAE30\uBCF8\uAC12\uC740 \uB0B4\uC7A5 \uD0DC\uADF8 \uC0AC\uC6A9: {}. "\uC0AC\uC6A9\uC790 \uC9C0\uC815"\uC73C\uB85C \uC804\uD658\uD558\uBA74 \uC790\uCCB4 \uC5B4\uD718\uB97C \uC815\uC758\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.',
+  tagVocabularyModeDescCustom: "\uC0AC\uC6A9\uC790 \uC9C0\uC815: \uC544\uB798\uC5D0\uC11C chip \uC785\uB825\uC744 \uC0AC\uC6A9\uD574 \uC790\uCCB4 entity/concept \uD0DC\uADF8\uB97C \uC815\uC758\uD558\uC138\uC694. Enter \uB610\uB294 \uC27C\uD45C\uB85C \uCD94\uAC00, \xD7\uB85C \uC0AD\uC81C.",
+  tagVocabularyModeDefault: "\uAE30\uBCF8 (\uB0B4\uC7A5 \uC11C\uBE0C\uD0C0\uC785 \uD0DC\uADF8)",
+  tagVocabularyModeCustom: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 (\uC0AC\uC6A9\uC790 \uC815\uC758)",
+  customEntityTagsName: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 \uC5D4\uD2F0\uD2F0 \uD0DC\uADF8",
+  customEntityTagsDesc: 'Enter \uB610\uB294 \uC27C\uD45C\uB85C chip \uCD94\uAC00, \xD7\uB85C \uC0AD\uC81C. "/"\uAC00 \uC788\uB294 \uC911\uCCA9 \uD0DC\uADF8\uB294 \uBCF4\uC874\uB429\uB2C8\uB2E4.',
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 \uCEE8\uC149 \uD0DC\uADF8",
+  customConceptTagsDesc: 'Enter \uB610\uB294 \uC27C\uD45C\uB85C chip \uCD94\uAC00, \xD7\uB85C \uC0AD\uC81C. "/"\uAC00 \uC788\uB294 \uC911\uCCA9 \uD0DC\uADF8\uB294 \uBCF4\uC874\uB429\uB2C8\uB2E4.',
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "\uC911\uBCF5 \uD0DC\uADF8 \uAC74\uB108\uB700",
   // Ingestion Acceleration
   accelerationSectionTitle: "\uC218\uC9D1 \uAC00\uC18D\uD654",
   pageGenerationConcurrencyName: "LLM \uB3D9\uC2DC\uC131",
@@ -4402,10 +2524,10 @@ var KO_TEXTS = {
   crossTypeCollisionNotice: "{count}\uAC1C \uD56D\uBAA9\uC774 \uD06C\uB85C\uC2A4\uD0C0\uC785 \uBCC4\uCE6D\uC73C\uB85C \uBCD1\uD569\uB428\uFF08\uC5D4\uD2F0\uD2F0 \u2194 \uCEE8\uC149 \uC911\uBCF5 \uBC29\uC9C0\uFF09",
   // Lint Report
   lintReportTitle: "\uC704\uD0A4 \uB9B0\uD2B8 \uBCF4\uACE0\uC11C",
-  lintReportSummary: "\uC704\uD0A4 \uC0C1\uD0DC \uAC1C\uC694: \uCD1D {total} \uD398\uC774\uC9C0, \uBCC4\uCE6D \uB204\uB77D {aliasesMissing} \uD398\uC774\uC9C0, \uC911\uBCF5 \uD398\uC774\uC9C0 {duplicates}\uAC1C, \uAE68\uC9C4 \uB9C1\uD06C {deadLinks}\uAC1C (\uC911\uBCF5 \uAD00\uB828 {deadLinkFromDup}\uAC1C), \uACE0\uC544 \uD398\uC774\uC9C0 {orphans}\uAC1C (\uC911\uBCF5\uC778 \uACE0\uC544 {orphanFromDup}\uAC1C), \uBE48 \uD398\uC774\uC9C0 {emptyPages}\uAC1C",
-  lintDeadLinkSection: "\uAE68\uC9C4 \uB9C1\uD06C (\uAC10\uC9C0\uB428)",
-  lintEmptyPageSection: "\uBE48 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428)",
-  lintOrphanSection: "\uACE0\uC544 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428)",
+  lintReportSummary: "Wiki \uC0C1\uD0DC \uAC1C\uC694: \uCD1D {total}\uD398\uC774\uC9C0, {aliasesMissing}\uD398\uC774\uC9C0 \uBCC4\uCE6D \uB204\uB77D, \uC911\uBCF5 {duplicates}\uAC1C, \uB370\uB4DC \uB9C1\uD06C {deadLinks}\uAC1C ({deadLinkFromDup}\uAC1C \uC911\uBCF5 \uAD00\uB828), \uACE0\uC544 {orphans}\uAC1C ({orphanFromDup}\uAC1C \uC911\uBCF5), \uBE48 \uD398\uC774\uC9C0 {emptyPages}\uAC1C. Lint \uC18C\uC694: {elapsedSeconds}\uCD08",
+  lintDeadLinkSection: "\uB370\uB4DC \uB9C1\uD06C (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
+  lintEmptyPageSection: "\uBE48 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
+  lintOrphanSection: "\uACE0\uC544 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
   lintContradictionSection: "\uBAA8\uC21C (\uAC10\uC9C0\uB428)",
   lintDuplicateSection: "\uC911\uBCF5 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428)",
   lintNoIssuesFound: "\uC911\uBCF5, \uAE68\uC9C4 \uB9C1\uD06C, \uBE48 \uD398\uC774\uC9C0 \uB610\uB294 \uACE0\uC544 \uD398\uC774\uC9C0\uAC00 \uAC10\uC9C0\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.",
@@ -4413,9 +2535,9 @@ var KO_TEXTS = {
   lintDeadLinkMore: "- ... {count}\uAC1C\uC758 \uAE68\uC9C4 \uB9C1\uD06C \uCD94\uAC00",
   lintEmptyPageItem: "- [[{page}]] \u2014 \uC2E4\uC9C8\uC801\uC778 \uCF58\uD150\uCE20\uAC00 50\uC790 \uBBF8\uB9CC",
   lintOrphanItem: "- [[{page}]] \u2014 \uB2E4\uB978 \uC704\uD0A4 \uD398\uC774\uC9C0\uC5D0\uC11C \uB9C1\uD06C\uD558\uC9C0 \uC54A\uC74C{dupFlag}",
-  lintPollutedSection: "\uACBD\uB85C \uC624\uC5FC \uD398\uC774\uC9C0 (\uD504\uB85C\uADF8\uB7A8 \uAC10\uC9C0)",
+  lintPollutedSection: "\uC624\uC5FC \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
   lintPollutedItem: '- [[{page}]] \u2192 "{clean}"(\uC73C)\uB85C \uC218\uC815 \uD544\uC694',
-  lintSourcesNormalizedSection: "Sources \uC815\uADDC\uD654\uB428 (\uC790\uB3D9 \uC218\uC815)",
+  lintSourcesNormalizedSection: "Sources \uC815\uADDC\uD654 (\uC790\uB3D9 \uC218\uC815) [{files}\uAC1C \uD30C\uC77C / {entries}\uAC1C \uD56D\uBAA9]",
   lintSourcesNormalizedItem: "{files}\uAC1C \uD30C\uC77C\uC5D0\uC11C {entries}\uAC1C\uC758 sources \uD56D\uBAA9\uC744 \uC815\uB9AC\uD588\uC2B5\uB2C8\uB2E4 (\uC678\uBD80 \uACBD\uB85C, .md \uD655\uC7A5\uC790, \uBCC4\uCE6D \uD30C\uC774\uD504 \uC81C\uAC70 \uBC0F \uC911\uBCF5 \uC81C\uAC70).",
   lintDuplicateItem: "- [[{target}]] \uBC0F [[{source}]] \u2014 {reason}",
   lintDeadLinkAffectedByDup: " (\u26A0\uFE0F \uC911\uBCF5 \uD398\uC774\uC9C0 \uAD00\uB828)",
@@ -4433,6 +2555,8 @@ var KO_TEXTS = {
   lintFixDeadComplete: "\uAE68\uC9C4 \uB9C1\uD06C \uC218\uC815 \uC644\uB8CC. {fixed}/{total} \uD56D\uBAA9 \uC218\uC815.",
   lintFillProgress: "\uD655\uC7A5 \uC911 {current}/{total}: {page}",
   lintFillComplete: "\uD398\uC774\uC9C0 \uD655\uC7A5 \uC644\uB8CC. {filled}/{total} \uD398\uC774\uC9C0 \uCC44\uC6C0.",
+  lintDeleteCompleted: "{count}\uAC1C\uC758 \uBE48 \uC2A4\uD141 \uC0AD\uC81C\uB428",
+  lintDeleteFailed: "\uBE48 stub \uC0AD\uC81C \uC2E4\uD328 {failed}/{total}\uAC1C (\uC790\uC138\uD55C \uB0B4\uC6A9\uC740 \uCF58\uC194 \uCC38\uC870)",
   lintFillFailed: "\uD655\uC7A5 \uC2E4\uD328: {page} \u2014 {error}",
   lintLinkProgress: "\uB9C1\uD06C \uC911 {current}/{total}: {page}",
   lintLinkComplete: "\uACE0\uC544 \uB9C1\uD06C \uC644\uB8CC. {linked} \uD398\uC774\uC9C0 \uB9C1\uD06C\uB428.",
@@ -4444,8 +2568,10 @@ var KO_TEXTS = {
   lintFixAllComplete: "\uBAA8\uB4E0 \uC218\uC815\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC790\uC138\uD55C \uB0B4\uC6A9\uC740 \uB85C\uADF8\uB97C \uD655\uC778\uD558\uC138\uC694.",
   // Lint Report Modal
   lintModalActionsTitle: "\uC218\uC815 \uC81C\uC548 (LLM \uD1A0\uD070 \uD544\uC694):",
+  lintLogReference: "\uC804\uCCB4 \uBCF4\uACE0\uC11C\uAC00 log.md\uC5D0 \uC800\uC7A5\uB418\uC5C8\uC2B5\uB2C8\uB2E4",
   lintModalFixDeadLinks: "\uAE68\uC9C4 \uB9C1\uD06C \uC218\uC815 ({count})",
   lintModalExpandEmpty: "\uBE48 \uD398\uC774\uC9C0 \uD655\uC7A5 ({count})",
+  lintModalDeleteEmpty: "\uBE48 \uC2A4\uD141 \uC0AD\uC81C ({count})",
   lintModalLinkOrphans: "\uACE0\uC544 \uD398\uC774\uC9C0 \uB9C1\uD06C ({count})",
   lintModalAnalyzeSchema: "\uC2A4\uD0A4\uB9C8 \uBD84\uC11D",
   lintModalMergeDuplicates: "\uC911\uBCF5 \uBCD1\uD569 ({count})",
@@ -4536,14 +2662,19 @@ var DE_TEXTS = {
   fetchSuccess: "Erfolg! {} Modelle verf\xFCgbar",
   fetchFailed: "Abruf fehlgeschlagen oder leere Liste, bitte Modellnamen manuell eingeben",
   fetchNotSupported: "Anbieter unterst\xFCtzt keine Modelllistenabfrage",
+  fetchErrorAuth: "Authentifizierung fehlgeschlagen (HTTP 401/403). \xDCberpr\xFCfen Sie den API-Schl\xFCssel, oder geben Sie eine Modell-ID ein und klicken Sie auf Verbindung testen.",
+  fetchErrorEndpoint: "Endpunkt nicht gefunden (HTTP 404). \xDCberpr\xFCfen Sie die Endpunkt-URL, oder geben Sie eine Modell-ID ein und klicken Sie auf Verbindung testen.",
+  fetchErrorServer: "Anbieter-Serverfehler (HTTP 5xx). Versuchen Sie es sp\xE4ter erneut, oder geben Sie eine Modell-ID ein und klicken Sie auf Verbindung testen.",
+  fetchErrorEmpty: "Dieser Endpunkt stellt keine Modellliste bereit. Geben Sie eine Modell-ID ein und klicken Sie auf Verbindung testen.",
+  fetchErrorNetwork: "Netzwerkanfrage fehlgeschlagen. \xDCberpr\xFCfen Sie Internetverbindung, Endpunkt-URL oder Proxy-Einstellungen. Sie k\xF6nnen auch eine Modell-ID eingeben und auf Verbindung testen klicken.",
   selectModelName: "Modell ausw\xE4hlen",
   selectModelDesc: "Aus {} verf\xFCgbaren Modellen w\xE4hlen",
   customInputOption: "Benutzerdefinierte Eingabe...",
   customInputHint: 'Um andere Modelle zu verwenden, w\xE4hle "Benutzerdefinierte Eingabe..."',
   modelName: "Modellname",
   modelDescCustom: "Benutzerdefiniertes Modell wird verwendet (Schaltfl\xE4che oben klicken, um Liste erneut abzurufen)",
-  modelDescRecommended: "Empfohlen: {}",
-  modelDescManual: "Modellnamen manuell eingeben",
+  modelDescFetchFailed: "Abruf der Modellliste fehlgeschlagen. \xDCberpr\xFCfen Sie API-Schl\xFCssel und Endpunkt-URL, oder geben Sie eine Modell-ID ein und klicken Sie auf Verbindung testen.",
+  modelInputPlaceholder: "Modell-ID eingeben, dann Verbindung testen",
   switchToDropdown: "Zur Dropdown-Auswahl wechseln",
   useDropdownButton: "Dropdown verwenden",
   // Test & Save
@@ -4574,7 +2705,7 @@ var DE_TEXTS = {
   maxConversationHistoryDesc: "Konversationsnachrichten begrenzen, um Token-\xDCberlauf zu vermeiden",
   maxConversationHistoryHint: "Empfehlung: 50 Runden nicht \xFCberschreiten",
   numberRangeValidation: "Bitte eine Zahl zwischen 1 und 50 eingeben",
-  numberRangeClamped: "Wert au\xDFerhalb des Bereichs (1-300), automatisch auf {} gesetzt",
+  numberRangeClamped: "Wert au\xDFerhalb des Bereichs (1-500), automatisch auf {} gesetzt",
   // Query Modal UI
   queryModalTitle: "Wiki-Anfrage \u2014 Konversationelle Abfrage",
   queryModalPlaceholder: "Frage eingeben...",
@@ -4606,15 +2737,25 @@ var DE_TEXTS = {
   lintScanningLinks: "Defekte Links werden gepr\xFCft...",
   lintScanningLinksProgress: "Defekte Links werden gepr\xFCft: {current}/{total}...",
   lintCheckingDuplicates: "Auf doppelte Seiten wird gepr\xFCft...",
+  lintCheckingDuplicatesProgress: "Duplikate werden \xFCberpr\xFCft: Stapel {current} ...",
+  lintFixingPolluted: "Bereinigte Seite wird repariert {current}/{total}: {title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} Bereinigte Seiten reparieren ({count})",
   lintDuplicateCheckFailed: "Duplikaterkennung fehlgeschlagen \u2014 Details in der Konsole",
   lintDuplicateCheckFailedDetail: "Duplikatpr\xFCfung fehlgeschlagen bei {step}: {error}",
   lintMergeItemFailed: "Zusammenf\xFChrung fehlgeschlagen: {source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "Fehlende Aliase: {count} Seite(n) ohne Aliase",
-  lintAliasesSection: "Seiten ohne Aliase (erkannt)",
+  lintAliasesSection: "Seiten ohne Aliase [{count}]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "Aliase vervollst\xE4ndigen ({count})",
   lintAliasesFilling: "Aliase werden generiert {current}/{total}: {page}",
   lintAliasesFilled: "Alias-Vervollst\xE4ndigung abgeschlossen. {filled}/{total} Seiten erg\xE4nzt.",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "Alias-Generierung fehlgeschlagen: {page} \u2014 {error}",
   lintFixItemFailed: "Behebung fehlgeschlagen: [[{target}]] \u2014 {error}",
   lintLinkItemFailed: "Verlinkung fehlgeschlagen: {page} \u2014 {error}",
@@ -4685,16 +2826,30 @@ var DE_TEXTS = {
   // Extraction Settings
   extractionSectionTitle: "Extraktion",
   extractionGranularityName: "Extraktions-Granularit\xE4t",
-  extractionGranularityDesc: "Steuert Extraktionen pro Quelldatei. H\xF6her = mehr Seiten/API-Verbrauch.\nFein: Tiefenanalyse. Standard: T\xE4gliche Notizen. Grob: Schnelle \xDCbersicht. Minimal: 100+ Dateien stapeln. Benutzerdefiniert: Eigene Limits (max 300).\nTipp: Verwenden Sie Minimal/Grob f\xFCr Ordner mit vielen Dateien zur Zeit- und Kosteneinsparung.",
+  extractionGranularityDesc: "Steuert Extraktionen pro Quelldatei. H\xF6her = mehr Seiten/API-Verbrauch.\nFein: Tiefenanalyse. Standard: T\xE4gliche Notizen. Grob: Schnelle \xDCbersicht. Minimal: 100+ Dateien stapeln. Benutzerdefiniert: Eigene Limits (max 500).\nTipp: Verwenden Sie Minimal/Grob f\xFCr Ordner mit vielen Dateien zur Zeit- und Kosteneinsparung.",
   extractionGranularityFine: "Fein \u2014 Tiefenanalyse (\u2264100 Elemente)",
   extractionGranularityStandard: "Standard \u2014 T\xE4gliche Notizen (\u226450 Elemente)",
   extractionGranularityCoarse: "Grob \u2014 Schnell\xFCbersicht (\u226410 Elemente)",
   extractionGranularityMinimal: "Minimal \u2014 Stapelverarbeitung 100+ Dateien (\u22645 Elemente)",
-  extractionGranularityCustom: "Benutzerdefiniert \u2014 Eigene Limits festlegen (1~300)",
+  extractionGranularityCustom: "Benutzerdefiniert \u2014 Eigene Limits festlegen (1~500)",
   customEntityLimitName: "Benutzerdefiniertes Entit\xE4tslimit",
-  customEntityLimitDesc: "Maximale Anzahl zu extrahierender Entit\xE4ten pro Quelldatei (1-300)",
+  customEntityLimitDesc: "Maximale Anzahl zu extrahierender Entit\xE4ten pro Quelldatei (1-500)",
   customConceptLimitName: "Benutzerdefiniertes Konzeptlimit",
-  customConceptLimitDesc: "Maximale Anzahl zu extrahierender Konzepte pro Quelldatei (1-300)",
+  customConceptLimitDesc: "Maximale Anzahl zu extrahierender Konzepte pro Quelldatei (1-500)",
+  // Issue #85 v2: Tag-Vokabular (Chip-Eingabe, in Wiki-Konfiguration eingebettet)
+  tagVocabularyInlineDesc: 'Kontrolliertes Vokabular f\xFCr entity- und concept-Frontmatter-Tags. Verschachtelte Obsidian-Tags mit \u201E/" bleiben erhalten.',
+  tagVocabularyModeName: "Tag-Vokabular-Konfiguration",
+  tagVocabularyModeDescDefault: 'Standard verwendet eingebaute Tags: {}. Wechseln Sie zu \u201EBenutzerdefiniert", um Ihr eigenes Vokabular zu definieren.',
+  tagVocabularyModeDescCustom: "Benutzerdefiniert: Definieren Sie unten Ihre eigenen entity- und concept-Tags per Chip-Eingabe \u2014 Enter oder Komma zum Hinzuf\xFCgen, \xD7 zum Entfernen.",
+  tagVocabularyModeDefault: "Standard (eingebaute Subtyp-Tags)",
+  tagVocabularyModeCustom: "Benutzerdefiniert (eigene)",
+  customEntityTagsName: "Benutzerdefinierte Entit\xE4ts-Tags",
+  customEntityTagsDesc: 'Enter oder Komma zum Hinzuf\xFCgen eines Chips, \xD7 zum Entfernen. Verschachtelte Tags mit \u201E/" bleiben erhalten.',
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "Benutzerdefinierte Konzept-Tags",
+  customConceptTagsDesc: 'Enter oder Komma zum Hinzuf\xFCgen eines Chips, \xD7 zum Entfernen. Verschachtelte Tags mit \u201E/" bleiben erhalten.',
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "Doppeltes Tag \xFCbersprungen",
   // Ingestion Acceleration
   accelerationSectionTitle: "Aufnahmen-Beschleunigung",
   pageGenerationConcurrencyName: "LLM-Parallelit\xE4t",
@@ -4796,10 +2951,10 @@ var DE_TEXTS = {
   crossTypeCollisionNotice: "{count} Eintr\xE4ge als Cross-Type-Alias zusammengef\xFChrt (Entity \u2194 Concept Duplikate verhindert)",
   // Lint Report
   lintReportTitle: "Wiki-Pr\xFCfbericht",
-  lintReportSummary: "Wiki-Status\xFCbersicht: {total} Seiten gesamt, {aliasesMissing} Seiten mit fehlenden Aliasen, {duplicates} doppelte Seiten, {deadLinks} defekte Links ({deadLinkFromDup} betreffen Duplikate), {orphans} verwaiste Seiten ({orphanFromDup} sind Duplikate), {emptyPages} leere Seiten",
-  lintDeadLinkSection: "Defekte Links (erkannt)",
-  lintEmptyPageSection: "Leere Seiten (erkannt)",
-  lintOrphanSection: "Verwaiste Seiten (erkannt)",
+  lintReportSummary: "Wiki-Status\xFCbersicht: {total} Seiten gesamt, {aliasesMissing} Seiten ohne Aliase, {duplicates} Duplikate, {deadLinks} defekte Links ({deadLinkFromDup} betreffen Duplikate), {orphans} verwaiste Seiten ({orphanFromDup} sind Duplikate), {emptyPages} leere Seiten. Lint-Dauer: {elapsedSeconds}s",
+  lintDeadLinkSection: "Defekte Links (erkannt) [{count}]",
+  lintEmptyPageSection: "Leere Seiten (erkannt) [{count}]",
+  lintOrphanSection: "Verwaiste Seiten (erkannt) [{count}]",
   lintContradictionSection: "Widerspr\xFCche (erkannt)",
   lintDuplicateSection: "Doppelte Seiten (erkannt)",
   lintNoIssuesFound: "Keine Duplikate, defekten Links, leeren Seiten oder verwaisten Seiten erkannt.",
@@ -4807,9 +2962,9 @@ var DE_TEXTS = {
   lintDeadLinkMore: "- ... {count} weitere defekte Links",
   lintEmptyPageItem: "- [[{page}]] \u2014 weniger als 50 Zeichen substanziellen Inhalts",
   lintOrphanItem: "- [[{page}]] \u2014 keine anderen Wiki-Seiten verweisen hierher{dupFlag}",
-  lintPollutedSection: "Pfadverschmutzte Seiten (erkannt)",
+  lintPollutedSection: "Verschmutzte Seiten (erkannt) [{count}]",
   lintPollutedItem: '- [[{page}]] \u2192 sollte "{clean}" sein',
-  lintSourcesNormalizedSection: "Sources normalisiert (automatisch korrigiert)",
+  lintSourcesNormalizedSection: "Sources normalisiert (automatisch repariert) [{files} Dateien / {entries} Eintr\xE4ge]",
   lintSourcesNormalizedItem: "{entries} verschmutzte sources-Eintr\xE4ge in {files} Datei(en) bereinigt (externe Pfade, .md-Erweiterungen, Alias-Pipes entfernt und dedupliziert).",
   lintDuplicateItem: "- [[{target}]] und [[{source}]] \u2014 {reason}",
   lintDeadLinkAffectedByDup: " (\u26A0\uFE0F betrifft doppelte Seite)",
@@ -4827,6 +2982,8 @@ var DE_TEXTS = {
   lintFixDeadComplete: "Behebung defekter Links abgeschlossen. {fixed}/{total} Elemente behoben.",
   lintFillProgress: "Erweiterung {current}/{total}: {page}",
   lintFillComplete: "Seitenerweiterung abgeschlossen. {filled}/{total} Seiten gef\xFCllt.",
+  lintDeleteCompleted: "{count} leere Stubs gel\xF6scht",
+  lintDeleteFailed: "Fehler beim L\xF6schen von {failed}/{total} leeren Stubs (Details in der Konsole)",
   lintFillFailed: "Erweiterung fehlgeschlagen: {page} \u2014 {error}",
   lintLinkProgress: "Verlinkung {current}/{total}: {page}",
   lintLinkComplete: "Verwaiste-Seiten-Verlinkung abgeschlossen. {linked} Seiten verlinkt.",
@@ -4838,8 +2995,10 @@ var DE_TEXTS = {
   lintFixAllComplete: "Alle Behebungen abgeschlossen. Details im Protokoll.",
   // Lint Report Modal
   lintModalActionsTitle: "Behebungsvorschl\xE4ge (ben\xF6tigt LLM-Tokens):",
+  lintLogReference: "Vollst\xE4ndiger Bericht in log.md gespeichert",
   lintModalFixDeadLinks: "Defekte Links beheben ({count})",
   lintModalExpandEmpty: "Leere Seiten erweitern ({count})",
+  lintModalDeleteEmpty: "Leere Stubs l\xF6schen ({count})",
   lintModalLinkOrphans: "Verwaiste Seiten verlinken ({count})",
   lintModalAnalyzeSchema: "Schema analysieren",
   lintModalMergeDuplicates: "Duplikate zusammenf\xFChren ({count})",
@@ -4930,14 +3089,19 @@ var FR_TEXTS = {
   fetchSuccess: "Succ\xE8s ! {} mod\xE8les disponibles",
   fetchFailed: "\xC9chec ou liste vide, veuillez saisir le nom du mod\xE8le manuellement",
   fetchNotSupported: "Le fournisseur ne prend pas en charge la requ\xEAte de liste de mod\xE8les",
+  fetchErrorAuth: "\xC9chec d'authentification (HTTP 401/403). V\xE9rifiez la cl\xE9 API, ou entrez un ID de mod\xE8le puis cliquez sur Tester la connexion.",
+  fetchErrorEndpoint: "Point d'acc\xE8s introuvable (HTTP 404). V\xE9rifiez l'URL du point d'acc\xE8s, ou entrez un ID de mod\xE8le puis cliquez sur Tester la connexion.",
+  fetchErrorServer: "Erreur du serveur du fournisseur (HTTP 5xx). R\xE9essayez plus tard, ou entrez un ID de mod\xE8le puis cliquez sur Tester la connexion.",
+  fetchErrorEmpty: "Ce point d'acc\xE8s n'expose pas de liste de mod\xE8les. Entrez un ID de mod\xE8le puis cliquez sur Tester la connexion.",
+  fetchErrorNetwork: "\xC9chec de la requ\xEAte r\xE9seau. V\xE9rifiez votre connexion Internet, l'URL du point d'acc\xE8s ou les param\xE8tres du proxy. Vous pouvez aussi entrer un ID de mod\xE8le puis cliquer sur Tester la connexion.",
   selectModelName: "S\xE9lectionner un mod\xE8le",
   selectModelDesc: "Choisir parmi {} mod\xE8les disponibles",
   customInputOption: "Saisie personnalis\xE9e...",
   customInputHint: `Pour utiliser d'autres mod\xE8les, s\xE9lectionnez "Saisie personnalis\xE9e..."`,
   modelName: "Nom du mod\xE8le",
   modelDescCustom: "Mod\xE8le personnalis\xE9 utilis\xE9 (cliquez ci-dessus pour r\xE9cup\xE9rer la liste)",
-  modelDescRecommended: "Recommand\xE9 : {}",
-  modelDescManual: "Saisir manuellement le nom du mod\xE8le",
+  modelDescFetchFailed: "\xC9chec de r\xE9cup\xE9ration de la liste des mod\xE8les. V\xE9rifiez la cl\xE9 API et l'URL du point d'acc\xE8s, ou entrez un ID de mod\xE8le puis cliquez sur Tester la connexion.",
+  modelInputPlaceholder: "Saisir l'ID du mod\xE8le, puis Tester la connexion",
   switchToDropdown: "Passer \xE0 la s\xE9lection par liste d\xE9roulante",
   useDropdownButton: "Utiliser la liste d\xE9roulante",
   // Test & Save
@@ -4968,7 +3132,7 @@ var FR_TEXTS = {
   maxConversationHistoryDesc: "Limiter les messages de conversation pour \xE9viter le d\xE9passement de tokens",
   maxConversationHistoryHint: "Recommand\xE9 : ne pas d\xE9passer 50 tours",
   numberRangeValidation: "Veuillez saisir un nombre entre 1 et 50",
-  numberRangeClamped: "Valeur hors plage (1-300), automatiquement r\xE9gl\xE9e sur {}",
+  numberRangeClamped: "Valeur hors plage (1-500), automatiquement r\xE9gl\xE9e sur {}",
   // Query Modal UI
   queryModalTitle: "Interroger le wiki \u2014 Requ\xEAte conversationnelle",
   queryModalPlaceholder: "Saisir votre question...",
@@ -5000,15 +3164,25 @@ var FR_TEXTS = {
   lintScanningLinks: "Analyse des liens cass\xE9s...",
   lintScanningLinksProgress: "Analyse des liens cass\xE9s : {current}/{total}...",
   lintCheckingDuplicates: "V\xE9rification des pages dupliqu\xE9es...",
+  lintCheckingDuplicatesProgress: "V\xE9rification des doublons : lot {current} ...",
+  lintFixingPolluted: "R\xE9paration de page pollu\xE9e {current}/{total} : {title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} R\xE9parer les pages pollu\xE9es ({count})",
   lintDuplicateCheckFailed: "\xC9chec de la d\xE9tection des doublons \u2014 consultez la console pour les d\xE9tails",
   lintDuplicateCheckFailedDetail: "\xC9chec de la v\xE9rification des doublons \xE0 l'\xE9tape {step} : {error}",
   lintMergeItemFailed: "\xC9chec de la fusion : {source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "Alias manquants : {count} page(s) sans alias",
-  lintAliasesSection: "Pages sans alias (d\xE9tect\xE9es)",
+  lintAliasesSection: "Pages sans alias [{count}]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "Compl\xE9ter les alias ({count})",
   lintAliasesFilling: "G\xE9n\xE9ration d'alias {current}/{total} : {page}",
   lintAliasesFilled: "Compl\xE9tion des alias termin\xE9e. {filled}/{total} pages remplies.",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\xC9chec de la g\xE9n\xE9ration d'alias : {page} \u2014 {error}",
   lintFixItemFailed: "\xC9chec de la r\xE9paration : [[{target}]] \u2014 {error}",
   lintLinkItemFailed: "\xC9chec du lien : {page} \u2014 {error}",
@@ -5079,16 +3253,30 @@ var FR_TEXTS = {
   // Extraction Settings
   extractionSectionTitle: "Extraction",
   extractionGranularityName: "Granularit\xE9 de l'extraction",
-  extractionGranularityDesc: "Contr\xF4le les extractions par fichier source. Plus \xE9lev\xE9 = plus de pages/tokens API.\nFine: analyse approfondie. Standard: notes quotidiennes. Grossi\xE8re: vue d'ensemble rapide. Minimale: traitement 100+ fichiers. Personnalis\xE9e: limites propres (max 300).\nConseil: Utilisez Minimale/Grossi\xE8re pour les dossiers avec nombreux fichiers pour gagner du temps et r\xE9duire les co\xFBts.",
+  extractionGranularityDesc: "Contr\xF4le les extractions par fichier source. Plus \xE9lev\xE9 = plus de pages/tokens API.\nFine: analyse approfondie. Standard: notes quotidiennes. Grossi\xE8re: vue d'ensemble rapide. Minimale: traitement 100+ fichiers. Personnalis\xE9e: limites propres (max 500).\nConseil: Utilisez Minimale/Grossi\xE8re pour les dossiers avec nombreux fichiers pour gagner du temps et r\xE9duire les co\xFBts.",
   extractionGranularityFine: "Fine \u2014 analyse approfondie (\u2264100 \xE9l\xE9ments)",
   extractionGranularityStandard: "Standard \u2014 notes quotidiennes (\u226450 \xE9l\xE9ments)",
   extractionGranularityCoarse: "Grossi\xE8re \u2014 aper\xE7u rapide (\u226410 \xE9l\xE9ments)",
   extractionGranularityMinimal: "Minimale \u2014 traitement par lot 100+ fichiers (\u22645 \xE9l\xE9ments)",
-  extractionGranularityCustom: "Personnalis\xE9e \u2014 D\xE9finir vos propres limites (1~300)",
+  extractionGranularityCustom: "Personnalis\xE9e \u2014 D\xE9finir vos propres limites (1~500)",
   customEntityLimitName: "Limite personnalis\xE9e d'entit\xE9s",
-  customEntityLimitDesc: "Nombre maximum d'entit\xE9s \xE0 extraire par fichier source (1-300)",
+  customEntityLimitDesc: "Nombre maximum d'entit\xE9s \xE0 extraire par fichier source (1-500)",
   customConceptLimitName: "Limite personnalis\xE9e de concepts",
-  customConceptLimitDesc: "Nombre maximum de concepts \xE0 extraire par fichier source (1-300)",
+  customConceptLimitDesc: "Nombre maximum de concepts \xE0 extraire par fichier source (1-500)",
+  // Issue #85 v2 : Vocabulaire des tags (saisie par chip, intégré à la configuration Wiki)
+  tagVocabularyInlineDesc: "Vocabulaire contr\xF4l\xE9 pour les tags frontmatter entity et concept. Les tags imbriqu\xE9s Obsidian avec \xAB / \xBB sont conserv\xE9s.",
+  tagVocabularyModeName: "Configuration du vocabulaire des tags",
+  tagVocabularyModeDescDefault: "Par d\xE9faut utilise les tags int\xE9gr\xE9s : {}. Basculez sur \xAB Personnalis\xE9 \xBB pour d\xE9finir votre propre vocabulaire.",
+  tagVocabularyModeDescCustom: "Personnalis\xE9 : d\xE9finissez ci-dessous vos propres tags entity et concept via la saisie par chip \u2014 Entr\xE9e ou virgule pour ajouter, \xD7 pour retirer.",
+  tagVocabularyModeDefault: "Par d\xE9faut (sous-types int\xE9gr\xE9s)",
+  tagVocabularyModeCustom: "Personnalis\xE9 (d\xE9fini par l'utilisateur)",
+  customEntityTagsName: "Tags d'entit\xE9 personnalis\xE9s",
+  customEntityTagsDesc: "Entr\xE9e ou virgule pour ajouter un chip, \xD7 pour retirer. Les tags imbriqu\xE9s \xAB / \xBB sont conserv\xE9s.",
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "Tags de concept personnalis\xE9s",
+  customConceptTagsDesc: "Entr\xE9e ou virgule pour ajouter un chip, \xD7 pour retirer. Les tags imbriqu\xE9s \xAB / \xBB sont conserv\xE9s.",
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "Tag en double ignor\xE9",
   // Ingestion Acceleration
   accelerationSectionTitle: "Acc\xE9l\xE9ration de l'import",
   pageGenerationConcurrencyName: "Parall\xE9lisme LLM",
@@ -5190,10 +3378,10 @@ var FR_TEXTS = {
   crossTypeCollisionNotice: "{count} \xE9l\xE9ments fusionn\xE9s comme alias cross-type (doublons entit\xE9 \u2194 concept \xE9vit\xE9s)",
   // Lint Report
   lintReportTitle: "Rapport de v\xE9rification du wiki",
-  lintReportSummary: "Aper\xE7u de l'\xE9tat du wiki : {total} pages au total, {aliasesMissing} pages sans alias, {duplicates} pages dupliqu\xE9es, {deadLinks} liens cass\xE9s ({deadLinkFromDup} impliquent des doublons), {orphans} pages orphelines ({orphanFromDup} sont des doublons), {emptyPages} pages vides",
-  lintDeadLinkSection: "Liens cass\xE9s (d\xE9tect\xE9s)",
-  lintEmptyPageSection: "Pages vides (d\xE9tect\xE9es)",
-  lintOrphanSection: "Pages orphelines (d\xE9tect\xE9es)",
+  lintReportSummary: "Aper\xE7u de l'\xE9tat du wiki : {total} pages au total, {aliasesMissing} pages sans alias, {duplicates} pages dupliqu\xE9es, {deadLinks} liens cass\xE9s ({deadLinkFromDup} impliquent des doublons), {orphans} pages orphelines ({orphanFromDup} sont des doublons), {emptyPages} pages vides. Dur\xE9e du lint : {elapsedSeconds}s",
+  lintDeadLinkSection: "Liens cass\xE9s (d\xE9tect\xE9s) [{count}]",
+  lintEmptyPageSection: "Pages vides (d\xE9tect\xE9es) [{count}]",
+  lintOrphanSection: "Pages orphelines (d\xE9tect\xE9es) [{count}]",
   lintContradictionSection: "Contradictions (d\xE9tect\xE9es)",
   lintDuplicateSection: "Pages dupliqu\xE9es (d\xE9tect\xE9es)",
   lintNoIssuesFound: "Aucun doublon, lien cass\xE9, page vide ou page orpheline d\xE9tect\xE9.",
@@ -5201,9 +3389,9 @@ var FR_TEXTS = {
   lintDeadLinkMore: "- ... {count} liens cass\xE9s suppl\xE9mentaires",
   lintEmptyPageItem: "- [[{page}]] \u2014 moins de 50 caract\xE8res de contenu substantiel",
   lintOrphanItem: "- [[{page}]] \u2014 aucune autre page wiki ne pointe vers ici{dupFlag}",
-  lintPollutedSection: "Pages avec pollution de chemin (d\xE9tect\xE9es)",
+  lintPollutedSection: "Pages pollu\xE9es (d\xE9tect\xE9es) [{count}]",
   lintPollutedItem: '- [[{page}]] \u2192 devrait \xEAtre "{clean}"',
-  lintSourcesNormalizedSection: "Sources normalis\xE9s (auto-corrig\xE9s)",
+  lintSourcesNormalizedSection: "Sources normalis\xE9es (auto-corrig\xE9es) [{files} fichiers / {entries} entr\xE9es]",
   lintSourcesNormalizedItem: "Nettoy\xE9 {entries} entr\xE9es de sources pollu\xE9es dans {files} fichier(s) (chemins externes, extensions .md, pipes d'alias supprim\xE9s et d\xE9duplication).",
   lintDuplicateItem: "- [[{target}]] et [[{source}]] \u2014 {reason}",
   lintDeadLinkAffectedByDup: " (\u26A0\uFE0F implique une page dupliqu\xE9e)",
@@ -5221,6 +3409,8 @@ var FR_TEXTS = {
   lintFixDeadComplete: "R\xE9paration des liens cass\xE9s termin\xE9e. {fixed}/{total} \xE9l\xE9ments r\xE9par\xE9s.",
   lintFillProgress: "Expansion {current}/{total} : {page}",
   lintFillComplete: "Expansion des pages termin\xE9e. {filled}/{total} pages remplies.",
+  lintDeleteCompleted: "{count} stubs vides supprim\xE9s",
+  lintDeleteFailed: "\xC9chec de suppression de {failed}/{total} stubs vides (voir la console)",
   lintFillFailed: "\xC9chec de l'expansion : {page} \u2014 {error}",
   lintLinkProgress: "Lien {current}/{total} : {page}",
   lintLinkComplete: "Liens des pages orphelines termin\xE9s. {linked} pages li\xE9es.",
@@ -5232,8 +3422,10 @@ var FR_TEXTS = {
   lintFixAllComplete: "Toutes les r\xE9parations sont termin\xE9es. Consultez le journal pour les d\xE9tails.",
   // Lint Report Modal
   lintModalActionsTitle: "Suggestions de r\xE9paration (n\xE9cessite des tokens LLM) :",
+  lintLogReference: "Rapport complet enregistr\xE9 dans log.md",
   lintModalFixDeadLinks: "R\xE9parer les liens cass\xE9s ({count})",
   lintModalExpandEmpty: "\xC9tendre les pages vides ({count})",
+  lintModalDeleteEmpty: "Supprimer les stubs vides ({count})",
   lintModalLinkOrphans: "Lier les pages orphelines ({count})",
   lintModalAnalyzeSchema: "Analyser le sch\xE9ma",
   lintModalMergeDuplicates: "Fusionner les doublons ({count})",
@@ -5324,14 +3516,19 @@ var ES_TEXTS = {
   fetchSuccess: "\xA1Correcto! {} modelos disponibles",
   fetchFailed: "Error o lista vac\xEDa. Introduce el nombre del modelo manualmente",
   fetchNotSupported: "El proveedor no admite consultas de lista de modelos",
+  fetchErrorAuth: "Autenticaci\xF3n fallida (HTTP 401/403). Verifica la clave API, o introduce un ID de modelo y haz clic en Probar conexi\xF3n.",
+  fetchErrorEndpoint: "Endpoint no encontrado (HTTP 404). Verifica la URL del endpoint, o introduce un ID de modelo y haz clic en Probar conexi\xF3n.",
+  fetchErrorServer: "Error del servidor del proveedor (HTTP 5xx). Int\xE9ntalo m\xE1s tarde, o introduce un ID de modelo y haz clic en Probar conexi\xF3n.",
+  fetchErrorEmpty: "Este endpoint no expone lista de modelos. Introduce un ID de modelo y haz clic en Probar conexi\xF3n.",
+  fetchErrorNetwork: "Fall\xF3 la solicitud de red. Verifica tu conexi\xF3n a internet, la URL del endpoint o la configuraci\xF3n del proxy. Tambi\xE9n puedes introducir un ID de modelo y hacer clic en Probar conexi\xF3n.",
   selectModelName: "Seleccionar modelo",
   selectModelDesc: "Elige entre {} modelos disponibles",
   customInputOption: "Entrada personalizada...",
   customInputHint: 'Para usar otros modelos, selecciona "Entrada personalizada..."',
   modelName: "Nombre del modelo",
   modelDescCustom: "Usando modelo personalizado (pulsa el bot\xF3n de arriba para volver a obtener la lista)",
-  modelDescRecommended: "Recomendado: {}",
-  modelDescManual: "Introduce manualmente el nombre del modelo",
+  modelDescFetchFailed: "Error al obtener la lista de modelos. Verifica la clave API y la URL del endpoint, o introduce un ID de modelo y haz clic en Probar conexi\xF3n.",
+  modelInputPlaceholder: "Introduce el ID del modelo y prueba la conexi\xF3n",
   switchToDropdown: "Cambiar a selecci\xF3n con men\xFA desplegable",
   useDropdownButton: "Usar men\xFA desplegable",
   // Test & Save
@@ -5362,7 +3559,7 @@ var ES_TEXTS = {
   maxConversationHistoryDesc: "Limita los mensajes de conversaci\xF3n para evitar desbordamiento de tokens",
   maxConversationHistoryHint: "Recomendado: no superar 50 rondas",
   numberRangeValidation: "Introduce un n\xFAmero entre 1 y 50",
-  numberRangeClamped: "Valor fuera del rango (1-300), autom\xE1ticamente establecido a {}",
+  numberRangeClamped: "Valor fuera del rango (1-500), autom\xE1ticamente establecido a {}",
   // Query Modal UI
   queryModalTitle: "Consultar Wiki - Consulta conversacional",
   queryModalPlaceholder: "Introduce una pregunta...",
@@ -5394,15 +3591,25 @@ var ES_TEXTS = {
   lintScanningLinks: "Escaneando enlaces rotos...",
   lintScanningLinksProgress: "Escaneando enlaces rotos: {current}/{total}...",
   lintCheckingDuplicates: "Buscando p\xE1ginas duplicadas...",
+  lintCheckingDuplicatesProgress: "Verificando duplicados: lote {current} ...",
+  lintFixingPolluted: "Reparando p\xE1gina contaminada {current}/{total}: {title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} Reparar p\xE1ginas contaminadas ({count})",
   lintDuplicateCheckFailed: "Fall\xF3 la detecci\xF3n de duplicados \u2014 consulta la consola para m\xE1s detalles",
   lintDuplicateCheckFailedDetail: "Fall\xF3 la comprobaci\xF3n de duplicados en {step}: {error}",
   lintMergeItemFailed: "Fall\xF3 la fusi\xF3n: {source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "Alias faltantes: {count} p\xE1gina(s) sin alias",
-  lintAliasesSection: "P\xE1ginas sin alias (detectadas)",
+  lintAliasesSection: "P\xE1ginas sin alias [{count}]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "Completar alias ({count})",
   lintAliasesFilling: "Generando alias {current}/{total}: {page}",
   lintAliasesFilled: "Completado de alias finalizado. Rellenadas {filled}/{total} p\xE1ginas.",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "Fall\xF3 la generaci\xF3n de alias: {page} \u2014 {error}",
   lintFixItemFailed: "Fall\xF3 la correcci\xF3n: [[{target}]] \u2014 {error}",
   lintLinkItemFailed: "Fall\xF3 el enlace: {page} \u2014 {error}",
@@ -5478,11 +3685,25 @@ var ES_TEXTS = {
   extractionGranularityStandard: "Est\xE1ndar \u2014 notas diarias (\u226450 elementos)",
   extractionGranularityCoarse: "Gruesa \u2014 visi\xF3n r\xE1pida (\u226410 elementos)",
   extractionGranularityMinimal: "M\xEDnima \u2014 procesamiento por lotes 100+ archivos (\u22645 elementos)",
-  extractionGranularityCustom: "Personalizado \u2014 Establecer tus propios l\xEDmites (1~300)",
+  extractionGranularityCustom: "Personalizado \u2014 Establecer tus propios l\xEDmites (1~500)",
   customEntityLimitName: "L\xEDmite personalizado de entidades",
-  customEntityLimitDesc: "N\xFAmero m\xE1ximo de entidades a extraer por archivo fuente (1-300)",
+  customEntityLimitDesc: "N\xFAmero m\xE1ximo de entidades a extraer por archivo fuente (1-500)",
   customConceptLimitName: "L\xEDmite personalizado de conceptos",
-  customConceptLimitDesc: "N\xFAmero m\xE1ximo de conceptos a extraer por archivo fuente (1-300)",
+  customConceptLimitDesc: "N\xFAmero m\xE1ximo de conceptos a extraer por archivo fuente (1-500)",
+  // Issue #85 v2: Vocabulario de etiquetas (entrada por chips, integrado en Configuración Wiki)
+  tagVocabularyInlineDesc: "Vocabulario controlado para etiquetas frontmatter de entity y concept. Las etiquetas anidadas de Obsidian con \xAB/\xBB se conservan.",
+  tagVocabularyModeName: "Configuraci\xF3n del vocabulario de etiquetas",
+  tagVocabularyModeDescDefault: "Por defecto usa etiquetas integradas: {}. Cambie a \xABPersonalizado\xBB para definir su propio vocabulario.",
+  tagVocabularyModeDescCustom: "Personalizado: defina abajo sus propias etiquetas de entity y concept con la entrada por chips \u2014 Enter o coma para a\xF1adir, \xD7 para eliminar.",
+  tagVocabularyModeDefault: "Por defecto (subtipos integrados)",
+  tagVocabularyModeCustom: "Personalizado (definido por el usuario)",
+  customEntityTagsName: "Etiquetas de entidad personalizadas",
+  customEntityTagsDesc: "Enter o coma para a\xF1adir un chip, \xD7 para eliminar. Las etiquetas anidadas con \xAB/\xBB se conservan.",
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "Etiquetas de concepto personalizadas",
+  customConceptTagsDesc: "Enter o coma para a\xF1adir un chip, \xD7 para eliminar. Las etiquetas anidadas con \xAB/\xBB se conservan.",
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "Etiqueta duplicada omitida",
   // Ingestion Acceleration
   accelerationSectionTitle: "Aceleraci\xF3n de ingesti\xF3n",
   pageGenerationConcurrencyName: "Concurrencia LLM",
@@ -5584,10 +3805,10 @@ var ES_TEXTS = {
   crossTypeCollisionNotice: "{count} elementos fusionados como alias cross-type (duplicados entidad \u2194 concepto evitados)",
   // Lint Report
   lintReportTitle: "Informe de verificaci\xF3n lint de la Wiki",
-  lintReportSummary: "Resumen del estado de la Wiki: {total} p\xE1ginas en total, {aliasesMissing} p\xE1ginas sin alias, {duplicates} p\xE1ginas duplicadas, {deadLinks} enlaces rotos ({deadLinkFromDup} implican duplicados), {orphans} p\xE1ginas hu\xE9rfanas ({orphanFromDup} son duplicados), {emptyPages} p\xE1ginas vac\xEDas",
-  lintDeadLinkSection: "Enlaces rotos (detectados)",
-  lintEmptyPageSection: "P\xE1ginas vac\xEDas (detectadas)",
-  lintOrphanSection: "P\xE1ginas hu\xE9rfanas (detectadas)",
+  lintReportSummary: "Resumen de estado del wiki: {total} p\xE1ginas en total, {aliasesMissing} p\xE1ginas sin alias, {duplicates} duplicados, {deadLinks} enlaces rotos ({deadLinkFromDup} implican duplicados), {orphans} p\xE1ginas hu\xE9rfanas ({orphanFromDup} son duplicados), {emptyPages} p\xE1ginas vac\xEDas. Lint: {elapsedSeconds}s",
+  lintDeadLinkSection: "Enlaces rotos (detectados) [{count}]",
+  lintEmptyPageSection: "P\xE1ginas vac\xEDas (detectadas) [{count}]",
+  lintOrphanSection: "P\xE1ginas hu\xE9rfanas (detectadas) [{count}]",
   lintContradictionSection: "Contradicciones (detectadas)",
   lintDuplicateSection: "P\xE1ginas duplicadas (detectadas)",
   lintNoIssuesFound: "No se detectaron duplicados, enlaces rotos, p\xE1ginas vac\xEDas ni p\xE1ginas hu\xE9rfanas.",
@@ -5595,9 +3816,9 @@ var ES_TEXTS = {
   lintDeadLinkMore: "- ... {count} enlaces rotos m\xE1s",
   lintEmptyPageItem: "- [[{page}]] \u2014 menos de 50 caracteres de contenido sustantivo",
   lintOrphanItem: "- [[{page}]] \u2014 ninguna otra p\xE1gina Wiki enlaza aqu\xED{dupFlag}",
-  lintPollutedSection: "P\xE1ginas con contaminaci\xF3n de ruta (detectadas)",
+  lintPollutedSection: "P\xE1ginas contaminadas (detectadas) [{count}]",
   lintPollutedItem: '- [[{page}]] \u2192 deber\xEDa ser "{clean}"',
-  lintSourcesNormalizedSection: "Sources normalizados (auto-corregidos)",
+  lintSourcesNormalizedSection: "Sources normalizadas (auto-corregidas) [{files} archivos / {entries} entradas]",
   lintSourcesNormalizedItem: "Limpiadas {entries} entradas de sources contaminadas en {files} archivo(s) (rutas externas, extensiones .md, pipes de alias eliminados y deduplicados).",
   lintDuplicateItem: "- [[{target}]] y [[{source}]] \u2014 {reason}",
   lintDeadLinkAffectedByDup: " (\u26A0\uFE0F implica p\xE1gina duplicada)",
@@ -5615,6 +3836,8 @@ var ES_TEXTS = {
   lintFixDeadComplete: "Correcci\xF3n de enlaces rotos completada. Corregidos {fixed}/{total} elementos.",
   lintFillProgress: "Expandiendo {current}/{total}: {page}",
   lintFillComplete: "Expansi\xF3n de p\xE1ginas completada. Rellenadas {filled}/{total} p\xE1ginas.",
+  lintDeleteCompleted: "{count} stubs vac\xEDos eliminados",
+  lintDeleteFailed: "Error al eliminar {failed}/{total} stubs vac\xEDos (ver consola)",
   lintFillFailed: "Fall\xF3 la expansi\xF3n: {page} \u2014 {error}",
   lintLinkProgress: "Enlazando {current}/{total}: {page}",
   lintLinkComplete: "Enlace de hu\xE9rfanas completado. Enlazadas {linked} p\xE1ginas.",
@@ -5626,8 +3849,10 @@ var ES_TEXTS = {
   lintFixAllComplete: "Todas las correcciones completadas. Consulta el registro para m\xE1s detalles.",
   // Lint Report Modal
   lintModalActionsTitle: "Sugerencias de correcci\xF3n (requiere tokens LLM):",
+  lintLogReference: "Informe completo guardado en log.md",
   lintModalFixDeadLinks: "Corregir enlaces rotos ({count})",
   lintModalExpandEmpty: "Expandir p\xE1ginas vac\xEDas ({count})",
+  lintModalDeleteEmpty: "Eliminar stubs vac\xEDos ({count})",
   lintModalLinkOrphans: "Enlazar p\xE1ginas hu\xE9rfanas ({count})",
   lintModalAnalyzeSchema: "Analizar esquema",
   lintModalMergeDuplicates: "Fusionar duplicados ({count})",
@@ -5718,14 +3943,19 @@ var PT_TEXTS = {
   fetchSuccess: "Sucesso! {} modelos dispon\xEDveis",
   fetchFailed: "Falha ou lista vazia. Insira o nome do modelo manualmente",
   fetchNotSupported: "O provedor n\xE3o suporta consulta \xE0 lista de modelos",
+  fetchErrorAuth: "Falha de autentica\xE7\xE3o (HTTP 401/403). Verifique a chave API, ou insira um ID de modelo e clique em Testar conex\xE3o.",
+  fetchErrorEndpoint: "Endpoint n\xE3o encontrado (HTTP 404). Verifique a URL do endpoint, ou insira um ID de modelo e clique em Testar conex\xE3o.",
+  fetchErrorServer: "Erro do servidor do provedor (HTTP 5xx). Tente novamente mais tarde, ou insira um ID de modelo e clique em Testar conex\xE3o.",
+  fetchErrorEmpty: "Este endpoint n\xE3o exp\xF5e lista de modelos. Insira um ID de modelo e clique em Testar conex\xE3o.",
+  fetchErrorNetwork: "Falha na requisi\xE7\xE3o de rede. Verifique sua conex\xE3o com a internet, URL do endpoint ou configura\xE7\xF5es de proxy. Voc\xEA tamb\xE9m pode inserir um ID de modelo e clicar em Testar conex\xE3o.",
   selectModelName: "Selecionar modelo",
   selectModelDesc: "Escolha entre {} modelos dispon\xEDveis",
   customInputOption: "Entrada personalizada...",
   customInputHint: 'Para usar outros modelos, selecione "Entrada personalizada..."',
   modelName: "Nome do modelo",
   modelDescCustom: "Usando modelo personalizado (clique no bot\xE3o acima para buscar a lista novamente)",
-  modelDescRecommended: "Recomendado: {}",
-  modelDescManual: "Insira o nome do modelo manualmente",
+  modelDescFetchFailed: "Falha ao buscar lista de modelos. Verifique a chave API e URL do endpoint, ou insira um ID de modelo e clique em Testar conex\xE3o.",
+  modelInputPlaceholder: "Insira o ID do modelo e teste a conex\xE3o",
   switchToDropdown: "Alternar para sele\xE7\xE3o por lista",
   useDropdownButton: "Usar lista suspensa",
   // Test & Save
@@ -5756,7 +3986,7 @@ var PT_TEXTS = {
   maxConversationHistoryDesc: "Limitar mensagens da conversa para evitar excesso de tokens",
   maxConversationHistoryHint: "Recomendado: n\xE3o ultrapassar 50 rodadas",
   numberRangeValidation: "Insira um n\xFAmero entre 1 e 50",
-  numberRangeClamped: "Valor fora do intervalo (1-300), automaticamente definido como {}",
+  numberRangeClamped: "Valor fora do intervalo (1-500), automaticamente definido como {}",
   // Query Modal UI
   queryModalTitle: "Consultar Wiki \u2014 Consulta conversacional",
   queryModalPlaceholder: "Insira sua pergunta...",
@@ -5788,15 +4018,25 @@ var PT_TEXTS = {
   lintScanningLinks: "Verificando links quebrados...",
   lintScanningLinksProgress: "Verificando links quebrados: {current}/{total}...",
   lintCheckingDuplicates: "Verificando p\xE1ginas duplicadas...",
+  lintCheckingDuplicatesProgress: "Verificando duplicados: lote {current} ...",
+  lintFixingPolluted: "Reparando p\xE1gina contaminada {current}/{total}: {title} \u2192 {newTitle}",
+  lintModalFixPolluted: "\u{1F9F9} Reparar p\xE1ginas contaminadas ({count})",
   lintDuplicateCheckFailed: "Detec\xE7\xE3o de duplicatas falhou \u2014 consulte o console para detalhes",
   lintDuplicateCheckFailedDetail: "Verifica\xE7\xE3o de duplicatas falhou em {step}: {error}",
   lintMergeItemFailed: "Falha na mesclagem: {source} \u2192 {target} \u2014 {error}",
   lintAliasesMissing: "Aliases ausentes: {count} p\xE1gina(s) sem aliases",
-  lintAliasesSection: "P\xE1ginas sem aliases (detectadas)",
+  lintAliasesSection: "P\xE1ginas sem aliases [{count}]",
   lintAliasesItem: "- [[{page}]]",
   lintAliasesCompleteBtn: "Completar aliases ({count})",
   lintAliasesFilling: "Gerando aliases {current}/{total}: {page}",
   lintAliasesFilled: "Completar aliases conclu\xEDdo. Preenchidas {filled}/{total} p\xE1ginas.",
+  lintTagViolationFiring: "Retagging {current}/{total}: {path}",
+  lintTagViolationFailed: "Retag failed for {path}: {error}",
+  lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
+  lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
+  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
+  lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "Falha ao gerar aliases: {page} \u2014 {error}",
   lintFixItemFailed: "Falha na corre\xE7\xE3o: [[{target}]] \u2014 {error}",
   lintLinkItemFailed: "Falha ao linkar: {page} \u2014 {error}",
@@ -5867,16 +4107,30 @@ var PT_TEXTS = {
   // Extraction Settings
   extractionSectionTitle: "Extra\xE7\xE3o",
   extractionGranularityName: "Granularidade da extra\xE7\xE3o",
-  extractionGranularityDesc: "Controla extra\xE7\xF5es por arquivo fonte. Maior = mais p\xE1ginas/tokens API.\nFina: an\xE1lise profunda. Padr\xE3o: notas di\xE1rias. Grosseira: vis\xE3o r\xE1pida. M\xEDnima: processamento 100+ arquivos. Personalizada: limites pr\xF3prios (at\xE9 300).\nDica: Use M\xEDnima/Grosseira para pastas com muitos arquivos para economizar tempo e custo.",
+  extractionGranularityDesc: "Controla extra\xE7\xF5es por arquivo fonte. Maior = mais p\xE1ginas/tokens API.\nFina: an\xE1lise profunda. Padr\xE3o: notas di\xE1rias. Grosseira: vis\xE3o r\xE1pida. M\xEDnima: processamento 100+ arquivos. Personalizada: limites pr\xF3prios (at\xE9 500).\nDica: Use M\xEDnima/Grosseira para pastas com muitos arquivos para economizar tempo e custo.",
   extractionGranularityFine: "Fina \u2014 an\xE1lise profunda (\u2264100 itens)",
   extractionGranularityStandard: "Padr\xE3o \u2014 notas di\xE1rias (\u226450 itens)",
   extractionGranularityCoarse: "Grosseira \u2014 vis\xE3o r\xE1pida (\u226410 itens)",
   extractionGranularityMinimal: "M\xEDnima \u2014 processamento em lote 100+ arquivos (\u22645 itens)",
-  extractionGranularityCustom: "Personalizada \u2014 Definir seus pr\xF3prios limites (1~300)",
+  extractionGranularityCustom: "Personalizada \u2014 Definir seus pr\xF3prios limites (1~500)",
   customEntityLimitName: "Limite personalizado de entidades",
-  customEntityLimitDesc: "N\xFAmero m\xE1ximo de entidades a extrair por arquivo fonte (1-300)",
+  customEntityLimitDesc: "N\xFAmero m\xE1ximo de entidades a extrair por arquivo fonte (1-500)",
   customConceptLimitName: "Limite personalizado de conceitos",
-  customConceptLimitDesc: "N\xFAmero m\xE1ximo de conceitos a extrair por arquivo fonte (1-300)",
+  customConceptLimitDesc: "N\xFAmero m\xE1ximo de conceitos a extrair por arquivo fonte (1-500)",
+  // Issue #85 v2: Vocabulário de tags (entrada por chips, integrado em Configuração Wiki)
+  tagVocabularyInlineDesc: 'Vocabul\xE1rio controlado para tags frontmatter de entity e concept. Tags aninhadas do Obsidian com "/" s\xE3o preservadas.',
+  tagVocabularyModeName: "Configura\xE7\xE3o do vocabul\xE1rio de tags",
+  tagVocabularyModeDescDefault: 'Padr\xE3o usa tags embutidas: {}. Mude para "Personalizado" para definir seu pr\xF3prio vocabul\xE1rio.',
+  tagVocabularyModeDescCustom: "Personalizado: defina abaixo suas pr\xF3prias tags de entity e concept pela entrada por chips \u2014 Enter ou v\xEDrgula para adicionar, \xD7 para remover.",
+  tagVocabularyModeDefault: "Padr\xE3o (subtipos embutidos)",
+  tagVocabularyModeCustom: "Personalizado (definido pelo usu\xE1rio)",
+  customEntityTagsName: "Tags de entidade personalizadas",
+  customEntityTagsDesc: 'Enter ou v\xEDrgula para adicionar um chip, \xD7 para remover. Tags aninhadas com "/" s\xE3o preservadas.',
+  customEntityTagsPlaceholder: "person, organization, project, place",
+  customConceptTagsName: "Tags de conceito personalizadas",
+  customConceptTagsDesc: 'Enter ou v\xEDrgula para adicionar um chip, \xD7 para remover. Tags aninhadas com "/" s\xE3o preservadas.',
+  customConceptTagsPlaceholder: "theory, method, field, phenomenon, term",
+  chipDuplicateHint: "Tag duplicada ignorada",
   // Ingestion Acceleration
   accelerationSectionTitle: "Acelera\xE7\xE3o da ingest\xE3o",
   pageGenerationConcurrencyName: "Paralelismo LLM",
@@ -5978,10 +4232,10 @@ var PT_TEXTS = {
   crossTypeCollisionNotice: "{count} elementos fundidos como alias cross-type (duplicatas entidade \u2194 conceito evitadas)",
   // Lint Report
   lintReportTitle: "Relat\xF3rio de verifica\xE7\xE3o da Wiki",
-  lintReportSummary: "Vis\xE3o geral do status da Wiki: {total} p\xE1ginas no total, {aliasesMissing} p\xE1ginas sem aliases, {duplicates} p\xE1ginas duplicadas, {deadLinks} links quebrados ({deadLinkFromDup} envolvem duplicatas), {orphans} p\xE1ginas \xF3rf\xE3s ({orphanFromDup} s\xE3o duplicatas), {emptyPages} p\xE1ginas vazias",
-  lintDeadLinkSection: "Links quebrados (detectados)",
-  lintEmptyPageSection: "P\xE1ginas vazias (detectadas)",
-  lintOrphanSection: "P\xE1ginas \xF3rf\xE3s (detectadas)",
+  lintReportSummary: "Vis\xE3o geral do wiki: {total} p\xE1ginas no total, {aliasesMissing} sem aliases, {duplicates} duplicados, {deadLinks} links quebrados ({deadLinkFromDup} envolvem duplicados), {orphans} \xF3rf\xE3s ({orphanFromDup} s\xE3o duplicados), {emptyPages} vazias. Lint: {elapsedSeconds}s",
+  lintDeadLinkSection: "Links quebrados (detectados) [{count}]",
+  lintEmptyPageSection: "P\xE1ginas vazias (detectadas) [{count}]",
+  lintOrphanSection: "P\xE1ginas \xF3rf\xE3s (detectadas) [{count}]",
   lintContradictionSection: "Contradi\xE7\xF5es (detectadas)",
   lintDuplicateSection: "P\xE1ginas duplicadas (detectadas)",
   lintNoIssuesFound: "Nenhuma duplicata, link quebrado, p\xE1gina vazia ou p\xE1gina \xF3rf\xE3 detectada.",
@@ -5989,9 +4243,9 @@ var PT_TEXTS = {
   lintDeadLinkMore: "- ... mais {count} links quebrados",
   lintEmptyPageItem: "- [[{page}]] \u2014 menos de 50 caracteres de conte\xFAdo substantivo",
   lintOrphanItem: "- [[{page}]] \u2014 nenhuma outra p\xE1gina da Wiki linka aqui{dupFlag}",
-  lintPollutedSection: "P\xE1ginas com polui\xE7\xE3o de caminho (detectadas)",
+  lintPollutedSection: "P\xE1ginas polu\xEDdas (detectadas) [{count}]",
   lintPollutedItem: '- [[{page}]] \u2192 deveria ser "{clean}"',
-  lintSourcesNormalizedSection: "Sources normalizados (auto-corrigidos)",
+  lintSourcesNormalizedSection: "Sources normalizadas (auto-corrigidas) [{files} arquivos / {entries} entradas]",
   lintSourcesNormalizedItem: "Limpou {entries} entradas de sources polu\xEDdas em {files} arquivo(s) (caminhos externos, extens\xF5es .md, pipes de alias removidos e deduplicados).",
   lintDuplicateItem: "- [[{target}]] e [[{source}]] \u2014 {reason}",
   lintDeadLinkAffectedByDup: " (\u26A0\uFE0F envolve p\xE1gina duplicada)",
@@ -6009,6 +4263,8 @@ var PT_TEXTS = {
   lintFixDeadComplete: "Corre\xE7\xE3o de links quebrados conclu\xEDda. {fixed}/{total} itens corrigidos.",
   lintFillProgress: "Expandindo {current}/{total}: {page}",
   lintFillComplete: "Expans\xE3o de p\xE1ginas conclu\xEDda. {filled}/{total} p\xE1ginas preenchidas.",
+  lintDeleteCompleted: "{count} stubs vazios exclu\xEDdos",
+  lintDeleteFailed: "Falha ao excluir {failed}/{total} stubs vazios (ver console)",
   lintFillFailed: "Falha ao expandir: {page} \u2014 {error}",
   lintLinkProgress: "Linkando {current}/{total}: {page}",
   lintLinkComplete: "Links de p\xE1ginas \xF3rf\xE3s conclu\xEDdos. {linked} p\xE1ginas linkadas.",
@@ -6020,8 +4276,10 @@ var PT_TEXTS = {
   lintFixAllComplete: "Todas as corre\xE7\xF5es conclu\xEDdas. Consulte o log para detalhes.",
   // Lint Report Modal
   lintModalActionsTitle: "Sugest\xF5es de corre\xE7\xE3o (requer tokens LLM):",
+  lintLogReference: "Relat\xF3rio completo salvo em log.md",
   lintModalFixDeadLinks: "Corrigir links quebrados ({count})",
   lintModalExpandEmpty: "Expandir p\xE1ginas vazias ({count})",
+  lintModalDeleteEmpty: "Excluir stubs vazios ({count})",
   lintModalLinkOrphans: "Linkar p\xE1ginas \xF3rf\xE3s ({count})",
   lintModalAnalyzeSchema: "Analisar Schema",
   lintModalMergeDuplicates: "Mesclar duplicatas ({count})",
@@ -6065,6 +4323,36 @@ var TEXTS = {
   pt: PT_TEXTS
 };
 
+// src/wiki/schema-analyze.ts
+async function runSchemaAnalyze(ctx) {
+  if (!ctx.requireLLMReady()) return;
+  if (!ctx.llmClient) {
+    new import_obsidian2.Notice(TEXTS[ctx.settings.language].errorNoApiKey);
+    return;
+  }
+  const signal = ctx.wikiEngine.startLintOperation();
+  new import_obsidian2.Notice(TEXTS[ctx.settings.language].analyzingSchema);
+  try {
+    const result = await ctx.schemaManager.suggestSchemaUpdate("Wiki lint analysis");
+    if (signal.aborted) return;
+    if (result == null ? void 0 : result.changes_needed) {
+      new import_obsidian2.Notice(TEXTS[ctx.settings.language].schemaSuggestionGenerated, NOTICE_ERROR);
+    } else {
+      new import_obsidian2.Notice(TEXTS[ctx.settings.language].noSchemaUpdateNeeded, NOTICE_NORMAL);
+    }
+  } catch (error) {
+    console.error("Schema suggestion failed:", error);
+    if (signal.aborted) return;
+    const errMsg2 = error instanceof Error ? error.message : String(error);
+    new import_obsidian2.Notice(
+      TEXTS[ctx.settings.language].schemaSuggestionFailed + ": " + errMsg2,
+      NOTICE_ERROR
+    );
+  } finally {
+    ctx.wikiEngine.endLintOperation();
+  }
+}
+
 // src/utils.ts
 function getText(language, key, replacements) {
   const texts = TEXTS[language] || TEXTS.en;
@@ -6096,7 +4384,7 @@ function computeSlug(text) {
   const afterMergeDash = afterSpaceToDash.replace(/-+/g, "-");
   const finalSlug = afterMergeDash.replace(/^-|-$/g, "").trim();
   if (finalSlug.length === 0) return "untitled-" + Date.now();
-  return finalSlug;
+  return finalSlug.toLowerCase();
 }
 function filterRedundantAliases(pagePath, candidateAliases) {
   const fileName = pagePath.split("/").pop() || "";
@@ -6115,6 +4403,9 @@ async function parseJsonResponse(response, repairFn) {
   console.debug("parseJsonResponse parsing started... response length:", response.length);
   try {
     let normalized = response.trim();
+    normalized = normalized.replace(/<think\b[^>]*>[\s\S]*?<\/think>/gi, "");
+    normalized = normalized.replace(/<thinking\b[^>]*>[\s\S]*?<\/thinking>/gi, "");
+    normalized = normalized.trim();
     normalized = normalized.replace(/^```(?:json|markdown|md)?\s*\n?/, "");
     normalized = normalized.replace(/\n?```$/, "");
     normalized = normalized.trim();
@@ -6282,7 +4573,7 @@ function isJsonWhitespace(ch) {
   return ch === " " || ch === "	" || ch === "\n" || ch === "\r";
 }
 function parseFrontmatter(content) {
-  var _a2;
+  var _a;
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return null;
   const result = {};
@@ -6315,7 +4606,7 @@ function parseFrontmatter(content) {
     if (colonIdx === -1) continue;
     const key = line.substring(0, colonIdx).trim();
     const value = line.substring(colonIdx + 1).trim();
-    const nextLine = (_a2 = lines[i + 1]) == null ? void 0 : _a2.trim();
+    const nextLine = (_a = lines[i + 1]) == null ? void 0 : _a.trim();
     if (nextLine && nextLine.startsWith("- ")) {
       currentKey = key;
       arrayValues = [];
@@ -6435,6 +4726,15 @@ function cleanMarkdownResponse(response) {
   let cleaned = response.trim();
   cleaned = cleaned.replace(/<think\b[^>]*>[\s\S]*?<\/think>/gi, "");
   cleaned = cleaned.replace(/<thinking\b[^>]*>[\s\S]*?<\/thinking>/gi, "");
+  if (cleaned.indexOf("\n---\n") === -1) {
+    const headerMatch = cleaned.match(/\n#{1,2} \S/);
+    if (headerMatch) {
+      const cutIdx = cleaned.indexOf(headerMatch[0]);
+      if (cutIdx > 0) {
+        cleaned = cleaned.slice(cutIdx + 1).replace(/^\s+/, "");
+      }
+    }
+  }
   const codeBlockPatterns = [
     /^```(?:markdown|md)?\s*\n([\s\S]*?)\n```$/gm,
     // Complete code block (multiline)
@@ -6479,12 +4779,17 @@ function cleanMarkdownResponse(response) {
   }
   return cleaned.trim();
 }
-function enforceFrontmatterConstraints(content, pageType) {
+function enforceFrontmatterConstraints(content, pageType, settings) {
   if (!content.startsWith("---")) return content;
   const fmEnd = content.indexOf("\n---\n", 3);
   if (fmEnd === -1) return content;
   const fmText = content.substring(3, fmEnd);
+  if (/^reviewed:\s*true\s*$/m.test(fmText)) {
+    const today2 = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    return content.replace(/^created:\s*\d{4}-\d{2}-\d{2}\s*$/m, `created: ${today2}`).replace(/^updated:\s*\d{4}-\d{2}-\d{2}\s*$/m, `updated: ${today2}`);
+  }
   let body = content.substring(fmEnd + 5);
+  const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
   const lines = fmText.split("\n");
   const newLines = [];
   let typeLine = "";
@@ -6493,9 +4798,17 @@ function enforceFrontmatterConstraints(content, pageType) {
   let foundTags = false;
   let foundAliases = false;
   let collectedAliases = [];
+  let createdValue = "";
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
+    if (line.startsWith("created:")) {
+      createdValue = line.substring(8).trim();
+      continue;
+    }
+    if (line.startsWith("updated:")) {
+      continue;
+    }
     if (line.startsWith("type:")) {
       foundType = true;
       const currentType = line.substring(5).trim();
@@ -6547,20 +4860,33 @@ function enforceFrontmatterConstraints(content, pageType) {
   if (foundType) {
     result.push(typeLine);
   }
+  result.push(`created: ${createdValue || today}`);
+  result.push(`updated: ${today}`);
   for (const line of newLines) {
-    if (!line.startsWith("type:") && !line.startsWith("tags:") && !line.startsWith("aliases:")) {
+    if (!line.startsWith("type:") && !line.startsWith("tags:") && !line.startsWith("aliases:") && !line.startsWith("created:") && !line.startsWith("updated:")) {
       result.push(line);
     }
   }
   if (foundTags || collectedTags.length > 0) {
-    const validSubtypes = pageType === "entity" ? VALID_ENTITY_TAGS : pageType === "concept" ? VALID_CONCEPT_TAGS : [];
-    const validTags = collectedTags.filter(
-      (v, i, a) => a.indexOf(v) === i && v && v !== pageType && validSubtypes.includes(v)
-    );
-    if (validTags.length > 0) {
-      result.push(`tags: [${validTags.join(", ")}]`);
+    const validSubtypes = pageType === "entity" ? settings ? getActiveEntityTags(settings) : VALID_ENTITY_TAGS : pageType === "concept" ? settings ? getActiveConceptTags(settings) : VALID_CONCEPT_TAGS : pageType === "source" ? settings ? getActiveSourceTags(settings) : VALID_SOURCE_TAGS : [];
+    const dedupedTags = [];
+    const outOfVocab = [];
+    for (const tag of collectedTags) {
+      if (!tag || tag === pageType) continue;
+      if (dedupedTags.includes(tag)) continue;
+      dedupedTags.push(tag);
+      if (!validSubtypes.includes(tag)) outOfVocab.push(tag);
+    }
+    if (outOfVocab.length > 0) {
+      console.debug(
+        `[enforceFrontmatterConstraints] ${pageType} page retained ${outOfVocab.length} tag(s) not in active vocabulary (${validSubtypes.length} entries):`,
+        outOfVocab
+      );
+    }
+    if (dedupedTags.length > 0) {
+      result.push(`tags: [${dedupedTags.join(", ")}]`);
     } else {
-      const fallback = pageType === "entity" ? "other" : pageType === "concept" ? "term" : "";
+      const fallback = pageType === "entity" ? DEFAULT_ENTITY_TAG : pageType === "concept" ? DEFAULT_CONCEPT_TAG : pageType === "source" ? DEFAULT_SOURCE_TAG : "";
       result.push(`tags: [${fallback}]`);
     }
   }
@@ -6588,17 +4914,95 @@ function detectRateLimitFailures(failedItems, currentConcurrency, currentBatchDe
 function formatRateLimitNotice(info, language) {
   return getText(language, "rateLimitDetected").replace("{count}", String(info.count)).replace("{suggestedConcurrency}", String(info.suggestedConcurrency)).replace("{suggestedDelay}", String(info.suggestedDelay));
 }
-function truncateMentions(mentions, maxChars = 500) {
+function nestReportUnderParent(report) {
+  const lines = report.split("\n");
+  let h1Stripped = false;
+  const out = [];
+  for (const line of lines) {
+    const m = /^(#+)\s/.exec(line);
+    if (m) {
+      if (!h1Stripped && m[1].length === 1) {
+        h1Stripped = true;
+        continue;
+      }
+      out.push("#" + line);
+      h1Stripped = true;
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join("\n");
+}
+function truncateMentions(mentions, maxChars = 500, sourcePath) {
   if (!mentions || mentions.length === 0) return "";
   let result = "";
-  for (const m of mentions) {
-    if (result.length + m.length > maxChars) {
-      if (result.length > 0) break;
-      return m.substring(0, maxChars);
+  if (sourcePath) {
+    const leftPath = sourcePath.replace(/\.md$/, "");
+    const displayName = leftPath.split("/").pop() || leftPath;
+    for (const m of mentions) {
+      const line = `- ${m} \u2014 [[${leftPath}|${displayName}]]`;
+      if (result.length + line.length + 1 > maxChars) {
+        if (result.length > 0) break;
+        const head = Math.max(0, maxChars - ` \u2014 [[${leftPath}|${displayName}]]`.length - 3);
+        return `- ${m.substring(0, head)}... \u2014 [[${leftPath}|${displayName}]]`;
+      }
+      result += (result ? "\n" : "") + line;
     }
-    result += (result ? "\n" : "") + m;
+    return result;
+  }
+  for (const m of mentions) {
+    const line = `- ${m}`;
+    if (result.length + line.length + 1 > maxChars) {
+      if (result.length > 0) break;
+      return `- ${m.substring(0, Math.max(0, maxChars - 3))}...`;
+    }
+    result += (result ? "\n" : "") + line;
   }
   return result;
+}
+function extractSourceTags(content) {
+  const fm = parseFrontmatter(content);
+  if (!fm) return [];
+  const raw = fm.tags;
+  if (Array.isArray(raw)) {
+    return raw.map((t) => String(t).trim()).filter((t) => t.length > 0);
+  }
+  return [];
+}
+function getActiveEntityTags(settings) {
+  var _a;
+  const custom = ((_a = settings.customEntityTags) != null ? _a : "").trim();
+  if (settings.tagVocabularyMode === "custom" && custom.length > 0) {
+    const userTags = custom.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
+    return Array.from(new Set(userTags));
+  }
+  return [...VALID_ENTITY_TAGS];
+}
+function getActiveConceptTags(settings) {
+  var _a;
+  const custom = ((_a = settings.customConceptTags) != null ? _a : "").trim();
+  if (settings.tagVocabularyMode === "custom" && custom.length > 0) {
+    const userTags = custom.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
+    return Array.from(new Set(userTags));
+  }
+  return [...VALID_CONCEPT_TAGS];
+}
+function getActiveSourceTags(settings) {
+  return [...VALID_SOURCE_TAGS];
+}
+function normalizeVocabularyCsv(csv) {
+  if (!csv) return "";
+  const seen = /* @__PURE__ */ new Set();
+  const result = [];
+  for (const raw of csv.split(",")) {
+    const trimmed = raw.trim();
+    if (!trimmed) continue;
+    const key = trimmed.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(trimmed);
+  }
+  return result.join(", ");
 }
 function parseIndexForPages(indexContent) {
   const pages = [];
@@ -6632,12 +5036,12 @@ function localKeywordMatch(query, pages) {
 function matchExtractedToExisting(extractedNames, existingPages) {
   const pageSlugs = existingPages.map((p) => ({
     title: p.title,
-    slug: computeSlug(p.title).toLowerCase(),
-    aliasSlugs: (p.aliases || []).map((a) => computeSlug(a).toLowerCase())
+    slug: computeSlug(p.title),
+    aliasSlugs: (p.aliases || []).map((a) => computeSlug(a))
   }));
   const matched = /* @__PURE__ */ new Set();
   for (const name of extractedNames) {
-    const targetSlug = computeSlug(name).toLowerCase();
+    const targetSlug = computeSlug(name);
     const match = pageSlugs.find(
       (p) => p.slug === targetSlug || p.aliasSlugs.some((a) => a === targetSlug)
     );
@@ -6653,11 +5057,11 @@ function coerceToArray(value) {
 }
 
 // src/ui/settings.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // src/ui/modals.ts
-var import_obsidian2 = require("obsidian");
-var FileSuggestModal = class extends import_obsidian2.FuzzySuggestModal {
+var import_obsidian3 = require("obsidian");
+var FileSuggestModal = class extends import_obsidian3.FuzzySuggestModal {
   constructor(app, wikiFolder, onSelect) {
     super(app);
     this.wikiFolder = wikiFolder;
@@ -6673,7 +5077,7 @@ var FileSuggestModal = class extends import_obsidian2.FuzzySuggestModal {
     this.onSelect(file);
   }
 };
-var FolderSuggestModal = class extends import_obsidian2.FuzzySuggestModal {
+var FolderSuggestModal = class extends import_obsidian3.FuzzySuggestModal {
   constructor(app, wikiFolder, onSelect) {
     super(app);
     this.wikiFolder = wikiFolder;
@@ -6687,7 +5091,7 @@ var FolderSuggestModal = class extends import_obsidian2.FuzzySuggestModal {
         folders.push(folder);
       }
       for (const child of folder.children) {
-        if (child instanceof import_obsidian2.TFolder) {
+        if (child instanceof import_obsidian3.TFolder) {
           collect(child);
         }
       }
@@ -6702,7 +5106,7 @@ var FolderSuggestModal = class extends import_obsidian2.FuzzySuggestModal {
     this.onSelect(folder);
   }
 };
-var LintReportModal = class extends import_obsidian2.Modal {
+var LintReportModal = class extends import_obsidian3.Modal {
   constructor(app, report, fixCallbacks, counts, language = "en") {
     super(app);
     this.renderComponent = null;
@@ -6713,13 +5117,19 @@ var LintReportModal = class extends import_obsidian2.Modal {
   }
   onOpen() {
     const { contentEl } = this;
-    this.renderComponent = new import_obsidian2.Component();
+    this.renderComponent = new import_obsidian3.Component();
     this.renderComponent.load();
     const t = TEXTS[this.language] || TEXTS.en;
     const reportDiv = contentEl.createDiv({
       attr: { style: "max-height: 50vh; overflow-y: auto; padding: 8px 0;" }
     });
-    void import_obsidian2.MarkdownRenderer.render(this.app, this.report, reportDiv, "", this.renderComponent);
+    void import_obsidian3.MarkdownRenderer.render(this.app, this.report, reportDiv, "", this.renderComponent);
+    if (t.lintLogReference) {
+      contentEl.createEl("p", {
+        text: `\u{1F4CB} ${t.lintLogReference}`,
+        attr: { style: "font-size: 0.85em; color: var(--text-muted); margin: 4px 0 0 0;" }
+      });
+    }
     const actionSection = contentEl.createDiv({
       attr: { style: "margin-top: 16px; border-top: 1px solid var(--background-modifier-border); padding-top: 12px;" }
     });
@@ -6735,21 +5145,34 @@ var LintReportModal = class extends import_obsidian2.Modal {
         attr: { style: "font-weight: bold;" }
       });
       btn.addEventListener("click", () => {
-        var _a2, _b;
-        (_b = (_a2 = this.fixCallbacks).onCompleteAliases) == null ? void 0 : _b.call(_a2);
+        var _a, _b;
+        (_b = (_a = this.fixCallbacks).onCompleteAliases) == null ? void 0 : _b.call(_a);
+        this.close();
+      });
+    }
+    if (this.counts.tagViolations > 0 && this.fixCallbacks.onRetagViolations) {
+      const row = actionSection.createDiv({ attr: { style: "margin-bottom: 10px;" } });
+      const btn = row.createEl("button", {
+        text: t.lintTagViolationRetagBtn.replace("{count}", String(this.counts.tagViolations)),
+        cls: "mod-cta",
+        attr: { style: "font-weight: bold;" }
+      });
+      btn.addEventListener("click", () => {
+        var _a, _b;
+        (_b = (_a = this.fixCallbacks).onRetagViolations) == null ? void 0 : _b.call(_a);
         this.close();
       });
     }
     if (this.counts.pollutedPages > 0 && this.fixCallbacks.onFixPollutedPages) {
       const row = actionSection.createDiv({ attr: { style: "margin-bottom: 10px;" } });
       const btn = row.createEl("button", {
-        text: `\u{1F9F9} Fix polluted pages (${this.counts.pollutedPages})`,
+        text: t.lintModalFixPolluted.replace("{count}", String(this.counts.pollutedPages)),
         cls: "mod-cta",
         attr: { style: "font-weight: bold;" }
       });
       btn.addEventListener("click", () => {
-        var _a2, _b;
-        (_b = (_a2 = this.fixCallbacks).onFixPollutedPages) == null ? void 0 : _b.call(_a2);
+        var _a, _b;
+        (_b = (_a = this.fixCallbacks).onFixPollutedPages) == null ? void 0 : _b.call(_a);
         this.close();
       });
     }
@@ -6757,7 +5180,8 @@ var LintReportModal = class extends import_obsidian2.Modal {
       { count: this.counts.duplicates, cb: this.fixCallbacks.onMergeDuplicates, text: t.lintModalMergeDuplicates },
       { count: this.counts.deadLinks, cb: this.fixCallbacks.onFixDeadLinks, text: t.lintModalFixDeadLinks },
       { count: this.counts.orphans, cb: this.fixCallbacks.onLinkOrphans, text: t.lintModalLinkOrphans },
-      { count: this.counts.emptyPages, cb: this.fixCallbacks.onFillEmptyPages, text: t.lintModalExpandEmpty }
+      { count: this.counts.emptyPages, cb: this.fixCallbacks.onFillEmptyPages, text: t.lintModalExpandEmpty },
+      { count: this.counts.emptyPages, cb: this.fixCallbacks.onDeleteEmptyStubs, text: t.lintModalDeleteEmpty }
     ].filter((item) => item.count > 0 && item.cb);
     if (fixableItems.length > 0) {
       const fixRow = actionSection.createDiv({
@@ -6769,8 +5193,8 @@ var LintReportModal = class extends import_obsidian2.Modal {
           cls: "mod-cta"
         });
         btn.addEventListener("click", () => {
-          var _a2;
-          (_a2 = item.cb) == null ? void 0 : _a2.call(item);
+          var _a;
+          (_a = item.cb) == null ? void 0 : _a.call(item);
           this.close();
         });
       }
@@ -6783,8 +5207,8 @@ var LintReportModal = class extends import_obsidian2.Modal {
         attr: { style: "font-weight: bold;" }
       });
       btn.addEventListener("click", () => {
-        var _a2, _b;
-        (_b = (_a2 = this.fixCallbacks).onFixAll) == null ? void 0 : _b.call(_a2);
+        var _a, _b;
+        (_b = (_a = this.fixCallbacks).onFixAll) == null ? void 0 : _b.call(_a);
         this.close();
       });
     }
@@ -6793,19 +5217,19 @@ var LintReportModal = class extends import_obsidian2.Modal {
       row.createEl("button", {
         text: t.lintModalAnalyzeSchema
       }).addEventListener("click", () => {
-        var _a2, _b;
-        (_b = (_a2 = this.fixCallbacks).onAnalyzeSchema) == null ? void 0 : _b.call(_a2);
+        var _a, _b;
+        (_b = (_a = this.fixCallbacks).onAnalyzeSchema) == null ? void 0 : _b.call(_a);
         this.close();
       });
     }
   }
   onClose() {
-    var _a2;
-    (_a2 = this.renderComponent) == null ? void 0 : _a2.unload();
+    var _a;
+    (_a = this.renderComponent) == null ? void 0 : _a.unload();
     this.contentEl.empty();
   }
 };
-var IngestReportModal = class extends import_obsidian2.Modal {
+var IngestReportModal = class extends import_obsidian3.Modal {
   constructor(app, report, language = "en") {
     super(app);
     this.report = report;
@@ -6887,7 +5311,7 @@ var IngestReportModal = class extends import_obsidian2.Modal {
     this.contentEl.empty();
   }
 };
-var FixReportModal = class extends import_obsidian2.Modal {
+var FixReportModal = class extends import_obsidian3.Modal {
   constructor(app, phases, language) {
     super(app);
     this.phases = phases;
@@ -6920,8 +5344,178 @@ var FixReportModal = class extends import_obsidian2.Modal {
   }
 };
 
+// src/ui/settings-helpers.ts
+function classifyFetchError(msg) {
+  if (msg === "empty model list") return "Empty";
+  if (/\b(401|403)\b/.test(msg) || /\bunauthor\w*|\bforbidden\b|\binvalid[_\s-]?(api[_\s-]?)?key\b|\binvalid[_\s-]?token\b|\bauth(entication|orization)?[_\s-]?fail/i.test(msg)) {
+    return "Auth";
+  }
+  if (/\b(404|405|410|421)\b/.test(msg) || /\bnot[_\s-]?found\b|\bmethod[_\s-]?not[_\s-]?allowed\b/i.test(msg)) {
+    return "Endpoint";
+  }
+  if (/\b5\d\d\b/.test(msg) || /\bserver[_\s-]?error\b|\bbad[_\s-]?gateway\b|\bservice[_\s-]?unavailable\b|\brate[_\s-]?limit/i.test(msg)) {
+    return "Server";
+  }
+  return "Network";
+}
+
+// src/ui/tag-chip-input.ts
+var DUPLICATE_FLASH_MS = 800;
+function doc() {
+  return activeDocument;
+}
+function createChild(parent, tag, opts = {}) {
+  const el = doc().createElement(tag);
+  if (opts.cls) el.className = opts.cls;
+  if (opts.text !== void 0) el.textContent = opts.text;
+  if (opts.attr) {
+    for (const [k, v] of Object.entries(opts.attr)) el.setAttribute(k, v);
+  }
+  parent.appendChild(el);
+  return el;
+}
+var TagChipInputComponent = class {
+  constructor(opts) {
+    this.disabled = false;
+    this.tags = [];
+    /** Tracks whether the user has ever edited (used to suppress the
+     *  initial-load onChange from firing when fallback defaults are
+     *  materialized into real chips). */
+    this.userEdited = false;
+    this.opts = opts;
+    this.controlEl = opts.controlEl;
+    this.controlEl.replaceChildren();
+    this.controlEl.classList.add("llm-wiki-tag-container");
+    this.controlEl.setAttribute("role", "group");
+    this.controlEl.setAttribute("aria-label", opts.ariaLabel);
+    this.inputEl = createChild(this.controlEl, "input", {
+      cls: "llm-wiki-tag-input",
+      attr: { type: "text", "aria-label": opts.ariaLabel }
+    });
+    if (opts.placeholder) this.inputEl.placeholder = opts.placeholder;
+    this.liveRegionEl = createChild(this.controlEl, "div", {
+      cls: "llm-wiki-tag-sr-live",
+      attr: { "aria-live": "polite", "aria-atomic": "true" }
+    });
+    this.inputEl.addEventListener("keydown", (e) => this.handleKeydown(e));
+    this.setValue(opts.initialTags || "");
+  }
+  // Make TS happy with the `then` chain pattern in the BaseComponent
+  // interface; the real one just returns `this`.
+  then(_cb) {
+    return this;
+  }
+  setDisabled(disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+  getValue() {
+    return this.tags.join(", ");
+  }
+  getTags() {
+    return [...this.tags];
+  }
+  setValue(csv) {
+    var _a;
+    const seen = /* @__PURE__ */ new Set();
+    const next = [];
+    const source = csv ? csv.split(",") : (_a = this.opts.defaultTags) != null ? _a : [];
+    for (const raw of source) {
+      const trimmed = raw.trim();
+      if (!trimmed) continue;
+      const key = trimmed.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      next.push(trimmed);
+    }
+    this.tags = next;
+    this.userEdited = !!csv;
+    this.renderChips();
+  }
+  addTag(tag) {
+    const trimmed = tag.trim();
+    if (!trimmed) return false;
+    const key = trimmed.toLowerCase();
+    if (this.tags.some((t) => t.toLowerCase() === key)) {
+      this.flashDuplicate(trimmed);
+      return false;
+    }
+    this.tags.push(trimmed);
+    this.appendChip(trimmed);
+    this.emitChange();
+    return true;
+  }
+  removeTag(tag) {
+    var _a;
+    const idx = this.tags.findIndex((t) => t.toLowerCase() === tag.toLowerCase());
+    if (idx === -1) return false;
+    this.tags.splice(idx, 1);
+    const chips = this.controlEl.querySelectorAll(".llm-wiki-tag-chip");
+    (_a = chips[idx]) == null ? void 0 : _a.remove();
+    this.emitChange();
+    return true;
+  }
+  handleKeydown(e) {
+    if (e.isComposing) return;
+    if (e.key === "Enter" || e.key === "," || e.key === ";") {
+      const value = this.inputEl.value;
+      if (!value.trim()) {
+        e.preventDefault();
+        return;
+      }
+      e.preventDefault();
+      this.addTag(value);
+      this.inputEl.value = "";
+      return;
+    }
+    if (e.key === "Backspace" && this.inputEl.value === "" && this.tags.length > 0) {
+      e.preventDefault();
+      const last = this.tags[this.tags.length - 1];
+      this.removeTag(last);
+      return;
+    }
+    if (e.key === "Escape") {
+      this.inputEl.blur();
+    }
+  }
+  renderChips() {
+    const existing = Array.from(this.controlEl.querySelectorAll(".llm-wiki-tag-chip"));
+    for (const el of existing) el.remove();
+    for (const tag of this.tags) this.appendChip(tag);
+  }
+  appendChip(tag) {
+    const chip = createChild(this.controlEl, "div", {
+      cls: "llm-wiki-tag-chip",
+      attr: { "data-tag": tag }
+    });
+    createChild(chip, "span", { cls: "llm-wiki-tag-chip-label", text: tag });
+    const remove = createChild(chip, "button", {
+      cls: "llm-wiki-tag-chip-remove",
+      attr: { "aria-label": `Remove ${tag}`, type: "button" },
+      text: "\xD7"
+    });
+    remove.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.removeTag(tag);
+    });
+    this.controlEl.insertBefore(chip, this.inputEl);
+  }
+  flashDuplicate(tag) {
+    var _a;
+    this.controlEl.classList.add("llm-wiki-tag-container--duplicate");
+    this.liveRegionEl.textContent = `${(_a = this.opts.duplicateHint) != null ? _a : "Duplicate"} (${tag})`;
+    window.setTimeout(() => {
+      this.controlEl.classList.remove("llm-wiki-tag-container--duplicate");
+    }, DUPLICATE_FLASH_MS);
+  }
+  emitChange() {
+    this.opts.onChange(this.getValue());
+  }
+};
+
 // src/ui/settings.ts
-var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
+var LLMWikiSettingTab = class extends import_obsidian4.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -6943,9 +5537,9 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
     }
   }
   getText(key) {
-    var _a2, _b;
+    var _a, _b;
     const texts = TEXTS[this.tempSettings.language];
-    return (_b = (_a2 = texts[key]) != null ? _a2 : TEXTS.en[key]) != null ? _b : key;
+    return (_b = (_a = texts[key]) != null ? _a : TEXTS.en[key]) != null ? _b : key;
   }
   /**
    * Check if wiki folder structure exists (entities, concepts, sources, schema).
@@ -6956,10 +5550,10 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
     return !!(this.app.vault.getAbstractFileByPath(`${wikiFolder}/entities`) && this.app.vault.getAbstractFileByPath(`${wikiFolder}/concepts`) && this.app.vault.getAbstractFileByPath(`${wikiFolder}/sources`) && this.app.vault.getAbstractFileByPath(`${wikiFolder}/schema`));
   }
   display() {
-    var _a2, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f;
     const { containerEl } = this;
     containerEl.empty();
-    new import_obsidian3.Setting(containerEl).setName(this.getText("languageTitle")).setDesc(this.getText("languageDesc")).addDropdown((dropdown) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("languageTitle")).setDesc(this.getText("languageDesc")).addDropdown((dropdown) => {
       dropdown.addOption("en", this.getText("languageEn"));
       dropdown.addOption("zh", this.getText("languageZh"));
       dropdown.addOption("ja", this.getText("languageJa"));
@@ -6980,11 +5574,11 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
           watchedFolders: [...this.tempSettings.watchedFolders || []]
         };
         await this.plugin.saveSettings();
-        new import_obsidian3.Notice(this.getText("savedNotice"), NOTICE_SHORT);
+        new import_obsidian4.Notice(this.getText("savedNotice"), NOTICE_SHORT);
       })();
     }));
-    new import_obsidian3.Setting(containerEl).setName(this.getText("wikiLanguageName")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(this.getText("wikiLanguageName")).setDesc(this.getText("wikiLanguageDesc")).addDropdown((dropdown) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("wikiLanguageName")).setHeading();
+    new import_obsidian4.Setting(containerEl).setName(this.getText("wikiLanguageName")).setDesc(this.getText("wikiLanguageDesc")).addDropdown((dropdown) => {
       for (const [key, label] of Object.entries(WIKI_LANGUAGES)) dropdown.addOption(key, label);
       dropdown.addOption("__custom__", this.getText("customWikiLanguageOption"));
       if (this.tempSettings.useCustomWikiLanguage) {
@@ -7009,7 +5603,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       });
     });
     if (this.tempSettings.useCustomWikiLanguage) {
-      new import_obsidian3.Setting(containerEl).setName(this.getText("wikiLanguageName") + " (Custom)").setDesc(this.getText("customWikiLanguageHint")).addText((text) => text.setPlaceholder(this.getText("customWikiLanguagePlaceholder")).setValue(this.tempSettings.wikiLanguage && !WIKI_LANGUAGES[this.tempSettings.wikiLanguage] ? this.tempSettings.wikiLanguage : "").onChange((value) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("wikiLanguageName") + " (Custom)").setDesc(this.getText("customWikiLanguageHint")).addText((text) => text.setPlaceholder(this.getText("customWikiLanguagePlaceholder")).setValue(this.tempSettings.wikiLanguage && !WIKI_LANGUAGES[this.tempSettings.wikiLanguage] ? this.tempSettings.wikiLanguage : "").onChange((value) => {
         this.tempSettings.wikiLanguage = value.trim();
       }));
     }
@@ -7017,12 +5611,12 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
     const clientStatus = this.plugin.llmClient ? this.getText("statusInitialized") : this.getText("statusNotInitialized");
     const wikiInitCheck = this.isWikiInitialized();
     const wikiInitStatus = wikiInitCheck ? "\u2705 " + (this.getText("wikiInitStatusReady") || "Wiki initialized") : "\u26A0\uFE0F " + (this.getText("wikiInitStatusNotReady") || "Wiki not initialized \u2014 will auto-create on first ingestion");
-    new import_obsidian3.Setting(containerEl).setName(this.getText("llmWikiStatusSection")).setDesc(`${readyStatus} | ${clientStatus}  \u2022  ${wikiInitStatus}`);
-    new import_obsidian3.Setting(containerEl).setName(this.getText("providerSection")).setHeading();
+    new import_obsidian4.Setting(containerEl).setName(this.getText("llmWikiStatusSection")).setDesc(`${readyStatus} | ${clientStatus}  \u2022  ${wikiInitStatus}`);
+    new import_obsidian4.Setting(containerEl).setName(this.getText("providerSection")).setHeading();
     const providerConfig = PREDEFINED_PROVIDERS[this.tempSettings.provider];
     const isOllama = this.tempSettings.provider === "ollama";
     const isLmStudio = this.tempSettings.provider === "lmstudio";
-    new import_obsidian3.Setting(containerEl).setName(this.getText("providerName")).setDesc(this.getText("providerDesc")).addDropdown((dropdown) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("providerName")).setDesc(this.getText("providerDesc")).addDropdown((dropdown) => {
       Object.values(PREDEFINED_PROVIDERS).forEach((config) => {
         const lang = this.tempSettings.language;
         const displayName = lang === "zh" ? config.nameZh : config.nameEn;
@@ -7032,16 +5626,16 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       dropdown.onChange((value) => {
         this.tempSettings.provider = value;
         this.tempSettings.llmReady = false;
+        this.tempSettings.availableModels = [];
+        this.tempSettings.useCustomModel = false;
+        this.tempSettings.model = "";
         const config = PREDEFINED_PROVIDERS[value];
-        if (config) {
-          this.tempSettings.model = config.defaultModel || "";
-          if (value !== "custom") this.tempSettings.baseUrl = config.baseUrl;
-        }
+        if (config && value !== "custom") this.tempSettings.baseUrl = config.baseUrl;
         this.display();
       });
     });
     if (!isOllama && !isLmStudio) {
-      new import_obsidian3.Setting(containerEl).setName(this.getText("apiKeyName")).setDesc(this.getText("apiKeyDesc")).addText((text) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("apiKeyName")).setDesc(this.getText("apiKeyDesc")).addText((text) => {
         text.setPlaceholder(this.getText("apiKeyPlaceholder")).setValue(this.tempSettings.apiKey).onChange((value) => {
           this.tempSettings.apiKey = value;
           this.tempSettings.llmReady = false;
@@ -7060,15 +5654,15 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       });
     }
     if (this.tempSettings.provider === "custom" || this.tempSettings.provider === "anthropic-compatible" || providerConfig && this.tempSettings.baseUrl !== providerConfig.baseUrl) {
-      new import_obsidian3.Setting(containerEl).setName(this.getText("baseUrlName")).setDesc(this.tempSettings.provider === "custom" || this.tempSettings.provider === "anthropic-compatible" ? this.getText("baseUrlDescCustom") : this.getText("baseUrlDescOverride")).addText((text) => text.setPlaceholder((providerConfig == null ? void 0 : providerConfig.baseUrl) || "https://api.example.com/v1").setValue(this.tempSettings.baseUrl).onChange((value) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("baseUrlName")).setDesc(this.tempSettings.provider === "custom" || this.tempSettings.provider === "anthropic-compatible" ? this.getText("baseUrlDescCustom") : this.getText("baseUrlDescOverride")).addText((text) => text.setPlaceholder((providerConfig == null ? void 0 : providerConfig.baseUrl) || "https://api.example.com/v1").setValue(this.tempSettings.baseUrl).onChange((value) => {
         this.tempSettings.baseUrl = value;
         this.tempSettings.llmReady = false;
       }));
     }
-    const concurrencyValue = (_a2 = this.tempSettings.pageGenerationConcurrency) != null ? _a2 : 3;
+    const concurrencyValue = (_a = this.tempSettings.pageGenerationConcurrency) != null ? _a : 3;
     const concurrencyDesc = concurrencyValue === 1 ? this.getText("concurrencyValueSingular").replace("{}", String(concurrencyValue)) : this.getText("concurrencyValuePlural").replace("{}", String(concurrencyValue));
     let concurrencySetting;
-    new import_obsidian3.Setting(containerEl).setName(this.getText("pageGenerationConcurrencyName")).setDesc(this.getText("pageGenerationConcurrencyDesc") + " " + concurrencyDesc).addSlider((slider) => slider.setLimits(1, 5, 1).setValue(concurrencyValue).setDynamicTooltip().onChange((value) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("pageGenerationConcurrencyName")).setDesc(this.getText("pageGenerationConcurrencyDesc") + " " + concurrencyDesc).addSlider((slider) => slider.setLimits(1, 5, 1).setValue(concurrencyValue).setDynamicTooltip().onChange((value) => {
       this.tempSettings.pageGenerationConcurrency = value;
       const desc = value === 1 ? this.getText("concurrencyValueSingular").replace("{}", String(value)) : this.getText("concurrencyValuePlural").replace("{}", String(value));
       concurrencySetting.setDesc(this.getText("pageGenerationConcurrencyDesc") + " " + desc);
@@ -7077,20 +5671,20 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
     });
     const batchDelayValue = (_b = this.tempSettings.batchDelayMs) != null ? _b : 300;
     let batchDelaySetting;
-    new import_obsidian3.Setting(containerEl).setName(this.getText("batchDelayName")).setDesc(this.getText("batchDelayDesc").replace("{}", String(batchDelayValue))).addSlider((slider) => slider.setLimits(100, 2e3, 50).setValue(batchDelayValue).setDynamicTooltip().onChange((value) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("batchDelayName")).setDesc(this.getText("batchDelayDesc").replace("{}", String(batchDelayValue))).addSlider((slider) => slider.setLimits(100, 2e3, 50).setValue(batchDelayValue).setDynamicTooltip().onChange((value) => {
       this.tempSettings.batchDelayMs = value;
       batchDelaySetting.setDesc(this.getText("batchDelayDesc").replace("{}", String(value)));
     })).then((s) => {
       batchDelaySetting = s;
     });
-    new import_obsidian3.Setting(containerEl).setName(this.getText("modelSection")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(this.getText("fetchModelsName")).setDesc(this.getText("fetchModelsDesc")).addButton((button) => button.setButtonText(this.getText("fetchModelsButton")).onClick(async () => {
-      var _a3, _b2, _c2, _d2, _e2;
+    new import_obsidian4.Setting(containerEl).setName(this.getText("modelSection")).setHeading();
+    new import_obsidian4.Setting(containerEl).setName(this.getText("fetchModelsName")).setDesc(this.getText("fetchModelsDesc")).addButton((button) => button.setButtonText(this.getText("fetchModelsButton")).onClick(async () => {
+      var _a2, _b2, _c2, _d2, _e2, _f2;
       button.setButtonText(this.getText("fetchingModels"));
       button.setDisabled(true);
       try {
         const apiKey = isOllama ? "ollama" : this.tempSettings.apiKey.trim();
-        const baseUrl = ((_a3 = this.tempSettings.baseUrl) == null ? void 0 : _a3.trim()) || (providerConfig == null ? void 0 : providerConfig.baseUrl) || void 0;
+        const baseUrl = ((_a2 = this.tempSettings.baseUrl) == null ? void 0 : _a2.trim()) || (providerConfig == null ? void 0 : providerConfig.baseUrl) || void 0;
         const getModelFilter = (provider) => {
           if (provider === "openrouter") {
             return (id) => !id.includes(":");
@@ -7107,7 +5701,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
             const cleanBase = rawBase.replace(/\/v1\/?$/, "").replace(/\/+$/, "");
             const modelsUrl = cleanBase + "/v1/models";
             try {
-              const response = await (0, import_obsidian3.requestUrl)({ url: modelsUrl, headers: { "x-api-key": apiKey, "Anthropic-Version": "2023-06-01" } });
+              const response = await (0, import_obsidian4.requestUrl)({ url: modelsUrl, headers: { "x-api-key": apiKey, "Anthropic-Version": "2023-06-01" } });
               if (response.status >= 200 && response.status < 300) {
                 const data = response.json;
                 if ((_c2 = data.data) == null ? void 0 : _c2.length) {
@@ -7116,7 +5710,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
               } else throw new Error(`HTTP ${response.status}`);
             } catch (e) {
               const altUrl = cleanBase + "/models";
-              const altResponse = await (0, import_obsidian3.requestUrl)({ url: altUrl, headers: { "Authorization": `Bearer ${apiKey}` } });
+              const altResponse = await (0, import_obsidian4.requestUrl)({ url: altUrl, headers: { "Authorization": `Bearer ${apiKey}` } });
               if (altResponse.status >= 200 && altResponse.status < 300) {
                 const altData = altResponse.json;
                 if ((_d2 = altData.data) == null ? void 0 : _d2.length) {
@@ -7125,41 +5719,53 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
               } else throw new Error(`HTTP ${altResponse.status}`);
             }
           } else {
-            this.tempSettings.availableModels = ["claude-sonnet-4-6", "claude-opus-4-7", "claude-haiku-4-5-20251001"];
+            const response = await (0, import_obsidian4.requestUrl)({
+              url: "https://api.anthropic.com/v1/models",
+              headers: { "x-api-key": apiKey, "Anthropic-Version": "2023-06-01" }
+            });
+            if (response.status >= 200 && response.status < 300) {
+              const data = response.json;
+              if ((_e2 = data.data) == null ? void 0 : _e2.length) {
+                this.tempSettings.availableModels = data.data.map((m) => m.id).filter(modelFilter).sort();
+              } else throw new Error("empty model list");
+            } else throw new Error(`HTTP ${response.status}`);
           }
         } else {
           const modelsUrl = (baseUrl || "https://api.openai.com/v1") + "/models";
-          const response = await (0, import_obsidian3.requestUrl)({
+          const response = await (0, import_obsidian4.requestUrl)({
             url: modelsUrl,
             method: "GET",
             headers: { "Authorization": `Bearer ${apiKey}` }
           });
           const data = response.json;
-          if ((_e2 = data.data) == null ? void 0 : _e2.length) {
+          if ((_f2 = data.data) == null ? void 0 : _f2.length) {
             this.tempSettings.availableModels = data.data.map((m) => m.id).filter(modelFilter).sort().slice(0, 100);
           } else throw new Error("empty model list");
         }
         if (this.tempSettings.availableModels.length > 0) {
-          new import_obsidian3.Notice(this.getText("fetchSuccess").replace("{}", this.tempSettings.availableModels.length.toString()), NOTICE_NORMAL);
+          new import_obsidian4.Notice(this.getText("fetchSuccess").replace("{}", this.tempSettings.availableModels.length.toString()), NOTICE_NORMAL);
           if (!this.tempSettings.model || !this.tempSettings.availableModels.includes(this.tempSettings.model)) {
             this.tempSettings.model = this.tempSettings.availableModels[0];
           }
+          this.tempSettings.useCustomModel = false;
         } else {
-          new import_obsidian3.Notice(this.getText("fetchFailed"), NOTICE_NORMAL);
+          new import_obsidian4.Notice(this.getText("fetchFailed"), NOTICE_NORMAL);
           this.tempSettings.useCustomModel = true;
         }
         this.display();
       } catch (error) {
         const errorMsg = error instanceof Error ? error.message : String(error);
-        new import_obsidian3.Notice(this.getText("errorFetchFailed").replace("{}", errorMsg), NOTICE_ERROR);
+        const category = classifyFetchError(errorMsg);
+        new import_obsidian4.Notice(this.getText(`fetchError${category}`), NOTICE_ERROR);
         this.tempSettings.useCustomModel = true;
+        this.tempSettings.availableModels = [];
         this.display();
       }
       button.setButtonText(this.getText("fetchModelsButton"));
       button.setDisabled(false);
     }));
     if (this.tempSettings.availableModels && this.tempSettings.availableModels.length > 0 && !this.tempSettings.useCustomModel) {
-      new import_obsidian3.Setting(containerEl).setName(this.getText("selectModelName")).setDesc(this.getText("selectModelDesc").replace("{}", this.tempSettings.availableModels.length.toString())).addDropdown((dropdown) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("selectModelName")).setDesc(this.getText("selectModelDesc").replace("{}", this.tempSettings.availableModels.length.toString())).addDropdown((dropdown) => {
         (this.tempSettings.availableModels || []).forEach((model) => {
           dropdown.addOption(model, model);
         });
@@ -7177,7 +5783,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       });
     } else {
       const useDropdown = ((_d = (_c = this.tempSettings.availableModels) == null ? void 0 : _c.length) != null ? _d : 0) > 0;
-      new import_obsidian3.Setting(containerEl).setName(this.getText("modelName")).setDesc(((_e = this.tempSettings.availableModels) == null ? void 0 : _e.length) ? this.getText("modelDescCustom") : providerConfig ? this.getText("modelDescRecommended").replace("{}", providerConfig.defaultModel || "") : this.getText("modelDescManual")).addText((text) => text.setPlaceholder((providerConfig == null ? void 0 : providerConfig.defaultModel) || "model-name").setValue(this.tempSettings.model).onChange((value) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("modelName")).setDesc(((_e = this.tempSettings.availableModels) == null ? void 0 : _e.length) ? this.getText("modelDescCustom") : this.getText("modelDescFetchFailed")).addText((text) => text.setPlaceholder(this.getText("modelInputPlaceholder")).setValue(this.tempSettings.model).onChange((value) => {
         this.tempSettings.model = value;
       })).addExtraButton((button) => {
         if (useDropdown) {
@@ -7193,7 +5799,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       const tokenOptions = [0, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576];
       const tokenLabels = ["0 (No limit)", "4K", "8K", "16K", "32K", "64K", "128K", "256K", "512K", "1M"];
       const currentVal = (_f = this.tempSettings.maxTokensPerCall) != null ? _f : 0;
-      new import_obsidian3.Setting(containerEl).setName(this.getText("maxTokensPerCallName")).setDesc(this.getText("maxTokensPerCallDesc")).addDropdown((dropdown) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("maxTokensPerCallName")).setDesc(this.getText("maxTokensPerCallDesc")).addDropdown((dropdown) => {
         tokenOptions.forEach((val, idx) => {
           dropdown.addOption(String(val), tokenLabels[idx]);
         });
@@ -7203,21 +5809,30 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
         });
       });
     }
-    new import_obsidian3.Setting(containerEl).setName(this.getText("testConnectionName")).setDesc(this.getText("testConnectionDesc")).addButton((button) => button.setButtonText(this.getText("testButton")).onClick(async () => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("testConnectionName")).setDesc(this.getText("testConnectionDesc")).addButton((button) => button.setButtonText(this.getText("testButton")).onClick(async () => {
+      var _a2, _b2;
       button.setButtonText(this.getText("testing"));
       button.setDisabled(true);
       const testSettings = { ...this.tempSettings };
+      const oldSettings = this.plugin.settings;
       this.plugin.settings = testSettings;
       this.plugin.initializeLLMClient();
+      (_a2 = this.plugin.wikiEngine) == null ? void 0 : _a2.updateSettings(testSettings);
       const result = await this.plugin.testLLMConnection();
+      if (!result.success) {
+        this.plugin.settings = oldSettings;
+        this.plugin.initializeLLMClient();
+        (_b2 = this.plugin.wikiEngine) == null ? void 0 : _b2.updateSettings(oldSettings);
+        await this.plugin.saveSettings();
+      }
       this.tempSettings.llmReady = result.success;
       button.setButtonText(this.getText("testButton"));
       button.setDisabled(false);
       this.display();
-      new import_obsidian3.Notice(result.message, result.success ? NOTICE_NORMAL : NOTICE_ERROR);
+      new import_obsidian4.Notice(result.message, result.success ? NOTICE_NORMAL : NOTICE_ERROR);
     }));
-    new import_obsidian3.Setting(containerEl).setName(this.getText("wikiSection")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(this.getText("wikiFolderName")).setDesc(this.getText("wikiFolderDesc")).addText((text) => text.setPlaceholder(this.getText("wikiFolderPlaceholder")).setValue(this.tempSettings.wikiFolder).onChange((value) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("wikiSection")).setHeading();
+    new import_obsidian4.Setting(containerEl).setName(this.getText("wikiFolderName")).setDesc(this.getText("wikiFolderDesc")).addText((text) => text.setPlaceholder(this.getText("wikiFolderPlaceholder")).setValue(this.tempSettings.wikiFolder).onChange((value) => {
       this.tempSettings.wikiFolder = value;
     }));
     let customEntitySetting = null;
@@ -7231,7 +5846,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
         customConceptSetting.settingEl.style.display = isCustom ? "flex" : "none";
       }
     };
-    new import_obsidian3.Setting(containerEl).setName(this.getText("extractionGranularityName")).setDesc(this.getText("extractionGranularityDesc")).addDropdown((dropdown) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("extractionGranularityName")).setDesc(this.getText("extractionGranularityDesc")).addDropdown((dropdown) => {
       dropdown.addOption("fine", this.getText("extractionGranularityFine"));
       dropdown.addOption("standard", this.getText("extractionGranularityStandard"));
       dropdown.addOption("coarse", this.getText("extractionGranularityCoarse"));
@@ -7243,61 +5858,106 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
         updateCustomVisibility(value);
       });
     });
-    customEntitySetting = new import_obsidian3.Setting(containerEl).setName(this.getText("customEntityLimitName")).setDesc(this.getText("customEntityLimitDesc")).addText((text) => {
-      var _a3;
-      text.setPlaceholder("5").setValue(String((_a3 = this.tempSettings.customEntityLimit) != null ? _a3 : 5)).onChange((value) => {
+    customEntitySetting = new import_obsidian4.Setting(containerEl).setName(this.getText("customEntityLimitName")).setDesc(this.getText("customEntityLimitDesc")).addText((text) => {
+      var _a2;
+      text.setPlaceholder("5").setValue(String((_a2 = this.tempSettings.customEntityLimit) != null ? _a2 : 5)).onChange((value) => {
         const parsed = parseInt(value);
-        if (parsed > 300) {
-          this.tempSettings.customEntityLimit = 300;
-          text.setValue("300");
-          new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "300"), NOTICE_SHORT);
-        } else if (parsed < 1) {
-          this.tempSettings.customEntityLimit = 1;
-          text.setValue("1");
-          new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "1"), NOTICE_SHORT);
+        if (parsed > CUSTOM_LIMIT_MAX) {
+          this.tempSettings.customEntityLimit = CUSTOM_LIMIT_MAX;
+          text.setValue(String(CUSTOM_LIMIT_MAX));
+          new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", String(CUSTOM_LIMIT_MAX)), NOTICE_SHORT);
+        } else if (parsed < CUSTOM_LIMIT_MIN) {
+          this.tempSettings.customEntityLimit = CUSTOM_LIMIT_MIN;
+          text.setValue(String(CUSTOM_LIMIT_MIN));
+          new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", String(CUSTOM_LIMIT_MIN)), NOTICE_SHORT);
         } else if (!isNaN(parsed)) {
           this.tempSettings.customEntityLimit = parsed;
         }
       });
       text.inputEl.type = "number";
-      text.inputEl.min = "1";
-      text.inputEl.max = "300";
+      text.inputEl.min = String(CUSTOM_LIMIT_MIN);
+      text.inputEl.max = String(CUSTOM_LIMIT_MAX);
       text.inputEl.classList.add("llm-wiki-number-input");
     });
     customEntitySetting.settingEl.style.display = this.tempSettings.extractionGranularity === "custom" ? "flex" : "none";
-    customConceptSetting = new import_obsidian3.Setting(containerEl).setName(this.getText("customConceptLimitName")).setDesc(this.getText("customConceptLimitDesc")).addText((text) => {
-      var _a3;
-      text.setPlaceholder("5").setValue(String((_a3 = this.tempSettings.customConceptLimit) != null ? _a3 : 5)).onChange((value) => {
+    customConceptSetting = new import_obsidian4.Setting(containerEl).setName(this.getText("customConceptLimitName")).setDesc(this.getText("customConceptLimitDesc")).addText((text) => {
+      var _a2;
+      text.setPlaceholder("5").setValue(String((_a2 = this.tempSettings.customConceptLimit) != null ? _a2 : 5)).onChange((value) => {
         const parsed = parseInt(value);
-        if (parsed > 300) {
-          this.tempSettings.customConceptLimit = 300;
-          text.setValue("300");
-          new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "300"), NOTICE_SHORT);
-        } else if (parsed < 1) {
-          this.tempSettings.customConceptLimit = 1;
-          text.setValue("1");
-          new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "1"), NOTICE_SHORT);
+        if (parsed > CUSTOM_LIMIT_MAX) {
+          this.tempSettings.customConceptLimit = CUSTOM_LIMIT_MAX;
+          text.setValue(String(CUSTOM_LIMIT_MAX));
+          new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", String(CUSTOM_LIMIT_MAX)), NOTICE_SHORT);
+        } else if (parsed < CUSTOM_LIMIT_MIN) {
+          this.tempSettings.customConceptLimit = CUSTOM_LIMIT_MIN;
+          text.setValue(String(CUSTOM_LIMIT_MIN));
+          new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", String(CUSTOM_LIMIT_MIN)), NOTICE_SHORT);
         } else if (!isNaN(parsed)) {
           this.tempSettings.customConceptLimit = parsed;
         }
       });
       text.inputEl.type = "number";
-      text.inputEl.min = "1";
-      text.inputEl.max = "300";
+      text.inputEl.min = String(CUSTOM_LIMIT_MIN);
+      text.inputEl.max = String(CUSTOM_LIMIT_MAX);
       text.inputEl.classList.add("llm-wiki-number-input");
     });
     customConceptSetting.settingEl.style.display = this.tempSettings.extractionGranularity === "custom" ? "flex" : "none";
-    new import_obsidian3.Setting(containerEl).setName(this.getText("maxConversationHistoryName")).setDesc(this.getText("maxConversationHistoryDesc")).addText((text) => {
+    let customEntityTagsSetting = null;
+    let customConceptTagsSetting = null;
+    const updateTagVocabularyVisibility = (mode) => {
+      const isCustom = mode === "custom";
+      if (customEntityTagsSetting) {
+        customEntityTagsSetting.settingEl.style.display = isCustom ? "flex" : "none";
+      }
+      if (customConceptTagsSetting) {
+        customConceptTagsSetting.settingEl.style.display = isCustom ? "flex" : "none";
+      }
+    };
+    const defaultListDesc = `${VALID_ENTITY_TAGS.join(", ")} (entities) / ${VALID_CONCEPT_TAGS.join(", ")} (concepts)`;
+    const leadDesc = this.getText("tagVocabularyInlineDesc");
+    const modeDesc = this.tempSettings.tagVocabularyMode === "custom" ? `${leadDesc}
+${this.getText("tagVocabularyModeDescCustom")}` : `${leadDesc}
+${this.getText("tagVocabularyModeDescDefault").replace("{}", defaultListDesc)}`;
+    new import_obsidian4.Setting(containerEl).setName(this.getText("tagVocabularyModeName")).setDesc(modeDesc).addDropdown((dropdown) => {
+      dropdown.addOption("default", this.getText("tagVocabularyModeDefault")).addOption("custom", this.getText("tagVocabularyModeCustom")).setValue(this.tempSettings.tagVocabularyMode || "default").onChange((value) => {
+        this.tempSettings.tagVocabularyMode = value;
+        this.display();
+      });
+    });
+    customEntityTagsSetting = new import_obsidian4.Setting(containerEl).setName(this.getText("customEntityTagsName")).setDesc(this.getText("customEntityTagsDesc")).addComponent((el) => new TagChipInputComponent({
+      controlEl: el,
+      initialTags: this.tempSettings.customEntityTags || "",
+      placeholder: this.getText("customEntityTagsPlaceholder"),
+      ariaLabel: this.getText("customEntityTagsName"),
+      duplicateHint: this.getText("chipDuplicateHint"),
+      defaultTags: VALID_ENTITY_TAGS,
+      onChange: (csv) => {
+        this.tempSettings.customEntityTags = csv;
+      }
+    }));
+    customConceptTagsSetting = new import_obsidian4.Setting(containerEl).setName(this.getText("customConceptTagsName")).setDesc(this.getText("customConceptTagsDesc")).addComponent((el) => new TagChipInputComponent({
+      controlEl: el,
+      initialTags: this.tempSettings.customConceptTags || "",
+      placeholder: this.getText("customConceptTagsPlaceholder"),
+      ariaLabel: this.getText("customConceptTagsName"),
+      duplicateHint: this.getText("chipDuplicateHint"),
+      defaultTags: VALID_CONCEPT_TAGS,
+      onChange: (csv) => {
+        this.tempSettings.customConceptTags = csv;
+      }
+    }));
+    updateTagVocabularyVisibility(this.tempSettings.tagVocabularyMode || "default");
+    new import_obsidian4.Setting(containerEl).setName(this.getText("maxConversationHistoryName")).setDesc(this.getText("maxConversationHistoryDesc")).addText((text) => {
       text.setValue(this.tempSettings.maxConversationHistory.toString()).setPlaceholder("30").onChange((value) => {
         const parsed = parseInt(value);
         if (parsed > 50) {
           this.tempSettings.maxConversationHistory = 50;
           text.setValue("50");
-          new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "50"), NOTICE_SHORT);
+          new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", "50"), NOTICE_SHORT);
         } else if (parsed < 1) {
           this.tempSettings.maxConversationHistory = 1;
           text.setValue("1");
-          new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "1"), NOTICE_SHORT);
+          new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", "1"), NOTICE_SHORT);
         } else if (!isNaN(parsed)) {
           this.tempSettings.maxConversationHistory = parsed;
         }
@@ -7307,25 +5967,25 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       text.inputEl.max = "50";
       text.inputEl.classList.add("llm-wiki-number-input");
     });
-    new import_obsidian3.Setting(containerEl).setName(this.getText("schemaSection")).setDesc(this.getText("enableSchemaDesc")).addButton((button) => button.setButtonText(this.getText("viewSchemaButton")).onClick(() => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("schemaSection")).setDesc(this.getText("enableSchemaDesc")).addButton((button) => button.setButtonText(this.getText("viewSchemaButton")).onClick(() => {
       const schemaPath = `${this.tempSettings.wikiFolder}/schema/config.md`;
       const file = this.app.vault.getAbstractFileByPath(schemaPath);
-      if (file instanceof import_obsidian3.TFile) void this.app.workspace.getLeaf().openFile(file);
-      else new import_obsidian3.Notice(this.getText("schemaNotFoundNotice"), NOTICE_NORMAL);
+      if (file instanceof import_obsidian4.TFile) void this.app.workspace.getLeaf().openFile(file);
+      else new import_obsidian4.Notice(this.getText("schemaNotFoundNotice"), NOTICE_NORMAL);
     })).addButton((button) => button.setButtonText(this.getText("regenerateSchemaButton")).onClick(async () => {
       try {
         if (!this.isWikiInitialized()) {
           await this.plugin.wikiEngine.ensureWikiStructure();
         }
         await this.plugin.wikiEngine.regenerateDefaultSchema();
-        new import_obsidian3.Notice(this.getText("schemaRegeneratedNotice"), NOTICE_SHORT);
+        new import_obsidian4.Notice(this.getText("schemaRegeneratedNotice"), NOTICE_SHORT);
       } catch (error) {
         const msg = error instanceof Error ? error.message : String(error);
-        new import_obsidian3.Notice(`${this.getText("schemaRegenerateFailed") || "Schema generation failed"}: ${msg}`, NOTICE_ERROR);
+        new import_obsidian4.Notice(`${this.getText("schemaRegenerateFailed") || "Schema generation failed"}: ${msg}`, NOTICE_ERROR);
       }
     }));
-    new import_obsidian3.Setting(containerEl).setName(this.getText("autoMaintainSection")).setHeading();
-    new import_obsidian3.Setting(containerEl).setName(this.getText("startupCheckName")).setDesc(this.getText("startupCheckDesc")).addToggle((toggle) => toggle.setValue(this.tempSettings.startupCheck).onChange((value) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("autoMaintainSection")).setHeading();
+    new import_obsidian4.Setting(containerEl).setName(this.getText("startupCheckName")).setDesc(this.getText("startupCheckDesc")).addToggle((toggle) => toggle.setValue(this.tempSettings.startupCheck).onChange((value) => {
       this.tempSettings.startupCheck = value;
     }));
     const betaDiv = containerEl.createDiv({
@@ -7336,13 +5996,13 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       cls: "llm-wiki-yellow-infobox"
     });
     warningDiv.setText(this.getText("autoMaintainCostWarning"));
-    new import_obsidian3.Setting(containerEl).setName(this.getText("autoWatchName")).setDesc(this.getText("autoWatchDesc")).addToggle((toggle) => toggle.setValue(this.tempSettings.autoWatchSources).onChange((value) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("autoWatchName")).setDesc(this.getText("autoWatchDesc")).addToggle((toggle) => toggle.setValue(this.tempSettings.autoWatchSources).onChange((value) => {
       this.tempSettings.autoWatchSources = value;
       this.display();
     }));
     if (this.tempSettings.autoWatchSources) {
       if (!this.tempSettings.watchedFolders) this.tempSettings.watchedFolders = [];
-      new import_obsidian3.Setting(containerEl).setName(this.getText("watchedFoldersName")).setDesc(this.getText("watchedFoldersDesc")).addButton((button) => button.setButtonText(this.getText("addWatchedFolderButton")).setCta().onClick(() => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("watchedFoldersName")).setDesc(this.getText("watchedFoldersDesc")).addButton((button) => button.setButtonText(this.getText("addWatchedFolderButton")).setCta().onClick(() => {
         new FolderSuggestModal(this.app, this.tempSettings.wikiFolder, (folder) => {
           const folderPath = folder.path.endsWith("/") ? folder.path : `${folder.path}/`;
           if (!this.tempSettings.watchedFolders.includes(folderPath)) {
@@ -7359,13 +6019,13 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
       }
       for (let i = 0; i < this.tempSettings.watchedFolders.length; i++) {
         const idx = i;
-        new import_obsidian3.Setting(containerEl).setName(this.tempSettings.watchedFolders[i]).addButton((button) => button.setButtonText(this.getText("removeWatchedFolderButton")).onClick(() => {
+        new import_obsidian4.Setting(containerEl).setName(this.tempSettings.watchedFolders[i]).addButton((button) => button.setButtonText(this.getText("removeWatchedFolderButton")).onClick(() => {
           this.tempSettings.watchedFolders.splice(idx, 1);
           this.display();
         }));
       }
       const hasClippings = this.tempSettings.watchedFolders.includes("Clippings/");
-      new import_obsidian3.Setting(containerEl).setName(this.getText("webClipperPresetName")).setDesc(this.getText("webClipperPresetDesc")).addToggle((toggle) => toggle.setValue(hasClippings).onChange((value) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("webClipperPresetName")).setDesc(this.getText("webClipperPresetDesc")).addToggle((toggle) => toggle.setValue(hasClippings).onChange((value) => {
         if (value && !this.tempSettings.watchedFolders.includes("Clippings/")) this.tempSettings.watchedFolders.push("Clippings/");
         else if (!value) {
           const ci = this.tempSettings.watchedFolders.indexOf("Clippings/");
@@ -7373,7 +6033,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
         }
         this.display();
       }));
-      new import_obsidian3.Setting(containerEl).setName(this.getText("autoWatchModeName")).setDesc(this.getText("autoWatchModeDesc")).addDropdown((dropdown) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("autoWatchModeName")).setDesc(this.getText("autoWatchModeDesc")).addDropdown((dropdown) => {
         dropdown.addOption("notify", this.getText("watchModeNotify"));
         dropdown.addOption("auto", this.getText("watchModeAuto"));
         dropdown.setValue(this.tempSettings.autoWatchMode);
@@ -7381,17 +6041,17 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
           this.tempSettings.autoWatchMode = value;
         });
       });
-      new import_obsidian3.Setting(containerEl).setName(this.getText("autoWatchDebounceName")).setDesc(this.getText("autoWatchDebounceDesc")).addText((text) => {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("autoWatchDebounceName")).setDesc(this.getText("autoWatchDebounceDesc")).addText((text) => {
         text.setValue(String(Math.round(this.tempSettings.autoWatchDebounceMs / 1e3))).onChange((value) => {
           const parsed = parseInt(value);
           if (parsed > 60) {
             this.tempSettings.autoWatchDebounceMs = 6e4;
             text.setValue("60");
-            new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "60"), NOTICE_SHORT);
+            new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", "60"), NOTICE_SHORT);
           } else if (parsed < 1) {
             this.tempSettings.autoWatchDebounceMs = 1e3;
             text.setValue("1");
-            new import_obsidian3.Notice(this.getText("numberRangeClamped").replace("{}", "1"), NOTICE_SHORT);
+            new import_obsidian4.Notice(this.getText("numberRangeClamped").replace("{}", "1"), NOTICE_SHORT);
           } else if (!isNaN(parsed)) {
             this.tempSettings.autoWatchDebounceMs = parsed * 1e3;
           }
@@ -7402,7 +6062,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
         text.inputEl.classList.add("llm-wiki-number-input");
       });
     }
-    new import_obsidian3.Setting(containerEl).setName(this.getText("periodicLintName")).setDesc(this.getText("periodicLintDesc")).addDropdown((dropdown) => {
+    new import_obsidian4.Setting(containerEl).setName(this.getText("periodicLintName")).setDesc(this.getText("periodicLintDesc")).addDropdown((dropdown) => {
       dropdown.addOption("off", this.getText("periodicLintOff"));
       dropdown.addOption("hourly", this.getText("periodicLintHourly"));
       dropdown.addOption("daily", this.getText("periodicLintDaily"));
@@ -7416,7 +6076,7 @@ var LLMWikiSettingTab = class extends import_obsidian3.PluginSettingTab {
 };
 
 // src/wiki/wiki-engine.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // src/wiki/prompts/ingestion.ts
 var INGESTION_PROMPTS = {
@@ -7449,7 +6109,7 @@ var INGESTION_PROMPTS = {
   "entities": [
     {
       "name": "Entity name \u2014 MUST be in the source's original language, NEVER translate",
-      "type": "person|organization|project|product|event|location|other",
+      "type": "person|organization|project|product|event|place|other",
       "aliases": ["Optional: 1-2 alternative names, abbreviations, or translations. Helps prevent duplicate extractions in later rounds.", "If provided, these will seed the page aliases."],
       "summary": "Detailed 4-6 sentence description with concrete facts: identity, role/significance, key attributes",
       "mentions_in_source": ["Verbatim sentence from source: '...'.", "Another verbatim quote: '...'."],
@@ -7460,7 +6120,7 @@ var INGESTION_PROMPTS = {
   "concepts": [
     {
       "name": "Concept name \u2014 MUST be in the source's original language, NEVER translate",
-      "type": "theory|method|technology|term|other",
+      "type": "theory|method|field|phenomenon|standard|term|other",
       "aliases": ["Optional: 1-2 alternative names, abbreviations, or translations. Helps prevent duplicate extractions in later rounds.", "If provided, these will seed the page aliases."],
       "summary": "Detailed 4-6 sentence description with concrete facts: definition, importance, relationships",
       "mentions_in_source": ["Verbatim sentence from source: '...'.", "Another verbatim quote: '...'."],
@@ -7609,7 +6269,8 @@ aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must
 [Reference related concepts using full paths from the list above]
 
 ## {{section_mentions_in_source}}
-- [Verbatim quote from source, preserved in original language. Translation optional in parentheses]
+[Each verbatim quote as an academic-footnote style entry. The provided mentions in the input already include the source wiki-link \u2014 keep them as-is. If you need to add more quotes, use the same format:
+- "Verbatim quote in original language (optional translation)" \u2014 [[source-name]]]
 
 ---`,
   generateConceptPage: `You are a Wiki knowledge base maintainer. Create a Wiki page for the following concept.
@@ -7659,7 +6320,7 @@ type: concept  # MUST be exactly "concept" - do not change this value
 created: {{date}}
 updated: {{date}}
 sources: ["[[{{source_file}}]]"]
-tags: [{{concept_type}}]  # Use concept_type (e.g., theory, method, technology) as a tag
+tags: [{{concept_type}}]  # Use concept_type (e.g., theory, method, field) as a tag
 aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
 ---
 
@@ -7682,7 +6343,8 @@ aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must
 [Reference related entities using full paths from the list above]
 
 ## {{section_mentions_in_source}}
-- [Verbatim quote from source, preserved in original language. Translation optional in parentheses]
+[Each verbatim quote as an academic-footnote style entry. The provided mentions in the input already include the source wiki-link \u2014 keep them as-is. If you need to add more quotes, use the same format:
+- "Verbatim quote in original language (optional translation)" \u2014 [[source-name]]]
 
 ---`,
   generateSummaryPage: `You are a Wiki knowledge base maintainer. Create a summary page for the following source file.
@@ -7949,7 +6611,9 @@ Output ONLY the body content (no frontmatter):
 [Updated concept links]
 
 ## Mentions in Source
-[ALL mentions \u2014 existing preserved, new appended with attribution. Verbatim quotes in original language]`,
+[ALL mentions \u2014 existing preserved with their source attribution blocks, new appended under a new source block:
+> **Source: [[source-name]]**
+> - "Verbatim quote in original language"]`,
   mergeConceptPage: `You are a Wiki editor performing intelligent content integration. Merge new source information into an existing concept page following the schema-defined structure.
 
 **Schema Rules (MUST follow this structure):**
@@ -7999,7 +6663,9 @@ Output ONLY the body content (no frontmatter):
 [Updated entity links]
 
 ## Mentions in Source
-[ALL mentions \u2014 existing preserved, new appended. Verbatim quotes in original language]`,
+[ALL mentions \u2014 existing preserved with their source attribution blocks, new appended under a new source block:
+> **Source: [[source-name]]**
+> - "Verbatim quote in original language"]`,
   // Minimal append mode for reviewed pages
   appendToReviewedPage: `You are a Wiki editor adding new information to a user-reviewed page. The existing content is AUTHORITATIVE and must be preserved exactly.
 
@@ -8086,7 +6752,7 @@ Task:
 7. **IMPORTANT \u2014 Source Mentions:** Only create a "Mentions in Source" section if the existing content already contains verbatim source quotes. If no source quotes exist in the existing content, do NOT fabricate a "Mentions in Source" section \u2014 instead, note "*(No source content available for this page)*" in the description. NEVER invent fake citations or source references
 8. Preserve any existing frontmatter fields exactly (type, created, sources, tags, reviewed). Do NOT remove or alter these fields
 9. **Aliases are REQUIRED:** If the existing content has non-empty aliases, keep them. If aliases are missing or empty, you MUST generate 1-2 meaningful aliases following the fallback hierarchy: translation in Wiki language \u2192 alternative names \u2192 abbreviations. The aliases field MUST NOT be left empty
-10. **Tags constraint:** entity pages MUST use tags from: [person, organization, project, product, event, location, other]. Concept pages MUST use tags from: [theory, method, technology, term, other]. Never invent new tags outside these lists
+10. **Tags constraint:** entity pages MUST use tags from: [person, organization, project, product, event, place, other]. Concept pages MUST use tags from: [theory, method, field, phenomenon, standard, term, other]. Never invent new tags outside these lists
 
 Output format: directly output the complete Markdown page content (do not output explanatory text)`,
   linkOrphanPage: `You are a Wiki link repair assistant. Establish backlinks to an orphan page from relevant pages.
@@ -8497,21 +7163,28 @@ var GRANULARITY_FIX_LIMITS = {
   // placeholder — never used
 };
 function getGranularityInstruction(settings) {
-  var _a2, _b;
+  var _a, _b;
   const granularity = settings.extractionGranularity || "standard";
   if (granularity === "custom") {
-    const entityLimit = (_a2 = settings.customEntityLimit) != null ? _a2 : 5;
+    const entityLimit = (_a = settings.customEntityLimit) != null ? _a : 5;
     const conceptLimit = (_b = settings.customConceptLimit) != null ? _b : 5;
     return `Extract at most ${entityLimit} entities and at most ${conceptLimit} concepts from the source. If you reach either limit, stop extracting that type.`;
   }
   return GRANULARITY_INSTRUCTIONS[granularity] || GRANULARITY_INSTRUCTIONS.standard;
 }
+function appendGranularityToPrompt(prompt, settings) {
+  const instruction = getGranularityInstruction(settings);
+  if (!instruction) return prompt;
+  return `${prompt}
+
+${instruction}`;
+}
 function getGranularityFixLimits(settings) {
-  var _a2, _b;
+  var _a, _b;
   const granularity = settings.extractionGranularity || "standard";
   if (granularity === "custom") {
     return {
-      maxEntities: (_a2 = settings.customEntityLimit) != null ? _a2 : 5,
+      maxEntities: (_a = settings.customEntityLimit) != null ? _a : 5,
       maxConcepts: (_b = settings.customConceptLimit) != null ? _b : 5
     };
   }
@@ -8525,6 +7198,12 @@ function applySectionLabels(prompt, settings) {
   }
   return result;
 }
+function appendTagVocabularyToPrompt(prompt, settings) {
+  const section = buildActiveTagVocabularySection(settings);
+  return `${prompt}
+
+${section}`;
+}
 async function buildSystemPrompt(settings, getSchemaContext, task) {
   const parts = [];
   const langDirective = buildWikiLanguageDirective(settings);
@@ -8532,6 +7211,27 @@ async function buildSystemPrompt(settings, getSchemaContext, task) {
   const schemaContext = await getSchemaContext(task);
   if (schemaContext) parts.push(schemaContext);
   return parts.length > 0 ? parts.join("\n\n") : void 0;
+}
+function buildActiveTagVocabularySection(settings) {
+  const entities = getActiveEntityTags(settings);
+  const concepts = getActiveConceptTags(settings);
+  const lines = [];
+  lines.push("## Active Tag Vocabulary (Issue #85 \u2014 user-controlled)");
+  lines.push("");
+  lines.push(
+    "When assigning `type` to an entity or concept, you MUST use one of the following allowed values. Do NOT invent new types."
+  );
+  lines.push("");
+  lines.push("**Entity types** (entity_type field \u2014 one of):");
+  for (const t of entities) lines.push(`- ${t}`);
+  lines.push("");
+  lines.push("**Concept types** (concept_type field \u2014 one of):");
+  for (const t of concepts) lines.push(`- ${t}`);
+  lines.push("");
+  lines.push(
+    "If a discovered item does not clearly fit any of the above, choose the closest match. Do NOT emit a free-form type string \u2014 the frontmatter validator will reject it."
+  );
+  return lines.join("\n");
 }
 
 // src/core/dead-link-detector.ts
@@ -8542,8 +7242,8 @@ function findDeadLinkTarget(pages, targetName) {
   if (!match) {
     match = pages.find(
       (p) => {
-        var _a2;
-        return (_a2 = p.aliases) == null ? void 0 : _a2.some((a) => a.toLowerCase() === lowerTarget);
+        var _a;
+        return (_a = p.aliases) == null ? void 0 : _a.some((a) => a.toLowerCase() === lowerTarget);
       }
     );
   }
@@ -8669,8 +7369,8 @@ var LintFixer = class {
       const hasPollutedBasename = /^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/.test(bn);
       return !hasPollutedBasename;
     }).map((p) => {
-      var _a2;
-      const aliasSuffix = ((_a2 = p.aliases) == null ? void 0 : _a2.length) ? ` \`aliases: ${p.aliases.join(", ")}\`` : "";
+      var _a;
+      const aliasSuffix = ((_a = p.aliases) == null ? void 0 : _a.length) ? ` \`aliases: ${p.aliases.join(", ")}\`` : "";
       return `- ${p.wikiLink}${aliasSuffix}`;
     }).join("\n");
     const prompt = PROMPTS.fixDeadLink.replace("{{source_content}}", sourceContent.substring(0, 2e3)).replace("{{target_name}}", targetName).replace("{{existing_pages}}", pagesList.substring(0, 3e3));
@@ -8685,7 +7385,8 @@ var LintFixer = class {
         "lint"
       ),
       messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" }
+      response_format: { type: "json_object" },
+      disableThinking: this.ctx.settings.disableThinking
     });
     if (!response) {
       console.debug(
@@ -8699,7 +7400,8 @@ var LintFixer = class {
           this.ctx.getSchemaContext,
           "lint"
         ),
-        messages: [{ role: "user", content: prompt }]
+        messages: [{ role: "user", content: prompt }],
+        disableThinking: this.ctx.settings.disableThinking
       });
     }
     const result = await parseJsonResponse(response);
@@ -8725,8 +7427,8 @@ var LintFixer = class {
       const safetySlug = slugify(sanitizedTitle).toLowerCase();
       const aliasMatch = existingPages.find(
         (p) => {
-          var _a2, _b;
-          return p.title.toLowerCase() === stubTitleLower || ((_a2 = p.aliases) == null ? void 0 : _a2.some((a) => a.toLowerCase() === stubTitleLower)) || slugify(p.title).toLowerCase() === safetySlug || ((_b = p.aliases) == null ? void 0 : _b.some((a) => slugify(a).toLowerCase() === safetySlug));
+          var _a, _b;
+          return p.title.toLowerCase() === stubTitleLower || ((_a = p.aliases) == null ? void 0 : _a.some((a) => a.toLowerCase() === stubTitleLower)) || slugify(p.title).toLowerCase() === safetySlug || ((_b = p.aliases) == null ? void 0 : _b.some((a) => slugify(a).toLowerCase() === safetySlug));
         }
       );
       if (aliasMatch) {
@@ -8785,8 +7487,8 @@ tags: [${stubType === "entity" ? "other" : "term"}]
       if (!match) {
         match = existingPages.find(
           (p) => {
-            var _a2;
-            return (_a2 = p.aliases) == null ? void 0 : _a2.some(
+            var _a;
+            return (_a = p.aliases) == null ? void 0 : _a.some(
               (a) => a.toLowerCase() === lowerTarget || slugify(a).toLowerCase() === targetSlug
             );
           }
@@ -8868,7 +7570,8 @@ tags: [${stubType === "entity" ? "other" : "term"}]
         this.ctx.getSchemaContext,
         "full"
       ),
-      messages: [{ role: "user", content: finalPrompt }]
+      messages: [{ role: "user", content: finalPrompt }],
+      disableThinking: this.ctx.settings.disableThinking
     });
     const cleaned = cleanMarkdownResponse(filledContent);
     const pollutionFree = correctLinkPollution(cleaned);
@@ -8882,13 +7585,43 @@ tags: [${stubType === "entity" ? "other" : "term"}]
     const dateStr = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
     const withDates = normalizeFrontmatterDates(stubFree, dateStr);
     const pageTypeSingular = pageType === WIKI_SUBFOLDERS.entities ? "entity" : pageType === WIKI_SUBFOLDERS.concepts ? "concept" : "source";
-    const enforced = enforceFrontmatterConstraints(withDates, pageTypeSingular);
+    const enforced = enforceFrontmatterConstraints(withDates, pageTypeSingular, this.ctx.settings);
     await this.ctx.createOrUpdateFile(pagePath, enforced);
     const pageRel = pagePath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
     return `${pageRel} (${beforeLen} \u2192 ${enforced.length} chars)`;
   }
+  // Issue #103: Delete empty stubs without running the full lint pipeline.
+  // Scans wiki pages, deletes those that `isPageEmpty` considers empty,
+  // and skips pages that have been manually reviewed (reviewed: true).
+  //
+  // Issue #244: resilient against per-file errors. A single vault read or
+  // deleteFile failure must not abort the entire loop (which would leave
+  // the vault in a half-deleted state with no feedback). Returns a result
+  // object so the caller can surface a useful Notice to the user.
+  async deleteEmptyStubs(wikiFolder) {
+    const files = this.ctx.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(wikiFolder) && !f.path.endsWith("/index.md") && !f.path.includes("/schema/") && !f.path.includes("/sources/") && !f.path.includes("/contradictions/") && !f.path.includes("log.md"));
+    let deleted = 0;
+    let failed = 0;
+    const errors = [];
+    for (const file of files) {
+      try {
+        const content = await this.ctx.app.vault.read(file);
+        if (!isPageEmpty(content)) continue;
+        const fm = parseFrontmatter(content);
+        if ((fm == null ? void 0 : fm.reviewed) === true) continue;
+        await this.ctx.deleteFile(file.path);
+        deleted++;
+      } catch (e) {
+        failed++;
+        const errMsg2 = e instanceof Error ? e.message : String(e);
+        errors.push(`${file.path}: ${errMsg2}`);
+        console.error(`[deleteEmptyStubs] Failed: ${file.path}`, e);
+      }
+    }
+    return { deleted, failed, errors };
+  }
   async linkOrphanPage(orphanPath) {
-    var _a2;
+    var _a;
     const orphanContent = await this.ctx.tryReadFile(orphanPath);
     if (!orphanContent) return [];
     const indexPath = `${this.ctx.settings.wikiFolder}/index.md`;
@@ -8909,10 +7642,11 @@ tags: [${stubType === "entity" ? "other" : "term"}]
         "lint"
       ),
       messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" }
+      response_format: { type: "json_object" },
+      disableThinking: this.ctx.settings.disableThinking
     });
     const result = await parseJsonResponse(response);
-    if (!((_a2 = result == null ? void 0 : result.related_pages) == null ? void 0 : _a2.length)) return [];
+    if (!((_a = result == null ? void 0 : result.related_pages) == null ? void 0 : _a.length)) return [];
     const linkedPages = [];
     const labels = getSectionLabels(this.ctx.settings);
     for (const related of result.related_pages) {
@@ -8939,7 +7673,7 @@ tags: [${stubType === "entity" ? "other" : "term"}]
     return linkedPages;
   }
   async mergeDuplicatePages(targetPath, sourcePath) {
-    var _a2, _b;
+    var _a, _b;
     const targetContent = await this.ctx.tryReadFile(targetPath);
     const sourceContent = await this.ctx.tryReadFile(sourcePath);
     if (!targetContent || !sourceContent) {
@@ -8947,7 +7681,7 @@ tags: [${stubType === "entity" ? "other" : "term"}]
     }
     const sourceFm = parseFrontmatter(sourceContent);
     const targetFm = parseFrontmatter(targetContent);
-    const sourceTitle = ((_a2 = sourcePath.split("/").pop()) == null ? void 0 : _a2.replace(".md", "")) || "";
+    const sourceTitle = ((_a = sourcePath.split("/").pop()) == null ? void 0 : _a.replace(".md", "")) || "";
     const targetSources = Array.isArray(targetFm == null ? void 0 : targetFm.sources) ? targetFm.sources : [];
     const sourceSources = Array.isArray(sourceFm == null ? void 0 : sourceFm.sources) ? sourceFm.sources : [];
     const mergedSourcesSet = /* @__PURE__ */ new Set();
@@ -9007,7 +7741,8 @@ tags: [${stubType === "entity" ? "other" : "term"}]
             this.ctx.getSchemaContext,
             "merge"
           ),
-          messages: [{ role: "user", content: prompt }]
+          messages: [{ role: "user", content: prompt }],
+          disableThinking: this.ctx.settings.disableThinking
         });
         const cleaned = cleanMarkdownResponse(mergedContent);
         if (cleaned && cleaned.length > 100) {
@@ -9069,7 +7804,7 @@ tags: [${stubType === "entity" ? "other" : "term"}]
     fmLines.push("---");
     const finalContent = fmLines.join("\n") + "\n\n" + mergedBody;
     const pageType = (targetFm == null ? void 0 : targetFm.type) || "entity";
-    const validated = enforceFrontmatterConstraints(finalContent, pageType);
+    const validated = enforceFrontmatterConstraints(finalContent, pageType, this.ctx.settings);
     await this.ctx.createOrUpdateFile(targetPath, validated);
     const wikiFolder = this.ctx.settings.wikiFolder;
     const sourceRel = sourcePath.replace(wikiFolder + "/", "").replace(".md", "");
@@ -9353,7 +8088,8 @@ resolved: ${resolvedDate}`
         this.ctx.getSchemaContext,
         "full"
       ),
-      messages: [{ role: "user", content: finalPrompt }]
+      messages: [{ role: "user", content: finalPrompt }],
+      disableThinking: this.ctx.settings.disableThinking
     });
     const cleaned = cleanMarkdownResponse(fixedContent);
     await this.ctx.createOrUpdateFile(pagePath, cleaned);
@@ -9380,7 +8116,15 @@ var MAX_TOKENS = 16e3;
 var SHORT_CONTENT_THRESHOLD = 2e4;
 var CHARS_PER_ITEM = 600;
 function calculateBatchLimits(contentLength, granularity = "standard", customLimits) {
+  var _a, _b;
   const config = { ...GRANULARITY_CONFIG[granularity] || GRANULARITY_CONFIG.standard };
+  if (granularity === "custom" && customLimits) {
+    const totalCap = ((_a = customLimits.entityCap) != null ? _a : MIN_BATCH_SIZE) + ((_b = customLimits.conceptCap) != null ? _b : MIN_BATCH_SIZE);
+    if (totalCap > 10) {
+      config.initialBatchSize = Math.min(CUSTOM_BATCH_SIZE_MAX, Math.max(MIN_BATCH_SIZE, totalCap));
+      config.maxBatchesBase = Math.max(1, Math.ceil(totalCap / config.initialBatchSize));
+    }
+  }
   if (contentLength < SHORT_CONTENT_THRESHOLD && config.maxTotalItems !== null) {
     const reasonableCap = Math.max(5, Math.ceil(contentLength / CHARS_PER_ITEM));
     if (config.maxTotalItems > reasonableCap) {
@@ -9406,12 +8150,12 @@ function adjustBatchSizeForResponse(currentBatchSize, responseLength, threshold 
   return currentBatchSize;
 }
 function getCustomTypeCaps(settings) {
-  var _a2, _b;
+  var _a, _b;
   if (settings.extractionGranularity !== "custom") {
     return { entityCap: null, conceptCap: null };
   }
   return {
-    entityCap: (_a2 = settings.customEntityLimit) != null ? _a2 : 5,
+    entityCap: (_a = settings.customEntityLimit) != null ? _a : 5,
     conceptCap: (_b = settings.customConceptLimit) != null ? _b : 5
   };
 }
@@ -9558,12 +8302,12 @@ function normalizeBatchResponse(raw) {
     return { validity: "unusable", data: emptyBatch() };
   }
   const entities = coerceToArray(raw.entities).filter((e) => {
-    var _a2;
-    return (_a2 = e == null ? void 0 : e.name) == null ? void 0 : _a2.trim();
+    var _a;
+    return (_a = e == null ? void 0 : e.name) == null ? void 0 : _a.trim();
   });
   const concepts = coerceToArray(raw.concepts).filter((c) => {
-    var _a2;
-    return (_a2 = c == null ? void 0 : c.name) == null ? void 0 : _a2.trim();
+    var _a;
+    return (_a = c == null ? void 0 : c.name) == null ? void 0 : _a.trim();
   });
   const relatedPages = coerceToArray(raw.related_pages).map((p) => {
     const match = String(p).match(/^\[\[(?:[^\]|]+\|)?([^\]]+)\]\]$/);
@@ -9600,7 +8344,7 @@ var SourceAnalyzer = class {
     this.ctx = ctx;
   }
   async analyzeSource(file) {
-    var _a2, _b, _c, _d, _e, _f, _g, _h;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     console.debug("=== Source analysis started ===");
     console.debug("File:", file.path);
     const content = await this.ctx.app.vault.read(file);
@@ -9611,14 +8355,17 @@ var SourceAnalyzer = class {
       conceptCap: this.ctx.settings.customConceptLimit
     });
     const customTypeCaps = getCustomTypeCaps(this.ctx.settings);
-    const maxTokens = MAX_TOKENS_BATCH;
-    console.debug(`[Batch limits] Initial size: ${limits.initialBatchSize}, Max batches: ${limits.maxBatches}, Max total: ${limits.maxTotalItems || "none"}`);
+    const baseMaxTokens = Math.max(MAX_TOKENS_BATCH, limits.initialBatchSize * TOKENS_PER_ITEM_BUDGET);
+    const retryCap = baseMaxTokens * SOURCE_ANALYZER_RETRY_MULTIPLIER;
+    console.debug(`[Batch limits] Initial size: ${limits.initialBatchSize}, Max batches: ${limits.maxBatches}, Max total: ${limits.maxTotalItems || "none"}, baseMaxTokens: ${baseMaxTokens}, retryCap: ${retryCap}`);
     let currentBatchSize = limits.initialBatchSize;
     let batchSizeHalved = false;
+    let retryingBatch = false;
     const accumulation = createEmptyAccumulation();
     let firstBatchData = null;
     let finalBatchNum = 0;
     const granularityInstruction = getGranularityInstruction(this.ctx.settings);
+    const tagVocabularySection = buildActiveTagVocabularySection(this.ctx.settings);
     const templateUntouched = PROMPTS.analyzeSource.replace("{{content}}", content).replace("{{existing_pages}}", "");
     const batchMarker = "{{batch_context}}";
     const markerIdx = templateUntouched.indexOf(batchMarker);
@@ -9634,7 +8381,7 @@ var SourceAnalyzer = class {
       } else {
         const ctxLines = [];
         for (const e of accumulation.entities) {
-          const line = ((_a2 = e.aliases) == null ? void 0 : _a2.length) ? `${e.name} (aliases: ${e.aliases.join(", ")})` : e.name;
+          const line = ((_a = e.aliases) == null ? void 0 : _a.length) ? `${e.name} (aliases: ${e.aliases.join(", ")})` : e.name;
           ctxLines.push(line);
         }
         for (const c of accumulation.concepts) {
@@ -9653,7 +8400,7 @@ Do NOT extract them again. If a candidate name is equivalent to any of the above
       const langHint = `
 
 CRITICAL LANGUAGE REQUIREMENT: Summaries, descriptions, source_title, and key_points in your JSON output MUST be written in ${WIKI_LANGUAGES[this.ctx.settings.wikiLanguage || "en"] || this.ctx.settings.wikiLanguage || "English"}. HOWEVER: entity names and concept names MUST be preserved in their original source language \u2014 NEVER translate names. mentions_in_source MUST be verbatim quotes from the source (preserve original language).`;
-      const finalPrompt = prompt + langHint;
+      const finalPrompt = prompt + langHint + "\n\n" + tagVocabularySection;
       console.debug(`[Batch ${batchNum + 1}/${limits.maxBatches}] LLM call started (batch_size=${currentBatchSize})...`);
       console.debug(`[Batch ${batchNum + 1}] Prompt length:`, prompt.length);
       if (isFirstBatch) {
@@ -9663,13 +8410,16 @@ CRITICAL LANGUAGE REQUIREMENT: Summaries, descriptions, source_title, and key_po
       }
       try {
         const systemPrompt = await this.ctx.buildSystemPrompt("analyze");
+        const batchMaxTokens = Math.max(baseMaxTokens, currentBatchSize * TOKENS_PER_ITEM_BUDGET);
+        console.debug(`[Batch ${batchNum + 1}] Provider:`, this.ctx.settings.provider, "| Model:", this.ctx.settings.model, "| Prompt:", finalPrompt.length, "chars", "| max_tokens:", batchMaxTokens);
         const response = await client.createMessage({
           model: this.ctx.settings.model,
-          max_tokens: maxTokens,
+          max_tokens: batchMaxTokens,
           system: systemPrompt,
           messages: [{ role: "user", content: finalPrompt }],
           response_format: { type: "json_object" },
-          cacheBreakpoint: staticPrefix.length
+          cacheBreakpoint: staticPrefix.length,
+          maxTokensPerCall: retryCap
         });
         console.debug(`[Batch ${batchNum + 1}] Response length:`, response.length);
         (_h = (_g = this.ctx).onProgress) == null ? void 0 : _h.call(_g, `Analyzed batch ${batchNum + 1}, processing...`);
@@ -9679,10 +8429,12 @@ CRITICAL LANGUAGE REQUIREMENT: Summaries, descriptions, source_title, and key_po
 ${malformedJson}`;
           return await client.createMessage({
             model: this.ctx.settings.model,
-            max_tokens: maxTokens,
+            max_tokens: retryCap,
+            // Repair may need full output if original was truncated at retryCap
             system: await this.ctx.buildSystemPrompt("analyze"),
             messages: [{ role: "user", content: repairPrompt }],
-            response_format: { type: "json_object" }
+            response_format: { type: "json_object" },
+            maxTokensPerCall: retryCap
           });
         });
         if (!analysisData) {
@@ -9760,11 +8512,37 @@ ${malformedJson}`;
         console.error(`[Batch ${batchNum + 1}] Call failed:`, error);
         if (isFirstBatch) {
           const providerName = this.ctx.settings.provider;
-          const errMsg2 = error instanceof Error ? error.message : String(error);
+          const modelName = this.ctx.settings.model;
+          const errMsg3 = error instanceof Error ? error.message : String(error);
+          const lowerErr = errMsg3.toLowerCase();
+          let userHint;
+          if (lowerErr.includes("context") || lowerErr.includes("token") || lowerErr.includes("length") || lowerErr.includes("exceed")) {
+            userHint = "The request was rejected because the source file is too large for this model's context window. Try: (1) switch to a model with a larger context window (e.g. 1M tokens) in Settings, (2) reduce the file size, or (3) use a provider that supports larger contexts.";
+          } else if (lowerErr.includes("max_tokens")) {
+            userHint = "The model rejected the max_tokens value. Try reducing it in Settings \u2192 LLM Configuration \u2192 Context Window.";
+          } else if (lowerErr.includes("400")) {
+            userHint = "The API returned a Bad Request error. Check that the model name is correct and supported by your provider.";
+          } else if (lowerErr.includes("401") || lowerErr.includes("403")) {
+            userHint = "Authentication failed. Check your API key in Settings.";
+          } else if (lowerErr.includes("429")) {
+            userHint = "Rate limit exceeded. Wait a moment and try again, or switch to a provider with higher limits.";
+          } else {
+            userHint = "Check your network connection, API key, and provider URL in Settings. If the error mentions SSL/TLS, try: (1) restart Obsidian, (2) check VPN/proxy settings, (3) verify the provider URL is correct.";
+          }
           throw new Error(
-            `Failed to connect to ${providerName} API: ${errMsg2}. Check your network connection, API key, and provider URL in Settings. If the error mentions SSL/TLS, try: (1) restart Obsidian, (2) check VPN/proxy settings, (3) verify the provider URL is correct.`
+            `Failed to connect to ${providerName} API (model: ${modelName}): ${errMsg3}. ${userHint}`
           );
         }
+        const errMsg2 = error instanceof Error ? error.message : String(error);
+        const isTruncation = errMsg2.toLowerCase().includes("truncated") || errMsg2.toLowerCase().includes("max_tokens");
+        if (!retryingBatch && isTruncation && currentBatchSize > limits.minBatchSize) {
+          currentBatchSize = Math.max(limits.minBatchSize, Math.floor(currentBatchSize * 0.5));
+          console.warn(`[Batch ${batchNum + 1}] Truncation detected, halving batch size to ${currentBatchSize} and retrying`);
+          retryingBatch = true;
+          batchNum--;
+          continue;
+        }
+        retryingBatch = false;
         console.warn(`[Batch ${batchNum + 1}] Non-first-round failure, keeping extracted items`);
         break;
       }
@@ -9804,7 +8582,7 @@ ${malformedJson}`;
 };
 
 // src/wiki/page-factory.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 
 // src/core/conflict-resolver.ts
 function folderOf(pageType) {
@@ -9815,9 +8593,9 @@ function oppositeFolder(pageType) {
 }
 function slugMatchKeys(page) {
   const keys = /* @__PURE__ */ new Set();
-  keys.add(computeSlug(page.title).toLowerCase());
+  keys.add(computeSlug(page.title));
   for (const alias of page.aliases || []) {
-    keys.add(computeSlug(alias).toLowerCase());
+    keys.add(computeSlug(alias));
   }
   return keys;
 }
@@ -9979,8 +8757,8 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
       });
       if (sameTypePages.length === 0) return { path: slugPath };
       const pagesList = sameTypePages.map((p) => {
-        var _a2;
-        const aliasBlock = ((_a2 = p.aliases) == null ? void 0 : _a2.length) ? `
+        var _a;
+        const aliasBlock = ((_a = p.aliases) == null ? void 0 : _a.length) ? `
   aliases: ${p.aliases.join(", ")}` : "";
         return `- path: ${p.path}
   title: ${p.title}${aliasBlock}`;
@@ -9993,7 +8771,8 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
         max_tokens: TOKENS_DEDUP_RESOLUTION,
         system: await this.ctx.buildSystemPrompt("full"),
         messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" }
+        response_format: { type: "json_object" },
+        disableThinking: this.ctx.settings.disableThinking
       });
       const result = await parseJsonResponse(response);
       if ((result == null ? void 0 : result.match) && (result == null ? void 0 : result.path)) {
@@ -10028,8 +8807,8 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
       truncated = true;
     }
     const list = pages.map((p) => {
-      var _a2;
-      const aliasSuffix = ((_a2 = p.aliases) == null ? void 0 : _a2.length) ? ` \`aliases: ${p.aliases.join(", ")}\`` : "";
+      var _a;
+      const aliasSuffix = ((_a = p.aliases) == null ? void 0 : _a.length) ? ` \`aliases: ${p.aliases.join(", ")}\`` : "";
       return `- ${p.wikiLink}${aliasSuffix}`;
     }).join("\n");
     let result = list;
@@ -10057,7 +8836,7 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
   }
   // ── Generic page CRUD (entity/concept unified) ──────────────────────
   async createOrUpdatePage(info, pageType, sourceFile, extraPagePaths = []) {
-    var _a2, _b;
+    var _a, _b;
     if (!info.name || info.name.trim().length === 0) {
       console.warn(`${pageType} name is empty, skipping creation`);
       return { path: null };
@@ -10071,7 +8850,7 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
         const { targetPath, targetType } = result.collision;
         const existingContent2 = await this.ctx.tryReadFile(targetPath);
         if (existingContent2) {
-          const isReviewed2 = ((_a2 = parseFrontmatter(existingContent2)) == null ? void 0 : _a2.reviewed) === true;
+          const isReviewed2 = ((_a = parseFrontmatter(existingContent2)) == null ? void 0 : _a.reviewed) === true;
           if (isReviewed2) {
             await this.appendToReviewedPage(info, sourceFile, existingContent2, targetPath);
           } else {
@@ -10098,21 +8877,22 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
     return { path: mergedPath };
   }
   async createNewPage(info, pageType, sourceFile, extraPagePaths, path) {
-    var _a2, _b, _c;
+    var _a, _b, _c;
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     try {
       const generatePrompt = pageType === "entity" ? PROMPTS.generateEntityPage : PROMPTS.generateConceptPage;
-      const prompt = generatePrompt.replace("{{entity_name}}", info.name).replace("{{concept_name}}", info.name).replace("{{entity_type}}", info.type).replace("{{concept_type}}", info.type).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{extraction_aliases}}", ((_a2 = info.aliases) == null ? void 0 : _a2.length) ? `[${info.aliases.join(", ")}]` : "None").replace("{{mentions}}", truncateMentions(info.mentions_in_source) || "No specific mentions").replace("{{related_entities}}", ((_b = info.related_entities) == null ? void 0 : _b.join(", ")) || "No related entities").replace("{{related_concepts}}", ((_c = info.related_concepts) == null ? void 0 : _c.join(", ")) || "No related concepts").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths)).replace("{{related_content}}", "No existing content").replace("{{merge_strategy}}", "New page, no merge needed.").replace("{{date}}", (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace("{{source_file}}", sourceFile.path);
-      const finalPrompt = applySectionLabels(prompt, this.ctx.settings);
+      const prompt = generatePrompt.replace("{{entity_name}}", info.name).replace("{{concept_name}}", info.name).replace("{{entity_type}}", info.type).replace("{{concept_type}}", info.type).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{extraction_aliases}}", ((_a = info.aliases) == null ? void 0 : _a.length) ? `[${info.aliases.join(", ")}]` : "None").replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path) || "No specific mentions").replace("{{related_entities}}", ((_b = info.related_entities) == null ? void 0 : _b.join(", ")) || "No related entities").replace("{{related_concepts}}", ((_c = info.related_concepts) == null ? void 0 : _c.join(", ")) || "No related concepts").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths)).replace("{{related_content}}", "No existing content").replace("{{merge_strategy}}", "New page, no merge needed.").replace("{{date}}", (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace("{{source_file}}", sourceFile.path);
+      const finalPrompt = appendTagVocabularyToPrompt(applySectionLabels(prompt, this.ctx.settings), this.ctx.settings);
       const pageContent = await client.createMessage({
         model: this.ctx.settings.model,
         max_tokens: TOKENS_PAGE_GENERATION,
         system: await this.ctx.buildSystemPrompt(pageType),
-        messages: [{ role: "user", content: finalPrompt }]
+        messages: [{ role: "user", content: finalPrompt }],
+        disableThinking: this.ctx.settings.disableThinking
       });
       const cleanedContent = cleanMarkdownResponse(pageContent);
-      const enforcedContent = enforceFrontmatterConstraints(cleanedContent, pageType);
+      const enforcedContent = enforceFrontmatterConstraints(cleanedContent, pageType, this.ctx.settings);
       await this.ctx.createOrUpdateFile(path, enforcedContent);
       return path;
     } catch (error) {
@@ -10120,19 +8900,20 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
     }
   }
   async mergePage(info, pageType, sourceFile, existingContent, extraPagePaths, path) {
-    var _a2, _b, _c;
+    var _a, _b, _c;
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     try {
       const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceFile.path);
       const mergePrompt = pageType === "entity" ? PROMPTS.mergeEntityPage : PROMPTS.mergeConceptPage;
-      const prompt = mergePrompt.replace("{{existing_body}}", existingBody).replace("{{new_source}}", sourceFile.basename).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{mentions}}", truncateMentions(info.mentions_in_source)).replace("{{related_entities}}", ((_a2 = info.related_entities) == null ? void 0 : _a2.join(", ")) || "").replace("{{related_concepts}}", ((_b = info.related_concepts) == null ? void 0 : _b.join(", ")) || "").replace("{{key_details}}", ((_c = info.mentions_in_source) == null ? void 0 : _c.slice(0, 2).join("; ")) || "").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths));
-      const finalPrompt = applySectionLabels(prompt, this.ctx.settings);
+      const prompt = mergePrompt.replace("{{existing_body}}", existingBody).replace("{{new_source}}", sourceFile.basename).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path)).replace("{{related_entities}}", ((_a = info.related_entities) == null ? void 0 : _a.join(", ")) || "").replace("{{related_concepts}}", ((_b = info.related_concepts) == null ? void 0 : _b.join(", ")) || "").replace("{{key_details}}", ((_c = info.mentions_in_source) == null ? void 0 : _c.slice(0, 2).join("; ")) || "").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths));
+      const finalPrompt = appendTagVocabularyToPrompt(applySectionLabels(prompt, this.ctx.settings), this.ctx.settings);
       const mergedBody = await client.createMessage({
         model: this.ctx.settings.model,
         max_tokens: TOKENS_PAGE_GENERATION,
         system: await this.ctx.buildSystemPrompt("merge"),
-        messages: [{ role: "user", content: finalPrompt }]
+        messages: [{ role: "user", content: finalPrompt }],
+        disableThinking: this.ctx.settings.disableThinking
       });
       const cleanedBody = cleanMarkdownResponse(mergedBody);
       if (cleanedBody.trim() === "NO_NEW_CONTENT") {
@@ -10149,18 +8930,19 @@ ${cleanedBody}`;
     }
   }
   async appendToReviewedPage(info, sourceFile, existingContent, path) {
-    var _a2;
+    var _a;
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     try {
       const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceFile.path);
-      const prompt = PROMPTS.appendToReviewedPage.replace("{{existing_body}}", existingBody).replace("{{new_source}}", sourceFile.basename).replace("{{entity_summary}}", info.summary).replace("{{mentions}}", truncateMentions(info.mentions_in_source)).replace("{{key_details}}", ((_a2 = info.mentions_in_source) == null ? void 0 : _a2.slice(0, 2).join("; ")) || "").replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
-      const finalPrompt = applySectionLabels(prompt, this.ctx.settings);
+      const prompt = PROMPTS.appendToReviewedPage.replace("{{existing_body}}", existingBody).replace("{{new_source}}", sourceFile.basename).replace("{{entity_summary}}", info.summary).replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path)).replace("{{key_details}}", ((_a = info.mentions_in_source) == null ? void 0 : _a.slice(0, 2).join("; ")) || "").replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
+      const finalPrompt = appendTagVocabularyToPrompt(applySectionLabels(prompt, this.ctx.settings), this.ctx.settings);
       const newContent = await client.createMessage({
         model: this.ctx.settings.model,
         max_tokens: TOKENS_APPEND_REVIEWED,
         system: await this.ctx.buildSystemPrompt("merge"),
-        messages: [{ role: "user", content: finalPrompt }]
+        messages: [{ role: "user", content: finalPrompt }],
+        disableThinking: this.ctx.settings.disableThinking
       });
       const cleanedContent = cleanMarkdownResponse(newContent);
       if (cleanedContent.trim() === "NO_NEW_CONTENT") {
@@ -10185,7 +8967,7 @@ ${cleanedContent}`;
       return false;
     }
     const abstractFile = this.ctx.app.vault.getAbstractFileByPath(page.path);
-    if (!(abstractFile instanceof import_obsidian4.TFile)) {
+    if (!(abstractFile instanceof import_obsidian5.TFile)) {
       console.debug("Related page is not a file:", pageName);
       return false;
     }
@@ -10198,7 +8980,8 @@ ${cleanedContent}`;
       model: this.ctx.settings.model,
       max_tokens: TOKENS_PAGE_GENERATION,
       system: await this.ctx.buildSystemPrompt("related"),
-      messages: [{ role: "user", content: prompt }]
+      messages: [{ role: "user", content: prompt }],
+      disableThinking: this.ctx.settings.disableThinking
     });
     const cleanedBody = cleanMarkdownResponse(updatedBody);
     const finalContent = `${frontmatter}
@@ -10229,14 +9012,14 @@ var ConversationIngestor = class {
     this.orch = orch;
   }
   async ingestConversation(history) {
-    var _a2, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u;
     const startTime = Date.now();
     const client = this.ctx.getClient();
     if (!client) {
       throw new Error("LLM Client not initialized");
     }
     console.debug("=== Starting conversation extraction ===");
-    (_b = (_a2 = this.ctx).onProgress) == null ? void 0 : _b.call(_a2, "Analyzing conversation...");
+    (_b = (_a = this.ctx).onProgress) == null ? void 0 : _b.call(_a, "Analyzing conversation...");
     const actualDate = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
     console.debug("[System time]", actualDate);
     const indexPath = `${this.ctx.settings.wikiFolder}/index.md`;
@@ -10292,7 +9075,7 @@ Output JSON format:
   "entities": [
     {
       "name": "Short Reference Name",
-      "type": "person|organization|project|other",
+      "type": "person|organization|project|product|event|place|other",
       "summary": "Entity information summary",
       "mentions_in_source": ["Specific mentions in conversation"]
     }
@@ -10300,7 +9083,7 @@ Output JSON format:
   "concepts": [
     {
       "name": "Concept Name",
-      "type": "theory|method|technology|term|other",
+      "type": "theory|method|field|phenomenon|standard|term|other",
       "summary": "Concept definition",
       "mentions_in_source": ["Specific mentions in conversation"],
       "related_concepts": ["Related Concept 1", "Related Concept 2"]
@@ -10326,7 +9109,8 @@ CRITICAL RULES:
         role: "user",
         content: analysisPrompt
       }],
-      response_format: { type: "json_object" }
+      response_format: { type: "json_object" },
+      disableThinking: this.ctx.settings.disableThinking
     });
     const parsed = await parseJsonResponse(analysis, async (malformedJson) => {
       const repairPrompt = `Fix the following malformed JSON. Only fix JSON syntax errors (unescaped quotes, trailing commas, missing brackets). Do NOT change any values or content. Output ONLY the fixed JSON, no other text.
@@ -10337,7 +9121,8 @@ ${malformedJson}`;
         max_tokens: TOKENS_PAGE_GENERATION,
         system: await this.ctx.buildSystemPrompt("conversation"),
         messages: [{ role: "user", content: repairPrompt }],
-        response_format: { type: "json_object" }
+        response_format: { type: "json_object" },
+        disableThinking: this.ctx.settings.disableThinking
       });
     });
     if (!parsed) {
@@ -10370,7 +9155,8 @@ ${malformedJson}`;
       model: this.ctx.settings.model,
       max_tokens: TOKENS_CONVERSATION_PAGE,
       system: await this.ctx.buildSystemPrompt("summary"),
-      messages: [{ role: "user", content: finalSummaryPrompt }]
+      messages: [{ role: "user", content: finalSummaryPrompt }],
+      disableThinking: this.ctx.settings.disableThinking
     });
     const cleanedSummary = cleanMarkdownResponse(summaryPageContent);
     await this.ctx.createOrUpdateFile(summaryPath, cleanedSummary);
@@ -10444,7 +9230,8 @@ ${malformedJson}`;
       max_tokens: TOKENS_QUERY_SAVE_DEDUP,
       system: await this.ctx.buildSystemPrompt("conversation"),
       messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" }
+      response_format: { type: "json_object" },
+      disableThinking: this.ctx.settings.disableThinking
     });
     const parsed = await parseJsonResponse(response);
     return (parsed == null ? void 0 : parsed.status) || "entirely_new";
@@ -10484,18 +9271,19 @@ var WikiEngine = class {
       getExistingWikiPages: () => getExistingWikiPages(this.app, this.settings.wikiFolder),
       getSchemaContext: (t) => this.schemaManager.getSchemaContext(t),
       onFileWrite: (path) => {
-        var _a2;
-        return (_a2 = this.onFileWrite) == null ? void 0 : _a2.call(this, path);
+        var _a;
+        return (_a = this.onFileWrite) == null ? void 0 : _a.call(this, path);
       },
       onProgress: (msg) => {
-        var _a2;
-        return (_a2 = this.onProgress) == null ? void 0 : _a2.call(this, msg);
+        var _a;
+        return (_a = this.onProgress) == null ? void 0 : _a.call(this, msg);
       },
       onDone: (report) => {
-        var _a2;
-        return (_a2 = this.onDone) == null ? void 0 : _a2.call(this, report);
+        var _a;
+        return (_a = this.onDone) == null ? void 0 : _a.call(this, report);
       }
     };
+    this.ctx = ctx;
     this.lintFixer = new LintFixer(ctx);
     this.contradictionManager = new ContradictionManager(ctx);
     this.sourceAnalyzer = new SourceAnalyzer(ctx);
@@ -10529,12 +9317,12 @@ var WikiEngine = class {
     this.onLintEnd = onEnd;
   }
   cancelIngestion() {
-    var _a2;
+    var _a;
     if (this.abortController) {
       this.abortController.abort();
       const msg = getText(this.settings.language, "ingestionCancelling");
-      new import_obsidian5.Notice(msg, NOTICE_ABORT);
-      (_a2 = this.onProgress) == null ? void 0 : _a2.call(this, msg);
+      new import_obsidian6.Notice(msg, NOTICE_ABORT);
+      (_a = this.onProgress) == null ? void 0 : _a.call(this, msg);
       console.debug("Ingestion cancellation requested");
     }
   }
@@ -10542,30 +9330,31 @@ var WikiEngine = class {
     return this.abortController !== null;
   }
   startLintOperation() {
-    var _a2;
+    var _a;
     this.lintAbortController = new AbortController();
-    (_a2 = this.onLintStart) == null ? void 0 : _a2.call(this);
+    (_a = this.onLintStart) == null ? void 0 : _a.call(this);
     return this.lintAbortController.signal;
   }
   cancelLint() {
     if (this.lintAbortController) {
       this.lintAbortController.abort();
       const msg = getText(this.settings.language, "ingestionCancelling");
-      new import_obsidian5.Notice(msg, NOTICE_ABORT);
-      console.debug("Lint cancellation requested");
+      new import_obsidian6.Notice(msg, NOTICE_ABORT);
+      console.debug("[lint] cancellation requested");
     }
   }
   isLintRunning() {
     return this.lintAbortController !== null;
   }
   endLintOperation() {
-    var _a2;
+    var _a;
+    if (this.lintAbortController === null) return;
     this.lintAbortController = null;
-    (_a2 = this.onLintEnd) == null ? void 0 : _a2.call(this);
+    (_a = this.onLintEnd) == null ? void 0 : _a.call(this);
   }
   checkCancelled() {
-    var _a2;
-    if ((_a2 = this.abortController) == null ? void 0 : _a2.signal.aborted) {
+    var _a;
+    if ((_a = this.abortController) == null ? void 0 : _a.signal.aborted) {
       throw new DOMException("Ingestion cancelled by user", "AbortError");
     }
   }
@@ -10584,22 +9373,26 @@ var WikiEngine = class {
   applySectionLabels(prompt) {
     return applySectionLabels(prompt, this.settings);
   }
+  updateSettings(settings) {
+    this.settings = settings;
+    this.ctx.settings = settings;
+  }
   async ingestSource(file) {
-    var _a2, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o;
     console.debug("=== Ingestion started ===");
     console.debug("Source file:", file.path);
     const totalStartTime = Date.now();
     this.wasCancelled = false;
     this.abortController = new AbortController();
-    (_a2 = this.onIngestionStart) == null ? void 0 : _a2.call(this);
+    (_a = this.onIngestionStart) == null ? void 0 : _a.call(this);
     const LONG_SOURCE_LINE_THRESHOLD = 1e3;
     const fileContent = await this.app.vault.read(file);
     const lineCount = fileContent.split("\n").length;
     if (lineCount > LONG_SOURCE_LINE_THRESHOLD) {
       const sizeKB = Math.round(fileContent.length / 1024);
-      new import_obsidian5.Notice(
+      new import_obsidian6.Notice(
         getText(this.settings.language, "longSourceNotice").replace("{filename}", file.basename).replace("{lines}", String(lineCount)).replace("{size}", sizeKB >= 1024 ? `${(sizeKB / 1024).toFixed(1)}MB` : `${sizeKB}KB`),
-        0
+        NOTICE_NORMAL
       );
       console.debug(`[Long Source] ${file.basename}: ${lineCount} lines, ${sizeKB}KB \u2014 long ingestion expected`);
     }
@@ -10622,10 +9415,10 @@ var WikiEngine = class {
       let step = 1;
       const plannedPaths = [];
       for (const entity of analysis.entities) {
-        plannedPaths.push((0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/entities/${slugify(entity.name)}.md`));
+        plannedPaths.push((0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/entities/${slugify(entity.name)}.md`));
       }
       for (const concept of analysis.concepts) {
-        plannedPaths.push((0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/concepts/${slugify(concept.name)}.md`));
+        plannedPaths.push((0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/concepts/${slugify(concept.name)}.md`));
       }
       (_c = this.onProgress) == null ? void 0 : _c.call(this, `[${step}/${totalSteps}] Creating summary...`);
       await this.apiDelay();
@@ -10652,9 +9445,9 @@ var WikiEngine = class {
         const batch = tasks.slice(i, i + concurrency);
         const batchResults = await Promise.allSettled(
           batch.map(async (task) => {
-            var _a3;
+            var _a2;
             step++;
-            (_a3 = this.onProgress) == null ? void 0 : _a3.call(this, `[${step}/${totalSteps}] ${task.type === "entity" ? "Entity" : "Concept"}: ${task.name}`);
+            (_a2 = this.onProgress) == null ? void 0 : _a2.call(this, `[${step}/${totalSteps}] ${task.type === "entity" ? "Entity" : "Concept"}: ${task.name}`);
             if (task.type === "entity") {
               const entity = analysis.entities[task.index];
               try {
@@ -10742,7 +9535,7 @@ var WikiEngine = class {
       );
       if (pageGenRateInfo) {
         console.warn(`[Rate Limit] Page generation: ${pageGenRateInfo.count} item(s) failed with 429, suggested concurrency=${pageGenRateInfo.suggestedConcurrency}, delay=${pageGenRateInfo.suggestedDelay}ms`);
-        new import_obsidian5.Notice(formatRateLimitNotice(pageGenRateInfo, this.settings.language), NOTICE_RATE_LIMIT);
+        new import_obsidian6.Notice(formatRateLimitNotice(pageGenRateInfo, this.settings.language), NOTICE_RATE_LIMIT);
       }
       const relatedStart = Date.now();
       const relatedConcurrency = (_f = this.settings.pageGenerationConcurrency) != null ? _f : 1;
@@ -10761,8 +9554,8 @@ var WikiEngine = class {
         const batch = relatedTasks.slice(i, i + relatedConcurrency);
         const batchResults = await Promise.allSettled(
           batch.map(async (task) => {
-            var _a3;
-            (_a3 = this.onProgress) == null ? void 0 : _a3.call(this, `[${task.stepNum}/${totalSteps}] Updating: ${task.name}`);
+            var _a2;
+            (_a2 = this.onProgress) == null ? void 0 : _a2.call(this, `[${task.stepNum}/${totalSteps}] Updating: ${task.name}`);
             try {
               const updated2 = await this.pageFactory.updateRelatedPage(task.name, analysis, file);
               return { success: updated2, name: task.name };
@@ -10807,7 +9600,7 @@ var WikiEngine = class {
       );
       if (relatedRateInfo) {
         console.warn(`[Rate Limit] Related pages update: ${relatedRateInfo.count} item(s) failed with 429, suggested concurrency=${relatedRateInfo.suggestedConcurrency}, delay=${relatedRateInfo.suggestedDelay}ms`);
-        new import_obsidian5.Notice(formatRateLimitNotice(relatedRateInfo, this.settings.language), NOTICE_RATE_LIMIT);
+        new import_obsidian6.Notice(formatRateLimitNotice(relatedRateInfo, this.settings.language), NOTICE_RATE_LIMIT);
       }
       const contradictionStart = Date.now();
       for (const contradiction of analysis.contradictions) {
@@ -10842,7 +9635,7 @@ var WikiEngine = class {
       console.debug(`  - Contradiction recording: ${contradictionTime}ms`);
       console.debug(`  - Index & log: ${indexTime}ms`);
       if (collisions.length > 0) {
-        new import_obsidian5.Notice(getText(this.settings.language, "crossTypeCollisionNotice").replace("{count}", String(collisions.length)), NOTICE_NORMAL);
+        new import_obsidian6.Notice(getText(this.settings.language, "crossTypeCollisionNotice").replace("{count}", String(collisions.length)), NOTICE_NORMAL);
       }
       (_j = this.onDone) == null ? void 0 : _j.call(this, {
         sourceFile: file.path,
@@ -10861,7 +9654,7 @@ var WikiEngine = class {
       if (error instanceof DOMException && error.name === "AbortError") {
         this.wasCancelled = true;
         console.debug("=== Ingestion cancelled by user ===");
-        new import_obsidian5.Notice(getText(this.settings.language, "ingestionCancelled"), NOTICE_NORMAL);
+        new import_obsidian6.Notice(getText(this.settings.language, "ingestionCancelled"), NOTICE_NORMAL);
         (_l = this.onDone) == null ? void 0 : _l.call(this, {
           sourceFile: file.path,
           createdPages,
@@ -10905,10 +9698,10 @@ var WikiEngine = class {
   }
   async ensureWikiStructure() {
     const folders = [
-      (0, import_obsidian5.normalizePath)(this.settings.wikiFolder),
-      (0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/entities`),
-      (0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/concepts`),
-      (0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/sources`)
+      (0, import_obsidian6.normalizePath)(this.settings.wikiFolder),
+      (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/entities`),
+      (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/concepts`),
+      (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/sources`)
     ];
     for (const folder of folders) {
       try {
@@ -10921,27 +9714,30 @@ var WikiEngine = class {
   }
   async createSummaryPage(file, analysis, plannedPaths = []) {
     const slug = slugify(file.basename);
-    const path = (0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/sources/${slug}.md`);
+    const path = (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/sources/${slug}.md`);
     const content = await this.app.vault.read(file);
+    const sourceTags = extractSourceTags(content);
+    const tagsValue = sourceTags.length > 0 ? sourceTags.join(", ") : analysis.concepts.map((c) => c.name).join(", ");
     const createdPagesList = plannedPaths.length > 0 ? plannedPaths.map((p) => {
       const relPath = p.replace(this.settings.wikiFolder + "/", "").replace(".md", "");
       const name = relPath.split("/").pop() || relPath;
       return `- [[${relPath}|${name}]]`;
     }).join("\n") : analysis.entities.map((e) => `- [[entities/${slugify(e.name)}|${e.name}]]`).join("\n") + "\n" + analysis.concepts.map((c) => `- [[concepts/${slugify(c.name)}|${c.name}]]`).join("\n");
-    const prompt = PROMPTS.generateSummaryPage.replace("{{source_title}}", analysis.source_title).replace("{{content}}", content.substring(0, 500)).replace("{{analysis}}", JSON.stringify(analysis)).replace("{{created_pages_list}}", createdPagesList || "(none)").replace(/{{source_file}}/g, file.path).replace(/{{date}}/g, (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace("{{tags}}", analysis.concepts.map((c) => c.name).join(", ")).replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
+    const prompt = PROMPTS.generateSummaryPage.replace("{{source_title}}", analysis.source_title).replace("{{content}}", content.substring(0, 500)).replace("{{analysis}}", JSON.stringify(analysis)).replace("{{created_pages_list}}", createdPagesList || "(none)").replace(/{{source_file}}/g, file.path).replace(/{{date}}/g, (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace("{{tags}}", tagsValue).replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
     const finalPrompt = this.applySectionLabels(prompt);
     const pageContent = await this.client.createMessage({
       model: this.settings.model,
       max_tokens: TOKENS_PAGE_GENERATION,
       system: await this.buildSystemPrompt("summary"),
-      messages: [{ role: "user", content: finalPrompt }]
+      messages: [{ role: "user", content: finalPrompt }],
+      disableThinking: this.settings.disableThinking
     });
     const cleanedContent = cleanMarkdownResponse(pageContent);
     await this.createOrUpdateFile(path, cleanedContent);
     return path;
   }
   async createOrUpdateFile(path, content) {
-    var _a2, _b, _c, _d;
+    var _a, _b, _c, _d;
     console.debug("createOrUpdateFile:", path);
     const DISPLAY_POLLUTION_REGEX = /\[\[(entities|concepts|sources)\/([^|\]]+)\|(entities|concepts|sources)\/([^|\]]+)\]\]/g;
     if (DISPLAY_POLLUTION_REGEX.test(content)) {
@@ -10971,11 +9767,11 @@ var WikiEngine = class {
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
         const file2 = this.app.vault.getAbstractFileByPath(path);
-        if (file2 instanceof import_obsidian5.TFile) {
+        if (file2 instanceof import_obsidian6.TFile) {
           console.debug(`Attempt ${attempt + 1}: File exists, updating:`, path);
           await this.app.vault.process(file2, () => content);
           console.debug("Update success:", path);
-          (_a2 = this.onFileWrite) == null ? void 0 : _a2.call(this, path);
+          (_a = this.onFileWrite) == null ? void 0 : _a.call(this, path);
           this.pagesCache = null;
           return;
         } else {
@@ -10997,7 +9793,7 @@ var WikiEngine = class {
             resolved = allFiles.find((f) => f.path.normalize() === normalized) || null;
             if (resolved) console.debug("Retry found file via full scan:", path);
           }
-          if (resolved instanceof import_obsidian5.TFile) {
+          if (resolved instanceof import_obsidian6.TFile) {
             await this.app.vault.process(resolved, () => content);
             console.debug("Update succeeded after file resolution:", path);
             (_c = this.onFileWrite) == null ? void 0 : _c.call(this, path);
@@ -11032,7 +9828,7 @@ var WikiEngine = class {
   }
   async deleteFile(path) {
     const file = this.app.vault.getAbstractFileByPath(path);
-    if (file instanceof import_obsidian5.TFile) {
+    if (file instanceof import_obsidian6.TFile) {
       await this.app.fileManager.trashFile(file);
       this.pagesCache = null;
       console.debug("deleteFile:", path);
@@ -11049,9 +9845,9 @@ var WikiEngine = class {
     const dirPath = path.substring(0, lastSep);
     const baseName = path.substring(lastSep + 1).normalize();
     const dir = this.app.vault.getAbstractFileByPath(dirPath);
-    if (dir && dir instanceof import_obsidian5.TFolder) {
+    if (dir && dir instanceof import_obsidian6.TFolder) {
       for (const child of dir.children) {
-        if (child instanceof import_obsidian5.TFile && child.name.normalize() === baseName) {
+        if (child instanceof import_obsidian6.TFile && child.name.normalize() === baseName) {
           return child;
         }
       }
@@ -11062,7 +9858,7 @@ var WikiEngine = class {
     let file = null;
     try {
       const direct = this.app.vault.getAbstractFileByPath(path);
-      if (direct instanceof import_obsidian5.TFile) file = direct;
+      if (direct instanceof import_obsidian6.TFile) file = direct;
     } catch (e) {
     }
     if (!file) {
@@ -11104,6 +9900,10 @@ var WikiEngine = class {
   async fillEmptyPage(pagePath, existingContent) {
     return this.lintFixer.fillEmptyPage(pagePath, existingContent);
   }
+  // Issue #103: delete empty stubs without running full lint pipeline
+  async deleteEmptyStubs(wikiFolder) {
+    return this.lintFixer.deleteEmptyStubs(wikiFolder);
+  }
   async linkOrphanPage(orphanPath) {
     return this.lintFixer.linkOrphanPage(orphanPath);
   }
@@ -11135,7 +9935,7 @@ var WikiEngine = class {
     const sources = this.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(`${this.settings.wikiFolder}/sources/`));
     const totalPages = entities.length + concepts.length + sources.length;
     if (totalPages === 0) {
-      const indexPath = (0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/index.md`);
+      const indexPath = (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/index.md`);
       await this.createOrUpdateFile(indexPath, `# Wiki Index
 
 > No pages yet. Ingest sources to populate the Wiki.
@@ -11188,14 +9988,14 @@ var WikiEngine = class {
       indexContent += `- [[sources/${file.basename}|${file.basename}]]${aliasStr}
 `;
     }
-    const indexPath = (0, import_obsidian5.normalizePath)(`${this.settings.wikiFolder}/index.md`);
+    const indexPath = (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/index.md`);
     await this.createOrUpdateFile(indexPath, indexContent);
   }
   async getPageSummary(file) {
-    var _a2;
+    var _a;
     const content = await this.app.vault.read(file);
     const lines = content.split("\n").filter((l) => l.trim() && !l.startsWith("#") && !l.startsWith("---"));
-    return ((_a2 = lines[0]) == null ? void 0 : _a2.substring(0, 100)) || "No summary";
+    return ((_a = lines[0]) == null ? void 0 : _a.substring(0, 100)) || "No summary";
   }
   async getPageAliases(file) {
     const content = await this.app.vault.read(file);
@@ -11242,24 +10042,45 @@ var WikiEngine = class {
   /** Append a lint-fix entry to the operation log. */
   async logLintFix(operation, details) {
     const logPath = `${this.settings.wikiFolder}/log.md`;
-    const date = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    const now = /* @__PURE__ */ new Date();
+    const date = now.toISOString().split("T")[0];
+    const time = now.toTimeString().slice(0, 5);
     const lang = this.settings.wikiLanguage || "en";
     const entry = `
 
-## [${date}] Lint Fix: ${operation}
+## [${date} ${time}] ${operation}
 
 ${details}
 `;
-    const existingLog = await this.tryReadFile(logPath) || `# Wiki ${lang === "zh" ? "\u64CD\u4F5C\u65E5\u5FD7" : "Operation Log"}
+    try {
+      let existingLog = await this.tryReadFile(logPath);
+      if (!existingLog) {
+        existingLog = `# Wiki ${lang === "zh" ? "\u64CD\u4F5C\u65E5\u5FD7" : "Operation Log"}
 
 `;
-    await this.createOrUpdateFile(logPath, existingLog + entry);
+      }
+      const MAX_LOG_BYTES = 512 * 1024;
+      const projectedSize = (existingLog.length + entry.length) * 2;
+      if (projectedSize > MAX_LOG_BYTES) {
+        const headerEnd = existingLog.indexOf("\n\n");
+        const header = headerEnd > 0 ? existingLog.substring(0, headerEnd + 2) : "# Wiki Operation Log\n\n";
+        const keepBytes = MAX_LOG_BYTES / 2;
+        const trimmed = existingLog.substring(existingLog.length - keepBytes);
+        const h2Idx = trimmed.indexOf("\n## ");
+        existingLog = header + (h2Idx > 0 ? trimmed.substring(h2Idx + 1) : trimmed);
+        console.warn(`[logLintFix] ${logPath} exceeded ${MAX_LOG_BYTES} bytes; trimmed oldest entries`);
+      }
+      await this.createOrUpdateFile(logPath, existingLog + entry);
+    } catch (e) {
+      console.error(`[logLintFix] failed to write ${logPath}:`, e);
+      throw e;
+    }
   }
 };
 
 // src/wiki/query-engine.ts
-var import_obsidian6 = require("obsidian");
-var SuggestSaveModal = class extends import_obsidian6.Modal {
+var import_obsidian7 = require("obsidian");
+var SuggestSaveModal = class extends import_obsidian7.Modal {
   constructor(app, plugin, history, reason) {
     super(app);
     this.plugin = plugin;
@@ -11288,7 +10109,7 @@ var SuggestSaveModal = class extends import_obsidian6.Modal {
   }
   async doSave() {
     const texts = TEXTS[this.plugin.settings.language];
-    const progressNotice = new import_obsidian6.Notice(texts.savingToWiki, 0);
+    const progressNotice = new import_obsidian7.Notice(texts.savingToWiki, 0);
     const origProgress = this.plugin.wikiEngine.getProgressCallback();
     this.plugin.wikiEngine.setProgressCallback((msg) => {
       progressNotice.setMessage(msg);
@@ -11298,12 +10119,12 @@ var SuggestSaveModal = class extends import_obsidian6.Modal {
       this.plugin.settings.lastOfferedQueryHash = JSON.stringify(this.history.messages);
       void this.plugin.saveSettings();
       const summary = texts.saveSummary.replace("{entities}", String(report.entitiesCreated)).replace("{concepts}", String(report.conceptsCreated)).replace("{pages}", String(report.createdPages.length));
-      new import_obsidian6.Notice(`${texts.saveToWikiSuccess}
+      new import_obsidian7.Notice(`${texts.saveToWikiSuccess}
 ${summary}`, NOTICE_NORMAL);
     } catch (error) {
       console.error("Save failed:", error);
       const errorMsg = error instanceof Error ? error.message : String(error);
-      new import_obsidian6.Notice(texts.queryModalErrorPrefix + errorMsg, NOTICE_ERROR);
+      new import_obsidian7.Notice(texts.queryModalErrorPrefix + errorMsg, NOTICE_ERROR);
     } finally {
       progressNotice.hide();
       this.plugin.wikiEngine.setProgressCallback(origProgress);
@@ -11314,7 +10135,7 @@ ${summary}`, NOTICE_NORMAL);
     contentEl.empty();
   }
 };
-var QueryModal = class extends import_obsidian6.Modal {
+var QueryModal = class extends import_obsidian7.Modal {
   constructor(app, plugin) {
     super(app);
     this.plugin = plugin;
@@ -11329,7 +10150,7 @@ var QueryModal = class extends import_obsidian6.Modal {
     this.inputArea = null;
     this.sendBtn = null;
     this.historyCountDisplay = null;
-    this.activeRenderComponent = new import_obsidian6.Component();
+    this.activeRenderComponent = new import_obsidian7.Component();
     this.pendingInput = "";
   }
   onOpen() {
@@ -11365,7 +10186,7 @@ var QueryModal = class extends import_obsidian6.Modal {
       },
       cls: "llm-wiki-query-textarea"
     });
-    const modKey = import_obsidian6.Platform.isMacOS ? "Cmd" : "Ctrl";
+    const modKey = import_obsidian7.Platform.isMacOS ? "Cmd" : "Ctrl";
     this.inputArea.addEventListener("keydown", (evt) => {
       if (evt.key === "Enter" && (evt.metaKey || evt.ctrlKey)) {
         evt.preventDefault();
@@ -11442,7 +10263,8 @@ var QueryModal = class extends import_obsidian6.Modal {
         model: this.plugin.settings.model,
         max_tokens: TOKENS_QUERY_SAVE_DEDUP,
         messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" }
+        response_format: { type: "json_object" },
+        disableThinking: this.plugin.settings.disableThinking
       });
       const parsed = await parseJsonResponse(response);
       if (parsed == null ? void 0 : parsed.valuable) {
@@ -11454,7 +10276,7 @@ var QueryModal = class extends import_obsidian6.Modal {
     }
   }
   async sendMessage(userMessage) {
-    var _a2, _b;
+    var _a, _b;
     if (!userMessage.trim() || this.isStreaming) return;
     const texts = TEXTS[this.plugin.settings.language];
     this.history.messages.push({
@@ -11514,7 +10336,7 @@ var QueryModal = class extends import_obsidian6.Modal {
       statusIndicator.remove();
     };
     try {
-      if ((_a2 = this.plugin.llmClient) == null ? void 0 : _a2.createMessageStream) {
+      if ((_a = this.plugin.llmClient) == null ? void 0 : _a.createMessageStream) {
         let fullResponse = "";
         try {
           fullResponse = await this.plugin.llmClient.createMessageStream({
@@ -11527,7 +10349,8 @@ var QueryModal = class extends import_obsidian6.Modal {
               this.accumulatedResponse += chunk;
               this.renderMarkdownContent(this.accumulatedResponse, contentDiv);
               this.scrollToBottom();
-            }
+            },
+            disableThinking: this.plugin.settings.disableThinking
           });
           cleanupTimer();
         } catch (streamErr) {
@@ -11589,7 +10412,8 @@ var QueryModal = class extends import_obsidian6.Modal {
           model: this.plugin.settings.model,
           max_tokens: TOKENS_QUERY_LLM_SELECT,
           system: wikiContext,
-          messages: conversationMessages
+          messages: conversationMessages,
+          disableThinking: this.plugin.settings.disableThinking
         });
         if (this.aborted) {
           cleanupTimer();
@@ -11629,7 +10453,7 @@ var QueryModal = class extends import_obsidian6.Modal {
   finishGeneration(texts) {
     this.isStreaming = false;
     this.currentResponseDiv = null;
-    this.sendBtn.setText(`${texts.queryModalSendButton} (${import_obsidian6.Platform.isMacOS ? "Cmd" : "Ctrl"}+Enter)`);
+    this.sendBtn.setText(`${texts.queryModalSendButton} (${import_obsidian7.Platform.isMacOS ? "Cmd" : "Ctrl"}+Enter)`);
     this.sendBtn.className = "llm-wiki-query-send-btn";
     if (this.pendingInput) {
       this.inputArea.value = this.pendingInput;
@@ -11647,10 +10471,10 @@ var QueryModal = class extends import_obsidian6.Modal {
       this.activeRenderComponent.unload();
       this.activeRenderComponent = null;
     }
-    this.activeRenderComponent = new import_obsidian6.Component();
+    this.activeRenderComponent = new import_obsidian7.Component();
     this.activeRenderComponent.load();
     const sourcePath = this.plugin.settings.wikiFolder;
-    void import_obsidian6.MarkdownRenderer.render(
+    void import_obsidian7.MarkdownRenderer.render(
       this.app,
       content,
       container,
@@ -11712,7 +10536,7 @@ var QueryModal = class extends import_obsidian6.Modal {
       const keepCount = max * 2;
       this.history.messages = this.history.messages.slice(-keepCount);
       const texts = TEXTS[this.plugin.settings.language];
-      new import_obsidian6.Notice(
+      new import_obsidian7.Notice(
         texts.historyTruncated.replace("{max}", String(max)),
         3e3
       );
@@ -11725,7 +10549,7 @@ var QueryModal = class extends import_obsidian6.Modal {
   async saveToWiki() {
     if (this.history.messages.length === 0) return;
     const texts = TEXTS[this.plugin.settings.language];
-    const progressNotice = new import_obsidian6.Notice(texts.savingToWiki, 0);
+    const progressNotice = new import_obsidian7.Notice(texts.savingToWiki, 0);
     const origProgress = this.plugin.wikiEngine.getProgressCallback();
     this.plugin.wikiEngine.setProgressCallback((msg) => {
       progressNotice.setMessage(msg);
@@ -11736,13 +10560,13 @@ var QueryModal = class extends import_obsidian6.Modal {
       void this.plugin.saveSettings();
       const lang = this.plugin.settings.language;
       const summary = lang === "en" ? `${report.entitiesCreated} entities, ${report.conceptsCreated} concepts, ${report.createdPages.length} pages` : `${report.entitiesCreated} \u5B9E\u4F53, ${report.conceptsCreated} \u6982\u5FF5, ${report.createdPages.length} \u9875`;
-      new import_obsidian6.Notice(`${texts.saveToWikiSuccess}
+      new import_obsidian7.Notice(`${texts.saveToWikiSuccess}
 ${summary}`, NOTICE_NORMAL);
     } catch (error) {
       console.error("Save failed:", error);
       const errorMsg = error instanceof Error ? error.message : String(error);
       const texts2 = TEXTS[this.plugin.settings.language];
-      new import_obsidian6.Notice(texts2.queryModalErrorPrefix + errorMsg, NOTICE_ERROR);
+      new import_obsidian7.Notice(texts2.queryModalErrorPrefix + errorMsg, NOTICE_ERROR);
     } finally {
       progressNotice.hide();
       this.plugin.wikiEngine.setProgressCallback(origProgress);
@@ -11754,7 +10578,7 @@ ${summary}`, NOTICE_NORMAL);
     this.plugin.settings.queryHistory = [];
     void this.plugin.saveSettings();
     const texts = TEXTS[this.plugin.settings.language];
-    new import_obsidian6.Notice(texts.historyCleared, NOTICE_BRIEF);
+    new import_obsidian7.Notice(texts.historyCleared, NOTICE_BRIEF);
     const maxRounds = this.plugin.settings.maxConversationHistory;
     this.historyCountDisplay.setText(
       texts.queryModalHistoryCount.replace("{}", "0").replace("{}", maxRounds.toString())
@@ -11893,7 +10717,8 @@ Important:
         model: this.plugin.settings.model,
         max_tokens: TOKENS_QUERY_PAGE_SELECT,
         messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" }
+        response_format: { type: "json_object" },
+        disableThinking: this.plugin.settings.disableThinking
       });
       console.debug("[LLM] Raw response:", response);
       const parsed = await parseJsonResponse(response);
@@ -11939,7 +10764,7 @@ ${body}`);
 };
 
 // src/schema/schema-manager.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 var SCHEMA_FILENAME = "schema/config.md";
 var SUGGESTIONS_FILENAME = "schema/suggestions.md";
 var TASK_SECTIONS = {
@@ -11960,8 +10785,8 @@ function buildDefaultSchemaBody() {
 This file governs how the LLM builds and maintains your Wiki. Edit it freely.
 
 ## Wiki Structure
-- Entity pages: \`entities/\` (person, organization, project, product, event, location, other)
-- Concept pages: \`concepts/\` (theory, method, technology, term, other)
+- Entity pages: \`entities/\` (person, organization, project, product, event, place, other)
+- Concept pages: \`concepts/\` (theory, method, field, phenomenon, standard, term, other)
 - Source pages: \`sources/\`
 - Index: \`index.md\`
 - Log: \`log.md\`
@@ -11973,7 +10798,7 @@ Pages in \`entities/\` MUST follow this structure:
 - \`type: entity\` \u2014 page category (MUST be exactly "entity")
 - \`created:\` \u2014 ISO date of first creation
 - \`sources:\` \u2014 array of source file wiki-links
-- \`tags:\` \u2014 entity subtype, MUST be one of: person, organization, project, product, event, location, other
+- \`tags:\` \u2014 entity subtype, MUST be one of: person, organization, project, product, event, place, other
 - \`aliases:\` (optional) \u2014 alternative names (translations, abbreviations)
 - \`reviewed:\` (optional) \u2014 if true, page is human-verified and protected
 
@@ -11982,7 +10807,7 @@ Pages in \`entities/\` MUST follow this structure:
 2. **Description**: 3-6 sentences with concrete facts, bidirectional links
 3. **Related Entities**: Links to related entities using [[entities/...]]
 4. **Related Concepts**: Links to related concepts using [[concepts/...]]
-5. **Mentions in Source**: Verbatim quotes (2-4) from source, preserved in original language
+5. **Mentions in Source**: Verbatim quotes with source attribution \u2014 see [Mentions Format](#mentions-format) below
 
 ## Concept Page Template
 Pages in \`concepts/\` MUST follow this structure:
@@ -11991,7 +10816,7 @@ Pages in \`concepts/\` MUST follow this structure:
 - \`type: concept\` \u2014 page category (MUST be exactly "concept")
 - \`created:\` \u2014 ISO date of first creation
 - \`sources:\` \u2014 array of source file wiki-links
-- \`tags:\` \u2014 concept subtype, MUST be one of: theory, method, technology, term, other
+- \`tags:\` \u2014 concept subtype, MUST be one of: theory, method, field, phenomenon, standard, term, other
 - \`aliases:\` (optional) \u2014 alternative names (translations, abbreviations)
 - \`reviewed:\` (optional) \u2014 if true, page is human-verified and protected
 
@@ -12001,12 +10826,41 @@ Pages in \`concepts/\` MUST follow this structure:
 3. **Applications**: Real-world usage scenarios
 4. **Related Concepts**: Links using [[concepts/...]]
 5. **Related Entities**: Links using [[entities/...]]
-6. **Mentions in Source**: Verbatim quotes (2-4) from source, preserved in original language
+6. **Mentions in Source**: Verbatim quotes with source attribution \u2014 see [Mentions Format](#mentions-format) below
 
 ## Naming Conventions
 - Filenames: lowercase-with-hyphens (slugified)
 - Entity/concept names: Preserve original language from source, NEVER translate
 - Wiki-links: Use full paths [[entities/page-name|Display Name]] or [[concepts/page-name|Display Name]]
+
+## Source Page Template
+Pages in \`sources/\` MUST follow this structure:
+
+**Frontmatter fields:**
+- \`type: source\` \u2014 page category (MUST be exactly "source")
+- \`tags:\` \u2014 INHERITED from the source note's frontmatter (do NOT use LLM-derived concept names). The system programmatically populates this from the source file; the LLM must not overwrite it with extracted concept names. This preserves the user's existing tag vocabulary and prevents pollution from LLM hallucinations.
+- \`sources:\` \u2014 array of related wiki page links created from this source
+- \`created:\` / \`updated:\` \u2014 set by the system, see Date Fields below
+
+**Sections:**
+1. **Summary**: Brief description of the source content (2-4 sentences)
+2. **Key Points**: Bullet list of main insights
+3. **Mentioned Pages**: List of [[entities/...]] and [[concepts/...]] pages created from this source
+
+## Date Fields
+- \`created:\` and \`updated:\` are filled by the system programmatically \u2014 NEVER LLM-generated
+- The LLM may produce wrong dates during extraction; the system overrides them post-write to ensure correctness
+- \`created:\` is preserved on merge (older value kept); \`updated:\` is always set to the current date
+- \`source_note:\` (optional) \u2014 wiki-link to the original source file
+
+## Mentions Format
+"Mentions in Source" entries use academic-footnote style with source attribution. The format is:
+- "Verbatim quote in original language (optional translation)" \u2014 [[source-name|display-name]]
+
+Rules:
+- Quotes must be VERBATIM \u2014 never paraphrase, summarize, or translate away the original
+- The source wiki-link is required so future page merges can trace each quote to its origin
+- Multiple quotes from the same source go in the same block, separated by newlines
 
 ## Content Rules
 - mentions_in_source MUST be VERBATIM quotes \u2014 never paraphrase or translate
@@ -12017,8 +10871,8 @@ Pages in \`concepts/\` MUST follow this structure:
 ## Classification Rules
 - **type field:** entity | concept | source \u2014 the page category
 - **tags field:** stores the subtype (entity_type or concept_type)
-- Entity subtypes (valid tags for type=entity): person, organization, project, product, event, location, other
-- Concept subtypes (valid tags for type=concept): theory, method, technology, term, other
+- Entity subtypes (valid tags for type=entity): person, organization, project, product, event, place, other
+- Concept subtypes (valid tags for type=concept): theory, method, field, phenomenon, standard, term, other
 - Source types: document, conversation, note
 - **Rule:** tags MUST only contain values from the corresponding subtype list above. A tag not in the valid list will be removed by the system.
 
@@ -12111,7 +10965,7 @@ ${s.content}`).join("\n\n");
     }
     const path = this.getSchemaPath();
     const file = this.app.vault.getAbstractFileByPath(path);
-    if (!(file instanceof import_obsidian7.TFile)) return null;
+    if (!(file instanceof import_obsidian8.TFile)) return null;
     try {
       const content = await this.app.vault.read(file);
       const parsed = this.parseConfigFile(content);
@@ -12126,7 +10980,7 @@ ${s.content}`).join("\n\n");
   async ensureSchemaExists() {
     const path = this.getSchemaPath();
     const existing = this.app.vault.getAbstractFileByPath(path);
-    if (existing instanceof import_obsidian7.TFile) return;
+    if (existing instanceof import_obsidian8.TFile) return;
     const schemaFolder = `${this.settings.wikiFolder}/schema`;
     try {
       await this.app.vault.createFolder(schemaFolder);
@@ -12163,7 +11017,7 @@ ${body}`;
     } catch (e) {
     }
     const existing = this.app.vault.getAbstractFileByPath(path);
-    if (existing instanceof import_obsidian7.TFile) {
+    if (existing instanceof import_obsidian8.TFile) {
       await this.app.vault.process(existing, () => content);
     } else {
       await this.app.vault.create(path, content);
@@ -12237,7 +11091,7 @@ ${suggestion.suggestions}
 
 ---
 `;
-    if (existing instanceof import_obsidian7.TFile) {
+    if (existing instanceof import_obsidian8.TFile) {
       await this.app.vault.process(existing, (current) => current + "\n" + entry);
     } else {
       const header = `# Schema Suggestions
@@ -12253,7 +11107,7 @@ ${suggestion.suggestions}
 };
 
 // src/schema/auto-maintain.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 
 // src/core/sources-normalizer.ts
 function normalizeSourcePath(raw, wikiFolder) {
@@ -12410,7 +11264,7 @@ var AutoMaintainManager = class {
       this.watching = true;
       console.debug("AutoMaintain: File watcher started (create+rename+modify+resolved)");
       const texts = TEXTS[this.settings.language];
-      new import_obsidian8.Notice(texts.watcherActiveNotice, NOTICE_WATCHER);
+      new import_obsidian9.Notice(texts.watcherActiveNotice, NOTICE_WATCHER);
     });
   }
   stopWatching() {
@@ -12428,10 +11282,10 @@ var AutoMaintainManager = class {
     });
   }
   onFileChanged(file) {
-    var _a2;
+    var _a;
     if (!file) return;
-    console.debug(`[AutoMaintain] event: ${file.path}, TFile: ${file instanceof import_obsidian8.TFile}`);
-    if (!(file instanceof import_obsidian8.TFile)) return;
+    console.debug(`[AutoMaintain] event: ${file.path}, TFile: ${file instanceof import_obsidian9.TFile}`);
+    if (!(file instanceof import_obsidian9.TFile)) return;
     if (!file.path.endsWith(".md")) return;
     if (!this.isWatched(file.path)) {
       console.debug(`[AutoMaintain] SKIP: ${file.path} (not watched). Watched: ${JSON.stringify(this.settings.watchedFolders)}`);
@@ -12441,7 +11295,7 @@ var AutoMaintainManager = class {
       console.debug(`[AutoMaintain] SKIP: ${file.path} (recent write)`);
       return;
     }
-    const mtime = ((_a2 = file.stat) == null ? void 0 : _a2.mtime) || 0;
+    const mtime = ((_a = file.stat) == null ? void 0 : _a.mtime) || 0;
     const fileKey = `${file.path}::${mtime}`;
     if (this.lastSeenPaths.has(fileKey)) {
       console.debug(`[AutoMaintain] SKIP: ${file.path} (same mtime already seen)`);
@@ -12499,12 +11353,12 @@ var AutoMaintainManager = class {
     if (sourceFiles.length === 0) return;
     const texts = TEXTS[this.settings.language];
     if (this.settings.autoWatchMode === "notify") {
-      new import_obsidian8.Notice(
+      new import_obsidian9.Notice(
         texts.watchIngestNotice.replace("{count}", String(sourceFiles.length)),
         8e3
       );
     } else {
-      new import_obsidian8.Notice(texts.autoIngestRunning.replace("{count}", String(sourceFiles.length)), NOTICE_SHORT);
+      new import_obsidian9.Notice(texts.autoIngestRunning.replace("{count}", String(sourceFiles.length)), NOTICE_SHORT);
       let successCount = 0;
       let failCount = 0;
       for (const file of sourceFiles) {
@@ -12517,7 +11371,7 @@ var AutoMaintainManager = class {
           failCount++;
         }
       }
-      new import_obsidian8.Notice(
+      new import_obsidian9.Notice(
         texts.autoIngestComplete.replace("{success}", String(successCount)).replace("{fail}", String(failCount)),
         failCount > 0 ? 8e3 : 5e3
       );
@@ -12561,7 +11415,7 @@ var AutoMaintainManager = class {
       return;
     }
     const texts = TEXTS[this.settings.language];
-    new import_obsidian8.Notice(texts.scheduledLintRunning, NOTICE_SHORT);
+    new import_obsidian9.Notice(texts.scheduledLintRunning, NOTICE_SHORT);
     this.lastLintTimestamp = Date.now();
     if (this.lintCallback) {
       await this.lintCallback();
@@ -12570,7 +11424,7 @@ var AutoMaintainManager = class {
       const entities = pages.filter((p) => p.path.includes("/entities/")).length;
       const concepts = pages.filter((p) => p.path.includes("/concepts/")).length;
       const sources = pages.filter((p) => p.path.includes("/sources/")).length;
-      new import_obsidian8.Notice(
+      new import_obsidian9.Notice(
         texts.wikiLintStats.replace("{pages}", String(pages.length)).replace("{entities}", String(entities)).replace("{concepts}", String(concepts)).replace("{sources}", String(sources)),
         5e3
       );
@@ -12662,7 +11516,7 @@ ${texts.startupCheckDisableHint}`;
     console.debug(`[QuickFixes] Notice payload:
 ${summary.split("\n").map((l) => "  " + l).join("\n")}`);
     console.debug("[QuickFixes] ===== Startup quick fixes COMPLETE =====");
-    new import_obsidian8.Notice(summary, 1e4);
+    new import_obsidian9.Notice(summary, 1e4);
   }
   // === Full Stop ===
   stop() {
@@ -12674,7 +11528,7 @@ ${summary.split("\n").map((l) => "  " + l).join("\n")}`);
 };
 
 // src/wiki/lint-controller.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 
 // src/wiki/lint/duplicate-detection.ts
 function bigrams(s) {
@@ -12687,6 +11541,62 @@ function bigrams(s) {
 }
 function normalizeForMatch(s) {
   return s.toLowerCase().replace(/[\s\-_]+/g, "").replace(/[^a-z0-9一-鿿]/g, "");
+}
+var BODY_STOPWORDS = /* @__PURE__ */ new Set([
+  "also",
+  "are",
+  "been",
+  "being",
+  "both",
+  "but",
+  "can",
+  "could",
+  "did",
+  "does",
+  "each",
+  "from",
+  "had",
+  "has",
+  "have",
+  "into",
+  "its",
+  "may",
+  "might",
+  "must",
+  "not",
+  "only",
+  "other",
+  "our",
+  "shall",
+  "should",
+  "than",
+  "that",
+  "the",
+  "their",
+  "them",
+  "then",
+  "there",
+  "these",
+  "they",
+  "this",
+  "those",
+  "through",
+  "was",
+  "were",
+  "what",
+  "when",
+  "where",
+  "which",
+  "while",
+  "will",
+  "with",
+  "would",
+  "your"
+]);
+function bodyWordSet(text) {
+  return new Set(
+    text.toLowerCase().replace(/[^\w\s一-鿿]/g, " ").split(/\s+/).filter((w) => w.length > 3 && !BODY_STOPWORDS.has(w))
+  );
 }
 function computeJaccard(setA, setB) {
   if (setA.size === 0 || setB.size === 0) return 0;
@@ -12715,7 +11625,9 @@ async function generateDuplicateCandidates(pages) {
     while ((match = linkRegex.exec(body)) !== null) {
       links.add(match[1].trim().toLowerCase());
     }
-    metas.push({ path: page.path, title: page.title, aliases, links });
+    const bodyText = body.replace(/\[\[[^\]]+\]\]/g, "");
+    const bodyWords = bodyWordSet(bodyText);
+    metas.push({ path: page.path, title: page.title, aliases, links, bodyWords });
   }
   const candidates = /* @__PURE__ */ new Map();
   const addCandidate = (pathA, pathB, reason, signal, score) => {
@@ -12741,6 +11653,8 @@ async function generateDuplicateCandidates(pages) {
       if (a.links.size === 0 || b.links.size === 0) continue;
       const jaccard = computeJaccard(a.links, b.links);
       if (jaccard >= 0.4) {
+        const bodySim = computeJaccard(a.bodyWords, b.bodyWords);
+        if (bodySim < 0.2) continue;
         addCandidate(a.path, b.path, `Shared wiki-links (${Math.round(jaccard * 100)}% overlap)`, "sharedLinks", jaccard);
       }
     }
@@ -12791,104 +11705,132 @@ async function generateDuplicateCandidates(pages) {
       }
     }
   }
+  for (let i = 0; i < metas.length; i++) {
+    for (let j = i + 1; j < metas.length; j++) {
+      const a = metas[i], b = metas[j];
+      const lowerA = a.title.toLowerCase();
+      const lowerB = b.title.toLowerCase();
+      if (lowerA === lowerB && a.title !== b.title) {
+        const [canonical, variant] = a.title < b.title ? [a, b] : [b, a];
+        addCandidate(
+          canonical.path,
+          variant.path,
+          `Case-variant duplicate: "${a.title}" \u2194 "${b.title}"`,
+          "caseVariant",
+          0.9
+        );
+      }
+    }
+  }
   return Array.from(candidates.values());
 }
 
 // src/wiki/lint/fix-runners.ts
-var import_obsidian9 = require("obsidian");
-async function runAliasCompletion(ctx, aliasDeficientPages) {
-  var _a2, _b, _c;
+var import_obsidian10 = require("obsidian");
+function checkCancelled(signal) {
+  if (signal == null ? void 0 : signal.aborted) {
+    throw new DOMException("Lint cancelled by user", "AbortError");
+  }
+}
+async function runAliasCompletion(ctx, signal, aliasDeficientPages) {
+  var _a, _b, _c;
+  checkCancelled(signal);
   const client = ctx.llmClient;
   if (!client) return { filled: 0, results: [] };
   const t = TEXTS[ctx.settings.language];
-  const concurrency = (_a2 = ctx.settings.pageGenerationConcurrency) != null ? _a2 : 1;
+  const concurrency = (_a = ctx.settings.pageGenerationConcurrency) != null ? _a : 1;
   const totalBatches = Math.ceil(aliasDeficientPages.length / concurrency);
   console.debug(`[Alias] Starting alias completion \u2014 ${aliasDeficientPages.length} pages, concurrency=${concurrency}, batches=${totalBatches}`);
   let filled = 0;
   const results = [];
-  const fixNotice = new import_obsidian9.Notice("", 0);
+  const fixNotice = new import_obsidian10.Notice("", 0);
   const aliasStartTime = Date.now();
   const aliasFailures = [];
-  for (let i = 0; i < aliasDeficientPages.length; i += concurrency) {
-    const batch = aliasDeficientPages.slice(i, i + concurrency);
-    const batchNum = Math.floor(i / concurrency) + 1;
-    const batchStartTime = Date.now();
-    console.debug(`[Alias batch ${batchNum}/${totalBatches}] Processing ${batch.length} pages: ${batch.map((p) => p.basename).join(", ")}`);
-    const batchResults = await Promise.allSettled(
-      batch.map(async (page) => {
-        var _a3;
-        const pageRel = page.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        fixNotice.setMessage(t.lintAliasesFilling.replace("{current}", String(Math.min(i + batch.length, aliasDeficientPages.length))).replace("{total}", String(aliasDeficientPages.length)).replace("{page}", page.basename));
-        try {
-          const bodyMatch = page.content.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
-          const body = bodyMatch ? bodyMatch[1].trim() : "";
-          const prompt = PROMPTS.generateAliases.replace("{{title}}", page.basename).replace("{{body}}", body.substring(0, 2e3));
-          const response = await client.createMessage({
-            model: ctx.settings.model,
-            max_tokens: TOKENS_LINT_ALIAS_BATCH,
-            system: buildWikiLanguageDirective(ctx.settings),
-            messages: [{ role: "user", content: prompt }],
-            response_format: { type: "json_object" }
-          });
-          const parsed = await parseJsonResponse(response);
-          if ((_a3 = parsed == null ? void 0 : parsed.aliases) == null ? void 0 : _a3.length) {
-            console.debug(`[Alias] ${page.basename}: generated ${parsed.aliases.length} aliases \u2192 [${parsed.aliases.join(", ")}]`);
-            const fmEnd = page.content.indexOf("\n---", 3);
-            if (fmEnd !== -1) {
-              const aliasesYaml = "aliases:\n" + parsed.aliases.map((a) => `  - "${a}"`).join("\n");
-              const updated = page.content.substring(0, fmEnd) + "\n" + aliasesYaml + page.content.substring(fmEnd);
-              await ctx.app.vault.adapter.write(page.path, updated);
-              results.push(`- [[${pageRel}]]: added ${parsed.aliases.length} aliases`);
-              return { success: true, name: page.basename, count: parsed.aliases.length };
-            } else {
-              console.warn(`[Alias] ${page.basename}: frontmatter closing marker not found`);
+  try {
+    for (let i = 0; i < aliasDeficientPages.length; i += concurrency) {
+      checkCancelled(signal);
+      const batch = aliasDeficientPages.slice(i, i + concurrency);
+      const batchNum = Math.floor(i / concurrency) + 1;
+      const batchStartTime = Date.now();
+      console.debug(`[Alias batch ${batchNum}/${totalBatches}] Processing ${batch.length} pages: ${batch.map((p) => p.basename).join(", ")}`);
+      const batchResults = await Promise.allSettled(
+        batch.map(async (page) => {
+          var _a2;
+          const pageRel = page.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+          fixNotice.setMessage(t.lintAliasesFilling.replace("{current}", String(Math.min(i + batch.length, aliasDeficientPages.length))).replace("{total}", String(aliasDeficientPages.length)).replace("{page}", page.basename));
+          try {
+            const bodyMatch = page.content.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
+            const body = bodyMatch ? bodyMatch[1].trim() : "";
+            const prompt = PROMPTS.generateAliases.replace("{{title}}", page.basename).replace("{{body}}", body.substring(0, 2e3));
+            const response = await client.createMessage({
+              model: ctx.settings.model,
+              max_tokens: TOKENS_LINT_ALIAS_BATCH,
+              system: buildWikiLanguageDirective(ctx.settings),
+              messages: [{ role: "user", content: prompt }],
+              response_format: { type: "json_object" }
+            });
+            const parsed = await parseJsonResponse(response);
+            if ((_a2 = parsed == null ? void 0 : parsed.aliases) == null ? void 0 : _a2.length) {
+              console.debug(`[Alias] ${page.basename}: generated ${parsed.aliases.length} aliases \u2192 [${parsed.aliases.join(", ")}]`);
+              const fmEnd = page.content.indexOf("\n---", 3);
+              if (fmEnd !== -1) {
+                const aliasesYaml = "aliases:\n" + parsed.aliases.map((a) => `  - "${a}"`).join("\n");
+                const updated = page.content.substring(0, fmEnd) + "\n" + aliasesYaml + page.content.substring(fmEnd);
+                await ctx.app.vault.adapter.write(page.path, updated);
+                results.push(`- [[${pageRel}]]: added ${parsed.aliases.length} aliases`);
+                return { success: true, name: page.basename, count: parsed.aliases.length };
+              } else {
+                console.warn(`[Alias] ${page.basename}: frontmatter closing marker not found`);
+              }
             }
+            return { success: false, name: page.basename, reason: "No aliases generated" };
+          } catch (e) {
+            const errMsg2 = e instanceof Error ? e.message : String(e);
+            console.error(`[Alias] ${page.basename}: generation failed \u2014 ${errMsg2}`);
+            new import_obsidian10.Notice(t.lintAliasesFillFailed.replace("{page}", page.basename).replace("{error}", errMsg2), NOTICE_ERROR);
+            return { success: false, name: page.basename, reason: errMsg2 };
           }
-          return { success: false, name: page.basename, reason: "No aliases generated" };
-        } catch (e) {
-          const errMsg2 = e instanceof Error ? e.message : String(e);
-          console.error(`[Alias] ${page.basename}: generation failed \u2014 ${errMsg2}`);
-          new import_obsidian9.Notice(t.lintAliasesFillFailed.replace("{page}", page.basename).replace("{error}", errMsg2), NOTICE_ERROR);
-          return { success: false, name: page.basename, reason: errMsg2 };
-        }
-      })
-    );
-    let batchSuccess = 0;
-    let batchFail = 0;
-    for (const r of batchResults) {
-      if (r.status === "fulfilled" && r.value.success) {
-        filled++;
-        batchSuccess++;
-      } else {
-        batchFail++;
-        const failureName = r.status === "fulfilled" ? String(r.value.name || "unknown") : "promise-rejected";
-        const failureReason = r.status === "fulfilled" ? String(r.value.reason || "unknown") : r.reason instanceof Error ? r.reason.message : String(r.reason || "unknown");
-        aliasFailures.push({ name: failureName, reason: failureReason });
-        if (r.status === "rejected") {
-          console.error(`[Alias batch ${batchNum}] Promise rejected:`, r.reason);
+        })
+      );
+      let batchSuccess = 0;
+      let batchFail = 0;
+      for (const r of batchResults) {
+        if (r.status === "fulfilled" && r.value.success) {
+          filled++;
+          batchSuccess++;
+        } else {
+          batchFail++;
+          const failureName = r.status === "fulfilled" ? String(r.value.name || "unknown") : "promise-rejected";
+          const failureReason = r.status === "fulfilled" ? String(r.value.reason || "unknown") : r.reason instanceof Error ? r.reason.message : String(r.reason || "unknown");
+          aliasFailures.push({ name: failureName, reason: failureReason });
+          if (r.status === "rejected") {
+            console.error(`[Alias batch ${batchNum}] Promise rejected:`, r.reason);
+          }
         }
       }
+      const batchTime = Date.now() - batchStartTime;
+      console.debug(`[Alias batch ${batchNum}/${totalBatches}] Done \u2014 success=${batchSuccess}, fail=${batchFail}, time=${batchTime}ms`);
+      if (i + concurrency < aliasDeficientPages.length && ((_b = ctx.settings.batchDelayMs) != null ? _b : 300) > 0) {
+        await new Promise((resolve) => {
+          var _a2;
+          return window.setTimeout(resolve, (_a2 = ctx.settings.batchDelayMs) != null ? _a2 : 300);
+        });
+      }
     }
-    const batchTime = Date.now() - batchStartTime;
-    console.debug(`[Alias batch ${batchNum}/${totalBatches}] Done \u2014 success=${batchSuccess}, fail=${batchFail}, time=${batchTime}ms`);
-    if (i + concurrency < aliasDeficientPages.length && ((_b = ctx.settings.batchDelayMs) != null ? _b : 300) > 0) {
-      await new Promise((resolve) => {
-        var _a3;
-        return window.setTimeout(resolve, (_a3 = ctx.settings.batchDelayMs) != null ? _a3 : 300);
-      });
-    }
+  } finally {
+    fixNotice.hide();
   }
   const aliasRateInfo = detectRateLimitFailures(aliasFailures, concurrency, (_c = ctx.settings.batchDelayMs) != null ? _c : 300);
   if (aliasRateInfo) {
     console.warn(`[Alias Rate Limit] ${aliasRateInfo.count} alias generation(s) failed with 429, suggested concurrency=${aliasRateInfo.suggestedConcurrency}, delay=${aliasRateInfo.suggestedDelay}ms`);
-    new import_obsidian9.Notice(formatRateLimitNotice(aliasRateInfo, ctx.settings.language), NOTICE_RATE_LIMIT);
+    new import_obsidian10.Notice(formatRateLimitNotice(aliasRateInfo, ctx.settings.language), NOTICE_RATE_LIMIT);
   }
-  fixNotice.hide();
   const totalTime = Date.now() - aliasStartTime;
   console.debug(`[Alias] All done \u2014 success=${filled}, fail=${aliasDeficientPages.length - filled}, totalTime=${totalTime}ms`);
   return { filled, results };
 }
-async function runDeadLinkFixes(ctx, deadLinks) {
+async function runDeadLinkFixes(ctx, signal, deadLinks) {
+  checkCancelled(signal);
   const t = TEXTS[ctx.settings.language];
   const seen = /* @__PURE__ */ new Set();
   const unique = deadLinks.filter((dl) => {
@@ -12899,98 +11841,217 @@ async function runDeadLinkFixes(ctx, deadLinks) {
   });
   let fixed = 0;
   const results = [];
-  const fixNotice = new import_obsidian9.Notice("", 0);
-  for (let i = 0; i < unique.length; i++) {
-    const dl = unique[i];
-    fixNotice.setMessage(t.lintFixProgress.replace("{current}", String(i + 1)).replace("{total}", String(unique.length)).replace("{target}", dl.target));
-    console.debug(`lintFix: dead link ${i + 1}/${unique.length}: ${dl.source} -> ${dl.target}`);
-    try {
-      const sourcePath = `${ctx.settings.wikiFolder}/${dl.source}.md`;
-      const result = await ctx.wikiEngine.fixDeadLink(sourcePath, dl.target);
-      console.debug(`Dead link fix: ${dl.source} -> ${dl.target}: ${result}`);
-      if (!result.includes(t.lintFixNoAction)) {
-        fixed++;
-        results.push(`- [[${dl.source}]]: \`[[${dl.target}]]\` \u2192 ${result}`);
+  const fixNotice = new import_obsidian10.Notice("", 0);
+  try {
+    for (let i = 0; i < unique.length; i++) {
+      checkCancelled(signal);
+      const dl = unique[i];
+      fixNotice.setMessage(t.lintFixProgress.replace("{current}", String(i + 1)).replace("{total}", String(unique.length)).replace("{target}", dl.target));
+      console.debug(`lintFix: dead link ${i + 1}/${unique.length}: ${dl.source} -> ${dl.target}`);
+      try {
+        const sourcePath = `${ctx.settings.wikiFolder}/${dl.source}.md`;
+        const result = await ctx.wikiEngine.fixDeadLink(sourcePath, dl.target);
+        console.debug(`Dead link fix: ${dl.source} -> ${dl.target}: ${result}`);
+        if (!result.includes(t.lintFixNoAction)) {
+          fixed++;
+          results.push(`- [[${dl.source}]]: \`[[${dl.target}]]\` \u2192 ${result}`);
+        }
+      } catch (e) {
+        console.error(`Failed to fix dead link: ${dl.source} -> ${dl.target}`, e);
+        const errMsg2 = e instanceof Error ? e.message : String(e);
+        new import_obsidian10.Notice(t.lintFixItemFailed.replace("{target}", dl.target).replace("{error}", errMsg2), NOTICE_ERROR);
       }
-    } catch (e) {
-      console.error(`Failed to fix dead link: ${dl.source} -> ${dl.target}`, e);
-      const errMsg2 = e instanceof Error ? e.message : String(e);
-      new import_obsidian9.Notice(t.lintFixItemFailed.replace("{target}", dl.target).replace("{error}", errMsg2), NOTICE_ERROR);
     }
+  } finally {
+    fixNotice.hide();
   }
-  fixNotice.hide();
   return { fixed, results };
 }
-async function runEmptyPageFixes(ctx, emptyPages) {
+async function runEmptyPageFixes(ctx, signal, emptyPages) {
+  checkCancelled(signal);
   const t = TEXTS[ctx.settings.language];
   let filled = 0;
   const results = [];
-  const fixNotice = new import_obsidian9.Notice("", 0);
-  for (let i = 0; i < emptyPages.length; i++) {
-    const ep = emptyPages[i];
-    fixNotice.setMessage(t.lintFillProgress.replace("{current}", String(i + 1)).replace("{total}", String(emptyPages.length)).replace("{page}", ep.path));
-    console.debug(`lintFix: fill empty page ${i + 1}/${emptyPages.length}: ${ep.path}`);
-    try {
-      const summary = await ctx.wikiEngine.fillEmptyPage(ep.path, ep.content);
-      filled++;
-      results.push(`- ${summary}`);
-    } catch (e) {
-      console.error(`Failed to expand empty page: ${ep.path}`, e);
-      const errMsg2 = e instanceof Error ? e.message : String(e);
-      new import_obsidian9.Notice(t.lintFillFailed.replace("{page}", ep.path).replace("{error}", errMsg2), NOTICE_ERROR);
+  const fixNotice = new import_obsidian10.Notice("", 0);
+  try {
+    for (let i = 0; i < emptyPages.length; i++) {
+      checkCancelled(signal);
+      const ep = emptyPages[i];
+      fixNotice.setMessage(t.lintFillProgress.replace("{current}", String(i + 1)).replace("{total}", String(emptyPages.length)).replace("{page}", ep.path));
+      console.debug(`lintFix: fill empty page ${i + 1}/${emptyPages.length}: ${ep.path}`);
+      try {
+        const summary = await ctx.wikiEngine.fillEmptyPage(ep.path, ep.content);
+        filled++;
+        results.push(`- ${summary}`);
+      } catch (e) {
+        console.error(`Failed to expand empty page: ${ep.path}`, e);
+        const errMsg2 = e instanceof Error ? e.message : String(e);
+        new import_obsidian10.Notice(t.lintFillFailed.replace("{page}", ep.path).replace("{error}", errMsg2), NOTICE_ERROR);
+      }
     }
+  } finally {
+    fixNotice.hide();
   }
-  fixNotice.hide();
   return { filled, results };
 }
-async function runOrphanFixes(ctx, orphans) {
+async function runOrphanFixes(ctx, signal, orphans) {
+  checkCancelled(signal);
   const t = TEXTS[ctx.settings.language];
   const results = [];
-  const fixNotice = new import_obsidian9.Notice("", 0);
-  for (let i = 0; i < orphans.length; i++) {
-    const op = orphans[i];
-    const opRel = op.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-    fixNotice.setMessage(t.lintLinkProgress.replace("{current}", String(i + 1)).replace("{total}", String(orphans.length)).replace("{page}", opRel));
-    console.debug(`lintFix: link orphan ${i + 1}/${orphans.length}: ${op}`);
-    try {
-      const linkedPages = await ctx.wikiEngine.linkOrphanPage(op);
-      if (linkedPages.length > 0) {
-        results.push(`- [[${opRel}]] linked from: ${linkedPages.map((p) => `[[${p}]]`).join(", ")}`);
-      } else {
-        results.push(`- [[${opRel}]]: no suitable linking targets found`);
+  const fixNotice = new import_obsidian10.Notice("", 0);
+  try {
+    for (let i = 0; i < orphans.length; i++) {
+      checkCancelled(signal);
+      const op = orphans[i];
+      const opRel = op.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+      fixNotice.setMessage(t.lintLinkProgress.replace("{current}", String(i + 1)).replace("{total}", String(orphans.length)).replace("{page}", opRel));
+      console.debug(`lintFix: link orphan ${i + 1}/${orphans.length}: ${op}`);
+      try {
+        const linkedPages = await ctx.wikiEngine.linkOrphanPage(op);
+        if (linkedPages.length > 0) {
+          results.push(`- [[${opRel}]] linked from: ${linkedPages.map((p) => `[[${p}]]`).join(", ")}`);
+        } else {
+          results.push(`- [[${opRel}]]: no suitable linking targets found`);
+        }
+      } catch (e) {
+        console.error(`Failed to link orphan: ${op}`, e);
+        const errMsg2 = e instanceof Error ? e.message : String(e);
+        new import_obsidian10.Notice(t.lintLinkItemFailed.replace("{page}", opRel).replace("{error}", errMsg2), NOTICE_ERROR);
       }
-    } catch (e) {
-      console.error(`Failed to link orphan: ${op}`, e);
-      const errMsg2 = e instanceof Error ? e.message : String(e);
-      new import_obsidian9.Notice(t.lintLinkItemFailed.replace("{page}", opRel).replace("{error}", errMsg2), NOTICE_ERROR);
     }
+  } finally {
+    fixNotice.hide();
   }
-  fixNotice.hide();
   return { linked: results.length, results };
 }
-async function runDuplicateMerges(ctx, duplicates) {
+async function runDuplicateMerges(ctx, signal, duplicates) {
+  checkCancelled(signal);
   const t = TEXTS[ctx.settings.language];
   let merged = 0;
   const results = [];
-  const fixNotice = new import_obsidian9.Notice("", 0);
-  for (let i = 0; i < duplicates.length; i++) {
-    const d = duplicates[i];
-    const sourceRel = d.source.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-    const targetRel = d.target.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-    fixNotice.setMessage(t.lintMergeProgress.replace("{current}", String(i + 1)).replace("{total}", String(duplicates.length)).replace("{source}", sourceRel).replace("{target}", targetRel));
-    console.debug(`lintFix: merge duplicates ${i + 1}/${duplicates.length}: ${d.source} \u2192 ${d.target}`);
-    try {
-      const result = await ctx.wikiEngine.mergeDuplicatePages(d.target, d.source);
-      merged++;
-      results.push(`- ${d.source} \u2192 ${d.target}: ${result}`);
-    } catch (e) {
-      console.error(`Failed to merge duplicates: ${d.source} \u2192 ${d.target}`, e);
-      const errMsg2 = e instanceof Error ? e.message : String(e);
-      new import_obsidian9.Notice(t.lintMergeItemFailed.replace("{source}", sourceRel).replace("{target}", targetRel).replace("{error}", errMsg2), NOTICE_ERROR);
+  const fixNotice = new import_obsidian10.Notice("", 0);
+  try {
+    for (let i = 0; i < duplicates.length; i++) {
+      checkCancelled(signal);
+      const d = duplicates[i];
+      const sourceRel = d.source.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+      const targetRel = d.target.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+      fixNotice.setMessage(t.lintMergeProgress.replace("{current}", String(i + 1)).replace("{total}", String(duplicates.length)).replace("{source}", sourceRel).replace("{target}", targetRel));
+      console.debug(`lintFix: merge duplicates ${i + 1}/${duplicates.length}: ${d.source} \u2192 ${d.target}`);
+      try {
+        const result = await ctx.wikiEngine.mergeDuplicatePages(d.target, d.source);
+        merged++;
+        results.push(`- ${d.source} \u2192 ${d.target}: ${result}`);
+      } catch (e) {
+        console.error(`Failed to merge duplicates: ${d.source} \u2192 ${d.target}`, e);
+        const errMsg2 = e instanceof Error ? e.message : String(e);
+        new import_obsidian10.Notice(t.lintMergeItemFailed.replace("{source}", sourceRel).replace("{target}", targetRel).replace("{error}", errMsg2), NOTICE_ERROR);
+      }
     }
+  } finally {
+    fixNotice.hide();
   }
-  fixNotice.hide();
   return { merged, results };
+}
+async function runRetagViolations(ctx, signal, violations) {
+  if (signal == null ? void 0 : signal.aborted) {
+    throw new DOMException("Lint fix cancelled by user", "AbortError");
+  }
+  if (!ctx.llmClient) {
+    return { fixed: 0, results: ["LLM client not initialized; retag skipped."] };
+  }
+  const t = TEXTS[ctx.settings.language];
+  const fixNotice = new import_obsidian10.Notice(t.lintTagViolationFiring.replace("{current}", "0").replace("{total}", String(violations.length)).replace("{path}", ""), 0);
+  const results = [];
+  let fixed = 0;
+  try {
+    for (let i = 0; i < violations.length; i++) {
+      if (signal == null ? void 0 : signal.aborted) {
+        throw new DOMException("Lint fix cancelled by user", "AbortError");
+      }
+      const v = violations[i];
+      fixNotice.setMessage(t.lintTagViolationFiring.replace("{current}", String(i + 1)).replace("{total}", String(violations.length)).replace("{path}", v.path));
+      try {
+        const file = ctx.app.vault.getAbstractFileByPath(v.path);
+        if (!file) {
+          results.push(`${v.path}: file not found`);
+          continue;
+        }
+        if (!(file instanceof import_obsidian10.TFile)) {
+          results.push(`${v.path}: not a regular file`);
+          continue;
+        }
+        const content = await ctx.app.vault.read(file);
+        const fmEnd = content.indexOf("\n---\n", 3);
+        const body = fmEnd === -1 ? content : content.substring(fmEnd + 5);
+        const bodyPreview = body.slice(0, 400).replace(/\n+/g, " ").trim();
+        const validVocab = v.pageType === "entity" ? getActiveEntityTags(ctx.settings) : v.pageType === "concept" ? getActiveConceptTags(ctx.settings) : getActiveSourceTags(ctx.settings);
+        const prompt = appendTagVocabularyToPrompt(
+          `You are retagging a wiki page whose current tags fall outside the active vocabulary.
+
+Page name: ${v.title}
+Page type: ${v.pageType}
+Current tags (some are invalid): [${v.currentTags.join(", ")}]
+Invalid tags: [${v.invalidTags.join(", ")}]
+
+Page summary (first 400 chars of body):
+${bodyPreview}
+
+Task: Return a JSON object with a single field "tags" that is an array of strings.
+- Each value MUST be one of the allowed values listed in the Active Tag Vocabulary section below.
+- The values should be the closest valid matches for what this page is actually about.
+- Do NOT include any other fields. Do NOT include any explanatory text.
+- If the page is genuinely about nothing in the vocabulary, return an empty array.
+`,
+          ctx.settings
+        );
+        const response = await ctx.llmClient.createMessage({
+          model: ctx.settings.model,
+          max_tokens: 256,
+          messages: [{ role: "user", content: prompt }]
+        });
+        if (signal == null ? void 0 : signal.aborted) {
+          throw new DOMException("Lint fix cancelled by user", "AbortError");
+        }
+        const parsed = await parseJsonResponse(response);
+        const newTags = Array.isArray(parsed == null ? void 0 : parsed.tags) ? parsed.tags.map((t2) => String(t2).trim()).filter((t2) => t2.length > 0) : [];
+        const safeNewTags = newTags.filter((t2) => validVocab.includes(t2));
+        if (safeNewTags.length === 0) {
+          results.push(`${v.path}: LLM kept no tags (no valid match)`);
+          continue;
+        }
+        if (safeNewTags.length === v.currentTags.length && safeNewTags.every((t2) => v.currentTags.includes(t2))) {
+          results.push(`${v.path}: no change`);
+          continue;
+        }
+        const updated = enforceFrontmatterConstraints(
+          content,
+          // original content; only the tags: line will change
+          v.pageType,
+          ctx.settings
+        );
+        const rewritten = updated.replace(
+          /tags:\s*\[[^\]]*\]/,
+          `tags: [${safeNewTags.join(", ")}]`
+        );
+        await ctx.app.vault.adapter.write(v.path, rewritten);
+        fixed++;
+        results.push(`${v.path}: [${v.currentTags.join(", ")}] \u2192 [${safeNewTags.join(", ")}]`);
+      } catch (e) {
+        if (e instanceof DOMException && e.name === "AbortError") throw e;
+        const errMsg2 = e instanceof Error ? e.message : String(e);
+        console.error(
+          `[runRetagViolations] ${v.path} (${v.pageType}) failed:`,
+          e
+        );
+        results.push(`${v.path}: ${errMsg2}`);
+        new import_obsidian10.Notice(t.lintTagViolationFailed.replace("{path}", v.path).replace("{error}", errMsg2), NOTICE_ERROR);
+      }
+    }
+  } finally {
+    fixNotice.hide();
+  }
+  return { fixed, results };
 }
 
 // src/wiki/lint/scanners.ts
@@ -13034,16 +12095,26 @@ function detectAliasDeficiency(wikiFiles, pageMap) {
 }
 function scanDeadLinks(pageMap, knownTargets, knownTargetsLower, wikiFolder) {
   const deadLinks = [];
+  const seen = /* @__PURE__ */ new Set();
   const linkRegex = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
   for (const { path, content } of pageMap.values()) {
     let match;
     while ((match = linkRegex.exec(content)) !== null) {
       const target = match[1].trim();
-      if (!knownTargets.has(target) && !knownTargetsLower.has(target.toLowerCase())) {
-        deadLinks.push({
-          source: path.replace(wikiFolder + "/", "").replace(".md", ""),
-          target
-        });
+      const targetLower = target.toLowerCase();
+      if (!knownTargets.has(target) && !knownTargetsLower.has(targetLower)) {
+        const parts = target.split("/");
+        const sluggedBasename = parts[parts.length - 1].replace(/\s+/g, "-");
+        const sluggedTarget = [...parts.slice(0, -1), sluggedBasename].join("/");
+        const isSlugMatch = sluggedTarget !== target && (knownTargets.has(sluggedTarget) || knownTargetsLower.has(sluggedTarget.toLowerCase()));
+        if (!isSlugMatch) {
+          const source = path.replace(wikiFolder + "/", "").replace(".md", "");
+          const key = `${source}::${target}`;
+          if (!seen.has(key)) {
+            seen.add(key);
+            deadLinks.push({ source, target });
+          }
+        }
       }
     }
     linkRegex.lastIndex = 0;
@@ -13081,20 +12152,55 @@ function scanOrphans(pageMap, wikiFolder) {
   }
   return orphans;
 }
+function scanTagViolations(pageMap, settings) {
+  const validEntity = new Set(getActiveEntityTags(settings));
+  const validConcept = new Set(getActiveConceptTags(settings));
+  const validSource = new Set(getActiveSourceTags(settings));
+  const violations = [];
+  for (const [path, page] of pageMap) {
+    const fm = parseFrontmatter(page.content);
+    if (!fm) continue;
+    const pageType = fm.type;
+    if (pageType !== "entity" && pageType !== "concept" && pageType !== "source") continue;
+    const validSet = pageType === "entity" ? validEntity : pageType === "concept" ? validConcept : validSource;
+    const rawTags = fm.tags;
+    let currentTags;
+    if (Array.isArray(rawTags)) {
+      currentTags = rawTags.map((t) => String(t).trim()).filter((t) => t.length > 0);
+    } else if (typeof rawTags === "string" && rawTags.length > 0) {
+      currentTags = [rawTags.trim()];
+    } else {
+      continue;
+    }
+    const invalidTags = currentTags.filter((t) => !validSet.has(t));
+    if (invalidTags.length > 0) {
+      violations.push({
+        path,
+        pageType,
+        title: typeof fm.title === "string" ? fm.title : page.basename.replace(/\.md$/, ""),
+        currentTags,
+        invalidTags
+      });
+    }
+  }
+  violations.sort((a, b) => a.path.localeCompare(b.path));
+  return violations;
+}
 
 // src/wiki/lint-controller.ts
 async function runLintWiki(ctx, signal) {
-  var _a2;
+  var _a;
   if (!ctx.llmClient) {
-    new import_obsidian10.Notice(TEXTS[ctx.settings.language].errorNoApiKey);
+    new import_obsidian11.Notice(TEXTS[ctx.settings.language].errorNoApiKey);
     return;
   }
-  const checkCancelled = () => {
+  const checkCancelled2 = () => {
     if (signal == null ? void 0 : signal.aborted) {
       throw new DOMException("Lint cancelled by user", "AbortError");
     }
   };
-  new import_obsidian10.Notice(TEXTS[ctx.settings.language].lintWikiStart);
+  new import_obsidian11.Notice(TEXTS[ctx.settings.language].lintWikiStart);
+  const lintStartTime = Date.now();
   let stageNotice = null;
   try {
     const wikiFiles = ctx.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(ctx.settings.wikiFolder) && !f.path.includes("index.md") && !f.path.includes("log.md") && !f.path.includes("/schema/") && !f.path.includes("/contradictions/"));
@@ -13102,13 +12208,13 @@ async function runLintWiki(ctx, signal) {
     const { known: knownTargets, knownLower: knownTargetsLower } = buildKnownTargets(allVaultFiles);
     const t = TEXTS[ctx.settings.language];
     const pageMap = /* @__PURE__ */ new Map();
-    stageNotice = new import_obsidian10.Notice("", 0);
+    stageNotice = new import_obsidian11.Notice("", 0);
     stageNotice.setMessage(t.lintReadingPages.replace("{count}", String(wikiFiles.length)));
     console.debug(`lintWiki: reading ${wikiFiles.length} wiki pages in parallel`);
     const totalPages = wikiFiles.length;
     const BATCH_READ = 200;
     for (let i = 0; i < wikiFiles.length; i += BATCH_READ) {
-      checkCancelled();
+      checkCancelled2();
       const batch = wikiFiles.slice(i, i + BATCH_READ);
       const batchResults = await Promise.all(
         batch.map(async (file) => {
@@ -13126,7 +12232,7 @@ async function runLintWiki(ctx, signal) {
     let doubleNestFixes = 0;
     for (const [path, info] of pageMap) {
       const abstractFile = ctx.app.vault.getAbstractFileByPath(path);
-      if (abstractFile instanceof import_obsidian10.TFile) {
+      if (abstractFile instanceof import_obsidian11.TFile) {
         await ctx.app.vault.process(abstractFile, (data) => {
           const { fixed, content } = fixDoubleNestedWikiLinks(data);
           if (fixed > 0) {
@@ -13140,7 +12246,7 @@ async function runLintWiki(ctx, signal) {
     }
     const logPath = `${ctx.settings.wikiFolder}/log.md`;
     const logFile = ctx.app.vault.getAbstractFileByPath(logPath);
-    if (logFile instanceof import_obsidian10.TFile) {
+    if (logFile instanceof import_obsidian11.TFile) {
       await ctx.app.vault.process(logFile, (data) => {
         const { fixed, content } = fixDoubleNestedWikiLinks(data);
         if (fixed > 0) {
@@ -13158,7 +12264,7 @@ async function runLintWiki(ctx, signal) {
     for (const [path, info] of pageMap) {
       if (!scanPollutedSources(info.content, ctx.settings.wikiFolder)) continue;
       const abstractFile = ctx.app.vault.getAbstractFileByPath(path);
-      if (abstractFile instanceof import_obsidian10.TFile) {
+      if (abstractFile instanceof import_obsidian11.TFile) {
         const { fixed, content } = fixPollutedSources(info.content, ctx.settings.wikiFolder);
         if (fixed > 0) {
           await ctx.app.vault.process(abstractFile, () => content);
@@ -13192,7 +12298,7 @@ async function runLintWiki(ctx, signal) {
         const tier1 = [];
         const tier2 = [];
         for (const c of allCandidates) {
-          if (c.signal === "crossLang") {
+          if (c.signal === "crossLang" || c.signal === "caseVariant") {
             tier1.push(c);
           } else if (c.signal === "bigram") {
             (c.score >= 0.6 ? tier1 : tier2).push(c);
@@ -13230,12 +12336,15 @@ async function runLintWiki(ctx, signal) {
           const allDuplicates = [];
           const dedupFailures = [];
           for (let i = 0; i < batches.length; i += concurrency) {
-            checkCancelled();
+            checkCancelled2();
             const chunk = batches.slice(i, i + concurrency);
-            stageNotice.setMessage(`Checking duplicates: batch ${Math.floor(i / concurrency) + 1}/${Math.ceil(batches.length / concurrency)}...`);
+            const batchStart = i + 1;
+            const batchEnd = Math.min(i + concurrency, batches.length);
+            const progressLabel = batchEnd > batchStart ? `${batchStart}-${batchEnd}/${batches.length}` : `${batchStart}/${batches.length}`;
+            stageNotice.setMessage(t.lintCheckingDuplicatesProgress.replace("{current}", progressLabel));
             const results = await Promise.allSettled(
               chunk.map(async (batch, bi) => {
-                var _a3;
+                var _a2;
                 const batchNum = i + bi + 1;
                 const candidateList = batch.map(
                   (c) => `- Candidate A: ${c.target}
@@ -13248,10 +12357,11 @@ async function runLintWiki(ctx, signal) {
                   model: ctx.settings.model,
                   max_tokens: TOKENS_LINT_DEDUP_LLM,
                   messages: [{ role: "user", content: dedupPrompt }],
-                  response_format: { type: "json_object" }
+                  response_format: { type: "json_object" },
+                  disableThinking: ctx.settings.disableThinking
                 });
                 const dedupResult = await parseJsonResponse(dedupResponse);
-                console.debug(`lintWiki: batch ${batchNum}/${batches.length} \u2192 ${((_a3 = dedupResult == null ? void 0 : dedupResult.duplicates) == null ? void 0 : _a3.length) || 0} duplicates confirmed`);
+                console.debug(`lintWiki: batch ${batchNum}/${batches.length} \u2192 ${((_a2 = dedupResult == null ? void 0 : dedupResult.duplicates) == null ? void 0 : _a2.length) || 0} duplicates confirmed`);
                 const rawDups = dedupResult == null ? void 0 : dedupResult.duplicates;
                 return Array.isArray(rawDups) ? rawDups : [];
               })
@@ -13270,10 +12380,10 @@ async function runLintWiki(ctx, signal) {
               }
             }
           }
-          const dedupRateInfo = detectRateLimitFailures(dedupFailures, concurrency, (_a2 = ctx.settings.batchDelayMs) != null ? _a2 : 300);
+          const dedupRateInfo = detectRateLimitFailures(dedupFailures, concurrency, (_a = ctx.settings.batchDelayMs) != null ? _a : 300);
           if (dedupRateInfo) {
             console.warn(`[Duplicate Rate Limit] ${dedupRateInfo.count} duplicate detection batch(es) failed with 429, suggested concurrency=${dedupRateInfo.suggestedConcurrency}, delay=${dedupRateInfo.suggestedDelay}ms`);
-            new import_obsidian10.Notice(formatRateLimitNotice(dedupRateInfo, ctx.settings.language), NOTICE_RATE_LIMIT);
+            new import_obsidian11.Notice(formatRateLimitNotice(dedupRateInfo, ctx.settings.language), NOTICE_RATE_LIMIT);
           }
           duplicates = allDuplicates;
           console.debug(`lintWiki: LLM confirmed ${duplicates.length} duplicate pairs total`);
@@ -13281,7 +12391,7 @@ async function runLintWiki(ctx, signal) {
       } catch (e) {
         console.error("Duplicate detection failed:", e);
         const errMsg2 = e instanceof Error ? e.message : String(e);
-        const errNotice = new import_obsidian10.Notice(t.lintDuplicateCheckFailedDetail.replace("{step}", "Layer 3 (LLM verify)").replace("{error}", errMsg2), 0);
+        const errNotice = new import_obsidian11.Notice(t.lintDuplicateCheckFailedDetail.replace("{step}", "Layer 3 (LLM verify)").replace("{error}", errMsg2), 0);
         window.setTimeout(() => errNotice.hide(), NOTICE_RATE_LIMIT);
       }
     }
@@ -13302,9 +12412,10 @@ async function runLintWiki(ctx, signal) {
       }
     }
     const orphans = scanOrphans(pageMap, ctx.settings.wikiFolder);
+    const tagViolations = scanTagViolations(pageMap, ctx.settings);
     let progReport = "";
     if (aliasDeficientPages.length > 0) {
-      progReport += `## ${t.lintAliasesSection}
+      progReport += `## ${t.lintAliasesSection.replace("{count}", String(aliasDeficientPages.length))}
 
 `;
       for (const p of aliasDeficientPages) {
@@ -13313,7 +12424,7 @@ async function runLintWiki(ctx, signal) {
       progReport += "\n";
     }
     if (duplicates.length > 0) {
-      progReport += `## ${t.lintDuplicateSection}
+      progReport += `## ${t.lintDuplicateSection.replace("{count}", String(duplicates.length))}
 
 `;
       for (const d of duplicates) {
@@ -13325,28 +12436,38 @@ async function runLintWiki(ctx, signal) {
     }
     let deadLinkFromDup = 0;
     if (deadLinks.length > 0) {
-      progReport += `## ${t.lintDeadLinkSection}
-
-`;
-      const showDead = deadLinks.slice(0, 20);
-      for (const dl of showDead) {
+      const deadLinkLines = [];
+      for (const dl of deadLinks) {
         const sourcePath = `${ctx.settings.wikiFolder}/${dl.source}.md`;
         const targetPath = `${ctx.settings.wikiFolder}/${dl.target}.md`;
         const involvesDup = duplicatePaths.has(sourcePath) || duplicatePaths.has(targetPath);
         if (involvesDup) deadLinkFromDup++;
         const dupFlag = involvesDup ? t.lintDeadLinkAffectedByDup : "";
-        progReport += t.lintDeadLinkItem.replace("{source}", dl.source).replace("{target}", dl.target).replace("{dupFlag}", dupFlag) + "\n";
+        deadLinkLines.push(t.lintDeadLinkItem.replace("{source}", dl.source).replace("{target}", dl.target).replace("{dupFlag}", dupFlag));
       }
-      if (deadLinks.length > 20) progReport += t.lintDeadLinkMore.replace("{count}", String(deadLinks.length)) + "\n";
-      progReport += "\n";
+      progReport += `## ${t.lintDeadLinkSection.replace("{count}", String(deadLinks.length))}
+
+${deadLinkLines.join("\n")}
+
+`;
     }
     if (emptyPages.length > 0) {
-      progReport += `## ${t.lintEmptyPageSection}
+      progReport += `## ${t.lintEmptyPageSection.replace("{count}", String(emptyPages.length))}
 
 `;
       for (const ep of emptyPages) {
         const epRel = ep.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
         progReport += t.lintEmptyPageItem.replace("{page}", epRel) + "\n";
+      }
+      progReport += "\n";
+    }
+    if (tagViolations.length > 0) {
+      progReport += `## ${t.lintTagViolationSection.replace("{count}", String(tagViolations.length))}
+
+`;
+      for (const v of tagViolations) {
+        const pathRel = v.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+        progReport += t.lintTagViolationItem.replace("{path}", pathRel).replace("{tags}", v.invalidTags.join(", ")) + "\n";
       }
       progReport += "\n";
     }
@@ -13362,7 +12483,7 @@ async function runLintWiki(ctx, signal) {
       }
     }
     if (pollutedPages.length > 0) {
-      progReport += `## ${t.lintPollutedSection}
+      progReport += `## ${t.lintPollutedSection.replace("{count}", String(pollutedPages.length))}
 
 `;
       for (const pp of pollutedPages) {
@@ -13379,7 +12500,7 @@ async function runLintWiki(ctx, signal) {
     }
     let orphanFromDup = 0;
     if (orphans.length > 0) {
-      progReport += `## ${t.lintOrphanSection}
+      progReport += `## ${t.lintOrphanSection.replace("{count}", String(orphans.length))}
 
 `;
       for (const op of orphans) {
@@ -13440,16 +12561,24 @@ ${body}
 `;
       }
     }
-    const prompt = t.lintAnalysisPrompt.replace("{index}", indexContent).replace("{total}", String(wikiFiles.length)).replace("{sample}", String(samplePages.length)).replace("{contentSample}", contentSample).replace("{progReport}", progReport || "No issues detected by programmatic checks.");
+    const prompt = appendTagVocabularyToPrompt(
+      appendGranularityToPrompt(
+        t.lintAnalysisPrompt.replace("{index}", indexContent).replace("{total}", String(wikiFiles.length)).replace("{sample}", String(samplePages.length)).replace("{contentSample}", contentSample).replace("{progReport}", progReport || "No issues detected by programmatic checks."),
+        ctx.settings
+      ),
+      ctx.settings
+    );
     stageNotice.setMessage(t.lintAnalyzingLLM);
-    checkCancelled();
+    checkCancelled2();
     const llmReport = await ctx.llmClient.createMessage({
       model: ctx.settings.model,
       max_tokens: TOKENS_LINT_DEDUP_LLM,
-      messages: [{ role: "user", content: prompt }]
+      messages: [{ role: "user", content: prompt }],
+      disableThinking: ctx.settings.disableThinking
     });
     const cleanedLLM = cleanMarkdownResponse(llmReport);
-    const summaryText = t.lintReportSummary.replace("{total}", String(wikiFiles.length)).replace("{aliasesMissing}", String(aliasDeficientPages.length)).replace("{duplicates}", String(duplicates.length)).replace("{deadLinks}", String(deadLinks.length)).replace("{deadLinkFromDup}", String(deadLinkFromDup)).replace("{orphans}", String(orphans.length)).replace("{orphanFromDup}", String(orphanFromDup)).replace("{emptyPages}", String(emptyPages.length));
+    const elapsedSeconds = Math.max(1, Math.round((Date.now() - lintStartTime) / 1e3));
+    const summaryText = t.lintReportSummary.replace("{total}", String(wikiFiles.length)).replace("{aliasesMissing}", String(aliasDeficientPages.length)).replace("{duplicates}", String(duplicates.length)).replace("{deadLinks}", String(deadLinks.length)).replace("{deadLinkFromDup}", String(deadLinkFromDup)).replace("{orphans}", String(orphans.length)).replace("{orphanFromDup}", String(orphanFromDup)).replace("{emptyPages}", String(emptyPages.length)).replace("{elapsedSeconds}", String(elapsedSeconds));
     if (aliasDeficientPages.length > 0) {
       const aliasPre = `> ${t.lintAliasesMissing.replace("{count}", String(aliasDeficientPages.length))}
 
@@ -13467,7 +12596,16 @@ ${progReport}${contradictionsReport}${cleanedLLM.startsWith("##") ? "" : t.lintL
       pollutedPages: pollutedPages.length,
       orphans: orphans.length,
       duplicates: duplicates.length,
-      pagesMissingAliases: aliasDeficientPages.length
+      pagesMissingAliases: aliasDeficientPages.length,
+      tagViolations: tagViolations.length
+    };
+    const runFixPhase = async (fn) => {
+      const signal2 = ctx.wikiEngine.startLintOperation();
+      try {
+        await fn(signal2);
+      } finally {
+        ctx.wikiEngine.endLintOperation();
+      }
     };
     const fixCallbacks = {};
     fixCallbacks.onAnalyzeSchema = () => {
@@ -13475,91 +12613,127 @@ ${progReport}${contradictionsReport}${cleanedLLM.startsWith("##") ? "" : t.lintL
     };
     if (pollutedPages.length > 0) {
       fixCallbacks.onFixPollutedPages = () => {
-        void (async () => {
+        void runFixPhase(async (signal2) => {
           let fixed = 0;
-          const fixNotice = new import_obsidian10.Notice("", 0);
-          for (const pp of pollutedPages) {
-            fixNotice.setMessage(`Fixing polluted page ${fixed + 1}/${pollutedPages.length}: ${pp.title} \u2192 ${pp.cleanTitle}`);
-            try {
-              const result = await ctx.wikiEngine.fixPollutedPage(pp.path, pp.cleanTitle);
-              console.debug(`[Pollution Fix] ${result}`);
-              fixed++;
-            } catch (e) {
-              console.error(`[Pollution Fix] Failed: ${pp.path}`, e);
+          const fixNotice = new import_obsidian11.Notice("", 0);
+          try {
+            for (const pp of pollutedPages) {
+              if (signal2 == null ? void 0 : signal2.aborted) break;
+              fixNotice.setMessage(t.lintFixingPolluted.replace("{current}", String(fixed + 1)).replace("{total}", String(pollutedPages.length)).replace("{title}", pp.title).replace("{newTitle}", pp.cleanTitle));
+              try {
+                await ctx.wikiEngine.fixPollutedPage(pp.path, pp.cleanTitle);
+                fixed++;
+              } catch (e) {
+                console.error(`[Pollution Fix] Failed: ${pp.path}`, e);
+              }
             }
+            if (fixed > 0) {
+              await ctx.wikiEngine.generateIndexFromEngine();
+            }
+            const msg = getText(ctx.settings.language, "lintPollutedFixed").replace("{fixed}", String(fixed)).replace("{total}", String(pollutedPages.length));
+            new import_obsidian11.Notice(msg, 0);
+          } finally {
+            fixNotice.hide();
           }
-          fixNotice.hide();
-          if (fixed > 0) {
-            await ctx.wikiEngine.generateIndexFromEngine();
-          }
-          const msg = getText(ctx.settings.language, "lintPollutedFixed").replace("{fixed}", String(fixed)).replace("{total}", String(pollutedPages.length));
-          new import_obsidian10.Notice(msg, 0);
-        })();
+        });
       };
     }
     if (aliasDeficientPages.length > 0) {
       fixCallbacks.onCompleteAliases = () => {
-        void (async () => {
-          const { filled, results } = await runAliasCompletion(ctx, aliasDeficientPages);
+        void runFixPhase(async (signal2) => {
+          const { filled, results } = await runAliasCompletion(ctx, signal2, aliasDeficientPages);
           if (filled > 0) {
             await ctx.wikiEngine.generateIndexFromEngine();
             await ctx.wikiEngine.logLintFix("Complete Aliases", results.join("\n"));
           }
           const msg = t.lintAliasesFilled.replace("{filled}", String(filled)).replace("{total}", String(aliasDeficientPages.length)) + (filled > 0 ? "\n" + t.lintFixIndexUpdated : "");
-          new import_obsidian10.Notice(msg, 0);
-        })();
+          new import_obsidian11.Notice(msg, 0);
+        });
       };
     }
     if (deadLinks.length > 0) {
       fixCallbacks.onFixDeadLinks = () => {
-        void (async () => {
-          const { fixed, results } = await runDeadLinkFixes(ctx, deadLinks);
+        void runFixPhase(async (signal2) => {
+          const { fixed, results } = await runDeadLinkFixes(ctx, signal2, deadLinks);
           if (fixed > 0) {
             await ctx.wikiEngine.generateIndexFromEngine();
             await ctx.wikiEngine.logLintFix("Fix Dead Links", results.join("\n"));
           }
           const msg = t.lintFixDeadComplete.replace("{fixed}", String(fixed)).replace("{total}", String(deadLinks.length)) + (fixed > 0 ? "\n" + t.lintFixIndexUpdated : "");
-          new import_obsidian10.Notice(msg, 0);
-        })();
+          new import_obsidian11.Notice(msg, 0);
+        });
       };
     }
     if (emptyPages.length > 0) {
       fixCallbacks.onFillEmptyPages = () => {
-        void (async () => {
-          const { filled, results } = await runEmptyPageFixes(ctx, emptyPages);
+        void runFixPhase(async (signal2) => {
+          const { filled, results } = await runEmptyPageFixes(ctx, signal2, emptyPages);
           if (filled > 0) {
             await ctx.wikiEngine.generateIndexFromEngine();
             await ctx.wikiEngine.logLintFix("Expand Empty Pages", results.join("\n"));
           }
           const msg = t.lintFillComplete.replace("{filled}", String(filled)).replace("{total}", String(emptyPages.length)) + (filled > 0 ? "\n" + t.lintFixIndexUpdated : "");
-          new import_obsidian10.Notice(msg, 0);
-        })();
+          new import_obsidian11.Notice(msg, 0);
+        });
       };
     }
+    fixCallbacks.onDeleteEmptyStubs = () => {
+      void runFixPhase(async (signal2) => {
+        const result = await ctx.wikiEngine.deleteEmptyStubs(ctx.settings.wikiFolder);
+        if (result.deleted > 0) {
+          await ctx.wikiEngine.generateIndexFromEngine();
+          await ctx.wikiEngine.logLintFix("Delete Empty Stubs", `Deleted ${result.deleted} empty stubs`);
+        }
+        const parts = [];
+        if (result.deleted > 0) {
+          parts.push(t.lintDeleteCompleted.replace("{count}", String(result.deleted)));
+        }
+        if (result.failed > 0) {
+          parts.push(t.lintDeleteFailed.replace("{failed}", String(result.failed)).replace("{total}", String(result.deleted + result.failed)));
+        }
+        if (parts.length === 0) {
+          parts.push(t.lintDeleteCompleted.replace("{count}", "0"));
+        }
+        new import_obsidian11.Notice(parts.join("\n"), 0);
+      });
+    };
     if (orphans.length > 0) {
       fixCallbacks.onLinkOrphans = () => {
-        void (async () => {
-          const { linked, results } = await runOrphanFixes(ctx, orphans);
+        void runFixPhase(async (signal2) => {
+          const { linked, results } = await runOrphanFixes(ctx, signal2, orphans);
           if (linked > 0) {
             await ctx.wikiEngine.generateIndexFromEngine();
             await ctx.wikiEngine.logLintFix("Link Orphan Pages", results.join("\n"));
           }
           const msg = t.lintLinkComplete.replace("{linked}", String(linked)) + (linked > 0 ? "\n" + t.lintFixIndexUpdated : "");
-          new import_obsidian10.Notice(msg, 0);
-        })();
+          new import_obsidian11.Notice(msg, 0);
+        });
       };
     }
     if (duplicates.length > 0) {
       fixCallbacks.onMergeDuplicates = () => {
-        void (async () => {
-          const { merged, results } = await runDuplicateMerges(ctx, duplicates);
+        void runFixPhase(async (signal2) => {
+          const { merged, results } = await runDuplicateMerges(ctx, signal2, duplicates);
           if (merged > 0) {
             await ctx.wikiEngine.generateIndexFromEngine();
             await ctx.wikiEngine.logLintFix("Merge Duplicate Pages", results.join("\n"));
           }
           const msg = t.lintMergeComplete.replace("{merged}", String(merged)).replace("{total}", String(duplicates.length)) + (merged > 0 ? "\n" + t.lintFixIndexUpdated : "");
-          new import_obsidian10.Notice(msg, 0);
-        })();
+          new import_obsidian11.Notice(msg, 0);
+        });
+      };
+    }
+    if (tagViolations.length > 0) {
+      fixCallbacks.onRetagViolations = () => {
+        void runFixPhase(async (signal2) => {
+          const { fixed, results } = await runRetagViolations(ctx, signal2, tagViolations);
+          if (fixed > 0) {
+            await ctx.wikiEngine.generateIndexFromEngine();
+            await ctx.wikiEngine.logLintFix("Retag Tag Violations", results.join("\n"));
+          }
+          const msg = fixed > 0 ? t.lintTagViolationFixed.replace("{fixed}", String(fixed)).replace("{total}", String(tagViolations.length)) : t.lintTagViolationFixedNone;
+          new import_obsidian11.Notice(msg, 0);
+        });
       };
     }
     const totalFixable = deadLinks.length + emptyPages.length + orphans.length + duplicates.length;
@@ -13567,151 +12741,179 @@ ${progReport}${contradictionsReport}${cleanedLLM.startsWith("##") ? "" : t.lintL
     if (totalFixableIncludingAliases > 0) {
       fixCallbacks.onFixAll = () => {
         void (async () => {
-          const allResults = [];
-          const fixAllNotice = new import_obsidian10.Notice("", 0);
-          let pollutedFixed = 0;
-          let aliasesFilled = 0;
-          let duplicatesMerged = 0;
-          let deadLinksFixed = 0;
-          let orphansLinked = 0;
-          let emptyPagesFilled = 0;
-          fixAllNotice.setMessage("Smart fix: Phase -1 \u2014 Fixing polluted pages...");
-          if (pollutedPages.length > 0) {
-            for (const pp of pollutedPages) {
-              try {
-                const result = await ctx.wikiEngine.fixPollutedPage(pp.path, pp.cleanTitle);
-                console.debug(`[Pollution Fix] ${result}`);
-                pollutedFixed++;
-              } catch (e) {
-                console.error(`[Pollution Fix] Failed: ${pp.path}`, e);
+          const signal2 = ctx.wikiEngine.startLintOperation();
+          try {
+            const allResults = [];
+            const fixAllNotice = new import_obsidian11.Notice("", 0);
+            let pollutedFixed = 0;
+            let aliasesFilled = 0;
+            let duplicatesMerged = 0;
+            let deadLinksFixed = 0;
+            let orphansLinked = 0;
+            let emptyPagesFilled = 0;
+            let tagsRetagged = 0;
+            fixAllNotice.setMessage("Smart fix: Phase -1 \u2014 Fixing polluted pages...");
+            if (pollutedPages.length > 0) {
+              for (const pp of pollutedPages) {
+                try {
+                  const result = await ctx.wikiEngine.fixPollutedPage(pp.path, pp.cleanTitle);
+                  console.debug(`[Pollution Fix] ${result}`);
+                  pollutedFixed++;
+                } catch (e) {
+                  console.error(`[Pollution Fix] Failed: ${pp.path}`, e);
+                }
+              }
+              if (pollutedFixed > 0) {
+                allResults.push(`## Fix Polluted Pages
+Fixed ${pollutedFixed}/${pollutedPages.length} polluted pages`);
               }
             }
-            if (pollutedFixed > 0) {
-              allResults.push(`## Fix Polluted Pages
-Fixed ${pollutedFixed}/${pollutedPages.length} polluted pages`);
-            }
-          }
-          fixAllNotice.setMessage("Smart fix: Phase 0 \u2014 Completing aliases...");
-          if (aliasDeficientPages.length > 0) {
-            const { filled, results } = await runAliasCompletion(ctx, aliasDeficientPages);
-            aliasesFilled = filled;
-            if (filled > 0) {
-              allResults.push(`## Complete Aliases
+            fixAllNotice.setMessage("Smart fix: Phase 0 \u2014 Completing aliases...");
+            if (aliasDeficientPages.length > 0) {
+              const { filled, results } = await runAliasCompletion(ctx, signal2, aliasDeficientPages);
+              aliasesFilled = filled;
+              if (filled > 0) {
+                allResults.push(`## Complete Aliases
 ${results.join("\n")}`);
-              console.debug(`Smart fix: Completed ${filled} aliases, improving duplicate detection accuracy`);
+                console.debug(`Smart fix: Completed ${filled} aliases, improving duplicate detection accuracy`);
+              }
             }
-          }
-          fixAllNotice.setMessage("Smart fix: Phase 1 \u2014 Merging duplicates...");
-          if (duplicates.length > 0) {
-            const { merged, results } = await runDuplicateMerges(ctx, duplicates);
-            duplicatesMerged = merged;
-            if (merged > 0) {
-              allResults.push(`## Merge Duplicate Pages
+            fixAllNotice.setMessage("Smart fix: Phase 1 \u2014 Merging duplicates...");
+            if (duplicates.length > 0) {
+              const { merged, results } = await runDuplicateMerges(ctx, signal2, duplicates);
+              duplicatesMerged = merged;
+              if (merged > 0) {
+                allResults.push(`## Merge Duplicate Pages
 ${results.join("\n")}`);
-              console.debug(`Smart fix: Merged ${merged} duplicates, dead links and orphans may be auto-resolved`);
+                console.debug(`Smart fix: Merged ${merged} duplicates, dead links and orphans may be auto-resolved`);
+              }
             }
-          }
-          fixAllNotice.setMessage("Smart fix: Phase 2 \u2014 Fixing dead links...");
-          if (deadLinks.length > 0) {
-            const { fixed, results } = await runDeadLinkFixes(ctx, deadLinks);
-            deadLinksFixed = fixed;
-            if (fixed > 0) {
-              allResults.push(`## Fix Dead Links
+            fixAllNotice.setMessage("Smart fix: Phase 2 \u2014 Fixing dead links...");
+            if (deadLinks.length > 0) {
+              const { fixed, results } = await runDeadLinkFixes(ctx, signal2, deadLinks);
+              deadLinksFixed = fixed;
+              if (fixed > 0) {
+                allResults.push(`## Fix Dead Links
 ${results.join("\n")}`);
-              console.debug(`Smart fix: Fixed ${fixed} dead links`);
+                console.debug(`Smart fix: Fixed ${fixed} dead links`);
+              }
             }
-          }
-          fixAllNotice.setMessage("Smart fix: Phase 3 \u2014 Linking orphan pages...");
-          if (orphans.length > 0) {
-            const { linked, results } = await runOrphanFixes(ctx, orphans);
-            orphansLinked = linked;
-            if (linked > 0) {
-              allResults.push(`## Link Orphan Pages
+            fixAllNotice.setMessage("Smart fix: Phase 3 \u2014 Linking orphan pages...");
+            if (orphans.length > 0) {
+              const { linked, results } = await runOrphanFixes(ctx, signal2, orphans);
+              orphansLinked = linked;
+              if (linked > 0) {
+                allResults.push(`## Link Orphan Pages
 ${results.join("\n")}`);
-              console.debug(`Smart fix: Linked ${linked} orphan pages`);
+                console.debug(`Smart fix: Linked ${linked} orphan pages`);
+              }
             }
-          }
-          fixAllNotice.setMessage("Smart fix: Phase 4 \u2014 Expanding empty pages...");
-          if (emptyPages.length > 0) {
-            const { filled, results } = await runEmptyPageFixes(ctx, emptyPages);
-            emptyPagesFilled = filled;
-            if (filled > 0) {
-              allResults.push(`## Expand Empty Pages
+            fixAllNotice.setMessage("Smart fix: Phase 4 \u2014 Expanding empty pages...");
+            if (emptyPages.length > 0) {
+              const { filled, results } = await runEmptyPageFixes(ctx, signal2, emptyPages);
+              emptyPagesFilled = filled;
+              if (filled > 0) {
+                allResults.push(`## Expand Empty Pages
 ${results.join("\n")}`);
-              console.debug(`Smart fix: Expanded ${filled} empty pages`);
+                console.debug(`Smart fix: Expanded ${filled} empty pages`);
+              }
             }
+            fixAllNotice.setMessage("Smart fix: Phase 5 \u2014 Retagging out-of-vocabulary tag pages...");
+            if (tagViolations.length > 0) {
+              const { fixed, results } = await runRetagViolations(ctx, signal2, tagViolations);
+              tagsRetagged = fixed;
+              if (fixed > 0) {
+                allResults.push(`## Retag Tag Violations
+${results.join("\n")}`);
+                console.debug(`Smart fix: Retagged ${fixed} tag violations`);
+              }
+            }
+            fixAllNotice.hide();
+            if (allResults.length > 0) {
+              await ctx.wikiEngine.generateIndexFromEngine();
+              await ctx.wikiEngine.logLintFix("Smart Fix All (Causality-Aware with Aliases)", allResults.join("\n\n"));
+            }
+            const phases = [];
+            if (pollutedPages.length > 0) {
+              phases.push({
+                label: `\u{1F9F9} Fix polluted pages (${pollutedPages.length})`,
+                detail: `${pollutedFixed}/${pollutedPages.length}`
+              });
+            }
+            if (aliasDeficientPages.length > 0) {
+              phases.push({
+                label: t.lintAliasesCompleteBtn.replace("{count}", String(aliasDeficientPages.length)),
+                detail: `${aliasesFilled}/${aliasDeficientPages.length}`
+              });
+            }
+            if (duplicates.length > 0) {
+              phases.push({
+                label: t.lintModalMergeDuplicates.replace("{count}", String(duplicates.length)),
+                detail: `${duplicatesMerged}/${duplicates.length}`
+              });
+            }
+            if (deadLinks.length > 0) {
+              phases.push({
+                label: t.lintModalFixDeadLinks.replace("{count}", String(deadLinks.length)),
+                detail: `${deadLinksFixed}/${deadLinks.length}`
+              });
+            }
+            if (tagViolations.length > 0) {
+              phases.push({
+                label: t.lintTagViolationRetagBtn.replace("{count}", String(tagViolations.length)),
+                detail: `${tagsRetagged}/${tagViolations.length}`
+              });
+            }
+            if (orphans.length > 0) {
+              phases.push({
+                label: t.lintModalLinkOrphans.replace("{count}", String(orphans.length)),
+                detail: `${orphansLinked}/${orphans.length}`
+              });
+            }
+            if (emptyPages.length > 0) {
+              phases.push({
+                label: t.lintModalExpandEmpty.replace("{count}", String(emptyPages.length)),
+                detail: `${emptyPagesFilled}/${emptyPages.length}`
+              });
+            }
+            new FixReportModal(ctx.app, phases, ctx.settings.language).open();
+          } finally {
+            ctx.wikiEngine.endLintOperation();
           }
-          fixAllNotice.hide();
-          if (allResults.length > 0) {
-            await ctx.wikiEngine.generateIndexFromEngine();
-            await ctx.wikiEngine.logLintFix("Smart Fix All (Causality-Aware with Aliases)", allResults.join("\n\n"));
-          }
-          const phases = [];
-          if (pollutedPages.length > 0) {
-            phases.push({
-              label: `\u{1F9F9} Fix polluted pages (${pollutedPages.length})`,
-              detail: `${pollutedFixed}/${pollutedPages.length}`
-            });
-          }
-          if (aliasDeficientPages.length > 0) {
-            phases.push({
-              label: t.lintAliasesCompleteBtn.replace("{count}", String(aliasDeficientPages.length)),
-              detail: `${aliasesFilled}/${aliasDeficientPages.length}`
-            });
-          }
-          if (duplicates.length > 0) {
-            phases.push({
-              label: t.lintModalMergeDuplicates.replace("{count}", String(duplicates.length)),
-              detail: `${duplicatesMerged}/${duplicates.length}`
-            });
-          }
-          if (deadLinks.length > 0) {
-            phases.push({
-              label: t.lintModalFixDeadLinks.replace("{count}", String(deadLinks.length)),
-              detail: `${deadLinksFixed}/${deadLinks.length}`
-            });
-          }
-          if (orphans.length > 0) {
-            phases.push({
-              label: t.lintModalLinkOrphans.replace("{count}", String(orphans.length)),
-              detail: `${orphansLinked}/${orphans.length}`
-            });
-          }
-          if (emptyPages.length > 0) {
-            phases.push({
-              label: t.lintModalExpandEmpty.replace("{count}", String(emptyPages.length)),
-              detail: `${emptyPagesFilled}/${emptyPages.length}`
-            });
-          }
-          new FixReportModal(ctx.app, phases, ctx.settings.language).open();
         })();
       };
     }
     stageNotice.hide();
+    const logReport = nestReportUnderParent(fullReport);
+    await ctx.wikiEngine.logLintFix(t.lintReportTitle, logReport);
     new LintReportModal(ctx.app, fullReport, fixCallbacks, counts, ctx.settings.language).open();
     await ctx.wikiEngine.generateIndexFromEngine();
-    new import_obsidian10.Notice(TEXTS[ctx.settings.language].lintWikiComplete);
+    new import_obsidian11.Notice(TEXTS[ctx.settings.language].lintWikiComplete);
   } catch (error) {
     stageNotice == null ? void 0 : stageNotice.hide();
     if (error instanceof DOMException && error.name === "AbortError") {
-      new import_obsidian10.Notice(getText(ctx.settings.language, "ingestionCancelled"), NOTICE_NORMAL);
+      new import_obsidian11.Notice(getText(ctx.settings.language, "ingestionCancelled"), NOTICE_NORMAL);
       console.debug("Lint cancelled by user");
       return;
     }
     const errMsg2 = error instanceof Error ? error.message : String(error);
-    new import_obsidian10.Notice(TEXTS[ctx.settings.language].lintWikiFailed + ": " + errMsg2, 0);
+    new import_obsidian11.Notice(TEXTS[ctx.settings.language].lintWikiFailed + ": " + errMsg2, 0);
     console.error(error);
   }
 }
 
 // src/main.ts
+function getThinkingControlCacheKey(settings) {
+  var _a, _b;
+  return ((_a = settings.baseUrl) == null ? void 0 : _a.trim()) || ((_b = PREDEFINED_PROVIDERS[settings.provider]) == null ? void 0 : _b.baseUrl) || "";
+}
 function createLLMClient(settings) {
-  var _a2, _b;
+  var _a, _b, _c;
   let client;
   if (settings.provider === "anthropic") {
     client = new AnthropicClient(settings.apiKey.trim());
   } else if (settings.provider === "anthropic-compatible") {
-    const baseUrl = (_a2 = settings.baseUrl) == null ? void 0 : _a2.trim();
+    const baseUrl = (_a = settings.baseUrl) == null ? void 0 : _a.trim();
     if (baseUrl) {
       client = new AnthropicCompatibleClient(settings.apiKey.trim(), baseUrl);
     } else {
@@ -13722,6 +12924,12 @@ function createLLMClient(settings) {
     const baseUrl = ((_b = settings.baseUrl) == null ? void 0 : _b.trim()) || (providerConfig == null ? void 0 : providerConfig.baseUrl) || void 0;
     const apiKey = settings.provider === "ollama" || settings.provider === "lmstudio" ? settings.apiKey.trim() || "lmstudio" : settings.apiKey.trim();
     client = new OpenAICompatibleClient(apiKey, baseUrl);
+  }
+  if (client instanceof OpenAICompatibleClient) {
+    const cacheKey = getThinkingControlCacheKey(settings);
+    if (cacheKey && ((_c = settings.thinkingControlCache) == null ? void 0 : _c[cacheKey]) !== void 0) {
+      client.thinkingControlSupported = settings.thinkingControlCache[cacheKey];
+    }
   }
   if (settings.maxTokensPerCall > 0) {
     const originalCreate = client.createMessage.bind(client);
@@ -13735,7 +12943,7 @@ function createLLMClient(settings) {
   }
   return client;
 }
-var LLMWikiPlugin = class extends import_obsidian11.Plugin {
+var LLMWikiPlugin = class extends import_obsidian12.Plugin {
   constructor() {
     super(...arguments);
     this.llmClient = null;
@@ -13744,6 +12952,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
   }
   async onload() {
     await this.loadSettings();
+    this.cleanupVocabularyTags();
     this.initializeLLMClient();
     this.schemaManager = new SchemaManager(
       this.app,
@@ -13803,13 +13012,13 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
       name: t.cmdRegenerateIndex,
       callback: () => {
         void (async () => {
-          new import_obsidian11.Notice(getText(this.settings.language, "regenerateIndexCompleted") + "...");
+          new import_obsidian12.Notice(getText(this.settings.language, "regenerateIndexCompleted") + "...");
           try {
             await this.wikiEngine.generateIndexFromEngine();
-            new import_obsidian11.Notice(getText(this.settings.language, "regenerateIndexCompleted"));
+            new import_obsidian12.Notice(getText(this.settings.language, "regenerateIndexCompleted"));
           } catch (err) {
             console.error("Regenerate index failed:", err);
-            new import_obsidian11.Notice(getText(this.settings.language, "operationFailed") + (err instanceof Error ? err.message : String(err)));
+            new import_obsidian12.Notice(getText(this.settings.language, "operationFailed") + (err instanceof Error ? err.message : String(err)));
           }
         })();
       }
@@ -13881,12 +13090,12 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
     console.debug("LLM Wiki Plugin loaded - Karpathy implementation");
   }
   onunload() {
-    var _a2;
-    (_a2 = this.autoMaintainManager) == null ? void 0 : _a2.stop();
+    var _a;
+    (_a = this.autoMaintainManager) == null ? void 0 : _a.stop();
     console.debug("LLM Wiki Plugin unloaded");
   }
   async loadSettings() {
-    var _a2;
+    var _a;
     const savedData = await this.loadData();
     this.settings = Object.assign({}, DEFAULT_SETTINGS, savedData || {});
     console.debug("loadSettings: loaded watchedFolders =", JSON.stringify(this.settings.watchedFolders));
@@ -13899,22 +13108,47 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
       console.debug("loadSettings: watchedFolders was not an array, reset to []");
     }
     if (savedData && !("llmReady" in savedData)) {
-      const hasConfig = savedData.provider && (((_a2 = savedData.apiKey) == null ? void 0 : _a2.trim()) || savedData.provider === "ollama") && savedData.model;
+      const hasConfig = savedData.provider && (((_a = savedData.apiKey) == null ? void 0 : _a.trim()) || savedData.provider === "ollama") && savedData.model;
       this.settings.llmReady = !!hasConfig;
       if (hasConfig) {
         console.debug("loadSettings: existing user with config detected, llmReady = true");
       }
     }
   }
+  /**
+   * Issue #85 v2: Migrate v1 textarea CSV (which may contain untrimmed
+   * whitespace, empty entries, or case-variant duplicates from manual
+   * editing) into the canonical form the chip input uses. Idempotent.
+   * Called once on onload() before any UI renders so users see clean
+   * chips immediately on first reload after upgrade.
+   */
+  cleanupVocabularyTags() {
+    const fields = [
+      "customEntityTags",
+      "customConceptTags"
+    ];
+    let changed = false;
+    for (const field of fields) {
+      const current = this.settings[field];
+      if (!current) continue;
+      const cleaned = normalizeVocabularyCsv(current);
+      if (cleaned !== current) {
+        this.settings[field] = cleaned;
+        changed = true;
+      }
+    }
+    if (changed) void this.saveSettings();
+  }
   async saveSettings() {
-    var _a2;
+    var _a;
     console.debug("saveSettings: watchedFolders =", JSON.stringify(this.settings.watchedFolders));
     await this.saveData(this.settings);
     console.debug("saveSettings: data saved to data.json");
     this.initializeLLMClient();
-    (_a2 = this.schemaManager) == null ? void 0 : _a2.updateSettings(this.settings);
+    (_a = this.schemaManager) == null ? void 0 : _a.updateSettings(this.settings);
     if (this.wikiEngine) {
-      this.wikiEngine.settings = this.settings;
+      this.wikiEngine.updateSettings(this.settings);
+      console.debug("[saveSettings] wikiEngine provider updated to:", this.settings.provider);
     }
     if (this.autoMaintainManager) {
       this.autoMaintainManager.settings = this.settings;
@@ -13926,8 +13160,8 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
     }
   }
   initializeLLMClient() {
-    var _a2;
-    if (!((_a2 = this.settings.apiKey) == null ? void 0 : _a2.trim()) && this.settings.provider !== "ollama") {
+    var _a;
+    if (!((_a = this.settings.apiKey) == null ? void 0 : _a.trim()) && this.settings.provider !== "ollama") {
       this.llmClient = null;
       return;
     }
@@ -13943,7 +13177,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
     if (this.progressNotice) {
       this.progressNotice.setMessage(msg);
     } else {
-      this.progressNotice = new import_obsidian11.Notice(msg, 0);
+      this.progressNotice = new import_obsidian12.Notice(msg, 0);
     }
   }
   dismissProgress() {
@@ -13962,7 +13196,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
     const wikiPath = `${this.settings.wikiFolder}/sources/${slug}.md`;
     try {
       const file = this.app.vault.getAbstractFileByPath(wikiPath);
-      if (!(file instanceof import_obsidian11.TFile)) return false;
+      if (!(file instanceof import_obsidian12.TFile)) return false;
       try {
         const content = await this.app.vault.read(file);
         const fm = parseFrontmatter(content);
@@ -13987,7 +13221,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
   selectSourceToIngest() {
     if (!this.requireLLMReady()) return;
     if (!this.llmClient) {
-      new import_obsidian11.Notice(TEXTS[this.settings.language].errorNoApiKey);
+      new import_obsidian12.Notice(TEXTS[this.settings.language].errorNoApiKey);
       return;
     }
     new FileSuggestModal(this.app, this.settings.wikiFolder, (file) => {
@@ -13995,36 +13229,36 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
       this.wikiEngine.ingestSource(file).catch((e) => {
         console.error("Single ingest failed:", e);
         const errMsg2 = e instanceof Error ? e.message : String(e);
-        new import_obsidian11.Notice(TEXTS[this.settings.language].errorIngestFailed + errMsg2, NOTICE_ERROR);
+        new import_obsidian12.Notice(TEXTS[this.settings.language].errorIngestFailed + errMsg2, NOTICE_ERROR);
       });
     }).open();
   }
   ingestActiveFile() {
     if (!this.requireLLMReady()) return;
     if (!this.llmClient) {
-      new import_obsidian11.Notice(TEXTS[this.settings.language].errorNoApiKey);
+      new import_obsidian12.Notice(TEXTS[this.settings.language].errorNoApiKey);
       return;
     }
     const activeFile = this.app.workspace.getActiveFile();
     if (!activeFile) {
-      new import_obsidian11.Notice(getText(this.settings.language, "noActiveFile"), NOTICE_NORMAL);
+      new import_obsidian12.Notice(getText(this.settings.language, "noActiveFile"), NOTICE_NORMAL);
       return;
     }
     if (activeFile.extension !== "md") {
-      new import_obsidian11.Notice(getText(this.settings.language, "mdOnlyFile"), NOTICE_NORMAL);
+      new import_obsidian12.Notice(getText(this.settings.language, "mdOnlyFile"), NOTICE_NORMAL);
       return;
     }
     this.showProgress(`Ingesting: ${activeFile.basename}`);
     this.wikiEngine.ingestSource(activeFile).catch((e) => {
       console.error("Ingest active file failed:", e);
       const errMsg2 = e instanceof Error ? e.message : String(e);
-      new import_obsidian11.Notice(TEXTS[this.settings.language].errorIngestFailed + errMsg2, NOTICE_ERROR);
+      new import_obsidian12.Notice(TEXTS[this.settings.language].errorIngestFailed + errMsg2, NOTICE_ERROR);
     });
   }
   selectFolderToIngest() {
     if (!this.requireLLMReady()) return;
     if (!this.llmClient) {
-      new import_obsidian11.Notice(TEXTS[this.settings.language].errorNoApiKey);
+      new import_obsidian12.Notice(TEXTS[this.settings.language].errorNoApiKey);
       return;
     }
     new FolderSuggestModal(this.app, this.settings.wikiFolder, (folder) => {
@@ -14032,7 +13266,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
         const files = this.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(folder.path));
         if (files.length === 0) {
           const msg = TEXTS[this.settings.language].selectFolderNoMdFiles.replace("{path}", folder.path);
-          new import_obsidian11.Notice(msg);
+          new import_obsidian12.Notice(msg);
           return;
         }
         this.showProgress("Checking for already-ingested files...");
@@ -14050,14 +13284,15 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
         const ingestCount = newFiles.length;
         if (skippedCount > 0) {
           const texts2 = TEXTS[this.settings.language];
-          new import_obsidian11.Notice(
+          new import_obsidian12.Notice(
             texts2.batchIngestSkipNotice.replace("{skipped}", String(skippedCount)).replace("{total}", String(totalFiles)).replace("{new}", String(ingestCount)),
             6e3
           );
         }
         if (ingestCount === 0) {
+          this.wikiEngine.setDoneCallback((report) => this.onIngestDone(report));
           const texts2 = TEXTS[this.settings.language];
-          new import_obsidian11.Notice(texts2.batchIngestAllIngested.replace("{total}", String(totalFiles)), NOTICE_NORMAL);
+          new import_obsidian12.Notice(texts2.batchIngestAllIngested.replace("{total}", String(totalFiles)), NOTICE_NORMAL);
           return;
         }
         const reports = [];
@@ -14080,7 +13315,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
           } catch (error) {
             console.error(`(${i + 1}/${ingestCount}) ingestion failed: ${file.path}`, error);
             const errMsg2 = error instanceof Error ? error.message : String(error);
-            new import_obsidian11.Notice(texts.errorIngestFailed + file.basename + ": " + errMsg2, NOTICE_ERROR);
+            new import_obsidian12.Notice(texts.errorIngestFailed + file.basename + ": " + errMsg2, NOTICE_ERROR);
           }
         }
         this.wikiEngine.setDoneCallback((report) => this.onIngestDone(report));
@@ -14112,7 +13347,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
           new IngestReportModal(this.app, aggregated, this.settings.language).open();
         } else {
           const texts2 = TEXTS[this.settings.language];
-          new import_obsidian11.Notice(texts2.batchIngestComplete.replace("{success}", "0").replace("{total}", String(ingestCount)).replace("{fail}", String(ingestCount)), 1e4);
+          new import_obsidian12.Notice(texts2.batchIngestComplete.replace("{success}", "0").replace("{total}", String(ingestCount)).replace("{fail}", String(ingestCount)), 1e4);
         }
       })().catch((e) => console.error(e));
     }).open();
@@ -14121,7 +13356,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
   queryWiki() {
     if (!this.requireLLMReady()) return;
     if (!this.llmClient) {
-      new import_obsidian11.Notice(TEXTS[this.settings.language].errorNoApiKey);
+      new import_obsidian12.Notice(TEXTS[this.settings.language].errorNoApiKey);
       return;
     }
     new QueryModal(this.app, this).open();
@@ -14146,28 +13381,17 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
   }
   // ==================== Schema ====================
   async suggestSchemaUpdate() {
-    if (!this.requireLLMReady()) return;
-    if (!this.llmClient) {
-      new import_obsidian11.Notice(TEXTS[this.settings.language].errorNoApiKey);
-      return;
-    }
-    new import_obsidian11.Notice(TEXTS[this.settings.language].analyzingSchema);
-    try {
-      const result = await this.schemaManager.suggestSchemaUpdate("Wiki lint analysis");
-      if (result == null ? void 0 : result.changes_needed) {
-        new import_obsidian11.Notice(TEXTS[this.settings.language].schemaSuggestionGenerated, NOTICE_ERROR);
-      } else {
-        new import_obsidian11.Notice(TEXTS[this.settings.language].noSchemaUpdateNeeded, NOTICE_NORMAL);
-      }
-    } catch (error) {
-      console.error("Schema suggestion failed:", error);
-      const errMsg2 = error instanceof Error ? error.message : String(error);
-      new import_obsidian11.Notice(TEXTS[this.settings.language].schemaSuggestionFailed + ": " + errMsg2, NOTICE_ERROR);
-    }
+    await runSchemaAnalyze({
+      settings: this.settings,
+      llmClient: this.llmClient,
+      wikiEngine: this.wikiEngine,
+      schemaManager: this.schemaManager,
+      requireLLMReady: () => this.requireLLMReady()
+    });
   }
   // ==================== Connection Test ====================
   async testLLMConnection() {
-    var _a2;
+    var _a;
     const t = TEXTS[this.settings.language] || TEXTS.en;
     const isOllama = this.settings.provider === "ollama";
     if (!isOllama && (!this.settings.apiKey || this.settings.apiKey.trim() === "")) {
@@ -14185,6 +13409,39 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
       });
       console.debug("Test response:", testResponse);
       this.settings.llmReady = true;
+      if (testClient instanceof OpenAICompatibleClient || testClient instanceof AnthropicCompatibleClient || testClient instanceof AnthropicClient) {
+        try {
+          await testClient.createMessage({
+            model: this.settings.model,
+            max_tokens: 1,
+            messages: [{ role: "user", content: "think" }],
+            disableThinking: true
+          });
+          if (testClient instanceof OpenAICompatibleClient) {
+            testClient.thinkingControlSupported = true;
+          }
+          const cacheKey = getThinkingControlCacheKey(this.settings);
+          if (cacheKey) {
+            this.settings.thinkingControlCache = {
+              ...this.settings.thinkingControlCache,
+              [cacheKey]: true
+            };
+            console.debug("Thinking control supported by", cacheKey);
+          }
+        } catch (e) {
+          if (testClient instanceof OpenAICompatibleClient) {
+            testClient.thinkingControlSupported = false;
+          }
+          const cacheKey = getThinkingControlCacheKey(this.settings);
+          if (cacheKey) {
+            this.settings.thinkingControlCache = {
+              ...this.settings.thinkingControlCache,
+              [cacheKey]: false
+            };
+            console.debug("Thinking control NOT supported by", cacheKey);
+          }
+        }
+      }
       await this.saveSettings();
       if (this.wikiEngine) {
         const isInit = await this.isWikiInitialized();
@@ -14197,7 +13454,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
           }
         }
       }
-      const providerName = ((_a2 = PREDEFINED_PROVIDERS[this.settings.provider]) == null ? void 0 : _a2.nameEn) || this.settings.provider;
+      const providerName = ((_a = PREDEFINED_PROVIDERS[this.settings.provider]) == null ? void 0 : _a.nameEn) || this.settings.provider;
       return {
         success: true,
         message: `\u2705 ${t.testConnectionSuccessful || "Connection successful"}${t.testConnectionProvider ? ": " : ""}${providerName}`
@@ -14233,7 +13490,7 @@ var LLMWikiPlugin = class extends import_obsidian11.Plugin {
   }
   requireLLMReady() {
     if (this.settings.llmReady) return true;
-    new import_obsidian11.Notice(getText(this.settings.language, "llmNotReady"), NOTICE_ERROR);
+    new import_obsidian12.Notice(getText(this.settings.language, "llmNotReady"), NOTICE_ERROR);
     return false;
   }
 };

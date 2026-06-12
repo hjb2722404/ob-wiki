@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-10
-updated: 2026-06-10
-sources: ["[[_raw/西哲/对康德伦理学的挑战：Maria von Herbert的案子.md]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/对康德伦理学的挑战：Maria von Herbert的案子]]"
+tags:
+  - person
 aliases:
-  - "Rae Langton"
-  - "蕾·兰顿"
+  - Rae Langton
+  - 蕾·兰顿
 ---
 
 

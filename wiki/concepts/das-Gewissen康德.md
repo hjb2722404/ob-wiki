@@ -1,10 +1,10 @@
 ---
 type: concept
 created: 2026-06-08
-updated: 2026-06-09T15:38
+updated: 2026-06-12T09:29
 sources:
   - "[[sources/“良意”“良情”“良知”之统一——康德“良心”概念解读]]"
-  - "[[_raw/西哲/邓晓芒：康德黑格尔论伪善.md]]"
+  - "[[sources/邓晓芒：康德黑格尔论伪善]]"
 tags:
   - term
 aliases:

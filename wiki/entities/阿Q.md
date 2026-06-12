@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[_raw/西哲/黑格尔眼中的中国 (1).md]]"]
-tags: [other]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/黑格尔眼中的中国 (1)]]"
+tags:
+  - other
 aliases:
-  - "Ah-Q"
-  - "阿Q正传"
-  - "阿Q精神"
+  - Ah-Q
+  - 阿Q正传
+  - 阿Q精神
 ---
 
 

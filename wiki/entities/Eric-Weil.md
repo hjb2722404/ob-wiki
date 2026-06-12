@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-09T12:47
+updated: 2026-06-12T09:27
 sources:
-  - "[[sources/阿伦特康德政治哲学十三讲五|阿伦特康德政治哲学十三讲五]]"
+  - "[[sources/阿伦特康德政治哲学十三讲五]]"
 tags:
   - person
 aliases:

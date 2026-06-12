@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11T09:26
+updated: 2026-06-12T09:27
 sources:
-  - "[[_raw/西哲/黑格尔：任性不是自由的体现.md]]"
+  - "[[sources/黑格尔：任性不是自由的体现]]"
 tags:
   - person
 aliases:

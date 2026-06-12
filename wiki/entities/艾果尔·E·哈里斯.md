@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-09
-updated: 2026-06-09
-sources: ["[[_raw/西哲/邓晓芒：论先验现象学与黑格尔辩证法的差异.md]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/邓晓芒：论先验现象学与黑格尔辩证法的差异]]"
+tags:
+  - person
 aliases:
-  - "E.G. Harris"
-  - "哈里斯"
+  - E.G. Harris
+  - 哈里斯
 ---
 
 

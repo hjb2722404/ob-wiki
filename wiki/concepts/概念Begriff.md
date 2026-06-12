@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-10
-updated: 2026-06-10
-sources: ["[[_raw/西哲/丁三东：康德对纯粹概念完备体系的构想.md]]"]
-tags: [term]
+updated: 2026-06-12T09:28
+sources:
+  - "[[sources/丁三东：康德对纯粹概念完备体系的构想]]"
+tags:
+  - term
 aliases:
-  - "Begriff"
-  - "康德概念"
+  - Begriff
+  - 康德概念
 ---
 
 

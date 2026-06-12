@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-11
-sources: ["[[_raw/西哲/胡克：《对卡尔·马克思的理解》读书笔记.md]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/胡克：《对卡尔·马克思的理解》读书笔记]]"
+tags:
+  - person
 aliases:
-  - "Arthur Schopenhauer"
-  - "阿图尔·叔本华"
+  - Arthur Schopenhauer
+  - 阿图尔·叔本华
 ---
 
 

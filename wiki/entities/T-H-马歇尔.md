@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-05-29
-updated: 2026-06-09T12:44
+updated: 2026-06-12T09:27
 sources:
-  - "[[sources/牛津通识读本|牛津通识读本]]"
+  - "[[sources/牛津通识读本]]"
 tags:
   - person
 aliases:

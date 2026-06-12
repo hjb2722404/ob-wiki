@@ -1,11 +1,13 @@
 ---
 type: entity
 created: 2026-06-10
-updated: 2026-06-10
-sources: ["[[_raw/西哲/对康德伦理学的挑战：Maria von Herbert的案子.md]]"]
-tags: [person]
+updated: 2026-06-12T09:27
+sources:
+  - "[[sources/对康德伦理学的挑战：Maria von Herbert的案子]]"
+tags:
+  - person
 aliases:
-  - "Maria von Herbert的案子"
+  - Maria von Herbert的案子
   - "The Challenge to Kant's Ethics: Maria von Herbert"
 ---
 

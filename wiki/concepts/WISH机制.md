@@ -1,9 +1,9 @@
 ---
 type: concept
 created: 2026-06-04
-updated: 2026-06-10T12:33
+updated: 2026-06-12T09:29
 sources:
-  - "[[concepts/伊利亚·普里高金耗散结构理论|伊利亚·普里高金耗散结构理论]]"
+  - "[[concepts/伊利亚·普里高金耗散结构理论]]"
 tags:
   - theory
 aliases:
