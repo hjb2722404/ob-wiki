@@ -34,14 +34,14 @@ import * as d3 from 'd3'
 import { useGraphData } from '../composables/useGraphData.js'
 
 const CLUSTER_PALETTE = [
-  'var(--accent)', // cyan
-  '#86c9a3'  // sage
-  '#d4b87a'  // warm
-  '#c9918e'  // muted-rose
-  '#a39bc9'  // lavender
-  '#c9a87a'  // sand
-  '#8bbdd3'  // steel
-  '#8ec9a3'  // mint
+  '#7dd3c8', // teal
+  '#86c9a3', // sage
+  '#d4b87a', // warm
+  '#c9918e', // muted-rose
+  '#a39bc9', // lavender
+  '#c9a87a', // sand
+  '#8bbdd3', // steel
+  '#8ec9a3', // mint
 ]
 
 const router = useRouter()
