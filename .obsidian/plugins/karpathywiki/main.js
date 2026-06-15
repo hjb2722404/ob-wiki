@@ -43,8 +43,6 @@ var WIKI_LANGUAGES = {
 };
 var VALID_ENTITY_TAGS = ["person", "organization", "project", "product", "event", "place", "other"];
 var VALID_CONCEPT_TAGS = ["theory", "method", "field", "phenomenon", "standard", "term", "other"];
-var DEFAULT_ENTITY_TAG = "other";
-var DEFAULT_CONCEPT_TAG = "term";
 var VALID_SOURCE_TAGS = [
   "paper",
   "article",
@@ -54,7 +52,6 @@ var VALID_SOURCE_TAGS = [
   "notes",
   "other"
 ];
-var DEFAULT_SOURCE_TAG = "other";
 var PREDEFINED_PROVIDERS = {
   openai: {
     id: "openai",
@@ -236,7 +233,9 @@ var DEFAULT_SETTINGS = {
   // production call sites never passed it; this default makes the
   // wiring complete. Users with non-thinking models can leave true;
   // users with thinking models wanting CoT can set false.
-  disableThinking: true
+  disableThinking: true,
+  // Issue #111: default to 'lower' for backwards compatibility.
+  slugCase: "lower"
 };
 
 // src/constants.ts
@@ -940,6 +939,11 @@ var EN_TEXTS = {
   // LLM execution cap
   maxTokensPerCallName: "Context Window",
   maxTokensPerCallDesc: "Limit generation tokens to fit your model's context window. 0 = no cap (cloud default).",
+  // Issue #111: slug casing
+  slugCaseName: "File Name Casing",
+  slugCaseDesc: 'Controls whether generated wiki filenames are lowercased. "Preserve" is recommended for languages where lowercase changes meaning (e.g. German nouns).',
+  slugCaseLower: "Lowercase (default)",
+  slugCasePreserve: "Preserve case",
   // Model Selection
   modelSection: "Model Selection",
   fetchModelsName: "Fetch Available Models",
@@ -1370,6 +1374,10 @@ var ZH_TEXTS = {
   lmstudioHint: "LM Studio \u672C\u5730\u8FD0\u884C\uFF0CAPI Key \u53EF\u9009",
   maxTokensPerCallName: "\u4E0A\u4E0B\u6587\u7A97\u53E3",
   maxTokensPerCallDesc: "\u9650\u5236\u751F\u6210 Token \u4EE5\u9002\u914D\u6A21\u578B\u4E0A\u4E0B\u6587\u7A97\u53E3\u30020 = \u65E0\u9650\u5236\uFF08\u4E91\u7AEF\u9ED8\u8BA4\uFF09\u3002",
+  slugCaseName: "\u6587\u4EF6\u540D\u5927\u5C0F\u5199",
+  slugCaseDesc: "\u63A7\u5236\u751F\u6210\u7684 Wiki \u6587\u4EF6\u540D\u662F\u5426\u8F6C\u4E3A\u5C0F\u5199\u3002\u5BF9\u4E8E\u5927\u5C0F\u5199\u6709\u8BED\u4E49\u7684\u8BED\u8A00\uFF08\u5982\u5FB7\u8BED\u540D\u8BCD\uFF09\uFF0C\u5EFA\u8BAE\u9009\u62E9\u201C\u4FDD\u7559\u201D\u3002",
+  slugCaseLower: "\u5C0F\u5199\uFF08\u9ED8\u8BA4\uFF09",
+  slugCasePreserve: "\u4FDD\u7559\u5927\u5C0F\u5199",
   // 模型选择
   modelSection: "\u6A21\u578B\u9009\u62E9",
   fetchModelsName: "\u83B7\u53D6\u53EF\u7528\u6A21\u578B",
@@ -1799,6 +1807,10 @@ var JA_TEXTS = {
   lmstudioHint: "LM Studio\u306F\u30ED\u30FC\u30AB\u30EB\u3067\u52D5\u4F5C\u3057\u307E\u3059\u3002API Key\u306F\u4EFB\u610F\u3067\u3059",
   maxTokensPerCallName: "\u30B3\u30F3\u30C6\u30AD\u30B9\u30C8\u30A6\u30A3\u30F3\u30C9\u30A6",
   maxTokensPerCallDesc: "\u751F\u6210Token\u3092\u30E2\u30C7\u30EB\u306E\u30B3\u30F3\u30C6\u30AD\u30B9\u30C8\u30A6\u30A3\u30F3\u30C9\u30A6\u306B\u5236\u9650\u30020 = \u7121\u5236\u9650\uFF08\u30AF\u30E9\u30A6\u30C9\u30C7\u30D5\u30A9\u30EB\u30C8\uFF09\u3002",
+  slugCaseName: "\u30D5\u30A1\u30A4\u30EB\u540D\u306E\u5927\u6587\u5B57\u5C0F\u6587\u5B57",
+  slugCaseDesc: "\u751F\u6210\u3055\u308C\u308B Wiki \u30D5\u30A1\u30A4\u30EB\u540D\u3092\u5C0F\u6587\u5B57\u5316\u3059\u308B\u304B\u3069\u3046\u304B\u3092\u5236\u5FA1\u3057\u307E\u3059\u3002\u5927\u6587\u5B57\u5C0F\u6587\u5B57\u306B\u610F\u5473\u306E\u3042\u308B\u8A00\u8A9E\uFF08\u30C9\u30A4\u30C4\u8A9E\u306E\u540D\u8A5E\u306A\u3069\uFF09\u3067\u306F\u300C\u4FDD\u6301\u300D\u3092\u63A8\u5968\u3002",
+  slugCaseLower: "\u5C0F\u6587\u5B57\uFF08\u30C7\u30D5\u30A9\u30EB\u30C8\uFF09",
+  slugCasePreserve: "\u5927\u6587\u5B57\u5C0F\u6587\u5B57\u3092\u4FDD\u6301",
   // Model Selection
   modelSection: "\u30E2\u30C7\u30EB\u9078\u629E",
   fetchModelsName: "\u5229\u7528\u53EF\u80FD\u306A\u30E2\u30C7\u30EB\u3092\u53D6\u5F97",
@@ -2226,6 +2238,10 @@ var KO_TEXTS = {
   lmstudioHint: "LM Studio\uB294 \uB85C\uCEEC\uC5D0\uC11C \uC2E4\uD589\uB429\uB2C8\uB2E4. API \uD0A4\uB294 \uC120\uD0DD \uC0AC\uD56D\uC785\uB2C8\uB2E4",
   maxTokensPerCallName: "\uCEE8\uD14D\uC2A4\uD2B8 \uCC3D",
   maxTokensPerCallDesc: "\uCEE8\uD14D\uC2A4\uD2B8 \uCC3D\uC5D0 \uB9DE\uAC8C \uD1A0\uD070 \uC81C\uD55C. 0 = \uC81C\uD55C \uC5C6\uC74C(\uD074\uB77C\uC6B0\uB4DC \uAE30\uBCF8\uAC12).",
+  slugCaseName: "\uD30C\uC77C\uBA85 \uB300\uC18C\uBB38\uC790",
+  slugCaseDesc: '\uC0DD\uC131\uB418\uB294 Wiki \uD30C\uC77C\uBA85\uC744 \uC18C\uBB38\uC790\uB85C \uBCC0\uD658\uD560\uC9C0 \uC81C\uC5B4\uD569\uB2C8\uB2E4. \uB300\uC18C\uBB38\uC790\uAC00 \uC758\uBBF8 \uC788\uB294 \uC5B8\uC5B4(\uC608: \uB3C5\uC77C\uC5B4 \uBA85\uC0AC)\uB294 "\uC720\uC9C0" \uAD8C\uC7A5.',
+  slugCaseLower: "\uC18C\uBB38\uC790(\uAE30\uBCF8\uAC12)",
+  slugCasePreserve: "\uB300\uC18C\uBB38\uC790 \uC720\uC9C0",
   // Model Selection
   modelSection: "\uBAA8\uB378 \uC120\uD0DD",
   fetchModelsName: "\uC0AC\uC6A9 \uAC00\uB2A5\uD55C \uBAA8\uB378 \uAC00\uC838\uC624\uAE30",
@@ -2653,6 +2669,10 @@ var DE_TEXTS = {
   lmstudioHint: "LM Studio l\xE4uft lokal, API-Key ist optional",
   maxTokensPerCallName: "Kontextfenster",
   maxTokensPerCallDesc: "Tokens an das Kontextfenster des Modells anpassen. 0 = kein Limit (Cloud).",
+  slugCaseName: "Dateinamen-Schreibweise",
+  slugCaseDesc: "Legt fest, ob generierte Wiki-Dateinamen kleingeschrieben werden. 'Beibehalten' empfohlen fuer Sprachen, in denen Gross-/Kleinschreibung bedeutungsrelevant ist (z. B. deutsche Substantive).",
+  slugCaseLower: "Kleinschreibung (Standard)",
+  slugCasePreserve: "Schreibweise beibehalten",
   // Model Selection
   modelSection: "Modellauswahl",
   fetchModelsName: "Verf\xFCgbare Modelle abrufen",
@@ -3080,6 +3100,10 @@ var FR_TEXTS = {
   lmstudioHint: "LM Studio fonctionne localement, la cl\xE9 API est facultative",
   maxTokensPerCallName: "Fen\xEAtre de contexte",
   maxTokensPerCallDesc: "Limiter les tokens \xE0 la fen\xEAtre de contexte du mod\xE8le. 0 = aucune limite (cloud).",
+  slugCaseName: "Casse des noms de fichiers",
+  slugCaseDesc: "Contr\xF4le si les noms de fichiers Wiki g\xE9n\xE9r\xE9s sont mis en minuscules. 'Conserver' recommand\xE9 pour les langues o\xF9 la casse est significative (ex. noms allemands).",
+  slugCaseLower: "Minuscules (d\xE9faut)",
+  slugCasePreserve: "Conserver la casse",
   // Model Selection
   modelSection: "S\xE9lection du mod\xE8le",
   fetchModelsName: "R\xE9cup\xE9rer les mod\xE8les disponibles",
@@ -3507,6 +3531,10 @@ var ES_TEXTS = {
   lmstudioHint: "LM Studio se ejecuta localmente, API Key es opcional",
   maxTokensPerCallName: "Ventana de contexto",
   maxTokensPerCallDesc: "Limitar tokens a la ventana de contexto del modelo. 0 = sin l\xEDmite (cloud).",
+  slugCaseName: "May\xFAsculas en nombres de archivo",
+  slugCaseDesc: "Controla si los nombres de archivo Wiki generados se ponen en min\xFAsculas. Se recomienda 'Conservar' para idiomas donde las may\xFAsculas son significativas (p. ej. sustantivos alemanes).",
+  slugCaseLower: "Min\xFAsculas (predeterminado)",
+  slugCasePreserve: "Conservar may\xFAsculas",
   // Model Selection
   modelSection: "Selecci\xF3n del modelo",
   fetchModelsName: "Obtener modelos disponibles",
@@ -3934,6 +3962,10 @@ var PT_TEXTS = {
   lmstudioHint: "O LM Studio roda localmente, API Key \xE9 opcional",
   maxTokensPerCallName: "Janela de contexto",
   maxTokensPerCallDesc: "Limitar tokens \xE0 janela de contexto do modelo. 0 = sem limite (cloud).",
+  slugCaseName: "Capitaliza\xE7\xE3o de nomes de arquivo",
+  slugCaseDesc: "Controla se os nomes de arquivo Wiki gerados s\xE3o convertidos para min\xFAsculas. Recomenda-se 'Preservar' para idiomas onde mai\xFAsculas s\xE3o significativas (ex. substantivos alem\xE3es).",
+  slugCaseLower: "Min\xFAsculas (padr\xE3o)",
+  slugCasePreserve: "Preservar capitaliza\xE7\xE3o",
   // Model Selection
   modelSection: "Sele\xE7\xE3o de modelo",
   fetchModelsName: "Buscar modelos dispon\xEDveis",
@@ -4367,15 +4399,15 @@ function getText(language, key, replacements) {
   }
   return text;
 }
-function slugify(text) {
+function slugify(text, preserveCase = false) {
   console.debug("slugify input:", text, "length:", text == null ? void 0 : text.length);
   if (!text || text.trim().length === 0) {
     console.warn("slugify: input text is empty");
     return "untitled";
   }
-  return computeSlug(text);
+  return computeSlug(text, preserveCase);
 }
-function computeSlug(text) {
+function computeSlug(text, preserveCase = false) {
   if (!text || text.trim().length === 0) return "untitled";
   const trimmed = text.trim();
   const afterRemoveInvalid = trimmed.split("").filter((c) => c.charCodeAt(0) >= 32).join("").replace(/[/\\:*?"<>|,()'!?、，。；：！？（）【】《》]/g, "");
@@ -4384,7 +4416,7 @@ function computeSlug(text) {
   const afterMergeDash = afterSpaceToDash.replace(/-+/g, "-");
   const finalSlug = afterMergeDash.replace(/^-|-$/g, "").trim();
   if (finalSlug.length === 0) return "untitled-" + Date.now();
-  return finalSlug.toLowerCase();
+  return preserveCase ? finalSlug : finalSlug.toLowerCase();
 }
 function filterRedundantAliases(pagePath, candidateAliases) {
   const fileName = pagePath.split("/").pop() || "";
@@ -4707,6 +4739,8 @@ function mergeFrontmatter(existingContent, newSourcePath) {
   }
   if (Array.isArray(fm.tags) && fm.tags.length > 0) {
     lines.push(`tags:${yamlStringify(fm.tags)}`);
+  } else {
+    lines.push("tags:");
   }
   if (fm.reviewed) {
     lines.push("reviewed: true");
@@ -4886,8 +4920,7 @@ function enforceFrontmatterConstraints(content, pageType, settings) {
     if (dedupedTags.length > 0) {
       result.push(`tags: [${dedupedTags.join(", ")}]`);
     } else {
-      const fallback = pageType === "entity" ? DEFAULT_ENTITY_TAG : pageType === "concept" ? DEFAULT_CONCEPT_TAG : pageType === "source" ? DEFAULT_SOURCE_TAG : "";
-      result.push(`tags: [${fallback}]`);
+      result.push("tags:");
     }
   }
   if (foundAliases || collectedAliases.length > 0) {
@@ -5835,6 +5868,14 @@ var LLMWikiSettingTab = class extends import_obsidian4.PluginSettingTab {
     new import_obsidian4.Setting(containerEl).setName(this.getText("wikiFolderName")).setDesc(this.getText("wikiFolderDesc")).addText((text) => text.setPlaceholder(this.getText("wikiFolderPlaceholder")).setValue(this.tempSettings.wikiFolder).onChange((value) => {
       this.tempSettings.wikiFolder = value;
     }));
+    new import_obsidian4.Setting(containerEl).setName(this.getText("slugCaseName")).setDesc(this.getText("slugCaseDesc")).addDropdown((dropdown) => {
+      dropdown.addOption("lower", this.getText("slugCaseLower"));
+      dropdown.addOption("preserve", this.getText("slugCasePreserve"));
+      dropdown.setValue(this.tempSettings.slugCase || "lower");
+      dropdown.onChange((value) => {
+        this.tempSettings.slugCase = value;
+      });
+    });
     let customEntitySetting = null;
     let customConceptSetting = null;
     const updateCustomVisibility = (value) => {
@@ -7450,7 +7491,7 @@ var LintFixer = class {
         concept: WIKI_SUBFOLDERS.concepts
       };
       const stubDir = pluralMap[stubType] || `${stubType}s`;
-      const stubSlug = slugify(sanitizedTitle);
+      const stubSlug = slugify(sanitizedTitle, this.ctx.settings.slugCase === "preserve");
       const stubPath = `${this.ctx.settings.wikiFolder}/${stubDir}/${stubSlug}.md`;
       const sourceRel = sourcePath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
       const stubContent = `---
@@ -7510,7 +7551,7 @@ tags: [${stubType === "entity" ? "other" : "term"}]
       const cleanBasename = targetBasename2.replace(/^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/, "$2");
       const stubType = targetName.includes("/entities/") ? "entity" : "concept";
       const stubDir = stubType === "entity" ? "entities" : "concepts";
-      const stubSlug = slugify(cleanBasename);
+      const stubSlug = slugify(cleanBasename, this.ctx.settings.slugCase === "preserve");
       const stubPath = `${this.ctx.settings.wikiFolder}/${stubDir}/${stubSlug}.md`;
       const sourceRel = sourcePath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
       const stubContent = `---
@@ -8344,7 +8385,7 @@ var SourceAnalyzer = class {
     this.ctx = ctx;
   }
   async analyzeSource(file) {
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
     console.debug("=== Source analysis started ===");
     console.debug("File:", file.path);
     const content = await this.ctx.app.vault.read(file);
@@ -8563,6 +8604,12 @@ ${malformedJson}`;
         console.warn("[Related pages] Programmatic matching failed:", err);
       }
     }
+    if (this.ctx.settings.extractionGranularity === "custom") {
+      const eCap = (_i = this.ctx.settings.customEntityLimit) != null ? _i : 5;
+      const cCap = (_j = this.ctx.settings.customConceptLimit) != null ? _j : 5;
+      if (accumulation.entities.length > eCap) accumulation.entities = accumulation.entities.slice(0, eCap);
+      if (accumulation.concepts.length > cCap) accumulation.concepts = accumulation.concepts.slice(0, cCap);
+    }
     const analysis = buildSourceAnalysis(
       file.path,
       file.basename,
@@ -8719,7 +8766,7 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
   async resolvePagePath(name, pageType, summary) {
     const folder = pageType === "entity" ? WIKI_SUBFOLDERS.entities : WIKI_SUBFOLDERS.concepts;
     const otherFolder = pageType === "entity" ? WIKI_SUBFOLDERS.concepts : WIKI_SUBFOLDERS.entities;
-    const slug = slugify(name);
+    const slug = slugify(name, this.ctx.settings.slugCase === "preserve");
     const slugPath = `${this.ctx.settings.wikiFolder}/${folder}/${slug}.md`;
     const existing = await this.ctx.tryReadFile(slugPath);
     if (existing !== null) {
@@ -9132,15 +9179,16 @@ ${malformedJson}`;
     console.debug("[\u751F\u6210\u7684\u6807\u9898]", parsed.source_title);
     (_j = (_i = this.ctx).onProgress) == null ? void 0 : _j.call(_i, "Creating summary page...");
     await this.orch.ensureWikiStructure();
-    const semanticSlug = slugify(parsed.source_title);
+    const preserveCase = this.ctx.settings.slugCase === "preserve";
+    const semanticSlug = slugify(parsed.source_title, preserveCase);
     const summaryPath = `${this.ctx.settings.wikiFolder}/sources/${semanticSlug}.md`;
     console.debug("[Semantic file path]", summaryPath);
     const convPlannedPaths = [summaryPath];
     for (const entity of parsed.entities) {
-      convPlannedPaths.push(`${this.ctx.settings.wikiFolder}/entities/${slugify(entity.name)}.md`);
+      convPlannedPaths.push(`${this.ctx.settings.wikiFolder}/entities/${slugify(entity.name, preserveCase)}.md`);
     }
     for (const concept of parsed.concepts) {
-      convPlannedPaths.push(`${this.ctx.settings.wikiFolder}/concepts/${slugify(concept.name)}.md`);
+      convPlannedPaths.push(`${this.ctx.settings.wikiFolder}/concepts/${slugify(concept.name, preserveCase)}.md`);
     }
     const createdPagesList = convPlannedPaths.length > 0 ? convPlannedPaths.map((p) => {
       const relPath = p.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
@@ -9414,11 +9462,12 @@ var WikiEngine = class {
       const totalSteps = 1 + analysis.entities.length + analysis.concepts.length + analysis.related_pages.length + 2;
       let step = 1;
       const plannedPaths = [];
+      const preserveCase = this.settings.slugCase === "preserve";
       for (const entity of analysis.entities) {
-        plannedPaths.push((0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/entities/${slugify(entity.name)}.md`));
+        plannedPaths.push((0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/entities/${slugify(entity.name, preserveCase)}.md`));
       }
       for (const concept of analysis.concepts) {
-        plannedPaths.push((0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/concepts/${slugify(concept.name)}.md`));
+        plannedPaths.push((0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/concepts/${slugify(concept.name, preserveCase)}.md`));
       }
       (_c = this.onProgress) == null ? void 0 : _c.call(this, `[${step}/${totalSteps}] Creating summary...`);
       await this.apiDelay();
@@ -9713,16 +9762,20 @@ var WikiEngine = class {
     await this.schemaManager.ensureSchemaExists();
   }
   async createSummaryPage(file, analysis, plannedPaths = []) {
-    const slug = slugify(file.basename);
+    const preserveCase = this.settings.slugCase === "preserve";
+    const slug = slugify(file.basename, preserveCase);
     const path = (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/sources/${slug}.md`);
     const content = await this.app.vault.read(file);
+    const existingSource = await this.tryReadFile(path);
+    const existingFm = existingSource ? parseFrontmatter(existingSource) : null;
+    const existingTags = Array.isArray(existingFm == null ? void 0 : existingFm.tags) && existingFm.tags.length > 0 ? existingFm.tags : null;
     const sourceTags = extractSourceTags(content);
-    const tagsValue = sourceTags.length > 0 ? sourceTags.join(", ") : analysis.concepts.map((c) => c.name).join(", ");
+    const tagsValue = existingTags ? existingTags.join(", ") : sourceTags.length > 0 ? sourceTags.join(", ") : analysis.concepts.map((c) => c.name).join(", ");
     const createdPagesList = plannedPaths.length > 0 ? plannedPaths.map((p) => {
       const relPath = p.replace(this.settings.wikiFolder + "/", "").replace(".md", "");
       const name = relPath.split("/").pop() || relPath;
       return `- [[${relPath}|${name}]]`;
-    }).join("\n") : analysis.entities.map((e) => `- [[entities/${slugify(e.name)}|${e.name}]]`).join("\n") + "\n" + analysis.concepts.map((c) => `- [[concepts/${slugify(c.name)}|${c.name}]]`).join("\n");
+    }).join("\n") : analysis.entities.map((e) => `- [[entities/${slugify(e.name, preserveCase)}|${e.name}]]`).join("\n") + "\n" + analysis.concepts.map((c) => `- [[concepts/${slugify(c.name, preserveCase)}|${c.name}]]`).join("\n");
     const prompt = PROMPTS.generateSummaryPage.replace("{{source_title}}", analysis.source_title).replace("{{content}}", content.substring(0, 500)).replace("{{analysis}}", JSON.stringify(analysis)).replace("{{created_pages_list}}", createdPagesList || "(none)").replace(/{{source_file}}/g, file.path).replace(/{{date}}/g, (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace("{{tags}}", tagsValue).replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
     const finalPrompt = this.applySectionLabels(prompt);
     const pageContent = await this.client.createMessage({
@@ -13192,7 +13245,7 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
   }
   // ==================== Ingestion ====================
   async isAlreadyIngested(sourceFile) {
-    const slug = slugify(sourceFile.basename);
+    const slug = slugify(sourceFile.basename, this.settings.slugCase === "preserve");
     const wikiPath = `${this.settings.wikiFolder}/sources/${slug}.md`;
     try {
       const file = this.app.vault.getAbstractFileByPath(wikiPath);

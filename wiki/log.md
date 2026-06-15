@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-12T21:52
+updated: 2026-06-16T03:56
 ---
 # Wiki 操作日志
 
@@ -11412,3 +11412,443 @@ updated: 2026-06-12T21:52
 - [**Wiki 索引元数据 `created` 与各页 `created` 不一致**：索引创建于 2026-05-28，但许多 page 的 created 早于或晚于此日期；索引的 `updated` 是 2026-06-12 而部分 page 已 2026-06-13——这说明批量索引刷新机制可能有问题]
 - [**孤立概念比例过高**：143/5227 孤立页面（约 2.7%）虽然比例不大，但其中不少是核心概念（如"概念论"、"概念逻辑"、"反讽厌倦和绝望"），意味着索引时未充分交叉链接]
 - [**页面 type 字段：实体大量未填 entity_type**：对照 allowed list，多数 entities 没有 person/organization/place 等标注，前端无法做按类型筛选]
+
+
+## [2026-06-15] ingest | 哲学的本质与孔子定位
+
+**创建页面**：[[sources/TabAI会话_什么是哲学孔子是不是哲学家.md]], [[entities/西周.md]], [[entities/柏拉图.md]], [[entities/孔子.md]], [[entities/苏格拉底.md]], [[entities/亚里士多德.md]], [[entities/黑格尔.md]], [[entities/老子.md]], [[entities/笛卡儿René-Descartes.md]], [[entities/明晰研究院.md]], [[entities/康德.md]], [[concepts/对象化→概念化→论证化→体系化.md]], [[concepts/哲学翻译史.md]], [[concepts/西方哲学七大发展阶段.md]], [[concepts/Philosophia.md]], [[concepts/哲学.md]], [[concepts/自我矮化.md]], [[concepts/东西方哲学差异.md]], [[concepts/自我膨胀.md]], [[concepts/双重承认.md]], [[concepts/中国古代哲学关切.md]], [[concepts/生命化成己.md]], [[concepts/对象化求真.md]], [[concepts/成己成人.md]], [[concepts/礼乐教化.md]], [[concepts/逻各斯.md]], [[concepts/知行合一.md]], [[concepts/心性修养.md]], [[concepts/主客区分.md]]
+
+**更新页面**：[[孔子]], [[西周]], [[苏格拉底]], [[柏拉图]], [[亚里士多德]], [[康德]], [[黑格尔]], [[笛卡儿René-Descartes]], [[老子]], [[明晰研究院]], [[爱智慧]], [[逻各斯]], [[知行合一]]
+
+
+
+## [2026-06-15] ingest | 中华文明语境中“心”的核心内涵——对比西方现代知识体系的误读与差异
+
+**创建页面**：[[sources/中华文明语境中“心”的核心内涵——对比西方现代知识体系的误读与差异-2026年06月10日-来自Get-笔记.md]], [[entities/老子.md]], [[entities/孟子.md]], [[entities/明晰研究院.md]], [[entities/孔子.md]], [[entities/王阳明.md]], [[entities/柏拉图.md]], [[entities/周代.md]], [[entities/笛卡儿René-Descartes.md]], [[concepts/中华心学.md]], [[concepts/心.md]], [[concepts/心即理.md]], [[concepts/孟子四端.md]], [[concepts/知行合一.md]], [[concepts/修身中心型.md]], [[concepts/天命观.md]], [[concepts/西方现代性.md]], [[concepts/学科分工.md]], [[concepts/身心问题.md]], [[concepts/内外贯通.md]], [[concepts/主客二分.md]], [[concepts/人的整体性.md]], [[concepts/内圣外王.md]], [[concepts/秩序生成.md]], [[concepts/西方现代知识体系.md]], [[concepts/天人关系.md]]
+
+**更新页面**：[[明晰研究院]], [[孔子]], [[老子]], [[孟子]], [[笛卡儿René-Descartes]], [[柏拉图]], [[知行合一]], [[内圣外王]]
+
+
+
+## [2026-06-15] ingest | 主体性是缘起的序参量——佛学无我理论与现代系统科学的桥接整合
+
+**创建页面**：[[sources/主体性是缘起的序参量——佛学无我理论与现代系统科学的桥接整合-2026年06月10日-来自Get-笔记.md]], [[entities/明晰研究院.md]], [[concepts/缘起论.md]], [[concepts/序参量.md]], [[concepts/主体性.md]], [[entities/Get达人.md]], [[concepts/协同学.md]], [[concepts/涌现.md]], [[concepts/循环因果条件.md]], [[concepts/边界条件.md]], [[concepts/无我.md]], [[concepts/观照.md]], [[concepts/整合条件.md]], [[concepts/时间连续条件.md]], [[concepts/放下.md]], [[concepts/社会和语言条件.md]], [[concepts/定学.md]], [[concepts/缘起性空.md]], [[concepts/自我叙事.md]], [[concepts/不执着.md]], [[concepts/慧学.md]], [[concepts/慢变量与快变量.md]], [[concepts/条件网络.md]], [[concepts/主体性治理.md]], [[concepts/实体幻觉.md]]
+
+**更新页面**：[[Get达人]], [[明晰研究院]], [[缘起论]], [[主体间性]], [[无我]], [[涌现]], [[缘起性空]], [[定学]], [[慧学]]
+
+
+
+## [2026-06-15] ingest | 主体性流失的9种变化与找回主体性的恢复路径
+
+**创建页面**：[[sources/主体性流失的9种变化与找回主体性的恢复路径-2026年06月10日-来自Get-笔记.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[concepts/主体性.md]], [[concepts/内在起点.md]], [[concepts/主体性流失.md]], [[concepts/行动依赖外部刺激.md]], [[concepts/判断力弱化.md]], [[concepts/方向感模糊.md]], [[concepts/内在节律紊乱.md]], [[concepts/边界感丧失.md]], [[concepts/认领感.md]], [[concepts/主体生命系统.md]], [[concepts/维持vs生长.md]], [[concepts/恢复路径.md]], [[concepts/结构性状态.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[主体间性]]
+
+
+
+## [2026-06-15] ingest | 什么是「机制」？从词源演化到当代应用的完整梳理
+
+**创建页面**：[[sources/什么是「机制」从词源演化到当代应用的完整梳理-2026年06月10日-来自Get-笔记.md]], [[entities/明晰研究院.md]], [[concepts/机制思维.md]], [[concepts/机制性解释.md]], [[concepts/机制.md]], [[concepts/机械论自然观.md]], [[concepts/触发条件.md]], [[concepts/词源演化.md]], [[concepts/机制滥用.md]], [[concepts/反馈回路.md]], [[concepts/传导路径.md]], [[concepts/流程.md]], [[concepts/约束边界.md]], [[concepts/社会主义.md]], [[concepts/要素关系.md]], [[concepts/跨学科应用.md]]
+
+**更新页面**：[[明晰研究院]], [[机制]], [[社会主义]]
+
+
+
+## [2026-06-15] ingest | 什么是哲学？孔子算不算中国哲学家？——东西方哲学的差异与当代认知
+
+**创建页面**：[[sources/什么是哲学孔子算不算中国哲学家——东西方哲学的差异与当代认知-2026年06月10日-来自Get-笔记.md]], [[entities/西周.md]], [[entities/柏拉图.md]], [[entities/孔子.md]], [[entities/明晰研究院.md]], [[entities/苏格拉底.md]], [[entities/维特根斯坦.md]], [[concepts/爱智慧.md]], [[entities/亚里士多德.md]], [[entities/马丁·海德格尔.md]], [[entities/尼采.md]], [[concepts/爱智慧.md]], [[concepts/哲学.md]], [[concepts/对象化求真.md]], [[concepts/西方哲学七大发展阶段.md]], [[concepts/东西方哲学差异.md]], [[concepts/成己成人.md]], [[concepts/生命化成己.md]], [[concepts/中国古代哲学.md]], [[concepts/中国式主体生命系统哲学.md]], [[concepts/逻各斯.md]], [[concepts/礼乐教化.md]], [[concepts/双重承认.md]], [[concepts/中西哲学会通.md]], [[concepts/哲学家.md]], [[concepts/哲学新定义.md]], [[concepts/知行合一.md]], [[concepts/学科名称与哲学性思考的区别.md]], [[concepts/古希腊哲学.md]]
+
+**更新页面**：[[明晰研究院]], [[孔子]], [[西周]], [[苏格拉底]], [[柏拉图]], [[亚里士多德]], [[尼采]], [[马丁·海德格尔]], [[维特根斯坦]], [[爱智慧]], [[Philosophia]], [[对象化求真]], [[生命化成己]], [[逻各斯]], [[成己成人]], [[双重承认]], [[礼乐教化]], [[知行合一]]
+
+
+
+## [2026-06-15] ingest | 什么是结构？明晰研究院对结构概念的深度拆解与辨析
+
+**创建页面**：[[sources/什么是结构明晰研究院对结构概念的深度拆解与辨析-2026年06月10日-来自Get-笔记.md]], [[entities/鲁灵光殿赋.md]], [[entities/易经.md]], [[entities/王延寿.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[concepts/组织.md]], [[concepts/结构思维.md]], [[concepts/机制.md]], [[concepts/系统.md]], [[concepts/结构.md]], [[concepts/显性结构与隐性结构.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[王延寿]], [[周易]], [[鲁灵光殿赋]], [[结构]], [[系统]], [[机制]], [[组织]], [[结构思维]]
+
+
+
+## [2026-06-15] ingest | 从中国哲学史到主体生命系统：反思胡适冯友兰对中国思想的哲学化改造
+
+**创建页面**：[[sources/从中国哲学史到主体生命系统反思胡适冯友兰对中国思想的哲学化改造-2026年06月10日-来自Get-笔记.md]], [[entities/冯友兰.md]], [[entities/杜威.md]], [[entities/陈独秀.md]], [[entities/明晰研究院.md]], [[entities/胡适.md]], [[concepts/主体生命系统.md]], [[concepts/再贯通.md]], [[concepts/哲学化改造.md]], [[concepts/中国哲学史大纲.md]], [[concepts/逻各斯.md]], [[concepts/宋明理学.md]], [[concepts/功夫.md]], [[concepts/西方现代知识体系.md]], [[concepts/修身齐家治国.md]], [[concepts/生命秩序实践.md]], [[concepts/传统经学.md]], [[concepts/西方哲学框架.md]]
+
+**更新页面**：[[冯友兰]], [[杜威]], [[明晰研究院]], [[主体生命系统]], [[逻各斯]], [[宋明理学]]
+
+
+
+## [2026-06-15] ingest | 从黄帝内经到AlphaFold：人类生命系统研究的三次认知大转弯
+
+**创建页面**：[[sources/从黄帝内经到AlphaFold人类生命系统研究的三次认知大转弯-2026年06月10日-来自Get-笔记.md]], [[entities/黄帝内经.md]], [[entities/盖伦.md]], [[entities/维萨里.md]], [[entities/希波克拉底.md]], [[entities/亚里士多德.md]], [[entities/列文虎克.md]], [[entities/孟德尔.md]], [[entities/摩尔根.md]], [[entities/哈维.md]], [[entities/虎克.md]], [[entities/伊本纳菲斯.md]], [[entities/拉齐.md]], [[entities/巴斯德.md]], [[entities/科赫.md]], [[entities/AlphaFold.md]], [[concepts/还原论.md]], [[entities/埃德温史密斯纸草文稿.md]], [[concepts/整体生命观.md]], [[entities/DNA双螺旋结构.md]], [[concepts/生命系统研究的三次认知大转弯.md]], [[concepts/医学知识传承.md]], [[concepts/血液循环.md]], [[concepts/文艺复兴医学革命.md]], [[concepts/细胞学说.md]], [[concepts/四体液平衡理论.md]], [[concepts/合成生物学.md]], [[concepts/分子革命.md]], [[concepts/生命编码.md]], [[concepts/系统生物学.md]], [[concepts/AI与生命科学.md]]
+
+**更新页面**：[[亚里士多德]]
+
+
+
+## [2026-06-15] ingest | 什么是现代社会的异化：从概念起源到现代处境与修复方向
+
+**创建页面**：[[sources/什么是现代社会的异化从概念起源到现代处境与修复方向-2026年06月10日-来自Get-笔记.md]], [[entities/黑格尔.md]], [[entities/费尔巴哈.md]], [[entities/企业人.md]], [[entities/明晰研究院.md]], [[entities/马克思.md]], [[concepts/分离.md]], [[concepts/自我异化.md]], [[concepts/异化.md]], [[concepts/异化劳动.md]], [[concepts/主体失主.md]], [[concepts/扬弃异化.md]], [[concepts/情感与内心隔离.md]], [[concepts/反支配.md]], [[concepts/行为与社会疏离.md]], [[concepts/病理与毁灭状态.md]], [[concepts/劳动产品异化.md]], [[concepts/劳动过程异化.md]], [[concepts/宗教投射理论.md]], [[concepts/人与自身本质异化.md]], [[concepts/精神外化.md]], [[concepts/重新连接劳动.md]], [[concepts/重新感受.md]], [[concepts/人与他人异化.md]], [[concepts/现代异化.md]], [[concepts/重新命名.md]], [[concepts/重新整理关系.md]], [[concepts/岗位角色异化.md]], [[concepts/重新建立主体节律.md]]
+
+**更新页面**：[[明晰研究院]], [[黑格尔]], [[费尔巴哈]], [[马克思]], [[异化]], [[异化劳动]], [[自我异化]], [[分离]]
+
+
+
+## [2026-06-15] ingest | 什么是范式：从概念溯源到个人、企业与AI时代的底层逻辑
+
+**创建页面**：[[sources/什么是范式从概念溯源到个人企业与AI时代的底层逻辑-2026年06月10日-来自Get-笔记.md]], [[entities/文心雕龙·事类.md]], [[entities/托马斯·库恩.md]], [[entities/明晰研究院.md]], [[entities/科学革命的结构.md]], [[concepts/范式.md]], [[concepts/范式.md]], [[concepts/科学共同体.md]], [[concepts/个人范式.md]], [[concepts/主体生命系统.md]], [[concepts/模式.md]], [[concepts/范式.md]], [[concepts/企业范式.md]], [[concepts/工具范式.md]], [[concepts/中文范式.md]], [[concepts/主体范式.md]], [[concepts/AI时代.md]], [[concepts/主体性.md]]
+
+**更新页面**：[[明晰研究院]], [[主体生命系统]], [[主体间性]], [[AI时代]]
+
+
+
+## [2026-06-15] ingest | 周期概念全解析：从词源、核心内涵到主流模型与成熟周期观
+
+**创建页面**：[[sources/周期概念全解析从词源核心内涵到主流模型与成熟周期观-2026年06月10日-来自Get-笔记.md]], [[entities/朱格拉.md]], [[entities/周敦颐.md]], [[entities/明晰研究院.md]], [[concepts/周期概念.md]], [[concepts/昼夜节律.md]], [[concepts/适应周期模型.md]], [[concepts/太阳周期.md]], [[concepts/基钦库存周期.md]], [[concepts/经济学层级周期模型.md]], [[concepts/米兰科维奇周期.md]], [[concepts/朱格拉投资周期.md]], [[concepts/宋明理学周期观.md]], [[concepts/康德拉季耶夫长波.md]], [[concepts/库兹涅茨摆动.md]], [[concepts/易经周期观.md]], [[concepts/成熟周期观.md]], [[concepts/周期三层内涵.md]], [[concepts/天文周期模型.md]], [[concepts/阴阳消长.md]], [[concepts/生物周期模型.md]], [[concepts/贸易周期.md]], [[concepts/成熟周期观.md]], [[concepts/适应周期模型.md]], [[concepts/周期定义.md]], [[concepts/太极图说.md]]
+
+**更新页面**：[[明晰研究院]], [[贸易周期]]
+
+
+
+## [2026-06-15] ingest | 坏机制的本质与演化：组织行为扭曲的底层逻辑分析
+
+**创建页面**：[[sources/坏机制的本质与演化组织行为扭曲的底层逻辑分析-2026年06月10日-来自Get-笔记.md]], [[entities/Get达人.md]], [[concepts/行为异化.md]], [[concepts/坏机制.md]], [[concepts/错误行为.md]], [[concepts/四阶段演化模型.md]], [[concepts/隐性规则.md]], [[concepts/客户维度.md]], [[concepts/诚信维度.md]], [[concepts/责任维度.md]], [[concepts/价值维度.md]], [[concepts/行为固化阶段.md]], [[concepts/规则维度.md]], [[concepts/管理维度.md]], [[concepts/初始妥协阶段.md]], [[concepts/自我合理化阶段.md]], [[concepts/组织文化腐蚀.md]], [[concepts/文化传播阶段.md]], [[concepts/机制设计伦理责任.md]]
+
+**更新页面**：[[Get达人]]
+
+
+
+## [2026-06-15] ingest | 古代能量观与现代科学：不是强行等同，而是建立可落地的翻译路径
+
+**创建页面**：[[sources/古代能量观与现代科学不是强行等同而是建立可落地的翻译路径-2026年06月10日-来自Get-笔记.md]], [[concepts/气.md]], [[concepts/三层翻译协议.md]], [[concepts/古代能量观.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[concepts/体验层.md]], [[concepts/生理层.md]], [[concepts/生频.md]], [[concepts/组织层.md]], [[concepts/互摄.md]], [[concepts/换能.md]], [[concepts/呼吸节律.md]], [[concepts/守能.md]], [[concepts/脑波相干.md]], [[concepts/心率变异.md]], [[concepts/耗散结构理论.md]], [[concepts/脑波相干.md]], [[concepts/信息能量与熵.md]], [[concepts/现代科学能量.md]], [[concepts/阴阳五行.md]], [[concepts/PRAA.md]], [[concepts/经络.md]], [[concepts/QUWWA.md]], [[concepts/精气.md]], [[concepts/脉轮脉管.md]], [[concepts/noma.md]], [[concepts/QUWWA.md]], [[concepts/炼金三元.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[气]], [[耗散结构理论]]
+
+
+
+## [2026-06-15] ingest | 佛学阿赖耶识≠心理学潜意识：概念辨析、核心差异与互相借鉴
+
+**创建页面**：[[sources/佛学阿赖耶识≠心理学潜意识概念辨析核心差异与互相借鉴-2026年06月10日-来自Get-笔记.md]], [[concepts/唯识学.md]], [[concepts/无意识.md]], [[entities/明晰研究院意识研究专栏.md]], [[entities/Get达人.md]], [[concepts/阿赖耶识.md]], [[concepts/末那识我执消融.md]], [[concepts/集体无意识.md]], [[concepts/唯识学八识系统.md]], [[concepts/认知无意识.md]], [[concepts/弗洛伊德无意识.md]], [[concepts/转识成智.md]], [[concepts/我执.md]], [[concepts/轮回.md]], [[concepts/业力观.md]], [[concepts/熏习.md]], [[concepts/种子生现行现行熏种子.md]], [[concepts/习气成种遇缘又起.md]], [[concepts/解脱.md]], [[concepts/无我.md]]
+
+**更新页面**：[[Get达人]], [[阿赖耶识]], [[无意识]], [[唯识学]], [[末那识我执消融]], [[我执]], [[转识成智]], [[业力观]], [[轮回]], [[解脱]], [[无我]]
+
+
+
+## [2026-06-15] ingest | 从日本的「哲学+道」看中国：重提由术入道，找回中华文明的有道之术
+
+**创建页面**：[[sources/从日本的「哲学+道」看中国重提由术入道找回中华文明的有道之术-2026年06月10日-来自Get-笔记.md]], [[entities/松下幸之助.md]], [[concepts/由术入道.md]], [[entities/稻盛和夫.md]], [[entities/庖丁解牛.md]], [[entities/明晰研究院.md]], [[concepts/三重混成结构.md]], [[concepts/显性社会装置.md]], [[concepts/逻各斯.md]], [[concepts/哲学+道.md]], [[concepts/有道之术.md]], [[concepts/由术入道.md]], [[concepts/术.md]], [[concepts/工具理性.md]], [[concepts/经营哲学.md]]
+
+**更新页面**：[[明晰研究院]], [[逻各斯]], [[工具理性]]
+
+
+
+## [2026-06-15] ingest | 好机制的七个特征与坏机制改造成好机制的五步路径（明晰研究院）
+
+**创建页面**：[[sources/好机制的七个特征与坏机制改造成好机制的五步路径明晰研究院-2026年06月10日-来自Get-笔记.md]], [[concepts/坏机制.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[concepts/七个特征.md]], [[concepts/好机制.md]], [[concepts/五步路径.md]], [[concepts/显影坏机制.md]], [[concepts/权责匹配.md]], [[concepts/真实反馈闭环.md]], [[concepts/企业之道.md]], [[concepts/长期主义.md]], [[concepts/重配权责利.md]], [[concepts/成就主体.md]], [[concepts/保护真实反馈.md]], [[concepts/把好行为机制化.md]], [[concepts/奖励真实价值.md]], [[concepts/降低作恶收益.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[坏机制]]
+
+
+
+## [2026-06-15] ingest | 好思想为什么会被用坏：区分思想本意与后世流弊的文明思考
+
+**创建页面**：[[sources/好思想为什么会被用坏区分思想本意与后世流弊的文明思考-2026年06月10日-来自Get-笔记.md]], [[entities/王阳明.md]], [[entities/孔子.md]], [[entities/李贽.md]], [[concepts/以流弊诛本意.md]], [[entities/明晰研究院.md]], [[concepts/礼.md]], [[concepts/好思想异化.md]], [[concepts/语言腐败.md]], [[concepts/仁.md]], [[concepts/思想本意与流弊.md]], [[concepts/无为.md]], [[concepts/知行合一.md]], [[concepts/空.md]], [[concepts/孝道文化.md]], [[concepts/童心说.md]], [[concepts/文明甩锅.md]]
+
+**更新页面**：[[明晰研究院]], [[孔子]], [[王阳明]], [[礼]], [[无为]], [[空]], [[知行合一]]
+
+
+
+## [2026-06-15] ingest | 意识的四层结构：人不是固定实体，而是动态生成的主体系统
+
+**创建页面**：[[sources/意识的四层结构人不是固定实体而是动态生成的主体系统-2026年06月10日-来自Get-笔记.md]], [[concepts/意识.md]], [[entities/Get达人.md]], [[concepts/意识的四层结构.md]], [[concepts/具身性.md]], [[entities/明晰研究院.md]], [[concepts/整体涌现.md]], [[concepts/网络维度的整体整合.md]], [[concepts/环境维度的系统耦合.md]], [[concepts/动态生成的主体系统.md]], [[concepts/身体维度的具身承载.md]], [[concepts/时间维度的动态流变.md]], [[concepts/泛心论.md]], [[concepts/动态流变.md]], [[concepts/还原论.md]], [[concepts/第一人称体验.md]], [[concepts/主体性.md]], [[concepts/自我觉醒.md]], [[concepts/环境维度的系统耦合.md]]
+
+**更新页面**：[[Get达人]], [[明晰研究院]], [[第六识意识]], [[还原论]], [[主体间性]]
+
+
+
+## [2026-06-15] ingest | 意识科学研究百年发展：从哲学玄想到跨学科核心问题
+
+**创建页面**：[[sources/意识科学研究百年发展从哲学玄想到跨学科核心问题-2026年06月10日-来自Get-笔记.md]], [[entities/科赫.md]], [[entities/威廉·詹姆士.md]], [[entities/冯特.md]], [[entities/克里克.md]], [[entities/笛卡儿René-Descartes.md]], [[entities/巴尔斯.md]], [[entities/查尔莫斯.md]], [[entities/德哈内.md]], [[entities/托诺尼.md]], [[concepts/意识科学.md]], [[concepts/身心问题.md]], [[concepts/意识流.md]], [[concepts/全局工作空间理论.md]], [[concepts/意识的难题.md]], [[concepts/整合信息理论.md]], [[concepts/行为主义.md]], [[concepts/内省法.md]], [[concepts/集体意识.md]], [[concepts/意识的神经相关物.md]], [[concepts/自我认识.md]], [[concepts/默认模式网络.md]], [[concepts/盲视.md]], [[concepts/斯特鲁普效应.md]], [[concepts/变化盲视.md]], [[concepts/裂脑研究.md]], [[concepts/高阶理论.md]], [[concepts/实验心理学.md]], [[concepts/循环反馈理论.md]]
+
+**更新页面**：[[威廉·詹姆士]], [[笛卡儿René-Descartes]], [[科赫]], [[身心问题]], [[行为主义]], [[自我认识]]
+
+
+
+## [2026-06-15] ingest | 意识研究的"难问题"：为什么第一人称体验无法被科学解释？
+
+**创建页面**：[[sources/意识研究的难问题为什么第一人称体验无法被科学解释-2026年06月10日-来自Get-笔记.md]], [[concepts/第一人称体验.md]], [[entities/明晰研究院.md]], [[concepts/意识的难题.md]], [[concepts/体验的不可转移性.md]], [[entities/Get达人.md]], [[concepts/成为某物的感觉.md]], [[concepts/科学边界.md]], [[concepts/哲学僵尸.md]], [[concepts/玛丽的房间.md]], [[concepts/功能解释.md]], [[concepts/泛心论.md]], [[concepts/承认不可还原性.md]], [[concepts/继续还原.md]], [[concepts/改变问题.md]], [[concepts/中性一元论.md]]
+
+**更新页面**：[[Get达人]], [[明晰研究院]], [[第一人称体验]], [[泛心论]]
+
+
+
+## [2026-06-15] ingest | 掌握系统原型识别能力：从混乱事件中看透重复的底层结构
+
+**创建页面**：[[sources/掌握系统原型识别能力从混乱事件中看透重复的底层结构-2026年06月10日-来自Get-笔记.md]], [[entities/互联网补贴战.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[concepts/事情.md]], [[concepts/系统原型.md]], [[concepts/原型视角.md]], [[concepts/现象记录.md]], [[concepts/系统原型识别训练三步法.md]], [[concepts/结构猜想.md]], [[concepts/系统判断力.md]], [[concepts/增长的极限.md]], [[concepts/系统原型五个识别信号.md]], [[concepts/模式日记.md]], [[concepts/转嫁负担.md]], [[concepts/原型对照.md]], [[concepts/目标下滑.md]], [[concepts/成功自强化.md]], [[concepts/强化回路.md]], [[concepts/制约回路.md]], [[concepts/公地悲剧.md]], [[concepts/规则规避.md]], [[concepts/系统认知论.md]], [[concepts/军备竞赛.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院主体意识四层框架：整合各类意识理论，重新锚定「我」的主轴
+
+**创建页面**：[[sources/明晰研究院主体意识四层框架整合各类意识理论重新锚定「我」的主轴-2026年06月10日-来自Get-笔记.md]], [[entities/弗洛伊德.md]], [[entities/梅清格.md]], [[entities/明晰研究院.md]], [[entities/威尔伯.md]], [[entities/达马西奥.md]], [[concepts/经验意识层.md]], [[concepts/灵魂向度层.md]], [[concepts/主体整合层.md]], [[concepts/本体意识层.md]], [[concepts/主体意识四层框架.md]], [[concepts/整合信息理论.md]], [[concepts/依恋理论.md]], [[concepts/预测加工理论.md]], [[concepts/高阶理论.md]], [[concepts/全局工作空间理论.md]], [[concepts/无意识.md]], [[concepts/缘起性空.md]], [[concepts/叙事认同理论.md]], [[concepts/DBT疗法.md]], [[concepts/阿赖耶识.md]], [[concepts/自性.md]], [[concepts/自性.md]], [[concepts/本我自我超我.md]], [[concepts/自我分层理论.md]], [[concepts/整合视野.md]], [[concepts/现象自我模型.md]]
+
+**更新页面**：[[明晰研究院]], [[弗洛伊德]], [[高阶理论]], [[整合信息理论]], [[阿赖耶识]], [[无意识]], [[缘起性空]], [[自性]]
+
+
+
+## [2026-06-15] ingest | 复杂系统如何拆解泛心论的组合难题：四条结构线索的跨学科探索
+
+**创建页面**：[[sources/复杂系统如何拆解泛心论的组合难题四条结构线索的跨学科探索-2026年06月10日-来自Get-笔记.md]], [[concepts/涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为.md]], [[concepts/泛心论.md]], [[entities/明晰研究院.md]], [[concepts/强耦合同步.md]], [[concepts/组合难题.md]], [[concepts/协同学.md]], [[concepts/内在视角.md]], [[concepts/慢变量锚点.md]], [[concepts/临界整合窗口.md]], [[concepts/统计隔离.md]], [[concepts/整合信息理论.md]], [[concepts/全局工作空间理论.md]], [[concepts/质参量.md]], [[concepts/Markov-blanket.md]], [[concepts/自由能原理.md]], [[concepts/单一主体问题.md]], [[concepts/绑定问题.md]], [[concepts/边界问题.md]]
+
+**更新页面**：[[明晰研究院]], [[泛心论]], [[涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为]], [[协同学]], [[全局工作空间理论]], [[整合信息理论]]
+
+
+
+## [2026-06-15] ingest | 文化无意识：隐藏在文化深处，塑造我们判断与行动的深层心理结构
+
+**创建页面**：[[sources/文化无意识隐藏在文化深处塑造我们判断与行动的深层心理结构-2026年06月10日-来自Get-笔记.md]], [[entities/顾明栋.md]], [[concepts/文化无意识.md]], [[concepts/个人无意识.md]], [[entities/约瑟夫·亨德森.md]], [[entities/Get达人.md]], [[concepts/集体无意识.md]], [[concepts/分析心理学.md]], [[concepts/显性文化知识.md]], [[concepts/压抑性文化无意识.md]], [[concepts/滋养性文化无意识.md]], [[concepts/企业管理中的文化无意识.md]], [[concepts/文化脚本.md]], [[concepts/文化无意识的六大形成来源.md]]
+
+**更新页面**：[[Get达人]], [[集体无意识]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院深度解析：什么是文化？——从词源、概念演变到当代价值的完整梳理
+
+**创建页面**：[[sources/明晰研究院深度解析什么是文化——从词源概念演变到当代价值的完整梳理-2026年06月10日-来自Get-笔记.md]], [[entities/明晰研究院.md]], [[concepts/文化.md]], [[entities/爱德华·泰勒.md]], [[entities/西塞罗.md]], [[concepts/文明.md]], [[concepts/文化.md]], [[concepts/修养说.md]], [[concepts/文治教化.md]], [[concepts/生活方式说.md]], [[concepts/意义系统说.md]], [[concepts/企业文化.md]], [[concepts/深层系统说.md]], [[concepts/文化五层结构.md]], [[concepts/AI时代文化.md]], [[concepts/文化判断力.md]], [[concepts/文化质量.md]], [[concepts/无意识层.md]], [[concepts/主体辨别力.md]]
+
+**更新页面**：[[明晰研究院]], [[西塞罗]], [[文化]], [[文明]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院主体意识四层分析框架：重构关于"我"的清晰认知地图
+
+**创建页面**：[[sources/明晰研究院主体意识四层分析框架重构关于我的清晰认知地图-2026年06月10日-来自Get-笔记.md]], [[concepts/主体整合层.md]], [[concepts/经验意识层.md]], [[concepts/主体意识四层框架.md]], [[entities/Get达人.md]], [[entities/明晰研究院.md]], [[concepts/本体意识层.md]], [[concepts/灵魂向度层.md]], [[concepts/主体失序.md]], [[concepts/自我认知地图.md]], [[concepts/主体性.md]], [[concepts/整合质量.md]], [[concepts/高层逃逸.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[经验意识层]], [[主体整合层]], [[灵魂向度层]], [[本体意识层]], [[主体间性]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院解读：重新定义治理——复杂时代的基础生存能力
+
+**创建页面**：[[sources/明晰研究院解读重新定义治理——复杂时代的基础生存能力-2026年06月10日-来自Get-笔记.md]], [[entities/联合国.md]], [[entities/OECD.md]], [[entities/世界银行.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[entities/荀子·君道.md]], [[concepts/国家治理现代化.md]], [[concepts/治理.md]], [[concepts/管理.md]], [[concepts/主体生命系统.md]], [[concepts/数据治理.md]], [[concepts/AI治理.md]], [[concepts/平台治理.md]], [[concepts/公司治理.md]], [[concepts/华夏治理思想.md]], [[concepts/控制论.md]], [[concepts/治理与管理的区别.md]], [[concepts/治理的反面.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[联合国]], [[主体生命系统]], [[控制论]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院对「协同」的完整定义：从概念辨析到企业、个人与AI时代的协同逻辑
+
+**创建页面**：[[sources/明晰研究院对「协同」的完整定义从概念辨析到企业个人与AI时代的协同逻辑-2026年06月10日-来自Get-笔记.md]], [[entities/赫尔曼·哈肯.md]], [[concepts/协同学.md]], [[concepts/协同效应.md]], [[entities/Get达人.md]], [[entities/明晰研究院.md]], [[concepts/协同学.md]], [[concepts/公司治理.md]], [[concepts/企业协同困难.md]], [[concepts/好协同.md]], [[concepts/伪协同.md]], [[concepts/合作.md]], [[concepts/系统能力.md]], [[concepts/个人内部协同.md]], [[concepts/自组织能力.md]], [[concepts/AI时代协同.md]], [[concepts/分工.md]], [[concepts/和解.md]], [[concepts/反馈闭环.md]], [[concepts/主体性.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[协同学]], [[公司治理]], [[合作]], [[和解]], [[分工]], [[主体间性]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院对中文「文」的重新阐释：从本源定义到企业应用与当代价值
+
+**创建页面**：[[sources/明晰研究院对中文「文」的重新阐释从本源定义到企业应用与当代价值-2026年06月10日-来自Get-笔记.md]], [[concepts/文化.md]], [[entities/许慎.md]], [[entities/Get达人.md]], [[entities/明晰研究院.md]], [[concepts/文.md]], [[concepts/文明.md]], [[concepts/文与武.md]], [[concepts/文质彬彬.md]], [[concepts/文与质.md]], [[concepts/企业之文.md]], [[concepts/好的文.md]], [[concepts/去文.md]], [[concepts/基础概念重估工程.md]], [[concepts/词源.md]], [[concepts/复文.md]], [[concepts/文以载道.md]], [[concepts/天文.md]], [[concepts/人文.md]], [[concepts/化.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[文化]], [[文明]], [[文以载道]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：一体意识观（宇宙心灵论）——泛心论的整体主义转向，核心主张、哲学谱系与当代争议
+
+**创建页面**：[[sources/明晰研究院一体意识观宇宙心灵论——泛心论的整体主义转向核心主张哲学谱系与当代争议-2026年06月10日-来自Get-笔记.md]], [[entities/谢林.md]], [[entities/斯多亚学派.md]], [[entities/斯宾诺莎.md]], [[entities/罗素.md]], [[entities/明晰研究院.md]], [[concepts/组合难题.md]], [[concepts/分解问题.md]], [[concepts/微泛心论.md]], [[concepts/一体意识观.md]], [[concepts/泛心论.md]], [[concepts/德国古典哲学.md]], [[concepts/斯宾诺莎式一元论.md]], [[concepts/罗素式一元论.md]], [[concepts/古典整体论宇宙观.md]], [[concepts/边界与层级问题.md]], [[concepts/天人合一.md]], [[concepts/对象化叙事.md]], [[concepts/拟人化风险.md]], [[concepts/内在性与外在面.md]], [[concepts/与科学叙述的接口问题.md]]
+
+**更新页面**：[[明晰研究院]], [[斯多亚学派]], [[斯宾诺沙]], [[谢林]], [[罗素]], [[泛心论]], [[组合难题]], [[德国古典哲学]], [[天人关系]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：AI越像人，人类越该守住对意识与主体的分辨力——人工智能能力与机器意识的分野讨论
+
+**创建页面**：[[sources/明晰研究院AI越像人人类越该守住对意识与主体的分辨力——人工智能能力与机器意识的分野讨论-2026年06月10日-来自Get-笔记.md]], [[entities/图灵.md]], [[entities/明晰研究院意识研究专题.md]], [[concepts/人工智能能力.md]], [[entities/明晰研究院.md]], [[entities/Get达人.md]], [[concepts/机器意识.md]], [[concepts/Transformer技术.md]], [[concepts/深度学习.md]], [[concepts/大模型.md]], [[concepts/功能模拟工程.md]], [[concepts/整合信息理论.md]], [[concepts/概念混乱.md]], [[concepts/四个核心边界.md]], [[concepts/全局工作空间理论.md]], [[concepts/人类主体.md]], [[concepts/认知滑坡.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[图灵]], [[全局工作空间理论]], [[整合信息理论]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：什么是复杂系统？理解复杂系统是当代认知的基础能力
+
+**创建页面**：[[sources/明晰研究院什么是复杂系统理解复杂系统是当代认知的基础能力-2026年06月10日-来自Get-笔记.md]], [[entities/沃伦·韦弗.md]], [[entities/圣塔菲研究所.md]], [[concepts/涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为.md]], [[entities/约翰·霍兰德.md]], [[entities/明晰研究院.md]], [[concepts/科技与系统的演化.md]], [[concepts/主体生命系统.md]], [[concepts/自组织.md]], [[concepts/涌现.md]], [[concepts/非线性.md]], [[concepts/反馈.md]], [[concepts/有组织复杂性.md]], [[concepts/自适应系统.md]], [[concepts/繁杂系统.md]], [[concepts/互动.md]]
+
+**更新页面**：[[明晰研究院]], [[涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为]], [[主体生命系统]], [[科技与系统的演化]], [[涌现]], [[自组织能力]], [[反馈]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：什么是模式与模式思维——定义、辨析与转化方法
+
+**创建页面**：[[sources/明晰研究院什么是模式与模式思维——定义辨析与转化方法-2026年06月10日-来自Get-笔记.md]], [[concepts/模式.md]], [[entities/Get达人.md]], [[concepts/模式思维.md]], [[entities/明晰研究院.md]], [[concepts/模式识别.md]], [[concepts/自我觉醒.md]], [[concepts/组织治理.md]], [[concepts/模式与方法的区分.md]], [[concepts/模式与模型的区分.md]], [[concepts/模式与机制的区分.md]], [[concepts/坏模式.md]], [[concepts/模式与系统的关系.md]], [[concepts/改变坏模式的五步路径.md]], [[concepts/好模式.md]], [[concepts/救火模式.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[模式]], [[自我觉醒]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：人格概念的完整解析——从定义到成熟标准与当代价值
+
+**创建页面**：[[sources/明晰研究院人格概念的完整解析——从定义到成熟标准与当代价值-2026年06月10日-来自Get-笔记.md]], [[entities/Get达人.md]], [[concepts/人物性格.md]], [[entities/荣格.md]], [[concepts/性格.md]], [[entities/明晰研究院.md]], [[concepts/主体性.md]], [[concepts/人格成熟.md]], [[concepts/角色.md]], [[concepts/人格异化.md]], [[concepts/自我认识.md]], [[concepts/大五人格模型.md]], [[concepts/依附型人格.md]], [[concepts/人格建设.md]], [[concepts/企业人人格建设.md]], [[concepts/讨好型人格.md]], [[concepts/人格面具.md]], [[concepts/伦理人格.md]], [[concepts/法律人格.md]], [[concepts/存在与主体发展线.md]], [[concepts/边界感.md]], [[concepts/稳定的自我感.md]], [[concepts/承担后果的能力.md]], [[concepts/价值一致性.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[荣格]], [[人物性格]], [[自我认识]], [[主体间性]], [[人格面具]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：拆解'组织'一词的多义脉络与分层定义
+
+**创建页面**：[[sources/明晰研究院拆解组织一词的多义脉络与分层定义-2026年06月10日-来自Get-笔记.md]], [[concepts/组织.md]], [[entities/Get达人.md]], [[concepts/五层含义.md]], [[concepts/汉语原生脉络.md]], [[entities/明晰研究院.md]], [[concepts/结构.md]], [[concepts/公司.md]], [[concepts/西学翻译脉络.md]], [[concepts/人体组织.md]], [[concepts/系统.md]], [[concepts/治理装置.md]], [[concepts/分工协作.md]], [[concepts/组织变革.md]], [[concepts/整体性直觉.md]], [[concepts/组织能力.md]], [[concepts/主体生命系统.md]], [[concepts/组织治理.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[组织]], [[结构]], [[系统]], [[公司]], [[组织治理]], [[主体生命系统]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：重新定义什么是文明——中西方词源辨析、概念演变与当代价值
+
+**创建页面**：[[sources/明晰研究院重新定义什么是文明——中西方词源辨析概念演变与当代价值-2026年06月10日-来自Get-笔记.md]], [[entities/Get达人.md]], [[concepts/文明.md]], [[entities/孔颖达.md]], [[entities/易传·文言.md]], [[entities/明晰研究院.md]], [[concepts/文明.md]], [[concepts/中文文明.md]], [[concepts/中西方文明差异.md]], [[concepts/以文化成.md]], [[concepts/文德彰明.md]], [[concepts/文明概念四阶段发展.md]], [[concepts/文明五层结构.md]], [[concepts/主体危机.md]], [[concepts/集体生命系统.md]], [[concepts/主体性.md]], [[concepts/古典文明.md]], [[concepts/企业文明属性.md]], [[concepts/AI时代文明.md]], [[concepts/反思阶段.md]], [[concepts/文明概念四阶段发展.md]], [[concepts/再定义阶段.md]], [[concepts/文明五层结构.md]], [[concepts/秩序层.md]], [[concepts/文明与强大的关系.md]], [[concepts/意义层.md]], [[concepts/高主体文明系统.md]], [[concepts/传承层.md]], [[concepts/文明五层结构.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[文明]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：重新定义制度——从文本文件到共同秩序的尺度化
+
+**创建页面**：[[sources/明晰研究院重新定义制度——从文本文件到共同秩序的尺度化-2026年06月10日-来自Get-笔记.md]], [[concepts/社会主义.md]], [[concepts/企业之道.md]], [[concepts/机制.md]], [[entities/道格拉斯·诺斯.md]], [[entities/明晰研究院.md]], [[concepts/系统.md]], [[concepts/制度失效.md]], [[concepts/流程.md]], [[concepts/规则.md]], [[concepts/七个特征.md]], [[concepts/组织治理.md]], [[concepts/低水平制度.md]], [[concepts/制度名实不符.md]], [[concepts/制度与机制冲突.md]], [[concepts/正式制度定义.md]], [[concepts/高水平制度.md]]
+
+**更新页面**：[[明晰研究院]], [[社会主义]], [[企业之道]], [[机制]], [[流程]], [[系统]], [[组织治理]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：「系统」到底是什么？——从定义、学术发展到分层的完整讲解
+
+**创建页面**：[[sources/明晰研究院「系统」到底是什么——从定义学术发展到分层的完整讲解-2026年06月10日-来自Get-笔记.md]], [[entities/贝达朗菲.md]], [[entities/Get达人.md]], [[entities/诺伯特·维纳.md]], [[concepts/系统.md]], [[entities/明晰研究院.md]], [[concepts/控制论.md]], [[concepts/反馈.md]], [[concepts/涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为.md]], [[concepts/系统动力学.md]], [[concepts/一般系统论.md]], [[concepts/系统思维.md]], [[concepts/主体性系统.md]], [[concepts/整体性.md]], [[concepts/四层分级框架.md]], [[concepts/涌现.md]], [[concepts/涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为.md]], [[concepts/非线性.md]], [[concepts/还原论.md]], [[concepts/动态演化.md]], [[concepts/自组织.md]], [[concepts/反馈回路.md]], [[concepts/生命系统.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[贝达朗菲]], [[系统]], [[控制论]], [[涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为]], [[反馈]], [[涌现]], [[整体性]], [[系统思维]], [[还原论]], [[自组织能力]], [[非线性]], [[反馈闭环]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：重新定义知识——辨析知识与易混概念，拆解知识的本质与价值
+
+**创建页面**：[[sources/明晰研究院重新定义知识——辨析知识与易混概念拆解知识的本质与价值-2026年06月10日-来自Get-笔记.md]], [[entities/Get达人.md]], [[concepts/知识.md]], [[concepts/数据.md]], [[entities/明晰研究院.md]], [[concepts/知识.md]], [[concepts/智慧.md]], [[concepts/能力.md]], [[concepts/知识论.md]], [[concepts/见识.md]], [[concepts/学问.md]], [[concepts/知识异化.md]], [[concepts/显性知识.md]], [[concepts/被证明的真信念.md]], [[concepts/隐性知识.md]], [[concepts/知识与企业治理.md]], [[concepts/知行合一.md]], [[concepts/好知识的特征.md]], [[concepts/中文语境下的知识.md]], [[concepts/知识成为负担.md]], [[concepts/知识的正道.md]], [[concepts/DIKW体系.md]], [[concepts/企业知识分类.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[知识]], [[智慧]], [[能力]], [[知识论]], [[知行合一]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：面向复杂现代社会重新定义「新礼」，重建文明相处边界与分寸
+
+**创建页面**：[[sources/明晰研究院面向复杂现代社会重新定义「新礼」重建文明相处边界与分寸-2026年06月10日-来自Get-笔记.md]], [[entities/Get达人.md]], [[entities/孔子.md]], [[concepts/礼的深层核心.md]], [[concepts/新礼.md]], [[entities/明晰研究院.md]], [[concepts/礼的五大功能.md]], [[concepts/礼与法律的关系.md]], [[concepts/主体边界.md]], [[concepts/主体生命系统框架.md]], [[concepts/克己复礼.md]], [[concepts/礼的形式与精神.md]], [[concepts/礼教批判.md]], [[concepts/敬畏.md]], [[concepts/分寸.md]], [[concepts/礼的起源.md]], [[concepts/礼仪礼俗礼治礼教概念区分.md]], [[concepts/AI时代的新礼.md]], [[concepts/现代社会失礼典型场景.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[孔子]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：重新解读中华文明中"心"的概念——不是主观唯心主义，而是主体生命的统摄中枢
+
+**创建页面**：[[sources/明晰研究院重新解读中华文明中心的概念——不是主观唯心主义而是主体生命的统摄中枢-2026年06月10日-来自Get-笔记.md]], [[entities/王阳明.md]], [[entities/孟子.md]], [[entities/Get达人.md]], [[entities/明晰研究院.md]], [[concepts/心概念三层划分.md]], [[concepts/心即理.md]], [[concepts/孟子四端.md]], [[concepts/阳明心学.md]], [[concepts/主观唯心主义.md]], [[concepts/心概念.md]], [[concepts/知行合一.md]], [[concepts/知行合一.md]], [[concepts/正心诚意.md]], [[concepts/心外无物心外无理.md]], [[concepts/主体生命之心.md]], [[concepts/先秦儒家.md]], [[concepts/宋明理学.md]], [[concepts/心概念.md]], [[concepts/世界如何进入主体.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[孟子]], [[王阳明]], [[心即理]], [[知行合一]]
+
+
+
+## [2026-06-15] ingest | 明熙研究院解读历史周期率：背后的五重结构性失衡与相互强化的衰败回路
+
+**创建页面**：[[sources/明熙研究院解读历史周期率背后的五重结构性失衡与相互强化的衰败回路-2026年06月10日-来自Get-笔记.md]], [[entities/毛泽东.md]], [[entities/明熙研究院.md]], [[entities/延安归来.md]], [[entities/黄炎培.md]], [[entities/延安.md]], [[concepts/自我校准能力.md]], [[concepts/关系越界.md]], [[concepts/历史循环论.md]], [[concepts/权力固化.md]], [[concepts/五重结构性失衡.md]], [[concepts/流动阻塞.md]], [[concepts/话语失真.md]], [[concepts/窑洞之问.md]], [[concepts/衰败回路.md]], [[concepts/利益失控.md]]
+
+**更新页面**：[[毛泽东选集-毛泽东]]
+
+
+
+## [2026-06-15] ingest | 未来意识研究的十大方向梳理
+
+**创建页面**：[[sources/未来意识研究的十大方向梳理-2026年06月10日-来自Get-笔记.md]], [[entities/斯坦尼斯拉夫·格罗夫.md]], [[entities/Google-Search-Inside-Yourself.md]], [[entities/大卫·霍金斯.md]], [[entities/TO组织.md]], [[entities/明晰研究院.md]], [[concepts/泛心论.md]], [[concepts/整合信息理论.md]], [[entities/Neuralink.md]], [[concepts/意识本体论研究.md]], [[concepts/跨状态意识地图标准化研究.md]], [[concepts/正念.md]], [[concepts/宗教经验的科学解释与意识工程化.md]], [[concepts/集体意识的量化与介入路径研究.md]], [[concepts/神经科学与意识干预装置开发.md]], [[concepts/AI意识的哲学与伦理边界研究.md]], [[concepts/意识与宇宙结构的联动模型研究.md]], [[concepts/量子意识.md]], [[concepts/致幻疗法.md]], [[concepts/全息宇宙理论.md]], [[concepts/意识作为未来治理与设计的基础研究.md]], [[concepts/意识频率表.md]], [[concepts/跨状态意识地图标准化研究.md]], [[concepts/觉察型领导力.md]], [[concepts/宇宙心智.md]], [[concepts/意识进化作为人类文明跃迁的主轴研究.md]], [[concepts/意识作为未来治理与设计的基础研究.md]], [[concepts/情绪觉察.md]], [[concepts/临在.md]], [[concepts/神经科学与意识干预装置开发.md]], [[concepts/濒死体验.md]], [[concepts/内观.md]], [[concepts/置换状态.md]], [[concepts/量子意识.md]]
+
+**更新页面**：[[明晰研究院]], [[泛心论]], [[整合信息理论]], [[正念]], [[内观]]
+
+
+
+## [2026-06-15] ingest | 机制思维与系统思维辨析：从全局分析到结果生成，再到主体方向追问
+
+**创建页面**：[[sources/机制思维与系统思维辨析从全局分析到结果生成再到主体方向追问-2026年06月10日-来自Get-笔记.md]], [[concepts/机制思维.md]], [[concepts/系统思维.md]], [[entities/Get达人.md]], [[concepts/主体范式.md]], [[entities/明晰研究院.md]], [[concepts/三层分析框架.md]], [[concepts/反馈回路.md]], [[concepts/整体关系网络.md]], [[concepts/结果生成链条.md]], [[concepts/单点归因.md]], [[concepts/长期内耗.md]], [[concepts/主体性.md]]
+
+**更新页面**：[[Get达人]], [[明晰研究院]], [[系统思维]], [[机制思维]], [[主体范式]], [[反馈回路]], [[主体间性]]
+
+
+
+## [2026-06-15] ingest | 用五行生克分析复杂组织系统：五重结构性失衡与系统校准方法
+
+**创建页面**：[[sources/用五行生克分析复杂组织系统五重结构性失衡与系统校准方法-2026年06月10日-来自Get-笔记.md]], [[concepts/五重结构性失衡.md]], [[concepts/相生回路.md]], [[concepts/系统校准方法.md]], [[entities/Get达人.md]], [[entities/明晰研究院.md]], [[concepts/衰败回路.md]], [[concepts/健康系统.md]], [[concepts/五重结构性失衡.md]], [[concepts/相克制衡.md]], [[concepts/历史周期律.md]], [[concepts/名.md]], [[concepts/情.md]], [[concepts/利.md]], [[concepts/录.md]], [[concepts/权.md]], [[concepts/五行生克.md]], [[concepts/外部压力.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[五重结构性失衡]], [[衰败回路]], [[名]]
+
+
+
+## [2026-06-15] ingest | 荣格「集体无意识」完整解析：从理论原型到企业应用的核心框架
+
+**创建页面**：[[sources/荣格「集体无意识」完整解析从理论原型到企业应用的核心框架-2026年06月10日-来自Get-笔记.md]], [[concepts/个人无意识.md]], [[concepts/集体无意识.md]], [[entities/荣格.md]], [[concepts/原型.md]], [[entities/明晰研究院.md]], [[concepts/阴影理论.md]], [[concepts/文化无意识.md]], [[concepts/英雄原型.md]], [[concepts/阴影原型.md]], [[concepts/母亲原型.md]], [[concepts/分析心理学.md]], [[concepts/组织无意识.md]], [[concepts/三层无意识结构.md]], [[concepts/弗洛伊德的无意识理论.md]], [[concepts/个体化.md]], [[concepts/MBTI人格测评.md]]
+
+**更新页面**：[[明晰研究院]], [[集体无意识]], [[个人无意识]], [[文化无意识]], [[阴影理论]], [[分析心理学]]
+
+
+
+## [2026-06-15] ingest | 认知科学视角下的无意识加工：特征、证据与对自我改变的启发
+
+**创建页面**：[[sources/认知科学视角下的无意识加工特征证据与对自我改变的启发-2026年06月10日-来自Get-笔记.md]], [[concepts/意识.md]], [[entities/Get达人.md]], [[entities/弗洛伊德.md]], [[entities/明溪研究院.md]], [[concepts/无意识加工.md]], [[concepts/变化盲视.md]], [[concepts/无意识.md]], [[concepts/前潜意识.md]], [[concepts/意识三层结构模型.md]], [[concepts/语义启动掩蔽实验.md]], [[concepts/人工语法学习实验.md]], [[concepts/隐性记忆.md]], [[concepts/词干补全实验.md]], [[concepts/情绪脸实验.md]], [[concepts/自动化技能.md]], [[concepts/精神分析.md]], [[concepts/认知科学.md]], [[concepts/动机偏见.md]], [[concepts/并行加工.md]], [[concepts/情绪加工.md]], [[concepts/意识科学.md]], [[concepts/选择.md]], [[concepts/神经科学.md]], [[concepts/自我改变.md]]
+
+**更新页面**：[[弗洛伊德]], [[Get达人]], [[第六识意识]], [[无意识]], [[变化盲视]], [[精神分析]], [[选择]], [[意识科学]]
+
+
+
+## [2026-06-15] ingest | 逻辑学≠理性主义≠主体成熟：AI时代如何完整理解人的位置
+
+**创建页面**：[[sources/逻辑学≠理性主义≠主体成熟AI时代如何完整理解人的位置-2026年06月10日-来自Get-笔记.md]], [[entities/明溪研究院.md]], [[entities/斯多亚学派.md]], [[entities/波普尔.md]], [[entities/康德.md]], [[entities/亚里士多德.md]], [[entities/Get达人.md]], [[concepts/理性哲学.md]], [[concepts/逻辑学.md]], [[concepts/主体成熟.md]], [[entities/墨经.md]], [[concepts/三段论.md]], [[concepts/批判理性主义.md]], [[concepts/形式逻辑.md]], [[concepts/AI大模型.md]], [[concepts/算法治理.md]], [[concepts/名.md]], [[concepts/理性边界.md]], [[concepts/中华文脉.md]], [[concepts/推理有效性.md]]
+
+**更新页面**：[[明溪研究院]], [[亚里士多德]], [[斯多亚学派]], [[康德]], [[波普尔]], [[Get达人]], [[逻辑学]], [[理性哲学]], [[反三段论]], [[批判理性主义]], [[经典逻辑]], [[名]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：华夏文明核心词“道”的概念辨析——厘清道、道家、道教与儒家的关系
+
+**创建页面**：[[sources/明晰研究院华夏文明核心词“道”的概念辨析——厘清道道家道教与儒家的关系-2026年06月10日-来自Get-笔记.md]], [[entities/老子.md]], [[entities/张道陵.md]], [[entities/孔子.md]], [[entities/明晰研究院.md]], [[concepts/逻各斯.md]], [[concepts/道德经.md]], [[concepts/儒家.md]], [[concepts/说文解字.md]], [[concepts/道家.md]], [[concepts/道教.md]], [[concepts/论语.md]], [[concepts/成人之道.md]], [[concepts/天命之道.md]], [[concepts/治世之道.md]], [[concepts/礼乐秩序之道.md]], [[concepts/宋明理学.md]], [[concepts/天师道.md]], [[concepts/法家.md]], [[concepts/兵家.md]], [[concepts/阴阳家.md]], [[concepts/无为.md]], [[concepts/志于道据于德依于仁游于艺.md]], [[concepts/忠恕.md]], [[concepts/虚静.md]], [[concepts/佛学中国化.md]]
+
+**更新页面**：[[明晰研究院]], [[孔子]], [[老子]], [[逻各斯]], [[道家]], [[论语]], [[宋明理学]], [[无为]]
+
+
+
+## [2026-06-15] ingest | 明晰研究院：辨析文明与文化的核心差异——系统形态与生成机制的关系
+
+**创建页面**：[[sources/明晰研究院辨析文明与文化的核心差异——系统形态与生成机制的关系-2026年06月10日-来自Get-笔记.md]], [[concepts/文明.md]], [[concepts/主体生命系统.md]], [[concepts/文化.md]], [[entities/Get达人.md]], [[entities/明晰研究院.md]], [[concepts/企业文化.md]], [[concepts/现代化.md]], [[concepts/AI时代.md]], [[concepts/企业文明.md]], [[concepts/文明失衡.md]], [[concepts/文明空心化.md]], [[concepts/流量文化.md]], [[concepts/注意力文化.md]], [[concepts/文化表演化.md]], [[concepts/文化土壤.md]], [[concepts/生成文化.md]], [[concepts/算法文化.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[中文文明]], [[文化]], [[主体生命系统框架]], [[企业文化]], [[AI时代]], [[现代化]]
+
+
+
+## [2026-06-15] ingest | 重新解析「流弊」：分辨传统与现代语境中好概念的本意与异化弊病
+
+**创建页面**：[[sources/重新解析「流弊」分辨传统与现代语境中好概念的本意与异化弊病-2026年06月10日-来自Get-笔记.md]], [[entities/王阳明.md]], [[entities/Get达人.md]], [[entities/杜畿.md]], [[entities/Robert-Merton.md]], [[entities/明晰研究院.md]], [[concepts/孝道文化.md]], [[concepts/礼.md]], [[concepts/思想本意与流弊.md]], [[concepts/本意.md]], [[concepts/名不归真.md]], [[concepts/长期主义.md]], [[concepts/知行合一.md]], [[concepts/以流弊诛本意.md]], [[concepts/未预期后果.md]], [[concepts/效率.md]], [[concepts/思想校准.md]], [[concepts/本意演流弊原则.md]]
+
+**更新页面**：[[明晰研究院]], [[Get达人]], [[王阳明]], [[礼]], [[孝道文化]], [[知行合一]], [[长期主义]]
+
+
+
+## [2026-06-15] ingest | 非二元、空性、道、佛性等跨灵修宗教概念辨析：共同指向同一终极真实，各有不同侧重
+
+**创建页面**：[[sources/非二元空性道佛性等跨灵修宗教概念辨析共同指向同一终极真实各有不同侧重-2026年06月10日-来自Get-笔记.md]], [[concepts/缘起性空.md]], [[concepts/自性.md]], [[concepts/非二元论.md]], [[concepts/逻各斯.md]], [[entities/明晰研究院.md]], [[concepts/自性.md]], [[concepts/自性.md]], [[concepts/纯粹觉知.md]], [[concepts/本体意识.md]], [[concepts/神我论.md]], [[concepts/显现.md]], [[concepts/三元整合框架.md]], [[concepts/觉知.md]]
+
+**更新页面**：[[明晰研究院]], [[缘起性空]], [[逻各斯]], [[自性]]
+
+
+
+## [2026-06-15] ingest | 道与哲学：华夏文明的核心是道，而非被哲学框架完全收编——兼论日本经营哲学的启发与风险
+
+**创建页面**：[[sources/道与哲学华夏文明的核心是道而非被哲学框架完全收编——兼论日本经营哲学的启发与风险-2026年06月10日-来自Get-笔记.md]], [[entities/稻盛和夫.md]], [[entities/Get达人.md]], [[entities/西周.md]], [[entities/加藤弘之.md]], [[entities/京瓷哲学.md]], [[entities/王阳明.md]], [[entities/老子.md]], [[entities/孔子.md]], [[entities/庄子.md]], [[entities/明晰研究院.md]], [[concepts/哲学.md]], [[concepts/修身功夫.md]], [[concepts/中文文明.md]], [[concepts/经营哲学.md]], [[concepts/逻各斯.md]], [[concepts/主体生命系统.md]], [[concepts/形而上学.md]], [[concepts/东亚转译.md]], [[concepts/阿米巴经营.md]], [[concepts/经营之道.md]], [[concepts/知行合一.md]], [[concepts/知行合一.md]], [[concepts/过劳死.md]], [[concepts/对象化.md]], [[concepts/共同体责任.md]], [[concepts/西哲.md]], [[concepts/爱智慧.md]], [[concepts/现代治理.md]], [[concepts/个体权利.md]]
+
+**更新页面**：[[Get达人]], [[西周]], [[稻盛和夫]], [[明晰研究院]], [[孔子]], [[老子]], [[王阳明]], [[逻各斯]], [[爱智慧]], [[主体生命系统框架]], [[形而上学]], [[知行合一]], [[对象化]], [[Philosophia]], [[西哲]]
+
+
+
+## [2026-06-15] ingest | 重新理解复杂性科学：定义、起源、核心问题，及与东方传统智慧的共鸣
+
+**创建页面**：[[sources/重新理解复杂性科学定义起源核心问题及与东方传统智慧的共鸣-2026年06月10日-来自Get-笔记.md]], [[entities/圣塔菲研究所.md]], [[entities/沃伦·韦弗.md]], [[entities/约翰·霍兰德.md]], [[concepts/Complex-System.md]], [[concepts/Complexity-Science.md]], [[concepts/自组织能力.md]], [[concepts/涌现.md]], [[concepts/反馈.md]], [[concepts/Cross-scale-Coupling.md]], [[concepts/还原论.md]], [[concepts/Agent-based-Modeling.md]], [[concepts/Complex-Adaptive-System.md]], [[concepts/Network-Analysis.md]], [[concepts/I-Ching-Thought.md]], [[concepts/Multi-scale-Analysis.md]], [[concepts/道家.md]], [[concepts/缘起论.md]], [[concepts/Eastern-Traditional-Wisdom.md]], [[concepts/儒家.md]], [[concepts/Interdisciplinary-Research.md]], [[concepts/Complexity-Science.md]], [[concepts/Adaptation.md]]
+
+**更新页面**：[[圣塔菲研究所]], [[沃伦·韦弗]], [[约翰·霍兰德]], [[还原论]], [[涌现]], [[自组织能力]], [[反馈]]
+

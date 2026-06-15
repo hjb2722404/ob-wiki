@@ -1,9 +1,9 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-13T09:01
+updated: 2026-06-15T17:55
 sources:
-  - "[[sources/洛维特｜谢林克尔凯郭尔和马克思|洛维特｜谢林、克尔凯郭尔和马克思]]"
+  - "[[sources/洛维特｜谢林克尔凯郭尔和马克思]]"
 tags:
   - person
 aliases:

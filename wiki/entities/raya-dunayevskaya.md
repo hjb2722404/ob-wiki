@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[_raw/西哲/另一个马克思——弗罗姆《马克思关于人的概念》解读｜张一兵.md]]"]
-tags: [person]
+updated: 2026-06-15T17:55
+sources:
+  - "[[sources/另一个马克思——弗罗姆《马克思关于人的概念》解读｜张一兵]]"
+tags:
+  - person
 aliases:
-  - "杜那耶夫斯卡娅"
-  - "Raya Dunayevskaya"
+  - 杜那耶夫斯卡娅
+  - Raya Dunayevskaya
 ---
 
 
