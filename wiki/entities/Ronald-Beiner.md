@@ -1,7 +1,7 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-12T09:27
+updated: 2026-06-12T21:33
 sources:
   - "[[sources/阿伦特：康德政治哲学十三讲（一）]]"
   - "[[sources/阿伦特康德政治哲学十三讲二]]"
@@ -31,7 +31,7 @@ Ronald Beiner 是英格兰政治理论家，现为多伦多大学政治科学系
 ## Related Concepts
 
 - [[concepts/判断力|判断力]]
-- [[concepts/政治哲学|政治哲学]]
+- [[concepts/政治理论|政治哲学]]
 
 ## Mentions in Source
 

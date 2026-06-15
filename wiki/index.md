@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-12T12:11
+updated: 2026-06-12T21:52
 ---
 # Wiki Index
 
@@ -10,6 +10,59 @@ updated: 2026-06-12T12:11
 
 ## 实体
 
+- [[entities/基督教的本质|基督教的本质]] `aliases: Das Wesen des Christentums, The Essence of Christianity, 基督教的本质` - type: entity
+- [[entities/马克思恩格斯选集|马克思恩格斯选集]] `aliases: Marx-Engels Selected Works, 马恩选集` - type: entity
+- [[entities/小工业城市|小工业城市]] `aliases: 小工业市镇, Small Industrial Town` - type: entity
+- [[entities/小额资本家|小额资本家]] `aliases: 小资本家, 小资本` - type: entity
+- [[entities/自动机|自动机]] `aliases: Automaton, 自动化机器` - type: entity
+- [[entities/私有财产的继承|私有财产的继承]] `aliases: 继承权, Inheritance of Private Property` - type: entity
+- [[entities/货币利息|货币利息]] `aliases: 货币利率, Money Interest` - type: entity
+- [[entities/劳动的抽象化|劳动的抽象化]] `aliases: Abstraction of Labour, 抽象劳动` - type: entity
+- [[entities/股票的二十章|股票的二十章]] `aliases: 斯密的二十章彩票, Chapter on Lotteries, 股票的二十章` - type: entity
+- [[entities/生产基金|生产基金]] `aliases: Production Fund, 生产基金的所有权` - type: entity
+- [[entities/商业秘密|商业秘密]] `aliases: Commercial Secret, Business Secret, 贸易秘密` - type: entity
+- [[entities/国民经济学批判大纲|国民经济学批判大纲]] `aliases: 恩格斯的国民经济学批判大纲, Umrisse zu einer Kritik der Nationalökonomie, 国民经济学批判大纲` - type: entity
+- [[entities/黑格尔法哲学批判|黑格尔法哲学批判]] `aliases: Zur Kritik der Hegelschen Rechtsphilosophie, 黑格尔法哲学批判（计划中的著作）` - type: entity
+- [[entities/自然价格|自然价格]] `aliases: Natural Price, 自然价格（Natural Price）` - type: entity
+- [[entities/生产运动|生产运动]] `aliases: 舒耳茨著作, Die Bewegung der Produktion, Production Movement` - type: entity
+- [[entities/法国|法国]] `aliases: 法兰西, France` - type: entity
+- [[entities/在英格兰公布的关于爱尔兰的统计调查摘要|在英格兰公布的关于爱尔兰的统计调查摘要]] `aliases: 爱尔兰统计调查摘要, Statistical Survey of Ireland` - type: entity
+- [[entities/德意志季刊|德意志季刊]] `aliases: Deutsche Vierteljahrsschrift, 德意志季刊（1838年）` - type: entity
+- [[entities/美国|美国]] `aliases: 北美, America, 美利坚合众国` - type: entity
+- [[entities/论贫困|论贫困]] `aliases: 论贫困, 毕莱著作, Buret: De la misère` - type: entity
+- [[entities/英格兰|英格兰]] `aliases: England, 英吉利, 大不列颠岛南部` - type: entity
+- [[entities/伦斯特省|伦斯特省]] `aliases: Leinster, 伦斯特, 莱因斯特` - type: entity
+- [[entities/康诺特省|康诺特省]] `aliases: Connaught, 康诺特, 康纳特省` - type: entity
+- [[entities/爱尔兰|爱尔兰]] `aliases: Ireland, 愛爾蘭` - type: entity
+- [[entities/孟加拉|孟加拉]] `aliases: 孟加拉国, Bengal` - type: entity
+- [[entities/曼彻斯特|曼彻斯特]] `aliases: Manchester, 曼彻斯特城` - type: entity
+- [[entities/约克郡|约克郡]] `aliases: Yorkshire, 约克郡（英格兰历史郡）` - type: entity
+- [[entities/丹第|丹第]] `aliases: 丹迪, Dundee, 敦提` - type: entity
+- [[entities/朗卡斯特郡|朗卡斯特郡]] `aliases: Lancashire, 兰开夏郡` - type: entity
+- [[entities/苏格兰|苏格兰]] `aliases: Scotland, 苏格兰（英国）` - type: entity
+- [[entities/法译本|法译本]] `aliases: 法文译本, Traduction française, Ricardo French Translation` - type: entity
+- [[entities/人口等问题的解决方法|人口等问题的解决方法]] `aliases: 人口等问题的解决方法, Solution of the Population Question, 查·劳顿著作` - type: entity
+- [[entities/伯明翰|伯明翰]] `aliases: Birmingham, 伯明翰城` - type: entity
+- [[entities/社会经济的新理论|社会经济的新理论]] `aliases: 社会经济的新理论, 贝魁尔著作, Théorie nouvelle d'économie sociale et politique` - type: entity
+- [[entities/路易－菲利普|路易－菲利普]] `aliases: 路易-菲利普, Louis-Philippe, 路易·菲利普, 七月王朝国王` - type: entity
+- [[entities/二十一印张文集|二十一印张文集]] `aliases: Einundzwanzig Bogen, Twenty-One Sheets, 《现代德国通俗哲学和文学的二十一印张》` - type: entity
+- [[entities/德法年鉴|德法年鉴]] `aliases: Deutsch-Französische Jahrbücher, German-French Annals, 德法年鉴` - type: entity
+- [[entities/布鲁姆勋爵|布鲁姆勋爵]] `aliases: Lord Brougham, Brougham` - type: entity
+- [[entities/孟加拉国东印度贸易公司|孟加拉国东印度贸易公司]] `aliases: East India Company, British East India Company, 东印度公司` - type: entity
+- [[entities/魁尔|魁尔]] `aliases: Quelch, 贝魁尔` - type: entity
+- [[entities/查．劳顿|查．劳顿]] `aliases: Ch. Loudon, 查·劳顿` - type: entity
+- [[entities/扎伊尔|扎伊尔]] `aliases: 让-巴蒂斯特·萨伊, J.B. Say, Say` - type: entity
+- [[entities/西斯蒙第|西斯蒙第]] `aliases: Sismondi, J.C.L. Simonde de Sismondi, 西斯蒙第` - type: entity
+- [[entities/毕莱|毕莱]] `aliases: Buret, E. Buret, 毕莱` - type: entity
+- [[entities/魏特林|魏特林]] `aliases: Wilhelm Weitling, 威廉·魏特林` - type: entity
+- [[entities/赫斯|赫斯]] `aliases: 摩西·赫斯, Moses Hess` - type: entity
+- [[entities/舒耳茨|舒耳茨]] `aliases: Schulz, W. Schulz` - type: entity
+- [[entities/贝魁尔|贝魁尔]] `aliases: Pecqueur, C. Pecqueur, Constantin Pecqueur` - type: entity
+- [[entities/唯一者及其所有物|唯一者及其所有物]] `aliases: Der Einzige und sein Eigentum, The Ego and Its Own` - type: entity
+- [[entities/麦克莱伦|麦克莱伦]] `aliases: David McLellan, 戴维·麦克莱伦` - type: entity
+- [[entities/弗兰克|弗兰克]] `aliases: M. Frank, Manfred Frank` - type: entity
+- [[entities/布鲁诺·鲍威尔|布鲁诺·鲍威尔]] `aliases: Bruno Bauer, 布鲁诺·鲍威尔` - type: entity
+- [[entities/吴晓明|吴晓明]] `aliases: Wu Xiaoming, 吴晓明教授` - type: entity
 - [[entities/karl-korsch|karl-korsch]] `aliases: 柯尔施, Karl Korsch, 卡尔·柯尔施` - type: entity
 - [[entities/raya-dunayevskaya|raya-dunayevskaya]] `aliases: 杜那耶夫斯卡娅, Raya Dunayevskaya` - type: entity
 - [[entities/ernst-bloch|ernst-bloch]] `aliases: 布洛赫, Ernst Bloch` - type: entity
@@ -731,7 +784,7 @@ updated: 2026-06-12T12:11
 - [[entities/席勒|席勒]] `aliases: Johann Christoph Friedrich von Schiller, 约翰·克里斯托弗·弗里德里希·冯·席勒, 席勒, 弗里德里希·席勒, Johann Christoph Friedrich von Schiller, 约翰·克里斯托弗·弗里德里希·冯·席勒, 席勒` - type: entity
 - [[entities/帕萨·达斯古普塔|帕萨·达斯古普塔]] `aliases: Partha Dasgupta, 帕萨·达斯古普塔` - type: entity
 - [[entities/广严城|广严城]] `aliases: 吠舍离城, Vaishali` - type: entity
-- [[entities/帕斯卡尔|帕斯卡尔]] `aliases: Blaise Pascal, 布莱兹·帕斯卡尔, Pascal, Blaise Pascal, 布莱兹·帕斯卡尔` - type: entity
+- [[entities/帕斯卡尔|帕斯卡尔]] `aliases: Blaise Pascal, 布莱兹·帕斯卡尔, Pascal, Blaise Pascal, 布莱兹·帕斯卡尔, 帕斯卡, Blaise Pascal, 布莱兹·帕斯卡尔, Pascal, Blaise Pascal, 布莱兹·帕斯卡尔` - type: entity
 - [[entities/帕克斯|帕克斯]] `aliases: Parks` - type: entity
 - [[entities/希西阿德|希西阿德]] `aliases: 赫西俄德, Hesiod` - type: entity
 - [[entities/希腊城邦|希腊城邦]] `aliases: Polis, 古希腊城邦, 古希腊城邦制度` - type: entity
@@ -823,7 +876,7 @@ updated: 2026-06-12T12:11
 - [[entities/大禹|大禹]] `aliases: Da Yu, 禹, 水利圣祖` - type: entity
 - [[entities/大卫·哈维|大卫·哈维]] `aliases: David Harvey, 戴维·哈维, David Harvey` - type: entity
 - [[entities/复旦大学|复旦大学]] `aliases: Fudan University` - type: entity
-- [[entities/大卫·李嘉图|大卫·李嘉图]] `aliases: David Ricardo` - type: entity
+- [[entities/大卫·李嘉图|大卫·李嘉图]] `aliases: David Ricardo, 李嘉图, David Ricardo` - type: entity
 - [[entities/大卫·兰德斯|大卫·兰德斯]] `aliases: David Landes, 戴维·兰德斯` - type: entity
 - [[entities/大势至菩萨|大势至菩萨]] - (empty)
 - [[entities/墨家|墨家]] `aliases: 墨家学派, Mohist School, 墨学` - type: entity
@@ -874,7 +927,7 @@ updated: 2026-06-12T12:11
 - [[entities/商务印书馆|商务印书馆]] `aliases: Commercial Press, 商务` - type: entity
 - [[entities/哲学动态|哲学动态]] `aliases: Philosophical Trends` - type: entity
 - [[entities/唐君毅|唐君毅]] `aliases: Tang Junyi, Tang Jun-yi, 唐君毅先生` - type: entity
-- [[entities/哲学全书Enzyklopädie-der-philosophischen-Wissenschaften|哲学全书Enzyklopädie-der-philosophischen-Wissenschaften]] `aliases: Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书纲要》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书纲要》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences` - type: entity
+- [[entities/哲学全书Enzyklopädie-der-philosophischen-Wissenschaften|哲学全书Enzyklopädie-der-philosophischen-Wissenschaften]] `aliases: Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书纲要》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书纲要》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 哲学全书, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书纲要》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences, 《哲学全书纲要》, Enzyklopädie der philosophischen Wissenschaften, 黑格尔哲学全书, Hegel's Encyclopedia of the Philosophical Sciences` - type: entity
 - [[entities/哥白尼|哥白尼]] `aliases: 尼古拉·哥白尼, 哥白尼, Copernicus, Nikolaus Kopernikus, 托伦的哥白尼` - type: entity
 - [[entities/哲学家之路|哲学家之路]] `aliases: Philosopher's Path, Philosophenweg` - type: entity
 - [[entities/哥廷根大学|哥廷根大学]] `aliases: Georg-August-Universität Göttingen, University of Göttingen, Göttingen University, Georg-August-Universität Göttingen, University of Göttingen` - type: entity
@@ -924,7 +977,7 @@ updated: 2026-06-12T12:11
 - [[entities/卡拉赞|卡拉赞]] `aliases: Caraza` - type: entity
 - [[entities/卡西勒|卡西勒]] `aliases: Ernst Cassirer, 恩斯特·卡西勒` - type: entity
 - [[entities/卡尔森|卡尔森]] `aliases: 卡尔森, Carlson` - type: entity
-- [[entities/卡尔·洛维特|卡尔·洛维特]] `aliases: Karl Löwith` - type: entity
+- [[entities/卡尔·洛维特|卡尔·洛维特]] `aliases: Karl Löwith, 洛维特, Karl Löwith` - type: entity
 - [[entities/南齐|南齐]] `aliases: 南朝齐, 萧齐` - type: entity
 - [[entities/卜祥记|卜祥记]] `aliases: Bu Xiangji` - type: entity
 - [[entities/南开大学|南开大学]] `aliases: Nankai University` - type: entity
@@ -1036,7 +1089,7 @@ updated: 2026-06-12T12:11
 - [[entities/京东方|京东方]] `aliases: BOE Technology, BOE` - type: entity
 - [[entities/亚里士多德|亚里士多德]] `aliases: Aristotle` - type: entity
 - [[entities/亚当和夏娃|亚当和夏娃]] `aliases: Adam and Eve, 亚当与夏娃（圣经）` - type: entity
-- [[entities/亚当·斯密|亚当·斯密]] `aliases: Adam Smith` - type: entity
+- [[entities/亚当·斯密|亚当·斯密]] `aliases: Adam Smith, 斯密, Adam Smith` - type: entity
 - [[entities/亚历山大大帝|亚历山大大帝]] `aliases: 亚历山大大帝, 亚历山大, 亚历山大帝, Alexander the Great` - type: entity
 - [[entities/五祖弘忍|五祖弘忍]] `aliases: 弘忍, 黄梅山弘忍, 道场` - type: entity
 - [[entities/五卷书|五卷书]] `aliases: Pañcatantra, Panchatantra, 本生鬘` - type: entity
@@ -1134,6 +1187,47 @@ updated: 2026-06-12T12:11
 
 ## 概念
 
+- [[concepts/对象性的活动|对象性的活动]] `aliases: gegenstāndliche活动, 对象性活动, gegenstāndliche Aktivität` - type: concept
+- [[concepts/思维的真理性|思维的真理性]] `aliases: 思维的客观真理性, 思维的此岸性, Truth of Thinking` - type: concept
+- [[concepts/新唯物主义|新唯物主义]] `aliases: 实践唯物主义, 实践的唯物主义, New Materialism` - type: concept
+- [[concepts/旧唯物主义|旧唯物主义]] `aliases: 从前的一切唯物主义, 旧唯物论, pre-Marxian materialism` - type: concept
+- [[concepts/商业赌博|商业赌博]] `aliases: 商业投机, Commercial Gambling` - type: concept
+- [[concepts/劳动时间的延长|劳动时间的延长]] `aliases: 延长工作日, Extension of Working Hours` - type: concept
+- [[concepts/英国棉纺织业|英国棉纺织业]] `aliases: 英国棉纺织工业, British Cotton Industry` - type: concept
+- [[concepts/雇佣劳动的虚假自由|雇佣劳动的虚假自由]] `aliases: 虚假自由, False Freedom of Wage Labour, 雇佣劳动的形式自由` - type: concept
+- [[concepts/工人的生活资料|工人的生活资料]] `aliases: 生活数据, Subsistence, 工人的生活数据` - type: concept
+- [[concepts/资本的矛盾运动|资本的矛盾运动]] `aliases: Contradictory Movement of Capital, 资本矛盾运动` - type: concept
+- [[concepts/工人生存的商品化|工人生存的商品化]] `aliases: Worker Existence as Commodity, 工人存在等同于商品` - type: concept
+- [[concepts/资本的支配权|资本的支配权]] `aliases: 资本对劳动的支配, Power of Capital over Labour, 资本的支配` - type: concept
+- [[concepts/利润率递减趋势|利润率递减趋势]] `aliases: 利润率递减, 利润率下降趋势, Tendency of the Rate of Profit to Fall` - type: concept
+- [[concepts/出租劳动|出租劳动]] `aliases: 出租劳动（renting labor）, wage labor as renting` - type: concept
+- [[concepts/工资的扣除论|工资的扣除论]] `aliases: 工资与地租资本利润的关系, 工资扣除论, Deduction Theory of Wages` - type: concept
+- [[concepts/资本的集中|资本的集中]] `aliases: 资本积聚, Concentration of Capital` - type: concept
+- [[concepts/使用和滥用的权利|使用和滥用的权利]] `aliases: 使用与滥用权, droit d'user et d'abuser, Right to use and abuse` - type: concept
+- [[concepts/资本家的竞争|资本家的竞争]] `aliases: 资本家间的竞争, Capitalist Competition` - type: concept
+- [[concepts/小资本家的破产|小资本家的破产]] `aliases: 小资本家破产, 小资本家的没落, 小资产阶级破产` - type: concept
+- [[concepts/工业战争|工业战争]] `aliases: 商业战争, Industrial War` - type: concept
+- [[concepts/劳动价格的波动|劳动价格的波动]] `aliases: 工资波动, 劳动价格变动` - type: concept
+- [[concepts/资本的统治|资本的统治]] `aliases: 资本对劳动的统治, Rule of Capital` - type: concept
+- [[concepts/无产者|无产者]] `aliases: Proletarian, Proletarier, 无产者阶级` - type: concept
+- [[concepts/卖淫|卖淫]] `aliases: Prostitution` - type: concept
+- [[concepts/雇佣劳动|雇佣劳动]] `aliases: Wage Labour, Lohnarbeit` - type: concept
+- [[concepts/固定资本与流动资本|固定资本与流动资本]] `aliases: Fixed Capital and Circulating Capital, 固定资本和流动资本` - type: concept
+- [[concepts/国民经济学的目的|国民经济学的目的]] `aliases: Purpose of Political Economy` - type: concept
+- [[concepts/机器生产|机器生产]] `aliases: Machine Production, Machinery, 机器化生产` - type: concept
+- [[concepts/过度劳动|过度劳动]] `aliases: Overwork, Excessive Labour` - type: concept
+- [[concepts/贫困化|贫困化]] `aliases: Pauperization, Verelendung, 无产阶级贫困化` - type: concept
+- [[concepts/劳动作为商品|劳动作为商品]] `aliases: Labour as Commodity, Arbeit als Ware` - type: concept
+- [[concepts/地租|地租]] `aliases: Rent, Grundrente, Land Rent` - type: concept
+- [[concepts/工厂制度|工厂制度]] `aliases: Factory System, Fabriksystem` - type: concept
+- [[concepts/黑格尔的辩证法|黑格尔的辩证法]] `aliases: Hegelian Dialectics, Hegelsche Dialektik` - type: concept
+- [[concepts/分工|分工]] `aliases: 劳动分工, Division of Labour, Arbeitsteilung` - type: concept
+- [[concepts/资本的利润|资本的利润]] `aliases: Profit of Capital, Capital Profit` - type: concept
+- [[concepts/思想圣物|思想圣物]] `aliases: 思想圣物 (Stirner), Ideological Fetish, Spuk` - type: concept
+- [[concepts/现实的人|现实的人]] `aliases: 现实的个人, der wirkliche Mensch, real human being` - type: concept
+- [[concepts/社会达尔文主义|社会达尔文主义]] `aliases: Social Darwinism, 社会达尔文主义` - type: concept
+- [[concepts/世俗性|世俗性]] `aliases: 世俗化, Secularity, worldliness` - type: concept
+- [[concepts/神圣性|神圣性]] `aliases: 神圣维度, Sacredness, Sancity` - type: concept
 - [[concepts/私生子问题|私生子问题]] `aliases: 黑格尔的私生子问题, 小路易事件, Hegel's Illegitimate Son Issue` - type: concept
 - [[concepts/文化世界|文化世界]] `aliases: Kulturwelt, Cultural World, 文化世界（雅克·董特）` - type: concept
 - [[concepts/生命自我否定的运动|生命自我否定的运动]] `aliases: 辩证法本质, 生命的自我否定, Self-Negation of Life` - type: concept
@@ -1219,7 +1313,7 @@ updated: 2026-06-12T12:11
 - [[concepts/马基雅维利主义|马基雅维利主义]] `aliases: Machiavellianism, 马基雅维利主义` - type: concept
 - [[concepts/饿鬼道|饿鬼道]] `aliases: Preta Realm, 饿鬼道比喻, 饿鬼道心理学` - type: concept
 - [[concepts/马克思的拜物教批判|马克思的拜物教批判]] `aliases: 商品拜物教, 物化批判, Fetishism Critique` - type: concept
-- [[concepts/马克思的人的本质理论|马克思的人的本质理论]] `aliases: 人的本质, 人的本质学说, 人的本质的五重规定, 人的本质是社会关系的总和, 类本质, 人的本质理论, 马克思关于人的本质的论述` - title: 马克思的人的本质理论
+- [[concepts/马克思的人的本质理论|马克思的人的本质理论]] `aliases: 人的本质, 人的本质学说, 人的本质的五重规定, 人的本质是社会关系的总和, 类本质, 人的本质理论, 马克思关于人的本质的论述` - created: 2026-05-13T22:28:00+08:00
 - [[concepts/马克思的人学现象学思想|马克思的人学现象学思想]] `aliases: Marx's Phenomenological Philosophy of Human Nature, 马克思人学现象学, Marx's Humanistic Phenomenology` - type: concept
 - [[concepts/风俗论|风俗论]] `aliases: Essai sur les mœurs, Essay on Customs, 论风俗` - type: concept
 - [[concepts/马克思主义哲学|马克思主义哲学]] `aliases: Marxist Philosophy` - type: concept
@@ -1420,7 +1514,7 @@ updated: 2026-06-12T12:11
 - [[concepts/道德教育|道德教育]] `aliases: Kantian Moral Education, Kant's Moral Pedagogy, 康德道德教育思想` - type: concept
 - [[concepts/道德感理论|道德感理论]] `aliases: Theory of Moral Sense, Moral Sense Theory` - type: concept
 - [[concepts/道德感|道德感]] `aliases: moral sense, 道德情感, 怜悯心` - type: concept
-- [[concepts/道德情感|道德情感]] `aliases: Moral Feeling, Moral Sentiment, 敬重感, 良情, Moral Feeling, Moral Sentiment, 敬重感, 道德情感理论, Moral Feeling, Moral Sentiment, 敬重感, 良情, Moral Feeling, Moral Sentiment, 敬重感` - type: concept
+- [[concepts/道德感|道德情感]] `aliases: Moral Feeling, Moral Sentiment, 敬重感, 良情, Moral Feeling, Moral Sentiment, 敬重感, 道德情感理论, Moral Feeling, Moral Sentiment, 敬重感, 良情, Moral Feeling, Moral Sentiment, 敬重感` - type: concept
 - [[concepts/道德性|道德性]] `aliases: Moralität, Moral Worth, 道德价值, Kantian Moral Philosophy` - type: concept
 - [[concepts/道德必然导致宗教|道德必然导致宗教]] `aliases: Moral Necessarily Leads to Religion, 道德必然导致宗教命题` - type: concept
 - [[concepts/道德心理学|道德心理学]] `aliases: Moral Psychology, 道德心理学研究` - type: concept
@@ -1467,7 +1561,7 @@ updated: 2026-06-12T12:11
 - [[concepts/通俗道德哲学|通俗道德哲学]] `aliases: Kant's Popular Moral Philosophy, 康德通俗道德哲学, 通俗伦理学, 通俗的道德哲学, Kant's Popular Moral Philosophy, 康德通俗道德哲学, 通俗伦理学` - type: concept
 - [[concepts/透视主义认识论|透视主义认识论]] `aliases: Perspectivism, Perspectivist Epistemology` - type: concept
 - [[concepts/选言命题|选言命题]] `aliases: 析取命题, Disjunctive Proposition` - type: concept
-- [[concepts/选言判断|选言判断]] `aliases: 选言命题, Disjunctive Proposition, Disjunctive Judgment` - type: concept
+- [[concepts/选言命题|选言判断]] `aliases: 选言命题, Disjunctive Proposition, Disjunctive Judgment` - type: concept
 - [[concepts/选言三段论|选言三段论]] `aliases: Disjunctive Syllogism, 选言推理` - type: concept
 - [[concepts/选择行为|选择行为]] `aliases: 选择行为理论, 选择性行为` - type: concept
 - [[concepts/选择性获取知识问题|选择性获取知识问题]] `aliases: Selective Knowledge Acquisition Problem, 选择性阅读问题, 选择性获取` - type: concept
@@ -1498,23 +1592,23 @@ updated: 2026-06-12T12:11
 - [[concepts/达克效应|达克效应]] `aliases: 邓宁-克鲁格效应, Dunning-Kruger Effect, 达克效应曲线, 认知偏差之达克效应, 愚昧之巅, 无知的自信` - tags:
 - [[concepts/运算可逆性|运算可逆性]] `aliases: Operational Reversibility, 可逆运算, 运算的双向性` - type: concept
 - [[concepts/边界|边界]] `aliases: Boundary, 边界原则, 边界设计` - type: concept
-- [[concepts/过剩人口|过剩人口]] `aliases: relative surplus population, 工业reserve army, surplus population, 产业后备军, relative surplus population, 工业reserve army, surplus population` - type: concept
+- [[concepts/过剩人口|过剩人口]] `aliases: relative surplus population, 工业reserve army, surplus population, 产业后备军, relative surplus population, 工业reserve army, surplus population, 工业人口过剩, relative surplus population, 工业reserve army, surplus population, 产业后备军, relative surplus population, 工业reserve army, surplus population` - type: concept
 - [[concepts/过剩产能|过剩产能]] `aliases: Excess Capacity, Overcapacity, 产能过剩` - type: concept
 - [[concepts/迁徙自由|迁徙自由]] `aliases: Freedom of Movement, Right to Migrate, 迁徙权` - type: concept
 - [[concepts/达观主义|达观主义]] `aliases: 乐观主义, Schopenhauer's Optimistic Acceptance` - type: concept
 - [[concepts/达摩克利斯之剑|达摩克利斯之剑]] `aliases: Damocles' Sword, Damocles Sword, 悬剑之喻` - type: concept
 - [[concepts/达到正常与健康的方法|达到正常与健康的方法]] `aliases: 实现身心健康的方法, 回归正常与健康, 健康实现途径` - type: concept
 - [[concepts/边际效用递减|边际效用递减]] `aliases: Law of Diminishing Marginal Utility, 边际效用递减定律` - type: concept
-- [[concepts/边际功用递减|边际功用递减]] `aliases: 边际效用递减, 边际效用递减律` - type: concept
+- [[concepts/边际效用递减|边际功用递减]] `aliases: 边际效用递减, 边际效用递减律` - type: concept
 - [[concepts/辩证逻辑|辩证逻辑]] `aliases: Dialectical Logic` - type: concept
 - [[concepts/辩证运动|辩证运动]] `aliases: Hegel's Dialectical Movement, Dialectical Self-Development` - type: concept
 - [[concepts/辩证理性|辩证理性]] `aliases: Dialectical Rationality, 辩证理性主义` - type: concept
-- [[concepts/辩证法思想|辩证法思想]] `aliases: Hegel's Dialectical Method, 黑格尔辩证法, 辩证法` - type: concept
+- [[concepts/辩证法|辩证法思想]] `aliases: Hegel's Dialectical Method, 黑格尔辩证法, 辩证法` - type: concept
 - [[concepts/辩证法与矛盾|辩证法与矛盾]] `aliases: 矛盾论, 矛盾法则, 辩证矛盾` - type: concept
 - [[concepts/辩证法与当代哲学的命运——评阿多诺对辩证法的重新诠释|辩证法与当代哲学的命运——评阿多诺对辩证法的重新诠释]] `aliases: 否定的辩证法, 阿多诺辩证法` - type: concept
 - [[concepts/辩证法与当代哲学命运|辩证法与当代哲学命运]] `aliases: 辩证法与当代哲学的命运, Dialectics and the Fate of Contemporary Philosophy, 阿多尔诺论辩证法, 评阿多诺对辩证法的重新诠释, 辩证法在当代哲学中的命运, Adorno on Dialectics, 否定辩证法与当代哲学` - title: 辩证法与当代哲学命运
 - [[concepts/辩证法|辩证法]] `aliases: Dialectics, 马克思主义辩证法, Dialectical Method` - type: concept
-- [[concepts/辩证思维方式|辩证思维方式]] `aliases: Dialectical Thinking Method, 辩证法思维, dialectical method` - type: concept
+- [[concepts/辩证法|辩证思维方式]] `aliases: Dialectical Thinking Method, 辩证法思维, dialectical method` - type: concept
 - [[concepts/转换性的创造|转换性的创造]] `aliases: Transformative Creation, 创造性转化` - type: concept
 - [[concepts/辩证唯物主义|辩证唯物主义]] `aliases: Dialectical Materialism, 辩唯, 唯物辩证法, Dialectical Materialism, 辩唯` - type: concept
 - [[concepts/辞海|辞海]] `aliases: Cihai, 辞海词典, Cihai Dictionary, 辞海编辑委员会` - title: 辞海
@@ -1930,7 +2024,7 @@ updated: 2026-06-12T12:11
 - [[concepts/自我轻视|自我轻视]] `aliases: self-depreciation, Selbstverachtung, self-abasement` - type: concept
 - [[concepts/自我转化|自我转化]] `aliases: 自转变, 自我超越` - type: concept
 - [[concepts/自我贬斥|自我贬斥]] `aliases: 自贬, 自我贬抑, 自我贬低` - type: concept
-- [[concepts/自我超越|自我超越]] `aliases: Self-Transcendence, 自我克服, Self-Overcoming` - type: concept
+- [[concepts/自我转化|自我超越]] `aliases: Self-Transcendence, 自我克服, Self-Overcoming` - type: concept
 - [[concepts/自我认识|自我认识]] `aliases: Self-Knowledge, 自我意识, 自我认知, Self-Knowledge, 自我意识, 自我知识, Self-Knowledge, 自我意识, 自我认知, Self-Knowledge, 自我意识` - type: concept
 - [[concepts/自我认同|自我认同]] `aliases: Self-Identity, 自我同一性, 同一性理论, Self-Identity, 自我同一性` - type: concept
 - [[concepts/自我肯定|自我肯定]] `aliases: self-affirmation, 自我确认` - type: concept
@@ -1943,7 +2037,7 @@ updated: 2026-06-12T12:11
 - [[concepts/自我批判精神|自我批判精神]] `aliases: 自我批评精神, Self-criticism Spirit, 哲学自我批判` - type: concept
 - [[concepts/自我扬弃|自我扬弃]] `aliases: Self-Sublation of Capital, 资本自我的辩证克服, 资本形式的自我超越` - type: concept
 - [[concepts/自我意识的本质|自我意识的本质]] `aliases: The Essence of Self-Consciousness` - type: concept
-- [[concepts/自我意识|自我意识]] `aliases: Self-consciousness` - type: concept
+- [[concepts/自我认识|自我意识]] `aliases: Self-consciousness` - type: concept
 - [[concepts/自我思考|自我思考]] `aliases: Selbstdenkenz, Thinking for oneself, 独立思考` - type: concept
 - [[concepts/自我忘却|自我忘却]] `aliases: Self-Forgetfulness, 自我遗忘` - type: concept
 - [[concepts/自我形成|自我形成]] `aliases: 自我构建, 主体生成` - type: concept
@@ -1954,11 +2048,11 @@ updated: 2026-06-12T12:11
 - [[concepts/自我奠基|自我奠基]] `aliases: Self-Founding, Self-Ground, 自我奠基` - type: concept
 - [[concepts/自我否定|自我否定]] `aliases: Self-Negation, Negation of Self, Self-Denial in Hegelian Dialectics` - type: concept
 - [[concepts/自我决定判准|自我决定判准]] `aliases: Self-determination criterion, W1判准, 自我决定准则` - type: concept
-- [[concepts/自我决定|自我决定]] `aliases: Self-determination, Selbstbestimmung, 自我决定理论` - type: concept
+- [[concepts/自我决定判准|自我决定]] `aliases: Self-determination, Selbstbestimmung, 自我决定理论` - type: concept
 - [[concepts/自我关系|自我关系]] `aliases: 自我相关性, 自反性, self-relation` - type: concept
 - [[concepts/自我保存|自我保存]] `aliases: 自我保存本能, Self-Preservation, 利他与自我保存` - type: concept
 - [[concepts/自我代表|自我代表]] `aliases: Self-representation, 群体自我代表` - type: concept
-- [[concepts/自我|自我]] `aliases: Self, 自我概念, 自我意识` - type: concept
+- [[concepts/自我认识|自我]] `aliases: Self, 自我概念, 自我意识` - type: concept
 - [[concepts/自性|自性]] `aliases: 佛性, 本心, Tathagatagarbha, Buddha-nature` - type: concept
 - [[concepts/自愈合混凝土|自愈合混凝土]] `aliases: self-healing concrete, 自修复混凝土` - type: concept
 - [[concepts/自性本具|自性本具]] `aliases: 自性本具足, 本性具足` - type: concept
@@ -1966,17 +2060,17 @@ updated: 2026-06-12T12:11
 - [[concepts/自律论|自律论]] `aliases: 音乐自律论, Formalism in Music, 唯音主义, 音乐形式主义` - type: concept
 - [[concepts/自律性公式|自律性公式]] `aliases: 意志自律公式, Formula of Autonomy, 自律公式` - type: concept
 - [[concepts/能动的辩证法|能动的辩证法]] `aliases: Active Dialectics, Dialectics of Activity, Hegel's Active Dialectics` - type: concept
-- [[concepts/自律|自律]] `aliases: Self-Regulation, 职业自律` - type: concept
+- [[concepts/自我关系|自律]] `aliases: Self-Regulation, 职业自律` - type: concept
 - [[concepts/自尊培养|自尊培养]] `aliases: Self-esteem Cultivation, 自尊教育, Building Self-esteem` - type: concept
 - [[concepts/自在之物|自在之物]] `aliases: Ding an sich, 物自体` - type: concept
-- [[concepts/自尊|自尊]] `aliases: Self-esteem, self-respect, self-worth, 自尊教育, Self-esteem, self-respect, self-worth` - type: concept
+- [[concepts/自尊培养|自尊]] `aliases: Self-esteem, self-respect, self-worth, 自尊教育, Self-esteem, self-respect, self-worth` - type: concept
 - [[concepts/自失|自失]] `aliases: Self-Loss, Self-Forgetting, Loss of Self` - type: concept
 - [[concepts/自在自为|自在自为]] `aliases: Being-in-and-for-itself, 自在与自为的统一, 绝对理念` - type: concept
 - [[concepts/自在目的公式|自在目的公式]] `aliases: 人是目的公式, Formula of Humanity as an End, 第二绝对命令式, Formula of Humanity, End-in-Itself Formula, Formula of the End in Itself, 人性公式, 目的自身公式, 人格目的, 人是目的公式, Formula of Humanity as an End, 第二绝对命令式, Formula of Humanity, End-in-Itself Formula, Formula of the End in Itself, 人性公式, 目的自身公式` - type: concept
 - [[concepts/自因|自因]] `aliases: causa sui, self-causation` - type: concept
 - [[concepts/自信|自信]] `aliases: self-confidence, 自信心` - type: concept
 - [[concepts/自否定哲学原理|自否定哲学原理]] `aliases: Self-Negation Principle, 自否定原理, Self-Negation in Dialectics` - type: concept
-- [[concepts/自否定|自否定]] `aliases: Selbstaufhebung, 自我否定, 内在否定` - type: concept
+- [[concepts/自我否定|自否定]] `aliases: Selbstaufhebung, 自我否定, 内在否定` - type: concept
 - [[concepts/自主性|自主性]] `aliases: Autonomy, Selbstständigkeit, 自律` - type: concept
 - [[concepts/自主的悖谬|自主的悖谬]] `aliases: The Paradox of Autonomy, Paradox of Autonomy` - type: concept
 - [[concepts/胡塞尔现象学|胡塞尔现象学]] `aliases: Husserl Phenomenology, Phenomenological Philosophy, 埃德蒙德·胡塞尔现象学, 先验现象学, Husserl Phenomenology, Phenomenological Philosophy, 埃德蒙德·胡塞尔现象学` - type: concept
@@ -1999,7 +2093,7 @@ updated: 2026-06-12T12:11
 - [[concepts/胜义谛|胜义谛]] `aliases: 究竟谛, 胜义, 第一义谛, Ultimate Truth, Paramārtha-satya` - type: concept
 - [[concepts/肯定术语与否定术语|肯定术语与否定术语]] `aliases: Positive and Negative Terms, 肯定与否定术语` - type: concept
 - [[concepts/肯定术语|肯定术语]] `aliases: 肯定命题, 肯定性术语, affirmative term` - type: concept
-- [[concepts/肯定命题|肯定命题]] `aliases: 肯定判断, affirmative judgment, affirmative statement` - type: concept
+- [[concepts/肯定术语|肯定命题]] `aliases: 肯定判断, affirmative judgment, affirmative statement` - type: concept
 - [[concepts/肯定前件式|肯定前件式]] `aliases: Modus Ponens, 肯定前件推理, 肯定前件律` - type: concept
 - [[concepts/肯定后件式|肯定后件式]] `aliases: 肯定后件谬误, Affirming the Consequent, 肯定后件论式` - type: concept
 - [[concepts/肯定|肯定]] `aliases: Affirmation, 肯定原则, 肯定哲学` - type: concept
@@ -2082,12 +2176,12 @@ updated: 2026-06-12T12:11
 - [[concepts/绝对必然性|绝对必然性]] `aliases: Absolute Necessity, 绝对必然性概念` - type: concept
 - [[concepts/绝对真理|绝对真理]] `aliases: Absolute Truth` - type: concept
 - [[concepts/绝对目的论|绝对目的论]] `aliases: Absolute Teleology, Absolute Finalism` - type: concept
-- [[concepts/绝对理念|绝对理念]] `aliases: Absolute Idea, 纯粹概念, 逻辑理念` - type: concept
+- [[concepts/自在自为|绝对理念]] `aliases: Absolute Idea, 纯粹概念, 逻辑理念` - type: concept
 - [[concepts/绝对术语|绝对术语]] `aliases: 绝对词, 绝对概念, absolute term` - type: concept
 - [[concepts/绝对形式|绝对形式]] `aliases: Absolute Form, absolute form, 绝对形式概念` - type: concept
 - [[concepts/绝对唯心主义|绝对唯心主义]] `aliases: Absolute Idealism, 绝对大全, 黑格尔绝对唯心论` - type: concept
 - [[concepts/绝对命题|绝对命题]] `aliases: 全称命题, 普遍命题` - type: concept
-- [[concepts/绝对命令的第三个公式|绝对命令的第三个公式]] `aliases: The Third Formula of the Categorical Imperative, Formula of Autonomy, 每个理性存在者的意志作为给出普遍法则的意志的理念` - type: concept
+- [[concepts/自律性公式|绝对命令的第三个公式]] `aliases: The Third Formula of the Categorical Imperative, Formula of Autonomy, 每个理性存在者的意志作为给出普遍法则的意志的理念` - type: concept
 - [[concepts/绝对命令的公式|绝对命令的公式]] `aliases: Formula of the Categorical Imperative, Third Formula of the Categorical Imperative, 意志作为给出普遍法则的意志的理念` - type: concept
 - [[concepts/绝对优势|绝对优势]] `aliases: Absolute Advantage, 绝对优势理论` - type: concept
 - [[concepts/绝对同一性|绝对同一性]] `aliases: Absolute Identität, Absolute Identity` - type: concept
@@ -2137,14 +2231,14 @@ updated: 2026-06-12T12:11
 - [[concepts/经典逻辑|经典逻辑]] `aliases: 形式逻辑, 传统逻辑, Classical Logic` - type: concept
 - [[concepts/经典文学教学|经典文学教学]] `aliases: Classic Literature Teaching, 经典文学教育法` - type: concept
 - [[concepts/经典数理逻辑|经典数理逻辑]] `aliases: Classical Mathematical Logic, 现代数理逻辑, 标准数理逻辑` - type: concept
-- [[concepts/终极理论|终极理论]] `aliases: 知识谦逊, 学习的谦逊态度, Intellectual Humility` - type: concept
+- [[concepts/认知谦虚|终极理论]] `aliases: 知识谦逊, 学习的谦逊态度, Intellectual Humility` - type: concept
 - [[concepts/终极关怀|终极关怀]] `aliases: Ultimate Concern, 终极精神关怀, Ultimate Care` - type: concept
 - [[concepts/组织管理|组织管理]] `aliases: 组织管理, Organization Management, 企业管理` - type: concept
 - [[concepts/组织|组织]] `aliases: Organization, 系统性组织, 组织行为` - type: concept
 - [[concepts/组合爆炸|组合爆炸]] `aliases: Combinatorial Explosion, 组合激增, 组合数爆炸` - type: concept
 - [[concepts/线性反馈|线性反馈]] `aliases: 线性反馈系统, Linear Feedback` - type: concept
 - [[concepts/线性关系|线性关系]] `aliases: linear relationship, 线性相关性` - type: concept
-- [[concepts/纯粹现象学|纯粹现象学]] `aliases: Pure Phenomenology, 纯现象学, 先验现象学` - type: concept
+- [[concepts/胡塞尔现象学|纯粹现象学]] `aliases: Pure Phenomenology, 纯现象学, 先验现象学` - type: concept
 - [[concepts/纸|纸]] `aliases: paper, 纸张, Paper` - type: concept
 - [[concepts/纵聚合|纵聚合]] `aliases: Vertical Paradigmatic Relations, 纵聚合关系, Paradigmatic Relations` - type: concept
 - [[concepts/纵向不平衡|纵向不平衡]] `aliases: Vertical Fiscal Imbalance, 纵向财政不平衡` - type: concept
@@ -2339,7 +2433,7 @@ updated: 2026-06-12T12:11
 - [[concepts/社会的人的感觉|社会的人的感觉]] `aliases: Social Man's Feeling, 感觉的社会性` - type: concept
 - [[concepts/社会病理学|社会病理学]] `aliases: Social Pathology, 形式社会病理学` - type: concept
 - [[concepts/社会生产力|社会生产力]] `aliases: 社会生产力, 生产力` - type: concept
-- [[concepts/社会民主主义|社会民主主义]] `aliases: Social Democracy` - type: concept
+- [[concepts/社会民主党|社会民主主义]] `aliases: Social Democracy` - type: concept
 - [[concepts/社会批判理论|社会批判理论]] `aliases: 批判理论, Critical Theory, 法兰克福学派社会理论` - type: concept
 - [[concepts/社会成本收益分析|社会成本收益分析]] `aliases: Cost-Benefit Analysis, 社会费用效益分析, 成本收益分析` - type: concept
 - [[concepts/社会正义|社会正义]] `aliases: Social Justice, 社会公正` - type: concept
@@ -2368,7 +2462,7 @@ updated: 2026-06-12T12:11
 - [[concepts/礼貌性的忽视|礼貌性的忽视]] `aliases: Polite Indifference, Polite Forgetting, 礼节性的压抑` - type: concept
 - [[concepts/礼貌原则|礼貌原则]] `aliases: Politeness Principle, 礼貌准则, 利奇礼貌原则` - type: concept
 - [[concepts/礼治秩序|礼治秩序]] `aliases: 礼治, 以礼治国, 礼乐之治, 儒家礼治` - type: concept
-- [[concepts/礼治|礼治]] `aliases: Rule of Ritual, 礼治主义, 礼治思想` - type: concept
+- [[concepts/礼治秩序|礼治]] `aliases: Rule of Ritual, 礼治主义, 礼治思想` - type: concept
 - [[concepts/知足|知足]] `aliases: 知足心, 少欲知足` - type: concept
 - [[concepts/礼俗社会|礼俗社会]] `aliases: Ritual Society, 有机团结` - type: concept
 - [[concepts/碳材料|碳材料]] `aliases: Carbon materials, 碳基材料` - type: concept
@@ -2402,7 +2496,7 @@ updated: 2026-06-12T12:11
 - [[concepts/知性范畴|知性范畴]] `aliases: Categories of the Understanding, 康德知性范畴, 知性范畴论` - type: concept
 - [[concepts/矛盾|矛盾]] `aliases: Contradiction` - type: concept
 - [[concepts/睡眠|睡眠]] `aliases: Sleep` - type: concept
-- [[concepts/知性|知性]] `aliases: Understanding, Verstand, 理智` - type: concept
+- [[concepts/知识|知性]] `aliases: Understanding, Verstand, 理智` - type: concept
 - [[concepts/知幻即离|知幻即离]] `aliases: Recognizing Illusion as Liberation, 知幻即离·顿悟心法` - type: concept
 - [[concepts/矛盾情感|矛盾情感]] `aliases: ambivalence, 双重情感, 正反情感并存` - type: concept
 - [[concepts/真的概念|真的概念]] `aliases: Truth in Hegel's Philosophy, Hegel's Concept of Truth, 黑格尔的真概念` - type: concept
@@ -2413,25 +2507,25 @@ updated: 2026-06-12T12:11
 - [[concepts/睡眠教学法|睡眠教学法]] `aliases: Hypnopedia, 睡眠学习法, 睡眠教育法` - type: concept
 - [[concepts/真实|真实]] `aliases: Authenticity, 本真性` - type: concept
 - [[concepts/着相|着相]] - (empty)
-- [[concepts/真谛|真谛]] `aliases: Ultimate Truth, Paramārtha-satya, 究竟真理` - type: concept
+- [[concepts/胜义谛|真谛]] `aliases: Ultimate Truth, Paramārtha-satya, 究竟真理` - type: concept
 - [[concepts/真相|真相]] `aliases: das Wahre, The True, 黑格尔真相概念` - type: concept
 - [[concepts/真理自行设置入作品|真理自行设置入作品]] `aliases: Truth Sets Itself into the Work, 艺术是真理自行设置入作品, Kunst als Wahrheit, die sich ins Werk setzt` - type: concept
 - [[concepts/真理理论|真理理论]] `aliases: 真理论, Truth Theory` - type: concept
 - [[concepts/真理探讨|真理探讨]] `aliases: Truth Inquiry, Truth Discussion, Truth Exploration` - type: concept
-- [[concepts/真理|真理]] `aliases: Truth, 真实, Veritas` - type: concept
+- [[concepts/真实|真理]] `aliases: Truth, 真实, Veritas` - type: concept
 - [[concepts/真理与禁制|真理与禁制]] `aliases: Truth and Prohibition, 真理与禁忌` - type: concept
 - [[concepts/真正的爱|真正的爱]] `aliases: True Love, 真实之爱, Hegel's Concept of True Love` - type: concept
 - [[concepts/真值形式|真值形式]] `aliases: Truth Form, 真值式, Truth-functional Form` - type: concept
 - [[concepts/真值函数|真值函数]] `aliases: Truth Function` - type: concept
 - [[concepts/真本质|真本质]] `aliases: 本质, 真实本质` - type: concept
 - [[concepts/真实菩萨|真实菩萨]] `aliases: 真实菩萨, Real Bodhisattva, Authentic Bodhisattva` - type: concept
-- [[concepts/真实性|真实性]] `aliases: Eigentlichkeit, Authenticity, 本真性` - type: concept
+- [[concepts/真实|真实性]] `aliases: Eigentlichkeit, Authenticity, 本真性` - type: concept
 - [[concepts/真妄和合|真妄和合]] `aliases: 真妄不二, Truth and Illusion Interpenetration, Unity of True and False in Alaya-Vijnana` - type: concept
 - [[concepts/真善美的统一|真善美的统一]] `aliases: Unity of Truth, Goodness and Beauty, 真善美统一论, Hegel's Tripartite Unity of Beauty` - type: concept
 - [[concepts/看不见的系统|看不见的系统]] `aliases: The Invisible System, Hidden System, 真实运行系统` - type: concept
 - [[concepts/真值表|真值表]] `aliases: Truth Table` - type: concept
 - [[concepts/相干逻辑|相干逻辑]] `aliases: 连贯逻辑, 一致性逻辑` - type: concept
-- [[concepts/真值函项|真值函项]] `aliases: Truth function, 真值函数, 真值函项逻辑` - type: concept
+- [[concepts/真值形式|真值函项]] `aliases: Truth function, 真值函数, 真值函项逻辑` - type: concept
 - [[concepts/直觉主义|直觉主义]] `aliases: Intuitionism, Schopenhauer's Intuitionism` - type: concept
 - [[concepts/真值|真值]] `aliases: 真值, 逻辑真值` - type: concept
 - [[concepts/看假与化空|看假与化空]] `aliases: Perceiving Illusion and Dissolving Emptiness, 看假化空` - type: concept
@@ -2450,7 +2544,7 @@ updated: 2026-06-12T12:11
 - [[concepts/直观知性|直观知性]] `aliases: Intuitive Intellect, Intuitive Understanding` - type: concept
 - [[concepts/直观明证性|直观明证性]] `aliases: Evidenz, 直观明证, 直观自明性` - type: concept
 - [[concepts/直观思维方式|直观思维方式]] `aliases: naive thinking, 直观思维` - type: concept
-- [[concepts/直观唯物主义|直观唯物主义]] `aliases: Intuitive Materialism, Feuerbach's Materialism, 直观唯物论` - type: concept
+- [[concepts/直观唯物主义|直观唯物主义]] `aliases: Intuitive Materialism, Feuerbach's Materialism, 直观唯物论, 直观的唯物主义, Intuitive Materialism, Feuerbach's Materialism, 直观唯物论` - type: concept
 - [[concepts/目的王国|目的王国]] `aliases: Kingdom of Ends, 目的王国公式, 目的王国律令, Reich der Zwecke, 目的之国` - type: concept
 - [[concepts/目的的必然性|目的的必然性]] `aliases: 目的论的必然性, 目的必然性` - type: concept
 - [[concepts/直接知识原则|直接知识原则]] `aliases: Immediate Knowledge Principle, 直接知识论` - type: concept
@@ -2460,8 +2554,8 @@ updated: 2026-06-12T12:11
 - [[concepts/目的论原则|目的论原则]] `aliases: Teleological Principle, 目的论, 自然目的论原则, 自然目的论, Teleological Principle, 目的论, 自然目的论原则` - type: concept
 - [[concepts/痛苦与空虚的钟摆|痛苦与空虚的钟摆]] `aliases: The Pendulum of Pain and Emptiness, Schopenhauer's Pendulum, 痛苦与空虚的钟摆理论` - type: concept
 - [[concepts/症候阅读法|症候阅读法]] `aliases: Symptomatic Reading, 症候阅读` - type: concept
-- [[concepts/目的性|目的性]] `aliases: Teleology, 目的因, 目的论` - type: concept
-- [[concepts/目的概念|目的概念]] `aliases: 目的论, 终极因概念, 目的性` - type: concept
+- [[concepts/目的论原则|目的性]] `aliases: Teleology, 目的因, 目的论` - type: concept
+- [[concepts/目的论原则|目的概念]] `aliases: 目的论, 终极因概念, 目的性` - type: concept
 - [[concepts/监视|监视]] `aliases: Surveillance` - type: concept
 - [[concepts/画家的责任|画家的责任]] `aliases: The Painter's Responsibility, 艺术家责任论, 画家的艺术责任` - type: concept
 - [[concepts/盈亏机制|盈亏机制]] `aliases: Profit-Loss Mechanism, 盈利亏损机制, 盈亏信号` - type: concept
@@ -2482,7 +2576,7 @@ updated: 2026-06-12T12:11
 - [[concepts/男女平等|男女平等]] `aliases: gender equality, gender equity, 性别平等, 两性平等` - type: concept
 - [[concepts/生物多样性|生物多样性]] `aliases: Biodiversity, 生物多样性进化理论` - type: concept
 - [[concepts/电报|电报]] `aliases: Telegraph, Electric Telegraph` - type: concept
-- [[concepts/电子纸|电子纸]] `aliases: Electronic Paper, E-paper, E Ink` - type: concept
+- [[concepts/纸|电子纸]] `aliases: Electronic Paper, E-paper, E Ink` - type: concept
 - [[concepts/生源论|生源论]] `aliases: Biogenesis Theory, Abiogenesis, 生命起源理论` - type: concept
 - [[concepts/申辩篇|申辩篇]] `aliases: Apology, 苏格拉底的申辩, 柏拉图申辩篇` - type: concept
 - [[concepts/由抽象上升到具体|由抽象上升到具体]] `aliases: From Abstraction to the Concrete, 从抽象到具体` - type: concept
@@ -2491,7 +2585,7 @@ updated: 2026-06-12T12:11
 - [[concepts/生育率|生育率]] `aliases: 总和生育率, 生育水平, Fertility Rate` - type: concept
 - [[concepts/生者在亡者的宴会里没有位置|生者在亡者的宴会里没有位置]] `aliases: The Living Have No Place at the Dead's Feast, 生者与亡者的界限, 死亡与生存的哲学` - type: concept
 - [[concepts/生物学结构主义|生物学结构主义]] `aliases: Biological Structuralism, 生物结构主义` - type: concept
-- [[concepts/生物进化|生物进化]] `aliases: Biological Evolution` - type: concept
+- [[concepts/进化|生物进化]] `aliases: Biological Evolution` - type: concept
 - [[concepts/生死爱欲|生死爱欲]] `aliases: Foucault's Life and Death in the Age of Sexuality, 福柯的生死爱欲` - type: concept
 - [[concepts/生成|生成]] `aliases: Becoming, 生成（哲学）` - type: concept
 - [[concepts/生存空间|生存空间]] `aliases: Living Space, Existence Space` - type: concept
@@ -2501,7 +2595,7 @@ updated: 2026-06-12T12:11
 - [[concepts/生产资料垄断|生产资料垄断]] `aliases: Monopoly of Means of Production, 生产资料所有制垄断` - type: concept
 - [[concepts/生命意志|生命意志]] `aliases: Will to Live, Wille zum Leben, 生命意欲` - type: concept
 - [[concepts/生存困境|生存困境]] `aliases: Human Existence Dilemma in Modernity, 现代性视域下的生存困境, 人的生存困境` - type: concept
-- [[concepts/生命起源|生命起源]] `aliases: 生命起源问题, 起源论, Life's Origin, Abiogenesis` - type: concept
+- [[concepts/生源论|生命起源]] `aliases: 生命起源问题, 起源论, Life's Origin, Abiogenesis` - type: concept
 - [[concepts/生命结构|生命结构]] `aliases: Life Structure, 生物结构, 生命形态` - type: concept
 - [[concepts/生命意义|生命意义]] `aliases: Meaning of Life, 生活的意义, 生命的目的` - type: concept
 - [[concepts/理论转向|理论转向]] `aliases: Theoretical Turn in Kant's Moral Philosophy, Kantian ethical turn` - type: concept
@@ -2509,7 +2603,7 @@ updated: 2026-06-12T12:11
 - [[concepts/瓷器|瓷器]] `aliases: Porcelain, 陶瓷` - type: concept
 - [[concepts/生命伦理|生命伦理]] `aliases: Bioethics, 生命伦理学` - type: concept
 - [[concepts/生命|生命]] `aliases: Life, Living, 生物` - type: concept
-- [[concepts/生产过剩|生产过剩]] `aliases: Overproduction, 产能过剩` - type: concept
+- [[concepts/过剩产能|生产过剩]] `aliases: Overproduction, 产能过剩` - type: concept
 - [[concepts/理解社会学|理解社会学]] `aliases: Verstehende Soziologie, 理解社会学方法论, 韦伯理解社会学` - type: concept
 - [[concepts/生产的社会统筹|生产的社会统筹]] `aliases: 社会统筹, 生产的社会组织, 社会生产协调` - type: concept
 - [[concepts/生产的社会化|生产的社会化]] `aliases: Socialization of Production, 生产社会化` - type: concept
@@ -2534,7 +2628,7 @@ updated: 2026-06-12T12:11
 - [[concepts/理想主义|理想主义]] `aliases: Idealism, 观念论` - type: concept
 - [[concepts/理想|理想]] `aliases: Ideal, 完美形式` - type: concept
 - [[concepts/理性道德|理性道德]] `aliases: Rational Morality, 理性伦理学` - type: concept
-- [[concepts/理性选择|理性选择]] `aliases: Rational Choice, 理性选择理论` - type: concept
+- [[concepts/理性行为|理性选择]] `aliases: Rational Choice, 理性选择理论` - type: concept
 - [[concepts/理性运用|理性运用]] `aliases: Rational Use of Reason, Public Use of Reason, Private Use of Reason, 私人运用理性, Rational Use of Reason, Public Use of Reason, Private Use of Reason` - type: concept
 - [[concepts/理性国家制度|理性国家制度]] `aliases: Rational State Institution, Hegel's Rational State System, 理性的国家制度` - type: concept
 - [[concepts/理性谈话与情绪性谈话|理性谈话与情绪性谈话]] `aliases: 理性与情绪性谈话, 理性谈话与疯狂谈话` - type: concept
@@ -2566,7 +2660,7 @@ updated: 2026-06-12T12:11
 - [[concepts/理性与现实|理性与现实]] `aliases: Reason and Reality, 理性与现实的同一性` - type: concept
 - [[concepts/理性与感性的统一|理性与感性的统一]] `aliases: 理性与感性的统一, Rationality and Sensibility Unity, 理性与感性的结合` - type: concept
 - [[concepts/理性与情感平衡|理性与情感平衡]] `aliases: 理性与感性的平衡, 情智均衡` - type: concept
-- [[concepts/理性|理性]] `aliases: Reason, Rationality, 理性论` - type: concept
+- [[concepts/逻各斯|理性]] `aliases: Reason, Rationality, 理性论` - type: concept
 - [[concepts/理性与实在同一|理性与实在同一]] `aliases: Identität von Vernunft und Wirklichkeit, Identity of Reason and Reality, 理性与实在的同一` - type: concept
 - [[concepts/现象必有规律|现象必有规律]] `aliases: 所有现象都有规律, Phenomena Follow Patterns, 规律性信念` - type: concept
 - [[concepts/理念论|理念论]] `aliases: 柏拉图理念论, Theory of Forms, Platonism, 形式论, 艾多斯, 柏拉图理念论, Theory of Forms, Platonism, 形式论, 相论, 柏拉图理念论, Theory of Forms, Platonism, 形式论, 艾多斯, 柏拉图理念论, Theory of Forms, Platonism, 形式论, Ιδέα, 柏拉图理念论, Theory of Forms, Platonism, 形式论, 艾多斯, 柏拉图理念论, Theory of Forms, Platonism, 形式论, 相论, 柏拉图理念论, Theory of Forms, Platonism, 形式论, 艾多斯, 柏拉图理念论, Theory of Forms, Platonism, 形式论` - type: concept
@@ -2648,7 +2742,7 @@ updated: 2026-06-12T12:11
 - [[concepts/灌输论|灌输论]] `aliases: Theory of Indoctrination, 灌输理论` - type: concept
 - [[concepts/烧结|烧结]] `aliases: 烧结工艺, sintering process` - type: concept
 - [[concepts/热力学熵增|热力学熵增]] `aliases: Thermodynamic Entropy Increase, 热力学熵` - type: concept
-- [[concepts/满足和健康|满足和健康]] `aliases: 需要满足与健康, Need Satisfaction and Health` - type: concept
+- [[concepts/满足与健康|满足和健康]] `aliases: 需要满足与健康, Need Satisfaction and Health` - type: concept
 - [[concepts/烦恼浊|烦恼浊]] `aliases: 烦恼浊, 惑浊, Affliction Defilement` - type: concept
 - [[concepts/烦恼|烦恼]] `aliases: klesha, 心结, 扰乱心识之因素` - type: concept
 - [[concepts/演绎推理|演绎推理]] `aliases: Deductive Reasoning, 演绎法, 假言推理, Deductive Reasoning, 演绎法, 演绎论证, Deductive Reasoning, 演绎法, 假言推理, Deductive Reasoning, 演绎法, 演绎, Deductive Reasoning, 演绎法, 假言推理, Deductive Reasoning, 演绎法, 演绎论证, Deductive Reasoning, 演绎法, 假言推理, Deductive Reasoning, 演绎法` - type: concept
@@ -2683,15 +2777,15 @@ updated: 2026-06-12T12:11
 - [[concepts/深层结构|深层结构]] `aliases: Deep Structure, 底层结构` - type: concept
 - [[concepts/深层动机|深层动机]] `aliases: 深层冲动, intrinsic motivation, Deep Drive` - type: concept
 - [[concepts/浮士德式文化|浮士德式文化]] `aliases: Faustian Culture` - type: concept
-- [[concepts/涌现论|涌现论]] `aliases: Emergence Theory, 突现论, 涌现理论` - type: concept
+- [[concepts/涌现|涌现论]] `aliases: Emergence Theory, 突现论, 涌现理论` - type: concept
 - [[concepts/涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为|涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为]] `aliases: 复杂性涌现, 自组织临界性, 复杂系统理论` - type: concept
-- [[concepts/涌现与自组织|涌现与自组织]] `aliases: Emergence, Self-organization, 涌现, 自组织` - type: concept
+- [[concepts/涌现|涌现与自组织]] `aliases: Emergence, Self-organization, 涌现, 自组织` - type: concept
 - [[concepts/涌现|涌现]] `aliases: Emergence, 涌现理论, Emergence Theory` - type: concept
 - [[concepts/消费理论|消费理论]] `aliases: 消费者理论, 消费者行为理论` - type: concept
 - [[concepts/浏览体验|浏览体验]] `aliases: Browsing Experience, 浏览体验优化` - type: concept
 - [[concepts/消费力不平衡|消费力不平衡]] `aliases: Consumption Power Imbalance, Consumption Inequality, 消费力差异` - type: concept
-- [[concepts/消极自由概念|消极自由概念]] `aliases: Negative Freedom Concept, 消极自由` - type: concept
-- [[concepts/消极自由|消极自由]] `aliases: Negative Freedom` - type: concept
+- [[concepts/抽象的自由|消极自由概念]] `aliases: Negative Freedom Concept, 消极自由` - type: concept
+- [[concepts/抽象的自由|消极自由]] `aliases: Negative Freedom` - type: concept
 - [[concepts/涅槃智|涅槃智]] `aliases: Nirvana wisdom, 涅槃智慧, 灭受想智` - type: concept
 - [[concepts/涅槃|涅槃]] `aliases: Nirvana, 寂灭, 究竟涅槃` - type: concept
 - [[concepts/海德格尔与马克思艺术本源|海德格尔与马克思艺术本源]] `aliases: 海德格尔与马克思：艺术作品的本源, 艺术作品的本源, 什么是艺术作品的本源, 邓晓芒论海德格尔与马克思艺术观, 艺术本源之争, 邓晓芒海德格尔艺术观批判` - created: 2026-05-13T23:46:00+08:00
@@ -2705,7 +2799,7 @@ updated: 2026-06-12T12:11
 - [[concepts/流量|流量]] `aliases: 流量, Flow, 流动量` - type: concept
 - [[concepts/流行观念与思想控制|流行观念与思想控制]] `aliases: Popular Opinion and Thought Control, 社会流行观念, 舆论与思想控制` - type: concept
 - [[concepts/流程金字塔|流程金字塔]] `aliases: Process Pyramid, 流程层级模型` - type: concept
-- [[concepts/流变|流变]] `aliases: Becoming, Flux, 变化与过程` - type: concept
+- [[concepts/生成|流变]] `aliases: Becoming, Flux, 变化与过程` - type: concept
 - [[concepts/派生的至善|派生的至善]] `aliases: 派生的至善, 衍生的最高善, 派生的最高善` - type: concept
 - [[concepts/流动|流动]] `aliases: Flowing, 信息流动` - type: concept
 - [[concepts/活的整体|活的整体]] `aliases: Living Whole, 活生生的整体` - type: concept
@@ -2717,7 +2811,7 @@ updated: 2026-06-12T12:11
 - [[concepts/法相|法相]] `aliases: mental formation, conceptual attachment, dharma-attachment` - type: concept
 - [[concepts/法理社会|法理社会]] `aliases: Gesellschaft, 法理型社会, Legal-Rational Society` - type: concept
 - [[concepts/波普尔批评|波普尔批评]] `aliases: Popper criticism, 波普尔的批判方法` - type: concept
-- [[concepts/波旁王朝复辟|波旁王朝复辟]] `aliases: Bourbon Restoration` - type: concept
+- [[concepts/复辟时代|波旁王朝复辟]] `aliases: Bourbon Restoration` - type: concept
 - [[concepts/波兹曼常数|波兹曼常数]] `aliases: Boltzmann Constant, k_B, 玻尔兹曼常数` - type: concept
 - [[concepts/泛逻辑主义|泛逻辑主义]] `aliases: Pan-logicism, Pan-logicalism` - type: concept
 - [[concepts/法身不灭|法身不灭]] `aliases: 法身常住, Dharmakaya Non-Extinction` - type: concept
@@ -2732,15 +2826,15 @@ updated: 2026-06-12T12:11
 - [[concepts/法治|法治]] `aliases: Rule of Law, 法的统治` - type: concept
 - [[concepts/法哲学|法哲学]] `aliases: Philosophy of Right, 黑格尔法哲学, Hegel's Philosophy of Right, 权利哲学, Philosophy of Right, 黑格尔法哲学, Hegel's Philosophy of Right` - type: concept
 - [[concepts/法权论|法权论]] `aliases: Doctrine of Right, 康德法权论, Rechtslehre, 权利学说, Doctrine of Right, 康德法权论, Rechtslehre` - type: concept
-- [[concepts/法哲学原理|法哲学原理]] `aliases: Philosophy of Right, Grundlinien der Philosophie des Rechts` - type: concept
+- [[concepts/法哲学|法哲学原理]] `aliases: Philosophy of Right, Grundlinien der Philosophie des Rechts` - type: concept
 - [[concepts/法权状态|法权状态]] `aliases: State of Rights, Legal State, Rechtszustand` - type: concept
-- [[concepts/法权普遍原则|法权普遍原则]] `aliases: Universal Principle of Right, Jural Universal Principle, 法权普遍法则` - type: concept
+- [[concepts/普遍的权利原则|法权普遍原则]] `aliases: Universal Principle of Right, Jural Universal Principle, 法权普遍法则` - type: concept
 - [[concepts/治理鲁棒性|治理鲁棒性]] `aliases: Governance Robustness, 企业治理鲁棒性` - type: concept
-- [[concepts/法执与我执|法执与我执]] `aliases: Dharma-grasping and Self-grasping, 法执, 我执, two fundamental attachments in Buddhism` - type: concept
+- [[concepts/我执|法执与我执]] `aliases: Dharma-grasping and Self-grasping, 法执, 我执, two fundamental attachments in Buddhism` - type: concept
 - [[concepts/法性宗|法性宗]] `aliases: Tathagatagarbha School, 如来藏系, 法性宗派` - type: concept
 - [[concepts/法律面前的平等|法律面前的平等]] `aliases: Equality Before the Law, 公民在法律面前的平等` - type: concept
 - [[concepts/法律与公民协议|法律与公民协议]] `aliases: Law and Civil Agreement, Crito's Theory of Legal Contracts, 公民与城邦的法律契约` - type: concept
-- [[concepts/法律|法律]] `aliases: 法律, Law, 法学` - type: concept
+- [[concepts/法|法律]] `aliases: 法律, Law, 法学` - type: concept
 - [[concepts/法国文化|法国文化]] `aliases: French Culture, 尼采论法国文化` - type: concept
 - [[concepts/法国大革命|法国大革命]] `aliases: French Revolution, 1789年法国革命, 法国资产阶级革命, La Révolution française, 法国大革命（1789-1799）` - type: concept
 - [[concepts/法国哲学|法国哲学]] `aliases: French Philosophy, Philosophy in France` - type: concept
@@ -2788,12 +2882,12 @@ updated: 2026-06-12T12:11
 - [[concepts/武士刀|武士刀]] `aliases: Katana, 日本刀, 打刀` - type: concept
 - [[concepts/民主政体|民主政体]] `aliases: Democracy, Democratic Polity, 民主制度` - type: concept
 - [[concepts/民主与宣传|民主与宣传]] `aliases: Democracy and Propaganda, 民主与宣传理论` - type: concept
-- [[concepts/民主|民主]] `aliases: democracy, 民主制度` - type: concept
+- [[concepts/政治民主|民主]] `aliases: democracy, 民主制度` - type: concept
 - [[concepts/氏族|氏族]] `aliases: Clan, 氏族制度` - type: concept
 - [[concepts/毛泽东选集|毛泽东选集]] `aliases: 毛选, Mao's Selected Works, Selected Works of Mao Tse-tung, 毛泽东文集, Mao Zedong Selected Works` - title: 毛泽东选集
 - [[concepts/比较优势|比较优势]] `aliases: Comparative Advantage, 比较优势理论, 分工和贸易, Comparative Advantage, 比较优势理论` - type: concept
 - [[concepts/比特|比特]] `aliases: bit, 位` - type: concept
-- [[concepts/比丘戒律|比丘戒律]] `aliases: 僧戒, 波罗提木叉, 毗尼` - type: concept
+- [[concepts/别解脱律仪戒|比丘戒律]] `aliases: 僧戒, 波罗提木叉, 毗尼` - type: concept
 - [[concepts/母结构|母结构]] `aliases: Mother Structure, Primitive Structure, 母结构概念` - type: concept
 - [[concepts/欺骗与爱情|欺骗与爱情]] `aliases: Deception and Love, Truth-Telling and Romance, Maria von Herbert案例中的道德两难` - type: concept
 - [[concepts/死亡与重生|死亡与重生]] `aliases: Death and Rebirth in Hegel's Philosophy, Hegel Death and Rebirth Theory` - type: concept
@@ -2801,7 +2895,7 @@ updated: 2026-06-12T12:11
 - [[concepts/横组合|横组合]] `aliases: parataxis, 组合关系, 横组合关系` - type: concept
 - [[concepts/此岸|此岸]] `aliases: 此岸世界, 此边的岸` - type: concept
 - [[concepts/此在|此在]] `aliases: Dasein, 存在于此` - type: concept
-- [[concepts/正题-反题-合题|正题-反题-合题]] `aliases: 辩证三段式, Thesis-Antithesis-Synthesis, 三段式, 反题, 辩证三段式, Thesis-Antithesis-Synthesis, 三段式` - type: concept
+- [[concepts/合题|正题-反题-合题]] `aliases: 辩证三段式, Thesis-Antithesis-Synthesis, 三段式, 反题, 辩证三段式, Thesis-Antithesis-Synthesis, 三段式` - type: concept
 - [[concepts/正题|正题]] `aliases: Thesis` - type: concept
 - [[concepts/正词项|正词项]] `aliases: 正概念, 肯定词项` - type: concept
 - [[concepts/正智|正智]] `aliases: 正知, 正见, 正确智` - type: concept
@@ -2812,7 +2906,7 @@ updated: 2026-06-12T12:11
 - [[concepts/正义战争理论|正义战争理论]] `aliases: Just War Theory, 正义战争论, 正义战理论, 公正战争理论` - type: concept
 - [[concepts/正义|正义]] `aliases: Justice, 公平, 公正` - type: concept
 - [[concepts/止观双运|止观双运]] `aliases: 止观并运, Śamatha-Vipaśyanā, 止观` - type: concept
-- [[concepts/正-反-合|正-反-合]] `aliases: Thesis-Antithesis-Synthesis, 三段式, 辩证 triad` - type: concept
+- [[concepts/合题|正-反-合]] `aliases: Thesis-Antithesis-Synthesis, 三段式, 辩证 triad` - type: concept
 - [[concepts/歌剧改革|歌剧改革]] `aliases: Opera Reform, Gluck's Opera Reform, 格鲁克歌剧改革` - type: concept
 - [[concepts/模糊逻辑|模糊逻辑]] `aliases: Fuzzy Logic, 模糊逻辑处理方案` - type: concept
 - [[concepts/欺骗与爱情的两难|欺骗与爱情的两难]] `aliases: The Dilemma of Deception and Love, Maria von Herbert案例的伦理困境` - type: concept
@@ -2829,7 +2923,7 @@ updated: 2026-06-12T12:11
 - [[concepts/模式分析|模式分析]] `aliases: Pattern Analysis, 结构分析` - type: concept
 - [[concepts/模型论|模型论]] `aliases: Typus, 模型论（Typic）` - type: concept
 - [[concepts/概率论|概率论]] `aliases: Probability Theory, 机率论` - type: concept
-- [[concepts/概念论|概念论]] - created: 2026-06-09T10:43
+- [[concepts/概念逻辑|概念论]] - created: 2026-06-09T10:43
 - [[concepts/概念逻辑|概念逻辑]] `aliases: 概念论, 概念的逻辑学` - type: concept
 - [[concepts/概念辩证法|概念辩证法]] `aliases: Conceptual Dialectics, 概念辩证法（黑格尔方法论）` - type: concept
 - [[concepts/概率|概率]] `aliases: probability, 或然率` - type: concept
@@ -2837,9 +2931,9 @@ updated: 2026-06-12T12:11
 - [[concepts/概念拜物教|概念拜物教]] `aliases: Concept Fetishism` - type: concept
 - [[concepts/梅纳反应|梅纳反应]] `aliases: Maillard reaction, 美拉德反应, 羰氨反应` - type: concept
 - [[concepts/概念的限制与概括|概念的限制与概括]] `aliases: Concept Restriction and Generalization, 概念的概括与限制` - type: concept
-- [[concepts/概念的外延|概念的外延]] `aliases: 概念的指称范围, 外延, Extension, Denotation` - type: concept
+- [[concepts/外延|概念的外延]] `aliases: 概念的指称范围, 外延, Extension, Denotation` - type: concept
 - [[concepts/概念的辩证本性|概念的辩证本性]] `aliases: The Dialectical Nature of Concept, 概念的对立同一` - type: concept
-- [[concepts/概念的内涵|概念的内涵]] `aliases: intension, 概念的内涵（内涵）` - type: concept
+- [[concepts/外延|概念的内涵]] `aliases: intension, 概念的内涵（内涵）` - type: concept
 - [[concepts/格义翻译法|格义翻译法]] `aliases: 格义, conceptual borrowing translation, cultural adaptation in translation` - type: concept
 - [[concepts/概念推论|概念推论]] `aliases: discursiveness, 概念推论能力, discursive reasoning` - type: concept
 - [[concepts/样本偏差|样本偏差]] `aliases: 采样偏差, 选择性偏差` - type: concept
@@ -2872,7 +2966,7 @@ updated: 2026-06-12T12:11
 - [[concepts/构造论|构造论]] `aliases: Constructionism, 生成构造论` - type: concept
 - [[concepts/构成规则|构成规则]] `aliases: 构成性规则, constitutive rules` - type: concept
 - [[concepts/构建块|构建块]] `aliases: Building Block, 构建单元, 基础单元` - type: concept
-- [[concepts/极限态度|极限态度]] `aliases: Limit Attitude, 批判的气质` - type: concept
+- [[concepts/界限态度|极限态度]] `aliases: Limit Attitude, 批判的气质` - type: concept
 - [[concepts/极限体验|极限体验]] `aliases: Limit Experience, 极限体验理论` - type: concept
 - [[concepts/权力意志|权力意志]] `aliases: 强力意志` - created: 2026-05-13T17:12:00+08:00
 - [[concepts/极简生活|极简生活]] `aliases: 极简主义, 简约生活方式, Minimalism` - type: concept
@@ -2887,7 +2981,7 @@ updated: 2026-06-12T12:11
 - [[concepts/条件句|条件句]] `aliases: Conditional Statement, Conditional` - type: concept
 - [[concepts/条件反射设置|条件反射设置]] `aliases: Conditioning, 行为 conditioning, 条件反射法` - type: concept
 - [[concepts/杠铃策略|杠铃策略]] `aliases: Barbell Strategy, 杠铃投资策略, Barbell Approach, 杠铃法则, Barbell Strategy, 杠铃投资策略, Barbell Approach` - type: concept
-- [[concepts/权衡取舍|权衡取舍]] `aliases: Trade-offs, 权衡, 取舍` - type: concept
+- [[concepts/选择|权衡取舍]] `aliases: Trade-offs, 权衡, 取舍` - type: concept
 - [[concepts/权责匹配|权责匹配]] `aliases: 权责对等, 权责一致` - type: concept
 - [[concepts/权能性|权能性]] `aliases: Vermöglichkeit, 我能做, 可能视域` - type: concept
 - [[concepts/本性vs本质|本性vs本质]] `aliases: Nature vs Essence Kant, 根本恶, Kant Natur vs Wesen, 本性 本质 哲学, 中庸 康德 对话, radical evil Kant philosophy, 主体性自由` - title: 本性与本质
@@ -2914,30 +3008,30 @@ updated: 2026-06-12T12:11
 - [[concepts/机会|机会]] `aliases: 时机, 机遇, 契机` - type: concept
 - [[concepts/术语|术语]] `aliases: Term` - type: concept
 - [[concepts/本质还原|本质还原]] `aliases: essential reduction, 本质还原法` - type: concept
-- [[concepts/本质论|本质论]] `aliases: Die Lehre vom Wesen, Essentialism, 本质论（黑格尔逻辑学）` - type: concept
+- [[concepts/本质主义|本质论]] `aliases: Die Lehre vom Wesen, Essentialism, 本质论（黑格尔逻辑学）` - type: concept
 - [[concepts/本质自我|本质自我]] `aliases: 本质自我, 真正自我, 本真自我` - type: concept
 - [[concepts/本质直观|本质直观]] `aliases: Eidetic Intuition, Wesensschau, 本质直观方法` - type: concept
 - [[concepts/本质的虚无性|本质的虚无性]] `aliases: Nichtigkeit, 本质的非存在, 对象的虚无性, 虚无性, Nichtigkeit, 本质的非存在, 对象的虚无性` - type: concept
 - [[concepts/本母|本母]] `aliases: 本母法, Ben Mu` - type: concept
 - [[concepts/本质主义|本质主义]] `aliases: Essentialism` - type: concept
 - [[concepts/本质与现象|本质与现象]] `aliases: 本体与表象, 实质与形式` - type: concept
-- [[concepts/本质|本质]] `aliases: essence, nature, 本体, 实质` - type: concept
+- [[concepts/真本质|本质]] `aliases: essence, nature, 本体, 实质` - type: concept
 - [[concepts/本能理论|本能理论]] `aliases: Maslow's Instinct Theory, 马斯洛本能理论, Instinct Theory Revision` - type: concept
 - [[concepts/本能|本能]] `aliases: 本能冲动, 先天行为` - type: concept
-- [[concepts/本真|本真]] `aliases: 真实性, Authenticity, Eigentlichkeit` - type: concept
+- [[concepts/真实|本真]] `aliases: 真实性, Authenticity, Eigentlichkeit` - type: concept
 - [[concepts/本然|本然]] `aliases: Ereignis, 本己化, 事件化` - type: concept
 - [[concepts/本源性的民族|本源性的民族]] `aliases: 原始民族, Original Nations, Source Nations, 本源民族` - type: concept
 - [[concepts/本我自我超我|本我自我超我]] `aliases: Id-Ego-Superego, 弗洛伊德第二地形学模型, Freud's Second Topographic Model` - type: concept
 - [[concepts/本愿|本愿]] `aliases: 原始誓愿, 本誓` - type: concept
 - [[concepts/本原综合|本原综合]] `aliases: Primordial Synthesis, Original Synthesis, 本原综合活动` - type: concept
-- [[concepts/本心|本心]] `aliases: 自性, 佛性, Original Mind` - type: concept
+- [[concepts/自性|本心]] `aliases: 自性, 佛性, Original Mind` - type: concept
 - [[concepts/本原|本原]] `aliases: arche, 始基, 第一原理` - type: concept
 - [[concepts/本体论处境|本体论处境]] `aliases: Ontological Situation, Ontological Condition` - type: concept
 - [[concepts/本体论证明|本体论证明]] `aliases: 存在论证明, ontological argument` - type: concept
 - [[concepts/本体论|本体论]] `aliases: 存在论, Ontology, Being Theory` - type: concept
 - [[concepts/期望值|期望值]] `aliases: Expected Value, 数学期望, 均值` - type: concept
 - [[concepts/末那识我执消融|末那识我执消融]] `aliases: 末那识转依, 我执断除, Manas-vijnana执着消融` - type: concept
-- [[concepts/末那识|末那识]] `aliases: Manas-vijnana, 七识, 思量识, 第七识末那识, Manas-vijnana, 七识, 思量识` - type: concept
+- [[concepts/末那识我执消融|末那识]] `aliases: Manas-vijnana, 七识, 思量识, 第七识末那识, Manas-vijnana, 七识, 思量识` - type: concept
 - [[concepts/朗读手册|朗读手册]] `aliases: The Read-Aloud Handbook, 朗读手册：大声为孩子读书` - type: concept
 - [[concepts/末法时代|末法时代]] `aliases: Mò Fǎ Shídài, 末法, The Final Age of the Dharma` - type: concept
 - [[concepts/末世论|末世论]] `aliases: Eschatology, 基督教末世论, 终末论` - type: concept
@@ -2954,7 +3048,7 @@ updated: 2026-06-12T12:11
 - [[concepts/有限性|有限性]] `aliases: Finitude, Finiteness, 有限性概念` - type: concept
 - [[concepts/有限博弈与无限博弈|有限博弈与无限博弈]] `aliases: Finite and Infinite Games, 有限与无限博弈` - type: concept
 - [[concepts/有限内容的恶的无限|有限内容的恶的无限]] `aliases: Bad Infinity of Finite Content, 恶的无限, 坏的无限进展, Bad Infinite Progression` - type: concept
-- [[concepts/有限与无限|有限与无限]] `aliases: Finite and Infinite` - type: concept
+- [[concepts/有限博弈与无限博弈|有限与无限]] `aliases: Finite and Infinite` - type: concept
 - [[concepts/有生命的存在|有生命的存在]] `aliases: Living Being, Hegel's Living Existence, 有生命之物` - type: concept
 - [[concepts/有为功德与无为功德|有为功德与无为功德]] `aliases: 有为功德, 无为功德, Meritorious Virtue: Active vs Passive, Configured Merit and Unconfigured Merit` - type: concept
 - [[concepts/有余涅槃|有余涅槃]] `aliases: 有余涅槃, Sa-upādisesa-nirvāṇa, 有余依涅槃` - type: concept
@@ -2975,7 +3069,7 @@ updated: 2026-06-12T12:11
 - [[concepts/暴力革命|暴力革命]] `aliases: Violent Revolution, 革命暴力` - type: concept
 - [[concepts/暴力恐怖|暴力恐怖]] `aliases: 政治暴力, 暴力统治` - type: concept
 - [[concepts/晶体析出理论|晶体析出理论]] `aliases: Crystal Precipitation Theory, 晶体沉淀理论, 晶体析出说` - type: concept
-- [[concepts/暗示性|暗示性]] `aliases: 暗示感受性, 易受暗示性, Suggestion Susceptibility` - type: concept
+- [[concepts/暗示感应力|暗示性]] `aliases: 暗示感受性, 易受暗示性, Suggestion Susceptibility` - type: concept
 - [[concepts/暗示与传染|暗示与传染]] `aliases: Suggestion and Contagion, 暗示与传染理论` - type: concept
 - [[concepts/暂时退却|暂时退却]] `aliases: 战术性撤退, 战略性退却` - type: concept
 - [[concepts/智成身|智成身]] `aliases: Wisdom Body, 四智圆满法身, 如来究竟法身` - type: concept
@@ -2993,7 +3087,7 @@ updated: 2026-06-12T12:11
 - [[concepts/普遍的权利原则|普遍的权利原则]] `aliases: Universal Principle of Rights, 普遍权利原则` - type: concept
 - [[concepts/普遍精神|普遍精神]] `aliases: Universal Spirit, Geist, 绝对精神` - type: concept
 - [[concepts/普遍的个体性|普遍的个体性]] `aliases: Universal Individuality, 普遍个体性, 普遍的个体性` - type: concept
-- [[concepts/普遍法则|普遍法则]] `aliases: Universal Law, 普遍道德法则, Universal Moral Law` - type: concept
+- [[concepts/普遍规律|普遍法则]] `aliases: Universal Law, 普遍道德法则, Universal Moral Law` - type: concept
 - [[concepts/星丛|星丛]] `aliases: Konstellation, constellation` - type: concept
 - [[concepts/普遍意志|普遍意志]] `aliases: universal will` - type: concept
 - [[concepts/普遍|普遍]] `aliases: Universality, 普遍性, The Universal` - type: concept
@@ -3003,7 +3097,7 @@ updated: 2026-06-12T12:11
 - [[concepts/显现的相对关系|显现的相对关系]] `aliases: Manifested Relative Relationship, 显现的相对关系, Manifest Relatives` - type: concept
 - [[concepts/显现与偶然|显现与偶然]] `aliases: Manifestation and Contingency, 显现与偶然性, Manifestation and Accident` - type: concept
 - [[concepts/星云假说|星云假说]] `aliases: Nebular Hypothesis, 康德-拉普拉斯星云假说, 天体演化理论` - type: concept
-- [[concepts/明见性|明见性]] `aliases: Evidenz, 自明性, 明证性` - type: concept
+- [[concepts/直观明证性|明见性]] `aliases: Evidenz, 自明性, 明证性` - type: concept
 - [[concepts/时态逻辑|时态逻辑]] `aliases: Temporal Logic, 时序逻辑` - type: concept
 - [[concepts/时势权力|时势权力]] `aliases: Power of the Situation, Situational Authority` - type: concept
 - [[concepts/时间观|时间观]] `aliases: 马克思时间观, Marx's View of Time, 马克思时间理论` - type: concept
@@ -3018,12 +3112,12 @@ updated: 2026-06-12T12:11
 - [[concepts/时代幻灭|时代幻灭]] `aliases: Age Disillusionment, 时代幻灭感, 幻灭时代` - type: concept
 - [[concepts/无约束的资本主义|无约束的资本主义]] `aliases: unconstrained capitalism, 完全无约束的资本主义, laissez-faire capitalism` - type: concept
 - [[concepts/旧五代史-薛居正|旧五代史-薛居正]] `aliases: 薛居正五代史, 五代金史` - type: concept
-- [[concepts/旧五代史|旧五代史]] `aliases: Old History of the Five Dynasties, 薛居正五代史, 旧五代史（薛居正）, History of the Five Dynasties (Old), Old Five Dynasties History, 五代史（旧）` - title: 旧五代史
+- [[concepts/旧五代史-薛居正|旧五代史]] `aliases: Old History of the Five Dynasties, 薛居正五代史, 旧五代史（薛居正）, History of the Five Dynasties (Old), Old Five Dynasties History, 五代史（旧）` - title: 旧五代史
 - [[concepts/日神精神|日神精神]] `aliases: Apollonian Spirit, 阿波罗精神, Apollonian` - type: concept
 - [[concepts/无边的伟岸|无边的伟岸]] `aliases: Boundless Grandeur, Boundless Sublimity, 无限崇高` - type: concept
 - [[concepts/无限性|无限性]] `aliases: Infinity, Unendlichkeit, 绝对概念` - type: concept
 - [[concepts/无限思维的方法|无限思维的方法]] `aliases: Infinite Thinking Method, 无限思维方法` - type: concept
-- [[concepts/无限博弈|无限博弈]] `aliases: Infinite Game, 无限游戏` - type: concept
+- [[concepts/有限博弈与无限博弈|无限博弈]] `aliases: Infinite Game, 无限游戏` - type: concept
 - [[concepts/无相解脱门|无相解脱门]] `aliases: 无相门, formless liberation gate, 解脱门` - type: concept
 - [[concepts/无生法忍|无生法忍]] `aliases: Non-arising Dharma Endurance, Acceptance of Non-arising, Wu Sheng Fa Ren` - type: concept
 - [[concepts/无色界|无色界]] `aliases: Formless Realm, 无色界天, 四无色定` - type: concept
@@ -3062,7 +3156,7 @@ updated: 2026-06-12T12:11
 - [[concepts/方法论|方法论]] `aliases: Methodology, Hegelian Methodology, 黑格尔方法论` - type: concept
 - [[concepts/方法中心与问题中心|方法中心与问题中心]] `aliases: 方法中心论, 问题中心论, method-centered approach, problem-centered approach` - type: concept
 - [[concepts/新闻自由|新闻自由]] `aliases: Press Freedom, 新闻自由权利, 新闻自由理论` - type: concept
-- [[concepts/新闻出版自由|新闻出版自由]] `aliases: Press Freedom, Freedom of the Press, 新闻自由` - type: concept
+- [[concepts/新闻自由|新闻出版自由]] `aliases: Press Freedom, Freedom of the Press, 新闻自由` - type: concept
 - [[concepts/新闻界的表现|新闻界的表现]] `aliases: The Performance of the Press, Press Performance Analysis, 新闻界表现分析` - type: concept
 - [[concepts/新语|新语]] `aliases: New Discourses, Xin Yu` - type: concept
 - [[concepts/新事物|新事物]] `aliases: New Thing, Hegel's New Thing, Living New Thing` - type: concept
@@ -3085,7 +3179,7 @@ updated: 2026-06-12T12:11
 - [[concepts/斐多篇|斐多篇]] `aliases: Phaedo, 斐多, 斐多对话录` - type: concept
 - [[concepts/文本解读|文本解读]] `aliases: Textual Interpretation, 文本研究法, 回到文本` - type: concept
 - [[concepts/文本考证|文本考证]] `aliases: Textual Criticism, 考据学, 文献学` - type: concept
-- [[concepts/文明的冲突-塞缪尔·亨廷顿-md|文明的冲突-塞缪尔·亨廷顿-md]] `aliases: The Clash of Civilizations, 文明冲突论, 亨廷顿文明冲突理论` - type: concept
+- [[concepts/文明冲突|文明的冲突-塞缪尔·亨廷顿-md]] `aliases: The Clash of Civilizations, 文明冲突论, 亨廷顿文明冲突理论` - type: concept
 - [[concepts/文明解体|文明解体]] `aliases: Civilization Collapse, The Collapse of Civilization, 文明崩溃` - type: concept
 - [[concepts/文明|文明]] `aliases: civilization, civilizations` - type: concept
 - [[concepts/文学|文学]] `aliases: Literature` - type: concept
@@ -3134,7 +3228,7 @@ updated: 2026-06-12T12:11
 - [[concepts/教条主义|教条主义]] `aliases: dogmatism, 教条, 独断论` - type: concept
 - [[concepts/教学相长|教学相长]] `aliases: Teaching and Learning Mutually Promote Each Other, 教与学相长` - type: concept
 - [[concepts/教化权力|教化权力]] `aliases: Inculturated Authority, 教化性权力, Civilizing Power, Cultural Authority` - type: concept
-- [[concepts/教养|教养]] `aliases: Kultur, 文化, 康德文化概念` - type: concept
+- [[concepts/文化|教养]] `aliases: Kultur, 文化, 康德文化概念` - type: concept
 - [[concepts/教会|教会]] `aliases: Church, Ecclesia` - type: concept
 - [[concepts/效率优化|效率优化]] `aliases: Efficiency Optimization, 效率提升` - type: concept
 - [[concepts/政治革命|政治革命]] `aliases: 政治变革, Political Revolution` - type: concept
@@ -3151,7 +3245,7 @@ updated: 2026-06-12T12:11
 - [[concepts/政治性|政治性]] `aliases: 政治品质, 政治特质` - type: concept
 - [[concepts/政治性存在物|政治性存在物]] `aliases: zoon politikon, 政治动物, 政治存在物` - type: concept
 - [[concepts/政治实用主义|政治实用主义]] `aliases: Political Pragmatism, 政治机会主义, 实用主义政治观` - type: concept
-- [[concepts/政治哲学|政治哲学]] `aliases: Political Philosophy, Political Philosophy (Philosophy of Politics)` - type: concept
+- [[concepts/政治理论|政治哲学]] `aliases: Political Philosophy, Political Philosophy (Philosophy of Politics)` - type: concept
 - [[concepts/政治哲学的雏形|政治哲学的雏形]] `aliases: 政治哲学的起源, 政治思想的萌芽, 早期政治哲学` - type: concept
 - [[concepts/政治发展|政治发展]] `aliases: Political Development, 政治演进` - type: concept
 - [[concepts/政治制度|政治制度]] `aliases: political system, political institution` - type: concept
@@ -3171,7 +3265,7 @@ updated: 2026-06-12T12:11
 - [[concepts/撤县设区|撤县设区]] `aliases: 县改区, 撤县设区改革` - type: concept
 - [[concepts/摩耶|摩耶]] `aliases: Māyā, 大幻化, 幻化之幕` - type: concept
 - [[concepts/搭便车问题|搭便车问题]] `aliases: 免费搭车问题, Free Rider Problem` - type: concept
-- [[concepts/搭便车|搭便车]] `aliases: 免费搭车, Free rider problem, 搭便车问题` - type: concept
+- [[concepts/搭便车问题|搭便车]] `aliases: 免费搭车, Free rider problem, 搭便车问题` - type: concept
 - [[concepts/摄取接引|摄取接引]] `aliases: 接引往生, 摄取往生` - type: concept
 - [[concepts/提问|提问]] `aliases: Questioning, 提问的价值, 问题的力量` - type: concept
 - [[concepts/授记|授记]] `aliases: 预言, 授记, shòujì` - type: concept
@@ -3240,18 +3334,18 @@ updated: 2026-06-12T12:11
 - [[concepts/承认的客观化|承认的客观化]] `aliases: Objectification of Recognition, Recognition Objectification, 承认的客观化` - type: concept
 - [[concepts/批判传统|批判传统]] `aliases: Critical Tradition, Kantian Critical Tradition, 康德批判传统` - type: concept
 - [[concepts/承认的否定|承认的否定]] `aliases: Negation of Recognition, Denial of Recognition` - type: concept
-- [[concepts/承认与面子|承认与面子]] `aliases: 承认, 面子, 要求承认的斗争, 承认理论, 承认学说, Struggle for Recognition, Kampf um Anerkennung, 黑格尔的承认` - created: 2026-05-13T23:40:00+08:00
+- [[concepts/承认理论|承认与面子]] `aliases: 承认, 面子, 要求承认的斗争, 承认理论, 承认学说, Struggle for Recognition, Kampf um Anerkennung, 黑格尔的承认` - created: 2026-05-13T23:40:00+08:00
 - [[concepts/批评与赞美|批评与赞美]] `aliases: Criticism and Praise, 批评与赞美理论` - type: concept
 - [[concepts/批判精神|批判精神]] `aliases: 批判性思维, 批判理性, 理性批判` - type: concept
 - [[concepts/批判的革命的方法|批判的革命的方法]] `aliases: Critical and Revolutionary Method, 批判的革命的方法, 批判的、革命的方法` - type: concept
-- [[concepts/批判哲学|批判哲学]] `aliases: Kantian Critical Philosophy, Kants Kritische Philosophie, 康德批判哲学` - type: concept
-- [[concepts/批判的理性主义|批判的理性主义]] `aliases: Critical Rationalism, Popper's Critical Rationalism, 波普尔的批判的理性主义` - type: concept
-- [[concepts/批判的历史哲学|批判的历史哲学]] `aliases: Critical Philosophy of History, 批判的历史哲学` - type: concept
-- [[concepts/批判理论|批判理论]] `aliases: Critical Theory, Critical Theory of the Frankfurt School` - type: concept
+- [[concepts/批判哲学的批判|批判哲学]] `aliases: Kantian Critical Philosophy, Kants Kritische Philosophie, 康德批判哲学` - type: concept
+- [[concepts/批判理性主义|批判的理性主义]] `aliases: Critical Rationalism, Popper's Critical Rationalism, 波普尔的批判的理性主义` - type: concept
+- [[concepts/历史哲学|批判的历史哲学]] `aliases: Critical Philosophy of History, 批判的历史哲学` - type: concept
+- [[concepts/社会批判理论|批判理论]] `aliases: Critical Theory, Critical Theory of the Frankfurt School` - type: concept
 - [[concepts/批判理性主义|批判理性主义]] `aliases: Critical Rationalism, 批判理性主义, 波普尔理性主义` - type: concept
 - [[concepts/批判本体论|批判本体论]] `aliases: Critical Ontology, ontologie critique` - type: concept
 - [[concepts/批判唯心主义|批判唯心主义]] `aliases: 批判唯心论, 对唯心主义的批判, Criticism of Idealism` - type: concept
-- [[concepts/批判性思维|批判性思维]] `aliases: Critical Thinking, 批判性思考, 批判性思维技能` - type: concept
+- [[concepts/批判精神|批判性思维]] `aliases: Critical Thinking, 批判性思考, 批判性思维技能` - type: concept
 - [[concepts/批判哲学的批判|批判哲学的批判]] `aliases: 对批判哲学的批判, 康德批判哲学的重审` - type: concept
 - [[concepts/扬弃异化|扬弃异化]] `aliases: Overcoming Alienation, Sublation of Alienation` - type: concept
 - [[concepts/扬弃物化|扬弃物化]] `aliases: Sublation of Reification, Overcoming Reification, Aufhebung der Verdinglichung` - type: concept
@@ -3263,7 +3357,7 @@ updated: 2026-06-12T12:11
 - [[concepts/所藏|所藏]] `aliases: 所藏, 所藏义` - type: concept
 - [[concepts/扩展的形式逻辑|扩展的形式逻辑]] `aliases: Extended Formal Logic, 广义形式逻辑` - type: concept
 - [[concepts/戾换法|戾换法]] `aliases: 戾换` - type: concept
-- [[concepts/托派|托派]] `aliases: 托洛茨基派, Trotskyists` - type: concept
+- [[concepts/托洛茨基主义|托派]] `aliases: 托洛茨基派, Trotskyists` - type: concept
 - [[concepts/打破沉默|打破沉默]] `aliases: Breaking the Silence, 打破沉默者, 打破合谋沉默` - type: concept
 - [[concepts/所有权|所有权]] `aliases: Ownership, Property Ownership` - type: concept
 - [[concepts/手段的必然性|手段的必然性]] `aliases: 工具必然性, 手段的必要性` - type: concept
@@ -3276,10 +3370,10 @@ updated: 2026-06-12T12:11
 - [[concepts/战略意义|战略意义]] `aliases: 战略价值, Strategic Significance, 战略重要性` - type: concept
 - [[concepts/我思|我思]] `aliases: Cogito, 我思故我在, 先验我思` - type: concept
 - [[concepts/战争公债|战争公债]] `aliases: War Bonds, 军事公债` - type: concept
-- [[concepts/战略性新兴产业|战略性新兴产业]] `aliases: 新兴战略产业, 战略性新产业` - type: concept
+- [[concepts/战略新兴产业|战略性新兴产业]] `aliases: 新兴战略产业, 战略性新产业` - type: concept
 - [[concepts/戒清净|戒清净]] `aliases: 戒清净法, 戒清净道, Sila Visuddhi` - type: concept
-- [[concepts/我痴|我痴]] `aliases: 我执, 身见` - type: concept
-- [[concepts/我见|我见]] `aliases: 我执, 我见惑, 萨迦耶见, 身见` - type: concept
+- [[concepts/我执|我痴]] `aliases: 我执, 身见` - type: concept
+- [[concepts/我执|我见]] `aliases: 我执, 我见惑, 萨迦耶见, 身见` - type: concept
 - [[concepts/我相|我相]] `aliases: 自我执着, 自我中心认知, ego-attachment, self-attachment` - type: concept
 - [[concepts/我的第一本英语百科全书|我的第一本英语百科全书]] `aliases: My First English Encyclopedia, 崔正浩英语百科全书, 我的第一本英语百科` - title: 我的第一本英语百科全书
 - [[concepts/我执|我执]] `aliases: 执着自我, 我执烦恼, Atma-graha` - type: concept
@@ -3309,7 +3403,7 @@ updated: 2026-06-12T12:11
 - [[concepts/感性规定性|感性规定性]] `aliases: Sensuous Determinateness, 感官规定性` - type: concept
 - [[concepts/感性确定性|感性确定性]] `aliases: Sense-Certainty, 感性经验, Sensory Certainty` - type: concept
 - [[concepts/感性活动|感性活动]] `aliases: Sensuous Activity, Perceptual Praxis, 感性实践` - type: concept
-- [[concepts/感性直观|感性直观]] `aliases: Sensible Intuition, Sensory Intuition, 感性认识` - type: concept
+- [[concepts/感性直观形式|感性直观]] `aliases: Sensible Intuition, Sensory Intuition, 感性认识` - type: concept
 - [[concepts/感性的质|感性的质]] `aliases: Sensory Quality, 感性的质的规定` - type: concept
 - [[concepts/意识形态|意识形态]] `aliases: Ideology, Ideological Illusion, 社会幻觉` - type: concept
 - [[concepts/感性-知性-理性三段式|感性-知性-理性三段式]] `aliases: Sensory-Intellectual-Rational Three-Stage Framework, 感性-知性-理性三分法` - type: concept
@@ -3333,7 +3427,7 @@ updated: 2026-06-12T12:11
 - [[concepts/意义使用论|意义使用论]] `aliases: 使用理论, Use Theory of Meaning, 意义的使用理论` - type: concept
 - [[concepts/意志自律|意志自律]] `aliases: 意志自律性, Will Autonomy, Autonomy of Will, 意志的自律性` - type: concept
 - [[concepts/意志他律性|意志他律性]] `aliases: Heteronomy of Will, 意志他律, Heteronomy` - type: concept
-- [[concepts/意志主义|意志主义]] `aliases: 唯意志论, 唯意志主义, Voluntarism, 意志哲学, Will Philosophy` - created: 2026-05-13T21:41:00+08:00
+- [[concepts/意志论|意志主义]] `aliases: 唯意志论, 唯意志主义, Voluntarism, 意志哲学, Will Philosophy` - created: 2026-05-13T21:41:00+08:00
 - [[concepts/意密|意密]] `aliases: 心密, 意秘密, Mental Secret` - type: concept
 - [[concepts/想法与思想|想法与思想]] `aliases: Ideas and Thoughts, 想法, 思想` - type: concept
 - [[concepts/意如功曹|意如功曹]] `aliases: Mind as Chief Clerk, 意识如功曹` - type: concept
@@ -3343,7 +3437,7 @@ updated: 2026-06-12T12:11
 - [[concepts/意向对象|意向对象]] `aliases: Intentional Object, 意向物, Noema` - type: concept
 - [[concepts/意义和价值|意义和价值]] `aliases: meanings and values, 意义与价值` - type: concept
 - [[concepts/意会世界|意会世界]] `aliases: Intelligible World, 智性世界, Noumenal World, 本体界, Intelligible World, 智性世界, Noumenal World, 理知世界, Intelligible World, 智性世界, Noumenal World, 本体界, Intelligible World, 智性世界, Noumenal World` - type: concept
-- [[concepts/情欲|情欲]] `aliases: Desire, Passion, 感官情欲` - type: concept
+- [[concepts/慈悲|情欲]] `aliases: Desire, Passion, 感官情欲` - type: concept
 - [[concepts/情本体|情本体]] `aliases: Emotion as Noumenon, Qingbenti` - type: concept
 - [[concepts/惊异|惊异]] `aliases: Philosophy Origin Theory, Wonder, 惊异的哲学起源说` - type: concept
 - [[concepts/惟一者|惟一者]] `aliases: Der Einzige, 唯一者, 独特者` - type: concept
@@ -3374,7 +3468,7 @@ updated: 2026-06-12T12:11
 - [[concepts/总括财富|总括财富]] `aliases: Comprehensive Wealth, Inclusive Wealth` - type: concept
 - [[concepts/恶的难题|恶的难题]] `aliases: Problem of Evil, Evil Problem, 恶的问题, 邪恶问题, Problem of Evil, Evil Problem, 恶的问题` - type: concept
 - [[concepts/恶的缺失论|恶的缺失论]] `aliases: 恶的匮乏论, 善的缺失, Privation Theory of Evil` - type: concept
-- [[concepts/思辨逻辑|思辨逻辑]] `aliases: Speculative Logic, 辩证逻辑, 思辨理性` - type: concept
+- [[concepts/辩证逻辑|思辨逻辑]] `aliases: Speculative Logic, 辩证逻辑, 思辨理性` - type: concept
 - [[concepts/恶因|恶因]] `aliases: 不良因缘, 恶缘, 邪因` - type: concept
 - [[concepts/恶取空|恶取空]] `aliases: 执空, 恶取空者, Wrong View of Emptiness` - type: concept
 - [[concepts/恩格斯晚年观点|恩格斯晚年观点]] `aliases: 恩格斯晚年思想, 晚期恩格斯理论` - type: concept
@@ -3382,13 +3476,13 @@ updated: 2026-06-12T12:11
 - [[concepts/性别关系|性别关系]] `aliases: 性别角色关系, 两性关系` - type: concept
 - [[concepts/总问题|总问题]] `aliases: problématique, 总问题（problématique）` - type: concept
 - [[concepts/总念的普遍性|总念的普遍性]] `aliases: Universality of the Concept, 概念普遍性, 总念普遍性` - type: concept
-- [[concepts/思辨的历史哲学|思辨的历史哲学]] `aliases: 思辨历史哲学, Speculative Philosophy of History, 思辨派历史哲学` - created: 2026-05-13T23:10:00+08:00
+- [[concepts/历史哲学|思辨的历史哲学]] `aliases: 思辨历史哲学, Speculative Philosophy of History, 思辨派历史哲学` - created: 2026-05-13T23:10:00+08:00
 - [[concepts/怨恨现象学|怨恨现象学]] `aliases: 舍勒的怨恨理论, 怨恨的现象学分析, Ressentiment phenomenology, 舍勒怨恨研究, 现象学意义上的怨恨, 舍勒：怨恨与道德的价值判断, Scheler的ressentiment现象学` - title: 怨恨现象学
 - [[concepts/性爱形而上学|性爱形而上学]] `aliases: 性爱哲学, 叔本华论性爱, 性爱的形而上学, 性爱意志论, 情爱形而上学, 叔本华性爱观, Metaphysics of Love` - title: 性爱形而上学
 - [[concepts/性格描绘|性格描绘]] `aliases: Character Depiction in Music, Characterization in Music, 音乐性格描绘` - type: concept
 - [[concepts/性常圆洁|性常圆洁]] `aliases: Nature Always Perfectly Pure, 性常圆满清净, 众生本性圆满清净` - type: concept
 - [[concepts/思辨哲学|思辨哲学]] `aliases: Speculative Philosophy, 黑格尔思辨哲学` - type: concept
-- [[concepts/思辨|思辨]] `aliases: Speculation, 思辨哲学, 黑格尔思辨` - type: concept
+- [[concepts/思辨哲学|思辨]] `aliases: Speculation, 思辨哲学, 黑格尔思辨` - type: concept
 - [[concepts/思辨距离|思辨距离]] `aliases: Speculative Distance, 思辨距离 理论` - type: concept
 - [[concepts/怀疑精神|怀疑精神]] `aliases: Cartesian Doubt, 方法论怀疑, Descartes' Method of Doubt` - type: concept
 - [[concepts/思辨思维方式|思辨思维方式]] `aliases: Speculative Thinking, speculative method, 思辨方法` - type: concept
@@ -3397,10 +3491,10 @@ updated: 2026-06-12T12:11
 - [[concepts/思维产生存在|思维产生存在]] `aliases: Thought Creates Existence` - type: concept
 - [[concepts/思维心理学|思维心理学]] `aliases: Thinking Psychology, 思维心理学研究, 心理学的思维研究` - type: concept
 - [[concepts/思维具体|思维具体]] `aliases: 具体思维, concrete thinking, 思维的具象化` - type: concept
-- [[concepts/怜悯|怜悯]] `aliases: Mitleid, Compassion, 同情` - type: concept
-- [[concepts/思维|思维]] `aliases: Cognition, Thinking, 认知` - type: concept
+- [[concepts/慈悲|怜悯]] `aliases: Mitleid, Compassion, 同情` - type: concept
+- [[concepts/知觉|思维]] `aliases: Cognition, Thinking, 认知` - type: concept
 - [[concepts/思想试验|思想试验]] `aliases: Thought Experiment, a kind of thought-experiment` - type: concept
-- [[concepts/思想独立|思想独立]] `aliases: 独立思考, 思想自主` - type: concept
+- [[concepts/自我思考|思想独立]] `aliases: 独立思考, 思想自主` - type: concept
 - [[concepts/思想史|思想史]] `aliases: Intellectual History, 观念史, 思想史研究` - type: concept
 - [[concepts/怀疑论|怀疑论]] `aliases: Skepticism, 怀疑主义` - type: concept
 - [[concepts/快乐主义奴役|快乐主义奴役]] `aliases: Hedonic Slavery, 快乐奴役, 幸福奴役` - type: concept
@@ -3418,9 +3512,9 @@ updated: 2026-06-12T12:11
 - [[concepts/忍辱|忍辱]] `aliases: Patience in Buddhist Practice, Forbearance, 忍辱波罗蜜` - type: concept
 - [[concepts/必需品|必需品]] `aliases: Necessities, 生活必需品` - type: concept
 - [[concepts/心理病理的起源|心理病理的起源]] `aliases: Origins of Psychopathology, 马斯洛心理病理理论` - type: concept
-- [[concepts/必要条件假言推理|必要条件假言推理]] `aliases: Necessary Condition Hypothetical Reasoning, 必要条件推理` - type: concept
+- [[concepts/必要条件假言连锁推理|必要条件假言推理]] `aliases: Necessary Condition Hypothetical Reasoning, 必要条件推理` - type: concept
 - [[concepts/必要条件假言判断|必要条件假言判断]] `aliases: 必要条件假言命题, 必要条件判断` - type: concept
-- [[concepts/必然性|必然性]] `aliases: Necessity, 必然性（尼采哲学）, 命运必然性` - type: concept
+- [[concepts/必然|必然性]] `aliases: Necessity, 必然性（尼采哲学）, 命运必然性` - type: concept
 - [[concepts/心理治疗|心理治疗]] `aliases: Psychotherapy` - type: concept
 - [[concepts/必然与自由的辩证统一|必然与自由的辩证统一]] `aliases: Dialectical Unity of Necessity and Freedom, Hegel's Conception of Freedom, 必然性与自由的辩证关系` - type: concept
 - [[concepts/心的规律与自大狂|心的规律与自大狂]] `aliases: Law of the Heart and Megalomania, 心的规律, 自大狂` - type: concept
@@ -3453,12 +3547,12 @@ updated: 2026-06-12T12:11
 - [[concepts/德国浪漫派|德国浪漫派]] `aliases: German Romanticism, German Romantic School` - type: concept
 - [[concepts/德国古典哲学|德国古典哲学]] `aliases: German Classical Philosophy, 德国观念论, 德国观念论传统, German Classical Philosophy, 德国观念论` - type: concept
 - [[concepts/德国唯心主义|德国唯心主义]] `aliases: German Idealism, 德意志观念论, German Idealism (German Philosophical Movement)` - type: concept
-- [[concepts/德国哲学|德国哲学]] `aliases: German Philosophy, 德语哲学, 德国古典哲学` - type: concept
+- [[concepts/德国古典哲学|德国哲学]] `aliases: German Philosophy, 德语哲学, 德国古典哲学` - type: concept
 - [[concepts/德·摩根定律|德·摩根定律]] `aliases: 德摩根定律, 德·摩根律, De Morgan's Laws` - type: concept
 - [[concepts/微观状态数|微观状态数]] `aliases: Number of Microstates, Microstate Count, Ω` - type: concept
 - [[concepts/循环论证|循环论证]] `aliases: Circular Reasoning, Begging the Question, 窃取论点` - type: concept
 - [[concepts/微积分|微积分]] `aliases: Calculus, calculus` - type: concept
-- [[concepts/影像|影像]] `aliases: Image, 影像（柏格森）` - type: concept
+- [[concepts/相分|影像]] `aliases: Image, 影像（柏格森）` - type: concept
 - [[concepts/形象辩证法|形象辩证法]] `aliases: Figurative Dialectics, 艺术辩证法` - type: concept
 - [[concepts/微小叙事|微小叙事]] `aliases: Little Narratives, Micronarratives, 小叙事` - type: concept
 - [[concepts/得体原则|得体原则]] `aliases: 适当原则, 礼仪原则, Propriety Principle, 交往得体` - type: concept
@@ -3524,21 +3618,21 @@ updated: 2026-06-12T12:11
 - [[concepts/延寿仪轨|延寿仪轨]] `aliases: Life-Extending Ritual Practice, 延寿法门, 续命仪轨` - type: concept
 - [[concepts/康浦·斯密|康浦·斯密]] `aliases: Kamp-Smit, 康浦斯密` - type: concept
 - [[concepts/康德道德哲学中本性与本质辨析|康德道德哲学中本性与本质辨析]] `aliases: Kantian Analysis of Nature and Essence, 康德伦理学中本性本质辨析` - type: concept
-- [[concepts/康德政治哲学|康德政治哲学]] `aliases: Kant's Political Philosophy, 康德政治哲学` - type: concept
+- [[concepts/政治理论|康德政治哲学]] `aliases: Kant's Political Philosophy, 康德政治哲学` - type: concept
 - [[concepts/康德宗教哲学|康德宗教哲学]] `aliases: Kant's Religious Philosophy, 康德宗教哲学的启示, Kant's Philosophy of Religion` - type: concept
 - [[concepts/康德哲学|康德哲学]] `aliases: Kantian Philosophy, Kant's Philosophy, Immanuel Kant's Philosophy` - type: concept
 - [[concepts/康德午餐会|康德午餐会]] `aliases: Kant's Lunch Club, Kant's Lunch Parties, 康德午餐聚会` - type: concept
 - [[concepts/康德公设|康德公设]] `aliases: 实践理性的公设, Kant's Postulates of Practical Reason, 康德实践理性公设` - type: concept
 - [[concepts/康德伦理学的内在矛盾|康德伦理学的内在矛盾]] `aliases: Internal Contradiction in Kant's Ethics, Kant's Ethical Paradox, 康德伦理学矛盾` - type: concept
 - [[concepts/康德三大问题|康德三大问题]] `aliases: Kant's Three Questions, 康德的三个问题, 康德三大问` - type: concept
-- [[concepts/康德伦理学|康德伦理学]] `aliases: Kantian Ethics, Kant's Moral Philosophy, 康德道德哲学` - type: concept
+- [[concepts/道德哲学|康德伦理学]] `aliases: Kantian Ethics, Kant's Moral Philosophy, 康德道德哲学` - type: concept
 - [[concepts/康德三大哲学问题|康德三大哲学问题]] `aliases: 康德的三大问题, 三大哲学问题` - type: concept
 - [[concepts/平等|平等]] `aliases: Equality, Equality (Kantian concept)` - type: concept
 - [[concepts/康威生命游戏|康威生命游戏]] `aliases: Conway's Game of Life` - type: concept
 - [[concepts/度疑清净|度疑清净]] `aliases: Purification of Doubt, 维巴沙那, Vipassana Purification` - type: concept
 - [[concepts/应用逻辑学|应用逻辑学]] - created: 2026-06-09T16:04
 - [[concepts/应当|应当]] `aliases: Sollen, ought, 应然` - type: concept
-- [[concepts/应无所住而生其心|应无所住而生其心]] - (empty)
+- [[concepts/拆解金刚经应无所住而生其心破除着相枷锁获得人生自在的佛法智慧-2026年06月04日-来自Get-笔记|应无所住而生其心]] - (empty)
 - [[concepts/应对黑天鹅事件的方法|应对黑天鹅事件的方法]] `aliases: Black Swan Response Strategies, 黑天鹅事件应对策略, 应对黑天鹅事件的框架` - type: concept
 - [[concepts/庇古税|庇古税]] `aliases: Pigouvian Tax, 皮古税, 庇古税` - type: concept
 - [[concepts/幼稚的民族|幼稚的民族]] `aliases: child people, Child People` - type: concept
@@ -3595,7 +3689,7 @@ updated: 2026-06-12T12:11
 - [[concepts/工具|工具]] `aliases: 器具, 器械` - type: concept
 - [[concepts/工会|工会]] `aliases: Trade Union, Labour Union, 工人组织` - type: concept
 - [[concepts/工人运动|工人运动]] `aliases: 劳动运动, 劳工运动, Labor Movement` - type: concept
-- [[concepts/工人阶级|工人阶级]] `aliases: proletariat, 雇佣劳动阶级, 无产阶级` - type: concept
+- [[concepts/无产阶级|工人阶级]] `aliases: proletariat, 雇佣劳动阶级, 无产阶级` - type: concept
 - [[concepts/崇高|崇高]] `aliases: 崇高, 崇高感, 壮美` - type: concept
 - [[concepts/局外人|局外人]] `aliases: The Stranger, L'Étranger, The Outsider, 异乡人, Outsider, Stranger` - created: 2026-05-25T17:16
 - [[concepts/尼尼安·斯马特|尼尼安·斯马特]] `aliases: Ninian Smart, 尼尼安·斯马特` - type: concept
@@ -3624,7 +3718,7 @@ updated: 2026-06-12T12:11
 - [[concepts/对话术|对话术]] `aliases: 问答法, 苏格拉底问答法, Socratic Method` - type: concept
 - [[concepts/对立统一|对立统一]] `aliases: Unity of Opposites, Unit of Contradictions, 矛盾统一, 对立统一规律, Unity of Opposites, Unit of Contradictions, 矛盾统一` - type: concept
 - [[concepts/对立产生过程|对立产生过程]] `aliases: Opposite Generation Process, 对立生成过程, 相反产生过程` - type: concept
-- [[concepts/对立|对立]] `aliases: 矛盾, 对立面, 相反` - type: concept
+- [[concepts/矛盾|对立]] `aliases: 矛盾, 对立面, 相反` - type: concept
 - [[concepts/对数|对数]] `aliases: logarithm` - type: concept
 - [[concepts/对当关系|对当关系]] `aliases: Opposition Relations, 逻辑方阵, Square of Opposition, AEIO逻辑方阵, Opposition Relations, 逻辑方阵, Square of Opposition` - type: concept
 - [[concepts/对政治自由之喜好|对政治自由之喜好]] `aliases: Love of Political Freedom, 热爱政治自由` - type: concept
@@ -3728,7 +3822,7 @@ updated: 2026-06-12T12:11
 - [[concepts/完全竞争市场|完全竞争市场]] `aliases: Perfect Competition, Perfectly Competitive Market, 完全竞争` - type: concept
 - [[concepts/完全义务|完全义务]] `aliases: Perfect Duty, 完全责任, 消极义务` - type: concept
 - [[concepts/完全归纳推理|完全归纳推理]] `aliases: Complete Induction, 完全归纳法` - type: concept
-- [[concepts/安那般那念|安那般那念]] `aliases: 观呼吸, 数息观, Ānāpānasati, 入出息念, 观呼吸, 数息观, Ānāpānasati` - type: concept
+- [[concepts/念安般|安那般那念]] `aliases: 观呼吸, 数息观, Ānāpānasati, 入出息念, 观呼吸, 数息观, Ānāpānasati` - type: concept
 - [[concepts/安居法门|安居法门]] `aliases: Method of Establishing a Practice Retreat, Establishing a Practice Temple Method` - type: concept
 - [[concepts/宇宙论证明|宇宙论证明]] `aliases: Cosmological Argument, 宇宙论论证` - type: concept
 - [[concepts/宇宙目的论|宇宙目的论]] `aliases: Cosmic Teleology, 宇宙目的论` - type: concept
@@ -3748,7 +3842,7 @@ updated: 2026-06-12T12:11
 - [[concepts/学习|学习]] `aliases: Learning` - type: concept
 - [[concepts/孤立系统|孤立系统]] `aliases: Isolated System` - type: concept
 - [[concepts/孤独|孤独]] `aliases: Solitude, Loneliness, 独处` - type: concept
-- [[concepts/存在|存在]] `aliases: Being, 本体, 是` - type: concept
+- [[concepts/有|存在]] `aliases: Being, 本体, 是` - type: concept
 - [[concepts/存在与虚无|存在与虚无]] `aliases: Being and Nothingness, L'Être et le Néant` - type: concept
 - [[concepts/孤独变异|孤独变异]] `aliases: 孤立突变, 孤独突变, 独行变异` - type: concept
 - [[concepts/孟子|孟子]] `aliases: 孟轲, 亚圣, Mencius, 孟夫子, 字子舆, 邹孟轲` - title: 孟子
@@ -3776,7 +3870,7 @@ updated: 2026-06-12T12:11
 - [[concepts/如来藏缘起论|如来藏缘起论]] `aliases: Tathagatagarbha Pratityasamutpada Theory, 如来藏缘起` - type: concept
 - [[concepts/婆罗门|婆罗门]] `aliases: Brahmin, 抽象自由` - type: concept
 - [[concepts/娱乐至死|娱乐至死]] `aliases: Amusing Ourselves to Death, 娱乐业时代, Amusing Ourselves to Death` - type: concept
-- [[concepts/如来藏|如来藏]] `aliases: Tathagatagarbha, 佛性, 如来藏思想` - type: concept
+- [[concepts/自性|如来藏]] `aliases: Tathagatagarbha, 佛性, 如来藏思想` - type: concept
 - [[concepts/威胁和冲突|威胁和冲突]] `aliases: 威胁与冲突, Threat and Conflict, 心理威胁` - type: concept
 - [[concepts/妙观察智|妙观察智]] `aliases: 妙观察智, 殊胜妙观察智, Prajñā-witness` - type: concept
 - [[concepts/委托代理|委托代理]] `aliases: Principal-Agent Theory, 委托代理理论, 代理理论` - type: concept
@@ -3826,7 +3920,7 @@ updated: 2026-06-12T12:11
 - [[concepts/大智|大智]] `aliases: 大智慧, Great Wisdom` - type: concept
 - [[concepts/大同世界|大同世界]] `aliases: Great Harmony, Great Commonwealth, DATONG, 去国界合大地, Great Harmony, Great Commonwealth, DATONG` - type: concept
 - [[concepts/大化|大化]] `aliases: Er-eignis, 大化（Er-eignis）, 源始发生` - type: concept
-- [[concepts/大悲心|大悲心]] `aliases: Great Compassion Mind, Mahākaruṇā, 大慈悲心` - type: concept
+- [[concepts/慈悲|大悲心]] `aliases: Great Compassion Mind, Mahākaruṇā, 大慈悲心` - type: concept
 - [[concepts/大地的怀抱|大地的怀抱]] `aliases: The Embrace of the Earth, 大地之拥抱, 自然的个体性` - type: concept
 - [[concepts/大地|大地]] `aliases: Earth, Erd` - type: concept
 - [[concepts/大乘无修之修|大乘无修之修]] `aliases: Mahayana Non-Practice Practice, 无修之修, 念无念念行无行行` - type: concept
@@ -3835,7 +3929,7 @@ updated: 2026-06-12T12:11
 - [[concepts/大乘佛教思想雏形|大乘佛教思想雏形]] `aliases: Mahayana Buddhist Thought Origins, 大乘佛教思想起源, 早期大乘佛教思想` - type: concept
 - [[concepts/大化目的论|大化目的论]] `aliases: 大化目的论, Heidegger's Teleology of Cosmic Transformation` - type: concept
 - [[concepts/大化之说|大化之说]] `aliases: Sage, 大化之语` - type: concept
-- [[concepts/大全|大全]] `aliases: Totality, The Whole, 完满` - type: concept
+- [[concepts/整体性|大全]] `aliases: Totality, The Whole, 完满` - type: concept
 - [[concepts/大众部|大众部]] `aliases: Mahāsaṃghika, Mahasanghika, 大众部派` - type: concept
 - [[concepts/大众的反叛|大众的反叛]] `aliases: The Rebellion of the Masses, Ortega y Gasset's Mass Theory, 大众的反叛理论` - type: concept
 - [[concepts/大众文化批判|大众文化批判]] `aliases: Critical Theory of Mass Culture, 文化工业批判` - type: concept
@@ -3975,7 +4069,7 @@ updated: 2026-06-12T12:11
 - [[concepts/四不坏净|四不坏净]] `aliases: 四证净, 四信根, 四不坏净信` - type: concept
 - [[concepts/器乐形而上学|器乐形而上学]] `aliases: Instrumental Music Metaphysics, 器乐音乐形而上学` - type: concept
 - [[concepts/善良之心|善良之心]] `aliases: 善心, 仁心, 良善之心` - type: concept
-- [[concepts/嗔|嗔]] `aliases: 嗔恨, 嗔心, 嗔恚` - type: concept
+- [[concepts/瞋恨|嗔]] `aliases: 嗔恨, 嗔心, 嗔恚` - type: concept
 - [[concepts/善知识|善知识]] `aliases: Good Spiritual Friend, 善友, 良师益友` - type: concept
 - [[concepts/善意的谎言|善意的谎言]] `aliases: White Lies, Noble Lies, 谎言的伦理正当性` - type: concept
 - [[concepts/善良意志|善良意志]] `aliases: 良意` - created: 2026-05-13T23:30:00+08:00
@@ -4001,7 +4095,7 @@ updated: 2026-06-12T12:11
 - [[concepts/唯理论|唯理论]] `aliases: Rationalism, 理性主义` - type: concept
 - [[concepts/唯我论|唯我论]] `aliases: solipsism, 自我论` - type: concept
 - [[concepts/唯物主义与辩证法|唯物主义与辩证法]] `aliases: Materialism and Dialectics, 马克思与弗洛伊德的唯物主义和辩证法, 弗洛伊德的唯物主义与辩证法` - type: concept
-- [[concepts/唯意志论|唯意志论]] `aliases: Voluntarism, 意志主义, Will Philosophy` - type: concept
+- [[concepts/意志论|唯意志论]] `aliases: Voluntarism, 意志主义, Will Philosophy` - type: concept
 - [[concepts/哲学自由|哲学自由]] `aliases: philosophical freedom, 哲学意义上的自由` - type: concept
 - [[concepts/唯心主义|唯心主义]] `aliases: 观念论, Idealism` - type: concept
 - [[concepts/哲学的贫困|哲学的贫困]] `aliases: The Poverty of Philosophy` - type: concept
@@ -4029,7 +4123,7 @@ updated: 2026-06-12T12:11
 - [[concepts/和解哲学|和解哲学]] `aliases: Versöhnungsphilosophie, Philosophy of Reconciliation` - type: concept
 - [[concepts/哈利·波特的哲学世界|哈利·波特的哲学世界]] `aliases: Harry Potter's Philosophical World` - type: concept
 - [[concepts/品味与实现能力|品味与实现能力]] `aliases: 审美能力与执行力, 品味判断与实现能力` - type: concept
-- [[concepts/命题|命题]] `aliases: Proposition, 判断, 声明, 充分条件假言命题, 蕴涵命题, Sufficient Condition Hypothetical Proposition, conditional proposition, 蕴含命题, 反对, Opposition, 反对法, 二元对立, binary opposition, 二元论, Binary Opposition, Dualism, 二极对立, contraposition, opposition method` - type: concept
+- [[concepts/换位质法|命题]] `aliases: Proposition, 判断, 声明, 充分条件假言命题, 蕴涵命题, Sufficient Condition Hypothetical Proposition, conditional proposition, 蕴含命题, 反对, Opposition, 反对法, 二元对立, binary opposition, 二元论, Binary Opposition, Dualism, 二极对立, contraposition, opposition method` - type: concept
 - [[concepts/命题逻辑|命题逻辑]] `aliases: Propositional Logic, 命题逻辑系统, 逻辑联结词, Propositional Logic, 命题逻辑系统` - type: concept
 - [[concepts/命题态度词|命题态度词]] `aliases: 态度词, 命题态度表达式` - type: concept
 - [[concepts/命题变项|命题变项]] `aliases: propositional variable, 命题变量, 命题变元` - type: concept
@@ -4048,7 +4142,7 @@ updated: 2026-06-12T12:11
 - [[concepts/吸引力法则|吸引力法则]] `aliases: Law of Attraction, LOA, 心想事成法则` - type: concept
 - [[concepts/启蒙运动|启蒙运动]] `aliases: Enlightenment, 启蒙时代, 启蒙, 康德启蒙观, 消极自由, 自我思考, Selbstdenkenz, 批判的时代` - type: concept
 - [[concepts/启蒙自我利益理论|启蒙自我利益理论]] `aliases: Enlightened Self-Interest Theory, Kant's Theory of Enlightened Self-Interest` - type: concept
-- [[concepts/否定的辩证法|否定的辩证法]] `aliases: 否定辩证法, 规定了的否定, 否定辩证法, 否定性, 否定辩证法, 规定了的否定, 否定辩证法` - created: 2026-05-13T22:40:00+08:00
+- [[concepts/辩证法与当代哲学的命运——评阿多诺对辩证法的重新诠释|否定的辩证法]] `aliases: 否定辩证法, 规定了的否定, 否定辩证法, 否定性, 否定辩证法, 规定了的否定, 否定辩证法` - created: 2026-05-13T22:40:00+08:00
 - [[concepts/启蒙辩证法|启蒙辩证法]] `aliases: Dialectic of Enlightenment, 启蒙的辩证法, Dialectic of Enlightenment` - type: concept
 - [[concepts/启蒙精神|启蒙精神]] `aliases: Enlightenment Spirit, 启蒙主义` - type: concept
 - [[concepts/启蒙理性|启蒙理性]] `aliases: Enlightenment Rationality, 理性启蒙, 启蒙时代的理性` - type: concept
@@ -4060,12 +4154,12 @@ updated: 2026-06-12T12:11
 - [[concepts/否认|否认]] `aliases: 否认心理, 否认机制, 心理防御机制` - type: concept
 - [[concepts/否定肯定式|否定肯定式]] `aliases: Negation-Affirmation Pattern, 否定肯定形式` - type: concept
 - [[concepts/后发优势|后发优势]] `aliases: Late-mover advantage, 后来者优势, 追赶优势, Second-mover advantage` - type: concept
-- [[concepts/否定的自由|否定的自由]] `aliases: Negative Freedom, Liberty of Understanding, 理智所了解的自由, Abstract Negative Freedom` - type: concept
+- [[concepts/抽象的自由|否定的自由]] `aliases: Negative Freedom, Liberty of Understanding, 理智所了解的自由, Abstract Negative Freedom` - type: concept
 - [[concepts/否定术语|否定术语]] `aliases: negation term, 否定词, 负向术语` - type: concept
 - [[concepts/否定性辩证法|否定性辩证法]] `aliases: Negative Dialectics, Negativer Dialektik` - type: concept
 - [[concepts/否定后件式|否定后件式]] `aliases: Modus Tollens, 否定后件律, 逆否定律` - type: concept
 - [[concepts/否定前件式|否定前件式]] `aliases: 否定前件谬误, Denial of the Antecedent, DT` - type: concept
-- [[concepts/否定之否定规律|否定之否定规律]] `aliases: Law of Negation of Negation, 肯定否定规律, 否定, negation, Negation, 双否定, 否定之否定, Aufhebung, 扬弃, 辩证三段式` - type: concept
+- [[concepts/扬弃|否定之否定规律]] `aliases: Law of Negation of Negation, 肯定否定规律, 否定, negation, Negation, 双否定, 否定之否定, Aufhebung, 扬弃, 辩证三段式` - type: concept
 - [[concepts/否定与目的性|否定与目的性]] `aliases: Dialectics: Negation and Purposiveness (I), Negation and Purposiveness in Hegel's Dialectics, 否定与目的性（黑格尔辩证法）` - type: concept
 - [[concepts/否定|否定]] - created: 2026-06-10T10:28
 - [[concepts/后视镜思维|后视镜思维]] `aliases: Rearview Mirror Thinking, 后视镜谬误` - type: concept
@@ -4095,7 +4189,7 @@ updated: 2026-06-12T12:11
 - [[concepts/同一性不可分辨原则|同一性不可分辨原则]] `aliases: Identity of Indiscernibles, indiscernibility of identicals, 不可分辨者的同一性` - type: concept
 - [[concepts/同一性思维|同一性思维]] `aliases: Identity Thinking, Tautological Thinking` - type: concept
 - [[concepts/同一性|同一性]] `aliases: Identity, 同一性原则, Identity Principle, 同一, 自我同一性, Sameness, Self-identity` - type: concept
-- [[concepts/同一律|同一律]] `aliases: Law of Identity, A是A, A→A` - type: concept
+- [[concepts/排中律|同一律]] `aliases: Law of Identity, A是A, A→A` - type: concept
 - [[concepts/同一哲学|同一哲学]] `aliases: Identitätsphilosophie, 同一性哲学, Identity Philosophy` - type: concept
 - [[concepts/吉芬反论|吉芬反论]] `aliases: Giffen Paradox, 吉芬悖论, 吉芬物品` - type: concept
 - [[concepts/合金|合金]] `aliases: Alloy` - type: concept
@@ -4114,7 +4208,7 @@ updated: 2026-06-12T12:11
 - [[concepts/合作|合作]] `aliases: 协作, Cooperation, Collaboration` - type: concept
 - [[concepts/可靠主义|可靠主义]] `aliases: Reliability Theory, 可靠性主义` - type: concept
 - [[concepts/右派|右派]] `aliases: 右倾, 右翼` - type: concept
-- [[concepts/可逆运算|可逆运算]] `aliases: Reversible Operation, 运算的可逆性` - type: concept
+- [[concepts/运算可逆性|可逆运算]] `aliases: Reversible Operation, 运算的可逆性` - type: concept
 - [[concepts/可能世界语义学|可能世界语义学]] `aliases: Possible World Semantics, 可能世界语义` - type: concept
 - [[concepts/台风|台风]] `aliases: 热带气旋, Typhoon` - type: concept
 - [[concepts/可靠性理论|可靠性理论]] `aliases: Reliability Theory, 冯·诺依曼可靠性理论, 冗余设计理论基础` - type: concept
@@ -4158,7 +4252,7 @@ updated: 2026-06-12T12:11
 - [[concepts/反驳论题|反驳论题]] `aliases: 反驳论点, 反对命题` - type: concept
 - [[concepts/反辩证法|反辩证法]] `aliases: Anti-Dialectics, 反辩证法思想` - type: concept
 - [[concepts/反驳|反驳]] `aliases: Refutation, Logical Refutation` - type: concept
-- [[concepts/反证法|反证法]] `aliases: Proof by Contradiction, Reductio ad Absurdum, 间接证明法` - type: concept
+- [[concepts/归谬法|反证法]] `aliases: Proof by Contradiction, Reductio ad Absurdum, 间接证明法` - type: concept
 - [[concepts/反映抽象|反映抽象]] `aliases: Reflective Abstraction, 反映抽象法` - type: concept
 - [[concepts/反馈|反馈]] `aliases: Feedback, 系统反馈, 反馈机制` - type: concept
 - [[concepts/反脆弱|反脆弱]] `aliases: Anti-Fragile, 反脆弱性, 塔勒布反脆弱, 抗脆弱性, Anti-Fragile, 反脆弱性, 塔勒布反脆弱` - type: concept
@@ -4225,7 +4319,7 @@ updated: 2026-06-12T12:11
 - [[concepts/历史哲学导论|历史哲学导论]] `aliases: Philosophy of History, Historiosophy` - type: concept
 - [[concepts/历史哲学|历史哲学]] `aliases: Philosophy of History, Hegel's Philosophy of History, 分析的历史哲学, 哲学史, History of Philosophy, Philosophical History, Speculative Philosophy of History, Analytical Philosophy of History, Critical Philosophy of History, 历史哲学绪论` - type: concept
 - [[concepts/历史和阶级意识|历史和阶级意识]] `aliases: History and Class Consciousness` - type: concept
-- [[concepts/历史变革|历史变革]] `aliases: 历史转型, Historical Transformation, 社会变革` - type: concept
+- [[concepts/社会革命|历史变革]] `aliases: 历史转型, Historical Transformation, 社会变革` - type: concept
 - [[concepts/历史发展的目的性|历史发展的目的性]] `aliases: 历史目的性, Teleology of Historical Development` - type: concept
 - [[concepts/历史偶然性|历史偶然性]] `aliases: Historical Contingency, 偶然性与必然性` - type: concept
 - [[concepts/历史主义与伦理主义的二律背反|历史主义与伦理主义的二律背反]] `aliases: 历史与伦理的二律背反, Historicism vs Ethicism Antinomy, 马克思理论中的历史主义与伦理主义悖论` - type: concept
@@ -4314,7 +4408,7 @@ updated: 2026-06-12T12:11
 - [[concepts/别解脱律仪戒|别解脱律仪戒]] `aliases: 别解脱戒, Pratimoksha戒, 波罗提木叉` - type: concept
 - [[concepts/制裁|制裁]] `aliases: 惩罚, 处罚` - type: concept
 - [[concepts/制度史|制度史]] `aliases: History of Institutions, 制度的历史` - type: concept
-- [[concepts/制度|制度]] `aliases: Institution, 社会制度, 制度安排` - type: concept
+- [[concepts/社会主义|制度]] `aliases: Institution, 社会制度, 制度安排` - type: concept
 - [[concepts/判断论|判断论]] `aliases: Judgment Theory, 判断理论` - type: concept
 - [[concepts/利润率趋向下降规律|利润率趋向下降规律]] `aliases: Law of the Tendency of the Rate of Profit to Fall, 利润率下降, Law of the Tendency of the Rate of Profit to Fall` - type: concept
 - [[concepts/利益相关|利益相关]] `aliases: Skin in the Game, 在游戏中拥有皮肤` - type: concept
@@ -4406,7 +4500,7 @@ updated: 2026-06-12T12:11
 - [[concepts/具体自由|具体自由]] `aliases: Concrete Freedom` - type: concept
 - [[concepts/关门打语言|关门打语言]] `aliases: Saussure's Internal Linguistic Method, Saussure Method` - type: concept
 - [[concepts/关于神学与道德原则之明晰性的研究|关于神学与道德原则之明晰性的研究]] `aliases: Kant on the Clarity of Theological and Moral Principles, 1763年柏林科学院征文, Kant 1763 Essay on Moral Principles` - type: concept
-- [[concepts/具体术语与抽象术语|具体术语与抽象术语]] `aliases: Concrete and Abstract Terms, 具体与抽象术语, 具体劳动与抽象劳动, Concrete Labor and Abstract Labor, 具体劳动与抽象劳动的对立, Concrete Terms, Abstract Terms, concrete terms, abstract terms` - type: concept
+- [[concepts/抽象术语|具体术语与抽象术语]] `aliases: Concrete and Abstract Terms, 具体与抽象术语, 具体劳动与抽象劳动, Concrete Labor and Abstract Labor, 具体劳动与抽象劳动的对立, Concrete Terms, Abstract Terms, concrete terms, abstract terms` - type: concept
 - [[concepts/具体术语|具体术语]] `aliases: 具体词汇, 特定术语, Concrete Terms` - type: concept
 - [[concepts/具体劳动与抽象劳动|具体劳动与抽象劳动]] - (empty)
 - [[concepts/关系秩序|关系秩序]] `aliases: relational order, order of relationships` - type: concept
@@ -4414,7 +4508,7 @@ updated: 2026-06-12T12:11
 - [[concepts/共谋|共谋]] `aliases: collusion, mutual complicity in deception, 共犯关系` - type: concept
 - [[concepts/共时语言学|共时语言学]] `aliases: Synchronous Linguistics, Synchronic Linguistics, 历时语言学, Diachronic Linguistics, 同步语言学, synchronic linguistics` - type: concept
 - [[concepts/共时系统|共时系统]] `aliases: synchronic system, synchronic approach` - type: concept
-- [[concepts/共相|共相]] `aliases: Universals, 普遍性, 普遍概念` - type: concept
+- [[concepts/普遍|共相]] `aliases: Universals, 普遍性, 普遍概念` - type: concept
 - [[concepts/共时性结构主义|共时性结构主义]] `aliases: Synchronic Structuralism, 共时性研究` - type: concept
 - [[concepts/共和国|共和国]] `aliases: Republican, 康德共和国, 共和政体, 共和制, Republican, 康德共和国, 共和政体` - type: concept
 - [[concepts/共业|共业]] `aliases: 共业` - type: concept
@@ -4433,7 +4527,7 @@ updated: 2026-06-12T12:11
 - [[concepts/公民自由与政府力量|公民自由与政府力量]] `aliases: Civil Liberties and Government Power, 公民自由与政府力量的动态关系, 自由限制与政府权力的倒U型曲线` - type: concept
 - [[concepts/六十二种修行路径|六十二种修行路径]] `aliases: 六十二见, 六十二种邪见, 六十二种见, 六十二见法` - type: concept
 - [[concepts/公民权利|公民权利]] `aliases: Civil Rights, 公民基本权利, civil liberties` - type: concept
-- [[concepts/公民与国家协议|公民与国家协议]] `aliases: 城邦契约论, 公民与城邦契约, 社会契约` - type: concept
+- [[concepts/社会契约|公民与国家协议]] `aliases: 城邦契约论, 公民与城邦契约, 社会契约` - type: concept
 - [[concepts/公理化|公理化]] `aliases: axiomatization, 公理方法` - type: concept
 - [[concepts/公司|公司]] `aliases: corporation, company, 企业组织` - type: concept
 - [[concepts/公民教育|公民教育]] `aliases: Civic Education, Citizenship Education, 公民素质教育` - type: concept
@@ -4529,14 +4623,14 @@ updated: 2026-06-12T12:11
 - [[concepts/假名我|假名我]] `aliases: prajñapti-puruṣa, 假名补特伽罗, 假名我` - type: concept
 - [[concepts/倾向|倾向]] `aliases: 倾向罪, 有害倾向, 政治倾向, 思想倾向, Tendency (Censorship Context)` - type: concept
 - [[concepts/修行|修行]] `aliases: 修炼, Spiritual Cultivation` - type: concept
-- [[concepts/修正主义|修正主义]] `aliases: Revisionism, 改良主义` - type: concept
+- [[concepts/改良主义|修正主义]] `aliases: Revisionism, 改良主义` - type: concept
 - [[concepts/信息爆炸|信息爆炸]] `aliases: Information Explosion, 信息大爆炸` - type: concept
 - [[concepts/修行次第|修行次第]] `aliases: 修行阶段, 修道层次` - type: concept
 - [[concepts/修行品质|修行品质]] `aliases: 修道品质, 修行品德` - type: concept
-- [[concepts/信息来源|信息来源]] `aliases: Information Sources, 消息人士, 来源评估` - type: concept
+- [[concepts/数据来源|信息来源]] `aliases: Information Sources, 消息人士, 来源评估` - type: concept
 - [[concepts/信息鲁棒性|信息鲁棒性]] `aliases: Information Robustness, 数据鲁棒性` - type: concept
 - [[concepts/信息-行动比|信息-行动比]] `aliases: Information-Action Ratio, 信息与行动比, 信息行动比` - type: concept
-- [[concepts/信息论|信息论]] `aliases: Information Theory, Shannon Information Theory, 香农信息论, 信息熵, Information Entropy, Shannon Entropy, 香农熵, Shannon's Entropy, 信息论熵, Shannon Theory, 克劳德·香农信息论, 克劳德·艾尔伍德·香农信息论, 香农理论, 信息, Information, 资讯, 技术元素, Technological Element, 信息作为技术进化的原材料, 关系重于事实, 信息和知识爆炸式积累` - type: concept
+- [[concepts/知识|信息论]] `aliases: Information Theory, Shannon Information Theory, 香农信息论, 信息熵, Information Entropy, Shannon Entropy, 香农熵, Shannon's Entropy, 信息论熵, Shannon Theory, 克劳德·香农信息论, 克劳德·艾尔伍德·香农信息论, 香农理论, 信息, Information, 资讯, 技术元素, Technological Element, 信息作为技术进化的原材料, 关系重于事实, 信息和知识爆炸式积累` - type: concept
 - [[concepts/信息复杂性|信息复杂性]] `aliases: Information Complexity, 信息失真与权威分配` - type: concept
 - [[concepts/信息熵公式|信息熵公式]] `aliases: 香农熵, Shannon entropy` - type: concept
 - [[concepts/信息熵|信息熵]] - (empty)
@@ -4587,11 +4681,11 @@ updated: 2026-06-12T12:11
 - [[concepts/伯林论马克思|伯林论马克思]] `aliases: 以赛亚·伯林的马克思观, 伯林对马克思的解读, 以赛亚·伯林论马克思, Isaiah Berlin on Marx, 伯林解读马克思, 伯林《卡尔·马克思》导言` - title: 以赛亚·伯林的马克思观
 - [[concepts/伪善|伪善]] `aliases: Hypocrisy, Pretended Virtue, 伪善概念, Heuchlerei, Hypocrisy, Pretended Virtue, 伪善概念` - type: concept
 - [[concepts/伦理精神|伦理精神]] `aliases: Ethical Life, Sittlichkeit, 伦理生活, Ethical Life, Sittlichkeit` - type: concept
-- [[concepts/伦理的形而上学|伦理的形而上学]] `aliases: Metaphysik der Sitten, 道德形而上学, 伦理形而上学` - type: concept
+- [[concepts/道德形而上学|伦理的形而上学]] `aliases: Metaphysik der Sitten, 道德形而上学, 伦理形而上学` - type: concept
 - [[concepts/伦理考察|伦理考察]] `aliases: Ethical Reflection, 伦理反思, Ethical Investigation` - type: concept
 - [[concepts/伦理的规范性|伦理的规范性]] `aliases: The Normativity of Ethical Life, 伦理规范性` - type: concept
 - [[concepts/伦理实体|伦理实体]] `aliases: Ethical Substance, 伦理实体概念` - type: concept
-- [[concepts/伦理学|伦理学]] `aliases: 道德哲学` - type: concept
+- [[concepts/道德哲学|伦理学]] `aliases: 道德哲学` - type: concept
 - [[concepts/伦理生活形式|伦理生活形式]] `aliases: Sittlichkeit, 伦理生活, Ethical Life` - type: concept
 - [[concepts/伦理本源论|伦理本源论]] `aliases: 伦理本源论：善良意志的先天条件探本, Ethical Origin Theory` - type: concept
 - [[concepts/伦理信念论|伦理信念论]] `aliases: Ethical Doctrine of Faith, Kantian Ethics - Doctrine of Faith` - type: concept
@@ -4606,7 +4700,7 @@ updated: 2026-06-12T12:11
 - [[concepts/传统文化|传统文化]] `aliases: 中华传统文化, 华夏文明传统` - type: concept
 - [[concepts/传染效应|传染效应]] `aliases: 社会传染, contagion effect` - type: concept
 - [[concepts/伦理与道德的区分|伦理与道德的区分]] `aliases: ethics-and-morality-distinction, Ethics vs Morality, 伦理与道德的区别` - type: concept
-- [[concepts/伦理与道德|伦理与道德]] `aliases: 道德哲学, 伦理, 道德` - type: concept
+- [[concepts/道德哲学|伦理与道德]] `aliases: 道德哲学, 伦理, 道德` - type: concept
 - [[concepts/传播革命|传播革命]] `aliases: Communication Revolution, 传播革命理论` - type: concept
 - [[concepts/会话含义|会话含义]] `aliases: Conversational Implicature, 会话含义理论` - type: concept
 - [[concepts/传统形而上学|传统形而上学]] `aliases: Traditional Metaphysics, 古典形而上学, 西方传统形而上学` - type: concept
@@ -4642,9 +4736,9 @@ updated: 2026-06-12T12:11
 - [[concepts/以美启真|以美启真]] `aliases: Using Beauty to Reveal Truth, 以美启真理论` - type: concept
 - [[concepts/以自由立国|以自由立国]] `aliases: Founding on Freedom, Revolution as Nation-Founding, 以自由立国` - type: concept
 - [[concepts/以言取效行为|以言取效行为]] `aliases: perlocutionary act, 言语取效行为` - type: concept
-- [[concepts/他律|他律]] `aliases: Heteronomy, 外在道德法则, 外在决定论` - type: concept
+- [[concepts/意志他律性|他律]] `aliases: Heteronomy, 外在道德法则, 外在决定论` - type: concept
 - [[concepts/以自由为目的的教育|以自由为目的的教育]] `aliases: Education for Freedom, Freedom-Oriented Education, 以获得自由为目的的教育` - type: concept
-- [[concepts/从抽象上升到具体|从抽象上升到具体]] `aliases: 从抽象到具体, 从抽象上升到具体的方法论, From Abstract to Concrete, 从抽象发展为具体, 从抽象到具体, 从抽象上升到具体的方法论, From Abstract to Concrete` - type: concept
+- [[concepts/由抽象上升到具体|从抽象上升到具体]] `aliases: 从抽象到具体, 从抽象上升到具体的方法论, From Abstract to Concrete, 从抽象发展为具体, 从抽象到具体, 从抽象上升到具体的方法论, From Abstract to Concrete` - type: concept
 - [[concepts/以美储善|以美储善]] `aliases: 以美蓄善, 美育储德` - type: concept
 - [[concepts/介入|介入]] `aliases: engagement, 介入性, 参与` - type: concept
 - [[concepts/以幻修幻|以幻修幻]] `aliases: Using Illusion to Cultivate Illusion, 以幻修幻的修行方法, 幻中觉醒` - type: concept
@@ -4654,7 +4748,7 @@ updated: 2026-06-12T12:11
 - [[concepts/他者性|他者性]] `aliases: Otherness, Alterity` - type: concept
 - [[concepts/他者|他者]] `aliases: The Other, 异者, 他异性, 女人是他者, The Other, 异者, 他异性` - type: concept
 - [[concepts/他性|他性]] `aliases: Other-nature, Paratantra-svabhāva, 他属性` - type: concept
-- [[concepts/他律论|他律论]] `aliases: Heteronomy Theory, 他律美学, 音乐他律论` - type: concept
+- [[concepts/意志他律性|他律论]] `aliases: Heteronomy Theory, 他律美学, 音乐他律论` - type: concept
 - [[concepts/人身攻击|人身攻击]] `aliases: ad hominem, ad hominem fallacy, 对人不对事` - type: concept
 - [[concepts/人类解放|人类解放]] `aliases: Human Liberation, Emancipation of Humanity, 人类解放理论` - type: concept
 - [[concepts/人类生存的基本法则|人类生存的基本法则]] `aliases: Basic Laws of Human Existence, The Basic Laws of Human Survival, 人的基本生存法则` - type: concept
@@ -4689,7 +4783,7 @@ updated: 2026-06-12T12:11
 - [[concepts/人格概念|人格概念]] `aliases: personhood, 人的概念, 人格, personhood, 人的概念` - type: concept
 - [[concepts/人本学|人本学]] `aliases: Humanism, Feuerbach's Anthropology, 费尔巴哈人本学` - type: concept
 - [[concepts/人格一贯性|人格一贯性]] `aliases: Consistency of Personality, 人格的一贯性` - type: concept
-- [[concepts/人无我|人无我]] `aliases: 无我, Anatta, 无我观, 人空` - type: concept
+- [[concepts/无我|人无我]] `aliases: 无我, Anatta, 无我观, 人空` - type: concept
 - [[concepts/人是目的|人是目的]] `aliases: Humanity as an End in Itself, 人格中的人性, 目的公式, 把人当做目的, Humanity as an End in Itself, 人格中的人性, 目的公式` - type: concept
 - [[concepts/人本位教育|人本位教育]] `aliases: Human-Centered Education, Anthropocentric Education, 以人为本的教育` - type: concept
 - [[concepts/人文普及|人文普及]] `aliases: Humanities Popularization, 人普` - type: concept
@@ -4735,7 +4829,7 @@ updated: 2026-06-12T12:11
 - [[concepts/交往行为|交往行为]] `aliases: Communicative Action, 交往行动` - type: concept
 - [[concepts/交互设计|交互设计]] `aliases: Interaction Design, IxD, 交互设计方法, 交互体验, Interaction Design, IxD, 交互设计方法` - type: concept
 - [[concepts/亚里士多德|亚里士多德]] `aliases: Aristotle, 古希腊哲学家亚里士多德` - type: concept
-- [[concepts/亚普罗式文化|亚普罗式文化]] `aliases: Apollonian Culture, Apollonian, 阿波罗式文化` - type: concept
+- [[concepts/日神精神|亚普罗式文化]] `aliases: Apollonian Culture, Apollonian, 阿波罗式文化` - type: concept
 - [[concepts/交往理性|交往理性]] `aliases: Communicative Rationality, 交往理性理论` - type: concept
 - [[concepts/交往共同体|交往共同体]] `aliases: Communication Community, Kommunikationsgemeinschaft` - type: concept
 - [[concepts/交互关系|交互关系]] `aliases: Wechselwirkung, Reciprocal Relations, 互为因果关系` - type: concept
@@ -4803,10 +4897,10 @@ updated: 2026-06-12T12:11
 - [[concepts/主体|主体]] `aliases: subject, 主体性, 主语` - type: concept
 - [[concepts/主体与工具|主体与工具]] `aliases: 主体与工具的关系, 主客体关系` - type: concept
 - [[concepts/主体生命系统|主体生命系统]] `aliases: Subject Life System, 个人运行系统, 生命运行机制` - type: concept
-- [[concepts/主体性逻辑|主体性逻辑]] `aliases: Capital's Subjectivity Logic, 主体性逻辑原则, 主体性结构, Subjectivity Structure, 自我关系结构, 自我形成过程, 总体性, 自我实现, 活的劳动与死的劳动的对立` - type: concept
+- [[concepts/自我实现|主体性逻辑]] `aliases: Capital's Subjectivity Logic, 主体性逻辑原则, 主体性结构, Subjectivity Structure, 自我关系结构, 自我形成过程, 总体性, 自我实现, 活的劳动与死的劳动的对立` - type: concept
 - [[concepts/主体性论纲|主体性论纲]] `aliases: Outline of Subjectivity, 主体性论纲, Subjectivity Thesis` - type: concept
 - [[concepts/主体性结构|主体性结构]] - (empty)
-- [[concepts/为承认而斗争|为承认而斗争]] `aliases: Kampf um Anerkennung, Struggle for Recognition, 承认的斗争` - type: concept
+- [[concepts/承认的斗争|为承认而斗争]] `aliases: Kampf um Anerkennung, Struggle for Recognition, 承认的斗争` - type: concept
 - [[concepts/主体性|主体性]] `aliases: 主观性` - created: 2026-06-10T12:16
 - [[concepts/为对方而存在|为对方而存在]] `aliases: Being-for-the-Other, being-for-other` - type: concept
 - [[concepts/主体与客体|主体与客体]] `aliases: Subject and Object, 主体-客体关系, 主客体关系, 主体-客体, Subject and Object, 主体-客体关系, 主客体关系` - type: concept
@@ -4834,7 +4928,7 @@ updated: 2026-06-12T12:11
 - [[concepts/中国传统音乐哲学美|中国传统音乐哲学美]] `aliases: Philosophy of Beauty in Chinese Traditional Music, 中国传统音乐美学` - type: concept
 - [[concepts/中华人文精神|中华人文精神]] `aliases: Chinese Humanistic Spirit, 中华人文精神传统` - type: concept
 - [[concepts/中国礼仪之争|中国礼仪之争]] `aliases: China Rites Controversy, Chinese Rites Dispute, Controversie des rites chinois` - type: concept
-- [[concepts/中国特色社会主义市场经济|中国特色社会主义市场经济]] `aliases: 社会主义市场经济, Socialist Market Economy with Chinese Characteristics, Socialist Market Economy, 社会主义市场经济体制, 社会主义商品经济, 社会主义商品市场经济, 市场社会主义` - type: concept
+- [[concepts/社会主义市场经济|中国特色社会主义市场经济]] `aliases: 社会主义市场经济, Socialist Market Economy with Chinese Characteristics, Socialist Market Economy, 社会主义市场经济体制, 社会主义商品经济, 社会主义商品市场经济, 市场社会主义` - type: concept
 - [[concepts/中国文化的历史特点|中国文化的历史特点]] `aliases: Chinese Cultural Historical Continuity, 中国文化的连续性特征, Continuous Evolution of Chinese Culture` - type: concept
 - [[concepts/中国托派|中国托派]] `aliases: Chinese Trotskyists, 中国托洛茨基主义` - type: concept
 - [[concepts/中国哲学|中国哲学]] `aliases: Chinese Philosophy, 中华哲学` - type: concept
@@ -4869,7 +4963,7 @@ updated: 2026-06-12T12:11
 - [[concepts/业力回转|业力回转]] `aliases: 业报回转, 因果报应循环` - type: concept
 - [[concepts/业力转化|业力转化]] `aliases: Karma Transformation, 业力转变` - type: concept
 - [[concepts/业力与功德|业力与功德]] `aliases: Karma and Merit, 业力与善因功德, Karma and Virtue` - type: concept
-- [[concepts/业力|业力]] `aliases: Karma, 业报, 業力` - type: concept
+- [[concepts/业力观|业力]] `aliases: Karma, 业报, 業力` - type: concept
 - [[concepts/世间法|世间法]] `aliases: 世俗法, 世间道` - type: concept
 - [[concepts/世界进程|世界进程]] `aliases: Weltprozess, 世界进程` - type: concept
 - [[concepts/世界精神|世界精神]] `aliases: Weltgeist, World Spirit, 世界精神` - type: concept
@@ -4896,10 +4990,10 @@ updated: 2026-06-12T12:11
 - [[concepts/不舍被遗弃者|不舍被遗弃者]] `aliases: 不舍众生, 不弃众生` - type: concept
 - [[concepts/不确定性|不确定性]] `aliases: Uncertainty, 未确定性` - type: concept
 - [[concepts/不自制|不自制]] `aliases: Akrasia, 意志薄弱, Weakness of Will` - type: concept
-- [[concepts/不矛盾原理|不矛盾原理]] `aliases: 矛盾律, 非矛盾律, Law of Non-Contradiction` - type: concept
+- [[concepts/矛盾律|不矛盾原理]] `aliases: 矛盾律, 非矛盾律, Law of Non-Contradiction` - type: concept
 - [[concepts/不情愿的现代主义者|不情愿的现代主义者]] `aliases: reluctant modernist, reluctant modernist theory` - type: concept
 - [[concepts/不平等|不平等]] `aliases: inequality, 社会不平等, 贫富差距` - type: concept
-- [[concepts/不矛盾律|不矛盾律]] `aliases: Law of Non-Contradiction, 矛盾律` - type: concept
+- [[concepts/矛盾律|不矛盾律]] `aliases: Law of Non-Contradiction, 矛盾律` - type: concept
 - [[concepts/不完全竞争|不完全竞争]] `aliases: Imperfect Competition, 不完全竞争市场` - type: concept
 - [[concepts/不死朽性|不死朽性]] `aliases: Immortality in Hegel, Hegelian Immortality, 精神不死, 黑格尔的不朽性` - type: concept
 - [[concepts/不断革命论|不断革命论]] `aliases: Theory of Permanent Revolution, Permanent Revolution` - type: concept
@@ -4962,10 +5056,10 @@ updated: 2026-06-12T12:11
 - [[concepts/αλήθεια|αλήθεια]] `aliases: aletheia, 无蔽, 真理` - type: concept
 - [[concepts/WISH机制|WISH机制]] `aliases: Warm Moist Air Intake and Swirl Heat Mechanism, WISH Mechanism` - type: concept
 - [[concepts/一党专政|一党专政]] `aliases: 一党制, 单党制, 一党统治` - type: concept
-- [[concepts/UCD设计|UCD设计]] `aliases: User-Centered Design, 以用户为中心的设计, UCD` - type: concept
-- [[concepts/synthesis-涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为|synthesis-涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为]] `aliases: 涌现复杂性, 突现复杂性, Emergence Complexity` - type: concept
+- [[concepts/用户导向设计|UCD设计]] `aliases: User-Centered Design, 以用户为中心的设计, UCD` - type: concept
+- [[concepts/涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为|synthesis-涌现复杂性入门从宇宙规则到人工创造简单系统如何产生复杂行为]] `aliases: 涌现复杂性, 突现复杂性, Emergence Complexity` - type: concept
 - [[concepts/za-ahan-jing|za-ahan-jing]] `aliases: 杂阿含经, Samyuktāgama Sūtra, Samyukta-āgama` - type: concept
-- [[concepts/Sitten|Sitten]] `aliases: 伦理, Sitte (复数), Sitten (Kant)` - type: concept
+- [[concepts/道德|Sitten]] `aliases: 伦理, Sitte (复数), Sitten (Kant)` - type: concept
 - [[concepts/untitled|untitled]] `aliases: 认识形式, 认识形态, epistemic form, 知识形式` - type: concept
 - [[concepts/spectemur-agendo|spectemur-agendo]] `aliases: 让我们在行动中被人看到, Spectemur Agendo` - type: concept
 - [[concepts/renjian-fojiao|renjian-fojiao]] `aliases: 人间佛教, 人生佛教, Humanistic Buddhism, 人间佛教思想` - type: concept
@@ -4984,7 +5078,7 @@ updated: 2026-06-12T12:11
 - [[concepts/HEART框架|HEART框架]] `aliases: HEART Framework, Google HEART, Google HEART用户评估框架` - type: concept
 - [[concepts/IPO审核|IPO审核]] `aliases: 首次公开发行审核, IPO审查` - type: concept
 - [[concepts/Göttingen-phenomenological-circle|Göttingen-phenomenological-circle]] `aliases: Göttingen phenomenological group, 哥廷根现象学圈, Göttingen Circle` - type: concept
-- [[concepts/Husserls-lectures|Husserls-lectures]] `aliases: Husserl Lectures, 胡塞尔讲座研究` - type: concept
+- [[concepts/胡塞尔讲座风格|Husserls-lectures]] `aliases: Husserl Lectures, 胡塞尔讲座研究` - type: concept
 - [[concepts/Haskala|Haskala]] `aliases: 犹太启蒙运动, Jewish Enlightenment, 哈斯卡拉` - type: concept
 - [[concepts/Gleisnerei|Gleisnerei]] `aliases: 道貌岸然式伪善, 伪善的第一层次, Gleisnerei (Kantian hypocrisy)` - type: concept
 - [[concepts/concept-结构思维|concept-结构思维]] `aliases: 结构思维, Structural Thinking, 结构性思维` - type: concept
@@ -5007,10 +5101,14 @@ updated: 2026-06-12T12:11
 - [[concepts/1Q84|1Q84]] `aliases: 1Q84年, IQ84, 1Q84 Book` - type: concept
 - [[concepts/$APPEALS方法|$APPEALS方法]] `aliases: 客户需求$APPEALS分析, APPEALS模型` - type: concept
 - [[concepts/1848年革命|1848年革命]] `aliases: European Revolutions of 1848, 1848年欧洲革命, 革命之春` - type: concept
-- [[concepts/$APPEALS|$APPEALS]] `aliases: IBM客户需求分析方法, 客户需求$APPEALS分析` - type: concept
+- [[concepts/$APPEALS方法|$APPEALS]] `aliases: IBM客户需求分析方法, 客户需求$APPEALS分析` - type: concept
 
 ## 来源
 
+- [[sources/马克思黑格尔不过是「思辨的一切谬想」的集大成|马克思黑格尔不过是「思辨的一切谬想」的集大成]] `aliases: Marx's Critique of Hegel, 邓晓芒：马克思对黑格尔的批判`
+- [[sources/马克思费尔巴哈你错了|马克思费尔巴哈你错了]] `aliases: 关于费尔巴哈的提纲, Theses on Feuerbach, 马克思：费尔巴哈，你错了`
+- [[sources/马克思1844年经济学哲学手稿一|马克思1844年经济学哲学手稿一]] `aliases: Economic and Philosophic Manuscripts of 1844, 1844年经济学—哲学手稿, 巴黎手稿`
+- [[sources/马克思与虚无主义从马克思批判施蒂纳的角度看｜刘森林|马克思与虚无主义从马克思批判施蒂纳的角度看｜刘森林]] `aliases: 马克思批判施蒂纳虚无主义, Marx's Critique of Stirner's Nihilism`
 - [[sources/另一个马克思——弗罗姆马克思关于人的概念解读｜张一兵|另一个马克思——弗罗姆马克思关于人的概念解读｜张一兵]] `aliases: Another Marx: A Humanist Interpretation, 另一个马克思：一种人本主义化的诠释`
 - [[sources/另一个黑格尔遮蔽在思辨哲学背后的现实生命|另一个黑格尔遮蔽在思辨哲学背后的现实生命]] `aliases: 另一个黑格尔：遮蔽在思辨哲学背后的现实生命, 还原作为人的黑格尔`
 - [[sources/理论复调作为马克思主义者的鲍德里亚|理论复调作为马克思主义者的鲍德里亚]] `aliases: 作为马克思主义者的鲍德里亚, 理论复调：鲍德里亚的马克思主义身份辨`

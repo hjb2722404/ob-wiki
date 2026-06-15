@@ -3,7 +3,7 @@ type: concept
 created: 2026-06-09
 sources:
   - "[[entities/康德]]"
-updated: 2026-06-09T11:01
+updated: 2026-06-12T21:03
 tags:
   - term
 aliases:
@@ -37,7 +37,7 @@ aliases:
 ## 相关概念
 
 - [[concepts/辩证法|辩证法]]
-- [[concepts/批判理论|批判理论]]
+- [[concepts/社会批判理论|批判理论]]
 - [[concepts/形而上学|形而上学]]
 
 ## 相关实体

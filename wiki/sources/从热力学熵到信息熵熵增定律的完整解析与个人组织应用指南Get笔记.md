@@ -2,7 +2,7 @@
 type: source
 created: 2026-06-09
 sources: []
-updated: 2026-06-09T18:11
+updated: 2026-06-13T08:56
 tags: []
 aliases:
   - 熵增定律完整解析
@@ -25,7 +25,7 @@ aliases:
 
 ## 关键实体
 
-- [[entities/克劳修斯|克劳修斯]] — 热力学第二定律的提出者
+- [[concepts/克劳修斯|克劳修斯]] — 热力学第二定律的提出者
 - [[entities/香农|香农]] — 信息论的创立者
 
 ## 关键概念

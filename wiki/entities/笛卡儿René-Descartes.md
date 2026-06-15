@@ -1,7 +1,7 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-12T10:27
+updated: 2026-06-12T20:53
 sources:
   - "[[sources/邓晓芒：康德哲学对中国启蒙的意义]]"
   - "[[sources/邓晓芒：论康德对机械论自然观的超越]]"
@@ -77,14 +77,14 @@ aliases:
 - [[concepts/理性哲学|理性哲学]]
 - [[concepts/经验论|经验论]]
 - [[concepts/形而上学|形而上学]]
-- [[concepts/自我|自我]]
+- [[concepts/自我认识|自我]]
 - [[concepts/唯我论|唯我论]]
 - [[concepts/笛卡尔怀疑|笛卡尔怀疑]]
 - [[concepts/我思|我思]]
 - [[concepts/我思故我在|我思故我在]]
 - [[concepts/理想主义|理想主义]]
 - [[concepts/先验论|先验]]
-- [[concepts/自我意识|自我意识]]
+- [[concepts/自我认识|自我意识]]
 - [[concepts/现象学|现象学]]
 - [[concepts/逻各斯|逻各斯]]
 - [[concepts/怀疑精神|怀疑精神]]

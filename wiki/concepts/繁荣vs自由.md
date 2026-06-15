@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-07T21:51
+updated: 2026-06-12T21:50
 sources:
   - "[[sources/阿伦特：在公共权力之下，我们何以有追寻自由的权力？]]"
 tags:
@@ -38,7 +38,7 @@ aliases:
 
 ## 相关概念
 
-- [[concepts/必然性|必然性]]
+- [[concepts/必然|必然性]]
 - [[concepts/私人幸福|私人幸福]]
 - [[concepts/美国梦|美国梦]]
 - [[concepts/公共幸福|公共幸福]]

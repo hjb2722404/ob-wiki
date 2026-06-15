@@ -1,7 +1,7 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-12T09:27
+updated: 2026-06-12T21:42
 sources:
   - "[[sources/波普尔辩证法是什么二]]"
   - "[[sources/黑格尔《小逻辑》的论述结构]]"
@@ -10,6 +10,22 @@ sources:
 tags:
   - product
 aliases:
+  - Enzyklopädie der philosophischen Wissenschaften
+  - 黑格尔哲学全书
+  - Hegel's Encyclopedia of the Philosophical Sciences
+  - 《哲学全书纲要》
+  - Enzyklopädie der philosophischen Wissenschaften
+  - 黑格尔哲学全书
+  - Hegel's Encyclopedia of the Philosophical Sciences
+  - 《哲学全书》
+  - Enzyklopädie der philosophischen Wissenschaften
+  - 黑格尔哲学全书
+  - Hegel's Encyclopedia of the Philosophical Sciences
+  - 《哲学全书纲要》
+  - Enzyklopädie der philosophischen Wissenschaften
+  - 黑格尔哲学全书
+  - Hegel's Encyclopedia of the Philosophical Sciences
+  - 哲学全书
   - Enzyklopädie der philosophischen Wissenschaften
   - 黑格尔哲学全书
   - Hegel's Encyclopedia of the Philosophical Sciences
@@ -44,7 +60,7 @@ aliases:
 
 ## 相关概念
 - [[concepts/黑格尔辩证法|黑格尔辩证法]]
-- [[concepts/否定之否定规律|否定之否定规律]]
+- [[concepts/扬弃|否定之否定规律]]
 - [[concepts/小逻辑|小逻辑]]
 - [[concepts/辩证唯心主义|辩证唯心主义]]
 - 哲学体系

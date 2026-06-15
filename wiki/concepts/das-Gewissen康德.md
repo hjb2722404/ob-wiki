@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-06-08
-updated: 2026-06-12T09:29
+updated: 2026-06-12T20:56
 sources:
   - "[[sources/“良意”“良情”“良知”之统一——康德“良心”概念解读]]"
   - "[[sources/邓晓芒：康德黑格尔论伪善]]"
@@ -37,7 +37,7 @@ aliases:
 - [[concepts/敬重感|敬重感]] `aliases: Achtung, respect`
 - [[concepts/道德法则|道德法则]] `aliases: moral law, Sittengesetz`
 - [[concepts/实践理性|实践理性]] `aliases: practical reason, praktische Vernunft`
-- [[concepts/自律|自律]] `aliases: autonomy, Autonomie`
+- [[concepts/自我关系|自律]] `aliases: autonomy, Autonomie`
 - [[concepts/德性论|德性论]] `aliases: virtue theory, Tugendlehre`
 
 ## 相关实体

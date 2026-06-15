@@ -1,7 +1,7 @@
 ---
 type: entity
 created: 2026-05-30
-updated: 2026-06-08T22:22
+updated: 2026-06-12T21:16
 sources:
   - "[[sources/KindleEar]]"
 tags:
@@ -28,7 +28,7 @@ KindleEar是一个运行在Google App Engine上的开源Kindle个人推送服务
 ## 相关概念
 
 - [[concepts/形而上学|形而上学]]
-- [[concepts/流变|流变]]
+- [[concepts/生成|流变]]
 - [[concepts/同一性|同一]]
 - [[concepts/趋同进化|趋同进化]]
 - [[concepts/生物多样性|生物多样性]]

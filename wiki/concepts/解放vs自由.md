@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-06-01
-updated: 2026-06-12T09:28
+updated: 2026-06-12T21:50
 sources:
   - "[[sources/阿伦特在公共权力之下我们何以有追寻自由的权力]]"
 tags:
@@ -42,7 +42,7 @@ aliases:
 - [[concepts/政治自由|政治自由]]
 - [[concepts/革命政府|革命政府]]
 - [[concepts/立宪政府|立宪政府]]
-- [[concepts/必然性|必然性]]
+- [[concepts/必然|必然性]]
 - [[concepts/以自由立国|以自由立国]]
 
 ## 相关实体

@@ -3,7 +3,7 @@ type: concept
 created: 2026-06-10
 sources:
   - "[[concepts/哲学作为生活方式]]"
-updated: 2026-06-10T10:21
+updated: 2026-06-12T21:38
 tags:
   - method
 aliases:
@@ -37,7 +37,7 @@ aliases:
 
 - [[concepts/哲学作为生活方式]] — 哲学作为一种生活方式的实践路径
 - [[concepts/辩证法]] — 对话与理性论证的方法论
-- [[concepts/批判性思维]] — 理性分析与评估的思维技能
+- [[concepts/批判精神]] — 理性分析与评估的思维技能
 
 ## 相关实体
 

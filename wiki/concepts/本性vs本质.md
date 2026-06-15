@@ -18,7 +18,7 @@ provenance:
 base_confidence: 0.85
 lifecycle: draft
 created: 2026-05-13T23:50:00+08:00
-updated: 2026-06-09T22:58
+updated: 2026-06-12T21:10
 aliases:
   - Nature vs Essence Kant
   - 根本恶
@@ -75,7 +75,7 @@ aliases:
 
 - [[康德]]
 - [[concepts/自然|自然]]
-- [[concepts/本质|本质]]
+- [[concepts/真本质|本质]]
 - [[根本恶]]
 - [[中庸]]
 - [[李泽厚]]
