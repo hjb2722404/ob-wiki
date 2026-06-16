@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-16T03:56
+updated: 2026-06-16T20:50
 ---
 # Wiki 操作日志
 
@@ -11851,4 +11851,124 @@ updated: 2026-06-16T03:56
 **创建页面**：[[sources/重新理解复杂性科学定义起源核心问题及与东方传统智慧的共鸣-2026年06月10日-来自Get-笔记.md]], [[entities/圣塔菲研究所.md]], [[entities/沃伦·韦弗.md]], [[entities/约翰·霍兰德.md]], [[concepts/Complex-System.md]], [[concepts/Complexity-Science.md]], [[concepts/自组织能力.md]], [[concepts/涌现.md]], [[concepts/反馈.md]], [[concepts/Cross-scale-Coupling.md]], [[concepts/还原论.md]], [[concepts/Agent-based-Modeling.md]], [[concepts/Complex-Adaptive-System.md]], [[concepts/Network-Analysis.md]], [[concepts/I-Ching-Thought.md]], [[concepts/Multi-scale-Analysis.md]], [[concepts/道家.md]], [[concepts/缘起论.md]], [[concepts/Eastern-Traditional-Wisdom.md]], [[concepts/儒家.md]], [[concepts/Interdisciplinary-Research.md]], [[concepts/Complexity-Science.md]], [[concepts/Adaptation.md]]
 
 **更新页面**：[[圣塔菲研究所]], [[沃伦·韦弗]], [[约翰·霍兰德]], [[还原论]], [[涌现]], [[自组织能力]], [[反馈]]
+
+
+
+## [2026-06-16] ingest | 尼采对康德自由意志的批判
+
+**创建页面**：[[sources/尼采对于康德自由意志的批判.md]], [[entities/休谟.md]], [[entities/刘昌元.md]], [[entities/亚里士多德.md]], [[entities/尼采.md]], [[entities/康德.md]], [[concepts/权力意志.md]], [[concepts/因果关系.md]], [[concepts/自由意志.md]], [[concepts/基督教道德.md]], [[concepts/定言命令.md]], [[concepts/道德法则.md]], [[concepts/自我超克.md]], [[concepts/机械论自然观.md]], [[concepts/意志自律.md]], [[concepts/自由.md]], [[concepts/格律.md]], [[concepts/尼采的价值观.md]], [[concepts/智思世界.md]], [[concepts/德福一致.md]], [[concepts/责任.md]], [[concepts/道德哲学.md]], [[concepts/自我关系.md]], [[concepts/机械论自然观.md]], [[concepts/意志软弱.md]], [[concepts/意会世界.md]], [[concepts/宿命论.md]]
+
+**更新页面**：[[康德]], [[尼采]], [[亚里士多德]], [[休谟]], [[自由概念]], [[权力意志]], [[因果关系]], [[道德法则]], [[解放]], [[责任]], [[自我关系]], [[道德哲学]], [[意会世界]], [[机械论自然观]], [[宿命论]]
+
+
+
+## [2026-06-16] ingest | 哲学隐喻的建构性与争议性——以“头足倒置”为例
+
+**创建页面**：[[sources/马天俊-‖马克思对黑格尔辩证法的“颠倒”.md]], [[entities/黑格尔.md]], [[entities/孙杨.md]], [[entities/马天俊.md]], [[entities/耶可比.md]], [[entities/马克思.md]], [[entities/洛克.md]], [[entities/恩格斯.md]], [[entities/阿尔杜塞.md]], [[entities/迪特·亨利希.md]], [[entities/中山大学.md]], [[entities/钱锺书.md]], [[entities/慧能.md]], [[concepts/黑格尔辩证法.md]], [[concepts/颠倒.md]], [[concepts/头足倒置隐喻.md]], [[concepts/症候阅读法.md]], [[concepts/去隐喻化.md]], [[concepts/两柄多边.md]], [[concepts/颠倒的颠倒.md]], [[concepts/哲学隐喻.md]], [[concepts/症候阅读法.md]], [[concepts/绝对精神.md]], [[concepts/隐喻.md]], [[concepts/批判的和革命的辩证法.md]], [[concepts/哲学修辞.md]], [[concepts/总问题.md]], [[concepts/认识即生产.md]], [[concepts/辩证法.md]], [[concepts/法国大革命.md]], [[concepts/合理内核与神秘外壳.md]], [[concepts/批判的和革命的辩证法.md]], [[concepts/信仰与理性的对立.md]]
+
+**更新页面**：[[马克思]], [[黑格尔]], [[耶可比]], [[恩格斯]], [[阿尔杜塞]], [[洛克]], [[慧能]], [[钱锺书]], [[黑格尔辩证法]], [[症候阅读法]], [[绝对精神]], [[总问题]], [[辩证法]], [[法国大革命]]
+
+
+
+## [2026-06-16] ingest | 曼弗雷德·鲍姆：康德实践哲学中的法和伦理（邓晓芒译）
+
+**创建页面**：[[sources/曼弗雷德·鲍姆康德实践哲学中的法和伦理邓晓芒译.md]], [[entities/克里斯提安·托马修斯.md]], [[entities/鲍姆嘉敦.md]], [[entities/曼弗雷德·鲍姆.md]], [[entities/康德.md]], [[entities/邓晓芒.md]], [[concepts/实践哲学.md]], [[entities/霍布斯.md]], [[entities/乌尔皮安.md]], [[entities/格老秀斯.md]], [[entities/沃尔夫.md]], [[concepts/自由法则.md]], [[concepts/法权论.md]], [[concepts/德行学说.md]], [[concepts/道德形而上学.md]], [[concepts/定言命令.md]], [[concepts/权利法则.md]], [[concepts/自然法传统.md]], [[concepts/德行原则.md]], [[concepts/法权义务.md]], [[concepts/德行学说.md]], [[concepts/道德性.md]], [[concepts/合规律性.md]], [[concepts/实践理性.md]], [[concepts/外在自由.md]], [[concepts/内在自由.md]], [[concepts/义务论.md]], [[concepts/人性.md]], [[concepts/人格性禀赋.md]], [[concepts/自我关系.md]], [[concepts/目的.md]]
+
+**更新页面**：[[康德]], [[曼弗雷德·鲍姆]], [[邓晓芒重审要康德还是要黑格尔问题]], [[沃尔夫]], [[霍布斯]], [[实践哲学]], [[法权论]], [[道德形而上学]], [[定言命令]], [[自由法则]], [[权利法则]], [[自然法传统]], [[合规律性]], [[道德性]], [[实践理性]], [[自我关系]], [[人格]], [[义务论]], [[人性]]
+
+
+
+## [2026-06-16] ingest | 否定与理性的异化（一）
+
+**创建页面**：[[sources/漫谈黑格尔精神现象学.md]], [[entities/贝多芬.md]], [[entities/拿破仑.md]], [[entities/马克思.md]], [[entities/歌德.md]], [[entities/黑格尔.md]], [[entities/亚当·斯密.md]], [[entities/霍布斯.md]], [[concepts/精神现象学.md]], [[entities/拉摩的侄儿.md]], [[entities/恩格斯.md]], [[concepts/主奴关系.md]], [[concepts/世界精神.md]], [[concepts/德国古典唯心主义.md]], [[concepts/合题.md]], [[concepts/劳动创造人.md]], [[concepts/逻辑与历史的一致.md]], [[concepts/绝对知识.md]], [[concepts/异化.md]], [[concepts/自我认识.md]], [[concepts/辩证法.md]], [[concepts/分裂的意识.md]]
+
+**更新页面**：[[黑格尔]], [[歌德]], [[贝多芬]], [[拿破仑]], [[马克思]], [[恩格斯]], [[霍布斯]], [[亚当·斯密]], [[精神现象学]], [[世界精神]], [[主奴关系]], [[自我认识]], [[绝对知识]], [[逻辑与历史的一致]], [[辩证法]], [[异化]]
+
+
+
+## [2026-06-16] ingest | 毛姆笔下的维特根斯坦
+
+**创建页面**：[[sources/毛姆笔下的维特根斯坦.md]], [[entities/拉里.md]], [[entities/维特根斯坦.md]], [[entities/毛姆.md]], [[entities/刀锋.md]], [[entities/李文倩.md]], [[entities/魏宁格.md]], [[entities/瑞·蒙克.md]], [[entities/叔本华.md]], [[entities/周煦良.md]], [[entities/伊格尔顿.md]], [[entities/迪迪埃·雷蒙.md]], [[entities/考斯第.md]], [[entities/恩夏姆神父.md]], [[entities/郭勇健.md]], [[entities/第一次世界大战.md]], [[concepts/人生意义.md]], [[concepts/本质自我.md]], [[concepts/现代语境中的宗教信仰.md]], [[concepts/神义论.md]], [[concepts/信仰寻求.md]], [[concepts/希伯来传统.md]], [[concepts/精神纬度.md]], [[concepts/科学进步.md]], [[concepts/欲与爱.md]], [[concepts/根本的决断.md]], [[concepts/无聊.md]], [[concepts/意义创造.md]], [[concepts/自我克制.md]], [[concepts/荒谬与反抗.md]], [[concepts/东西方哲学差异.md]]
+
+**更新页面**：[[维特根斯坦]], [[叔本华]], [[伊格尔顿]], [[人生意义]], [[本质自我]], [[荒谬与反抗]]
+
+
+
+## [2026-06-16] ingest | 论马克思对黑格尔辩证法的继承
+
+**创建页面**：[[sources/没有黑格尔就没有马克思.md]], [[entities/恩格斯.md]], [[entities/费尔巴哈.md]], [[entities/雅各·波墨.md]], [[entities/马克思.md]], [[entities/黑格尔.md]], [[concepts/劳动.md]], [[concepts/人的自我产生.md]], [[concepts/否定性辩证法.md]], [[concepts/唯物史观.md]], [[concepts/精神现象学.md]], [[concepts/历史目的论.md]], [[concepts/社会主义.md]], [[concepts/自然辩证法.md]], [[concepts/自然向人生成.md]], [[concepts/绝对精神.md]], [[concepts/自由.md]]
+
+**更新页面**：[[马克思]], [[黑格尔]], [[恩格斯]], [[费尔巴哈]], [[精神现象学]], [[劳动]], [[唯物史观]], [[社会主义]], [[历史目的论]], [[绝对精神]], [[自然辩证法]], [[解放]]
+
+
+
+## [2026-06-16] ingest | 马克思主义和迷信
+
+**创建页面**：[[sources/梅洛－庞蒂｜马克思主义和迷信.md]], [[entities/恩格斯.md]], [[entities/梅洛-庞蒂.md]], [[entities/拉伊克·拉扎尔.md]], [[entities/布哈林.md]], [[entities/卢卡奇.md]], [[entities/姜志辉.md]], [[concepts/文化.md]], [[concepts/永久魅力.md]], [[concepts/意识形态的曲线.md]], [[concepts/自我批判精神.md]], [[concepts/政治纪律.md]], [[concepts/迷信.md]]
+
+**更新页面**：[[梅洛-庞蒂]], [[布哈林]], [[恩格斯]], [[姜志辉]], [[文化]]
+
+
+
+## [2026-06-16] ingest | 美学：面对世界与人生——叔本华与尼采美学思想浅探
+
+**创建页面**：[[sources/美学面对世界与人生——叔本华与尼采美学思想浅探.md]], [[entities/叔本华.md]], [[entities/罗显克.md]], [[entities/尼采.md]], [[concepts/唯意志论美学.md]], [[concepts/生命意志.md]], [[concepts/悲观主义.md]], [[concepts/权力意志.md]], [[concepts/理念.md]], [[concepts/审美观照.md]], [[concepts/虚无主义.md]], [[concepts/形而上的慰藉.md]], [[concepts/自失.md]], [[concepts/日神精神.md]], [[concepts/酒神精神.md]], [[concepts/艺术与人生.md]], [[concepts/悲剧美学.md]], [[concepts/美的本质.md]]
+
+**更新页面**：[[叔本华]], [[尼采]], [[强力意志]], [[悲观主义]], [[虚无主义]], [[理念]], [[自失]], [[酒神精神]], [[日神精神]], [[形而上的慰藉]], [[悲剧美学]]
+
+
+
+## [2026-06-16] ingest | 叔本华、尼采的唯意志论美学
+
+**创建页面**：[[sources/面对世界与人生——叔本华与尼采美学思想浅探.md]], [[entities/马尔库塞.md]], [[concepts/生命意志.md]], [[entities/尼采.md]], [[concepts/唯意志论美学.md]], [[entities/叔本华.md]], [[concepts/审美观照.md]], [[concepts/悲观主义.md]], [[concepts/虚无主义.md]], [[concepts/理念.md]], [[concepts/权力意志.md]], [[concepts/日神精神.md]], [[concepts/自失.md]], [[concepts/酒神精神.md]], [[concepts/形而上的慰藉.md]], [[concepts/悲剧功能.md]], [[concepts/美的本质.md]], [[concepts/艺术与人生.md]]
+
+**更新页面**：[[叔本华]], [[尼采]], [[马尔库塞]], [[唯意志论美学]], [[生命意志]], [[强力意志]], [[悲观主义]], [[虚无主义]], [[理念]], [[审美观照]], [[自失]], [[酒神精神]], [[日神精神]], [[形而上的慰藉]], [[艺术与人生]], [[美的本质]]
+
+
+
+## [2026-06-16] ingest | 苗力田《道德形而上学原理》序：德性就是力量——从自主到自律
+
+**创建页面**：[[sources/苗力田道德行而上学原理序-德性就是力量——从自主到自律.md]], [[entities/苗力田.md]], [[concepts/德性.md]], [[entities/斯多亚学派.md]], [[entities/亚里士多德.md]], [[entities/康德.md]], [[concepts/责任.md]], [[concepts/定言命令.md]], [[concepts/意志自律.md]], [[concepts/道德法则.md]], [[concepts/善良意志.md]], [[concepts/幸福原则.md]], [[concepts/道德尊严.md]], [[concepts/先天理性.md]], [[concepts/准则.md]], [[concepts/自由概念.md]], [[concepts/自主性.md]], [[concepts/崇高.md]], [[concepts/意志他律性.md]], [[concepts/康德三个命题.md]], [[concepts/道德形而上学.md]], [[concepts/道德价值.md]], [[concepts/目的王国.md]], [[concepts/尊重.md]], [[concepts/纯粹原则.md]]
+
+**更新页面**：[[康德]], [[苗力田]], [[亚里士多德]], [[斯多亚学派]], [[道德]], [[善良意志]], [[责任]], [[自律性]], [[定言命令]], [[幸福原则]], [[准则]], [[自由概念]], [[道德尊严]], [[崇高]], [[道德形而上学]], [[目的王国]], [[道德性]]
+
+
+
+## [2026-06-16] ingest | 黑格尔"存在即合理"的真实含义
+
+**创建页面**：[[sources/命题「存在即合理」跟黑格尔到底有什么关系.md]], [[entities/海涅.md]], [[entities/恩格斯.md]], [[entities/慧田哲学.md]], [[entities/普鲁士国王.md]], [[entities/黑格尔.md]], [[concepts/法哲学.md]], [[concepts/存在即合理.md]], [[concepts/黑格尔原命题.md]], [[concepts/革命锋芒.md]], [[concepts/现实与现存.md]], [[concepts/革命锋芒.md]], [[concepts/官方哲学家.md]]
+
+**更新页面**：[[黑格尔]], [[恩格斯]], [[海涅]], [[慧田哲学]], [[法哲学原理]]
+
+
+
+## [2026-06-16] ingest | 从性善性恶说到命运——兼及黑格尔辩证法
+
+**创建页面**：[[sources/命运就是自作自受-——读黑格尔小逻辑有感.md]], [[entities/黑格尔.md]], [[entities/保尔·戴维斯.md]], [[entities/诺查丹马斯.md]], [[entities/李洪志.md]], [[entities/胡文政.md]], [[concepts/命运.md]], [[entities/袁光钰.md]], [[concepts/自作自受.md]], [[entities/苏梅克.md]], [[concepts/辩证法.md]], [[concepts/性善论.md]], [[concepts/人性本恶.md]], [[concepts/必然.md]], [[concepts/宿命论.md]], [[concepts/偶然性.md]], [[concepts/信仰.md]], [[concepts/热力学第二定律.md]], [[concepts/因果分析.md]], [[concepts/内因.md]], [[concepts/满足.md]], [[concepts/天文学预测.md]], [[concepts/生态破坏.md]], [[concepts/宇宙终极命运.md]], [[concepts/人类未来.md]], [[concepts/自由性.md]], [[concepts/假言判断.md]]
+
+**更新页面**：[[黑格尔]], [[必然]], [[辩证法]], [[偶然性]], [[性善论]], [[人性本恶]], [[宿命论]], [[热力学第二定律]], [[信念]], [[因果分析]], [[假言判断]]
+
+
+
+## [2026-06-16] ingest | 那些年，除了尼采和弗洛伊德外，受叔本华影响比较大的思想名流还有哪些
+
+**创建页面**：[[sources/那些年除了尼采和弗洛伊德外受叔本华影响比较大的思想名流还有哪些.md]], [[entities/托马斯·曼.md]], [[entities/瓦格纳.md]], [[entities/弗洛伊德.md]], [[entities/尼采.md]], [[entities/托尔斯泰.md]], [[entities/维特根斯坦.md]], [[entities/托马斯·哈代.md]], [[entities/普鲁斯特.md]], [[entities/屠格涅夫.md]], [[entities/博尔赫斯.md]], [[entities/左拉.md]], [[entities/莫泊桑.md]], [[entities/叔本华.md]], [[entities/约瑟·康拉德.md]], [[concepts/悲观主义.md]], [[concepts/无意识.md]], [[concepts/意欲.md]], [[concepts/压抑理论.md]], [[concepts/哲学治疗.md]], [[concepts/性爱形而上学.md]], [[concepts/形而上学.md]], [[concepts/自由意志.md]], [[concepts/本我自我超我.md]], [[concepts/作为意欲和表象的世界.md]]
+
+**更新页面**：[[尼采]], [[弗洛伊德]], [[瓦格纳]], [[普鲁斯特]], [[维特根斯坦]], [[悲观主义]], [[无意识]], [[自由概念]], [[形而上学]]
+
+
+
+## [2026-06-16] ingest | 实践与意识、自然与上帝、医生与哲学家、权力与文明
+
+**创建页面**：[[sources/尼采马克思及其他一.md]], [[concepts/唯物史观.md]], [[entities/卢梭.md]], [[entities/康德.md]], [[entities/尼采.md]], [[entities/马克思.md]], [[concepts/自然状态.md]], [[concepts/权力意志.md]], [[concepts/意识形态.md]], [[concepts/贵族德性.md]], [[concepts/超决定作用.md]], [[concepts/自我保存.md]], [[concepts/文明形成史.md]], [[concepts/前道德史.md]], [[concepts/实践过程论.md]], [[concepts/真理意志.md]], [[concepts/阶级斗争.md]], [[concepts/同情法则.md]], [[concepts/辩证唯物主义.md]], [[concepts/道德形成史.md]], [[concepts/公意.md]], [[concepts/自我超克.md]], [[concepts/社会契约.md]], [[concepts/内生性.md]], [[concepts/怨恨与复仇.md]], [[concepts/生产力与生产关系.md]]
+
+**更新页面**：[[马克思]], [[尼采]], [[卢梭]], [[康德]], [[唯物史观]], [[权力意志]], [[意识形态]], [[自然状态]], [[自我保存]], [[阶级斗争]], [[自我超克]], [[社会契约]]
+
+
+
+## [2026-06-16] ingest | 尼采对歌德和黑格尔的评价
+
+**创建页面**：[[sources/尼采对歌德和黑格尔的评价.md]], [[entities/卡尔·洛维特.md]], [[entities/歌德.md]], [[entities/尼采.md]], [[entities/拿破仑.md]], [[entities/黑格尔.md]], [[entities/席勒.md]], [[entities/卢梭.md]], [[entities/斯宾诺莎.md]], [[entities/叔本华.md]], [[entities/瓦格纳.md]], [[concepts/历史决定论.md]], [[concepts/虚无主义.md]], [[concepts/狄奥尼索斯态度.md]], [[concepts/权力意志.md]], [[concepts/永远轮回.md]], [[concepts/基督教道德.md]], [[concepts/实在论.md]], [[concepts/宿命论.md]], [[concepts/自然观.md]], [[concepts/德意志文化.md]], [[concepts/实在辩证法.md]], [[concepts/变易.md]]
+
+**更新页面**：[[卡尔·洛维特]], [[尼采]], [[黑格尔]], [[歌德]], [[拿破仑]], [[席勒]], [[卢梭]], [[叔本华]], [[斯宾诺莎]], [[瓦格纳]], [[虚无主义]], [[历史决定论]], [[基督教道德]], [[宿命论]], [[实在论]]
 
