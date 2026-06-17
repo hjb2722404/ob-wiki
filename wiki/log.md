@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-17T01:25
+updated: 2026-06-17T13:06
 ---
 # Wiki 操作日志
 
@@ -12067,4 +12067,76 @@ updated: 2026-06-17T01:25
 **创建页面**：[[sources/贫穷与疯狂福柯思想中隐秘的黑格尔要素.md]], [[concepts/主奴辩证法.md]], [[entities/依波利特.md]], [[entities/福柯.md]], [[concepts/颠狂与文明.md]], [[entities/黑格尔.md]], [[concepts/劳动.md]], [[concepts/市民社会.md]], [[concepts/监禁.md]], [[concepts/贫穷.md]], [[concepts/理性与非理性.md]], [[concepts/禁闭所.md]], [[concepts/法哲学.md]], [[concepts/贱民.md]], [[concepts/精神现象学.md]], [[concepts/逻辑学.md]], [[concepts/精神分析.md]], [[concepts/承认理论.md]], [[concepts/愚人船.md]], [[concepts/自我认识.md]]
 
 **更新页面**：[[福柯]], [[黑格尔]], [[主奴辩证法]], [[劳动]], [[市民社会]], [[精神现象学]], [[法哲学原理]], [[逻辑学]], [[精神分析]], [[自我认识]], [[承认理论]]
+
+
+
+## [2026-06-17] ingest | 马克思哲学的当代阐释——"回到马克思"的原初理论语境
+
+**创建页面**：[[sources/如何“读出空白”——回到马克思的最初文本｜张一兵.md]], [[entities/张一兵.md]], [[entities/孙伯揆.md]], [[entities/费尔巴哈.md]], [[entities/黑格尔.md]], [[entities/马克思.md]], [[entities/伽达默尔.md]], [[entities/赫斯.md]], [[entities/阿尔杜塞.md]], [[entities/MEGA2.md]], [[entities/胡塞尔.md]], [[concepts/回到马克思.md]], [[entities/波兰尼.md]], [[entities/伊莎贝尔·加罗.md]], [[concepts/文本学.md]], [[concepts/历史现象学.md]], [[concepts/剩余价值理论.md]], [[concepts/功能性深度阅读法.md]], [[concepts/五大解读模式.md]], [[concepts/唯物史观.md]], [[concepts/异化劳动.md]], [[concepts/复调话语.md]], [[concepts/焦点意识.md]], [[concepts/当代性.md]], [[concepts/复调话语结构.md]], [[concepts/支援意识.md]], [[concepts/症候阅读法.md]], [[concepts/巴黎笔记.md]], [[concepts/经济学语境中的哲学话语.md]], [[concepts/双重逻辑说.md]], [[concepts/前苏东传统教科书解释框架.md]], [[concepts/历史阐释效果.md]]
+
+**更新页面**：[[张一兵]], [[孙伯揆]], [[马克思]], [[黑格尔]], [[费尔巴哈]], [[阿尔杜塞]], [[伽达默尔]], [[胡塞尔]], [[赫斯]], [[回到马克思]], [[唯物史观]], [[异化劳动]], [[剩余价值理论]], [[症候阅读法]]
+
+
+
+## [2026-06-17] ingest | 黑格尔论婚姻
+
+**创建页面**：[[sources/齐泽克黑格尔论婚姻.md]], [[entities/黑格尔一个不情愿的现代主义者.md]], [[entities/Wolfgang-Amadeus-Mozart.md]], [[entities/齐泽克.md]], [[entities/卢梭.md]], [[entities/康德.md]], [[entities/吉尔·德勒兹.md]], [[entities/克尔凯郭尔.md]], [[entities/Julie.md]], [[entities/Saint-Preux.md]], [[entities/弗洛伊德.md]], [[entities/雅克·拉康.md]], [[entities/Sade.md]], [[entities/Clifford-Geertz.md]], [[entities/萨义德.md]], [[concepts/性经验.md]], [[concepts/婆罗门.md]], [[concepts/婚姻理论.md]], [[concepts/仪式表演性.md]], [[concepts/康德同萨德.md]], [[concepts/扬弃.md]], [[concepts/自然与文化.md]], [[concepts/主人话语与大学话语.md]], [[concepts/二级否定.md]], [[concepts/纯粹重复.md]], [[concepts/爱与欲望.md]], [[concepts/小客体.md]], [[concepts/去崇高化.md]], [[concepts/伦理阶段.md]], [[concepts/死亡驱力.md]]
+
+**更新页面**：[[黑格尔一个不情愿的现代主义者]], [[卢梭]], [[康德]], [[克尔凯郭尔]], [[吉尔·德勒兹]], [[萨义德]], [[雅克·拉康]], [[扬弃]], [[婆罗门]]
+
+
+
+## [2026-06-17] ingest | 海德格尔的黑格尔批判
+
+**创建页面**：[[sources/齐泽克黑格尔与海德格尔的对决.md]], [[entities/黑格尔一个不情愿的现代主义者.md]], [[entities/齐泽克.md]], [[entities/科耶夫.md]], [[entities/拉康.md]], [[entities/马丁·海德格尔.md]], [[entities/Eisenstein.md]], [[entities/安提戈涅.md]], [[entities/Tarkovsky.md]], [[entities/笛卡儿René-Descartes.md]], [[entities/康德.md]], [[entities/kierkegaard.md]], [[concepts/辩证法与当代哲学的命运——评阿多诺对辩证法的重新诠释.md]], [[concepts/实在界.md]], [[concepts/快感.md]], [[concepts/主体性.md]], [[concepts/我思.md]], [[concepts/两种死亡之间.md]], [[concepts/主人能指.md]], [[concepts/拷问之家.md]], [[concepts/先验的痛苦.md]], [[concepts/死亡驱力.md]], [[concepts/小客体.md]], [[concepts/符号秩序.md]], [[concepts/神圣暴力.md]]
+
+**更新页面**：[[齐泽克]], [[黑格尔一个不情愿的现代主义者]], [[马丁·海德格尔]], [[科耶夫]], [[笛卡儿René-Descartes]], [[康德]], [[安提戈涅]], [[kierkegaard]], [[辩证法与当代哲学的命运——评阿多诺对辩证法的重新诠释]], [[主体间性]], [[我思]], [[小客体]], [[死亡驱力]]
+
+
+
+## [2026-06-17] ingest | 康德与萨德
+
+**创建页面**：[[sources/齐泽克康德与萨德.md]], [[entities/萨德.md]], [[entities/拉康.md]], [[entities/阿多诺.md]], [[entities/齐泽克.md]], [[entities/康德.md]], [[entities/汉娜·阿伦特.md]], [[entities/瓦格纳.md]], [[entities/马尔库塞.md]], [[entities/普里莫·莱维.md]], [[entities/霍克海默.md]], [[entities/巴特勒.md]], [[concepts/康德同萨德.md]], [[entities/帕索里尼.md]], [[entities/福柯.md]], [[entities/弗洛伊德.md]], [[concepts/死亡驱力.md]], [[concepts/启蒙辩证法.md]], [[concepts/魔鬼之恶.md]], [[concepts/压抑的反升华.md]], [[concepts/根本恶.md]], [[concepts/灵魂不朽.md]], [[concepts/奥斯维辛.md]], [[concepts/需要.md]], [[concepts/基本幻想.md]], [[concepts/道德法则.md]], [[concepts/理解与知道.md]], [[concepts/理智之爱.md]], [[concepts/爱欲与死欲.md]]
+
+**更新页面**：[[齐泽克]], [[康德]], [[拉康]], [[阿多诺]], [[阿伦特]], [[马尔库塞]], [[瓦格纳]], [[弗洛伊德]], [[巴特勒]], [[福柯]], [[康德同萨德]], [[死亡驱力]], [[启蒙辩证法]], [[需要]], [[道德法则]], [[灵魂不朽]]
+
+
+
+## [2026-06-17] ingest | 转形问题：从鲍特凯维兹到萨缪尔森
+
+**创建页面**：[[sources/浅议马克思的资本论.md]], [[entities/庞巴维克.md]], [[entities/皮埃罗·斯拉法.md]], [[entities/恩格斯.md]], [[entities/拉迪斯劳斯·冯·鲍特凯维兹.md]], [[entities/马克思.md]], [[concepts/劳动价值论.md]], [[concepts/剩余价值理论.md]], [[entities/保罗·萨缪尔森.md]], [[concepts/唯物史观.md]], [[concepts/转形问题.md]], [[concepts/转形问题.md]], [[concepts/资本论.md]], [[concepts/标准体系.md]], [[concepts/生产价格.md]], [[concepts/标准商品.md]], [[concepts/剥削.md]], [[concepts/利润率趋向下降规律.md]], [[concepts/投入产出模型.md]], [[concepts/无产者贫困化规律.md]]
+
+**更新页面**：[[恩格斯]], [[马克思]], [[劳动价值论]], [[剩余价值理论]], [[唯物史观]], [[资本论]], [[阶级剥削]]
+
+
+
+## [2026-06-17] ingest | 黑格尔青年时期的哲学与友谊——从《埃琉西斯》谈起
+
+**创建页面**：[[sources/青年时代的黑格尔和荷尔德林.md]], [[entities/谢林.md]], [[entities/荷尔德林.md]], [[entities/费希特.md]], [[entities/黑格尔.md]], [[entities/康德.md]], [[entities/图宾根神学院.md]], [[entities/伯尔尼.md]], [[entities/歌德.md]], [[entities/席勒.md]], [[entities/拿破仑.md]], [[entities/耶拿大学.md]], [[entities/人民出版社.md]], [[entities/法国大革命.md]], [[entities/柏林大学.md]], [[entities/埃琉西斯.md]], [[entities/法兰克福.md]], [[entities/耶拿.md]], [[entities/徐培里昂.md]], [[entities/德意志唯心主义的第一个体系纲领.md]], [[entities/纳甲河.md]], [[entities/精神现象学.md]], [[entities/库诺·费舍.md]], [[entities/希腊.md]], [[entities/法哲学原理.md]], [[entities/恩斯特·克里斯托夫·奥托·帕格勒.md]], [[entities/神圣罗马帝国.md]], [[entities/施莱尔马赫.md]], [[entities/普鲁士王国.md]], [[entities/赫尔德.md]], [[entities/诺瓦利斯.md]], [[entities/斯图加特.md]], [[entities/符腾堡公国.md]], [[entities/巴士底狱.md]], [[entities/冯·施泰因.md]], [[concepts/万物如一.md]], [[concepts/泛神论.md]], [[concepts/徐培里昂.md]], [[concepts/古希腊理想.md]], [[concepts/实证宗教.md]], [[concepts/精神现象学.md]], [[concepts/主观宗教与客观宗教.md]], [[concepts/德意志唯心主义的第一个体系纲领.md]], [[concepts/自由树.md]], [[concepts/黑格尔通信百封.md]], [[concepts/绝对自我.md]], [[concepts/美育.md]], [[concepts/图宾根政治俱乐部.md]], [[concepts/自由之树.md]], [[concepts/希腊理想.md]], [[concepts/自在之物.md]], [[concepts/批判哲学的批判.md]], [[concepts/德国浪漫派.md]], [[concepts/自由真理.md]], [[concepts/古希腊精神.md]]
+
+**更新页面**：[[黑格尔]], [[荷尔德林]], [[谢林]], [[费希特]], [[康德]], [[席勒]], [[歌德]], [[拿破仑]], [[图宾根神学院]], [[伯尔尼]], [[耶拿大学]], [[柏林大学]], [[法国大革命]], [[人民出版社]], [[耶拿]], [[法兰克福]], [[德意志唯心主义的第一个体系纲领]], [[精神现象学]], [[法哲学原理]], [[赫尔德]], [[施莱尔马赫]], [[普鲁士王国]], [[斯图加特]], [[泛神论]], [[自由树]], [[主观宗教与客观宗教]], [[自在之物]], [[美育]], [[批判哲学的批判]]
+
+
+
+## [2026-06-17] ingest | 人的本质：马克思对哲学最高问题的回应
+
+**创建页面**：[[sources/人的本质马克思对哲学最高问题的回应.md]], [[entities/张奎良.md]], [[entities/卢格.md]], [[entities/费尔巴哈.md]], [[entities/亚里士多德.md]], [[entities/马克思.md]], [[entities/西西里织工起义.md]], [[entities/詹姆斯·穆勒.md]], [[entities/黑龙江大学哲学学院.md]], [[entities/康德.md]], [[entities/黑格尔.md]], [[concepts/马克思的人的本质理论.md]], [[entities/反杜林论Anti-Dühring.md]], [[entities/神圣家族.md]], [[entities/恩格斯.md]], [[entities/前进报.md]], [[concepts/马克思的人的本质理论.md]], [[concepts/马克思的人的本质理论.md]], [[concepts/共同体本质.md]], [[concepts/发展的本质.md]], [[concepts/马克思的人的本质理论.md]], [[concepts/实践唯物主义.md]], [[concepts/社会关系总和.md]], [[concepts/需要本性.md]], [[concepts/社会本质.md]], [[concepts/实践本质.md]], [[concepts/社会本质.md]], [[concepts/直观唯物主义.md]], [[concepts/抽象的人的本质观.md]], [[concepts/异化.md]], [[concepts/人的实践本质.md]], [[concepts/感性活动.md]], [[concepts/发展的本质.md]], [[concepts/人的全面发展.md]], [[concepts/对象化活动.md]], [[concepts/科学的人的本质观.md]], [[concepts/德意志意识形态.md]], [[concepts/自由人联合体.md]], [[concepts/1844年经济学哲学手稿.md]], [[concepts/有意识的生命活动.md]], [[concepts/关于费尔巴哈的提纲.md]], [[concepts/异化劳动.md]], [[concepts/马克思的人的本质理论.md]], [[concepts/社会关系总和.md]], [[concepts/抽象的人的本质.md]], [[concepts/马克思的人的本质理论.md]]
+
+**更新页面**：[[马克思]], [[费尔巴哈]], [[亚里士多德]], [[康德]], [[黑格尔]], [[恩格斯]], [[反杜林论Anti-Dühring]], [[马克思的人的本质理论]], [[新唯物主义]], [[异化]], [[直观唯物主义]], [[感性活动]], [[自由人联合体]], [[1844年经济学哲学手稿]], [[马克思费尔巴哈你错了]], [[德意志意识形态]], [[异化劳动]]
+
+
+
+## [2026-06-17] ingest | 马克思关于人的五个命题——从类逻辑到资本逻辑的转换
+
+**创建页面**：[[sources/人的存在与自由——马克思关于人的五个论题.md]], [[entities/仰海峰.md]], [[entities/皮埃尔-约瑟夫·蒲鲁东.md]], [[entities/雅克·德里达.md]], [[entities/费尔巴哈.md]], [[entities/黑格尔.md]], [[concepts/社会关系总和.md]], [[concepts/人既是剧中人也是剧作者.md]], [[concepts/资本家是资本的人格化.md]], [[concepts/人是人的最高本质.md]], [[concepts/人的自由而全面的发展.md]], [[concepts/资本逻辑.md]], [[concepts/类逻辑.md]], [[concepts/市民社会.md]], [[concepts/生产逻辑.md]], [[concepts/人的解放.md]], [[concepts/现实的人.md]], [[concepts/商品拜物教.md]], [[concepts/对象化.md]], [[concepts/异化劳动.md]], [[concepts/必然王国与自由王国.md]], [[concepts/自由人联合体.md]], [[concepts/必然王国与自由王国.md]], [[concepts/历史性原则.md]], [[concepts/人的类本质.md]], [[concepts/颠倒方法.md]], [[concepts/人的类本质.md]], [[concepts/形式化的世界.md]], [[concepts/人既是剧中人也是剧作者.md]], [[concepts/马克思的人的本质理论.md]], [[concepts/人的依赖关系.md]], [[concepts/必然王国与自由王国.md]], [[concepts/资本家是资本的人格化.md]]
+
+**更新页面**：[[仰海峰]], [[费尔巴哈]], [[黑格尔]], [[皮埃尔-约瑟夫·蒲鲁东]], [[雅克·德里达]], [[社会关系总和]], [[类逻辑]], [[资本逻辑]], [[市民社会]], [[对象化活动]], [[现实的人]], [[马克思的拜物教批判]], [[异化劳动]], [[自由人联合体]], [[马克思的人的本质理论]]
+
+
+
+## [2026-06-17] ingest | 三位西方大师对《易经》的赞叹
+
+**创建页面**：[[sources/荣格黑格尔莱布尼茨如何评价易经.md]], [[entities/牛顿.md]], [[entities/荣格.md]], [[entities/莱布尼茨.md]], [[entities/弗洛伊德.md]], [[entities/黑格尔.md]], [[concepts/周易.md]], [[concepts/二进制计算机.md]], [[entities/伏羲.md]], [[entities/拉普拉斯.md]], [[concepts/同时性原理.md]], [[concepts/分析心理学.md]], [[concepts/阴阳.md]], [[concepts/抽象思辨.md]], [[concepts/辩证法.md]], [[concepts/绝对精神.md]], [[concepts/八卦.md]]
+
+**更新页面**：[[荣格]], [[黑格尔]], [[莱布尼茨]], [[弗洛伊德]], [[牛顿]], [[易经]], [[二进制计算机]], [[辩证法]], [[绝对精神]], [[分析心理学]], [[抽象思辨]]
 
