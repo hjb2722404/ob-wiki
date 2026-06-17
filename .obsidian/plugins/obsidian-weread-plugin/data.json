@@ -6,7 +6,7 @@
   "insertAfter": "<!-- start of weread -->",
   "insertBefore": "<!-- end of weread -->",
   "dailyNotesFormat": "YYYY-MM-DD",
-  "lastCookieTime": 1781599618332,
+  "lastCookieTime": 1781657617678,
   "isCookieValid": false,
   "user": "",
   "userVid": "",
@@ -39,10 +39,40 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 180,
-  "lastSyncTime": 1781610915346,
+  "lastSyncTime": 1781642821183,
   "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1781642820650",
+      "timestamp": 1781642820650,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.532,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1781632020661",
+      "timestamp": 1781632020661,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.513,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1781621220660",
+      "timestamp": 1781621220660,
+      "totalBooks": 0,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.952,
+      "notes": [],
+      "success": true
+    },
     {
       "id": "sync-1781610913865",
       "timestamp": 1781610913865,
@@ -110,36 +140,6 @@
       "syncedBooks": 0,
       "skippedBooks": 0,
       "duration": 0.614,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1781526386018",
-      "timestamp": 1781526386018,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.925,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1781515586707",
-      "timestamp": 1781515586707,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.687,
-      "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1781346193008",
-      "timestamp": 1781346193008,
-      "totalBooks": 0,
-      "syncedBooks": 0,
-      "skippedBooks": 0,
-      "duration": 0.758,
       "notes": [],
       "success": true
     }
