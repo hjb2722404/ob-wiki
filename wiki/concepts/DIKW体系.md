@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/明晰研究院：重新定义知识——辨析知识与易混概念，拆解知识的本质与价值-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [theory]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/明晰研究院重新定义知识——辨析知识与易混概念拆解知识的本质与价值-2026年06月10日-来自get-笔记]]"
+tags:
+  - theory
 aliases:
-  - "DIKW Pyramid"
-  - "DIKW Hierarchy"
-  - "数据-信息-知识-智慧模型"
+  - DIKW Pyramid
+  - DIKW Hierarchy
+  - 数据-信息-知识-智慧模型
 ---
 
 

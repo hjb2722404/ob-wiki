@@ -1,11 +1,13 @@
 ---
 type: entity
 created: 2026-06-16
-updated: 2026-06-16
-sources: ["[[_raw/西哲/珀格勒：回忆黑格尔、海德格尔与伽达默尔.md]]"]
-tags: [person]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/珀格勒回忆黑格尔海德格尔与伽达默尔]]"
+tags:
+  - person
 aliases:
-  - "Oskar Becker"
+  - Oskar Becker
 ---
 
 

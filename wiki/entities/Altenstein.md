@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/诗意的精神——黑格尔哲学概略（2_4）.md]]"]
-tags: [person]
+updated: 2026-06-21T22:41
+sources:
+  - "[[sources/诗意的精神——黑格尔哲学概略2_4]]"
+tags:
+  - person
 aliases:
-  - "卡尔·冯·阿斯滕施泰因"
-  - "Karl von Altenstein"
-  - "阿斯滕施泰因"
+  - 卡尔·冯·阿斯滕施泰因
+  - Karl von Altenstein
+  - 阿斯滕施泰因
 ---
 
 

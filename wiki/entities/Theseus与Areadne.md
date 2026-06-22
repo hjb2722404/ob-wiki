@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/叔本华：爱情、女人和死亡.md]]"]
-tags: [person]
+updated: 2026-06-21T22:41
+sources:
+  - "[[sources/叔本华爱情女人和死亡]]"
+tags:
+  - person
 aliases:
-  - "Theseus and Ariadne"
-  - "忒修斯与阿里阿德涅"
-  - "Theseus und Areadne"
+  - Theseus and Ariadne
+  - 忒修斯与阿里阿德涅
+  - Theseus und Areadne
 ---
 
 

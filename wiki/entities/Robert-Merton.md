@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/重新解析「流弊」：分辨传统与现代语境中好概念的本意与异化弊病-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [person]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/重新解析「流弊」分辨传统与现代语境中好概念的本意与异化弊病-2026年06月10日-来自get-笔记]]"
+tags:
+  - person
 aliases:
-  - "Robert K. Merton"
-  - "R.K. Merton"
-  - "默顿"
+  - Robert K. Merton
+  - R.K. Merton
+  - 默顿
 ---
 
 

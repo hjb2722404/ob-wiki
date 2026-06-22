@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/是我们把马克思的\"实践主义\"动物化了.md]]"]
-tags: [term]
+updated: 2026-06-21T22:44
+sources:
+  - "[[sources/是我们把马克思的实践主义动物化了]]"
+tags:
+  - term
 aliases:
-  - "实践方法"
-  - "德文Praktik"
+  - 实践方法
+  - 德文Praktik
 ---
 
 

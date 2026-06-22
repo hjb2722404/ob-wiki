@@ -1,12 +1,15 @@
 ---
 type: concept
 created: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/重新理解复杂性科学：定义、起源、核心问题，及与东方传统智慧的共鸣-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [theory]
+sources:
+  - "[[sources/重新理解复杂性科学定义起源核心问题及与东方传统智慧的共鸣-2026年06月10日-来自get-笔记]]"
+tags:
+  - theory
 aliases:
-  - "Complex Adaptive System"
-  - "CAS"
-  - "复杂适应系统理论"
+  - Complex Adaptive System
+  - CAS
+  - 复杂适应系统理论
+updated: 2026-06-21T22:47
 ---
 
 

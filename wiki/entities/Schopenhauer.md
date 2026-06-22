@@ -1,10 +1,10 @@
 ---
 type: entity
 created: 2026-06-11
-updated: 2026-06-17T21:39
+updated: 2026-06-21T22:42
 sources:
   - "[[sources/胡克：《对卡尔·马克思的理解》读书笔记]]"
-  - "[[_raw/西哲/诗意的精神——黑格尔哲学概略（2_4）.md]]"
+  - "[[sources/诗意的精神——黑格尔哲学概略2_4]]"
 tags:
   - person
 aliases:

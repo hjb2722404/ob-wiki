@@ -1,11 +1,11 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-17T10:03
+updated: 2026-06-21T22:42
 sources:
   - "[[sources/洛维特｜谢林克尔凯郭尔和马克思]]"
   - "[[sources/马克思与虚无主义：从马克思批判施蒂纳的角度看｜刘森林]]"
-  - "[[_raw/西哲/齐泽克：黑格尔与海德格尔的对决.md]]"
+  - "[[sources/齐泽克黑格尔与海德格尔的对决]]"
 tags:
   - person
 aliases:

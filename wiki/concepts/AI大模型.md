@@ -1,14 +1,16 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/逻辑学≠理性主义≠主体成熟：AI时代如何完整理解人的位置-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [technology]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/逻辑学≠理性主义≠主体成熟ai时代如何完整理解人的位置-2026年06月10日-来自get-笔记]]"
+tags:
+  - technology
 aliases:
-  - "Large Language Models"
-  - "LLM"
-  - "大型语言模型"
-  - "AI大语言模型"
+  - Large Language Models
+  - LLM
+  - 大型语言模型
+  - AI大语言模型
 ---
 
 

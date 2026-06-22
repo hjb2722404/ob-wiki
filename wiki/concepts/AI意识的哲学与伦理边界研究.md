@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/未来意识研究的十大方向梳理-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [theory]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/未来意识研究的十大方向梳理-2026年06月10日-来自get-笔记]]"
+tags:
+  - theory
 aliases:
-  - "Research on the Philosophical and Ethical Boundaries of AI Consciousness"
-  - "AI Consciousness Studies"
-  - "人工智能意识哲学伦理研究"
+  - Research on the Philosophical and Ethical Boundaries of AI Consciousness
+  - AI Consciousness Studies
+  - 人工智能意识哲学伦理研究
 ---
 
 

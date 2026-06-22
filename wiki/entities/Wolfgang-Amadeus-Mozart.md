@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/齐泽克：黑格尔论婚姻.md]]"]
-tags: [person]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/齐泽克黑格尔论婚姻]]"
+tags:
+  - person
 aliases:
-  - "莫扎特"
-  - "W.A. Mozart"
-  - "沃尔夫冈·莫扎特"
+  - 莫扎特
+  - W.A. Mozart
+  - 沃尔夫冈·莫扎特
 ---
 
 

@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/未来意识研究的十大方向梳理-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [organization]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/未来意识研究的十大方向梳理-2026年06月10日-来自get-笔记]]"
+tags:
+  - organization
 aliases:
-  - "TO Organization"
-  - "TO组织案例"
+  - TO Organization
+  - TO组织案例
 ---
 
 

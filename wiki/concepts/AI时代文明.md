@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/明晰研究院：重新定义什么是文明——中西方词源辨析、概念演变与当代价值-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [term]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/明晰研究院重新定义什么是文明——中西方词源辨析概念演变与当代价值-2026年06月10日-来自get-笔记]]"
+tags:
+  - term
 aliases:
-  - "Civilization in the AI Era"
-  - "人工智能时代文明"
-  - "AI时代文明概念"
+  - Civilization in the AI Era
+  - 人工智能时代文明
+  - AI时代文明概念
 ---
 
 

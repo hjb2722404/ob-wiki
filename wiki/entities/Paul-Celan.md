@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-16
-updated: 2026-06-16
-sources: ["[[sources/珀格勒回忆黑格尔海德格尔与伽达默尔|珀格勒回忆黑格尔海德格尔与伽达默尔]]"]
-tags: [person]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/珀格勒回忆黑格尔海德格尔与伽达默尔]]"
+tags:
+  - person
 aliases:
-  - "Paul Celan"
-  - "保尔·策兰"
+  - Paul Celan
+  - 保尔·策兰
 ---
 
 

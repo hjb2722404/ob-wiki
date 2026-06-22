@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/明晰研究院主体意识四层框架：整合各类意识理论，重新锚定「我」的主轴-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [method]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/明晰研究院主体意识四层框架整合各类意识理论重新锚定「我」的主轴-2026年06月10日-来自get-笔记]]"
+tags:
+  - method
 aliases:
-  - "Dialectical Behavior Therapy"
-  - "辩证行为疗法"
+  - Dialectical Behavior Therapy
+  - 辩证行为疗法
 ---
 
 

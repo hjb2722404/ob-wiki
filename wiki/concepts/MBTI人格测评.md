@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/荣格「集体无意识」完整解析：从理论原型到企业应用的核心框架-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [method]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/荣格「集体无意识」完整解析从理论原型到企业应用的核心框架-2026年06月10日-来自get-笔记]]"
+tags:
+  - method
 aliases:
-  - "Myers-Briggs Type Indicator"
-  - "迈尔斯-布里格斯类型指标"
-  - "MBTI测评"
+  - Myers-Briggs Type Indicator
+  - 迈尔斯-布里格斯类型指标
+  - MBTI测评
 ---
 
 

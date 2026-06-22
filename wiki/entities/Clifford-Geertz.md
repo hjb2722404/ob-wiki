@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/齐泽克：黑格尔论婚姻.md]]"]
-tags: [other]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/齐泽克黑格尔论婚姻]]"
+tags:
+  - other
 aliases:
-  - "Clifford Geertz"
-  - "格尔茨"
-  - "克里福德·格尔茨"
+  - Clifford Geertz
+  - 格尔茨
+  - 克里福德·格尔茨
 ---
 
 

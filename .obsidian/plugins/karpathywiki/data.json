@@ -32,6 +32,9 @@
     }
   ],
   "enableSchema": true,
+  "tagVocabularyMode": "default",
+  "customEntityTags": "",
+  "customConceptTags": "",
   "extractionGranularity": "fine",
   "autoWatchSources": true,
   "autoWatchMode": "auto",
@@ -40,11 +43,15 @@
     "_raw/",
     "Clippings/"
   ],
-  "periodicLint": "hourly",
+  "periodicLint": "daily",
   "startupCheck": true,
+  "autoSmartFix": false,
   "pageGenerationConcurrency": 5,
   "batchDelayMs": 700,
   "lastOfferedQueryHash": "",
   "llmReady": true,
-  "maxTokensPerCall": 0
+  "maxTokensPerCall": 0,
+  "disableThinking": false,
+  "advancedSettingsMode": "default",
+  "slugCase": "lower"
 }

@@ -1,10 +1,10 @@
 ---
 type: entity
 created: 2026-06-02
-updated: 2026-06-17T12:21
+updated: 2026-06-21T22:42
 sources:
   - "[[sources/邓晓芒波普尔压根就没读懂过黑格尔就开始批判]]"
-  - "[[_raw/西哲/人的本质：马克思对哲学最高问题的回应.md]]"
+  - "[[sources/人的本质马克思对哲学最高问题的回应]]"
 tags:
   - product
 aliases:

@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/叔本华：生命的下半场.md]]"]
-tags: [person]
+updated: 2026-06-21T22:41
+sources:
+  - "[[sources/叔本华生命的下半场]]"
+tags:
+  - person
 aliases:
-  - "埃琳娜·舒米洛娃"
-  - "Elena Shumilova Photography"
+  - 埃琳娜·舒米洛娃
+  - Elena Shumilova Photography
 ---
 
 

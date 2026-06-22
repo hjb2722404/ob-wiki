@@ -1,15 +1,17 @@
 ---
 type: concept
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/叔本华：关于音乐.md]]"]
-tags: [term]
+updated: 2026-06-21T22:44
+sources:
+  - "[[sources/叔本华关于音乐]]"
+tags:
+  - term
 aliases:
-  - "普遍性"
-  - "共相"
-  - "universalia post rem"
-  - "universalia ante rem"
-  - "universalia in rem"
+  - 普遍性
+  - 共相
+  - universalia post rem
+  - universalia ante rem
+  - universalia in rem
 ---
 
 

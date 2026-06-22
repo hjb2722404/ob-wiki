@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/叔本华 _ 论天才.md]]"]
-tags: [person]
+updated: 2026-06-21T22:41
+sources:
+  - "[[sources/叔本华-_-论天才]]"
+tags:
+  - person
 aliases:
-  - "弗朗西斯科·伍德曼"
-  - "Woodman"
+  - 弗朗西斯科·伍德曼
+  - Woodman
 ---
 
 

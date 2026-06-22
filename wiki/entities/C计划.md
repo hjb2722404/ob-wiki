@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-18
-updated: 2026-06-18
-sources: ["[[_raw/西哲/为什么要做一个有逻辑的人？.md]]"]
-tags: [organization]
+updated: 2026-06-21T22:41
+sources:
+  - "[[sources/为什么要做一个有逻辑的人]]"
+tags:
+  - organization
 aliases:
-  - "Plan C"
-  - "C-Plan"
+  - Plan C
+  - C-Plan
 ---
 
 

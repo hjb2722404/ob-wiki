@@ -8,6 +8,9 @@ var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -22,870 +25,2112 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
+// src/types.ts
+var WIKI_LANGUAGES, VALID_ENTITY_TAGS, VALID_CONCEPT_TAGS, VALID_SOURCE_TAGS, PREDEFINED_PROVIDERS, DEFAULT_SETTINGS;
+var init_types = __esm({
+  "src/types.ts"() {
+    WIKI_LANGUAGES = {
+      "en": "English",
+      "zh": "\u4E2D\u6587",
+      "ja": "\u65E5\u672C\u8A9E",
+      "ko": "\uD55C\uAD6D\uC5B4",
+      "de": "Deutsch",
+      "fr": "Fran\xE7ais",
+      "es": "Espa\xF1ol",
+      "pt": "Portugu\xEAs"
+    };
+    VALID_ENTITY_TAGS = ["person", "organization", "project", "product", "event", "place", "other"];
+    VALID_CONCEPT_TAGS = ["theory", "method", "field", "phenomenon", "standard", "term", "other"];
+    VALID_SOURCE_TAGS = [
+      "paper",
+      "article",
+      "book",
+      "transcript",
+      "clippings",
+      "notes",
+      "other"
+    ];
+    PREDEFINED_PROVIDERS = {
+      openai: {
+        id: "openai",
+        name: "OpenAI",
+        nameEn: "OpenAI",
+        nameZh: "OpenAI",
+        baseUrl: "https://api.openai.com/v1",
+        apiKeyPlaceholder: "sk-...",
+        apiKeyPlaceholderEn: "sk-...",
+        apiKeyPlaceholderZh: "sk-...",
+        requiresBaseUrl: false
+      },
+      anthropic: {
+        id: "anthropic",
+        name: "Anthropic (Claude)",
+        nameEn: "Anthropic (Claude)",
+        nameZh: "Anthropic (Claude)",
+        baseUrl: "",
+        apiKeyPlaceholder: "sk-ant-...",
+        apiKeyPlaceholderEn: "sk-ant-...",
+        apiKeyPlaceholderZh: "sk-ant-...",
+        requiresBaseUrl: false
+      },
+      gemini: {
+        id: "gemini",
+        name: "Google Gemini",
+        nameEn: "Google Gemini",
+        nameZh: "Google Gemini",
+        baseUrl: "https://generativelanguage.googleapis.com/v1beta/openai",
+        apiKeyPlaceholder: "AIza...",
+        apiKeyPlaceholderEn: "AIza...",
+        apiKeyPlaceholderZh: "AIza...",
+        requiresBaseUrl: false
+      },
+      openrouter: {
+        id: "openrouter",
+        name: "OpenRouter",
+        nameEn: "OpenRouter",
+        nameZh: "OpenRouter",
+        baseUrl: "https://openrouter.ai/api/v1",
+        apiKeyPlaceholder: "sk-or-...",
+        apiKeyPlaceholderEn: "sk-or-...",
+        apiKeyPlaceholderZh: "sk-or-...",
+        requiresBaseUrl: false
+      },
+      deepseek: {
+        id: "deepseek",
+        name: "DeepSeek",
+        nameEn: "DeepSeek",
+        nameZh: "DeepSeek",
+        baseUrl: "https://api.deepseek.com/v1",
+        apiKeyPlaceholder: "sk-...",
+        apiKeyPlaceholderEn: "sk-...",
+        apiKeyPlaceholderZh: "sk-...",
+        requiresBaseUrl: false
+      },
+      minimax: {
+        id: "minimax",
+        name: "MiniMax",
+        nameEn: "MiniMax",
+        nameZh: "MiniMax",
+        baseUrl: "https://api.minimaxi.com/v1",
+        apiKeyPlaceholder: "sk-cp-...",
+        apiKeyPlaceholderEn: "sk-cp-...",
+        apiKeyPlaceholderZh: "sk-cp-...",
+        requiresBaseUrl: false
+      },
+      kimi: {
+        id: "kimi",
+        name: "Kimi (Moonshot)",
+        nameEn: "Kimi (Moonshot)",
+        nameZh: "Kimi (Moonshot)",
+        baseUrl: "https://api.moonshot.cn/v1",
+        apiKeyPlaceholder: "sk-...",
+        apiKeyPlaceholderEn: "sk-...",
+        apiKeyPlaceholderZh: "sk-...",
+        requiresBaseUrl: false
+      },
+      glm: {
+        id: "glm",
+        name: "GLM (Zhipu AI)",
+        nameEn: "GLM (Zhipu AI)",
+        nameZh: "GLM (\u667A\u8C31AI)",
+        baseUrl: "https://open.bigmodel.cn/api/paas/v4",
+        apiKeyPlaceholder: "...",
+        apiKeyPlaceholderEn: "...",
+        apiKeyPlaceholderZh: "...",
+        requiresBaseUrl: false
+      },
+      ollama: {
+        id: "ollama",
+        name: "Ollama (Local)",
+        nameEn: "Ollama (Local)",
+        nameZh: "Ollama (\u672C\u5730)",
+        baseUrl: "http://localhost:11434/v1",
+        apiKeyPlaceholder: "ollama (no Key required)",
+        apiKeyPlaceholderEn: "ollama (no Key required)",
+        apiKeyPlaceholderZh: "ollama (\u65E0\u9700Key)",
+        requiresBaseUrl: false
+      },
+      lmstudio: {
+        id: "lmstudio",
+        name: "LM Studio (Local)",
+        nameEn: "LM Studio (Local)",
+        nameZh: "LM Studio\uFF08\u672C\u5730\uFF09",
+        baseUrl: "http://localhost:1234/v1",
+        apiKeyPlaceholder: "lmstudio",
+        apiKeyPlaceholderEn: "lmstudio (optional)",
+        apiKeyPlaceholderZh: "lmstudio\uFF08\u53EF\u9009\uFF09",
+        requiresBaseUrl: false
+      },
+      custom: {
+        id: "custom",
+        name: "Custom OpenAI-Compatible",
+        nameEn: "Custom OpenAI-Compatible",
+        nameZh: "\u81EA\u5B9A\u4E49 OpenAI \u517C\u5BB9",
+        baseUrl: "",
+        apiKeyPlaceholder: "API Key",
+        apiKeyPlaceholderEn: "API Key",
+        apiKeyPlaceholderZh: "API Key",
+        requiresBaseUrl: true
+      },
+      "anthropic-compatible": {
+        id: "anthropic-compatible",
+        name: "Custom Anthropic-Compatible",
+        nameEn: "Custom Anthropic-Compatible",
+        nameZh: "\u81EA\u5B9A\u4E49 Anthropic \u517C\u5BB9",
+        baseUrl: "",
+        apiKeyPlaceholder: "API Key",
+        apiKeyPlaceholderEn: "API Key",
+        apiKeyPlaceholderZh: "API Key",
+        requiresBaseUrl: true
+      }
+    };
+    DEFAULT_SETTINGS = {
+      provider: "anthropic",
+      apiKey: "",
+      baseUrl: "",
+      model: "",
+      // No hardcoded default — user must fetch models or enter manually
+      wikiFolder: "wiki",
+      language: "en",
+      wikiLanguage: "en",
+      useCustomWikiLanguage: false,
+      availableModels: [],
+      useCustomModel: false,
+      maxConversationHistory: 30,
+      queryHistory: [],
+      // Schema
+      enableSchema: true,
+      // Issue #85: tag vocabulary
+      tagVocabularyMode: "default",
+      customEntityTags: "",
+      customConceptTags: "",
+      // Extraction
+      extractionGranularity: "standard",
+      // Auto-maintenance
+      autoWatchSources: false,
+      autoWatchMode: "notify",
+      autoWatchDebounceMs: 5e3,
+      watchedFolders: [],
+      periodicLint: "off",
+      startupCheck: true,
+      // Issue #81: default ON for low-level format fixes
+      autoSmartFix: false,
+      // Ingestion acceleration (default: 3 parallel for most providers)
+      pageGenerationConcurrency: 3,
+      batchDelayMs: 500,
+      // Query dedup
+      lastOfferedQueryHash: "",
+      // LLM readiness
+      llmReady: false,
+      // Issue #75: cap max_tokens per LLM call. 0 = no cap (cloud default).
+      // Local model users can set this when the provider is Ollama, LM Studio,
+      // custom, or anthropic-compatible.
+      maxTokensPerCall: 0,
+      // v1.20.0: default false. The plugin does NOT send any thinking-control
+      // field unless the user explicitly enables "Disable thinking" in Custom
+      // Advanced Settings. The provider decides its own reasoning behavior; any
+      // reasoning that does appear in the response is folded into a collapsible
+      // <details> block in the Query Wiki UI so it never visually intrudes on
+      // the answer. Setting name kept for v1.18.2 data.json backward compat.
+      disableThinking: false,
+      // Advanced settings mode — default hides the toggles, custom reveals them.
+      advancedSettingsMode: "default",
+      // Issue #111: default to 'lower' for backwards compatibility.
+      slugCase: "lower"
+    };
+  }
+});
+
+// src/constants.ts
+var WIKI_SUBFOLDERS, PAGES_CACHE_TTL_MS, CUSTOM_LIMIT_MAX, CUSTOM_LIMIT_MIN, CUSTOM_BATCH_SIZE_MAX, TOKENS_PER_ITEM_BUDGET, SOURCE_ANALYZER_RETRY_MULTIPLIER, MAX_TOKENS_BATCH, TOKENS_PAGE_GENERATION, TOKENS_APPEND_REVIEWED, TOKENS_CONTRADICTION, TOKENS_CONVERSATION_EXTRACTION, TOKENS_CONVERSATION_PAGE, TOKENS_DEDUP_RESOLUTION, TOKENS_LINT_ALIAS_BATCH, TOKENS_LINT_DEDUP_LLM, TOKENS_LINT_PAGE_FIX, TOKENS_LINT_ORPHAN_FIX, TOKENS_QUERY_MODEL_DETECT, TOKENS_QUERY_PAGE_SELECT, TOKENS_QUERY_LLM_SELECT, TOKENS_QUERY_SAVE_DEDUP, TOKENS_SCHEMA_SUGGESTION, MAX_PAGE_CONTENT_CHARS, MAX_RETRIES, RETRY_BASE_DELAY_MS, NOTICE_BRIEF, NOTICE_SHORT, NOTICE_WATCHER, NOTICE_NORMAL, NOTICE_ABORT, NOTICE_ERROR, NOTICE_RATE_LIMIT;
+var init_constants = __esm({
+  "src/constants.ts"() {
+    WIKI_SUBFOLDERS = {
+      entities: "entities",
+      concepts: "concepts",
+      sources: "sources"
+    };
+    PAGES_CACHE_TTL_MS = 5e3;
+    CUSTOM_LIMIT_MAX = 500;
+    CUSTOM_LIMIT_MIN = 1;
+    CUSTOM_BATCH_SIZE_MAX = 50;
+    TOKENS_PER_ITEM_BUDGET = 400;
+    SOURCE_ANALYZER_RETRY_MULTIPLIER = 3;
+    MAX_TOKENS_BATCH = 16e3;
+    TOKENS_PAGE_GENERATION = 8e3;
+    TOKENS_APPEND_REVIEWED = 4e3;
+    TOKENS_CONTRADICTION = 4e3;
+    TOKENS_CONVERSATION_EXTRACTION = 5e3;
+    TOKENS_CONVERSATION_PAGE = 8e3;
+    TOKENS_DEDUP_RESOLUTION = 1e3;
+    TOKENS_LINT_ALIAS_BATCH = 500;
+    TOKENS_LINT_DEDUP_LLM = 4e3;
+    TOKENS_LINT_PAGE_FIX = 8e3;
+    TOKENS_LINT_ORPHAN_FIX = 800;
+    TOKENS_QUERY_MODEL_DETECT = 100;
+    TOKENS_QUERY_PAGE_SELECT = 500;
+    TOKENS_QUERY_LLM_SELECT = 3e3;
+    TOKENS_QUERY_SAVE_DEDUP = 300;
+    TOKENS_SCHEMA_SUGGESTION = 1e3;
+    MAX_PAGE_CONTENT_CHARS = 12800;
+    MAX_RETRIES = 2;
+    RETRY_BASE_DELAY_MS = 1e3;
+    NOTICE_BRIEF = 2e3;
+    NOTICE_SHORT = 3e3;
+    NOTICE_WATCHER = 4e3;
+    NOTICE_NORMAL = 5e3;
+    NOTICE_ABORT = 6e3;
+    NOTICE_ERROR = 8e3;
+    NOTICE_RATE_LIMIT = 1e4;
+  }
+});
+
+// src/core/markdown.ts
+function cleanMarkdownResponse(response) {
+  console.debug("cleanMarkdownResponse input length:", response.length);
+  let cleaned = response.trim();
+  cleaned = cleaned.replace(/<think\b[^>]*>[\s\S]*?<\/think>/gi, "");
+  cleaned = cleaned.replace(/<thinking\b[^>]*>[\s\S]*?<\/thinking>/gi, "");
+  if (cleaned.indexOf("\n---\n") === -1) {
+    const headerMatch = cleaned.match(/\n#{1,2} \S/);
+    if (headerMatch) {
+      const cutIdx = cleaned.indexOf(headerMatch[0]);
+      if (cutIdx > 0) {
+        cleaned = cleaned.slice(cutIdx + 1).replace(/^\s+/, "");
+      }
+    }
+  }
+  const codeBlockPatterns = [
+    /^```(?:markdown|md)?\s*\n([\s\S]*?)\n```$/gm,
+    /^```(?:markdown|md)?\s*([\s\S]*?)```$/gm,
+    /^```(?:markdown|md)?\s*\n([\s\S]*)$/gm,
+    /^```(?:markdown|md)?\s*([\s\S]*)$/gm
+  ];
+  for (const pattern of codeBlockPatterns) {
+    const match = cleaned.match(pattern);
+    if (match) {
+      cleaned = cleaned.replace(pattern, "$1").trim();
+      console.debug("code block wrapping detected, removed");
+      break;
+    }
+  }
+  if (cleaned.startsWith("```")) {
+    cleaned = cleaned.replace(/^```(?:markdown|md)?\s*\n?/, "");
+    console.debug("removed opening code block marker");
+  }
+  if (cleaned.endsWith("```")) {
+    cleaned = cleaned.replace(/\n?```$/, "");
+    console.debug("removed closing code block marker");
+  }
+  console.debug("cleanMarkdownResponse output length:", cleaned.length);
+  console.debug("first 50 chars:", cleaned.substring(0, 50));
+  if (!cleaned.startsWith("---")) {
+    const fmEnd = cleaned.indexOf("\n---\n");
+    if (fmEnd !== -1) {
+      const beforeFm = cleaned.substring(0, fmEnd);
+      const looksLikeFrontmatter = beforeFm.includes(":") && !beforeFm.startsWith("#") && !beforeFm.startsWith("```") && beforeFm.split("\n").filter((l) => l.trim()).every((l) => l.includes(":") || l.trim() === "");
+      if (looksLikeFrontmatter) {
+        cleaned = "---\n" + cleaned;
+        console.debug("added missing opening ---");
+      } else {
+        cleaned = cleaned.substring(fmEnd + 1);
+        console.debug("removed preamble text before frontmatter");
+      }
+    }
+  }
+  return cleaned.trim();
+}
+function extractThinkingBlocks(content) {
+  if (!content) {
+    return { thinkingBlocks: [], visibleContent: "" };
+  }
+  const blockRegex = /<think(?:ing)?\b[^>]*>[\s\S]*?<\/think(?:ing)?>\s*/gi;
+  const thinkingBlocks = [];
+  let visibleContent = content.replace(blockRegex, (_match) => {
+    return "";
+  });
+  const innerRegex = /<think(?:ing)?\b[^>]*>([\s\S]*?)<\/think(?:ing)?>/gi;
+  let m;
+  while ((m = innerRegex.exec(content)) !== null) {
+    thinkingBlocks.push(unescapeThinkingTag(m[1].trim()));
+  }
+  return { thinkingBlocks, visibleContent: visibleContent.trimStart() };
+}
+function wrapReasoningContent(reasoning, text) {
+  if (!reasoning) return text;
+  const safeReasoning = reasoning.replace(/<\/think/gi, "<\\/think");
+  return "<think>" + safeReasoning + "</think>\n\n" + text;
+}
+function unescapeThinkingTag(s) {
+  return s.replace(/<\\\/think/gi, "</think");
+}
+var init_markdown = __esm({
+  "src/core/markdown.ts"() {
+  }
+});
+
+// src/core/tag-vocab.ts
+function getActiveEntityTags(settings) {
+  var _a;
+  const custom = ((_a = settings.customEntityTags) != null ? _a : "").trim();
+  if (settings.tagVocabularyMode === "custom" && custom.length > 0) {
+    const userTags = custom.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
+    return Array.from(new Set(userTags));
+  }
+  return [...VALID_ENTITY_TAGS];
+}
+function getActiveConceptTags(settings) {
+  var _a;
+  const custom = ((_a = settings.customConceptTags) != null ? _a : "").trim();
+  if (settings.tagVocabularyMode === "custom" && custom.length > 0) {
+    const userTags = custom.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
+    return Array.from(new Set(userTags));
+  }
+  return [...VALID_CONCEPT_TAGS];
+}
+function getActiveSourceTags(settings) {
+  return [...VALID_SOURCE_TAGS];
+}
+function normalizeVocabularyCsv(csv) {
+  if (!csv) return "";
+  const seen = /* @__PURE__ */ new Set();
+  const result = [];
+  for (const raw of csv.split(",")) {
+    const trimmed = raw.trim();
+    if (!trimmed) continue;
+    const key = trimmed.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(trimmed);
+  }
+  return result.join(", ");
+}
+var init_tag_vocab = __esm({
+  "src/core/tag-vocab.ts"() {
+    init_types();
+  }
+});
+
+// src/core/frontmatter.ts
+function parseFrontmatter(content) {
+  var _a;
+  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return null;
+  const result = {};
+  const fmText = match[1];
+  const lines = fmText.split("\n");
+  let currentKey = null;
+  let arrayValues = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (!trimmed) {
+      if (currentKey && arrayValues.length > 0) {
+        result[currentKey] = arrayValues;
+        arrayValues = [];
+        currentKey = null;
+      }
+      continue;
+    }
+    if (trimmed.startsWith("- ") && currentKey) {
+      const value2 = trimmed.substring(2).trim();
+      arrayValues.push(value2.replace(/^["']|["']$/g, ""));
+      continue;
+    }
+    if (currentKey && arrayValues.length > 0 && !trimmed.startsWith("- ")) {
+      result[currentKey] = arrayValues;
+      arrayValues = [];
+      currentKey = null;
+    }
+    const colonIdx = line.indexOf(":");
+    if (colonIdx === -1) continue;
+    const key = line.substring(0, colonIdx).trim();
+    const value = line.substring(colonIdx + 1).trim();
+    const nextLine = (_a = lines[i + 1]) == null ? void 0 : _a.trim();
+    if (nextLine && nextLine.startsWith("- ")) {
+      currentKey = key;
+      arrayValues = [];
+      continue;
+    }
+    if (key === "reviewed") {
+      result.reviewed = value === "true";
+    } else if (key === "type") {
+      result.type = value;
+    } else if (key === "created") {
+      result.created = value;
+    } else if (key === "updated") {
+      result.updated = value;
+    } else if (value.startsWith("[") && value.endsWith("]")) {
+      try {
+        result[key] = value.slice(1, -1).split(",").map((v) => v.trim().replace(/^["']|["']$/g, "")).filter((v) => v);
+      } catch (e) {
+        result[key] = value;
+      }
+    } else {
+      result[key] = value.replace(/^["']|["']$/g, "");
+    }
+  }
+  if (currentKey && arrayValues.length > 0) {
+    result[currentKey] = arrayValues;
+  }
+  const ARRAY_FIELDS = ["aliases", "sources", "tags"];
+  for (const field of ARRAY_FIELDS) {
+    const val = result[field];
+    if (typeof val === "string") {
+      result[field] = [val];
+    } else if (!Array.isArray(val)) {
+      delete result[field];
+    }
+  }
+  return result;
+}
+function yamlStringify(value) {
+  if (Array.isArray(value)) {
+    if (value.length === 0) return "[]";
+    return "\n" + value.map((v) => `  - "${v}"`).join("\n");
+  }
+  if (typeof value === "string") {
+    if (/[":[\]{}\n]/.test(value)) {
+      return `"${value.replace(/"/g, '\\"')}"`;
+    }
+    return value;
+  }
+  if (typeof value === "boolean") {
+    return String(value);
+  }
+  if (typeof value === "number") {
+    return String(value);
+  }
+  if (value === null || value === void 0) {
+    return "";
+  }
+  return "";
+}
+function extractBody(content) {
+  if (!content.startsWith("---")) return content;
+  const endIdx = content.indexOf("\n---", 3);
+  if (endIdx === -1) return content;
+  return content.substring(endIdx + 4).trim();
+}
+function mergeFrontmatter(existingContent, newSourcePath) {
+  const fm = parseFrontmatter(existingContent);
+  const body = extractBody(existingContent);
+  if (!fm) {
+    return {
+      frontmatter: "",
+      body: existingContent,
+      wasMerged: false
+    };
+  }
+  const normalizeSourcePath2 = (s) => {
+    const trimmed = s.trim();
+    if (trimmed.startsWith("[[") && trimmed.endsWith("]]")) {
+      return trimmed.slice(2, -2).trim();
+    }
+    return trimmed;
+  };
+  const existingSources = Array.isArray(fm.sources) ? fm.sources : [];
+  const sourceSet = /* @__PURE__ */ new Set();
+  for (const s of existingSources) {
+    sourceSet.add(normalizeSourcePath2(String(s)));
+  }
+  sourceSet.add(newSourcePath);
+  const mergedSources = Array.from(sourceSet).map((s) => `[[${s}]]`);
+  const created = fm.created || (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+  const updated = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+  const lines = ["---"];
+  if (fm.type) lines.push(`type: ${fm.type}`);
+  lines.push(`created: ${created}`);
+  lines.push(`updated: ${updated}`);
+  if (mergedSources.length > 0) {
+    lines.push(`sources:${yamlStringify(mergedSources)}`);
+  }
+  if (Array.isArray(fm.tags) && fm.tags.length > 0) {
+    lines.push(`tags:${yamlStringify(fm.tags)}`);
+  } else {
+    lines.push("tags:");
+  }
+  if (fm.reviewed) {
+    lines.push("reviewed: true");
+  }
+  if (Array.isArray(fm.aliases) && fm.aliases.length > 0) {
+    const dedupedAliases = fm.aliases.filter((v, i, a) => a.indexOf(v) === i && v);
+    if (dedupedAliases.length > 0) {
+      lines.push(`aliases:${yamlStringify(dedupedAliases)}`);
+    }
+  }
+  lines.push("---");
+  return {
+    frontmatter: lines.join("\n"),
+    body,
+    wasMerged: true
+  };
+}
+function enforceFrontmatterConstraints(content, pageType, settings) {
+  if (!content.startsWith("---")) return content;
+  const fmEnd = content.indexOf("\n---\n", 3);
+  if (fmEnd === -1) return content;
+  const fmText = content.substring(3, fmEnd);
+  if (/^reviewed:\s*true\s*$/m.test(fmText)) {
+    const today2 = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    return content.replace(/^created:\s*\d{4}-\d{2}-\d{2}\s*$/m, `created: ${today2}`).replace(/^updated:\s*\d{4}-\d{2}-\d{2}\s*$/m, `updated: ${today2}`);
+  }
+  let body = content.substring(fmEnd + 5);
+  const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+  const lines = fmText.split("\n");
+  const newLines = [];
+  let typeLine = "";
+  let collectedTags = [];
+  let foundType = false;
+  let foundTags = false;
+  let foundAliases = false;
+  let collectedAliases = [];
+  let createdValue = "";
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    if (line.startsWith("created:")) {
+      createdValue = line.substring(8).trim();
+      continue;
+    }
+    if (line.startsWith("updated:")) {
+      continue;
+    }
+    if (line.startsWith("type:")) {
+      foundType = true;
+      const currentType = line.substring(5).trim();
+      typeLine = `type: ${pageType}`;
+      if ((pageType === "entity" || pageType === "concept") && currentType && currentType !== "entity" && currentType !== "concept" && currentType !== pageType) {
+        collectedTags.push(currentType);
+      }
+    } else if (line.startsWith("tags:")) {
+      foundTags = true;
+      const tagsValue = line.substring(5).trim();
+      if (tagsValue.startsWith("[") && tagsValue.endsWith("]")) {
+        const inner = tagsValue.slice(1, -1).trim();
+        if (inner) {
+          collectedTags.push(...inner.split(",").map((t) => t.trim().replace(/^["']|["']$/g, "")));
+        }
+      }
+      let j = i + 1;
+      while (j < lines.length && lines[j].trim().startsWith("- ")) {
+        const tagVal = lines[j].trim().substring(2).trim().replace(/^["']|["']$/g, "");
+        if (tagVal) collectedTags.push(tagVal);
+        j++;
+      }
+      if (j > i + 1) i = j - 1;
+    } else if (line.startsWith("aliases:")) {
+      foundAliases = true;
+      const aliasesValue = line.substring(8).trim();
+      if (aliasesValue.startsWith("[") && aliasesValue.endsWith("]")) {
+        const inner = aliasesValue.slice(1, -1).trim();
+        if (inner) {
+          collectedAliases.push(...inner.split(",").map((t) => t.trim().replace(/^["']|["']$/g, "")));
+        }
+      }
+      let j = i + 1;
+      while (j < lines.length && lines[j].trim().startsWith("- ")) {
+        const aliasVal = lines[j].trim().substring(2).trim().replace(/^["']|["']$/g, "");
+        if (aliasVal) collectedAliases.push(aliasVal);
+        j++;
+      }
+      if (j > i + 1) i = j - 1;
+    } else if (!line.startsWith("- ")) {
+      newLines.push(line);
+    }
+  }
+  const result = ["---"];
+  if (foundType) {
+    result.push(typeLine);
+  }
+  result.push(`created: ${createdValue || today}`);
+  result.push(`updated: ${today}`);
+  for (const line of newLines) {
+    if (!line.startsWith("type:") && !line.startsWith("tags:") && !line.startsWith("aliases:") && !line.startsWith("created:") && !line.startsWith("updated:")) {
+      result.push(line);
+    }
+  }
+  if (foundTags || collectedTags.length > 0) {
+    const validSubtypes = pageType === "entity" ? settings ? getActiveEntityTags(settings) : VALID_ENTITY_TAGS : pageType === "concept" ? settings ? getActiveConceptTags(settings) : VALID_CONCEPT_TAGS : pageType === "source" ? settings ? getActiveSourceTags(settings) : VALID_SOURCE_TAGS : [];
+    const dedupedTags = [];
+    const outOfVocab = [];
+    for (const tag of collectedTags) {
+      if (!tag || tag === pageType) continue;
+      if (dedupedTags.includes(tag)) continue;
+      dedupedTags.push(tag);
+      if (!validSubtypes.includes(tag)) outOfVocab.push(tag);
+    }
+    if (outOfVocab.length > 0) {
+      console.debug(
+        `[enforceFrontmatterConstraints] ${pageType} page retained ${outOfVocab.length} tag(s) not in active vocabulary (${validSubtypes.length} entries):`,
+        outOfVocab
+      );
+    }
+    if (dedupedTags.length > 0) {
+      result.push(`tags: [${dedupedTags.join(", ")}]`);
+    } else {
+      result.push("tags:");
+    }
+  }
+  if (foundAliases || collectedAliases.length > 0) {
+    const validAliases = collectedAliases.filter((v, i, a) => a.indexOf(v) === i && v);
+    if (validAliases.length > 0) {
+      result.push(`aliases:${yamlStringify(validAliases)}`);
+    }
+  }
+  result.push("---");
+  return result.join("\n") + "\n\n" + body;
+}
+var init_frontmatter = __esm({
+  "src/core/frontmatter.ts"() {
+    init_types();
+    init_tag_vocab();
+  }
+});
+
+// src/wiki/prompts/ingestion.ts
+var INGESTION_PROMPTS;
+var init_ingestion = __esm({
+  "src/wiki/prompts/ingestion.ts"() {
+    INGESTION_PROMPTS = {
+      analyzeSource: `You are a Wiki knowledge base maintainer. Analyze the following source file and output structured JSON.
+
+**Existing Wiki pages \u2014 use ONLY these exact paths when creating [[links]]:**
+{{existing_slugs}}
+
+**Source File Content:**
+{{content}}
+
+{{batch_context}}
+
+**Extraction Scope:**
+{{granularity_instruction}}
+
+**Task Requirements:**
+0. [FIRST ROUND ONLY] Write a 100-200 word source summary (field: summary) and extract the source title (field: source_title). These fields must NOT appear in later rounds.
+1. In EVERY round (including the first), output both "entities" and "concepts" arrays. Use [] when a category has no items. Never omit either array.
+2. Optionally generate 1-2 aliases per entity/concept \u2014 alternative names, acronyms, translations, or common phrasings. Aliases serve as seeds for page generation and help the model avoid duplicate extractions in later rounds. The aliases field is OPTIONAL in extraction; skip it when no natural alias exists.
+3. Output at most {{batch_size}} items (entities + concepts total) this round
+3. Write a detailed, informative summary for each item (target 4-6 sentences). Include concrete information: what the entity/concept is, its role/significance in the source, key factual details, and how it relates to other items. Provide enough substance that the summary alone can seed a quality Wiki page
+4. For mentions_in_source: quote 2-4 verbatim sentences from the source where this entity/concept appears or is discussed. These quotes are critical \u2014 they provide the downstream page generator with source-grounded evidence. Include surrounding context, not just the name mention
+5. For related_entities and related_concepts: identify entities/concepts mentioned in the same context as this item. These should be other items extracted from this same source file
+6. Identify contradictions or conflicts with the existing Wiki (only output contradictions in the first round)
+7. Identify related existing Wiki pages (only output related_pages in the first round)
+8. Generate key points from the source file (only output key_points in the first round)
+
+**Output Format (strict JSON, output only JSON, no explanatory text):**
+{
+  "source_title": "Source file title",
+  "summary": "150-250 word source summary (first round only, omitted thereafter)",
+  "entities": [
+    {
+      "name": "Entity name \u2014 MUST be in the source's original language, NEVER translate",
+      "type": "person|organization|project|product|event|place|other",
+      "aliases": ["Optional: 1-2 alternative names, abbreviations, or translations. Helps prevent duplicate extractions in later rounds.", "If provided, these will seed the page aliases."],
+      "summary": "Detailed 4-6 sentence description with concrete facts: identity, role/significance, key attributes",
+      "mentions_in_source": ["Verbatim sentence from source: '...'.", "Another verbatim quote: '...'."],
+      "related_entities": ["Related entity names from this source"],
+      "related_concepts": ["Related concept names from this source"]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept name \u2014 MUST be in the source's original language, NEVER translate",
+      "type": "theory|method|field|phenomenon|standard|term|other",
+      "aliases": ["Optional: 1-2 alternative names, abbreviations, or translations. Helps prevent duplicate extractions in later rounds.", "If provided, these will seed the page aliases."],
+      "summary": "Detailed 4-6 sentence description with concrete facts: definition, importance, relationships",
+      "mentions_in_source": ["Verbatim sentence from source: '...'.", "Another verbatim quote: '...'."],
+      "related_concepts": ["Related concept names from this source"],
+      "related_entities": ["Related entity names from this source"]
+    }
+  ],
+  "contradictions": [
+    {
+      "claim": "What the source file claims",
+      "source_page": "Conflicting existing Wiki page [[page-name]]",
+      "contradicted_by": "What that page claims",
+      "resolution": "Suggested resolution"
+    }
+  ],
+  "related_pages": ["Related existing Wiki page names \u2014 use ONLY the plain page name, NOT wiki-link format. Example: 'Machine Learning' not [[concepts/Machine Learning|Machine Learning]]"],
+  "key_points": ["Key point 1", "Key point 2"]
+}
+
+**Entity Recognition Guide:**
+- person: individual who is a significant SUBJECT of the source. Authors cited only as evidence sources ("Smith et al. found...") are NOT wiki-worthy entities
+- organization: organization/institution (company, school, team, department, etc.)
+- project: project/initiative/program
+- product: product/tool/software/service. Publications only when they are the primary subject of analysis, not when cited as evidence sources
+- event: event/conference/milestone/historical occurrence
+- location: place/region/geographic concept
+- other: observable, instantiable concrete things (a specific dataset, benchmark, physical instrument) that do not fit any category above. NOT for abstract ideas, paradigms, or techniques \u2014 those are concepts
+
+**Classification Decision Tree (Entity vs. Concept) \u2014 apply in order, stop at first match:**
+1. Named PERSON \u2192 entity (person)
+2. Named ORGANIZATION, institution, company, team, lab \u2192 entity (organization)
+3. Named PROJECT or named initiative \u2192 entity (project)
+4. Named LOCATION, place, region \u2192 entity (location)
+5. Named EVENT, conference, competition, release milestone \u2192 entity (event)
+6. Named PRODUCT with its own vendor/release cycle (specific software package, hardware device, hosted service) \u2192 entity (product). Examples: PyTorch, GPT-4, BERT, TensorFlow. BUT if the source is not primarily ABOUT this product, extract its key ideas as concepts instead
+7. Abstract THEORY, principle, hypothesis, cognitive/scientific model \u2192 concept (theory)
+8. Procedural METHOD, algorithm, technique, protocol, training procedure \u2192 concept (method). Examples: gradient descent, RLHF, fine-tuning, chain-of-thought prompting, backpropagation
+9. Broad TECHNOLOGY paradigm or architectural pattern \u2192 concept (technology). Examples: transformer architecture, deep learning, attention mechanism, retrieval-augmented generation
+10. Any TERM, definition, or construct explaining how something works \u2192 concept (term)
+11. A concrete named thing that does not fit rules 1\u20136 \u2192 entity (other). Reserve for observable/instantiable things only
+12. If still uncertain \u2192 **prefer concept over entity**
+
+**Key boundary**: Named AI models and named frameworks are entities (product). Architectural ideas and learning techniques are concepts (method/technology). When a source mentions a product only as a tool used for something else, extract its role/capabilities as a concept, not the product as an entity.
+
+**Important Rules:**
+- Output ONLY JSON, nothing else
+- **CRITICAL: Entity and concept "name" MUST use the ORIGINAL language from the source file. NEVER translate names.** If the source says "Yinmin Zhong", the name MUST be "Yinmin Zhong", NOT "\u949F\u80E4\u654F". If the source says "Conditional Memory", the name MUST be "Conditional Memory", NOT "\u6761\u4EF6\u8BB0\u5FC6". If the source says "Cache-Compute Ratio", the name MUST be "Cache-Compute Ratio". Translation of names is FORBIDDEN. Summaries and descriptions may use the wiki language, but the name field is inviolable
+- "mentions_in_source" MUST contain 2-4 verbatim quotes from the source text. Do NOT paraphrase \u2014 copy the actual sentences where the entity/concept appears. Include full sentences with context, not fragments
+- Each entity and concept should have its own independent Wiki page
+- Carefully compare against existing content when detecting contradictions
+- related_pages should be pages that actually exist in the current Wiki
+- Output must be valid JSON format
+- Do NOT repeat any item already in the "extracted list". If no unextracted items remain in the source, return empty arrays [] for entities and concepts
+- Apply the wiki-link test to every candidate: if an entity/concept would not be linked from other notes, do not extract it. Knowledge claims and findings are more valuable than evidence containers`,
+      // Semantic entity resolution: when slug-based matching fails, use LLM to determine
+      // whether a newly extracted entity/concept is semantically equivalent to an existing page.
+      resolveEntityDedup: `You are an entity resolution engine. Given a newly extracted entity/concept and a list of existing wiki pages, determine if it is semantically equivalent to any existing page.
+
+**New entity/concept:**
+- Name: {{entity_name}}
+- Type: {{entity_type}}
+- Summary: {{entity_summary}}
+
+**Existing {{page_type}} pages:**
+{{existing_pages}}
+
+**Task:** Determine whether the new entity/concept is semantically the SAME as any existing page. Consider:
+- Translations between languages (e.g. "\u6E05\u534E\u5927\u5B66" = "Tsinghua University")
+- Abbreviations and full names (e.g. "MIT" = "Massachusetts Institute of Technology")
+- Alternative phrasings (e.g. "Supervised Learning" = "Supervised ML")
+- Spelling variations
+
+**Output JSON:**
+- If it matches an existing page, output: {"match": true, "path": "{{wikiFolder}}/entities/existing-slug.md"}
+- If no match exists, output: {"match": false, "path": null}
+
+Do NOT create a new name \u2014 only match against the existing pages listed above.`
+    };
+  }
+});
+
+// src/wiki/prompts/generation.ts
+var GENERATION_PROMPTS;
+var init_generation = __esm({
+  "src/wiki/prompts/generation.ts"() {
+    GENERATION_PROMPTS = {
+      generateEntityPage: `You are a Wiki knowledge base maintainer. Create a Wiki page for the following entity.
+
+**Entity Information:**
+- Name: {{entity_name}}
+- Type: {{entity_type}}
+- Summary: {{entity_summary}}
+- Mentions in source (VERBATIM \u2014 preserve original language): {{mentions}}
+- Related entities: {{related_entities}}
+- Related concepts: {{related_concepts}}
+- Extraction aliases (seeds): {{extraction_aliases}}
+
+**Existing Wiki Pages (use these exact full paths when referencing):**
+{{existing_pages}}
+
+**Existing Related Content in Wiki:**
+{{related_content}}
+
+{{merge_strategy}}
+
+**Task Requirements:**
+1. Create an entity page with basic and key information
+2. When referencing other pages, copy the wiki-link format EXACTLY from the "Existing Wiki Pages" list. The LEFT side of | is the full path (entities/Page-Name), the RIGHT side is the DISPLAY NAME ONLY. NEVER duplicate folder prefixes like entities/ or concepts/ in the display name. Example: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
+3. IMPORTANT: All related entities and concepts MUST be formatted as wiki-links using the [[path|display]] format \u2014 even if the target page does not yet exist in the Wiki. This allows the Lint system to detect dead links and create stub pages later. Never output a related entity/concept name as plain text.
+4. If the entity already exists in the Wiki, use the merge strategy above for intelligent merging
+4. Be objective, accurate, and concise
+5. **Generate aliases for this page** \u2014 provide 1-3 alternative names. This field is REQUIRED:
+   - Include acronyms, abbreviations, and same-language alternative names
+   - English is universally acceptable as a "linker language" \u2014 when a term originates in English
+     (e.g. "Transformer", "DNA", "API", "RoPE", "CUDA"), keep it as-is even in non-English wikis
+   - **CRITICAL: do NOT invent translations for established technical terms.** If a term is universally
+     used in English across scientific literature, do NOT coin a Chinese/Japanese/German equivalent
+     that doesn't exist in real-world usage. Real-world convention always wins over linguistic purity.
+   - **If no natural alias exists**, use the page title itself as the first alias. The aliases field MUST NOT be left empty \u2014 always provide at least one alias
+
+   Examples:
+   - \u7EF4\u751F\u7D20 B2 (Chinese wiki) \u2192 ["\u7EF4\u4ED6\u547D B2", "Vitamin B2", "VB2"]
+   - Transformer (Chinese wiki) \u2192 ["Transformers", "BERT"]      \u2190 NO \u53D8\u6362\u5668 (no such usage in Chinese)
+   - Rotary Position Embedding (Japanese wiki) \u2192 ["RoPE", "\u56DE\u8EE2\u4F4D\u7F6E\u57CB\u3081\u8FBC\u307F"]
+   - Neural Network (Chinese wiki) \u2192 ["\u795E\u7ECF\u7F51\u7EDC", "NN"]
+6. In "Mentions in Source" section: preserve the VERBATIM quotes in their ORIGINAL language. You may ADD a brief translation in parentheses if the wiki language differs, but the original text must be preserved exactly
+
+**Output Format:**
+---
+type: entity  # MUST be exactly "entity" - do not change this value
+created: {{date}}
+updated: {{date}}
+sources: ["[[{{source_file}}]]"]
+tags: [{{entity_type}}]  # Use entity_type (e.g., product, person, organization) as a tag
+aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
+---
+
+# {{entity_name}}
+
+## {{section_basic_information}}
+- Type: {{entity_type}}
+- Source: [[{{source_file}}]]
+
+## {{section_description}}
+[Detailed description of the entity with bidirectional links]
+
+## {{section_related_entities}}
+[Reference related entities using full paths from the list above]
+
+## {{section_related_concepts}}
+[Reference related concepts using full paths from the list above]
+
+## {{section_mentions_in_source}}
+[Each verbatim quote as an academic-footnote style entry. The provided mentions in the input already include the source wiki-link \u2014 keep them as-is. If you need to add more quotes, use the same format:
+- "Verbatim quote in original language (optional translation)" \u2014 [[source-name]]]
+
+---`,
+      generateConceptPage: `You are a Wiki knowledge base maintainer. Create a Wiki page for the following concept.
+
+**Concept Information:**
+- Name: {{concept_name}}
+- Type: {{concept_type}}
+- Summary: {{concept_summary}}
+- Mentions in source (VERBATIM \u2014 preserve original language): {{mentions}}
+- Related concepts: {{related_concepts}}
+- Related entities: {{related_entities}}
+- Extraction aliases (seeds): {{extraction_aliases}}
+
+**Existing Wiki Pages (use these exact full paths when referencing):**
+{{existing_pages}}
+
+**Existing Related Content in Wiki:**
+{{related_content}}
+
+{{merge_strategy}}
+
+**Task Requirements:**
+1. Create a concept page including definition, characteristics, and applications
+2. When referencing other pages, copy the wiki-link format EXACTLY from the "Existing Wiki Pages" list. The LEFT side of | is the full path (concepts/Page-Name), the RIGHT side is the DISPLAY NAME ONLY. NEVER duplicate folder prefixes like entities/ or concepts/ in the display name. Example: [[concepts/Attention|Attention]] is CORRECT, [[concepts/Attention|concepts/Attention]] is WRONG
+3. IMPORTANT: All related entities and concepts MUST use [[wiki-link]] format even if the target page does not yet exist \u2014 this allows the Lint system to detect and fix them later. Never output a related entity/concept name as plain text.
+4. If the concept already exists in the Wiki, use the merge strategy above for intelligent merging
+4. Be objective, accurate, and concise
+5. **Generate aliases for this page** \u2014 provide 1-3 alternative names. This field is REQUIRED:
+   - Include acronyms, abbreviations, and same-language alternative names
+   - English is universally acceptable as a "linker language" \u2014 when a term originates in English
+     (e.g. "Transformer", "DNA", "API", "RoPE", "CUDA"), keep it as-is even in non-English wikis
+   - **CRITICAL: do NOT invent translations for established technical terms.** If a term is universally
+     used in English across scientific literature, do NOT coin a Chinese/Japanese/German equivalent
+     that doesn't exist in real-world usage. Real-world convention always wins over linguistic purity.
+   - **If no natural alias exists**, use the page title itself as the first alias. The aliases field MUST NOT be left empty \u2014 always provide at least one alias
+
+   Examples:
+   - \u7EF4\u751F\u7D20 B2 (Chinese wiki) \u2192 ["\u7EF4\u4ED6\u547D B2", "Vitamin B2", "VB2"]
+   - Transformer (Chinese wiki) \u2192 ["Transformers", "BERT"]      \u2190 NO \u53D8\u6362\u5668 (no such usage in Chinese)
+   - Rotary Position Embedding (Japanese wiki) \u2192 ["RoPE", "\u56DE\u8EE2\u4F4D\u7F6E\u57CB\u3081\u8FBC\u307F"]
+   - Neural Network (Chinese wiki) \u2192 ["\u795E\u7ECF\u7F51\u7EDC", "NN"]
+6. In "Mentions in Source" section: preserve the VERBATIM quotes in their ORIGINAL language. You may ADD a brief translation in parentheses if the wiki language differs, but the original text must be preserved exactly
+
+**Output Format:**
+---
+type: concept  # MUST be exactly "concept" - do not change this value
+created: {{date}}
+updated: {{date}}
+sources: ["[[{{source_file}}]]"]
+tags: [{{concept_type}}]  # Use concept_type (e.g., theory, method, field) as a tag
+aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
+---
+
+# {{concept_name}}
+
+## {{section_definition}}
+[Clear definition of the concept]
+
+## {{section_key_characteristics}}
+- Characteristic 1
+- Characteristic 2
+
+## {{section_applications}}
+[Application scenarios for the concept]
+
+## {{section_related_concepts}}
+[Reference related concepts using full paths from the list above]
+
+## {{section_related_entities}}
+[Reference related entities using full paths from the list above]
+
+## {{section_mentions_in_source}}
+[Each verbatim quote as an academic-footnote style entry. The provided mentions in the input already include the source wiki-link \u2014 keep them as-is. If you need to add more quotes, use the same format:
+- "Verbatim quote in original language (optional translation)" \u2014 [[source-name]]]
+
+---`,
+      generateSummaryPage: `You are a Wiki knowledge base maintainer. Create a summary page for the following source file.
+
+**Source File Information:**
+- Title: {{source_title}}
+- Content: {{content}}
+- Analysis Results: {{analysis}}
+
+**All Created Wiki Pages (use these exact full paths when referencing):**
+{{created_pages_list}}
+
+**Task Requirements:**
+1. Create a concise summary page
+2. When referencing entities and concepts, use the exact full path format from the "All Created Wiki Pages" list above
+3. {{constraints}}
+4. Highlight key points
+5. Be objective and accurate
+6. **Generate aliases for this page** \u2014 provide 1-2 alternative names for the source. This field is REQUIRED:
+   - Include alternative titles, abbreviations, or common alternative names for the source
+   - English is universally acceptable as a "linker language" \u2014 when a term originates in English
+     (e.g. "Transformer", "DNA", "API", "RoPE"), keep it as-is even in non-English wikis
+   - **CRITICAL: do NOT invent translations for established technical terms.** Real-world usage
+     always wins over linguistic purity. Only include translations that actually exist in the target language.
+   - **If no natural alias exists**, use the source file name or the page title itself. The aliases field MUST NOT be left empty \u2014 always provide at least one alias
+
+**Output Format:**
+---
+type: source
+created: {{date}}
+updated: {{date}}
+source_file: "[[{{source_file}}]]"
+tags: [{{tags}}]
+aliases: ["Alternative title or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
+---
+
+# {{source_title}} - Summary
+
+## {{section_source}}
+- Original file: [[{{source_file}}]]
+- Ingested: {{date}}
+
+## {{section_core_content}}
+[100-200 word summary with bidirectional links]
+
+## {{section_key_entities}}
+[Reference entities using full paths from the list above]
+
+## {{section_key_concepts}}
+[Reference concepts using full paths from the list above]
+
+## {{section_main_points}}
+- Point 1
+- Point 2
+
+---`,
+      // Variant used when the existing page has `reviewed: true` in frontmatter.
+      preserveReviewedEntityPage: `You are a Wiki knowledge base maintainer. The following entity page has been manually reviewed by the user (reviewed: true).
+
+**\u26A0\uFE0F Important: User-reviewed content must be fully preserved. Do NOT delete or rewrite.**
+
+**Entity Information (from new source file):**
+- Name: {{entity_name}}
+- Type: {{entity_type}}
+- Summary: {{entity_summary}}
+- Mentions in source: {{mentions}}
+
+**Existing Wiki Pages (use these exact full paths when referencing):**
+{{existing_pages}}
+
+**User-Reviewed Existing Page Content (MUST be fully preserved):**
+{{related_content}}
+
+**Task Requirements:**
+1. **Fully preserve** all user-reviewed content \u2014 do not delete or rewrite any paragraph
+2. Only add non-duplicate information from the new source at the end in a "New Information" section
+3. If new information duplicates or contradicts existing content, do NOT add it; keep the user's version
+4. The frontmatter MUST retain reviewed: true
+5. When referencing other pages, copy the wiki-link format EXACTLY from the list above. NEVER duplicate folder prefixes in the display name. Example: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
+
+**Output Format:**
+---
+type: entity
+created: {{date}}
+updated: {{date}}
+sources: ["[[{{source_file}}]]"]
+tags: [{{tags}}]
+aliases: []
+reviewed: true
+---
+
+[Fully preserve user-reviewed existing content here]
+
+## {{section_new_information}} ({{date}})
+[Only add non-duplicate new information; write "No new information" if none]
+
+---`,
+      // Variant used when the existing concept page has `reviewed: true` in frontmatter.
+      preserveReviewedConceptPage: `You are a Wiki knowledge base maintainer. The following concept page has been manually reviewed by the user (reviewed: true).
+
+**\u26A0\uFE0F Important: User-reviewed content must be fully preserved. Do NOT delete or rewrite.**
+
+**Concept Information (from new source file):**
+- Name: {{concept_name}}
+- Type: {{concept_type}}
+- Summary: {{concept_summary}}
+- Mentions in source: {{mentions}}
+- Related concepts: {{related_concepts}}
+
+**Existing Wiki Pages (use these exact full paths when referencing):**
+{{existing_pages}}
+
+**User-Reviewed Existing Page Content (MUST be fully preserved):**
+{{related_content}}
+
+**Task Requirements:**
+1. **Fully preserve** all user-reviewed content \u2014 do not delete or rewrite any paragraph
+2. Only add non-duplicate information from the new source at the end in a "New Information" section
+3. If new information duplicates or contradicts existing content, do NOT add it; keep the user's version
+4. The frontmatter MUST retain reviewed: true
+5. When referencing other pages, copy the wiki-link format EXACTLY from the list above. NEVER duplicate folder prefixes in the display name. Example: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
+
+**Output Format:**
+---
+type: concept
+created: {{date}}
+updated: {{date}}
+sources: ["[[{{source_file}}]]"]
+tags: [{{tags}}]
+aliases: []
+reviewed: true
+---
+
+[Fully preserve user-reviewed existing content here]
+
+## {{section_new_information}} ({{date}})
+[Only add non-duplicate new information; write "No new information" if none]
+
+---`,
+      suggestSchemaUpdate: `You are a Wiki Schema advisor. Review the current schema and the latest ingestion analysis.
+
+Current Schema:
+{{schema_content}}
+
+Analysis Context:
+{{analysis_context}}
+
+Task: Determine if the schema needs updating to better accommodate recent content.
+Consider:
+1. Are there new entity types that should be added to the classification rules?
+2. Are there new concept types that should be added?
+3. Should naming conventions be adjusted?
+4. Should page templates be updated (missing sections, better structure)?
+5. Should maintenance policies be revised (stale thresholds, severity levels)?
+
+Output JSON format:
+{
+  "changes_needed": true,
+  "suggestions": "Markdown description of suggested schema changes with reasoning"
+}
+
+If no changes are needed:
+{
+  "changes_needed": false,
+  "suggestions": ""
+}
+
+Output ONLY the JSON, no other text.`
+    };
+  }
+});
+
+// src/wiki/prompts/merge.ts
+var MERGE_PROMPTS;
+var init_merge = __esm({
+  "src/wiki/prompts/merge.ts"() {
+    MERGE_PROMPTS = {
+      // Multi-Source Knowledge Fusion: structured merge analysis
+      mergeAnalysis: `You are a Wiki knowledge fusion analyzer. Compare existing Wiki page content with new source file information, and output a structured merge strategy.
+
+**Page Name:** {{page_name}}
+**Page Type:** entity or concept
+
+**Existing Page Content:**
+{{existing_content}}
+
+**New Information from Source File:**
+{{new_info}}
+
+**Task:**
+1. Compare each piece of new information against the existing content
+2. Classify each piece of new information as:
+   - "new" \u2014 completely new information not in the existing page
+   - "duplicate" \u2014 duplicates existing content; no need to add
+   - "complementary" \u2014 supplements existing content (additional detail on the same topic)
+   - "contradictory" \u2014 contradicts existing content
+3. For "complementary" information, specify which section of the existing page it should be inserted after
+4. For "contradictory" information, document the specific contradiction
+
+Output JSON format:
+{
+  "merge_items": [
+    {
+      "content": "Specific content of the new information",
+      "classification": "new|duplicate|complementary|contradictory",
+      "target_section": "Section name to insert after (only for new and complementary)",
+      "reason": "Reason for classification (one sentence)"
+    }
+  ],
+  "contradictions": [
+    {
+      "claim": "What the new information claims",
+      "existing_claim": "Contradictory content in the existing page",
+      "resolution": "Suggested resolution"
+    }
+  ],
+  "merge_summary": "Merge strategy summary (one sentence)"
+}
+
+Rules:
+- Output ONLY JSON, nothing else
+- Existing content takes priority over new information (unless the new information is clearly more accurate)
+- Do NOT delete or rewrite any part of the existing content`,
+      mergeEntityPage: `You are a Wiki editor performing intelligent content integration. Merge new source information into an existing page following the schema-defined structure.
+
+**Schema Rules (MUST follow this structure):**
+- ## Basic Information: Type, sources, key attributes
+- ## Description: Core definition and significance (3-6 sentences)
+- ## Related Entities: Links to related entities
+- ## Related Concepts: Links to related concepts
+- ## Mentions in Source: Chronological list of mentions with VERBATIM quotes in original language
+
+**Existing Page Content (the current version):**
+{{existing_body}}
+
+**New Information from Source "{{new_source}}":**
+- Summary: {{entity_summary}}
+- Mentions in source: {{mentions}}
+- Related entities: {{related_entities}}
+- Related concepts: {{related_concepts}}
+- Key details: {{key_details}}
+
+**Available Wiki Pages for linking (use exact [[path|name]] format):**
+{{existing_pages}}
+
+**Integration Requirements:**
+1. STRUCTURE: Follow the schema sections exactly. If a section exists, update it; if missing, create it.
+2. DESCRIPTION: Integrate new facts naturally. Do NOT duplicate existing information.
+3. RELATED: Update "Related Entities" and "Related Concepts" sections with new relationships.
+4. CONTRADICTIONS: If new info conflicts with existing, preserve BOTH with clear attribution.
+5. MENTIONS: Append new mentions to "Mentions in Source". Preserve VERBATIM quotes in original language. Translation optional in parentheses.
+6. LINKS: Use [[path|display]] format. LEFT side = full path, RIGHT side = display name ONLY. NEVER duplicate folder prefixes (entities/, concepts/) in display name. Verify paths exist.
+7. STYLE: Match existing writing style.
+8. NO REDUNDANCY: Do NOT restate existing facts.
+
+**Output Format:**
+Output ONLY the body content (no frontmatter):
+
+## Basic Information
+[Type, sources, key attributes \u2014 updated]
+
+## Description
+[Integrated description \u2014 merge existing + new, no duplication]
+
+## Related Entities
+[Updated entity links]
+
+## Related Concepts
+[Updated concept links]
+
+## Mentions in Source
+[ALL mentions \u2014 existing preserved with their source attribution blocks, new appended under a new source block:
+> **Source: [[source-name]]**
+> - "Verbatim quote in original language"]`,
+      mergeConceptPage: `You are a Wiki editor performing intelligent content integration. Merge new source information into an existing concept page following the schema-defined structure.
+
+**Schema Rules (MUST follow this structure):**
+- ## Basic Information: Type, sources, definition
+- ## Description: Detailed explanation with examples (3-6 sentences)
+- ## Related Concepts: Connected concepts using [[concepts/...]]
+- ## Related Entities: Connected entities using [[entities/...]]
+- ## Mentions in Source: VERBATIM quotes in original language with source attribution
+
+**Existing Page Content (the current version):**
+{{existing_body}}
+
+**New Information from Source "{{new_source}}":**
+- Summary: {{concept_summary}}
+- Mentions in source: {{mentions}}
+- Related concepts: {{related_concepts}}
+- Related entities: {{related_entities}}
+- Key details: {{key_details}}
+
+**Available Wiki Pages for linking (use exact [[path|name]] format):**
+{{existing_pages}}
+
+**Integration Requirements:**
+1. STRUCTURE: Follow the schema sections exactly. Update existing, create missing.
+2. DESCRIPTION: Integrate new understanding coherently with existing.
+3. RELATED CONCEPTS: Update links \u2014 add new ones, preserve existing.
+4. RELATED ENTITIES: Update links \u2014 add new ones from this source.
+5. CONTRADICTIONS: If new info conflicts, preserve both with attribution.
+6. MENTIONS: Append to "Mentions in Source". Preserve VERBATIM quotes in original language.
+7. LINKS: Use [[path|display]] format. LEFT side = full path, RIGHT side = display name ONLY. NEVER duplicate folder prefixes (entities/, concepts/) in display name. Verify paths exist.
+8. STYLE: Match existing writing style.
+9. NO REDUNDANCY: Do NOT restate existing facts.
+
+**Output Format:**
+Output ONLY the body content (no frontmatter):
+
+## Basic Information
+[Type, sources, definition \u2014 updated]
+
+## Description
+[Integrated description \u2014 merge existing + new]
+
+## Related Concepts
+[Updated concept links]
+
+## Related Entities
+[Updated entity links]
+
+## Mentions in Source
+[ALL mentions \u2014 existing preserved with their source attribution blocks, new appended under a new source block:
+> **Source: [[source-name]]**
+> - "Verbatim quote in original language"]`,
+      // Minimal append mode for reviewed pages
+      appendToReviewedPage: `You are a Wiki editor adding new information to a user-reviewed page. The existing content is AUTHORITATIVE and must be preserved exactly.
+
+**User-Reviewed Existing Content (MUST preserve completely):**
+{{existing_body}}
+
+**New Information from Source "{{new_source}}":**
+- Summary: {{entity_summary}}
+- Mentions: {{mentions}}
+- Key details: {{key_details}}
+
+**Task:**
+1. Compare new information against existing content
+2. If new info is COMPLETELY REDUNDANT with existing content \u2192 output "NO_NEW_CONTENT"
+3. If new info adds genuinely new facts \u2192 append them in a "New Information ({{new_source}})" section at the end
+4. DO NOT modify any existing content
+5. DO NOT remove or rewrite any existing sections
+6. {{constraints}}
+
+**Output Format:**
+If no new content: output exactly "NO_NEW_CONTENT"
+
+If new content exists:
+[existing content preserved exactly]
+
+## New Information ({{new_source}})
+[Only genuinely new facts, written to match existing style]`,
+      // Update related page with incremental information from a new source
+      updateRelatedPage: `Existing Wiki page: {{page_name}}
+
+Existing content:
+{{existing_body}}
+
+The new source file ("{{source_basename}}") provides additional information about {{page_name}}:
+{{new_info}}
+
+Update the page by adding the new information without deleting existing content.
+{{constraints}}
+Use wiki-link syntax [[page-name]].
+Output ONLY the updated page BODY content (without frontmatter), no other text.`
+    };
+  }
+});
+
+// src/wiki/prompts/fixes.ts
+var FIX_PROMPTS;
+var init_fixes = __esm({
+  "src/wiki/prompts/fixes.ts"() {
+    FIX_PROMPTS = {
+      fixDeadLink: `You are a Wiki dead link repair assistant. Analyze the dead link and repair it based on the situation.
+
+Dead Link Source Page:
+{{source_content}}
+
+Dead Link Target (link text):
+{{target_name}}
+
+Existing Wiki Page List:
+{{existing_pages}}
+
+Task:
+1. **FIRST, check aliases:** Look at the \`aliases:\` listed after each page. If the dead link target matches any page's title OR any page's aliases (case-insensitive), that page IS the correct target \u2014 use action=correct
+2. If no alias match, search for semantic similarity (translations, abbreviations, alternative phrasings)
+3. If a matching page is found: output the correct [[entities/page-name|Display Name]] or [[concepts/page-name|Display Name]] link. The display name after | must NOT include folder prefixes like entities/ or concepts/
+4. If no match is found after checking BOTH aliases and semantic similarity: output a concise name suitable as a new page title
+
+Output JSON format:
+{"action": "correct|create_stub", "correct_link": "Corrected link (when action=correct)", "stub_title": "New page title (when action=create_stub)", "stub_type": "entity|concept", "reason": "Reason for judgment (one sentence)"}`,
+      fillEmptyPage: `You are a Wiki page expansion assistant. Generate content for the following under-populated Wiki page.
+
+Page Type (entities/concepts/sources): {{page_type}}
+
+Existing Content:
+{{existing_content}}
+
+Wiki Index (background reference):
+{{wiki_index}}
+
+**Target Language Section Headers (use EXACTLY these headers):**
+{{section_labels}}
+
+Task:
+1. Generate appropriate content (150-300 words) based on the page type and title
+2. entities type: describe the entity's definition, relevant background, and relationships with other entities
+3. concepts type: explain the concept's definition, application scenarios, and related concepts
+4. sources type: summarize the source's core viewpoints and contributions
+5. Use [[wiki-links]] to link to related pages. Copy the link format EXACTLY from the Wiki Index \u2014 the LEFT side is the full path (folder/page-name), the RIGHT side after | is the DISPLAY NAME only. NEVER duplicate folder prefixes like entities/ or concepts/ in the display name. Example: [[entities/Qwen|Qwen]] is correct, [[entities/Qwen|entities/Qwen]] is WRONG
+6. **Related entities/concepts LIMIT:** Create at MOST {{max_entities}} related entity links and {{max_concepts}} related concept links. Focus on the most important connections only. Do NOT generate exhaustive lists
+7. **IMPORTANT \u2014 Source Mentions:** Only create a "Mentions in Source" section if the existing content already contains verbatim source quotes. If no source quotes exist in the existing content, do NOT fabricate a "Mentions in Source" section \u2014 instead, note "*(No source content available for this page)*" in the description. NEVER invent fake citations or source references
+8. Preserve any existing frontmatter fields exactly (type, created, sources, tags, reviewed). Do NOT remove or alter these fields
+9. **Aliases are REQUIRED:** If the existing content has non-empty aliases, keep them. If aliases are missing or empty, you MUST generate 1-2 meaningful aliases following the fallback hierarchy: translation in Wiki language \u2192 alternative names \u2192 abbreviations. The aliases field MUST NOT be left empty
+10. **Tags constraint:** entity pages MUST use tags from: [person, organization, project, product, event, place, other]. Concept pages MUST use tags from: [theory, method, field, phenomenon, standard, term, other]. Never invent new tags outside these lists
+
+Output format: directly output the complete Markdown page content (do not output explanatory text)`,
+      linkOrphanPage: `You are a Wiki link repair assistant. Establish backlinks to an orphan page from relevant pages.
+
+Orphan Page:
+{{orphan_content}}
+
+Wiki Index:
+{{wiki_index}}
+
+Task:
+1. Analyze the orphan page's topic
+2. Select 1-3 most relevant existing pages from the Wiki index
+3. For each relevant page, generate a suggested link text (one sentence description + wiki-link)
+
+Output JSON format:
+{"related_pages": [{"page_path": "{{wikiFolder}}/entities/xxx.md", "link_text": "One sentence describing this connection", "link_target": "[[entities/orphan-name]]"}], "reason": "Connection rationale"}`,
+      resolveContradiction: `You are a Wiki contradiction resolution assistant. Generate a repaired page based on the contradiction record and affected page content.
+
+Affected Page Content:
+{{existing_content}}
+
+Contradiction Record:
+{{contradiction_content}}
+
+Task:
+1. Analyze both sides of the contradiction
+2. Reconcile: preserve correct information, annotate suspected incorrect information
+3. For factual contradictions, choose the more reliable or newer source
+4. For perspective differences, preserve both viewpoints and note the different standpoints
+
+Important Rules:
+- Do NOT delete any existing content
+- Add a "## {{section_resolved_contradictions}}" section at the end of the affected page, explaining the resolution approach and reasoning
+- Keep the overall page structure intact; only adjust contradiction-related parts
+- Output the complete repaired page content (not just the modified parts)
+- Do NOT output any explanatory text; directly output Markdown-formatted page content`
+    };
+  }
+});
+
+// src/wiki/prompts/lint.ts
+var LINT_PROMPTS;
+var init_lint = __esm({
+  "src/wiki/prompts/lint.ts"() {
+    LINT_PROMPTS = {
+      // First-pass LLM title scan to find cross-lingual/translation/abbreviation candidates.
+      lintTitleScanCandidates: `You are a Wiki duplicate scanner. Below is a list of ALL entity and concept wiki pages (path + title). Find pages that likely refer to the SAME underlying concept, even when named in different languages or formats.
+
+**Pages ({{total}} total):**
+{{title_list}}
+
+**Common duplicate patterns to look for:**
+- Translations: one Chinese title, one English title describing the same concept
+- Abbreviations: "CoT" vs "Chain of Thought", "MoE" vs "Mixture of Experts"
+- Alternate phrasings: same concept expressed with different wording
+- Partial matches: "KV\u7F13\u5B58" vs "\u952E\u503C\u7F13\u5B58" (KV = Key-Value = \u952E\u503C)
+
+**Rules:**
+- Only report pairs you are HIGHLY CONFIDENT refer to the same thing
+- Do NOT report pairs that are merely related concepts
+- Max 30 pairs
+- Prefer the page with the MORE descriptive/specific title as "target" (keep)
+
+**You MUST output ONLY a valid JSON object, no other text:**
+{"candidates": [["{{wikiFolder}}/concepts/target-page.md", "{{wikiFolder}}/concepts/source-page.md"], ...]}
+
+If no candidates found: {"candidates": []}`,
+      // Verify duplicate candidates with content analysis
+      lintDuplicateDetection: `You are a Wiki duplicate detection verifier. Review the candidate pairs below and confirm which are TRUE semantic duplicates.
+
+**Candidate pairs (from programmatic signals and title scan):**
+{{candidates}}
+
+**Total entity/concept pages in wiki:** {{total}}
+
+**Rules:**
+- Confirm a pair ONLY if both pages refer to the SAME underlying concept/entity
+- TRUE duplicates: translations (e.g. "CoT" = "\u601D\u7EF4\u94FE"), abbreviations, spelling variants, same thing named differently
+- NOT duplicates: related concepts, parent-child relationships, overlapping topics
+- Only confirm pairs you are HIGHLY CONFIDENT about (95%+ certainty)
+- Keep the candidate's target/source assignment (target = keep, source = merge into target)
+
+**You MUST output ONLY a valid JSON object, no other text:**
+{"duplicates": [{"target": "{{wikiFolder}}/entities/page1.md", "source": "{{wikiFolder}}/entities/page2.md", "reason": "Same concept: both refer to X because..."}]}
+
+If none of the candidates are true duplicates: {"duplicates": []}`,
+      // Merge two duplicate pages: intelligently fuse source into target.
+      mergeDuplicatePages: `You are a Wiki editor merging two duplicate pages. Intelligently fuse the source page body into the target page body to create the best single version. Also extract any alternative names found in either page.
+
+**Target page body (will be kept):**
+{{target_content}}
+
+**Source page body (will be merged then deleted):**
+{{source_content}}
+
+**IMPORTANT:** You are receiving ONLY the Markdown body content (frontmatter already stripped by the system). DO not include any frontmatter in your output. The system will handle frontmatter merging programmatically. Focus on merging the semantic content only.
+
+**Fusion rules:**
+1. Keep ALL information from the target page \u2014 it is the primary version
+2. Read the source page carefully. Add ONLY information from source that is GENUINELY NEW (not already in target in different words)
+3. If source has verbatim quotes (Mentions in Source) not in target, add them with the source's citation
+4. If source links to related entities/concepts that target doesn't, add those links in the appropriate sections
+5. If source describes applications, characteristics, or details not covered by target, weave them naturally into target's existing sections
+6. If there are factual contradictions, preserve both sides with source attribution in a "## Contradictions" section if one doesn't exist
+7. Do NOT duplicate information already present in target
+8. Preserve the target page's overall structure and section ordering
+
+**Aliases to extract (put in the "aliases" array):**
+- Alternative names, translations, abbreviations found in EITHER page's title or content
+- e.g. if source is "Mixture-of-Experts-MoE" and target is "\u6DF7\u5408\u4E13\u5BB6\u6A21\u578B", aliases might include: "MoE", "Mixture of Experts", "Sparse MoE"
+- Include names that someone might search for when looking for this concept
+- Do NOT include the target page's own title or filename as an alias
+
+**You MUST output ONLY a valid JSON object, no other text:**
+{
+  "body": "# Page Title\\n\\n## Section\\n\\n...merged content...",
+  "aliases": ["alias1", "alias2", "alias3"]
+}
+
+If source adds nothing new, still output the target body AND any aliases found.`,
+      // Generate aliases for a page by analyzing its content and title.
+      generateAliases: `You are a knowledge curator. Given a wiki page's title and body, suggest alternative names (aliases) someone might search for when looking for this concept.
+
+**Page title:** {{title}}
+
+**Page body:**
+{{body}}
+
+**What to generate:**
+- **CRITICAL: do NOT invent translations for established technical terms.** Only suggest
+  translations that genuinely exist in real-world usage (e.g. "Neural Network" \u2194 "\u795E\u7ECF\u7F51\u7EDC",
+  not "Transformer" \u2194 "\u53D8\u6362\u5668"). Real-world convention always wins.
+- English is universally acceptable as a "linker language" \u2014 established English technical terms
+  (e.g. "Transformer", "DNA", "API", "RoPE", "CUDA") may be kept as-is across all wikis
+- Abbreviations: e.g. "Chain of Thought" \u2192 "CoT", "Mixture of Experts" \u2192 "MoE"
+- Spelling variants: "Mixture-of-Experts", "Mixture of Experts", "Sparse MoE"
+- Common alternative names in the field
+- Full forms of abbreviations (e.g. "NTP" \u2192 "Next Token Prediction")
+
+**Rules:**
+- 3-8 aliases is ideal
+- Only include names that genuinely refer to THIS concept
+- Do NOT include the page title itself as an alias
+- Prefer commonly-used names in the field
+
+**You MUST output ONLY a valid JSON object, no other text:**
+{"aliases": ["alias1", "alias2", "alias3"]}
+
+If no meaningful aliases found: {"aliases": []}`
+    };
+  }
+});
+
+// src/wiki/prompts/conversation.ts
+var CONVERSATION_PROMPTS;
+var init_conversation = __esm({
+  "src/wiki/prompts/conversation.ts"() {
+    CONVERSATION_PROMPTS = {
+      evaluateConversationValue: `You are a Wiki knowledge evaluation assistant. Determine whether the following conversation contains substantive knowledge worth saving to the Wiki.
+
+Conversation Content:
+{{conversation}}
+
+Evaluation Criteria:
+- Contains specific concept explanations, analysis, or factual information (not just casual chat)
+- The conversation content can be distilled into structured Wiki entries
+- The information has reference value and may be consulted again in the future
+
+Output JSON format:
+{"valuable": true/false, "reason": "Reason for judgment (one sentence)"}`,
+      dedupCheck: `You are a Wiki knowledge deduplication assistant. Determine whether the conversation content is already covered by existing Wiki pages.
+
+Existing Wiki Page Index:
+{{wiki_index}}
+
+Conversation Summary:
+{{conversation_summary}}
+
+Task:
+1. Analyze the knowledge topics covered in the conversation
+2. Determine whether these topics already exist in the above Wiki pages
+3. If all topics are already covered (semantically identical or highly similar), mark as fully_redundant
+4. If some topics are new, mark as partially_new and list the new topics
+
+Output JSON format:
+{"status": "fully_redundant|partially_new|entirely_new", "new_topics": ["new topic 1"], "redundant_topics": ["covered topic 1"], "reason": "Reason for judgment (one sentence)"}`
+    };
+  }
+});
+
+// src/prompts.ts
+var PROMPTS;
+var init_prompts = __esm({
+  "src/prompts.ts"() {
+    init_ingestion();
+    init_generation();
+    init_merge();
+    init_fixes();
+    init_lint();
+    init_conversation();
+    PROMPTS = {
+      ...INGESTION_PROMPTS,
+      ...GENERATION_PROMPTS,
+      ...MERGE_PROMPTS,
+      ...FIX_PROMPTS,
+      ...LINT_PROMPTS,
+      ...CONVERSATION_PROMPTS
+    };
+  }
+});
+
+// src/wiki/system-prompts.ts
+function buildWikiLanguageDirective(settings) {
+  const lang = settings.wikiLanguage || "en";
+  const langName = WIKI_LANGUAGES[lang] || lang;
+  return `IMPORTANT: You MUST write ALL content in ${langName}. Every page title, summary, description, and label must be in ${langName}. Do NOT output any content in other languages.`;
+}
+function getSectionLabels(settings) {
+  const lang = settings.wikiLanguage || "en";
+  return SECTION_LABELS[lang] || SECTION_LABELS.en;
+}
+function getGranularityInstruction(settings) {
+  var _a, _b;
+  const granularity = settings.extractionGranularity || "standard";
+  if (granularity === "custom") {
+    const entityLimit = (_a = settings.customEntityLimit) != null ? _a : 5;
+    const conceptLimit = (_b = settings.customConceptLimit) != null ? _b : 5;
+    return `Extract at most ${entityLimit} entities and at most ${conceptLimit} concepts from the source. If you reach either limit, stop extracting that type.`;
+  }
+  return GRANULARITY_INSTRUCTIONS[granularity] || GRANULARITY_INSTRUCTIONS.standard;
+}
+function appendGranularityToPrompt(prompt, settings) {
+  const instruction = getGranularityInstruction(settings);
+  if (!instruction) return prompt;
+  return `${prompt}
+
+${instruction}`;
+}
+function getGranularityFixLimits(settings) {
+  var _a, _b;
+  const granularity = settings.extractionGranularity || "standard";
+  if (granularity === "custom") {
+    return {
+      maxEntities: (_a = settings.customEntityLimit) != null ? _a : 5,
+      maxConcepts: (_b = settings.customConceptLimit) != null ? _b : 5
+    };
+  }
+  return GRANULARITY_FIX_LIMITS[granularity] || GRANULARITY_FIX_LIMITS.standard;
+}
+function applySectionLabels(prompt, settings) {
+  const labels = getSectionLabels(settings);
+  let result = prompt;
+  for (const [key, label] of Object.entries(labels)) {
+    result = result.replace(new RegExp(`\\{\\{section_${key}\\}\\}`, "g"), label);
+  }
+  return result;
+}
+function appendTagVocabularyToPrompt(prompt, settings) {
+  const section = buildActiveTagVocabularySection(settings);
+  return `${prompt}
+
+${section}`;
+}
+async function buildSystemPrompt(settings, getSchemaContext, task) {
+  const parts = [];
+  const langDirective = buildWikiLanguageDirective(settings);
+  if (langDirective) parts.push(langDirective);
+  const schemaContext = await getSchemaContext(task);
+  if (schemaContext) parts.push(schemaContext);
+  return parts.length > 0 ? parts.join("\n\n") : void 0;
+}
+function buildActiveTagVocabularySection(settings) {
+  const entities = getActiveEntityTags(settings);
+  const concepts = getActiveConceptTags(settings);
+  const lines = [];
+  lines.push("## Active Tag Vocabulary (Issue #85 \u2014 user-controlled)");
+  lines.push("");
+  lines.push(
+    "When assigning `type` to an entity or concept, you MUST use one of the following allowed values. Do NOT invent new types."
+  );
+  lines.push("");
+  lines.push("**Entity types** (entity_type field \u2014 one of):");
+  for (const t of entities) lines.push(`- ${t}`);
+  lines.push("");
+  lines.push("**Concept types** (concept_type field \u2014 one of):");
+  for (const t of concepts) lines.push(`- ${t}`);
+  lines.push("");
+  lines.push(
+    "If a discovered item does not clearly fit any of the above, choose the closest match. Do NOT emit a free-form type string \u2014 the frontmatter validator will reject it."
+  );
+  return lines.join("\n");
+}
+var SECTION_LABELS, GRANULARITY_INSTRUCTIONS, GRANULARITY_FIX_LIMITS;
+var init_system_prompts = __esm({
+  "src/wiki/system-prompts.ts"() {
+    init_types();
+    init_tag_vocab();
+    SECTION_LABELS = {
+      en: {
+        basic_information: "Basic Information",
+        description: "Description",
+        related_content: "Related Content",
+        mentions_in_source: "Mentions in Source",
+        new_information: "New Information",
+        definition: "Definition",
+        key_characteristics: "Key Characteristics",
+        applications: "Applications",
+        related_concepts: "Related Concepts",
+        related_entities: "Related Entities",
+        source: "Source",
+        core_content: "Core Content",
+        key_entities: "Key Entities",
+        key_concepts: "Key Concepts",
+        main_points: "Main Points",
+        resolved_contradictions: "Resolved Contradictions",
+        new_claim: "New Claim",
+        existing_knowledge: "Existing Knowledge",
+        resolution_suggestion: "Resolution Suggestion",
+        source_page: "Source Page",
+        related_pages: "Related Pages",
+        updated: "Updated"
+      },
+      zh: {
+        basic_information: "\u57FA\u672C\u4FE1\u606F",
+        description: "\u63CF\u8FF0",
+        related_content: "\u76F8\u5173\u5185\u5BB9",
+        mentions_in_source: "\u6765\u6E90\u63D0\u53CA",
+        new_information: "\u65B0\u4FE1\u606F",
+        definition: "\u5B9A\u4E49",
+        key_characteristics: "\u5173\u952E\u7279\u5F81",
+        applications: "\u5E94\u7528",
+        related_concepts: "\u76F8\u5173\u6982\u5FF5",
+        related_entities: "\u76F8\u5173\u5B9E\u4F53",
+        source: "\u6765\u6E90",
+        core_content: "\u6838\u5FC3\u5185\u5BB9",
+        key_entities: "\u5173\u952E\u5B9E\u4F53",
+        key_concepts: "\u5173\u952E\u6982\u5FF5",
+        main_points: "\u8981\u70B9",
+        resolved_contradictions: "\u5DF2\u89E3\u51B3\u7684\u77DB\u76FE",
+        new_claim: "\u65B0\u4E3B\u5F20",
+        existing_knowledge: "\u5DF2\u6709\u77E5\u8BC6",
+        resolution_suggestion: "\u89E3\u51B3\u5EFA\u8BAE",
+        source_page: "\u6765\u6E90\u9875\u9762",
+        related_pages: "\u76F8\u5173\u9875\u9762",
+        updated: "\u66F4\u65B0\u4E8E"
+      },
+      ja: {
+        basic_information: "\u57FA\u672C\u60C5\u5831",
+        description: "\u8AAC\u660E",
+        related_content: "\u95A2\u9023\u30B3\u30F3\u30C6\u30F3\u30C4",
+        mentions_in_source: "\u30BD\u30FC\u30B9\u3067\u306E\u8A00\u53CA",
+        new_information: "\u65B0\u60C5\u5831",
+        definition: "\u5B9A\u7FA9",
+        key_characteristics: "\u4E3B\u306A\u7279\u5FB4",
+        applications: "\u5FDC\u7528",
+        related_concepts: "\u95A2\u9023\u6982\u5FF5",
+        related_entities: "\u95A2\u9023\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3",
+        source: "\u30BD\u30FC\u30B9",
+        core_content: "\u6838\u5FC3\u5185\u5BB9",
+        key_entities: "\u4E3B\u8981\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3",
+        key_concepts: "\u4E3B\u8981\u6982\u5FF5",
+        main_points: "\u8981\u70B9",
+        resolved_contradictions: "\u89E3\u6C7A\u6E08\u307F\u306E\u77DB\u76FE",
+        new_claim: "\u65B0\u3057\u3044\u4E3B\u5F35",
+        existing_knowledge: "\u65E2\u5B58\u306E\u77E5\u8B58",
+        resolution_suggestion: "\u89E3\u6C7A\u6848",
+        source_page: "\u30BD\u30FC\u30B9\u30DA\u30FC\u30B8",
+        related_pages: "\u95A2\u9023\u30DA\u30FC\u30B8",
+        updated: "\u66F4\u65B0\u65E5"
+      },
+      ko: {
+        basic_information: "\uAE30\uBCF8 \uC815\uBCF4",
+        description: "\uC124\uBA85",
+        related_content: "\uAD00\uB828 \uCF58\uD150\uCE20",
+        mentions_in_source: "\uCD9C\uCC98 \uC5B8\uAE09",
+        new_information: "\uC0C8 \uC815\uBCF4",
+        definition: "\uC815\uC758",
+        key_characteristics: "\uC8FC\uC694 \uD2B9\uC9D5",
+        applications: "\uC751\uC6A9",
+        related_concepts: "\uAD00\uB828 \uAC1C\uB150",
+        related_entities: "\uAD00\uB828 \uC5D4\uD2F0\uD2F0",
+        source: "\uCD9C\uCC98",
+        core_content: "\uD575\uC2EC \uB0B4\uC6A9",
+        key_entities: "\uC8FC\uC694 \uC5D4\uD2F0\uD2F0",
+        key_concepts: "\uC8FC\uC694 \uAC1C\uB150",
+        main_points: "\uC8FC\uC694 \uC0AC\uD56D",
+        resolved_contradictions: "\uD574\uACB0\uB41C \uBAA8\uC21C",
+        new_claim: "\uC0C8 \uC8FC\uC7A5",
+        existing_knowledge: "\uAE30\uC874 \uC9C0\uC2DD",
+        resolution_suggestion: "\uD574\uACB0 \uC81C\uC548",
+        source_page: "\uCD9C\uCC98 \uD398\uC774\uC9C0",
+        related_pages: "\uAD00\uB828 \uD398\uC774\uC9C0",
+        updated: "\uC5C5\uB370\uC774\uD2B8"
+      },
+      de: {
+        basic_information: "Grundlegende Informationen",
+        description: "Beschreibung",
+        related_content: "Verwandte Inhalte",
+        mentions_in_source: "Erw\xE4hnungen in der Quelle",
+        new_information: "Neue Informationen",
+        definition: "Definition",
+        key_characteristics: "Hauptmerkmale",
+        applications: "Anwendungen",
+        related_concepts: "Verwandte Konzepte",
+        related_entities: "Verwandte Entit\xE4ten",
+        source: "Quelle",
+        core_content: "Kerninhalt",
+        key_entities: "Wichtige Entit\xE4ten",
+        key_concepts: "Wichtige Konzepte",
+        main_points: "Hauptpunkte",
+        resolved_contradictions: "Aufgel\xF6ste Widerspr\xFCche",
+        new_claim: "Neue Behauptung",
+        existing_knowledge: "Bestehendes Wissen",
+        resolution_suggestion: "L\xF6sungsvorschlag",
+        source_page: "Quellseite",
+        related_pages: "Verwandte Seiten",
+        updated: "Aktualisiert"
+      },
+      fr: {
+        basic_information: "Informations de base",
+        description: "Description",
+        related_content: "Contenu associ\xE9",
+        mentions_in_source: "Mentions dans la source",
+        new_information: "Nouvelles informations",
+        definition: "D\xE9finition",
+        key_characteristics: "Caract\xE9ristiques principales",
+        applications: "Applications",
+        related_concepts: "Concepts associ\xE9s",
+        related_entities: "Entit\xE9s associ\xE9es",
+        source: "Source",
+        core_content: "Contenu principal",
+        key_entities: "Entit\xE9s cl\xE9s",
+        key_concepts: "Concepts cl\xE9s",
+        main_points: "Points principaux",
+        resolved_contradictions: "Contradictions r\xE9solues",
+        new_claim: "Nouvelle affirmation",
+        existing_knowledge: "Connaissances existantes",
+        resolution_suggestion: "Suggestion de r\xE9solution",
+        source_page: "Page source",
+        related_pages: "Pages associ\xE9es",
+        updated: "Mis \xE0 jour"
+      },
+      es: {
+        basic_information: "Informaci\xF3n b\xE1sica",
+        description: "Descripci\xF3n",
+        related_content: "Contenido relacionado",
+        mentions_in_source: "Menciones en la fuente",
+        new_information: "Nueva informaci\xF3n",
+        definition: "Definici\xF3n",
+        key_characteristics: "Caracter\xEDsticas clave",
+        applications: "Aplicaciones",
+        related_concepts: "Conceptos relacionados",
+        related_entities: "Entidades relacionadas",
+        source: "Fuente",
+        core_content: "Contenido principal",
+        key_entities: "Entidades clave",
+        key_concepts: "Conceptos clave",
+        main_points: "Puntos principales",
+        resolved_contradictions: "Contradicciones resueltas",
+        new_claim: "Nueva afirmaci\xF3n",
+        existing_knowledge: "Conocimiento existente",
+        resolution_suggestion: "Sugerencia de resoluci\xF3n",
+        source_page: "P\xE1gina de origen",
+        related_pages: "P\xE1ginas relacionadas",
+        updated: "Actualizado"
+      },
+      pt: {
+        basic_information: "Informa\xE7\xF5es b\xE1sicas",
+        description: "Descri\xE7\xE3o",
+        related_content: "Conte\xFAdo relacionado",
+        mentions_in_source: "Men\xE7\xF5es na fonte",
+        new_information: "Novas informa\xE7\xF5es",
+        definition: "Defini\xE7\xE3o",
+        key_characteristics: "Caracter\xEDsticas principais",
+        applications: "Aplica\xE7\xF5es",
+        related_concepts: "Conceitos relacionados",
+        related_entities: "Entidades relacionadas",
+        source: "Fonte",
+        core_content: "Conte\xFAdo principal",
+        key_entities: "Entidades principais",
+        key_concepts: "Conceitos principais",
+        main_points: "Pontos principais",
+        resolved_contradictions: "Contradi\xE7\xF5es resolvidas",
+        new_claim: "Nova afirma\xE7\xE3o",
+        existing_knowledge: "Conhecimento existente",
+        resolution_suggestion: "Sugest\xE3o de resolu\xE7\xE3o",
+        source_page: "P\xE1gina de origem",
+        related_pages: "P\xE1ginas relacionadas",
+        updated: "Atualizado"
+      }
+    };
+    GRANULARITY_INSTRUCTIONS = {
+      fine: "Extract ALL entities and concepts worth recording from the source, including those mentioned only once or tangentially.",
+      standard: "Extract important and moderately important entities and concepts from the source. Ignore minor items mentioned only in passing.",
+      coarse: "Extract only the most essential entities and concepts from the source \u2014 those without which the text cannot be understood. Quality over quantity.",
+      minimal: "Extract only the most critical entities and concepts from the source \u2014 maximum 3 total items. Extreme selectivity for cost control.",
+      custom: ""
+      // placeholder — never used; getGranularityInstruction handles custom dynamically
+    };
+    GRANULARITY_FIX_LIMITS = {
+      fine: { maxEntities: 6, maxConcepts: 6 },
+      standard: { maxEntities: 3, maxConcepts: 3 },
+      coarse: { maxEntities: 2, maxConcepts: 2 },
+      minimal: { maxEntities: 1, maxConcepts: 2 },
+      custom: { maxEntities: 0, maxConcepts: 0 }
+      // placeholder — never used
+    };
+  }
+});
+
+// src/core/prompt-builders.ts
+function buildEmptyPagePrompt(template, context) {
+  const truncatedIndex = context.wikiIndex.substring(0, 2e3);
+  return template.replace(/\{\{page_type\}\}/g, context.pageType).replace(/\{\{existing_content\}\}/g, context.existingContent).replace(/\{\{wiki_index\}\}/g, truncatedIndex).replace(/\{\{section_labels\}\}/g, context.sectionLabelsHint).replace(/\{\{max_entities\}\}/g, String(context.maxEntities)).replace(/\{\{max_concepts\}\}/g, String(context.maxConcepts));
+}
+function cleanWikiIndex(indexContent) {
+  return indexContent.split("\n").filter((line) => {
+    if (/\[\[(entities|concepts|sources)\/[^\]]*\/\1[^\s\-_|\]]/.test(line)) return false;
+    if (/\[\[(entities|concepts|sources)\/[^|\]]+\|(entities|concepts|sources)\//.test(line)) return false;
+    return true;
+  }).join("\n");
+}
+function correctLinkPollution(content) {
+  const DISPLAY_POLLUTION_REGEX = /\[\[(entities|concepts|sources)\/[^|\]]+\|(entities|concepts|sources)\/[^|\]]+\]\]/g;
+  const PATH_DUP_REGEX = /\[\[(entities|concepts|sources)\/\1([^\s\-_|\]]+)(\|[^\]]+)?\]\]/g;
+  let cleaned = content.replace(
+    DISPLAY_POLLUTION_REGEX,
+    (match) => {
+      const parts = match.match(/\[\[([^|\]]+)\|([^|\]]+)\]\]/);
+      if (parts) {
+        const path = parts[1];
+        const pollutedDisplay = parts[2];
+        const cleanDisplay = pollutedDisplay.replace(/^(entities|concepts|sources)\//, "");
+        return `[[${path}|${cleanDisplay}]]`;
+      }
+      return match;
+    }
+  );
+  cleaned = cleaned.replace(
+    PATH_DUP_REGEX,
+    (_match, folder, rest, display) => {
+      const displayPart = display || "";
+      return `[[${folder}/${rest}${displayPart}]]`;
+    }
+  );
+  return cleaned;
+}
+function normalizeLLMPath(path, wikiFolder) {
+  if (!path) return path;
+  if (path.startsWith(wikiFolder + "/") || path === wikiFolder) {
+    return path;
+  }
+  if (path.startsWith("wiki/")) {
+    return wikiFolder + "/" + path.slice(5);
+  }
+  return wikiFolder + "/" + path;
+}
+function normalizeWikiLinkContent(content, wikiFolder) {
+  if (!content || wikiFolder === "wiki") return content;
+  return content.replace(/\[\[wiki\/([^\]]+)\]\]/g, (_match, rest) => {
+    return `[[${wikiFolder}/${rest}]]`;
+  });
+}
+var init_prompt_builders = __esm({
+  "src/core/prompt-builders.ts"() {
+  }
+});
+
+// src/wiki/lint/utils.ts
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function buildSectionLabelsHint(settings) {
+  const labels = getSectionLabels(settings);
+  const entityLabels = [
+    `- ${labels.basic_information}`,
+    `- ${labels.description}`,
+    `- ${labels.related_entities}`,
+    `- ${labels.related_concepts}`,
+    `- ${labels.mentions_in_source}`
+  ].join("\n");
+  const conceptLabels = [
+    `- ${labels.definition}`,
+    `- ${labels.key_characteristics}`,
+    `- ${labels.applications}`,
+    `- ${labels.related_concepts}`,
+    `- ${labels.related_entities}`,
+    `- ${labels.mentions_in_source}`
+  ].join("\n");
+  const sourceLabels = [
+    `- ${labels.source}`,
+    `- ${labels.core_content}`,
+    `- ${labels.key_entities}`,
+    `- ${labels.key_concepts}`,
+    `- ${labels.main_points}`
+  ].join("\n");
+  return `Entity pages use:
+${entityLabels}
+
+Concept pages use:
+${conceptLabels}
+
+Source pages use:
+${sourceLabels}`;
+}
+function normalizeFrontmatterDates(content, dateStr) {
+  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!fmMatch) return content;
+  const fmContent = fmMatch[1];
+  const hasUpdated = /^updated:\s*.+$/m.test(fmContent);
+  let newFm;
+  if (hasUpdated) {
+    newFm = fmContent.replace(/^updated:\s*.+$/m, `updated: ${dateStr}`);
+  } else {
+    newFm = fmContent + `
+updated: ${dateStr}`;
+  }
+  return content.replace(/^---\n[\s\S]*?\n---/, `---
+${newFm}
+---`);
+}
+function fixDoubleNestedWikiLinks(content) {
+  let fixed = 0;
+  const doubleNestRegex = /\[\[\[\[([^\]|#]+)(?:[|#]([^\]]+))?\]\]\]\]/g;
+  const result = content.replace(doubleNestRegex, (_fullMatch, target, display) => {
+    fixed++;
+    if (display) {
+      return `[[${target}|${display}]]`;
+    }
+    return `[[${target}]]`;
+  });
+  return { fixed, content: result };
+}
+function isPageEmpty(content) {
+  if (content.includes(STUB_MARKER)) return true;
+  const textBody = content.replace(/---[\s\S]*?---/, "").replace(EMPTY_CONTENT_STRIP, "").trim();
+  return textBody.length < MIN_SUBSTANTIVE_CHARS;
+}
+function detectPollutedPages(pages) {
+  const polluted = [];
+  for (const p of pages) {
+    const match = /^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/.exec(p.title);
+    if (match) {
+      polluted.push({
+        path: p.path,
+        title: p.title,
+        cleanTitle: p.title.replace(/^(entities|concepts|sources)/, "")
+      });
+    }
+  }
+  return polluted;
+}
+var EMPTY_CONTENT_STRIP, MIN_SUBSTANTIVE_CHARS, STUB_MARKER;
+var init_utils = __esm({
+  "src/wiki/lint/utils.ts"() {
+    init_system_prompts();
+    EMPTY_CONTENT_STRIP = /[#*\-_>\s\n[\]|—]/g;
+    MIN_SUBSTANTIVE_CHARS = 50;
+    STUB_MARKER = "Auto-generated stub page";
+  }
+});
+
+// src/wiki/lint/fill-empty-page.ts
+var fill_empty_page_exports = {};
+__export(fill_empty_page_exports, {
+  fillEmptyPage: () => fillEmptyPage
+});
+async function fillEmptyPage(ctx, pagePath, existingContent) {
+  const content = existingContent != null ? existingContent : await ctx.tryReadFile(pagePath);
+  if (content === null || content === void 0) {
+    throw new Error(
+      `Cannot expand empty page: file not found at "${pagePath}"`
+    );
+  }
+  const beforeLen = content.length;
+  const pageType = pagePath.includes(`/${WIKI_SUBFOLDERS.entities}/`) ? WIKI_SUBFOLDERS.entities : pagePath.includes(`/${WIKI_SUBFOLDERS.concepts}/`) ? WIKI_SUBFOLDERS.concepts : WIKI_SUBFOLDERS.sources;
+  const indexPath = `${ctx.settings.wikiFolder}/index.md`;
+  const rawWikiIndex = await ctx.tryReadFile(indexPath) || "";
+  const wikiIndex = cleanWikiIndex(rawWikiIndex);
+  const limits = getGranularityFixLimits(ctx.settings);
+  const prompt = buildEmptyPagePrompt(PROMPTS.fillEmptyPage, {
+    pageType,
+    existingContent: content,
+    wikiIndex,
+    sectionLabelsHint: buildSectionLabelsHint(ctx.settings),
+    maxEntities: limits.maxEntities,
+    maxConcepts: limits.maxConcepts
+  });
+  const finalPrompt = applySectionLabels(prompt, ctx.settings);
+  const client = ctx.getClient();
+  if (!client) throw new Error("LLM client not initialized");
+  const filledContent = await client.createMessage({
+    model: ctx.settings.model,
+    max_tokens: TOKENS_LINT_PAGE_FIX,
+    system: await buildSystemPrompt(
+      ctx.settings,
+      ctx.getSchemaContext,
+      "full"
+    ),
+    messages: [{ role: "user", content: finalPrompt }],
+    ...ctx.settings.disableThinking ? { enableThinking: false } : {}
+  });
+  const cleaned = cleanMarkdownResponse(filledContent);
+  const pollutionFree = correctLinkPollution(cleaned);
+  const stubFree = pollutionFree.includes(STUB_MARKER) ? pollutionFree.split("\n").filter((line) => !line.includes(STUB_MARKER)).join("\n").trim() : pollutionFree;
+  const textBody = stubFree.replace(/---[\s\S]*?---/, "").replace(EMPTY_CONTENT_STRIP, "").trim();
+  if (textBody.length < MIN_SUBSTANTIVE_CHARS) {
+    console.debug(
+      `fillEmptyPage: LLM output still below threshold (${textBody.length} chars), writing anyway`
+    );
+  }
+  const dateStr = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+  const withDates = normalizeFrontmatterDates(stubFree, dateStr);
+  const pageTypeSingular = pageType === WIKI_SUBFOLDERS.entities ? "entity" : pageType === WIKI_SUBFOLDERS.concepts ? "concept" : "source";
+  const enforced = enforceFrontmatterConstraints(withDates, pageTypeSingular, ctx.settings);
+  await ctx.createOrUpdateFile(pagePath, enforced);
+  const pageRel = pagePath.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+  return `${pageRel} (${beforeLen} \u2192 ${enforced.length} chars)`;
+}
+var init_fill_empty_page = __esm({
+  "src/wiki/lint/fill-empty-page.ts"() {
+    init_prompts();
+    init_constants();
+    init_system_prompts();
+    init_frontmatter();
+    init_markdown();
+    init_prompt_builders();
+    init_utils();
+    init_constants();
+  }
+});
+
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
+  createLLMClient: () => createLLMClient,
   default: () => LLMWikiPlugin
 });
 module.exports = __toCommonJS(main_exports);
 var import_obsidian12 = require("obsidian");
-
-// src/types.ts
-var WIKI_LANGUAGES = {
-  "en": "English",
-  "zh": "\u4E2D\u6587",
-  "ja": "\u65E5\u672C\u8A9E",
-  "ko": "\uD55C\uAD6D\uC5B4",
-  "de": "Deutsch",
-  "fr": "Fran\xE7ais",
-  "es": "Espa\xF1ol",
-  "pt": "Portugu\xEAs"
-};
-var VALID_ENTITY_TAGS = ["person", "organization", "project", "product", "event", "place", "other"];
-var VALID_CONCEPT_TAGS = ["theory", "method", "field", "phenomenon", "standard", "term", "other"];
-var VALID_SOURCE_TAGS = [
-  "paper",
-  "article",
-  "book",
-  "transcript",
-  "clippings",
-  "notes",
-  "other"
-];
-var PREDEFINED_PROVIDERS = {
-  openai: {
-    id: "openai",
-    name: "OpenAI",
-    nameEn: "OpenAI",
-    nameZh: "OpenAI",
-    baseUrl: "https://api.openai.com/v1",
-    apiKeyPlaceholder: "sk-...",
-    apiKeyPlaceholderEn: "sk-...",
-    apiKeyPlaceholderZh: "sk-...",
-    requiresBaseUrl: false
-  },
-  anthropic: {
-    id: "anthropic",
-    name: "Anthropic (Claude)",
-    nameEn: "Anthropic (Claude)",
-    nameZh: "Anthropic (Claude)",
-    baseUrl: "",
-    apiKeyPlaceholder: "sk-ant-...",
-    apiKeyPlaceholderEn: "sk-ant-...",
-    apiKeyPlaceholderZh: "sk-ant-...",
-    requiresBaseUrl: false
-  },
-  gemini: {
-    id: "gemini",
-    name: "Google Gemini",
-    nameEn: "Google Gemini",
-    nameZh: "Google Gemini",
-    baseUrl: "https://generativelanguage.googleapis.com/v1beta/openai",
-    apiKeyPlaceholder: "AIza...",
-    apiKeyPlaceholderEn: "AIza...",
-    apiKeyPlaceholderZh: "AIza...",
-    requiresBaseUrl: false
-  },
-  openrouter: {
-    id: "openrouter",
-    name: "OpenRouter",
-    nameEn: "OpenRouter",
-    nameZh: "OpenRouter",
-    baseUrl: "https://openrouter.ai/api/v1",
-    apiKeyPlaceholder: "sk-or-...",
-    apiKeyPlaceholderEn: "sk-or-...",
-    apiKeyPlaceholderZh: "sk-or-...",
-    requiresBaseUrl: false
-  },
-  deepseek: {
-    id: "deepseek",
-    name: "DeepSeek",
-    nameEn: "DeepSeek",
-    nameZh: "DeepSeek",
-    baseUrl: "https://api.deepseek.com/v1",
-    apiKeyPlaceholder: "sk-...",
-    apiKeyPlaceholderEn: "sk-...",
-    apiKeyPlaceholderZh: "sk-...",
-    requiresBaseUrl: false
-  },
-  minimax: {
-    id: "minimax",
-    name: "MiniMax",
-    nameEn: "MiniMax",
-    nameZh: "MiniMax",
-    baseUrl: "https://api.minimaxi.com/v1",
-    apiKeyPlaceholder: "sk-cp-...",
-    apiKeyPlaceholderEn: "sk-cp-...",
-    apiKeyPlaceholderZh: "sk-cp-...",
-    requiresBaseUrl: false
-  },
-  kimi: {
-    id: "kimi",
-    name: "Kimi (Moonshot)",
-    nameEn: "Kimi (Moonshot)",
-    nameZh: "Kimi (Moonshot)",
-    baseUrl: "https://api.moonshot.cn/v1",
-    apiKeyPlaceholder: "sk-...",
-    apiKeyPlaceholderEn: "sk-...",
-    apiKeyPlaceholderZh: "sk-...",
-    requiresBaseUrl: false
-  },
-  glm: {
-    id: "glm",
-    name: "GLM (Zhipu AI)",
-    nameEn: "GLM (Zhipu AI)",
-    nameZh: "GLM (\u667A\u8C31AI)",
-    baseUrl: "https://open.bigmodel.cn/api/paas/v4",
-    apiKeyPlaceholder: "...",
-    apiKeyPlaceholderEn: "...",
-    apiKeyPlaceholderZh: "...",
-    requiresBaseUrl: false
-  },
-  ollama: {
-    id: "ollama",
-    name: "Ollama (Local)",
-    nameEn: "Ollama (Local)",
-    nameZh: "Ollama (\u672C\u5730)",
-    baseUrl: "http://localhost:11434/v1",
-    apiKeyPlaceholder: "ollama (no Key required)",
-    apiKeyPlaceholderEn: "ollama (no Key required)",
-    apiKeyPlaceholderZh: "ollama (\u65E0\u9700Key)",
-    requiresBaseUrl: false
-  },
-  lmstudio: {
-    id: "lmstudio",
-    name: "LM Studio (Local)",
-    nameEn: "LM Studio (Local)",
-    nameZh: "LM Studio\uFF08\u672C\u5730\uFF09",
-    baseUrl: "http://localhost:1234/v1",
-    apiKeyPlaceholder: "lmstudio",
-    apiKeyPlaceholderEn: "lmstudio (optional)",
-    apiKeyPlaceholderZh: "lmstudio\uFF08\u53EF\u9009\uFF09",
-    requiresBaseUrl: false
-  },
-  custom: {
-    id: "custom",
-    name: "Custom OpenAI-Compatible",
-    nameEn: "Custom OpenAI-Compatible",
-    nameZh: "\u81EA\u5B9A\u4E49 OpenAI \u517C\u5BB9",
-    baseUrl: "",
-    apiKeyPlaceholder: "API Key",
-    apiKeyPlaceholderEn: "API Key",
-    apiKeyPlaceholderZh: "API Key",
-    requiresBaseUrl: true
-  },
-  "anthropic-compatible": {
-    id: "anthropic-compatible",
-    name: "Custom Anthropic-Compatible",
-    nameEn: "Custom Anthropic-Compatible",
-    nameZh: "\u81EA\u5B9A\u4E49 Anthropic \u517C\u5BB9",
-    baseUrl: "",
-    apiKeyPlaceholder: "API Key",
-    apiKeyPlaceholderEn: "API Key",
-    apiKeyPlaceholderZh: "API Key",
-    requiresBaseUrl: true
-  }
-};
-var DEFAULT_SETTINGS = {
-  provider: "anthropic",
-  apiKey: "",
-  baseUrl: "",
-  model: "",
-  // No hardcoded default — user must fetch models or enter manually
-  wikiFolder: "wiki",
-  language: "en",
-  wikiLanguage: "en",
-  useCustomWikiLanguage: false,
-  availableModels: [],
-  useCustomModel: false,
-  maxConversationHistory: 30,
-  queryHistory: [],
-  // Schema
-  enableSchema: true,
-  // Issue #85: tag vocabulary
-  tagVocabularyMode: "default",
-  customEntityTags: "",
-  customConceptTags: "",
-  // Extraction
-  extractionGranularity: "standard",
-  // Auto-maintenance
-  autoWatchSources: false,
-  autoWatchMode: "notify",
-  autoWatchDebounceMs: 5e3,
-  watchedFolders: [],
-  periodicLint: "off",
-  startupCheck: true,
-  // Issue #81: default ON for low-level format fixes
-  // Ingestion acceleration (default: 3 parallel for most providers)
-  pageGenerationConcurrency: 3,
-  batchDelayMs: 500,
-  // Query dedup
-  lastOfferedQueryHash: "",
-  // LLM readiness
-  llmReady: false,
-  // Issue #75: cap max_tokens per LLM call. 0 = no cap (cloud default).
-  // Local model users can set this when the provider is Ollama, LM Studio,
-  // custom, or anthropic-compatible.
-  maxTokensPerCall: 0,
-  // Issue #99 v2: default ON so thinking-capable models (Gemma 4,
-  // DeepSeek-R1, QwQ) output final answer only — no mid-response CoT
-  // or duplicated body. The v1.16.2 Layer A parameter existed but the
-  // production call sites never passed it; this default makes the
-  // wiring complete. Users with non-thinking models can leave true;
-  // users with thinking models wanting CoT can set false.
-  disableThinking: true,
-  // Issue #111: default to 'lower' for backwards compatibility.
-  slugCase: "lower"
-};
-
-// src/constants.ts
-var WIKI_SUBFOLDERS = {
-  entities: "entities",
-  concepts: "concepts",
-  sources: "sources"
-};
-var PAGES_CACHE_TTL_MS = 5e3;
-var CUSTOM_LIMIT_MAX = 500;
-var CUSTOM_LIMIT_MIN = 1;
-var CUSTOM_BATCH_SIZE_MAX = 50;
-var TOKENS_PER_ITEM_BUDGET = 400;
-var SOURCE_ANALYZER_RETRY_MULTIPLIER = 3;
-var MAX_TOKENS_BATCH = 16e3;
-var TOKENS_PAGE_GENERATION = 8e3;
-var TOKENS_APPEND_REVIEWED = 4e3;
-var TOKENS_CONTRADICTION = 4e3;
-var TOKENS_CONVERSATION_EXTRACTION = 5e3;
-var TOKENS_CONVERSATION_PAGE = 8e3;
-var TOKENS_DEDUP_RESOLUTION = 1e3;
-var TOKENS_LINT_ALIAS_BATCH = 500;
-var TOKENS_LINT_DEDUP_LLM = 4e3;
-var TOKENS_LINT_PAGE_FIX = 8e3;
-var TOKENS_LINT_ORPHAN_FIX = 800;
-var TOKENS_QUERY_MODEL_DETECT = 100;
-var TOKENS_QUERY_PAGE_SELECT = 500;
-var TOKENS_QUERY_LLM_SELECT = 3e3;
-var TOKENS_QUERY_SAVE_DEDUP = 300;
-var TOKENS_SCHEMA_SUGGESTION = 1e3;
-var MAX_PAGE_CONTENT_CHARS = 12800;
-var MAX_RETRIES = 2;
-var RETRY_BASE_DELAY_MS = 1e3;
-var NOTICE_BRIEF = 2e3;
-var NOTICE_SHORT = 3e3;
-var NOTICE_WATCHER = 4e3;
-var NOTICE_NORMAL = 5e3;
-var NOTICE_ABORT = 6e3;
-var NOTICE_ERROR = 8e3;
-var NOTICE_RATE_LIMIT = 1e4;
+init_types();
+init_constants();
 
 // src/llm-client.ts
 var import_obsidian = require("obsidian");
-
-// src/core/sse-parser.ts
-function parseSSEEvents(responseText, format) {
-  var _a, _b, _c, _d, _e, _f;
-  const normalized = responseText.replace(/\r\n/g, "\n");
-  const events = normalized.split("\n\n");
-  const deltas = [];
-  for (const event of events) {
-    if (!event.trim()) continue;
-    const dataLine = event.split("\n").find((line) => line.startsWith("data:"));
-    if (!dataLine) continue;
-    if (format === "openai") {
-      const dataContent = dataLine.substring(5).trim();
-      if (dataContent === "[DONE]") break;
-    }
-    try {
-      const jsonStart = dataLine.indexOf("{");
-      if (jsonStart === -1) continue;
-      const parsed = JSON.parse(dataLine.substring(jsonStart));
-      if (format === "anthropic") {
-        const anth = parsed;
-        if (anth.type === "content_block_delta" && ((_a = anth.delta) == null ? void 0 : _a.type) === "text_delta" && anth.delta.text) {
-          deltas.push({ text: anth.delta.text });
-        }
-      } else {
-        const oai = parsed;
-        const content = (_d = (_c = (_b = oai.choices) == null ? void 0 : _b[0]) == null ? void 0 : _c.delta) == null ? void 0 : _d.content;
-        const finish = (_f = (_e = oai.choices) == null ? void 0 : _e[0]) == null ? void 0 : _f.finish_reason;
-        if (content) deltas.push({ text: content });
-        if (finish) deltas.push({ text: "", finishReason: finish });
-      }
-    } catch (e) {
-    }
-  }
-  return deltas;
-}
-
-// src/core/truncation-retry.ts
-var DEFAULT_MAX_CAP = MAX_TOKENS_BATCH;
-async function withTruncationRetry(opts) {
-  var _a, _b;
-  const initialResponse = await opts.initialFn();
-  let text = opts.extractText(initialResponse);
-  if (!opts.isTruncated(initialResponse)) {
-    return text;
-  }
-  const cap = (_a = opts.maxCap) != null ? _a : DEFAULT_MAX_CAP;
-  const currentMax = opts.getMaxTokens();
-  const retryMaxTokens = Math.min(currentMax * 2, cap);
-  const stopReason = (_b = opts.getStopReason) == null ? void 0 : _b.call(opts, initialResponse);
-  const reasonSuffix = stopReason ? ` (${stopReason})` : "";
-  console.warn(
-    `${opts.label} response truncated at ${currentMax} tokens${reasonSuffix}. Retrying with ${retryMaxTokens} tokens.`
-  );
-  const retryResponse = await opts.retryFn(retryMaxTokens);
-  text = opts.extractText(retryResponse);
-  return text;
-}
-
-// src/llm-client.ts
-var RETRYABLE = /status 5\d{2}|status 429|overload|network|fetch|econnrefused|etimedout|timeout|abort/i;
-var isThinkingControlError = (e) => {
-  const msg = e instanceof Error ? e.message : "";
-  if (!/status 400|HTTP 400|Bad Request/i.test(msg)) return false;
-  return /unknown field|unsupported field|invalid parameter|not supported|reasoning_effort|thinking/i.test(msg);
-};
-function errMsg(err) {
-  return err instanceof Error ? err.message : String(err);
-}
-async function withRetry(fn, maxAttempts = MAX_RETRIES, label = "API") {
-  let lastError;
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    try {
-      return await fn();
-    } catch (error) {
-      lastError = error;
-      const msg = errMsg(error);
-      if (RETRYABLE.test(msg) && attempt < maxAttempts - 1) {
-        const delay = Math.pow(2, attempt) * RETRY_BASE_DELAY_MS + Math.random() * RETRY_BASE_DELAY_MS;
-        console.warn(`${label} error on attempt ${attempt + 1}, retrying in ${Math.round(delay)}ms: ${msg}`);
-        await new Promise((resolve) => window.setTimeout(resolve, delay));
-        continue;
-      }
-      throw error;
-    }
-  }
-  throw lastError;
-}
-var AnthropicCompatibleClient = class {
-  constructor(apiKey, baseUrl) {
-    this.apiKey = apiKey;
-    this.baseUrl = baseUrl.replace(/\/v1\/?$/, "").replace(/\/+$/, "") + "/v1";
-    this.apiVersion = "2023-06-01";
-  }
-  extractText(content) {
-    const textBlock = content.find((c) => c.type === "text");
-    return (textBlock == null ? void 0 : textBlock.text) || "";
-  }
-  async createMessage(params) {
-    var _a, _b;
-    const body = {
-      model: params.model,
-      max_tokens: params.max_tokens,
-      messages: ((_a = params.response_format) == null ? void 0 : _a.type) === "json_object" ? [...params.messages, { role: "assistant", content: "{" }] : params.messages
-    };
-    if (params.system) body.system = params.system;
-    if (params.disableThinking) {
-      body.thinking = { type: "disabled" };
-    }
-    const anthropicDoRequest = async (requestBody) => withRetry(async () => {
-      var _a2, _b2, _c;
-      const response = await (0, import_obsidian.requestUrl)({
-        url: this.baseUrl + "/messages",
-        method: "POST",
-        headers: {
-          "x-api-key": this.apiKey,
-          "Anthropic-Version": this.apiVersion,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestBody)
-      });
-      const data = response.json;
-      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
-      console.debug("Anthropic API response:", {
-        stop_reason: data.stop_reason,
-        content_length: ((_a2 = data.content) == null ? void 0 : _a2.length) || 0,
-        content_types: ((_b2 = data.content) == null ? void 0 : _b2.map((c) => c.type)) || []
-      });
-      const initialData = data;
-      const text = await withTruncationRetry({
-        initialFn: async () => initialData,
-        retryFn: async (retryTokens) => {
-          const retryResponse = await (0, import_obsidian.requestUrl)({
-            url: this.baseUrl + "/messages",
-            method: "POST",
-            headers: {
-              "x-api-key": this.apiKey,
-              "Anthropic-Version": this.apiVersion,
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ ...body, max_tokens: retryTokens })
-          });
-          const retryData = retryResponse.json;
-          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
-          return retryData;
-        },
-        isTruncated: (r) => r.stop_reason === "max_tokens",
-        extractText: (r) => this.extractText(r.content || []),
-        getMaxTokens: () => params.max_tokens,
-        getStopReason: (r) => r.stop_reason,
-        maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
-        label: "Anthropic-compatible API"
-      });
-      console.debug("Extracted text length:", text.length);
-      if (((_c = params.response_format) == null ? void 0 : _c.type) === "json_object" && text.length > 0 && text[0] !== "{") {
-        return "{" + text;
-      }
-      return text;
-    }, 3, "Anthropic-compatible API");
-    try {
-      return await anthropicDoRequest(body);
-    } catch (e) {
-      if (params.disableThinking && isThinkingControlError(e)) {
-        this.thinkingControlSupported = false;
-        console.debug(`[AnthropicCompat] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
-        const fallbackBody = {
-          model: params.model,
-          max_tokens: params.max_tokens,
-          messages: params.system ? [{ role: "system", content: params.system }, ...params.messages] : params.messages
-        };
-        if (((_b = params.response_format) == null ? void 0 : _b.type) === "json_object") {
-          fallbackBody.messages = [...fallbackBody.messages, { role: "assistant", content: "{" }];
-        }
-        return await anthropicDoRequest(fallbackBody);
-      }
-      throw e;
-    }
-  }
-  async createMessageStream(params) {
-    var _a;
-    const messages = params.system ? params.messages : [
-      ...params.messages,
-      {
-        role: "user",
-        content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
-      }
-    ];
-    const body = {
-      model: params.model,
-      max_tokens: params.max_tokens,
-      messages,
-      stream: true
-    };
-    if (params.system) body.system = params.system;
-    if (params.disableThinking) {
-      body.thinking = { type: "disabled" };
-    }
-    console.debug(
-      "[AnthropicCompat SSE] sending stream request, model:",
-      params.model,
-      "max_tokens:",
-      params.max_tokens,
-      "system length:",
-      ((_a = params.system) == null ? void 0 : _a.length) || 0,
-      "messages count:",
-      messages.length
-    );
-    let response;
-    try {
-      response = await (0, import_obsidian.requestUrl)({
-        url: this.baseUrl + "/messages",
-        method: "POST",
-        headers: {
-          "x-api-key": this.apiKey,
-          "Anthropic-Version": this.apiVersion,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-      });
-    } catch (err) {
-      console.error("[AnthropicCompat SSE] requestUrl request failed:", err);
-      throw err;
-    }
-    const responseText = response.text;
-    console.debug(
-      "[AnthropicCompat SSE] response received, length:",
-      responseText.length,
-      "first 200 chars:",
-      responseText.substring(0, 200)
-    );
-    const deltas = parseSSEEvents(responseText, "anthropic");
-    let fullText = "";
-    for (const delta of deltas) {
-      if (delta.text) {
-        fullText += delta.text;
-        params.onChunk(delta.text);
-      }
-    }
-    if (!fullText) {
-      console.debug("[AnthropicCompat SSE] SSE parsing empty, trying non-streaming JSON fallback");
-      try {
-        const data = JSON.parse(responseText);
-        if (data.error) throw new Error(data.error.message);
-        fullText = this.extractText(data.content || []);
-        if (fullText) {
-          console.debug("[AnthropicCompat SSE] non-streaming fallback successful, length:", fullText.length);
-          params.onChunk(fullText);
-        }
-      } catch (parseErr) {
-        console.debug("[AnthropicCompat SSE] non-streaming JSON parse also failed:", parseErr);
-      }
-    }
-    if (!fullText) {
-      throw new Error(
-        "Anthropic-compatible endpoint returned neither SSE events nor a standard JSON response. The provider may not support the Messages API streaming format. Response preview: " + responseText.substring(0, 300)
-      );
-    }
-    console.debug("[AnthropicCompat SSE] success, response length:", fullText.length);
-    return fullText;
-  }
-  listModels() {
-    return Promise.resolve([]);
-  }
-};
-var AnthropicClient = class {
-  constructor(apiKey, baseUrl) {
-    this.apiVersion = "2023-06-01";
-    this.apiKey = apiKey;
-    this.baseUrl = baseUrl || "https://api.anthropic.com";
-  }
-  async createMessage(params) {
-    var _a, _b;
-    const messages = ((_a = params.response_format) == null ? void 0 : _a.type) === "json_object" ? [...params.messages, { role: "assistant", content: "{" }] : [...params.messages];
-    if (params.cacheBreakpoint && params.cacheBreakpoint > 0 && messages.length > 0) {
-      const first = messages[0];
-      if (first.role === "user" && typeof first.content === "string" && params.cacheBreakpoint < first.content.length) {
-        const text = first.content;
-        first.content = [
-          { type: "text", text: text.substring(0, params.cacheBreakpoint), cache_control: { type: "ephemeral" } },
-          { type: "text", text: text.substring(params.cacheBreakpoint) }
-        ];
-      }
-    }
-    const body = {
-      model: params.model,
-      max_tokens: params.max_tokens,
-      messages
-    };
-    if (params.system) body.system = params.system;
-    if (params.disableThinking) {
-      body.thinking = { type: "disabled" };
-    }
-    const anthropicDoRequest = async (requestBody) => withRetry(async () => {
-      var _a2;
-      const response = await (0, import_obsidian.requestUrl)({
-        url: `${this.baseUrl}/messages`,
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": this.apiKey,
-          "Anthropic-Version": this.apiVersion
-        },
-        body: JSON.stringify(requestBody)
-      });
-      const data = response.json;
-      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
-      const text = await withTruncationRetry({
-        initialFn: async () => data,
-        retryFn: async (retryTokens) => {
-          const retryResponse = await (0, import_obsidian.requestUrl)({
-            url: `${this.baseUrl}/messages`,
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "x-api-key": this.apiKey,
-              "Anthropic-Version": this.apiVersion
-            },
-            body: JSON.stringify({ ...requestBody, max_tokens: retryTokens })
-          });
-          const retryData = retryResponse.json;
-          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
-          return retryData;
-        },
-        isTruncated: (r) => r.stop_reason === "max_tokens",
-        extractText: (r) => {
-          var _a3;
-          const block = (_a3 = r.content) == null ? void 0 : _a3.find((c) => c.type === "text");
-          return block && "text" in block ? block.text || "" : "";
-        },
-        getMaxTokens: () => params.max_tokens,
-        getStopReason: (r) => r.stop_reason,
-        maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
-        label: "Anthropic API"
-      });
-      if (((_a2 = params.response_format) == null ? void 0 : _a2.type) === "json_object" && text.length > 0 && text[0] !== "{") {
-        return "{" + text;
-      }
-      return text;
-    }, 3, "Anthropic API");
-    try {
-      return await anthropicDoRequest(body);
-    } catch (e) {
-      if (params.disableThinking && isThinkingControlError(e)) {
-        this.thinkingControlSupported = false;
-        console.debug(`[AnthropicClient] thinking.type='disabled' not supported, falling back`);
-        const fallbackBody = {
-          model: params.model,
-          max_tokens: params.max_tokens,
-          messages: params.system ? [{ role: "system", content: params.system }, ...params.messages] : [...params.messages]
-        };
-        if (((_b = params.response_format) == null ? void 0 : _b.type) === "json_object") {
-          fallbackBody.messages = [...fallbackBody.messages, { role: "assistant", content: "{" }];
-        }
-        return await anthropicDoRequest(fallbackBody);
-      }
-      throw e;
-    }
-  }
-  async createMessageStream(params) {
-    const messagesWithLanguageHint = params.system ? params.messages : [
-      ...params.messages,
-      {
-        role: "user",
-        content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
-      }
-    ];
-    const streamBody = {
-      model: params.model,
-      max_tokens: params.max_tokens,
-      messages: messagesWithLanguageHint,
-      stream: true
-    };
-    if (params.system) streamBody.system = params.system;
-    if (params.disableThinking) {
-      streamBody.thinking = { type: "disabled" };
-    }
-    const responseText = await (0, import_obsidian.requestUrl)({
-      url: `${this.baseUrl}/messages`,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": this.apiKey,
-        "Anthropic-Version": this.apiVersion
-      },
-      body: JSON.stringify(streamBody)
-    }).then((r) => r.text);
-    const deltas = parseSSEEvents(responseText, "anthropic");
-    let fullResponse = "";
-    for (const d of deltas) {
-      if (d.text) {
-        fullResponse += d.text;
-        params.onChunk(d.text);
-      }
-    }
-    return fullResponse;
-  }
-  async listModels() {
-    var _a;
-    const response = await (0, import_obsidian.requestUrl)({
-      url: "https://api.anthropic.com/v1/models",
-      headers: {
-        "x-api-key": this.apiKey,
-        "Anthropic-Version": "2023-06-01"
-      }
-    });
-    const data = response.json;
-    if (!((_a = data.data) == null ? void 0 : _a.length)) return [];
-    return data.data.map((m) => m.id).filter((id) => !id.includes(":") && !id.includes("/")).sort();
-  }
-};
-var OpenAICompatibleClient = class {
-  constructor(apiKey, baseUrl) {
-    this.apiKey = apiKey;
-    this.baseUrl = baseUrl || "https://api.openai.com/v1";
-  }
-  getHeaders() {
-    const headers = {
-      "Content-Type": "application/json"
-    };
-    if (this.apiKey) {
-      headers["Authorization"] = `Bearer ${this.apiKey}`;
-    }
-    return headers;
-  }
-  async createMessage(params) {
-    const messages = params.system ? [{ role: "system", content: params.system }, ...params.messages] : params.messages;
-    const body = {
-      model: params.model,
-      max_tokens: params.max_tokens,
-      messages
-    };
-    if (params.disableThinking && this.thinkingControlSupported !== false) {
-      body.thinking = { type: "disabled" };
-    }
-    const doRequest = (bodyToUse) => withRetry(async () => {
-      var _a, _b, _c;
-      let response;
-      try {
-        response = await (0, import_obsidian.requestUrl)({
-          url: this.baseUrl + "/chat/completions",
-          method: "POST",
-          headers: this.getHeaders(),
-          body: JSON.stringify(bodyToUse)
-        });
-      } catch (err) {
-        const status = err.status;
-        const json = err.json;
-        const text = err.text;
-        if (status === 400) {
-          console.error("[OpenAICompat Debug] 400 error body:", JSON.stringify(json) || text || "no body");
-          console.error("[OpenAICompat Debug] Request body size:", JSON.stringify(bodyToUse).length);
-          console.error("[OpenAICompat Debug] Model:", params.model, "| max_tokens:", params.max_tokens);
-        }
-        throw err;
-      }
-      const data = response.json;
-      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
-      const initialChoices = data.choices;
-      const initialText = ((_c = (_b = (_a = data.choices) == null ? void 0 : _a[0]) == null ? void 0 : _b.message) == null ? void 0 : _c.content) || "";
-      return withTruncationRetry({
-        initialFn: async () => ({ choices: initialChoices != null ? initialChoices : [], initialText }),
-        retryFn: async (retryTokens) => {
-          var _a2;
-          const retryResponse = await (0, import_obsidian.requestUrl)({
-            url: this.baseUrl + "/chat/completions",
-            method: "POST",
-            headers: this.getHeaders(),
-            body: JSON.stringify({ ...bodyToUse, max_tokens: retryTokens })
-          });
-          const retryData = retryResponse.json;
-          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
-          return { choices: (_a2 = retryData.choices) != null ? _a2 : [], initialText };
-        },
-        isTruncated: (r) => {
-          var _a2;
-          return ((_a2 = r.choices[0]) == null ? void 0 : _a2.finish_reason) === "length";
-        },
-        extractText: (r) => {
-          var _a2, _b2;
-          return ((_b2 = (_a2 = r.choices[0]) == null ? void 0 : _a2.message) == null ? void 0 : _b2.content) || r.initialText;
-        },
-        getMaxTokens: () => params.max_tokens,
-        getStopReason: (r) => {
-          var _a2;
-          return (_a2 = r.choices[0]) == null ? void 0 : _a2.finish_reason;
-        },
-        maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
-        label: "OpenAI-compatible API"
-      });
-    }, 3, "OpenAI-compatible API");
-    try {
-      return await doRequest(body);
-    } catch (e) {
-      if (params.disableThinking && isThinkingControlError(e)) {
-        this.thinkingControlSupported = false;
-        console.debug(`[OpenAICompat] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
-        const fallbackBody = {
-          model: params.model,
-          max_tokens: params.max_tokens,
-          messages: params.system ? [{ role: "system", content: params.system }, ...params.messages] : params.messages
-        };
-        return await doRequest(fallbackBody);
-      }
-      throw e;
-    }
-  }
-  async createMessageStream(params) {
-    const messages = params.system ? [{ role: "system", content: params.system }, ...params.messages] : [
-      ...params.messages,
-      {
-        role: "user",
-        content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
-      }
-    ];
-    const body = {
-      model: params.model,
-      max_tokens: params.max_tokens,
-      messages,
-      stream: true
-    };
-    if (params.disableThinking && this.thinkingControlSupported !== false) {
-      body.thinking = { type: "disabled" };
-    }
-    const doRequest = (bodyToUse) => withRetry(async () => {
-      var _a, _b, _c;
-      const response = await (0, import_obsidian.requestUrl)({
-        url: this.baseUrl + "/chat/completions",
-        method: "POST",
-        headers: this.getHeaders(),
-        body: JSON.stringify(bodyToUse)
-      });
-      const responseText = response.text;
-      const deltas = parseSSEEvents(responseText, "openai");
-      let fullText = "";
-      for (const delta of deltas) {
-        if (delta.text) {
-          fullText += delta.text;
-          params.onChunk(delta.text);
-        }
-      }
-      if (!fullText) {
-        console.debug("[OpenAICompat SSE] SSE parsing empty, trying non-streaming JSON fallback");
-        try {
-          const data = JSON.parse(responseText);
-          if (data.error) throw new Error(data.error.message);
-          const text = ((_c = (_b = (_a = data.choices) == null ? void 0 : _a[0]) == null ? void 0 : _b.message) == null ? void 0 : _c.content) || "";
-          if (text) {
-            console.debug("[OpenAICompat SSE] Non-streaming fallback successful, length:", text.length);
-            fullText = text;
-            params.onChunk(text);
-          }
-        } catch (parseErr) {
-          console.debug("[OpenAICompat SSE] Non-streaming JSON parse also failed:", parseErr);
-        }
-      }
-      if (!fullText) {
-        throw new Error(
-          "OpenAI-compatible endpoint returned neither SSE events nor a standard JSON response. The provider may not support streaming. Response preview: " + responseText.substring(0, 300)
-        );
-      }
-      return fullText;
-    }, 3, "OpenAI-compatible stream");
-    try {
-      return await doRequest(body);
-    } catch (e) {
-      if (params.disableThinking && isThinkingControlError(e)) {
-        this.thinkingControlSupported = false;
-        console.debug(`[OpenAICompat SSE] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
-        const fallbackBody = {
-          model: params.model,
-          max_tokens: params.max_tokens,
-          messages,
-          stream: true
-        };
-        return await doRequest(fallbackBody);
-      }
-      throw e;
-    }
-  }
-  async listModels() {
-    try {
-      const response = await (0, import_obsidian.requestUrl)({
-        url: this.baseUrl + "/models",
-        method: "GET",
-        headers: this.getHeaders()
-      });
-      const data = response.json;
-      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
-      const modelIds = (data.data || []).map((m) => m.id).filter((id) => !id.includes(":") && !id.includes("/")).sort();
-      return modelIds.slice(0, 100);
-    } catch (error) {
-      console.error("Failed to fetch model list:", error);
-      return [];
-    }
-  }
-};
-
-// src/core/token-cap.ts
-function capMaxTokens(requested, settings) {
-  var _a;
-  const ceiling = (_a = settings.maxTokensPerCall) != null ? _a : 0;
-  if (ceiling <= 0) return requested;
-  return Math.min(requested, ceiling);
-}
-
-// src/wiki/schema-analyze.ts
-var import_obsidian2 = require("obsidian");
+init_constants();
 
 // src/texts/en.ts
 var EN_TEXTS = {
@@ -905,13 +2150,13 @@ var EN_TEXTS = {
   languageTitle: "Interface Language",
   languageDesc: "Select your preferred language for settings panel. Restart plugin to apply language changes to command palette.",
   languageEn: "English",
-  languageZh: "Chinese (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "LLM Client Status",
   llmWikiStatusSection: "LLM-Wiki Status",
@@ -982,6 +2227,11 @@ var EN_TEXTS = {
   testConnectionFailed: "Connection failed",
   testConnectionProvider: "Provider: ",
   errorUnknown: "Unknown error",
+  // Issue #137: LLM fallback notices (shown when thinking-dialect
+  // fallback or param-stripping happens during a request).
+  fallbackThinkingDialect: 'Thinking control: switched to "{dialect}" dialect (this provider uses a different thinking-control format). Output is unchanged.',
+  fallbackThinkingNone: "Thinking control fully disabled for this provider. Reasoning content may still appear; if so, try a different model.",
+  fallbackParamStripped: 'Parameter "{field}" not supported by this provider. Stripped from the request; behavior may differ from configuration.',
   // Wiki Init Status
   wikiInitStatusReady: "Wiki initialized",
   wikiInitStatusNotReady: "Wiki not initialized \u2014 will auto-create on first ingestion",
@@ -1019,6 +2269,9 @@ var EN_TEXTS = {
   queryPhaseNonStreaming: "Non-streaming mode, generating response... (elapsed {time}s)",
   queryModalErrorPrefix: "Error: ",
   queryModalHint: 'Queries based on Wiki content. Click "Save to Wiki" to extract valuable conversations as Wiki pages.',
+  // v1.20.0: Query Wiki thinking-block collapsible summary
+  queryThinkingSummary: "Thinking process",
+  queryThinkingSteps: "steps",
   // Error Messages
   errorLLMClientNotInit: "LLM Client not initialized. Please save settings.",
   errorIngestFailed: "Ingest failed: ",
@@ -1175,6 +2428,9 @@ var EN_TEXTS = {
   periodicLintHourly: "Hourly",
   periodicLintDaily: "Daily",
   periodicLintWeekly: "Weekly",
+  autoSmartFixName: "Auto Smart Fix",
+  autoSmartFixDesc: "When lint runs, automatically apply all fixes (Smart Fix All) without showing the report modal. The fix summary is still shown on completion.",
+  autoSmartFixNotice: "Auto Smart Fix: applying all fixes...",
   startupCheckName: "Run quick fixes on startup",
   startupCheckDesc: "Auto-fix low-level format issues (sources, double-nested links) on plugin load. Verifies Wiki folder structure. Default ON.",
   suggestSchemaCommand: "Suggest Schema Updates",
@@ -1184,14 +2440,14 @@ var EN_TEXTS = {
   watcherActiveNotice: "Wiki: file watcher active \u2014 monitoring watched folders",
   watchIngestNotice: 'Wiki: {count} file(s) changed in sources/. Run "Ingest Sources" to process.',
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Wiki quick fixes complete",
-  startupCheckStructureLabel: "\u{1F4C1} Wiki structure",
-  startupCheckStructureOk: "\u2713 complete",
-  startupCheckStructureMissing: "\u26A0\uFE0F incomplete \u2014 will auto-create on first ingestion",
-  startupCheckSourcesLabel: "\u{1F527} Sources normalized",
-  startupCheckSourcesClean: "\u2713 already clean",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F cleaned {files} file(s), {entries} entry(ies)",
-  startupCheckDisableHint: "\u{1F4A1} To disable, go to Settings \u2192 Auto Maintenance \u2192 Run quick fixes on startup",
+  startupCheckTitle: "Wiki quick fixes complete",
+  startupCheckStructureLabel: "Wiki structure",
+  startupCheckStructureOk: "complete",
+  startupCheckStructureMissing: "incomplete \u2014 will auto-create on first ingestion",
+  startupCheckSourcesLabel: "Sources normalized",
+  startupCheckSourcesClean: "already clean",
+  startupCheckSourcesCleaned: "cleaned {files} file(s), {entries} entry(ies)",
+  startupCheckDisableHint: "To disable, go to Settings \u2192 Auto Maintenance \u2192 Run quick fixes on startup",
   autoIngestRunning: "Auto-ingesting {count} changed file(s)...",
   autoIngestComplete: "Auto-ingest complete: {success} succeeded, {fail} failed",
   scheduledLintRunning: "Running scheduled wiki lint...",
@@ -1239,12 +2495,33 @@ var EN_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "Ingesting... click to cancel",
   lintStatusBar: "Linting... click to cancel",
+  ingestStatusAnalyzing: "Ingesting\u2026 (click to cancel)",
+  lintStatusReading: "Linting\u2026 (click to cancel)",
+  lintStatusDuplicates: "Linting\u2026 (click to cancel)",
+  lintStatusScanningLinks: "Linting\u2026 (click to cancel)",
+  lintStatusAnalyzing: "Linting\u2026 (click to cancel)",
   ingestionCancelling: "Cancelling \u2014 will stop after current batch completes",
   ingestionCancelled: "Ingestion cancelled",
   crossTypeCollisionNotice: "{count} items merged as cross-type aliases (entity \u2194 concept duplicates prevented)",
   // Lint Report
   lintReportTitle: "Wiki lint report",
-  lintReportSummary: "Wiki status overview: {total} pages total, {aliasesMissing} pages missing aliases, {duplicates} duplicate pages, {deadLinks} dead links ({deadLinkFromDup} involve duplicates), {orphans} orphan pages ({orphanFromDup} are duplicates), {emptyPages} empty pages. Lint elapsed: {elapsedSeconds}s",
+  lintReportSummary: "Wiki status overview: {total} pages total, {aliasesMissing} pages missing aliases, {duplicates} duplicate pages, {deadLinks} dead links ({deadLinkFromDup} involve duplicates), {orphans} orphan pages ({orphanFromDup} are duplicates), {emptyPages} empty pages, {ungroundedQuotes} ungrounded quotes, {tagViolations} out-of-vocabulary tags. Lint elapsed: {elapsedSeconds}s",
+  // Advanced LLM Settings (v1.20.0: default = no provider-specific overrides)
+  advancedSettingsModeName: "Advanced parameter settings",
+  advancedSettingsModeDesc: "Default uses your provider's own behavior \u2014 no thinking-control, temperature, or repetition-penalty fields are sent. This works for most users. Switch to Custom only if you need to explicitly override the provider defaults (e.g. force a specific thinking-control dialect, set a non-default temperature, etc.).",
+  advancedSettingsDefault: "Default (use provider behavior)",
+  advancedSettingsCustom: "Custom (override provider defaults)",
+  disableThinkingName: "Disable thinking",
+  disableThinkingDesc: "Opt-in. When enabled, the plugin sends a thinking-control directive to the provider and walks a 3-tier dialect fallback chain (anthropic \u2192 openai \u2192 none) if the provider rejects it. Use this only if your provider leaks reasoning content into the answer and you need to suppress it. Most providers handle reasoning correctly on their own \u2014 leaving this off gives better quality.",
+  // Issue #137: compatibility hints for advanced settings (kept short; no
+  // provider list to avoid maintenance burden when providers change).
+  extractionTemperatureName: "Extraction temperature",
+  extractionTemperatureDesc: "Range 0\u20132. Lower values make LLM output more deterministic and faithful. Higher values make it more creative. Leave blank to use your provider's default. If your provider rejects this value, the plugin automatically strips the field and shows a one-time notice.",
+  chatTemperatureName: "Query temperature",
+  chatTemperatureDesc: "Range 0\u20132. Same as Extraction temperature, but only affects chat/query responses. Leave blank to use your provider's default. If your provider rejects this value, the plugin automatically strips the field and shows a one-time notice.",
+  repetitionPenaltyName: "Repetition penalty",
+  repetitionPenaltyDesc: "Range 0\u20132. Higher values reduce repetitive patterns. Leave blank to use your provider's default. Compatibility note: many cloud providers do not accept this field. The plugin auto-strips it on 400 and shows a one-time notice.",
+  temperaturePlaceholder: "blank = provider default",
   lintDeadLinkSection: "Dead links (detected) [{count}]",
   lintEmptyPageSection: "Empty pages (detected) [{count}]",
   lintOrphanSection: "Orphan pages (detected) [{count}]",
@@ -1254,7 +2531,9 @@ var EN_TEXTS = {
   lintPollutedItem: '- [[{page}]] \u2192 should be "{clean}"',
   lintSourcesNormalizedSection: "Sources normalized (auto-fixed) [{files} files / {entries} entries]",
   lintSourcesNormalizedItem: "Cleaned {entries} polluted sources entries across {files} file(s) (external paths, .md extensions, alias pipes removed and deduplicated).",
-  lintNoIssuesFound: "No duplicates, dead links, empty pages, or orphan pages detected.",
+  lintNoIssuesFound: "No duplicates, dead links, empty pages, orphan pages, or ungrounded quotes detected.",
+  lintQuoteGroundingSection: "Ungrounded quotes (detected) [{count}]",
+  lintQuoteGroundingItem: '- [[{page}]]{sourceHint}: "{quote}"',
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (page does not exist){dupFlag}",
   lintDeadLinkMore: "- ... {count} more dead links",
   lintEmptyPageItem: "- [[{page}]] \u2014 less than 50 characters of substantive content",
@@ -1341,14 +2620,14 @@ var ZH_TEXTS = {
   // 语言切换
   languageTitle: "\u754C\u9762\u8BED\u8A00",
   languageDesc: "\u9009\u62E9\u8BBE\u7F6E\u9762\u677F\u7684\u663E\u793A\u8BED\u8A00\u3002\u91CD\u542F\u63D2\u4EF6\u4EE5\u5C06\u8BED\u8A00\u66F4\u6539\u5E94\u7528\u5230\u547D\u4EE4\u9762\u677F\u3002",
-  languageEn: "English (\u82F1\u6587)",
+  languageEn: "English",
   languageZh: "\u4E2D\u6587",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // 状态
   statusTitle: "LLM Client \u72B6\u6001",
   llmWikiStatusSection: "LLM-Wiki \u72B6\u6001",
@@ -1415,6 +2694,10 @@ var ZH_TEXTS = {
   testConnectionProvider: "\u63D0\u4F9B\u5546\uFF1A",
   errorUnknown: "\u672A\u77E5\u9519\u8BEF",
   savedNotice: "\u8BBE\u7F6E\u5DF2\u4FDD\u5B58\uFF01",
+  // Issue #137: LLM 回退通知（请求中触发 thinking-dialect 回退或字段剥离时显示）
+  fallbackThinkingDialect: '\u601D\u8003\u63A7\u5236\uFF1A\u5DF2\u5207\u6362\u81F3 "{dialect}" \u65B9\u8A00\uFF08\u8BE5\u63D0\u4F9B\u5546\u4F7F\u7528\u4E0D\u540C\u7684\u601D\u8003\u63A7\u5236\u5B57\u6BB5\u683C\u5F0F\uFF09\u3002\u8F93\u51FA\u5185\u5BB9\u4E0D\u53D7\u5F71\u54CD\u3002',
+  fallbackThinkingNone: "\u8BE5\u63D0\u4F9B\u5546\u5DF2\u5B8C\u5168\u5173\u95ED\u601D\u8003\u63A7\u5236\u3002\u6A21\u578B\u4ECD\u53EF\u80FD\u4EA7\u751F\u63A8\u7406\u5185\u5BB9\uFF1B\u82E5\u51FA\u73B0\uFF0C\u8BF7\u5C1D\u8BD5\u5176\u4ED6\u6A21\u578B\u3002",
+  fallbackParamStripped: '\u53C2\u6570 "{field}" \u4E0D\u88AB\u8BE5\u63D0\u4F9B\u5546\u652F\u6301\u3002\u5DF2\u4ECE\u8BF7\u6C42\u4E2D\u79FB\u9664\uFF1B\u884C\u4E3A\u53EF\u80FD\u4E0E\u914D\u7F6E\u4E0D\u540C\u3002',
   // Wiki 文件夹
   wikiSection: "Wiki \u914D\u7F6E",
   wikiFolderName: "Wiki \u6587\u4EF6\u5939",
@@ -1449,6 +2732,9 @@ var ZH_TEXTS = {
   queryPhaseNonStreaming: "\u975E\u6D41\u5F0F\u6A21\u5F0F\uFF0C\u751F\u6210\u4E2D\uFF0C\u8BF7\u8010\u5FC3\u7B49\u5F85...\uFF08\u5DF2\u7B49\u5F85 {time}s\uFF09",
   queryModalErrorPrefix: "\u9519\u8BEF\uFF1A",
   queryModalHint: '\u67E5\u8BE2\u57FA\u4E8EWiki\u5185\u5BB9\u3002\u70B9\u51FB"\u4FDD\u5B58\u5230Wiki"\u53EF\u5C06\u6709\u4EF7\u503C\u5BF9\u8BDD\u63D0\u70BC\u4E3AWiki\u9875\u9762\u3002',
+  // v1.20.0: Query Wiki 思考内容折叠摘要
+  queryThinkingSummary: "\u601D\u8003\u8FC7\u7A0B",
+  queryThinkingSteps: "\u6B65",
   // 错误消息
   errorLLMClientNotInit: "LLM Client \u672A\u521D\u59CB\u5316\u3002\u8BF7\u4FDD\u5B58\u8BBE\u7F6E\u3002",
   errorIngestFailed: "\u6444\u5165\u5931\u8D25\uFF1A",
@@ -1478,7 +2764,7 @@ var ZH_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "\u6807\u7B7E\u8D8A\u754C\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\u522B\u540D\u751F\u6210\u5931\u8D25\uFF1A{page} \u2014 {error}",
@@ -1607,6 +2893,9 @@ var ZH_TEXTS = {
   periodicLintHourly: "\u6BCF\u5C0F\u65F6",
   periodicLintDaily: "\u6BCF\u5929",
   periodicLintWeekly: "\u6BCF\u5468",
+  autoSmartFixName: "\u81EA\u52A8\u667A\u80FD\u4FEE\u590D",
+  autoSmartFixDesc: "\u8FD0\u884C Lint \u65F6\uFF0C\u81EA\u52A8\u6267\u884C\u6240\u6709\u4FEE\u590D\uFF08\u667A\u80FD\u4E00\u952E\u4FEE\u590D\uFF09\uFF0C\u65E0\u9700\u663E\u793A\u62A5\u544A\u5F39\u7A97\u3002\u4FEE\u590D\u5B8C\u6210\u540E\u4ECD\u4F1A\u663E\u793A\u6458\u8981\u3002",
+  autoSmartFixNotice: "\u81EA\u52A8\u667A\u80FD\u4FEE\u590D\uFF1A\u6B63\u5728\u5E94\u7528\u6240\u6709\u4FEE\u590D...",
   startupCheckName: "\u542F\u52A8\u65F6\u6267\u884C\u5FEB\u901F\u4FEE\u590D",
   startupCheckDesc: "\u63D2\u4EF6\u52A0\u8F7D\u65F6\u81EA\u52A8\u4FEE\u590D\u4F4E\u7EA7\u683C\u5F0F\u95EE\u9898\uFF08sources \u5B57\u6BB5\u3001\u53CC\u5C42 wikilink\uFF09\uFF0C\u5E76\u9A8C\u8BC1 Wiki \u76EE\u5F55\u7ED3\u6784\u3002\u9ED8\u8BA4\u5F00\u542F\u3002",
   suggestSchemaCommand: "\u5EFA\u8BAE Schema \u66F4\u65B0",
@@ -1621,14 +2910,14 @@ var ZH_TEXTS = {
   wikiLintStats: "Wiki \u7EF4\u62A4: \u5171 {pages} \u9875\uFF08{entities} \u5B9E\u4F53, {concepts} \u6982\u5FF5, {sources} \u6765\u6E90\uFF09",
   wikiHealthStats: "Wiki \u5065\u5EB7: \u5171 {pages} \u9875\uFF08{entities} \u5B9E\u4F53, {concepts} \u6982\u5FF5, {sources} \u6765\u6E90\uFF09{indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Wiki \u5FEB\u901F\u4FEE\u590D\u5B8C\u6210",
-  startupCheckStructureLabel: "\u{1F4C1} Wiki \u7ED3\u6784",
-  startupCheckStructureOk: "\u2713 \u5B8C\u6574",
-  startupCheckStructureMissing: "\u26A0\uFE0F \u4E0D\u5B8C\u6574 \u2014 \u5C06\u5728\u9996\u6B21\u6444\u5165\u65F6\u81EA\u52A8\u521B\u5EFA",
-  startupCheckSourcesLabel: "\u{1F527} Sources \u5F52\u4E00\u5316",
-  startupCheckSourcesClean: "\u2713 \u5DF2\u89C4\u8303",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F \u6E05\u7406\u4E86 {files} \u4E2A\u6587\u4EF6\uFF0C{entries} \u5904\u6761\u76EE",
-  startupCheckDisableHint: "\u{1F4A1} \u5982\u9700\u5173\u95ED\uFF0C\u524D\u5F80 \u8BBE\u7F6E \u2192 \u81EA\u52A8\u7EF4\u62A4 \u2192 \u542F\u52A8\u65F6\u6267\u884C\u5FEB\u901F\u4FEE\u590D",
+  startupCheckTitle: "Wiki \u5FEB\u901F\u4FEE\u590D\u5B8C\u6210",
+  startupCheckStructureLabel: "Wiki \u7ED3\u6784",
+  startupCheckStructureOk: "\u5B8C\u6574",
+  startupCheckStructureMissing: "\u4E0D\u5B8C\u6574 \u2014 \u5C06\u5728\u9996\u6B21\u6444\u5165\u65F6\u81EA\u52A8\u521B\u5EFA",
+  startupCheckSourcesLabel: "Sources \u5F52\u4E00\u5316",
+  startupCheckSourcesClean: "\u5DF2\u89C4\u8303",
+  startupCheckSourcesCleaned: "\u6E05\u7406\u4E86 {files} \u4E2A\u6587\u4EF6\uFF0C{entries} \u5904\u6761\u76EE",
+  startupCheckDisableHint: "\u5982\u9700\u5173\u95ED\uFF0C\u524D\u5F80 \u8BBE\u7F6E \u2192 \u81EA\u52A8\u7EF4\u62A4 \u2192 \u542F\u52A8\u65F6\u6267\u884C\u5FEB\u901F\u4FEE\u590D",
   lintWikiStart: "\u5F00\u59CB\u7EF4\u62A4 wiki...",
   lintWikiComplete: "\u7EF4\u62A4\u5B8C\u6210",
   lintWikiFailed: "\u7EF4\u62A4\u5931\u8D25",
@@ -1671,13 +2960,33 @@ var ZH_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "\u63D0\u53D6\u4E2D... \u70B9\u51FB\u53D6\u6D88",
   lintStatusBar: "\u7EF4\u62A4\u4E2D... \u70B9\u51FB\u53D6\u6D88",
+  ingestStatusAnalyzing: "\u63D0\u53D6\u4E2D\u2026 (\u70B9\u51FB\u53D6\u6D88)",
+  lintStatusReading: "\u7EF4\u62A4\u4E2D\u2026 (\u70B9\u51FB\u53D6\u6D88)",
+  lintStatusDuplicates: "\u7EF4\u62A4\u4E2D\u2026 (\u70B9\u51FB\u53D6\u6D88)",
+  lintStatusScanningLinks: "\u7EF4\u62A4\u4E2D\u2026 (\u70B9\u51FB\u53D6\u6D88)",
+  lintStatusAnalyzing: "\u7EF4\u62A4\u4E2D\u2026 (\u70B9\u51FB\u53D6\u6D88)",
   ingestionCancelling: "\u6B63\u5728\u53D6\u6D88 \u2014 \u5F53\u524D\u6279\u6B21\u5B8C\u6210\u540E\u5C06\u505C\u6B62",
   ingestionCancelled: "\u63D0\u53D6\u5DF2\u53D6\u6D88",
   crossTypeCollisionNotice: "{count} \u4E2A\u6761\u76EE\u5408\u5E76\u4E3A\u8DE8\u7C7B\u578B\u522B\u540D\uFF08\u5B9E\u4F53 \u2194 \u6982\u5FF5\u91CD\u590D\u5DF2\u9632\u6B62\uFF09",
   // 维护报告
   lintReportTitle: "Wiki \u7EF4\u62A4\u62A5\u544A",
   lintReportPageCount: "\u5171 {count} \u4E2A Wiki \u9875\u9762",
-  lintReportSummary: "Wiki \u72B6\u6001\u6982\u89C8\uFF1A\u5171 {total} \u4E2A\u9875\u9762\uFF0C{aliasesMissing} \u4E2A\u7F3A\u5931\u522B\u540D\uFF0C\u91CD\u590D {duplicates} \u4E2A\uFF0C\u65AD\u94FE {deadLinks} \u4E2A\uFF08\u5176\u4E2D {deadLinkFromDup} \u4E2A\u6D89\u53CA\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u5B64\u7ACB {orphans} \u4E2A\uFF08\u5176\u4E2D {orphanFromDup} \u4E2A\u662F\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u7A7A\u6D1E {emptyPages} \u4E2A\u3002\u672C\u6B21 Lint \u8017\u65F6 {elapsedSeconds} \u79D2",
+  lintReportSummary: "Wiki \u72B6\u6001\u6982\u89C8\uFF1A\u5171 {total} \u4E2A\u9875\u9762\uFF0C{aliasesMissing} \u4E2A\u7F3A\u5931\u522B\u540D\uFF0C\u91CD\u590D {duplicates} \u4E2A\uFF0C\u65AD\u94FE {deadLinks} \u4E2A\uFF08\u5176\u4E2D {deadLinkFromDup} \u4E2A\u6D89\u53CA\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u5B64\u7ACB {orphans} \u4E2A\uFF08\u5176\u4E2D {orphanFromDup} \u4E2A\u662F\u91CD\u590D\u9875\u9762\uFF09\uFF0C\u7A7A\u6D1E {emptyPages} \u4E2A\uFF0C\u65E0\u6765\u6E90\u5F15\u8BC1 {ungroundedQuotes} \u4E2A\uFF0C\u6807\u7B7E\u8D8A\u754C {tagViolations} \u4E2A\u3002\u672C\u6B21 Lint \u8017\u65F6 {elapsedSeconds} \u79D2",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "\u9AD8\u7EA7\u53C2\u6570\u8BBE\u7F6E",
+  advancedSettingsModeDesc: "\u9ED8\u8BA4\u6A21\u5F0F\u4F7F\u7528 provider \u81EA\u8EAB\u7684\u884C\u4E3A\uFF0C\u4E0D\u53D1\u9001\u4EFB\u4F55\u601D\u8003\u63A7\u5236\u3001\u6E29\u5EA6\u6216\u91CD\u590D\u60E9\u7F5A\u5B57\u6BB5\u3002\u9002\u5408\u5927\u591A\u6570\u7528\u6237\u3002\u4EC5\u5F53\u9700\u8981\u663E\u5F0F\u8986\u76D6 provider \u9ED8\u8BA4\u503C\u65F6\uFF08\u4F8B\u5982\u5F3A\u5236\u7279\u5B9A\u601D\u8003\u63A7\u5236\u65B9\u8A00\u3001\u8BBE\u7F6E\u975E\u9ED8\u8BA4\u6E29\u5EA6\u7B49\uFF09\uFF0C\u518D\u5207\u6362\u5230\u81EA\u5B9A\u4E49\u6A21\u5F0F\u3002",
+  advancedSettingsDefault: "\u9ED8\u8BA4\uFF08\u4F7F\u7528 provider \u884C\u4E3A\uFF09",
+  advancedSettingsCustom: "\u81EA\u5B9A\u4E49\uFF08\u8986\u76D6 provider \u9ED8\u8BA4\uFF09",
+  disableThinkingName: "\u7981\u7528\u601D\u8003",
+  disableThinkingDesc: "\u663E\u5F0F\u542F\u7528\u3002\u5F00\u542F\u540E\uFF0C\u63D2\u4EF6\u4F1A\u5411 provider \u53D1\u9001\u601D\u8003\u63A7\u5236\u6307\u4EE4\uFF0C\u5E76\u5728 provider \u62D2\u7EDD\u65F6\u56DE\u9000\u5230 3 \u5C42\u7EA7\u65B9\u8A00\u94FE\uFF08anthropic \u2192 openai \u2192 none\uFF09\u3002\u4EC5\u5F53\u4F60\u7684 provider \u628A\u601D\u8003\u5185\u5BB9\u6CC4\u9732\u5230\u56DE\u7B54\u4E2D\u5E76\u9700\u8981\u6291\u5236\u65F6\u624D\u4F7F\u7528\u3002\u5927\u591A\u6570 provider \u81EA\u8EAB\u80FD\u6B63\u786E\u5904\u7406\u601D\u8003\uFF0C\u5173\u95ED\u5B83\uFF08\u9ED8\u8BA4\uFF09\u901A\u5E38\u80FD\u83B7\u5F97\u66F4\u9AD8\u8D28\u91CF\u3002",
+  // Issue #137: 兼容性提示（简短；不列举 provider，避免维护负担）
+  extractionTemperatureName: "\u63D0\u53D6\u6E29\u5EA6",
+  extractionTemperatureDesc: "\u8303\u56F4 0\u20132\u3002\u8D8A\u4F4E\u5219 LLM \u8F93\u51FA\u8D8A\u786E\u5B9A\u3001\u8D8A\u5FE0\u4E8E\u539F\u6587\uFF1B\u8D8A\u9AD8\u5219\u8D8A\u6709\u521B\u610F\u3002\u7559\u7A7A\u8868\u793A\u4F7F\u7528\u63D0\u4F9B\u5546\u9ED8\u8BA4\u503C\u3002\u82E5\u63D0\u4F9B\u5546\u62D2\u7EDD\u6B64\u503C\uFF0C\u63D2\u4EF6\u4F1A\u81EA\u52A8\u5265\u79BB\u8BE5\u5B57\u6BB5\u5E76\u663E\u793A\u4E00\u6B21\u6027\u901A\u77E5\u3002",
+  chatTemperatureName: "\u67E5\u8BE2\u6E29\u5EA6",
+  chatTemperatureDesc: "\u8303\u56F4 0\u20132\u3002\u4E0E\u63D0\u53D6\u6E29\u5EA6\u76F8\u540C\uFF0C\u4F46\u53EA\u5F71\u54CD\u804A\u5929/\u67E5\u8BE2\u56DE\u590D\u3002\u7559\u7A7A\u8868\u793A\u4F7F\u7528\u63D0\u4F9B\u5546\u9ED8\u8BA4\u503C\u3002\u82E5\u63D0\u4F9B\u5546\u62D2\u7EDD\u6B64\u503C\uFF0C\u63D2\u4EF6\u4F1A\u81EA\u52A8\u5265\u79BB\u8BE5\u5B57\u6BB5\u5E76\u663E\u793A\u4E00\u6B21\u6027\u901A\u77E5\u3002",
+  repetitionPenaltyName: "\u91CD\u590D\u60E9\u7F5A",
+  repetitionPenaltyDesc: "\u8303\u56F4 0\u20132\u3002\u8D8A\u9AD8\u5219\u8D8A\u80FD\u51CF\u5C11\u91CD\u590D\u6A21\u5F0F\u3002\u7559\u7A7A\u8868\u793A\u4F7F\u7528\u63D0\u4F9B\u5546\u9ED8\u8BA4\u503C\u3002\u517C\u5BB9\u6027\u63D0\u793A\uFF1A\u8BB8\u591A\u4E91\u7AEF\u63D0\u4F9B\u5546\u4E0D\u63A5\u53D7\u6B64\u5B57\u6BB5\uFF0C\u63D2\u4EF6\u4F1A\u5728 400 \u65F6\u81EA\u52A8\u5265\u79BB\u5E76\u663E\u793A\u4E00\u6B21\u6027\u901A\u77E5\u3002",
+  temperaturePlaceholder: "\u7559\u7A7A = \u63D0\u4F9B\u5546\u9ED8\u8BA4",
   lintDeadLinkSection: "\u65AD\u94FE\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
   lintEmptyPageSection: "\u7A7A\u6D1E\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
   lintOrphanSection: "\u5B64\u7ACB\u9875\u9762\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
@@ -1689,7 +2998,9 @@ var ZH_TEXTS = {
   lintContradictionAutoFixed: "\uFF08\u672C\u6B21\u81EA\u52A8\u4FEE\u590D {count} \u4E2A\uFF09",
   lintDeadLinkAffectedByDup: " \uFF08\u26A0\uFE0F \u6D89\u53CA\u91CD\u590D\u9875\u9762\uFF09",
   lintOrphanIsDuplicate: " \uFF08\u26A0\uFE0F \u91CD\u590D\u9875\u9762\uFF09",
-  lintNoIssuesFound: "\u672A\u68C0\u6D4B\u5230\u91CD\u590D\u3001\u65AD\u94FE\u3001\u7A7A\u6D1E\u6216\u5B64\u7ACB\u9875\u9762\u3002",
+  lintNoIssuesFound: "\u672A\u68C0\u6D4B\u5230\u91CD\u590D\u3001\u65AD\u94FE\u3001\u7A7A\u6D1E\u3001\u5B64\u7ACB\u9875\u9762\u6216\u65E0\u6765\u6E90\u5F15\u8BC1\u3002",
+  lintQuoteGroundingSection: "\u65E0\u6765\u6E90\u5F15\u8BC1\uFF08\u7A0B\u5E8F\u68C0\u6D4B\uFF09[\u5171 {count} \u4E2A]",
+  lintQuoteGroundingItem: '- [[{page}]]{sourceHint}\uFF1A"{quote}"',
   lintContradictionOpen: "\u672A\u89E3\u51B3\u7684\u77DB\u76FE\uFF1A{count} \u4E2A",
   lintContradictionItem: "- [{status}] [[{page}]] \u2014 {claim}",
   lintContradictionStatusDetected: "\u5F85\u5904\u7406",
@@ -1774,14 +3085,14 @@ var JA_TEXTS = {
   // Language Switcher
   languageTitle: "\u30A4\u30F3\u30BF\u30FC\u30D5\u30A7\u30FC\u30B9\u8A00\u8A9E",
   languageDesc: "\u8A2D\u5B9A\u30D1\u30CD\u30EB\u306E\u8868\u793A\u8A00\u8A9E\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8A00\u8A9E\u5909\u66F4\u3092\u30B3\u30DE\u30F3\u30C9\u30D1\u30EC\u30C3\u30C8\u306B\u9069\u7528\u3059\u308B\u306B\u306F\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u518D\u8D77\u52D5\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-  languageEn: "English (\u82F1\u8A9E)",
-  languageZh: "Chinese (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageEn: "English",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "LLM Client \u306E\u72B6\u614B",
   llmWikiStatusSection: "LLM-Wiki \u72B6\u614B",
@@ -1848,6 +3159,10 @@ var JA_TEXTS = {
   testConnectionProvider: "\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\uFF1A",
   errorUnknown: "\u4E0D\u660E\u306A\u30A8\u30E9\u30FC",
   savedNotice: "\u8A2D\u5B9A\u3092\u4FDD\u5B58\u3057\u307E\u3057\u305F\uFF01",
+  // Issue #137: LLM フォールバック通知
+  fallbackThinkingDialect: "\u601D\u8003\u5236\u5FA1\uFF1A\u300C{dialect}\u300D\u65B9\u8A00\u306B\u5207\u308A\u66FF\u3048\u307E\u3057\u305F\uFF08\u3053\u306E\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306F\u5225\u306E\u601D\u8003\u5236\u5FA1\u30D5\u30A3\u30FC\u30EB\u30C9\u5F62\u5F0F\u3092\u4F7F\u7528\u3057\u307E\u3059\uFF09\u3002\u51FA\u529B\u306F\u5909\u308F\u308A\u307E\u305B\u3093\u3002",
+  fallbackThinkingNone: "\u3053\u306E\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u3067\u306F\u601D\u8003\u5236\u5FA1\u3092\u5B8C\u5168\u306B\u7121\u52B9\u5316\u3057\u307E\u3057\u305F\u3002\u63A8\u8AD6\u30B3\u30F3\u30C6\u30F3\u30C4\u304C\u5F15\u304D\u7D9A\u304D\u8868\u793A\u3055\u308C\u308B\u5834\u5408\u304C\u3042\u308A\u307E\u3059\u3002\u305D\u306E\u5834\u5408\u306F\u5225\u306E\u30E2\u30C7\u30EB\u3092\u8A66\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  fallbackParamStripped: "\u30D1\u30E9\u30E1\u30FC\u30BF\u300C{field}\u300D\u306F\u3053\u306E\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u3067\u30B5\u30DD\u30FC\u30C8\u3055\u308C\u3066\u3044\u307E\u305B\u3093\u3002\u30EA\u30AF\u30A8\u30B9\u30C8\u304B\u3089\u524A\u9664\u3055\u308C\u307E\u3057\u305F\u3002\u52D5\u4F5C\u306F\u8A2D\u5B9A\u3068\u7570\u306A\u308B\u5834\u5408\u304C\u3042\u308A\u307E\u3059\u3002",
   // Wiki Folder
   wikiSection: "Wiki\u8A2D\u5B9A",
   wikiFolderName: "Wiki \u30D5\u30A9\u30EB\u30C0\u30FC",
@@ -1882,6 +3197,9 @@ var JA_TEXTS = {
   queryPhaseNonStreaming: "\u975E\u30B9\u30C8\u30EA\u30FC\u30DF\u30F3\u30B0\u30E2\u30FC\u30C9\u3001\u56DE\u7B54\u751F\u6210\u4E2D...\uFF08\u7D4C\u904E {time}\u79D2\uFF09",
   queryModalErrorPrefix: "\u30A8\u30E9\u30FC\uFF1A",
   queryModalHint: "\u554F\u3044\u5408\u308F\u305B\u306FWiki\u306E\u5185\u5BB9\u306B\u57FA\u3065\u304D\u307E\u3059\u3002\u300CWiki\u306B\u4FDD\u5B58\u300D\u3092\u30AF\u30EA\u30C3\u30AF\u3059\u308B\u3068\u3001\u4FA1\u5024\u306E\u3042\u308B\u4F1A\u8A71\u3092Wiki\u30DA\u30FC\u30B8\u3068\u3057\u3066\u62BD\u51FA\u3067\u304D\u307E\u3059\u3002",
+  // v1.20.0: Query Wiki 思考ブロック折り畳み見出し
+  queryThinkingSummary: "\u601D\u8003\u30D7\u30ED\u30BB\u30B9",
+  queryThinkingSteps: "\u30B9\u30C6\u30C3\u30D7",
   // Error Messages
   errorLLMClientNotInit: "LLM Client\u304C\u521D\u671F\u5316\u3055\u308C\u3066\u3044\u307E\u305B\u3093\u3002\u8A2D\u5B9A\u3092\u4FDD\u5B58\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   errorIngestFailed: "\u53D6\u308A\u8FBC\u307F\u5931\u6557\uFF1A",
@@ -1911,7 +3229,7 @@ var JA_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "\u8A9E\u5F59\u5916\u30BF\u30B0\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\u5225\u540D\u751F\u6210\u306B\u5931\u6557\uFF1A{page} \u2014 {error}",
@@ -2040,6 +3358,9 @@ var JA_TEXTS = {
   periodicLintHourly: "\u6BCE\u6642",
   periodicLintDaily: "\u6BCE\u65E5",
   periodicLintWeekly: "\u6BCE\u9031",
+  autoSmartFixName: "\u81EA\u52D5\u30B9\u30DE\u30FC\u30C8\u4FEE\u6B63",
+  autoSmartFixDesc: "Lint \u5B9F\u884C\u6642\u306B\u3001\u30EC\u30DD\u30FC\u30C8\u30E2\u30FC\u30C0\u30EB\u3092\u8868\u793A\u305B\u305A\u81EA\u52D5\u7684\u306B\u3059\u3079\u3066\u306E\u4FEE\u6B63\uFF08\u30B9\u30DE\u30FC\u30C8\u4E00\u62EC\u4FEE\u6B63\uFF09\u3092\u9069\u7528\u3057\u307E\u3059\u3002\u4FEE\u6B63\u5B8C\u4E86\u5F8C\u3082\u30B5\u30DE\u30EA\u30FC\u306F\u8868\u793A\u3055\u308C\u307E\u3059\u3002",
+  autoSmartFixNotice: "\u81EA\u52D5\u30B9\u30DE\u30FC\u30C8\u4FEE\u6B63\uFF1A\u3059\u3079\u3066\u306E\u4FEE\u6B63\u3092\u9069\u7528\u4E2D...",
   startupCheckName: "\u8D77\u52D5\u6642\u306B\u30AF\u30A4\u30C3\u30AF\u4FEE\u6B63\u3092\u5B9F\u884C",
   startupCheckDesc: "\u30D7\u30E9\u30B0\u30A4\u30F3\u8AAD\u307F\u8FBC\u307F\u6642\u306B\u4F4E\u30EC\u30D9\u30EB\u66F8\u5F0F\u306E\u554F\u984C\uFF08sources \u30D5\u30A3\u30FC\u30EB\u30C9\u3001\u4E8C\u91CD wikilink\uFF09\u3092\u81EA\u52D5\u4FEE\u6B63\u3057\u3001Wiki \u30C7\u30A3\u30EC\u30AF\u30C8\u30EA\u69CB\u9020\u3092\u691C\u8A3C\u3057\u307E\u3059\u3002\u30C7\u30D5\u30A9\u30EB\u30C8\u3067\u6709\u52B9\u3002",
   suggestSchemaCommand: "\u30B9\u30AD\u30FC\u30DE\u66F4\u65B0\u3092\u63D0\u6848",
@@ -2054,14 +3375,14 @@ var JA_TEXTS = {
   wikiLintStats: "Wiki Lint: {pages}\u30DA\u30FC\u30B8\uFF08{entities}\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3\u3001{concepts}\u6982\u5FF5\u3001{sources}\u30BD\u30FC\u30B9\uFF09",
   wikiHealthStats: "Wiki\u5065\u5168\u6027: {pages}\u30DA\u30FC\u30B8\uFF08{entities}\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3\u3001{concepts}\u6982\u5FF5\u3001{sources}\u30BD\u30FC\u30B9\uFF09{indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Wiki \u30AF\u30A4\u30C3\u30AF\u4FEE\u6B63\u5B8C\u4E86",
-  startupCheckStructureLabel: "\u{1F4C1} Wiki \u69CB\u9020",
-  startupCheckStructureOk: "\u2713 \u5B8C\u4E86",
-  startupCheckStructureMissing: "\u26A0\uFE0F \u4E0D\u5B8C\u5168 \u2014 \u521D\u56DE\u53D6\u308A\u8FBC\u307F\u6642\u306B\u81EA\u52D5\u4F5C\u6210\u3055\u308C\u307E\u3059",
-  startupCheckSourcesLabel: "\u{1F527} Sources \u6B63\u898F\u5316",
-  startupCheckSourcesClean: "\u2713 \u65E2\u306B\u6B63\u898F\u5316\u6E08\u307F",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F {files} \u30D5\u30A1\u30A4\u30EB\u3001{entries} \u30A8\u30F3\u30C8\u30EA\u3092\u4FEE\u6B63",
-  startupCheckDisableHint: "\u{1F4A1} \u7121\u52B9\u5316\u3059\u308B\u306B\u306F \u8A2D\u5B9A \u2192 \u81EA\u52D5\u30E1\u30F3\u30C6\u30CA\u30F3\u30B9 \u2192 \u8D77\u52D5\u6642\u306B\u30AF\u30A4\u30C3\u30AF\u4FEE\u6B63\u3092\u5B9F\u884C",
+  startupCheckTitle: "Wiki \u30AF\u30A4\u30C3\u30AF\u4FEE\u6B63\u5B8C\u4E86",
+  startupCheckStructureLabel: "Wiki \u69CB\u9020",
+  startupCheckStructureOk: "\u5B8C\u4E86",
+  startupCheckStructureMissing: "\u4E0D\u5B8C\u5168 \u2014 \u521D\u56DE\u53D6\u308A\u8FBC\u307F\u6642\u306B\u81EA\u52D5\u4F5C\u6210\u3055\u308C\u307E\u3059",
+  startupCheckSourcesLabel: "Sources \u6B63\u898F\u5316",
+  startupCheckSourcesClean: "\u65E2\u306B\u6B63\u898F\u5316\u6E08\u307F",
+  startupCheckSourcesCleaned: "{files} \u30D5\u30A1\u30A4\u30EB\u3001{entries} \u30A8\u30F3\u30C8\u30EA\u3092\u4FEE\u6B63",
+  startupCheckDisableHint: "\u7121\u52B9\u5316\u3059\u308B\u306B\u306F \u8A2D\u5B9A \u2192 \u81EA\u52D5\u30E1\u30F3\u30C6\u30CA\u30F3\u30B9 \u2192 \u8D77\u52D5\u6642\u306B\u30AF\u30A4\u30C3\u30AF\u4FEE\u6B63\u3092\u5B9F\u884C",
   lintWikiStart: "Wiki Lint\u3092\u958B\u59CB\u4E2D...",
   lintWikiComplete: "Wiki Lint\u5B8C\u4E86",
   lintWikiFailed: "Wiki Lint\u5931\u6557",
@@ -2104,18 +3425,40 @@ var JA_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "\u53D6\u308A\u8FBC\u307F\u4E2D... \u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB",
   lintStatusBar: "\u30C1\u30A7\u30C3\u30AF\u4E2D... \u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB",
+  ingestStatusAnalyzing: "\u53D6\u308A\u8FBC\u307F\u4E2D\u2026 (\u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB)",
+  lintStatusReading: "\u30C1\u30A7\u30C3\u30AF\u4E2D\u2026 (\u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB)",
+  lintStatusDuplicates: "\u30C1\u30A7\u30C3\u30AF\u4E2D\u2026 (\u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB)",
+  lintStatusScanningLinks: "\u30C1\u30A7\u30C3\u30AF\u4E2D\u2026 (\u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB)",
+  lintStatusAnalyzing: "\u30C1\u30A7\u30C3\u30AF\u4E2D\u2026 (\u30AF\u30EA\u30C3\u30AF\u3067\u30AD\u30E3\u30F3\u30BB\u30EB)",
   ingestionCancelling: "\u30AD\u30E3\u30F3\u30BB\u30EB\u4E2D \u2014 \u73FE\u5728\u306E\u30D0\u30C3\u30C1\u5B8C\u4E86\u5F8C\u306B\u505C\u6B62\u3057\u307E\u3059",
   ingestionCancelled: "\u53D6\u308A\u8FBC\u307F\u304C\u30AD\u30E3\u30F3\u30BB\u30EB\u3055\u308C\u307E\u3057\u305F",
   crossTypeCollisionNotice: "{count}\u4EF6\u304C\u30AF\u30ED\u30B9\u30BF\u30A4\u30D7\u5225\u540D\u3068\u3057\u3066\u7D71\u5408\uFF08\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3 \u2194 \u30B3\u30F3\u30BB\u30D7\u30C8\u91CD\u8907\u3092\u9632\u6B62\uFF09",
   // Lint Report
   lintReportTitle: "Wiki Lint\u30EC\u30DD\u30FC\u30C8",
-  lintReportSummary: "Wiki \u72B6\u614B\u306E\u6982\u8981: \u5408\u8A08 {total} \u30DA\u30FC\u30B8\u3001{aliasesMissing} \u30DA\u30FC\u30B8\u306B\u30A8\u30A4\u30EA\u30A2\u30B9\u6B20\u843D\u3001\u91CD\u8907 {duplicates}\u3001\u30C7\u30C3\u30C9\u30EA\u30F3\u30AF {deadLinks}\uFF08\u3046\u3061 {deadLinkFromDup} \u306F\u91CD\u8907\u95A2\u9023\uFF09\u3001\u5B64\u7ACB {orphans}\uFF08\u3046\u3061 {orphanFromDup} \u306F\u91CD\u8907\uFF09\u3001\u7A7A\u30DA\u30FC\u30B8 {emptyPages}\u3002Lint \u5B9F\u884C\u6642\u9593: {elapsedSeconds}\u79D2",
+  lintReportSummary: "Wiki \u72B6\u614B\u306E\u6982\u8981: \u5408\u8A08 {total} \u30DA\u30FC\u30B8\u3001{aliasesMissing} \u30DA\u30FC\u30B8\u306B\u30A8\u30A4\u30EA\u30A2\u30B9\u6B20\u843D\u3001\u91CD\u8907 {duplicates}\u3001\u30C7\u30C3\u30C9\u30EA\u30F3\u30AF {deadLinks}\uFF08\u3046\u3061 {deadLinkFromDup} \u306F\u91CD\u8907\u95A2\u9023\uFF09\u3001\u5B64\u7ACB {orphans}\uFF08\u3046\u3061 {orphanFromDup} \u306F\u91CD\u8907\uFF09\u3001\u7A7A\u30DA\u30FC\u30B8 {emptyPages}\u3001\u6839\u62E0\u306E\u306A\u3044\u5F15\u7528 {ungroundedQuotes}\u3001\u8A9E\u5F59\u5916\u30BF\u30B0 {tagViolations}\u3002Lint \u5B9F\u884C\u6642\u9593: {elapsedSeconds}\u79D2",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "\u9AD8\u5EA6\u306A\u30D1\u30E9\u30E1\u30FC\u30BF\u8A2D\u5B9A",
+  advancedSettingsModeDesc: "\u30C7\u30D5\u30A9\u30EB\u30C8\u3067\u306F\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u81EA\u8EAB\u306E\u52D5\u4F5C\u3092\u4F7F\u7528\u3057\u3001\u601D\u8003\u5236\u5FA1\u30FB\u6E29\u5EA6\u30FB\u53CD\u5FA9\u30DA\u30CA\u30EB\u30C6\u30A3\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306F\u9001\u4FE1\u3055\u308C\u307E\u305B\u3093\u3002\u307B\u3068\u3093\u3069\u306E\u30E6\u30FC\u30B6\u30FC\u306B\u9069\u3057\u3066\u3044\u307E\u3059\u3002\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306E\u30C7\u30D5\u30A9\u30EB\u30C8\u3092\u660E\u793A\u7684\u306B\u4E0A\u66F8\u304D\u3059\u308B\u5FC5\u8981\u304C\u3042\u308B\u5834\u5408\uFF08\u7279\u5B9A\u306E\u601D\u8003\u5236\u5FA1\u65B9\u8A00\u3092\u5F37\u5236\u3059\u308B\u3001\u30C7\u30D5\u30A9\u30EB\u30C8\u4EE5\u5916\u306E\u6E29\u5EA6\u3092\u8A2D\u5B9A\u3059\u308B\u306A\u3069\uFF09\u306E\u307F\u3001\u30AB\u30B9\u30BF\u30E0\u306B\u5207\u308A\u66FF\u3048\u3066\u304F\u3060\u3055\u3044\u3002",
+  advancedSettingsDefault: "\u30C7\u30D5\u30A9\u30EB\u30C8\uFF08\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306E\u52D5\u4F5C\uFF09",
+  advancedSettingsCustom: "\u30AB\u30B9\u30BF\u30E0\uFF08\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306E\u30C7\u30D5\u30A9\u30EB\u30C8\u3092\u4E0A\u66F8\u304D\uFF09",
+  disableThinkingName: "\u601D\u8003\u3092\u7121\u52B9\u306B\u3059\u308B",
+  disableThinkingDesc: "\u30AA\u30D7\u30C8\u30A4\u30F3\u3067\u3059\u3002\u6709\u52B9\u306B\u3059\u308B\u3068\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u306F\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306B\u601D\u8003\u5236\u5FA1\u30C7\u30A3\u30EC\u30AF\u30C6\u30A3\u30D6\u3092\u9001\u4FE1\u3057\u3001\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u304C\u62D2\u5426\u3057\u305F\u5834\u5408\u306F3\u5C64\u306E\u30C0\u30A4\u30A2\u30EC\u30AF\u30C8\u30D5\u30A9\u30FC\u30EB\u30D0\u30C3\u30AF\u30C1\u30A7\u30FC\u30F3\uFF08anthropic \u2192 openai \u2192 none\uFF09\u3092\u5B9F\u884C\u3057\u307E\u3059\u3002\u3053\u308C\u306F\u3001\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u304C\u63A8\u8AD6\u5185\u5BB9\u3092\u56DE\u7B54\u306B\u6F0F\u3089\u3057\u3001\u305D\u308C\u3092\u6291\u5236\u3059\u308B\u5FC5\u8981\u304C\u3042\u308B\u5834\u5408\u306B\u306E\u307F\u4F7F\u7528\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u307B\u3068\u3093\u3069\u306E\u30D7\u30ED\u30D0\u30A4\u30C0\u30FC\u306F\u63A8\u8AD6\u3092\u6B63\u3057\u304F\u51E6\u7406\u3059\u308B\u305F\u3081\u3001\u3053\u308C\u3092\u7121\u52B9\u306E\u307E\u307E\u306B\u3057\u3066\u304A\u304F\uFF08\u30C7\u30D5\u30A9\u30EB\u30C8\uFF09\u65B9\u304C\u54C1\u8CEA\u304C\u9AD8\u304F\u306A\u308A\u307E\u3059\u3002",
+  // Issue #137: 互換性に関する注意事項（簡潔；プロバイダ一覧は省略）
+  extractionTemperatureName: "\u62BD\u51FA\u6E29\u5EA6",
+  extractionTemperatureDesc: "\u7BC4\u56F2 0\u20132\u3002\u4F4E\u3044\u307B\u3069LLM\u306E\u51FA\u529B\u306F\u78BA\u5B9A\u7684\u3067\u5FE0\u5B9F\u306B\u3002\u9AD8\u3044\u307B\u3069\u5275\u9020\u7684\u306B\u3002\u7A7A\u6B04 = \u30D7\u30ED\u30D0\u30A4\u30C0\u306E\u30C7\u30D5\u30A9\u30EB\u30C8\u3002\u30D7\u30ED\u30D0\u30A4\u30C0\u304C\u3053\u306E\u5024\u3092\u62D2\u5426\u3057\u305F\u5834\u5408\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u306F\u81EA\u52D5\u7684\u306B\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u524A\u9664\u3057\u3001\u901A\u77E5\u3092\u4E00\u5EA6\u3060\u3051\u8868\u793A\u3057\u307E\u3059\u3002",
+  chatTemperatureName: "\u30AF\u30A8\u30EA\u6E29\u5EA6",
+  chatTemperatureDesc: "\u7BC4\u56F2 0\u20132\u3002\u62BD\u51FA\u6E29\u5EA6\u3068\u540C\u3058\u3067\u3059\u304C\u3001\u30C1\u30E3\u30C3\u30C8/\u30AF\u30A8\u30EA\u306E\u5FDC\u7B54\u306B\u306E\u307F\u5F71\u97FF\u3057\u307E\u3059\u3002\u7A7A\u6B04 = \u30D7\u30ED\u30D0\u30A4\u30C0\u306E\u30C7\u30D5\u30A9\u30EB\u30C8\u3002\u30D7\u30ED\u30D0\u30A4\u30C0\u304C\u3053\u306E\u5024\u3092\u62D2\u5426\u3057\u305F\u5834\u5408\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u306F\u81EA\u52D5\u7684\u306B\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u524A\u9664\u3057\u3001\u901A\u77E5\u3092\u4E00\u5EA6\u3060\u3051\u8868\u793A\u3057\u307E\u3059\u3002",
+  repetitionPenaltyName: "\u7E70\u308A\u8FD4\u3057\u30DA\u30CA\u30EB\u30C6\u30A3",
+  repetitionPenaltyDesc: "\u7BC4\u56F2 0\u20132\u3002\u9AD8\u3044\u307B\u3069\u7E70\u308A\u8FD4\u3057\u30D1\u30BF\u30FC\u30F3\u3092\u4F4E\u6E1B\u3057\u307E\u3059\u3002\u7A7A\u6B04 = \u30D7\u30ED\u30D0\u30A4\u30C0\u306E\u30C7\u30D5\u30A9\u30EB\u30C8\u3002\u4E92\u63DB\u6027\u306B\u95A2\u3059\u308B\u6CE8\u610F\uFF1A\u591A\u304F\u306E\u30AF\u30E9\u30A6\u30C9\u30D7\u30ED\u30D0\u30A4\u30C0\u306F\u3053\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u53D7\u3051\u4ED8\u3051\u307E\u305B\u3093\u3002\u30D7\u30E9\u30B0\u30A4\u30F3\u306F HTTP 400 \u6642\u306B\u81EA\u52D5\u7684\u306B\u524A\u9664\u3057\u3001\u901A\u77E5\u3092\u4E00\u5EA6\u3060\u3051\u8868\u793A\u3057\u307E\u3059\u3002",
+  temperaturePlaceholder: "\u7A7A\u6B04 = \u30D7\u30ED\u30D0\u30A4\u30C0\u306E\u30C7\u30D5\u30A9\u30EB\u30C8",
   lintDeadLinkSection: "\u30C7\u30C3\u30C9\u30EA\u30F3\u30AF\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
   lintEmptyPageSection: "\u7A7A\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
   lintOrphanSection: "\u5B64\u7ACB\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
   lintContradictionSection: "\u77DB\u76FE\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
   lintDuplicateSection: "\u91CD\u8907\u30DA\u30FC\u30B8\uFF08\u691C\u51FA\u6E08\u307F\uFF09",
-  lintNoIssuesFound: "\u91CD\u8907\u3001\u30EA\u30F3\u30AF\u5207\u308C\u3001\u7A7A\u30DA\u30FC\u30B8\u3001\u5B64\u7ACB\u30DA\u30FC\u30B8\u306F\u691C\u51FA\u3055\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002",
+  lintNoIssuesFound: "\u91CD\u8907\u3001\u30EA\u30F3\u30AF\u5207\u308C\u3001\u7A7A\u30DA\u30FC\u30B8\u3001\u5B64\u7ACB\u30DA\u30FC\u30B8\u3001\u307E\u305F\u306F\u6839\u62E0\u306E\u306A\u3044\u5F15\u7528\u306F\u691C\u51FA\u3055\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002",
+  lintQuoteGroundingSection: "\u6839\u62E0\u306E\u306A\u3044\u5F15\u7528\uFF08\u691C\u51FA\uFF09[{count} \u4EF6]",
+  lintQuoteGroundingItem: "- [[{page}]]{sourceHint}: \u300C{quote}\u300D",
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}**\uFF08\u30DA\u30FC\u30B8\u304C\u5B58\u5728\u3057\u307E\u305B\u3093\uFF09{dupFlag}",
   lintDeadLinkMore: "- ... \u4ED6{count}\u4EF6\u306E\u30EA\u30F3\u30AF\u5207\u308C",
   lintEmptyPageItem: "- [[{page}]] \u2014 \u5B9F\u8CEA\u7684\u306A\u30B3\u30F3\u30C6\u30F3\u30C4\u304C50\u6587\u5B57\u672A\u6E80",
@@ -2206,13 +3549,13 @@ var KO_TEXTS = {
   languageTitle: "\uC778\uD130\uD398\uC774\uC2A4 \uC5B8\uC5B4",
   languageDesc: "\uC124\uC815 \uD328\uB110\uC5D0\uC11C \uC0AC\uC6A9\uD560 \uC5B8\uC5B4\uB97C \uC120\uD0DD\uD558\uC138\uC694. \uC5B8\uC5B4 \uBCC0\uACBD\uC744 \uBA85\uB839 \uD314\uB808\uD2B8\uC5D0 \uC801\uC6A9\uD558\uB824\uBA74 \uD50C\uB7EC\uADF8\uC778\uC744 \uC7AC\uC2DC\uC791\uD558\uC138\uC694.",
   languageEn: "English",
-  languageZh: "Chinese (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "LLM \uD074\uB77C\uC774\uC5B8\uD2B8 \uC0C1\uD0DC",
   llmWikiStatusSection: "LLM-Wiki \uC0C1\uD0DC",
@@ -2279,6 +3622,10 @@ var KO_TEXTS = {
   testConnectionProvider: "Provider: ",
   errorUnknown: "\uC54C \uC218 \uC5C6\uB294 \uC624\uB958",
   savedNotice: "\uC124\uC815\uC774 \uC800\uC7A5\uB418\uC5C8\uC2B5\uB2C8\uB2E4!",
+  // Issue #137: LLM 폴백 알림
+  fallbackThinkingDialect: '\uC0AC\uACE0 \uC81C\uC5B4: "{dialect}" \uBC29\uC5B8\uC73C\uB85C \uC804\uD658\uB428(\uC774 \uACF5\uAE09\uC790\uB294 \uB2E4\uB978 \uC0AC\uACE0 \uC81C\uC5B4 \uD544\uB4DC \uD615\uC2DD\uC744 \uC0AC\uC6A9\uD568). \uCD9C\uB825\uC740 \uBCC0\uACBD\uB418\uC9C0 \uC54A\uC74C.',
+  fallbackThinkingNone: "\uC774 \uACF5\uAE09\uC790\uC5D0 \uB300\uD574 \uC0AC\uACE0 \uC81C\uC5B4\uAC00 \uC644\uC804\uD788 \uBE44\uD65C\uC131\uD654\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uCD94\uB860 \uCF58\uD150\uCE20\uAC00 \uC5EC\uC804\uD788 \uB098\uD0C0\uB0A0 \uC218 \uC788\uC2B5\uB2C8\uB2E4; \uC774 \uACBD\uC6B0 \uB2E4\uB978 \uBAA8\uB378\uC744 \uC2DC\uB3C4\uD558\uC138\uC694.",
+  fallbackParamStripped: '\uB9E4\uAC1C\uBCC0\uC218 "{field}"\uB294(\uC740) \uC774 \uACF5\uAE09\uC790\uC5D0\uC11C \uC9C0\uC6D0\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC694\uCCAD\uC5D0\uC11C \uC81C\uAC70\uB418\uC5C8\uC2B5\uB2C8\uB2E4; \uB3D9\uC791\uC740 \uAD6C\uC131\uACFC \uB2E4\uB97C \uC218 \uC788\uC2B5\uB2C8\uB2E4.',
   // Wiki Folder
   wikiSection: "Wiki \uC124\uC815",
   wikiFolderName: "\uC704\uD0A4 \uD3F4\uB354",
@@ -2313,6 +3660,9 @@ var KO_TEXTS = {
   queryPhaseNonStreaming: "\uB17C\uC2A4\uD2B8\uB9AC\uBC0D \uBAA8\uB4DC, \uC751\uB2F5 \uC0DD\uC131 \uC911... (\uACBD\uACFC {time}\uCD08)",
   queryModalErrorPrefix: "\uC624\uB958: ",
   queryModalHint: '\uC704\uD0A4 \uCF58\uD150\uCE20 \uAE30\uBC18 \uC9C8\uC758\uC785\uB2C8\uB2E4. "\uC704\uD0A4\uC5D0 \uC800\uC7A5"\uC744 \uD074\uB9AD\uD558\uBA74 \uAC00\uCE58 \uC788\uB294 \uB300\uD654\uB97C \uC704\uD0A4 \uD398\uC774\uC9C0\uB85C \uCD94\uCD9C\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.',
+  // v1.20.0: Query Wiki 사고 블록 접기 요약
+  queryThinkingSummary: "\uC0AC\uACE0 \uACFC\uC815",
+  queryThinkingSteps: "\uB2E8\uACC4",
   // Error Messages
   errorLLMClientNotInit: "LLM \uD074\uB77C\uC774\uC5B8\uD2B8\uAC00 \uCD08\uAE30\uD654\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4. \uC124\uC815\uC744 \uC800\uC7A5\uD558\uC138\uC694.",
   errorIngestFailed: "\uC218\uC9D1 \uC2E4\uD328: ",
@@ -2342,7 +3692,7 @@ var KO_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "\uC5B4\uD718 \uC678 \uD0DC\uADF8 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\uBCC4\uCE6D \uC0DD\uC131 \uC2E4\uD328: {page} \u2014 {error}",
@@ -2471,6 +3821,9 @@ var KO_TEXTS = {
   periodicLintHourly: "\uB9E4\uC2DC\uAC04",
   periodicLintDaily: "\uB9E4\uC77C",
   periodicLintWeekly: "\uB9E4\uC8FC",
+  autoSmartFixName: "\uC790\uB3D9 \uC2A4\uB9C8\uD2B8 \uC218\uC815",
+  autoSmartFixDesc: "Lint \uC2E4\uD589 \uC2DC \uBCF4\uACE0\uC11C \uBAA8\uB2EC \uC5C6\uC774 \uBAA8\uB4E0 \uC218\uC815(\uC2A4\uB9C8\uD2B8 \uC77C\uAD04 \uC218\uC815)\uC744 \uC790\uB3D9\uC73C\uB85C \uC801\uC6A9\uD569\uB2C8\uB2E4. \uC218\uC815 \uC644\uB8CC \uD6C4 \uC694\uC57D\uC740 \uACC4\uC18D \uD45C\uC2DC\uB429\uB2C8\uB2E4.",
+  autoSmartFixNotice: "\uC790\uB3D9 \uC2A4\uB9C8\uD2B8 \uC218\uC815: \uBAA8\uB4E0 \uC218\uC815 \uC801\uC6A9 \uC911...",
   startupCheckName: "\uC2DC\uC791 \uC2DC \uBE60\uB978 \uC218\uC815 \uC2E4\uD589",
   startupCheckDesc: "\uD50C\uB7EC\uADF8\uC778 \uB85C\uB529 \uC2DC\u4F4E\u7EA7 \uD615\uC2DD \uBB38\uC81C(sources \uD544\uB4DC, \uC774\uC911 wikilink)\uB97C \uC790\uB3D9 \uC218\uC815\uD558\uACE0 Wiki \uD3F4\uB354 \uAD6C\uC870\uB97C \uAC80\uC99D\uD569\uB2C8\uB2E4. \uAE30\uBCF8 \uD65C\uC131\uD654.",
   suggestSchemaCommand: "\uC2A4\uD0A4\uB9C8 \uC5C5\uB370\uC774\uD2B8 \uC81C\uC548",
@@ -2485,14 +3838,14 @@ var KO_TEXTS = {
   wikiLintStats: "\uC704\uD0A4 \uB9B0\uD2B8: {pages}\uAC1C\uC758 \uD398\uC774\uC9C0 ({entities} \uC5D4\uD2F0\uD2F0, {concepts} \uCEE8\uC149, {sources} \uC18C\uC2A4)",
   wikiHealthStats: "\uC704\uD0A4 \uAC74\uAC15: {pages}\uAC1C\uC758 \uD398\uC774\uC9C0 ({entities} \uC5D4\uD2F0\uD2F0, {concepts} \uCEE8\uC149, {sources} \uC18C\uC2A4){indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Wiki \uBE60\uB978 \uC218\uC815 \uC644\uB8CC",
-  startupCheckStructureLabel: "\u{1F4C1} Wiki\uAD6C\uC870",
-  startupCheckStructureOk: "\u2713 \uC644\uB8CC",
-  startupCheckStructureMissing: "\u26A0\uFE0F \uBD88\uC644\uC804 \u2014 \uCCAB \uC218\uC9D1 \uC2DC \uC790\uB3D9 \uC0DD\uC131",
-  startupCheckSourcesLabel: "\u{1F527} Sources \uC815\uADDC\uD654",
-  startupCheckSourcesClean: "\u2713 \uC774\uBBF8 \uC815\uADDC\uD654\uB428",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F {files}\uAC1C \uD30C\uC77C, {entries}\uAC1C \uD56D\uBAA9 \uC815\uB9AC",
-  startupCheckDisableHint: "\u{1F4A1} \uBE44\uD65C\uC131\uD654\uD558\uB824\uBA74 \uC124\uC815 \u2192 \uC790\uB3D9 \uC720\uC9C0\uBCF4\uC218 \u2192 \uC2DC\uC791 \uC2DC \uBE60\uB978 \uC218\uC815 \uC2E4\uD589",
+  startupCheckTitle: "Wiki \uBE60\uB978 \uC218\uC815 \uC644\uB8CC",
+  startupCheckStructureLabel: "Wiki\uAD6C\uC870",
+  startupCheckStructureOk: "\uC644\uB8CC",
+  startupCheckStructureMissing: "\uBD88\uC644\uC804 \u2014 \uCCAB \uC218\uC9D1 \uC2DC \uC790\uB3D9 \uC0DD\uC131",
+  startupCheckSourcesLabel: "Sources \uC815\uADDC\uD654",
+  startupCheckSourcesClean: "\uC774\uBBF8 \uC815\uADDC\uD654\uB428",
+  startupCheckSourcesCleaned: "{files}\uAC1C \uD30C\uC77C, {entries}\uAC1C \uD56D\uBAA9 \uC815\uB9AC",
+  startupCheckDisableHint: "\uBE44\uD65C\uC131\uD654\uD558\uB824\uBA74 \uC124\uC815 \u2192 \uC790\uB3D9 \uC720\uC9C0\uBCF4\uC218 \u2192 \uC2DC\uC791 \uC2DC \uBE60\uB978 \uC218\uC815 \uC2E4\uD589",
   lintWikiStart: "\uC704\uD0A4 \uB9B0\uD2B8 \uC2DC\uC791 \uC911...",
   lintWikiComplete: "\uC704\uD0A4 \uB9B0\uD2B8 \uC644\uB8CC",
   lintWikiFailed: "\uC704\uD0A4 \uB9B0\uD2B8 \uC2E4\uD328",
@@ -2535,18 +3888,40 @@ var KO_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "\uC218\uC9D1 \uC911... \uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C",
   lintStatusBar: "\uC810\uAC80 \uC911... \uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C",
+  ingestStatusAnalyzing: "\uC218\uC9D1 \uC911\u2026 (\uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C)",
+  lintStatusReading: "\uC810\uAC80 \uC911\u2026 (\uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C)",
+  lintStatusDuplicates: "\uC810\uAC80 \uC911\u2026 (\uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C)",
+  lintStatusScanningLinks: "\uC810\uAC80 \uC911\u2026 (\uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C)",
+  lintStatusAnalyzing: "\uC810\uAC80 \uC911\u2026 (\uD074\uB9AD\uD558\uC5EC \uCDE8\uC18C)",
   ingestionCancelling: "\uCDE8\uC18C \uC911 \u2014 \uD604\uC7AC \uBC30\uCE58 \uC644\uB8CC \uD6C4 \uC911\uC9C0\uB429\uB2C8\uB2E4",
   ingestionCancelled: "\uC218\uC9D1\uC774 \uCDE8\uC18C\uB418\uC5C8\uC2B5\uB2C8\uB2E4",
   crossTypeCollisionNotice: "{count}\uAC1C \uD56D\uBAA9\uC774 \uD06C\uB85C\uC2A4\uD0C0\uC785 \uBCC4\uCE6D\uC73C\uB85C \uBCD1\uD569\uB428\uFF08\uC5D4\uD2F0\uD2F0 \u2194 \uCEE8\uC149 \uC911\uBCF5 \uBC29\uC9C0\uFF09",
   // Lint Report
   lintReportTitle: "\uC704\uD0A4 \uB9B0\uD2B8 \uBCF4\uACE0\uC11C",
-  lintReportSummary: "Wiki \uC0C1\uD0DC \uAC1C\uC694: \uCD1D {total}\uD398\uC774\uC9C0, {aliasesMissing}\uD398\uC774\uC9C0 \uBCC4\uCE6D \uB204\uB77D, \uC911\uBCF5 {duplicates}\uAC1C, \uB370\uB4DC \uB9C1\uD06C {deadLinks}\uAC1C ({deadLinkFromDup}\uAC1C \uC911\uBCF5 \uAD00\uB828), \uACE0\uC544 {orphans}\uAC1C ({orphanFromDup}\uAC1C \uC911\uBCF5), \uBE48 \uD398\uC774\uC9C0 {emptyPages}\uAC1C. Lint \uC18C\uC694: {elapsedSeconds}\uCD08",
+  lintReportSummary: "Wiki \uC0C1\uD0DC \uAC1C\uC694: \uCD1D {total}\uD398\uC774\uC9C0, {aliasesMissing}\uD398\uC774\uC9C0 \uBCC4\uCE6D \uB204\uB77D, \uC911\uBCF5 {duplicates}\uAC1C, \uB370\uB4DC \uB9C1\uD06C {deadLinks}\uAC1C ({deadLinkFromDup}\uAC1C \uC911\uBCF5 \uAD00\uB828), \uACE0\uC544 {orphans}\uAC1C ({orphanFromDup}\uAC1C \uC911\uBCF5), \uBE48 \uD398\uC774\uC9C0 {emptyPages}\uAC1C, \uCD9C\uCC98 \uC5C6\uB294 \uC778\uC6A9 {ungroundedQuotes}\uAC1C, \uC5B4\uD718 \uC678 \uD0DC\uADF8 {tagViolations}\uAC1C. Lint \uC18C\uC694: {elapsedSeconds}\uCD08",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "\uACE0\uAE09 \uB9E4\uAC1C\uBCC0\uC218 \uC124\uC815",
+  advancedSettingsModeDesc: "\uAE30\uBCF8\uAC12\uC740 \uACF5\uAE09\uC790\uC758 \uC790\uCCB4 \uB3D9\uC791\uC744 \uC0AC\uC6A9\uD558\uBA70, \uC0AC\uACE0 \uC81C\uC5B4, \uC628\uB3C4, \uBC18\uBCF5 \uD398\uB110\uD2F0 \uD544\uB4DC\uB97C \uC804\uC1A1\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uB300\uBD80\uBD84\uC758 \uC0AC\uC6A9\uC790\uC5D0\uAC8C \uC801\uD569\uD569\uB2C8\uB2E4. \uACF5\uAE09\uC790 \uAE30\uBCF8\uAC12\uC744 \uBA85\uC2DC\uC801\uC73C\uB85C \uC7AC\uC815\uC758\uD574\uC57C \uD558\uB294 \uACBD\uC6B0(\uC608: \uD2B9\uC815 \uC0AC\uACE0 \uC81C\uC5B4 \uBC29\uC5B8 \uAC15\uC81C, \uAE30\uBCF8\uAC12\uC774 \uC544\uB2CC \uC628\uB3C4 \uC124\uC815 \uB4F1)\uC5D0\uB9CC \uC0AC\uC6A9\uC790 \uC815\uC758\uB85C \uC804\uD658\uD558\uC138\uC694.",
+  advancedSettingsDefault: "\uAE30\uBCF8\uAC12 (\uACF5\uAE09\uC790 \uB3D9\uC791 \uC0AC\uC6A9)",
+  advancedSettingsCustom: "\uC0AC\uC6A9\uC790 \uC815\uC758 (\uACF5\uAE09\uC790 \uAE30\uBCF8\uAC12 \uC7AC\uC815\uC758)",
+  disableThinkingName: "\uC0DD\uAC01 \uBE44\uD65C\uC131\uD654",
+  disableThinkingDesc: "\uC635\uD2B8\uC778\uC785\uB2C8\uB2E4. \uD65C\uC131\uD654\uD558\uBA74 \uD50C\uB7EC\uADF8\uC778\uC740 \uC0AC\uACE0 \uC81C\uC5B4 \uC9C0\uC2DC\uBB38\uC744 \uACF5\uAE09\uC790\uC5D0\uAC8C \uBCF4\uB0B4\uACE0, \uACF5\uAE09\uC790\uAC00 \uAC70\uBD80\uD558\uBA74 3\uB2E8\uACC4 \uBC29\uC5B8 \uD3F4\uBC31 \uCCB4\uC778(anthropic \u2192 openai \u2192 none)\uC744 \uC2E4\uD589\uD569\uB2C8\uB2E4. \uACF5\uAE09\uC790\uAC00 \uCD94\uB860 \uB0B4\uC6A9\uC744 \uB2F5\uBCC0\uC5D0 \uB204\uC124\uD558\uACE0 \uC774\uB97C \uC5B5\uC81C\uD574\uC57C \uD560 \uB54C\uB9CC \uC0AC\uC6A9\uD558\uC138\uC694. \uB300\uBD80\uBD84\uC758 \uACF5\uAE09\uC790\uB294 \uCD94\uB860\uC744 \uC62C\uBC14\uB974\uAC8C \uCC98\uB9AC\uD558\uBBC0\uB85C, \uC774\uB97C \uBE44\uD65C\uC131\uD654(\uAE30\uBCF8\uAC12)\uB85C \uB450\uB294 \uAC83\uC774 \uB354 \uB098\uC740 \uD488\uC9C8\uC744 \uC81C\uACF5\uD569\uB2C8\uB2E4.",
+  // Issue #137: 호환성 안내 (간결하게; 공급자 목록 생략)
+  extractionTemperatureName: "\uCD94\uCD9C \uC628\uB3C4",
+  extractionTemperatureDesc: "\uBC94\uC704 0\u20132. \uB0AE\uC744\uC218\uB85D LLM \uCD9C\uB825\uC774 \uACB0\uC815\uC801\uC774\uACE0 \uC6D0\uBCF8\uC5D0 \uCDA9\uC2E4\uD574\uC9D1\uB2C8\uB2E4. \uB192\uC744\uC218\uB85D \uCC3D\uC758\uC801\uC785\uB2C8\uB2E4. \uBE44\uC6CC \uB450\uBA74 \uC81C\uACF5\uC790 \uAE30\uBCF8\uAC12\uC774 \uC0AC\uC6A9\uB429\uB2C8\uB2E4. \uC81C\uACF5\uC790\uAC00 \uC774 \uAC12\uC744 \uAC70\uBD80\uD558\uBA74 \uD50C\uB7EC\uADF8\uC778\uC774 \uC790\uB3D9\uC73C\uB85C \uD544\uB4DC\uB97C \uC81C\uAC70\uD558\uACE0 \uD55C \uBC88 \uC54C\uB9BC\uC744 \uD45C\uC2DC\uD569\uB2C8\uB2E4.",
+  chatTemperatureName: "\uCFFC\uB9AC \uC628\uB3C4",
+  chatTemperatureDesc: "\uBC94\uC704 0\u20132. \uCD94\uCD9C \uC628\uB3C4\uC640 \uB3D9\uC77C\uD558\uC9C0\uB9CC \uCC44\uD305/\uCFFC\uB9AC \uC751\uB2F5\uC5D0\uB9CC \uC601\uD5A5\uC744 \uBBF8\uCE69\uB2C8\uB2E4. \uBE44\uC6CC \uB450\uBA74 \uC81C\uACF5\uC790 \uAE30\uBCF8\uAC12\uC774 \uC0AC\uC6A9\uB429\uB2C8\uB2E4. \uC81C\uACF5\uC790\uAC00 \uC774 \uAC12\uC744 \uAC70\uBD80\uD558\uBA74 \uD50C\uB7EC\uADF8\uC778\uC774 \uC790\uB3D9\uC73C\uB85C \uD544\uB4DC\uB97C \uC81C\uAC70\uD558\uACE0 \uD55C \uBC88 \uC54C\uB9BC\uC744 \uD45C\uC2DC\uD569\uB2C8\uB2E4.",
+  repetitionPenaltyName: "\uBC18\uBCF5 \uD328\uB110\uD2F0",
+  repetitionPenaltyDesc: "\uBC94\uC704 0\u20132. \uB192\uC744\uC218\uB85D \uBC18\uBCF5 \uD328\uD134\uC774 \uC904\uC5B4\uB4ED\uB2C8\uB2E4. \uBE44\uC6CC \uB450\uBA74 \uC81C\uACF5\uC790 \uAE30\uBCF8\uAC12\uC774 \uC0AC\uC6A9\uB429\uB2C8\uB2E4. \uD638\uD658\uC131 \uC548\uB0B4: \uB9CE\uC740 \uD074\uB77C\uC6B0\uB4DC \uACF5\uAE09\uC790\uB294 \uC774 \uD544\uB4DC\uB97C \uD5C8\uC6A9\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC740 HTTP 400 \uC2DC \uC790\uB3D9\uC73C\uB85C \uC81C\uAC70\uD558\uACE0 \uD55C \uBC88 \uC54C\uB9BC\uC744 \uD45C\uC2DC\uD569\uB2C8\uB2E4.",
+  temperaturePlaceholder: "\uBE44\uC6C0 = \uC81C\uACF5\uC790 \uAE30\uBCF8\uAC12",
   lintDeadLinkSection: "\uB370\uB4DC \uB9C1\uD06C (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
   lintEmptyPageSection: "\uBE48 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
   lintOrphanSection: "\uACE0\uC544 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
   lintContradictionSection: "\uBAA8\uC21C (\uAC10\uC9C0\uB428)",
   lintDuplicateSection: "\uC911\uBCF5 \uD398\uC774\uC9C0 (\uAC10\uC9C0\uB428)",
-  lintNoIssuesFound: "\uC911\uBCF5, \uAE68\uC9C4 \uB9C1\uD06C, \uBE48 \uD398\uC774\uC9C0 \uB610\uB294 \uACE0\uC544 \uD398\uC774\uC9C0\uAC00 \uAC10\uC9C0\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.",
+  lintNoIssuesFound: "\uC911\uBCF5, \uAE68\uC9C4 \uB9C1\uD06C, \uBE48 \uD398\uC774\uC9C0, \uACE0\uC544 \uD398\uC774\uC9C0 \uB610\uB294 \uCD9C\uCC98 \uC5C6\uB294 \uC778\uC6A9\uC774 \uAC10\uC9C0\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.",
+  lintQuoteGroundingSection: "\uCD9C\uCC98 \uC5C6\uB294 \uC778\uC6A9 (\uAC10\uC9C0\uB428) [{count}\uAC1C]",
+  lintQuoteGroundingItem: '- [[{page}]]{sourceHint}: "{quote}"',
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (\uD398\uC774\uC9C0\uAC00 \uC874\uC7AC\uD558\uC9C0 \uC54A\uC74C){dupFlag}",
   lintDeadLinkMore: "- ... {count}\uAC1C\uC758 \uAE68\uC9C4 \uB9C1\uD06C \uCD94\uAC00",
   lintEmptyPageItem: "- [[{page}]] \u2014 \uC2E4\uC9C8\uC801\uC778 \uCF58\uD150\uCE20\uAC00 50\uC790 \uBBF8\uB9CC",
@@ -2636,14 +4011,14 @@ var DE_TEXTS = {
   // Language Switcher
   languageTitle: "Oberfl\xE4chensprache",
   languageDesc: "W\xE4hle deine bevorzugte Sprache f\xFCr das Einstellungsfenster. Starte das Plugin neu, um die Sprach\xE4nderungen auf die Befehlspalette anzuwenden.",
-  languageEn: "Englisch",
-  languageZh: "Chinesisch (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
+  languageEn: "English",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
   languageDe: "Deutsch",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "LLM-Client-Status",
   llmWikiStatusSection: "LLM-Wiki-Status",
@@ -2710,6 +4085,10 @@ var DE_TEXTS = {
   testConnectionProvider: "Anbieter: ",
   errorUnknown: "Unbekannter Fehler",
   savedNotice: "Einstellungen gespeichert!",
+  // Issue #137: LLM-Fallback-Hinweise
+  fallbackThinkingDialect: 'Denksteuerung: Zum Dialekt "{dialect}" gewechselt (dieser Anbieter verwendet ein anderes Format f\xFCr die Denksteuerung). Ausgabe unver\xE4ndert.',
+  fallbackThinkingNone: "Denksteuerung f\xFCr diesen Anbieter vollst\xE4ndig deaktiviert. Es k\xF6nnen weiterhin Reasoning-Inhalte erscheinen; falls ja, versuchen Sie ein anderes Modell.",
+  fallbackParamStripped: 'Parameter "{field}" wird von diesem Anbieter nicht unterst\xFCtzt. Aus der Anfrage entfernt; Verhalten kann von der Konfiguration abweichen.',
   // Wiki Folder
   wikiSection: "Wiki-Konfiguration",
   wikiFolderName: "Wiki-Ordner",
@@ -2744,6 +4123,9 @@ var DE_TEXTS = {
   queryPhaseNonStreaming: "Nicht-Streaming-Modus, Antwort wird generiert... (verstrichen {time}s)",
   queryModalErrorPrefix: "Fehler: ",
   queryModalHint: 'Anfragen basieren auf Wiki-Inhalten. Klicke auf "Im Wiki speichern", um wertvolle Konversationen als Wiki-Seiten zu extrahieren.',
+  // v1.20.0: Query Wiki Denkblock-Einklapp-Zusammenfassung
+  queryThinkingSummary: "Denkprozess",
+  queryThinkingSteps: "Schritte",
   // Error Messages
   errorLLMClientNotInit: "LLM-Client nicht initialisiert. Bitte Einstellungen speichern.",
   errorIngestFailed: "Aufnahme fehlgeschlagen: ",
@@ -2773,7 +4155,7 @@ var DE_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "Tags au\xDFerhalb des Vokabulars (erkannt) [{count}]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "Alias-Generierung fehlgeschlagen: {page} \u2014 {error}",
@@ -2902,6 +4284,9 @@ var DE_TEXTS = {
   periodicLintHourly: "St\xFCndlich",
   periodicLintDaily: "T\xE4glich",
   periodicLintWeekly: "W\xF6chentlich",
+  autoSmartFixName: "Automatische Smart-Korrektur",
+  autoSmartFixDesc: "Wenn Lint ausgef\xFChrt wird, alle Korrekturen (Smart Fix All) automatisch anwenden, ohne das Berichts-Modal anzuzeigen. Die Zusammenfassung wird nach Abschluss weiterhin angezeigt.",
+  autoSmartFixNotice: "Automatische Smart-Korrektur: Alle Korrekturen werden angewendet...",
   startupCheckName: "Schnellkorrekturen beim Start ausf\xFChren",
   startupCheckDesc: "Beim Laden des Plugins\u4F4E\u7EA7 Formatprobleme (sources-Feld, doppelt verschachtelte Wikilinks) automatisch korrigieren und Wiki-Ordnerstruktur \xFCberpr\xFCfen. Standardm\xE4\xDFig aktiviert.",
   suggestSchemaCommand: "Schema-Aktualisierungen vorschlagen",
@@ -2916,14 +4301,14 @@ var DE_TEXTS = {
   wikiLintStats: "Wiki-Pr\xFCfung: {pages} Seiten ({entities} Entit\xE4ten, {concepts} Konzepte, {sources} Quellen)",
   wikiHealthStats: "Wiki-Gesundheit: {pages} Seiten ({entities} Entit\xE4ten, {concepts} Konzepte, {sources} Quellen){indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Wiki-Schnellkorrekturen abgeschlossen",
-  startupCheckStructureLabel: "\u{1F4C1} Wiki-Struktur",
-  startupCheckStructureOk: "\u2713 vollst\xE4ndig",
-  startupCheckStructureMissing: "\u26A0\uFE0F unvollst\xE4ndig \u2014 wird beim ersten Ingest automatisch erstellt",
-  startupCheckSourcesLabel: "\u{1F527} Sources normalisiert",
-  startupCheckSourcesClean: "\u2713 bereits sauber",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F {files} Datei(en), {entries} Eintrag/Eintr\xE4ge bereinigt",
-  startupCheckDisableHint: "\u{1F4A1} Zum Deaktivieren: Einstellungen \u2192 Auto-Wartung \u2192 Schnellkorrekturen beim Start ausf\xFChren",
+  startupCheckTitle: "Wiki-Schnellkorrekturen abgeschlossen",
+  startupCheckStructureLabel: "Wiki-Struktur",
+  startupCheckStructureOk: "vollst\xE4ndig",
+  startupCheckStructureMissing: "unvollst\xE4ndig \u2014 wird beim ersten Ingest automatisch erstellt",
+  startupCheckSourcesLabel: "Sources normalisiert",
+  startupCheckSourcesClean: "bereits sauber",
+  startupCheckSourcesCleaned: "{files} Datei(en), {entries} Eintrag/Eintr\xE4ge bereinigt",
+  startupCheckDisableHint: "Zum Deaktivieren: Einstellungen \u2192 Auto-Wartung \u2192 Schnellkorrekturen beim Start ausf\xFChren",
   lintWikiStart: "Wiki-Pr\xFCfung wird gestartet...",
   lintWikiComplete: "Wiki-Pr\xFCfung abgeschlossen",
   lintWikiFailed: "Wiki-Pr\xFCfung fehlgeschlagen",
@@ -2966,18 +4351,40 @@ var DE_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "Aufnahme l\xE4uft... zum Abbrechen klicken",
   lintStatusBar: "Pr\xFCfung l\xE4uft... zum Abbrechen klicken",
+  ingestStatusAnalyzing: "Aufnahme l\xE4uft... (zum Abbrechen klicken)",
+  lintStatusReading: "Pr\xFCfung l\xE4uft... (zum Abbrechen klicken)",
+  lintStatusDuplicates: "Pr\xFCfung l\xE4uft... (zum Abbrechen klicken)",
+  lintStatusScanningLinks: "Pr\xFCfung l\xE4uft... (zum Abbrechen klicken)",
+  lintStatusAnalyzing: "Pr\xFCfung l\xE4uft... (zum Abbrechen klicken)",
   ingestionCancelling: "Wird abgebrochen \u2014 Stopp nach aktuellem Batch",
   ingestionCancelled: "Aufnahme abgebrochen",
   crossTypeCollisionNotice: "{count} Eintr\xE4ge als Cross-Type-Alias zusammengef\xFChrt (Entity \u2194 Concept Duplikate verhindert)",
   // Lint Report
   lintReportTitle: "Wiki-Pr\xFCfbericht",
-  lintReportSummary: "Wiki-Status\xFCbersicht: {total} Seiten gesamt, {aliasesMissing} Seiten ohne Aliase, {duplicates} Duplikate, {deadLinks} defekte Links ({deadLinkFromDup} betreffen Duplikate), {orphans} verwaiste Seiten ({orphanFromDup} sind Duplikate), {emptyPages} leere Seiten. Lint-Dauer: {elapsedSeconds}s",
+  lintReportSummary: "Wiki-Status\xFCbersicht: {total} Seiten gesamt, {aliasesMissing} Seiten ohne Aliase, {duplicates} Duplikate, {deadLinks} defekte Links ({deadLinkFromDup} betreffen Duplikate), {orphans} verwaiste Seiten ({orphanFromDup} sind Duplikate), {emptyPages} leere Seiten, {ungroundedQuotes} unbelegte Zitate, {tagViolations} Tags au\xDFerhalb des Vokabulars. Lint-Dauer: {elapsedSeconds}s",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "Erweiterte Parametereinstellungen",
+  advancedSettingsModeDesc: "Im Standardmodus wird das Standardverhalten Ihres Providers verwendet \u2014 es werden keine Felder f\xFCr Denksteuerung, Temperatur oder Wiederholungsstrafe gesendet. Dies funktioniert f\xFCr die meisten Benutzer. Wechseln Sie nur dann zu \u201EBenutzerdefiniert\u201C, wenn Sie die Provider-Standards explizit \xFCberschreiben m\xFCssen (z. B. einen bestimmten Denksteuerungsdialekt erzwingen, eine andere als die Standardtemperatur festlegen usw.).",
+  advancedSettingsDefault: "Standard (Provider-Verhalten verwenden)",
+  advancedSettingsCustom: "Benutzerdefiniert (Provider-Standards \xFCberschreiben)",
+  disableThinkingName: "Thinking deaktivieren",
+  disableThinkingDesc: "Opt-in. Wenn aktiviert, sendet das Plugin eine Denksteuerungsanweisung an den Provider und durchl\xE4uft eine 3-stufige Dialekt-Fallback-Kette (anthropic \u2192 openai \u2192 none), falls der Provider sie ablehnt. Verwenden Sie dies nur, wenn Ihr Provider Denkinhalte in die Antwort einstreut und Sie diese unterdr\xFCcken m\xFCssen. Die meisten Provider verarbeiten Denkprozesse korrekt von selbst \u2014 sie deaktiviert zu lassen (Standard) bietet bessere Qualit\xE4t.",
+  // Issue #137: Kompatibilitätshinweise (kurz gehalten; keine Provider-Liste)
+  extractionTemperatureName: "Extraktionstemperatur",
+  extractionTemperatureDesc: "Bereich 0\u20132. Niedrigere Werte machen die LLM-Ausgabe deterministischer und originalgetreuer. H\xF6here Werte machen sie kreativer. Leer lassen = Provider-Standard. Lehnt Ihr Anbieter diesen Wert ab, entfernt das Plugin das Feld automatisch und zeigt einen einmaligen Hinweis.",
+  chatTemperatureName: "Abfragetemperatur",
+  chatTemperatureDesc: "Bereich 0\u20132. Wie Extraktionstemperatur, betrifft aber nur Chat-/Query-Antworten. Leer lassen = Provider-Standard. Lehnt Ihr Anbieter diesen Wert ab, entfernt das Plugin das Feld automatisch und zeigt einen einmaligen Hinweis.",
+  repetitionPenaltyName: "Wiederholungsstrafe",
+  repetitionPenaltyDesc: "Bereich 0\u20132. H\xF6here Werte reduzieren Wiederholungen. Leer lassen = Provider-Standard. Kompatibilit\xE4tshinweis: Viele Cloud-Anbieter akzeptieren dieses Feld nicht. Das Plugin entfernt es bei HTTP 400 automatisch und zeigt einen einmaligen Hinweis.",
+  temperaturePlaceholder: "leer = Provider-Standard",
   lintDeadLinkSection: "Defekte Links (erkannt) [{count}]",
   lintEmptyPageSection: "Leere Seiten (erkannt) [{count}]",
   lintOrphanSection: "Verwaiste Seiten (erkannt) [{count}]",
   lintContradictionSection: "Widerspr\xFCche (erkannt)",
   lintDuplicateSection: "Doppelte Seiten (erkannt)",
-  lintNoIssuesFound: "Keine Duplikate, defekten Links, leeren Seiten oder verwaisten Seiten erkannt.",
+  lintNoIssuesFound: "Keine Duplikate, defekten Links, leeren Seiten, verwaisten Seiten oder unbelegten Zitate erkannt.",
+  lintQuoteGroundingSection: "Unbelegte Zitate (erkannt) [{count}]",
+  lintQuoteGroundingItem: '- [[{page}]]{sourceHint}: "{quote}"',
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (Seite existiert nicht){dupFlag}",
   lintDeadLinkMore: "- ... {count} weitere defekte Links",
   lintEmptyPageItem: "- [[{page}]] \u2014 weniger als 50 Zeichen substanziellen Inhalts",
@@ -3068,13 +4475,13 @@ var FR_TEXTS = {
   languageTitle: "Langue de l'interface",
   languageDesc: "S\xE9lectionnez la langue du panneau des param\xE8tres. Red\xE9marrez le plugin pour appliquer les changements de langue \xE0 la palette de commandes.",
   languageEn: "English",
-  languageZh: "Chinese (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "\xC9tat du client LLM",
   llmWikiStatusSection: "\xC9tat LLM-Wiki",
@@ -3141,6 +4548,10 @@ var FR_TEXTS = {
   testConnectionProvider: "Fournisseur : ",
   errorUnknown: "Erreur inconnue",
   savedNotice: "Param\xE8tres enregistr\xE9s !",
+  // Issue #137 : Notifications de repli LLM
+  fallbackThinkingDialect: "Contr\xF4le de r\xE9flexion : bascul\xE9 vers le dialecte \xAB {dialect} \xBB (ce fournisseur utilise un format diff\xE9rent). Le r\xE9sultat est inchang\xE9.",
+  fallbackThinkingNone: "Contr\xF4le de r\xE9flexion enti\xE8rement d\xE9sactiv\xE9 pour ce fournisseur. Du contenu de raisonnement peut encore appara\xEEtre ; le cas \xE9ch\xE9ant, essayez un autre mod\xE8le.",
+  fallbackParamStripped: "Le param\xE8tre \xAB {field} \xBB n'est pas pris en charge par ce fournisseur. Supprim\xE9 de la requ\xEAte ; le comportement peut diff\xE9rer de la configuration.",
   // Wiki Folder
   wikiSection: "Configuration du Wiki",
   wikiFolderName: "Dossier wiki",
@@ -3175,6 +4586,9 @@ var FR_TEXTS = {
   queryPhaseNonStreaming: "Mode non continu, g\xE9n\xE9ration de la r\xE9ponse... (\xE9coul\xE9 {time}s)",
   queryModalErrorPrefix: "Erreur : ",
   queryModalHint: "Les requ\xEAtes s'appuient sur le contenu du wiki. Cliquez sur \xAB Enregistrer dans le wiki \xBB pour extraire les conversations utiles en pages wiki.",
+  // v1.20.0: Résumé du bloc de réflexion pliable de Query Wiki
+  queryThinkingSummary: "Processus de r\xE9flexion",
+  queryThinkingSteps: "\xE9tapes",
   // Error Messages
   errorLLMClientNotInit: "Client LLM non initialis\xE9. Veuillez enregistrer les param\xE8tres.",
   errorIngestFailed: "\xC9chec de l'import : ",
@@ -3204,7 +4618,7 @@ var FR_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "Tags hors vocabulaire (d\xE9tect\xE9s) [{count}]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "\xC9chec de la g\xE9n\xE9ration d'alias : {page} \u2014 {error}",
@@ -3333,6 +4747,9 @@ var FR_TEXTS = {
   periodicLintHourly: "Toutes les heures",
   periodicLintDaily: "Quotidien",
   periodicLintWeekly: "Hebdomadaire",
+  autoSmartFixName: "Correction intelligente automatique",
+  autoSmartFixDesc: "Lors de l'ex\xE9cution du lint, applique automatiquement toutes les corrections (Smart Fix All) sans afficher le modal de rapport. Le r\xE9sum\xE9 des corrections s'affiche toujours \xE0 la fin.",
+  autoSmartFixNotice: "Correction intelligente automatique : application de toutes les corrections...",
   startupCheckName: "Ex\xE9cuter les corrections rapides au d\xE9marrage",
   startupCheckDesc: "Corrige automatiquement les probl\xE8mes de format de bas niveau (champ sources, wikilinks doublement imbriqu\xE9s) au chargement du plugin. V\xE9rifie la structure du dossier Wiki. Activ\xE9 par d\xE9faut.",
   suggestSchemaCommand: "Sugg\xE9rer des mises \xE0 jour du sch\xE9ma",
@@ -3347,14 +4764,14 @@ var FR_TEXTS = {
   wikiLintStats: "V\xE9rification wiki : {pages} pages ({entities} entit\xE9s, {concepts} concepts, {sources} sources)",
   wikiHealthStats: "Sant\xE9 du wiki : {pages} pages ({entities} entit\xE9s, {concepts} concepts, {sources} sources){indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Corrections rapides Wiki termin\xE9es",
-  startupCheckStructureLabel: "\u{1F4C1} Structure Wiki",
-  startupCheckStructureOk: "\u2713 compl\xE8te",
-  startupCheckStructureMissing: "\u26A0\uFE0F incompl\xE8te \u2014 sera cr\xE9\xE9e automatiquement au premier ingest",
-  startupCheckSourcesLabel: "\u{1F527} Sources normalis\xE9s",
-  startupCheckSourcesClean: "\u2713 d\xE9j\xE0 propre",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F {files} fichier(s), {entries} entr\xE9e(s) nettoy\xE9e(s)",
-  startupCheckDisableHint: "\u{1F4A1} Pour d\xE9sactiver : Param\xE8tres \u2192 Maintenance automatique \u2192 Ex\xE9cuter les corrections rapides au d\xE9marrage",
+  startupCheckTitle: "Corrections rapides Wiki termin\xE9es",
+  startupCheckStructureLabel: "Structure Wiki",
+  startupCheckStructureOk: "compl\xE8te",
+  startupCheckStructureMissing: "incompl\xE8te \u2014 sera cr\xE9\xE9e automatiquement au premier ingest",
+  startupCheckSourcesLabel: "Sources normalis\xE9s",
+  startupCheckSourcesClean: "d\xE9j\xE0 propre",
+  startupCheckSourcesCleaned: "{files} fichier(s), {entries} entr\xE9e(s) nettoy\xE9e(s)",
+  startupCheckDisableHint: "Pour d\xE9sactiver : Param\xE8tres \u2192 Maintenance automatique \u2192 Ex\xE9cuter les corrections rapides au d\xE9marrage",
   lintWikiStart: "D\xE9marrage de la v\xE9rification du wiki...",
   lintWikiComplete: "V\xE9rification du wiki termin\xE9e",
   lintWikiFailed: "\xC9chec de la v\xE9rification du wiki",
@@ -3397,18 +4814,40 @@ var FR_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "Ingestion en cours... cliquer pour annuler",
   lintStatusBar: "V\xE9rification en cours... cliquer pour annuler",
+  ingestStatusAnalyzing: "Ingestion\u2026 (cliquer pour annuler)",
+  lintStatusReading: "V\xE9rification\u2026 (cliquer pour annuler)",
+  lintStatusDuplicates: "V\xE9rification\u2026 (cliquer pour annuler)",
+  lintStatusScanningLinks: "V\xE9rification\u2026 (cliquer pour annuler)",
+  lintStatusAnalyzing: "V\xE9rification\u2026 (cliquer pour annuler)",
   ingestionCancelling: "Annulation \u2014 arr\xEAt apr\xE8s le lot en cours",
   ingestionCancelled: "Ingestion annul\xE9e",
   crossTypeCollisionNotice: "{count} \xE9l\xE9ments fusionn\xE9s comme alias cross-type (doublons entit\xE9 \u2194 concept \xE9vit\xE9s)",
   // Lint Report
   lintReportTitle: "Rapport de v\xE9rification du wiki",
-  lintReportSummary: "Aper\xE7u de l'\xE9tat du wiki : {total} pages au total, {aliasesMissing} pages sans alias, {duplicates} pages dupliqu\xE9es, {deadLinks} liens cass\xE9s ({deadLinkFromDup} impliquent des doublons), {orphans} pages orphelines ({orphanFromDup} sont des doublons), {emptyPages} pages vides. Dur\xE9e du lint : {elapsedSeconds}s",
+  lintReportSummary: "Aper\xE7u de l'\xE9tat du wiki : {total} pages au total, {aliasesMissing} pages sans alias, {duplicates} pages dupliqu\xE9es, {deadLinks} liens cass\xE9s ({deadLinkFromDup} impliquent des doublons), {orphans} pages orphelines ({orphanFromDup} sont des doublons), {emptyPages} pages vides, {ungroundedQuotes} citations non fond\xE9es, {tagViolations} tags hors vocabulaire. Dur\xE9e du lint : {elapsedSeconds}s",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "Param\xE8tres avanc\xE9s",
+  advancedSettingsModeDesc: "Le mode par d\xE9faut utilise le comportement natif de votre fournisseur \u2014 aucun champ de contr\xF4le du raisonnement, de temp\xE9rature ou de p\xE9nalit\xE9 de r\xE9p\xE9tition n'est envoy\xE9. Cela convient \xE0 la plupart des utilisateurs. Ne passez en mode Personnalis\xE9 que si vous devez explicitement remplacer les param\xE8tres par d\xE9faut du fournisseur (par exemple, forcer un dialecte de raisonnement sp\xE9cifique, d\xE9finir une temp\xE9rature autre que celle par d\xE9faut, etc.).",
+  advancedSettingsDefault: "Par d\xE9faut (comportement du fournisseur)",
+  advancedSettingsCustom: "Personnalis\xE9 (remplacer les param\xE8tres par d\xE9faut du fournisseur)",
+  disableThinkingName: "D\xE9sactiver le raisonnement",
+  disableThinkingDesc: "Optionnel. Lorsqu'il est activ\xE9, le plugin envoie une directive de contr\xF4le du raisonnement au fournisseur et parcourt une cha\xEEne de repli dialectal en 3 niveaux (anthropic \u2192 openai \u2192 none) si le fournisseur la refuse. Utilisez-le uniquement si votre fournisseur laisse le raisonnement s'infiltrer dans la r\xE9ponse et que vous devez le supprimer. La plupart des fournisseurs g\xE8rent correctement le raisonnement d'eux-m\xEAmes \u2014 laisser cette option d\xE9sactiv\xE9e (par d\xE9faut) offre une meilleure qualit\xE9.",
+  // Issue #137 : Notes de compatibilité (courtes ; pas de liste de fournisseurs)
+  extractionTemperatureName: "Temp\xE9rature d'extraction",
+  extractionTemperatureDesc: "Plage 0\u20132. Plus la valeur est basse, plus la sortie LLM est d\xE9terministe et fid\xE8le. Plus elle est haute, plus elle est cr\xE9ative. Laissez vide pour utiliser la valeur par d\xE9faut du fournisseur. Si votre fournisseur refuse cette valeur, le plugin supprime le champ automatiquement et affiche un avis unique.",
+  chatTemperatureName: "Temp\xE9rature de requ\xEAte",
+  chatTemperatureDesc: "Plage 0\u20132. Comme la temp\xE9rature d'extraction, mais n'affecte que les r\xE9ponses de chat/requ\xEAte. Laissez vide pour utiliser la valeur par d\xE9faut du fournisseur. Si votre fournisseur refuse cette valeur, le plugin supprime le champ automatiquement et affiche un avis unique.",
+  repetitionPenaltyName: "P\xE9nalit\xE9 de r\xE9p\xE9tition",
+  repetitionPenaltyDesc: "Plage 0\u20132. Plus la valeur est haute, plus les r\xE9p\xE9titions sont r\xE9duites. Laissez vide pour utiliser la valeur par d\xE9faut du fournisseur. Note de compatibilit\xE9 : de nombreux fournisseurs cloud n'acceptent pas ce champ. Le plugin le supprime automatiquement sur HTTP 400 et affiche un avis unique.",
+  temperaturePlaceholder: "vide = valeur par d\xE9faut du fournisseur",
   lintDeadLinkSection: "Liens cass\xE9s (d\xE9tect\xE9s) [{count}]",
   lintEmptyPageSection: "Pages vides (d\xE9tect\xE9es) [{count}]",
   lintOrphanSection: "Pages orphelines (d\xE9tect\xE9es) [{count}]",
   lintContradictionSection: "Contradictions (d\xE9tect\xE9es)",
   lintDuplicateSection: "Pages dupliqu\xE9es (d\xE9tect\xE9es)",
-  lintNoIssuesFound: "Aucun doublon, lien cass\xE9, page vide ou page orpheline d\xE9tect\xE9.",
+  lintNoIssuesFound: "Aucun doublon, lien cass\xE9, page vide, page orpheline ou citation non fond\xE9e d\xE9tect\xE9.",
+  lintQuoteGroundingSection: "Citations non fond\xE9es (d\xE9tect\xE9es) [{count}]",
+  lintQuoteGroundingItem: "- [[{page}]]{sourceHint}: \xAB {quote} \xBB",
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (la page n'existe pas){dupFlag}",
   lintDeadLinkMore: "- ... {count} liens cass\xE9s suppl\xE9mentaires",
   lintEmptyPageItem: "- [[{page}]] \u2014 moins de 50 caract\xE8res de contenu substantiel",
@@ -3499,13 +4938,13 @@ var ES_TEXTS = {
   languageTitle: "Idioma de la interfaz",
   languageDesc: "Selecciona tu idioma preferido para el panel de configuraci\xF3n. Reinicia el plugin para aplicar los cambios de idioma a la paleta de comandos.",
   languageEn: "English",
-  languageZh: "Chinese (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "Estado del cliente LLM",
   llmWikiStatusSection: "Estado de LLM-Wiki",
@@ -3572,6 +5011,10 @@ var ES_TEXTS = {
   testConnectionProvider: "Proveedor: ",
   errorUnknown: "Error desconocido",
   savedNotice: "\xA1Configuraci\xF3n guardada!",
+  // Issue #137: Avisos de fallback de LLM
+  fallbackThinkingDialect: 'Control de pensamiento: cambiado al dialecto "{dialect}" (este proveedor usa un formato diferente). La salida no cambia.',
+  fallbackThinkingNone: "Control de pensamiento completamente deshabilitado para este proveedor. Puede seguir apareciendo contenido de razonamiento; si ocurre, pruebe con otro modelo.",
+  fallbackParamStripped: 'El par\xE1metro "{field}" no es compatible con este proveedor. Se ha eliminado de la solicitud; el comportamiento puede diferir de la configuraci\xF3n.',
   // Wiki Folder
   wikiSection: "Configuraci\xF3n del Wiki",
   wikiFolderName: "Carpeta Wiki",
@@ -3606,6 +5049,9 @@ var ES_TEXTS = {
   queryPhaseNonStreaming: "Modo sin transmisi\xF3n, generando respuesta... (transcurrido {time}s)",
   queryModalErrorPrefix: "Error: ",
   queryModalHint: 'Las consultas se basan en el contenido de la Wiki. Pulsa "Guardar en Wiki" para extraer conversaciones valiosas como p\xE1ginas Wiki.',
+  // v1.20.0: Resumen del bloque de pensamiento plegable de Query Wiki
+  queryThinkingSummary: "Proceso de pensamiento",
+  queryThinkingSteps: "pasos",
   // Error Messages
   errorLLMClientNotInit: "Cliente LLM no inicializado. Guarda la configuraci\xF3n.",
   errorIngestFailed: "La ingesti\xF3n fall\xF3: ",
@@ -3635,7 +5081,7 @@ var ES_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "Etiquetas fuera de vocabulario (detectadas) [{count}]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "Fall\xF3 la generaci\xF3n de alias: {page} \u2014 {error}",
@@ -3764,6 +5210,9 @@ var ES_TEXTS = {
   periodicLintHourly: "Cada hora",
   periodicLintDaily: "Diario",
   periodicLintWeekly: "Semanal",
+  autoSmartFixName: "Correcci\xF3n inteligente autom\xE1tica",
+  autoSmartFixDesc: "Cuando se ejecute el lint, aplica autom\xE1ticamente todas las correcciones (Smart Fix All) sin mostrar el modal de informe. El resumen de correcciones se sigue mostrando al finalizar.",
+  autoSmartFixNotice: "Correcci\xF3n inteligente autom\xE1tica: aplicando todas las correcciones...",
   startupCheckName: "Ejecutar correcciones r\xE1pidas al inicio",
   startupCheckDesc: "Corrige autom\xE1ticamente problemas de formato de bajo nivel (campo sources, wikilinks doblemente anidados) al cargar el plugin. Verifica la estructura de carpetas de la Wiki. Activado por defecto.",
   suggestSchemaCommand: "Sugerir actualizaciones del esquema",
@@ -3778,14 +5227,14 @@ var ES_TEXTS = {
   wikiLintStats: "Lint de Wiki: {pages} p\xE1ginas ({entities} entidades, {concepts} conceptos, {sources} fuentes)",
   wikiHealthStats: "Estado de la Wiki: {pages} p\xE1ginas ({entities} entidades, {concepts} conceptos, {sources} fuentes){indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Correcciones r\xE1pidas Wiki completadas",
-  startupCheckStructureLabel: "\u{1F4C1} Estructura Wiki",
-  startupCheckStructureOk: "\u2713 completa",
-  startupCheckStructureMissing: "\u26A0\uFE0F incompleta \u2014 se crear\xE1 autom\xE1ticamente en la primera ingesti\xF3n",
-  startupCheckSourcesLabel: "\u{1F527} Sources normalizados",
-  startupCheckSourcesClean: "\u2713 ya limpio",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F {files} archivo(s), {entries} entrada(s) limpiada(s)",
-  startupCheckDisableHint: "\u{1F4A1} Para desactivar: Configuraci\xF3n \u2192 Mantenimiento autom\xE1tico \u2192 Ejecutar correcciones r\xE1pidas al inicio",
+  startupCheckTitle: "Correcciones r\xE1pidas Wiki completadas",
+  startupCheckStructureLabel: "Estructura Wiki",
+  startupCheckStructureOk: "completa",
+  startupCheckStructureMissing: "incompleta \u2014 se crear\xE1 autom\xE1ticamente en la primera ingesti\xF3n",
+  startupCheckSourcesLabel: "Sources normalizados",
+  startupCheckSourcesClean: "ya limpio",
+  startupCheckSourcesCleaned: "{files} archivo(s), {entries} entrada(s) limpiada(s)",
+  startupCheckDisableHint: "Para desactivar: Configuraci\xF3n \u2192 Mantenimiento autom\xE1tico \u2192 Ejecutar correcciones r\xE1pidas al inicio",
   lintWikiStart: "Iniciando verificaci\xF3n lint de la Wiki...",
   lintWikiComplete: "Verificaci\xF3n lint de la Wiki completada",
   lintWikiFailed: "Verificaci\xF3n lint de la Wiki fallida",
@@ -3828,18 +5277,40 @@ var ES_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "Ingiriendo... clic para cancelar",
   lintStatusBar: "Verificando... clic para cancelar",
+  ingestStatusAnalyzing: "Ingiriendo\u2026 (clic para cancelar)",
+  lintStatusReading: "Verificando\u2026 (clic para cancelar)",
+  lintStatusDuplicates: "Verificando\u2026 (clic para cancelar)",
+  lintStatusScanningLinks: "Verificando\u2026 (clic para cancelar)",
+  lintStatusAnalyzing: "Verificando\u2026 (clic para cancelar)",
   ingestionCancelling: "Cancelando \u2014 se detendr\xE1 tras el lote actual",
   ingestionCancelled: "Ingesta cancelada",
   crossTypeCollisionNotice: "{count} elementos fusionados como alias cross-type (duplicados entidad \u2194 concepto evitados)",
   // Lint Report
   lintReportTitle: "Informe de verificaci\xF3n lint de la Wiki",
-  lintReportSummary: "Resumen de estado del wiki: {total} p\xE1ginas en total, {aliasesMissing} p\xE1ginas sin alias, {duplicates} duplicados, {deadLinks} enlaces rotos ({deadLinkFromDup} implican duplicados), {orphans} p\xE1ginas hu\xE9rfanas ({orphanFromDup} son duplicados), {emptyPages} p\xE1ginas vac\xEDas. Lint: {elapsedSeconds}s",
+  lintReportSummary: "Resumen de estado del wiki: {total} p\xE1ginas en total, {aliasesMissing} p\xE1ginas sin alias, {duplicates} duplicados, {deadLinks} enlaces rotos ({deadLinkFromDup} implican duplicados), {orphans} p\xE1ginas hu\xE9rfanas ({orphanFromDup} son duplicados), {emptyPages} p\xE1ginas vac\xEDas, {ungroundedQuotes} citas sin fuente, {tagViolations} etiquetas fuera de vocabulario. Lint: {elapsedSeconds}s",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "Configuraci\xF3n de par\xE1metros avanzados",
+  advancedSettingsModeDesc: "El modo predeterminado usa el comportamiento nativo de tu proveedor \u2014 no se env\xEDa ning\xFAn campo de control de pensamiento, temperatura o penalizaci\xF3n por repetici\xF3n. Esto funciona para la mayor\xEDa de los usuarios. Solo cambia a Personalizado si necesitas anular expl\xEDcitamente los valores predeterminados del proveedor (por ejemplo, forzar un dialecto de control de pensamiento espec\xEDfico, establecer una temperatura distinta a la predeterminada, etc.).",
+  advancedSettingsDefault: "Predeterminado (usar comportamiento del proveedor)",
+  advancedSettingsCustom: "Personalizado (anular valores predeterminados del proveedor)",
+  disableThinkingName: "Deshabilitar pensamiento",
+  disableThinkingDesc: "Opcional. Cuando est\xE1 activado, el complemento env\xEDa una directiva de control de pensamiento al proveedor y recorre una cadena de respaldo de dialecto de 3 niveles (anthropic \u2192 openai \u2192 none) si el proveedor la rechaza. Usa esto solo si tu proveedor filtra contenido de razonamiento en la respuesta y necesitas suprimirlo. La mayor\xEDa de los proveedores manejan el razonamiento correctamente por s\xED mismos \u2014 dejarlo desactivado (predeterminado) ofrece mejor calidad.",
+  // Issue #137: Notas de compatibilidad (breves; sin lista de proveedores)
+  extractionTemperatureName: "Temperatura de extracci\xF3n",
+  extractionTemperatureDesc: "Rango 0\u20132. Cuanto m\xE1s bajo, m\xE1s determinista y fiel es la salida del LLM. Cuanto m\xE1s alto, m\xE1s creativo. D\xE9jalo vac\xEDo para usar el valor por defecto del proveedor. Si su proveedor rechaza este valor, el plugin elimina el campo autom\xE1ticamente y muestra un aviso \xFAnico.",
+  chatTemperatureName: "Temperatura de consulta",
+  chatTemperatureDesc: "Rango 0\u20132. Igual que la temperatura de extracci\xF3n, pero solo afecta las respuestas de chat/consulta. D\xE9jalo vac\xEDo para usar el valor por defecto del proveedor. Si su proveedor rechaza este valor, el plugin elimina el campo autom\xE1ticamente y muestra un aviso \xFAnico.",
+  repetitionPenaltyName: "Penalizaci\xF3n por repetici\xF3n",
+  repetitionPenaltyDesc: "Rango 0\u20132. Cuanto m\xE1s alto, m\xE1s se reducen los patrones repetitivos. D\xE9jalo vac\xEDo para usar el valor por defecto del proveedor. Nota de compatibilidad: muchos proveedores en la nube no aceptan este campo. El plugin lo elimina autom\xE1ticamente en HTTP 400 y muestra un aviso \xFAnico.",
+  temperaturePlaceholder: "vac\xEDo = valor por defecto del proveedor",
   lintDeadLinkSection: "Enlaces rotos (detectados) [{count}]",
   lintEmptyPageSection: "P\xE1ginas vac\xEDas (detectadas) [{count}]",
   lintOrphanSection: "P\xE1ginas hu\xE9rfanas (detectadas) [{count}]",
   lintContradictionSection: "Contradicciones (detectadas)",
   lintDuplicateSection: "P\xE1ginas duplicadas (detectadas)",
-  lintNoIssuesFound: "No se detectaron duplicados, enlaces rotos, p\xE1ginas vac\xEDas ni p\xE1ginas hu\xE9rfanas.",
+  lintNoIssuesFound: "No se detectaron duplicados, enlaces rotos, p\xE1ginas vac\xEDas, p\xE1ginas hu\xE9rfanas ni citas sin fuente.",
+  lintQuoteGroundingSection: "Citas sin fuente (detectadas) [{count}]",
+  lintQuoteGroundingItem: '- [[{page}]]{sourceHint}: "{quote}"',
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (la p\xE1gina no existe){dupFlag}",
   lintDeadLinkMore: "- ... {count} enlaces rotos m\xE1s",
   lintEmptyPageItem: "- [[{page}]] \u2014 menos de 50 caracteres de contenido sustantivo",
@@ -3930,13 +5401,13 @@ var PT_TEXTS = {
   languageTitle: "Idioma da interface",
   languageDesc: "Selecione seu idioma preferido para o painel de configura\xE7\xF5es. Reinicie o plugin para aplicar as altera\xE7\xF5es de idioma \xE0 paleta de comandos.",
   languageEn: "English",
-  languageZh: "Chinese (\u4E2D\u6587)",
-  languageJa: "Japanese (\u65E5\u672C\u8A9E)",
-  languageKo: "Korean (\uD55C\uAD6D\uC5B4)",
-  languageDe: "German (Deutsch)",
-  languageFr: "French (Fran\xE7ais)",
-  languageEs: "Spanish (Espa\xF1ol)",
-  languagePt: "Portuguese (Portugu\xEAs)",
+  languageZh: "\u4E2D\u6587",
+  languageJa: "\u65E5\u672C\u8A9E",
+  languageKo: "\uD55C\uAD6D\uC5B4",
+  languageDe: "Deutsch",
+  languageFr: "Fran\xE7ais",
+  languageEs: "Espa\xF1ol",
+  languagePt: "Portugu\xEAs",
   // Status
   statusTitle: "Status do LLM Client",
   llmWikiStatusSection: "Status do LLM-Wiki",
@@ -4003,6 +5474,10 @@ var PT_TEXTS = {
   testConnectionProvider: "Provedor: ",
   errorUnknown: "Erro desconhecido",
   savedNotice: "Configura\xE7\xF5es salvas!",
+  // Issue #137: Avisos de fallback de LLM
+  fallbackThinkingDialect: 'Controle de pensamento: alternado para o dialeto "{dialect}" (este provedor usa um formato diferente). A sa\xEDda permanece inalterada.',
+  fallbackThinkingNone: "Controle de pensamento totalmente desativado para este provedor. Conte\xFAdo de racioc\xEDnio ainda pode aparecer; se isso acontecer, tente outro modelo.",
+  fallbackParamStripped: 'O par\xE2metro "{field}" n\xE3o \xE9 compat\xEDvel com este provedor. Removido da requisi\xE7\xE3o; o comportamento pode diferir da configura\xE7\xE3o.',
   // Wiki Folder
   wikiSection: "Configura\xE7\xE3o do Wiki",
   wikiFolderName: "Pasta Wiki",
@@ -4037,6 +5512,9 @@ var PT_TEXTS = {
   queryPhaseNonStreaming: "Modo n\xE3o transmissivo, gerando resposta... ({time}s decorrido)",
   queryModalErrorPrefix: "Erro: ",
   queryModalHint: 'Consultas baseadas no conte\xFAdo da Wiki. Clique em "Salvar na Wiki" para extrair conversas valiosas como p\xE1ginas.',
+  // v1.20.0: Resumo do bloco de raciocínio colapsável do Query Wiki
+  queryThinkingSummary: "Processo de racioc\xEDnio",
+  queryThinkingSteps: "passos",
   // Error Messages
   errorLLMClientNotInit: "LLM Client n\xE3o inicializado. Salve as configura\xE7\xF5es.",
   errorIngestFailed: "Falha na ingest\xE3o: ",
@@ -4066,7 +5544,7 @@ var PT_TEXTS = {
   lintTagViolationFailed: "Retag failed for {path}: {error}",
   lintTagViolationFixed: "Retag complete. Fixed {fixed}/{total} page(s).",
   lintTagViolationFixedNone: "Retag complete. No pages needed fixing (LLM kept current tags).",
-  lintTagViolationSection: "Pages with out-of-vocabulary tags [{count}]",
+  lintTagViolationSection: "Tags fora do vocabul\xE1rio (detectadas) [{count}]",
   lintTagViolationItem: "- [[{path}]] \u2014 invalid: {tags}",
   lintTagViolationRetagBtn: "\u{1F3F7}\uFE0F Retag {count} page(s) with LLM",
   lintAliasesFillFailed: "Falha ao gerar aliases: {page} \u2014 {error}",
@@ -4195,6 +5673,9 @@ var PT_TEXTS = {
   periodicLintHourly: "A cada hora",
   periodicLintDaily: "Diariamente",
   periodicLintWeekly: "Semanalmente",
+  autoSmartFixName: "Corre\xE7\xE3o inteligente autom\xE1tica",
+  autoSmartFixDesc: "Quando o lint for executado, aplica automaticamente todas as corre\xE7\xF5es (Smart Fix All) sem exibir o modal de relat\xF3rio. O resumo das corre\xE7\xF5es ainda \xE9 exibido ao concluir.",
+  autoSmartFixNotice: "Corre\xE7\xE3o inteligente autom\xE1tica: aplicando todas as corre\xE7\xF5es...",
   startupCheckName: "Executar corre\xE7\xF5es r\xE1pidas na inicializa\xE7\xE3o",
   startupCheckDesc: "Corrige automaticamente problemas de formato de baixo n\xEDvel (campo sources, wikilinks duplamente aninhados) ao carregar o plug-in. Verifica a estrutura de pastas do Wiki. Ativado por padr\xE3o.",
   suggestSchemaCommand: "Sugerir atualiza\xE7\xF5es de Schema",
@@ -4209,14 +5690,14 @@ var PT_TEXTS = {
   wikiLintStats: "Verifica\xE7\xE3o da Wiki: {pages} p\xE1ginas ({entities} entidades, {concepts} conceitos, {sources} fontes)",
   wikiHealthStats: "Sa\xFAde da Wiki: {pages} p\xE1ginas ({entities} entidades, {concepts} conceitos, {sources} fontes){indexStatus}",
   // Startup quick fixes detail (Issue #81)
-  startupCheckTitle: "\u2705 Corre\xE7\xF5es r\xE1pidas Wiki conclu\xEDdas",
-  startupCheckStructureLabel: "\u{1F4C1} Estrutura Wiki",
-  startupCheckStructureOk: "\u2713 completa",
-  startupCheckStructureMissing: "\u26A0\uFE0F incompleta \u2014 ser\xE1 criada automaticamente na primeira ingest\xE3o",
-  startupCheckSourcesLabel: "\u{1F527} Sources normalizados",
-  startupCheckSourcesClean: "\u2713 j\xE1 limpo",
-  startupCheckSourcesCleaned: "\u26A0\uFE0F {files} arquivo(s), {entries} entrada(s) limpa(s)",
-  startupCheckDisableHint: "\u{1F4A1} Para desativar: Configura\xE7\xF5es \u2192 Manuten\xE7\xE3o autom\xE1tica \u2192 Executar corre\xE7\xF5es r\xE1pidas na inicializa\xE7\xE3o",
+  startupCheckTitle: "Corre\xE7\xF5es r\xE1pidas Wiki conclu\xEDdas",
+  startupCheckStructureLabel: "Estrutura Wiki",
+  startupCheckStructureOk: "completa",
+  startupCheckStructureMissing: "incompleta \u2014 ser\xE1 criada automaticamente na primeira ingest\xE3o",
+  startupCheckSourcesLabel: "Sources normalizados",
+  startupCheckSourcesClean: "j\xE1 limpo",
+  startupCheckSourcesCleaned: "{files} arquivo(s), {entries} entrada(s) limpa(s)",
+  startupCheckDisableHint: "Para desativar: Configura\xE7\xF5es \u2192 Manuten\xE7\xE3o autom\xE1tica \u2192 Executar corre\xE7\xF5es r\xE1pidas na inicializa\xE7\xE3o",
   lintWikiStart: "Iniciando verifica\xE7\xE3o da Wiki...",
   lintWikiComplete: "Verifica\xE7\xE3o da Wiki conclu\xEDda",
   lintWikiFailed: "Verifica\xE7\xE3o da Wiki falhou",
@@ -4259,18 +5740,40 @@ var PT_TEXTS = {
   // Ingestion status bar
   ingestionStatusBar: "Ingerindo... clique para cancelar",
   lintStatusBar: "Verificando... clique para cancelar",
+  ingestStatusAnalyzing: "Ingerindo\u2026 (clique para cancelar)",
+  lintStatusReading: "Verificando\u2026 (clique para cancelar)",
+  lintStatusDuplicates: "Verificando\u2026 (clique para cancelar)",
+  lintStatusScanningLinks: "Verificando\u2026 (clique para cancelar)",
+  lintStatusAnalyzing: "Verificando\u2026 (clique para cancelar)",
   ingestionCancelling: "Cancelando \u2014 ir\xE1 parar ap\xF3s o lote atual",
   ingestionCancelled: "Ingest\xE3o cancelada",
   crossTypeCollisionNotice: "{count} elementos fundidos como alias cross-type (duplicatas entidade \u2194 conceito evitadas)",
   // Lint Report
   lintReportTitle: "Relat\xF3rio de verifica\xE7\xE3o da Wiki",
-  lintReportSummary: "Vis\xE3o geral do wiki: {total} p\xE1ginas no total, {aliasesMissing} sem aliases, {duplicates} duplicados, {deadLinks} links quebrados ({deadLinkFromDup} envolvem duplicados), {orphans} \xF3rf\xE3s ({orphanFromDup} s\xE3o duplicados), {emptyPages} vazias. Lint: {elapsedSeconds}s",
+  lintReportSummary: "Vis\xE3o geral do wiki: {total} p\xE1ginas no total, {aliasesMissing} sem aliases, {duplicates} duplicados, {deadLinks} links quebrados ({deadLinkFromDup} envolvem duplicados), {orphans} \xF3rf\xE3s ({orphanFromDup} s\xE3o duplicados), {emptyPages} vazias, {ungroundedQuotes} cita\xE7\xF5es sem fonte, {tagViolations} tags fora do vocabul\xE1rio. Lint: {elapsedSeconds}s",
+  // Advanced LLM Settings (Issues #99 / #128)
+  advancedSettingsModeName: "Configura\xE7\xE3o de par\xE2metros avan\xE7ados",
+  advancedSettingsModeDesc: "O modo padr\xE3o usa o comportamento nativo do seu provedor \u2014 nenhum campo de controle de racioc\xEDnio, temperatura ou penalidade de repeti\xE7\xE3o \xE9 enviado. Isso funciona para a maioria dos usu\xE1rios. S\xF3 mude para Personalizado se precisar substituir explicitamente os padr\xF5es do provedor (por exemplo, for\xE7ar um dialeto de controle de racioc\xEDnio espec\xEDfico, definir uma temperatura diferente da padr\xE3o, etc.).",
+  advancedSettingsDefault: "Padr\xE3o (usar comportamento do provedor)",
+  advancedSettingsCustom: "Personalizado (substituir padr\xF5es do provedor)",
+  disableThinkingName: "Desabilitar pensamento",
+  disableThinkingDesc: "Opt-in. Quando ativado, o plugin envia uma diretiva de controle de racioc\xEDnio ao provedor e percorre uma cadeia de fallback de dialeto de 3 n\xEDveis (anthropic \u2192 openai \u2192 none) se o provedor a rejeitar. Use isso apenas se o seu provedor vazar conte\xFAdo de racioc\xEDnio na resposta e voc\xEA precisar suprimi-lo. A maioria dos provedores trata o racioc\xEDnio corretamente por conta pr\xF3pria \u2014 deixar isso desativado (padr\xE3o) oferece melhor qualidade.",
+  // Issue #137: Avisos de compatibilidade (breves; sem lista de provedores)
+  extractionTemperatureName: "Temperatura de extra\xE7\xE3o",
+  extractionTemperatureDesc: "Intervalo 0\u20132. Valores mais baixos tornam a sa\xEDda do LLM mais determin\xEDstica e fiel. Valores mais altos tornam mais criativa. Deixe vazio para usar o padr\xE3o do provedor. Se o provedor rejeitar este valor, o plugin remove o campo automaticamente e mostra um aviso \xFAnico.",
+  chatTemperatureName: "Temperatura de consulta",
+  chatTemperatureDesc: "Intervalo 0\u20132. Igual \xE0 temperatura de extra\xE7\xE3o, mas afeta apenas respostas de chat/consulta. Deixe vazio para usar o padr\xE3o do provedor. Se o provedor rejeitar este valor, o plugin remove o campo automaticamente e mostra um aviso \xFAnico.",
+  repetitionPenaltyName: "Penalidade de repeti\xE7\xE3o",
+  repetitionPenaltyDesc: "Intervalo 0\u20132. Valores mais altos reduzem padr\xF5es repetitivos. Deixe vazio para usar o padr\xE3o do provedor. Aviso de compatibilidade: muitos provedores em nuvem n\xE3o aceitam este campo. O plugin remove-o automaticamente em HTTP 400 e mostra um aviso \xFAnico.",
+  temperaturePlaceholder: "vazio = padr\xE3o do provedor",
   lintDeadLinkSection: "Links quebrados (detectados) [{count}]",
   lintEmptyPageSection: "P\xE1ginas vazias (detectadas) [{count}]",
   lintOrphanSection: "P\xE1ginas \xF3rf\xE3s (detectadas) [{count}]",
   lintContradictionSection: "Contradi\xE7\xF5es (detectadas)",
   lintDuplicateSection: "P\xE1ginas duplicadas (detectadas)",
-  lintNoIssuesFound: "Nenhuma duplicata, link quebrado, p\xE1gina vazia ou p\xE1gina \xF3rf\xE3 detectada.",
+  lintNoIssuesFound: "Nenhuma duplicata, link quebrado, p\xE1gina vazia, p\xE1gina \xF3rf\xE3 ou cita\xE7\xE3o sem fonte detectada.",
+  lintQuoteGroundingSection: "Cita\xE7\xF5es sem fonte (detectadas) [{count}]",
+  lintQuoteGroundingItem: '- [[{page}]]{sourceHint}: "{quote}"',
   lintDeadLinkItem: "- [[{source}]] \u2192 **{target}** (p\xE1gina inexistente){dupFlag}",
   lintDeadLinkMore: "- ... mais {count} links quebrados",
   lintEmptyPageItem: "- [[{page}]] \u2014 menos de 50 caracteres de conte\xFAdo substantivo",
@@ -4355,7 +5858,983 @@ var TEXTS = {
   pt: PT_TEXTS
 };
 
-// src/wiki/schema-analyze.ts
+// src/core/i18n.ts
+function getText(language, key, replacements) {
+  const texts = TEXTS[language] || TEXTS.en;
+  let text = texts[key];
+  if (!text) {
+    text = TEXTS.en[key];
+  }
+  if (replacements) {
+    for (const [k, v] of Object.entries(replacements)) {
+      text = text.replace(`{${k}}`, v);
+    }
+  }
+  return text;
+}
+
+// src/core/sse-parser.ts
+function parseSSEEvents(responseText, format) {
+  var _a, _b, _c, _d, _e, _f, _g, _h, _i;
+  const normalized = responseText.replace(/\r\n/g, "\n");
+  const events = normalized.split("\n\n");
+  const deltas = [];
+  for (const event of events) {
+    if (!event.trim()) continue;
+    const dataLine = event.split("\n").find((line) => line.startsWith("data:"));
+    if (!dataLine) continue;
+    if (format === "openai") {
+      const dataContent = dataLine.substring(5).trim();
+      if (dataContent === "[DONE]") break;
+    }
+    try {
+      const jsonStart = dataLine.indexOf("{");
+      if (jsonStart === -1) continue;
+      const parsed = JSON.parse(dataLine.substring(jsonStart));
+      if (format === "anthropic") {
+        const anth = parsed;
+        if (anth.type === "content_block_delta" && ((_a = anth.delta) == null ? void 0 : _a.type) === "text_delta" && anth.delta.text) {
+          deltas.push({ text: anth.delta.text });
+        }
+      } else {
+        const oai = parsed;
+        const content = (_d = (_c = (_b = oai.choices) == null ? void 0 : _b[0]) == null ? void 0 : _c.delta) == null ? void 0 : _d.content;
+        const reasoning = (_g = (_f = (_e = oai.choices) == null ? void 0 : _e[0]) == null ? void 0 : _f.delta) == null ? void 0 : _g.reasoning_content;
+        const finish = (_i = (_h = oai.choices) == null ? void 0 : _h[0]) == null ? void 0 : _i.finish_reason;
+        if (content || reasoning) {
+          deltas.push({ text: content != null ? content : "", reasoning: reasoning != null ? reasoning : void 0 });
+        }
+        if (finish) deltas.push({ text: "", finishReason: finish });
+      }
+    } catch (e) {
+    }
+  }
+  return deltas;
+}
+
+// src/core/truncation-retry.ts
+init_constants();
+var DEFAULT_MAX_CAP = MAX_TOKENS_BATCH;
+async function withTruncationRetry(opts) {
+  var _a, _b, _c;
+  const initialResponse = await opts.initialFn();
+  let text = opts.extractText(initialResponse);
+  if (!opts.isTruncated(initialResponse)) {
+    return text;
+  }
+  (_a = opts.onTruncatedResponse) == null ? void 0 : _a.call(opts, initialResponse);
+  const cap = (_b = opts.maxCap) != null ? _b : DEFAULT_MAX_CAP;
+  const currentMax = opts.getMaxTokens();
+  const retryMaxTokens = Math.min(currentMax * 2, cap);
+  const stopReason = (_c = opts.getStopReason) == null ? void 0 : _c.call(opts, initialResponse);
+  const reasonSuffix = stopReason ? ` (${stopReason})` : "";
+  console.warn(
+    `${opts.label} response truncated at ${currentMax} tokens${reasonSuffix}. Retrying with ${retryMaxTokens} tokens.`
+  );
+  const retryResponse = await opts.retryFn(retryMaxTokens);
+  text = opts.extractText(retryResponse);
+  return text;
+}
+
+// src/llm-client.ts
+init_markdown();
+var fallbackNoticesThisRequest = [];
+function flushFallbackNotices() {
+  if (fallbackNoticesThisRequest.length === 0) return;
+  const summary = fallbackNoticesThisRequest.map((n) => n.message).join(" / ");
+  fallbackNoticesThisRequest.length = 0;
+  try {
+    new import_obsidian.Notice(summary, 5e3);
+  } catch (e) {
+  }
+}
+var RETRYABLE = /status 5\d{2}|status 429|overload|network|fetch|econnrefused|etimedout|timeout|abort/i;
+var IS_400 = /status 400|HTTP 400|Bad Request/i;
+var isThinkingControlError = (e) => {
+  const msg = e instanceof Error ? e.message : "";
+  if (!IS_400.test(msg)) return false;
+  return /unknown field|unsupported field|invalid parameter|not supported|reasoning_effort|thinking/i.test(msg);
+};
+function errMsg(err) {
+  return err instanceof Error ? err.message : String(err);
+}
+function parseUnknownFields(err) {
+  var _a, _b, _c;
+  const errWithBody = err;
+  let candidateText = "";
+  if (errWithBody.json && typeof errWithBody.json === "object") {
+    const jsonObj = errWithBody.json;
+    if ((_a = jsonObj.error) == null ? void 0 : _a.message) candidateText = jsonObj.error.message;
+  }
+  if (!candidateText) {
+    candidateText = (_c = (_b = errWithBody.text) != null ? _b : errWithBody.message) != null ? _c : "";
+  }
+  if (!candidateText) return [];
+  const fields = /* @__PURE__ */ new Set();
+  for (const m of candidateText.matchAll(/Unknown name "([^"]+)"/g)) {
+    fields.add(m[1]);
+  }
+  for (const m of candidateText.matchAll(/\b([A-Za-z_][A-Za-z0-9_]*)\s+must be in the range/g)) {
+    fields.add(m[1]);
+  }
+  for (const m of candidateText.matchAll(/Unknown field:?\s*([A-Za-z_][A-Za-z0-9_]*)/g)) {
+    fields.add(m[1]);
+  }
+  for (const m of candidateText.matchAll(/invalid parameter\s+['"]?([A-Za-z_][A-Za-z0-9_]*)/gi)) {
+    fields.add(m[1]);
+  }
+  return [...fields];
+}
+function logFallback(category, detail) {
+  console.debug(`[LLMClient Fallback] ${category}: ${detail}`);
+}
+async function withRetry(fn, maxAttempts = MAX_RETRIES, label = "API") {
+  let lastError;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      lastError = error;
+      const msg = errMsg(error);
+      if (RETRYABLE.test(msg) && attempt < maxAttempts - 1) {
+        const delay = Math.pow(2, attempt) * RETRY_BASE_DELAY_MS + Math.random() * RETRY_BASE_DELAY_MS;
+        console.warn(`${label} error on attempt ${attempt + 1}, retrying in ${Math.round(delay)}ms: ${msg}`);
+        await new Promise((resolve) => window.setTimeout(resolve, delay));
+        continue;
+      }
+      throw error;
+    }
+  }
+  throw lastError;
+}
+var AnthropicCompatibleClient = class {
+  constructor(apiKey, baseUrl) {
+    // v1.20.1: Cache prefill-not-supported (#141, #147).
+    this.prefillingNotSupported = false;
+    this.apiKey = apiKey;
+    this.baseUrl = baseUrl.replace(/\/v1\/?$/, "").replace(/\/+$/, "") + "/v1";
+    this.apiVersion = "2023-06-01";
+  }
+  extractText(content) {
+    const textBlock = content.find((c) => c.type === "text");
+    return (textBlock == null ? void 0 : textBlock.text) || "";
+  }
+  async createMessage(params) {
+    var _a, _b;
+    const shouldPrefill = ((_a = params.response_format) == null ? void 0 : _a.type) === "json_object" && !this.prefillingNotSupported;
+    const body = {
+      model: params.model,
+      max_tokens: params.max_tokens,
+      messages: shouldPrefill ? [...params.messages, { role: "assistant", content: "{" }] : params.messages
+    };
+    if (params.system) body.system = params.system;
+    if (params.temperature !== void 0) body.temperature = params.temperature;
+    if (params.repetition_penalty !== void 0) body.repetition_penalty = params.repetition_penalty;
+    if (params.chat_template_kwargs !== void 0) body.chat_template_kwargs = params.chat_template_kwargs;
+    if (params.enableThinking === false) {
+      body.thinking = { type: "disabled" };
+    }
+    const anthropicDoRequest = async (requestBody) => withRetry(async () => {
+      var _a2, _b2, _c, _d, _e, _f;
+      const response = await (0, import_obsidian.requestUrl)({
+        url: this.baseUrl + "/messages",
+        method: "POST",
+        headers: {
+          "x-api-key": this.apiKey,
+          "Anthropic-Version": this.apiVersion,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody)
+      });
+      if (response.status >= 400) {
+        const errBody = (_b2 = (_a2 = response.text) == null ? void 0 : _a2.slice(0, 2e3)) != null ? _b2 : JSON.stringify(response).slice(0, 1e3);
+        console.error(
+          "[AnthropicCompat DEBUG] HTTP",
+          response.status,
+          "on",
+          this.baseUrl + "/messages",
+          "| model:",
+          requestBody.model,
+          "| system_len:",
+          typeof requestBody.system === "string" ? requestBody.system.length : "n/a",
+          "| messages:",
+          Array.isArray(requestBody.messages) ? requestBody.messages.length : "n/a",
+          "| last_msg_role:",
+          Array.isArray(requestBody.messages) && requestBody.messages.length > 0 ? requestBody.messages[requestBody.messages.length - 1].role : "n/a",
+          "| last_msg_content_prefix:",
+          Array.isArray(requestBody.messages) && requestBody.messages.length > 0 ? String((_c = requestBody.messages[requestBody.messages.length - 1].content) != null ? _c : "").slice(0, 60) : "n/a",
+          "| response:",
+          errBody
+        );
+      }
+      const data = response.json;
+      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
+      console.debug("Anthropic API response:", {
+        stop_reason: data.stop_reason,
+        content_length: ((_d = data.content) == null ? void 0 : _d.length) || 0,
+        content_types: ((_e = data.content) == null ? void 0 : _e.map((c) => c.type)) || []
+      });
+      const initialData = data;
+      const text = await withTruncationRetry({
+        initialFn: async () => initialData,
+        retryFn: async (retryTokens) => {
+          const retryResponse = await (0, import_obsidian.requestUrl)({
+            url: this.baseUrl + "/messages",
+            method: "POST",
+            headers: {
+              "x-api-key": this.apiKey,
+              "Anthropic-Version": this.apiVersion,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ ...body, max_tokens: retryTokens })
+          });
+          const retryData = retryResponse.json;
+          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
+          return retryData;
+        },
+        isTruncated: (r) => r.stop_reason === "max_tokens",
+        extractText: (r) => this.extractText(r.content || []),
+        getMaxTokens: () => params.max_tokens,
+        getStopReason: (r) => r.stop_reason,
+        maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
+        label: "Anthropic-compatible API"
+      });
+      console.debug("Extracted text length:", text.length);
+      if (((_f = params.response_format) == null ? void 0 : _f.type) === "json_object" && text.length > 0 && text[0] !== "{") {
+        return "{" + text;
+      }
+      return text;
+    }, 3, "Anthropic-compatible API");
+    try {
+      return await anthropicDoRequest(body);
+    } catch (e) {
+      const errMsg2 = e instanceof Error ? e.message : String(e);
+      if (shouldPrefill && IS_400.test(errMsg2)) {
+        this.prefillingNotSupported = true;
+        console.debug("[AnthropicCompat] 400 with prefill \u2014 retrying without prefill");
+        const noPrefillBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: [...params.messages]
+        };
+        if (params.system) noPrefillBody.system = params.system;
+        if (params.temperature !== void 0) noPrefillBody.temperature = params.temperature;
+        if (params.repetition_penalty !== void 0) noPrefillBody.repetition_penalty = params.repetition_penalty;
+        if (params.chat_template_kwargs !== void 0) noPrefillBody.chat_template_kwargs = params.chat_template_kwargs;
+        if (params.enableThinking === false) noPrefillBody.thinking = { type: "disabled" };
+        return await anthropicDoRequest(noPrefillBody);
+      }
+      if (params.enableThinking === false && isThinkingControlError(e)) {
+        this.thinkingControlSupported = false;
+        console.debug(`[AnthropicCompat] thinking.type='disabled' not supported by ${this.baseUrl}, falling back`);
+        const fallbackBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: [...params.messages]
+        };
+        if (params.system) fallbackBody.system = params.system;
+        if (((_b = params.response_format) == null ? void 0 : _b.type) === "json_object") {
+          fallbackBody.messages = [...fallbackBody.messages, { role: "assistant", content: "{" }];
+        }
+        return await anthropicDoRequest(fallbackBody);
+      }
+      throw e;
+    }
+  }
+  async createMessageStream(params) {
+    var _a;
+    const messages = params.system ? params.messages : [
+      ...params.messages,
+      {
+        role: "user",
+        content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
+      }
+    ];
+    const body = {
+      model: params.model,
+      max_tokens: params.max_tokens,
+      messages,
+      stream: true
+    };
+    if (params.system) body.system = params.system;
+    if (params.temperature !== void 0) body.temperature = params.temperature;
+    if (params.repetition_penalty !== void 0) body.repetition_penalty = params.repetition_penalty;
+    if (params.enableThinking === false) {
+      body.thinking = { type: "disabled" };
+    }
+    console.debug(
+      "[AnthropicCompat SSE] sending stream request, model:",
+      params.model,
+      "max_tokens:",
+      params.max_tokens,
+      "system length:",
+      ((_a = params.system) == null ? void 0 : _a.length) || 0,
+      "messages count:",
+      messages.length
+    );
+    let response;
+    try {
+      response = await (0, import_obsidian.requestUrl)({
+        url: this.baseUrl + "/messages",
+        method: "POST",
+        headers: {
+          "x-api-key": this.apiKey,
+          "Anthropic-Version": this.apiVersion,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+    } catch (err) {
+      console.error("[AnthropicCompat SSE] requestUrl request failed:", err);
+      throw err;
+    }
+    const responseText = response.text;
+    console.debug(
+      "[AnthropicCompat SSE] response received, length:",
+      responseText.length,
+      "first 200 chars:",
+      responseText.substring(0, 200)
+    );
+    const deltas = parseSSEEvents(responseText, "anthropic");
+    let fullText = "";
+    for (const delta of deltas) {
+      if (delta.text) {
+        fullText += delta.text;
+        params.onChunk(delta.text);
+      }
+    }
+    if (!fullText) {
+      console.debug("[AnthropicCompat SSE] SSE parsing empty, trying non-streaming JSON fallback");
+      try {
+        const data = JSON.parse(responseText);
+        if (data.error) throw new Error(data.error.message);
+        fullText = this.extractText(data.content || []);
+        if (fullText) {
+          console.debug("[AnthropicCompat SSE] non-streaming fallback successful, length:", fullText.length);
+          params.onChunk(fullText);
+        }
+      } catch (parseErr) {
+        console.debug("[AnthropicCompat SSE] non-streaming JSON parse also failed:", parseErr);
+      }
+    }
+    if (!fullText) {
+      throw new Error(
+        "Anthropic-compatible endpoint returned neither SSE events nor a standard JSON response. The provider may not support the Messages API streaming format. Response preview: " + responseText.substring(0, 300)
+      );
+    }
+    console.debug("[AnthropicCompat SSE] success, response length:", fullText.length);
+    return fullText;
+  }
+  listModels() {
+    return Promise.resolve([]);
+  }
+};
+var AnthropicClient = class {
+  constructor(apiKey, baseUrl) {
+    this.apiVersion = "2023-06-01";
+    // v1.20.1: Cache prefill-not-supported per client instance.
+    // Newer Claude models (Opus 4.8, 4.7, 4.6, Sonnet 4.6, Fable 5,
+    // Mythos 5, Mythos Preview) reject assistant prefill messages.
+    // Once detected, skip prefill on all subsequent requests to avoid
+    // the 400 round-trip.
+    this.prefillingNotSupported = false;
+    this.apiKey = apiKey;
+    const normalized = (baseUrl || "https://api.anthropic.com").replace(/\/v1\/?$/, "").replace(/\/+$/, "");
+    this.baseUrl = normalized + "/v1";
+    this.apiVersion = "2023-06-01";
+  }
+  async createMessage(params) {
+    var _a;
+    const shouldPrefill = ((_a = params.response_format) == null ? void 0 : _a.type) === "json_object" && !this.prefillingNotSupported;
+    const messages = shouldPrefill ? [...params.messages, { role: "assistant", content: "{" }] : [...params.messages];
+    if (params.cacheBreakpoint && params.cacheBreakpoint > 0 && messages.length > 0) {
+      const first = messages[0];
+      if (first.role === "user" && typeof first.content === "string" && params.cacheBreakpoint < first.content.length) {
+        const text = first.content;
+        first.content = [
+          { type: "text", text: text.substring(0, params.cacheBreakpoint), cache_control: { type: "ephemeral" } },
+          { type: "text", text: text.substring(params.cacheBreakpoint) }
+        ];
+      }
+    }
+    const body = {
+      model: params.model,
+      max_tokens: params.max_tokens,
+      messages
+    };
+    if (params.system) body.system = params.system;
+    if (params.temperature !== void 0) body.temperature = params.temperature;
+    if (params.repetition_penalty !== void 0) body.repetition_penalty = params.repetition_penalty;
+    if (params.chat_template_kwargs !== void 0) body.chat_template_kwargs = params.chat_template_kwargs;
+    if (params.enableThinking === false) {
+      body.thinking = { type: "disabled" };
+    }
+    const anthropicDoRequest = async (requestBody) => withRetry(async () => {
+      var _a2, _b, _c, _d;
+      const response = await (0, import_obsidian.requestUrl)({
+        url: `${this.baseUrl}/messages`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": this.apiKey,
+          "Anthropic-Version": this.apiVersion
+        },
+        body: JSON.stringify(requestBody)
+      });
+      if (response.status >= 400) {
+        const errBody = (_b = (_a2 = response.text) == null ? void 0 : _a2.slice(0, 2e3)) != null ? _b : JSON.stringify(response).slice(0, 1e3);
+        console.error(
+          "[AnthropicClient DEBUG] HTTP",
+          response.status,
+          "on",
+          this.baseUrl + "/messages",
+          "| model:",
+          requestBody.model,
+          "| system_len:",
+          typeof requestBody.system === "string" ? requestBody.system.length : "n/a",
+          "| messages:",
+          Array.isArray(requestBody.messages) ? requestBody.messages.length : "n/a",
+          "| last_msg_role:",
+          Array.isArray(requestBody.messages) && requestBody.messages.length > 0 ? requestBody.messages[requestBody.messages.length - 1].role : "n/a",
+          "| last_msg_content_prefix:",
+          Array.isArray(requestBody.messages) && requestBody.messages.length > 0 ? String((_c = requestBody.messages[requestBody.messages.length - 1].content) != null ? _c : "").slice(0, 60) : "n/a",
+          "| response:",
+          errBody
+        );
+      }
+      const data = response.json;
+      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
+      const text = await withTruncationRetry({
+        initialFn: async () => data,
+        retryFn: async (retryTokens) => {
+          const retryResponse = await (0, import_obsidian.requestUrl)({
+            url: `${this.baseUrl}/messages`,
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": this.apiKey,
+              "Anthropic-Version": this.apiVersion
+            },
+            body: JSON.stringify({ ...requestBody, max_tokens: retryTokens })
+          });
+          const retryData = retryResponse.json;
+          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
+          return retryData;
+        },
+        isTruncated: (r) => r.stop_reason === "max_tokens",
+        extractText: (r) => {
+          var _a3;
+          const block = (_a3 = r.content) == null ? void 0 : _a3.find((c) => c.type === "text");
+          return block && "text" in block ? block.text || "" : "";
+        },
+        getMaxTokens: () => params.max_tokens,
+        getStopReason: (r) => r.stop_reason,
+        maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
+        label: "Anthropic API"
+      });
+      if (((_d = params.response_format) == null ? void 0 : _d.type) === "json_object" && text.length > 0 && text[0] !== "{") {
+        return "{" + text;
+      }
+      return text;
+    }, 3, "Anthropic API");
+    try {
+      return await anthropicDoRequest(body);
+    } catch (e) {
+      const errMsg2 = e instanceof Error ? e.message : String(e);
+      if (shouldPrefill && IS_400.test(errMsg2)) {
+        this.prefillingNotSupported = true;
+        console.debug("[AnthropicClient] 400 with prefill \u2014 retrying without prefill");
+        const noPrefillBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: [...params.messages]
+        };
+        if (params.system) noPrefillBody.system = params.system;
+        if (params.temperature !== void 0) noPrefillBody.temperature = params.temperature;
+        if (params.repetition_penalty !== void 0) noPrefillBody.repetition_penalty = params.repetition_penalty;
+        if (params.chat_template_kwargs !== void 0) noPrefillBody.chat_template_kwargs = params.chat_template_kwargs;
+        if (params.enableThinking === false) noPrefillBody.thinking = { type: "disabled" };
+        return await anthropicDoRequest(noPrefillBody);
+      }
+      if (params.enableThinking === false && isThinkingControlError(e)) {
+        this.thinkingControlSupported = false;
+        console.debug(`[AnthropicClient] thinking.type='disabled' not supported, falling back`);
+        const fallbackBody = {
+          model: params.model,
+          max_tokens: params.max_tokens,
+          messages: [...params.messages]
+        };
+        if (params.system) fallbackBody.system = params.system;
+        if (params.temperature !== void 0) fallbackBody.temperature = params.temperature;
+        if (params.repetition_penalty !== void 0) fallbackBody.repetition_penalty = params.repetition_penalty;
+        return await anthropicDoRequest(fallbackBody);
+      }
+      throw e;
+    }
+  }
+  async createMessageStream(params) {
+    const messagesWithLanguageHint = params.system ? params.messages : [
+      ...params.messages,
+      {
+        role: "user",
+        content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
+      }
+    ];
+    const streamBody = {
+      model: params.model,
+      max_tokens: params.max_tokens,
+      messages: messagesWithLanguageHint,
+      stream: true
+    };
+    if (params.system) streamBody.system = params.system;
+    if (params.temperature !== void 0) streamBody.temperature = params.temperature;
+    if (params.repetition_penalty !== void 0) streamBody.repetition_penalty = params.repetition_penalty;
+    if (params.enableThinking === false) {
+      streamBody.thinking = { type: "disabled" };
+    }
+    const responseText = await (0, import_obsidian.requestUrl)({
+      url: `${this.baseUrl}/messages`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": this.apiKey,
+        "Anthropic-Version": this.apiVersion
+      },
+      body: JSON.stringify(streamBody)
+    }).then((r) => r.text);
+    const deltas = parseSSEEvents(responseText, "anthropic");
+    let fullResponse = "";
+    for (const d of deltas) {
+      if (d.text) {
+        fullResponse += d.text;
+        params.onChunk(d.text);
+      }
+    }
+    return fullResponse;
+  }
+  async listModels() {
+    var _a;
+    const response = await (0, import_obsidian.requestUrl)({
+      url: `${this.baseUrl}/models`,
+      headers: {
+        "x-api-key": this.apiKey,
+        "Anthropic-Version": "2023-06-01"
+      }
+    });
+    const data = response.json;
+    if (!((_a = data.data) == null ? void 0 : _a.length)) return [];
+    return data.data.map((m) => m.id).filter((id) => !id.includes(":") && !id.includes("/")).sort();
+  }
+};
+var _OpenAICompatibleClient = class _OpenAICompatibleClient {
+  constructor(apiKey, baseUrl) {
+    // #137: cross-request cache of field names this baseUrl has rejected.
+    // Populated lazily from 400 error bodies; pre-stripped on next request
+    // so we don't pay the probe round-trip again. Replaces ad-hoc
+    // chat_template_kwargs injection for the OpenAI dialect fallback.
+    this.unsupportedFields = /* @__PURE__ */ new Set();
+    // #137: language tag for localized fallback notices. Wired by
+    // createLLMClient so that queueFallbackNotice can resolve templates via
+    // getText() instead of hard-coding TEXTS.en (which would discard the
+    // per-locale translations just added to the 8 text files).
+    this.language = "en";
+    this.apiKey = apiKey;
+    this.baseUrl = baseUrl || "https://api.openai.com/v1";
+  }
+  getHeaders() {
+    const headers = {
+      "Content-Type": "application/json"
+    };
+    if (this.apiKey) {
+      headers["Authorization"] = `Bearer ${this.apiKey}`;
+    }
+    return headers;
+  }
+  detectReasoningOnlyResponse(response) {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+    const content = (_b = (_a = response.choices[0]) == null ? void 0 : _a.message) == null ? void 0 : _b.content;
+    if (content && content.trim().length > 0) return;
+    const finishReason = (_c = response.choices[0]) == null ? void 0 : _c.finish_reason;
+    if (finishReason !== "length") return;
+    const reasoningTokens = (_f = (_e = (_d = response.usage) == null ? void 0 : _d.completion_tokens_details) == null ? void 0 : _e.reasoning_tokens) != null ? _f : 0;
+    const completionTokens = (_h = (_g = response.usage) == null ? void 0 : _g.completion_tokens) != null ? _h : 0;
+    if (completionTokens > 0 && reasoningTokens / completionTokens >= 0.5) {
+      throw new Error(
+        'The model returned empty content after using most tokens for reasoning. This happens with some thinking-capable models when the reasoning toggle does not match the runtime. Try disabling thinking in Settings \u2192 LLM Wiki \u2192 LLM Configuration \u2192 Advanced \u2192 "Enable thinking" (turn off), or enable "Use chat-template kwarg to disable thinking" if the first toggle does not help.'
+      );
+    }
+  }
+  async createMessage(params) {
+    const messages = params.system ? [{ role: "system", content: params.system }, ...params.messages] : params.messages;
+    const body = this.buildRequestBody(params, messages, false);
+    console.debug("[OPENAI-DEBUG] buildRequestBody result reasoning_effort:", body.reasoning_effort, "thinking:", body.thinking !== void 0, "dialect:", this.thinkingControlDialect, "params.enableThinking:", params.enableThinking);
+    const doRequest = (bodyToUse) => withRetry(async () => {
+      var _a, _b, _c, _d, _e, _f, _g;
+      let response;
+      try {
+        response = await (0, import_obsidian.requestUrl)({
+          url: this.baseUrl + "/chat/completions",
+          method: "POST",
+          headers: this.getHeaders(),
+          body: JSON.stringify(bodyToUse)
+        });
+      } catch (err) {
+        const status = err.status;
+        const json = err.json;
+        const text = err.text;
+        const errMessage = (_a = err.message) != null ? _a : "";
+        const is400 = status === 400 || IS_400.test(errMessage);
+        if (is400) {
+          try {
+            const errObj = err;
+            console.debug("[DEBUG-400] full error keys:", Object.keys(errObj));
+            console.debug("[DEBUG-400] status:", status, "message:", errMessage);
+            console.debug("[DEBUG-400] err.json:", json, "err.text:", text);
+          } catch (e) {
+          }
+          try {
+            void window.fetch(this.baseUrl + "/chat/completions", {
+              method: "POST",
+              headers: this.getHeaders(),
+              body: JSON.stringify(bodyToUse)
+            }).then(async (resp) => {
+              const respBody = await resp.text();
+              console.debug("[DEBUG-400] Gemini raw error response (re-fetch):", resp.status, respBody.substring(0, 2e3));
+            }).catch((fetchErr) => {
+              console.debug("[DEBUG-400] Re-fetch also failed:", String(fetchErr));
+            });
+          } catch (e) {
+          }
+          const unknown = parseUnknownFields(err);
+          if (unknown.length > 0) {
+            for (const f of unknown) {
+              if (!_OpenAICompatibleClient.PROTECTED_FIELDS.has(f)) this.unsupportedFields.add(f);
+            }
+            logFallback("field-strip", `fields rejected by ${this.baseUrl}: ${unknown.join(", ")}`);
+          }
+          console.debug("[OpenAICompat Debug] 400 error body:", JSON.stringify(json) || text || "no body");
+          console.debug("[OpenAICompat Debug] Request body size:", JSON.stringify(bodyToUse).length);
+          console.debug("[OpenAICompat Debug] Model:", params.model, "| max_tokens:", params.max_tokens);
+        }
+        throw err;
+      }
+      const data = response.json;
+      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
+      const initialChoices = data.choices;
+      const reasoning = ((_d = (_c = (_b = data.choices) == null ? void 0 : _b[0]) == null ? void 0 : _c.message) == null ? void 0 : _d.reasoning_content) || "";
+      const content = ((_g = (_f = (_e = data.choices) == null ? void 0 : _e[0]) == null ? void 0 : _f.message) == null ? void 0 : _g.content) || "";
+      const initialText = wrapReasoningContent(reasoning, content);
+      return withTruncationRetry({
+        initialFn: async () => {
+          this.confirmDialectOnSuccess(bodyToUse);
+          return { choices: initialChoices != null ? initialChoices : [], initialText, usage: data.usage };
+        },
+        retryFn: async (retryTokens) => {
+          var _a2, _b2, _c2, _d2;
+          const retryTokenKey = "max_completion_tokens" in bodyToUse ? "max_completion_tokens" : "max_tokens";
+          const retryResponse = await (0, import_obsidian.requestUrl)({
+            url: this.baseUrl + "/chat/completions",
+            method: "POST",
+            headers: this.getHeaders(),
+            body: JSON.stringify({ ...bodyToUse, [retryTokenKey]: retryTokens })
+          });
+          const retryData = retryResponse.json;
+          if (retryData.error) throw new Error(`status ${retryResponse.status}: ${retryData.error.message}`);
+          return { choices: (_a2 = retryData.choices) != null ? _a2 : [], initialText, usage: retryData.usage, retryReasoning: ((_d2 = (_c2 = (_b2 = retryData.choices) == null ? void 0 : _b2[0]) == null ? void 0 : _c2.message) == null ? void 0 : _d2.reasoning_content) || "" };
+        },
+        isTruncated: (r) => {
+          var _a2;
+          return ((_a2 = r.choices[0]) == null ? void 0 : _a2.finish_reason) === "length";
+        },
+        extractText: (r) => {
+          var _a2, _b2;
+          const content2 = ((_b2 = (_a2 = r.choices[0]) == null ? void 0 : _a2.message) == null ? void 0 : _b2.content) || "";
+          const retryReasoning = r.retryReasoning || "";
+          return retryReasoning ? wrapReasoningContent(retryReasoning, content2) : content2 || r.initialText;
+        },
+        getMaxTokens: () => params.max_tokens,
+        getStopReason: (r) => {
+          var _a2;
+          return (_a2 = r.choices[0]) == null ? void 0 : _a2.finish_reason;
+        },
+        maxCap: params.maxTokensPerCall || MAX_TOKENS_BATCH,
+        label: "OpenAI-compatible API",
+        onTruncatedResponse: (r) => this.detectReasoningOnlyResponse(r)
+      });
+    }, 3, "OpenAI-compatible API");
+    try {
+      return await doRequest(body);
+    } catch (e) {
+      if (params.enableThinking === false && isThinkingControlError(e)) {
+        return await this.applyThinkingDialectFallback(body, params, messages, doRequest);
+      }
+      const stripped = this.retryBodyWithStrippedFields(body);
+      if (stripped !== null) {
+        logFallback("field-strip-retry", `retrying without: ${[...this.unsupportedFields].join(", ")}`);
+        this.queueFallbackNotice("paramStripped", [...this.unsupportedFields].join(", "));
+        flushFallbackNotices();
+        return await doRequest(stripped);
+      }
+      throw e;
+    }
+  }
+  // Issue #137: build the request body with dialect-aware thinking control
+  // and pre-strip any fields this baseUrl has previously rejected.
+  //
+  //   dialect=anthropic → thinking.type='disabled'
+  //   dialect=openai    → reasoning_effort='none'
+  //   dialect=none      → no thinking control field
+  //   dialect=undefined → assume anthropic (probe will correct on 400)
+  //
+  // Note: chat_template_kwargs is no longer injected here. v1.19.0 used it
+  // as the fallback path, but #137 showed that Gemini rejects it as well.
+  // Local backends that accept it (Ollama MLX) still receive it from the
+  // wrapper (see llm-client-wrapper.ts injection).
+  buildRequestBody(params, messages, streaming) {
+    var _a;
+    const isGpt5 = params.model === "gpt-5" || params.model.startsWith("gpt-5-");
+    const tokenKey = isGpt5 ? "max_completion_tokens" : "max_tokens";
+    const body = {
+      model: params.model,
+      [tokenKey]: params.max_tokens,
+      messages
+    };
+    if (streaming) body.stream = true;
+    if (params.temperature !== void 0 && !this.unsupportedFields.has("temperature")) {
+      body.temperature = params.temperature;
+    }
+    if (params.repetition_penalty !== void 0 && !this.unsupportedFields.has("repetition_penalty")) {
+      body.repetition_penalty = params.repetition_penalty;
+    }
+    if (params.chat_template_kwargs !== void 0 && !this.unsupportedFields.has("chat_template_kwargs")) {
+      body.chat_template_kwargs = params.chat_template_kwargs;
+    }
+    if (params.enableThinking === false) {
+      const dialect = (_a = this.thinkingControlDialect) != null ? _a : "anthropic";
+      if (dialect === "anthropic") {
+        body.thinking = { type: "disabled" };
+      } else if (dialect === "openai") {
+        body.reasoning_effort = "none";
+      }
+    }
+    return body;
+  }
+  // #137: invoked by doRequest on successful response when thinking control
+  // was sent. Confirms the dialect cache so subsequent calls skip the probe.
+  confirmDialectOnSuccess(body) {
+    if (body.thinking !== void 0 && this.thinkingControlDialect !== "anthropic") {
+      this.thinkingControlDialect = "anthropic";
+    } else if (body.reasoning_effort !== void 0 && this.thinkingControlDialect !== "openai") {
+      this.thinkingControlDialect = "openai";
+    }
+  }
+  // #137: shared field-strip retry helper. Returns a new body with
+  // unsupportedFields removed, or null if nothing was actually stripped
+  // (so the caller knows to fall through to the original error path).
+  // Used by both the non-stream and stream 400 catch blocks.
+  retryBodyWithStrippedFields(body) {
+    if (this.unsupportedFields.size === 0) return null;
+    const retryBody = { ...body };
+    let changed = false;
+    for (const f of this.unsupportedFields) {
+      if (f in retryBody) {
+        delete retryBody[f];
+        changed = true;
+      }
+    }
+    return changed ? retryBody : null;
+  }
+  // Issue #137: 3-tier dialect fallback chain.
+  //   Tier 1: anthropic → openai (thinking.type → reasoning_effort)
+  //   Tier 2: openai → none (drop thinking field entirely)
+  //
+  // Each tier reuses buildRequestBody with a forced dialect override so
+  // the retry inherits the unsupportedFields pre-strip (a previous Tier-1
+  // failure may have populated unsupportedFields via the catch in
+  // doRequest). Building the retry body by hand would skip that strip
+  // and risk re-sending fields the backend just rejected.
+  async applyThinkingDialectFallback(body, params, messages, doRequest) {
+    const sentThinking = body.thinking !== void 0;
+    const sentReasoning = body.reasoning_effort !== void 0;
+    const startedAtDialect = this.thinkingControlDialect;
+    const reachedTier2 = sentThinking && (startedAtDialect === void 0 || startedAtDialect === "anthropic");
+    if (reachedTier2) {
+      this.thinkingControlDialect = "openai";
+      logFallback("thinking-dialect", `anthropic \u2192 openai (reasoning_effort) for ${this.baseUrl}`);
+      this.queueFallbackNotice("thinkingDialect", "openai (reasoning_effort)");
+      try {
+        return await doRequest(this.buildRequestBody(params, messages, false));
+      } catch (e2) {
+        if (!isThinkingControlError(e2)) throw e2;
+      }
+    }
+    if (reachedTier2 || sentReasoning) {
+      this.thinkingControlDialect = "none";
+      logFallback("thinking-dialect", `openai \u2192 none (no thinking control) for ${this.baseUrl}`);
+      this.queueFallbackNotice("thinkingNone");
+      return await doRequest(this.buildRequestBody(params, messages, false));
+    }
+    throw new Error(
+      `Thinking control rejected by ${this.baseUrl} for all known dialects (anthropic, openai, none). The provider may not support disabling thinking. Try a different model or disable "Enable thinking" in Advanced settings.`
+    );
+  }
+  // #137: queue a localized fallback notice for the next flushFallbackNotices() call.
+  queueFallbackNotice(kind, detail) {
+    let msg = "";
+    if (kind === "thinkingDialect") {
+      msg = getText(this.language, "fallbackThinkingDialect").replace("{dialect}", detail != null ? detail : "openai");
+    } else if (kind === "thinkingNone") {
+      msg = getText(this.language, "fallbackThinkingNone");
+    } else if (kind === "paramStripped") {
+      msg = getText(this.language, "fallbackParamStripped").replace("{field}", detail != null ? detail : "");
+    }
+    if (msg) fallbackNoticesThisRequest.push({ level: "warn", message: msg });
+  }
+  async createMessageStream(params) {
+    const messages = params.system ? [{ role: "system", content: params.system }, ...params.messages] : [
+      ...params.messages,
+      {
+        role: "user",
+        content: "Please respond in the same language as the user's question. If the user asks in Chinese, reply in Chinese. If the user asks in English, reply in English. Keep the response language consistent with the user's input language."
+      }
+    ];
+    const body = this.buildRequestBody(
+      params,
+      messages,
+      /* streaming */
+      true
+    );
+    const doRequest = (bodyToUse) => withRetry(async () => {
+      var _a, _b, _c, _d, _e, _f, _g;
+      let response;
+      try {
+        response = await (0, import_obsidian.requestUrl)({
+          url: this.baseUrl + "/chat/completions",
+          method: "POST",
+          headers: this.getHeaders(),
+          body: JSON.stringify(bodyToUse)
+        });
+      } catch (err) {
+        const status = err.status;
+        const errMessage = (_a = err.message) != null ? _a : "";
+        const is400 = status === 400 || IS_400.test(errMessage);
+        if (is400) {
+          const unknown = parseUnknownFields(err);
+          if (unknown.length > 0) {
+            for (const f of unknown) {
+              if (!_OpenAICompatibleClient.PROTECTED_FIELDS.has(f)) this.unsupportedFields.add(f);
+            }
+            logFallback("field-strip", `fields rejected by ${this.baseUrl}: ${unknown.join(", ")}`);
+          }
+        }
+        throw err;
+      }
+      const responseText = response.text;
+      const deltas = parseSSEEvents(responseText, "openai");
+      let fullText = "";
+      let reasoningContent = "";
+      for (const delta of deltas) {
+        if (delta.reasoning) {
+          reasoningContent += delta.reasoning;
+        }
+        if (delta.text) {
+          fullText += delta.text;
+          params.onChunk(delta.text);
+        }
+      }
+      if (reasoningContent) {
+        fullText = wrapReasoningContent(reasoningContent, fullText);
+      }
+      if (!fullText) {
+        console.debug("[OpenAICompat SSE] SSE parsing empty, trying non-streaming JSON fallback");
+        try {
+          const data = JSON.parse(responseText);
+          if (data.error) throw new Error(data.error.message);
+          const text = ((_d = (_c = (_b = data.choices) == null ? void 0 : _b[0]) == null ? void 0 : _c.message) == null ? void 0 : _d.content) || "";
+          const reasoning = ((_g = (_f = (_e = data.choices) == null ? void 0 : _e[0]) == null ? void 0 : _f.message) == null ? void 0 : _g.reasoning_content) || "";
+          if (text || reasoning) {
+            console.debug("[OpenAICompat SSE] Non-streaming fallback successful, length:", text.length);
+            fullText = wrapReasoningContent(reasoning, text);
+            if (text) params.onChunk(text);
+          }
+        } catch (parseErr) {
+          console.debug("[OpenAICompat SSE] Non-streaming JSON parse also failed:", parseErr);
+        }
+      }
+      if (!fullText) {
+        throw new Error(
+          "OpenAI-compatible endpoint returned neither SSE events nor a standard JSON response. The provider may not support streaming. Response preview: " + responseText.substring(0, 300)
+        );
+      }
+      return fullText;
+    }, 3, "OpenAI-compatible stream");
+    try {
+      return await doRequest(body);
+    } catch (e) {
+      if (params.enableThinking === false && isThinkingControlError(e)) {
+        return await this.applyThinkingDialectFallback(body, params, messages, doRequest);
+      }
+      if (e.message && IS_400.test(e.message)) {
+        const stripped = this.retryBodyWithStrippedFields(body);
+        if (stripped !== null) {
+          logFallback("field-strip-retry", `stream retrying without: ${[...this.unsupportedFields].join(", ")}`);
+          this.queueFallbackNotice("paramStripped", [...this.unsupportedFields].join(", "));
+          flushFallbackNotices();
+          return await doRequest(stripped);
+        }
+      }
+      throw e;
+    }
+  }
+  async listModels() {
+    try {
+      const response = await (0, import_obsidian.requestUrl)({
+        url: this.baseUrl + "/models",
+        method: "GET",
+        headers: this.getHeaders()
+      });
+      const data = response.json;
+      if (data.error) throw new Error(`status ${response.status}: ${data.error.message}`);
+      const modelIds = (data.data || []).map((m) => m.id).filter((id) => !id.includes(":") && !id.includes("/")).sort();
+      return modelIds.slice(0, 100);
+    } catch (error) {
+      console.error("Failed to fetch model list:", error);
+      return [];
+    }
+  }
+};
+// v1.20.0: fields that must never be stripped even if a 400 error
+// mentions them (e.g., "Unknown name 'model'"). Stripping these
+// would break all subsequent requests.
+_OpenAICompatibleClient.PROTECTED_FIELDS = /* @__PURE__ */ new Set(["model", "messages", "stream"]);
+var OpenAICompatibleClient = _OpenAICompatibleClient;
+
+// src/core/token-cap.ts
+function capMaxTokens(requested, settings) {
+  var _a;
+  const ceiling = (_a = settings.maxTokensPerCall) != null ? _a : 0;
+  if (ceiling <= 0) return requested;
+  return Math.min(requested, ceiling);
+}
+
+// src/llm-client-wrapper.ts
+function wrapWithAdvancedSettings(client, settings) {
+  const capTokens = settings.maxTokensPerCall > 0;
+  const originalCreate = client.createMessage.bind(client);
+  client.createMessage = async (params) => {
+    return originalCreate({
+      ...params,
+      ...capTokens ? { max_tokens: capMaxTokens(params.max_tokens, { maxTokensPerCall: settings.maxTokensPerCall }), maxTokensPerCall: settings.maxTokensPerCall } : {},
+      ...params.temperature === void 0 && settings.extractionTemperature !== void 0 ? { temperature: settings.extractionTemperature } : {},
+      ...params.repetition_penalty === void 0 && settings.repetitionPenalty !== void 0 ? { repetition_penalty: settings.repetitionPenalty } : {}
+    });
+  };
+  return client;
+}
+
+// src/schema/analyze.ts
+var import_obsidian2 = require("obsidian");
+init_constants();
 async function runSchemaAnalyze(ctx) {
   if (!ctx.requireLLMReady()) return;
   if (!ctx.llmClient) {
@@ -4385,20 +6864,7 @@ async function runSchemaAnalyze(ctx) {
   }
 }
 
-// src/utils.ts
-function getText(language, key, replacements) {
-  const texts = TEXTS[language] || TEXTS.en;
-  let text = texts[key];
-  if (!text) {
-    text = TEXTS.en[key];
-  }
-  if (replacements) {
-    for (const [k, v] of Object.entries(replacements)) {
-      text = text.replace(`{${k}}`, v);
-    }
-  }
-  return text;
-}
+// src/core/slug.ts
 function slugify(text, preserveCase = false) {
   console.debug("slugify input:", text, "length:", text == null ? void 0 : text.length);
   if (!text || text.trim().length === 0) {
@@ -4410,7 +6876,7 @@ function slugify(text, preserveCase = false) {
 function computeSlug(text, preserveCase = false) {
   if (!text || text.trim().length === 0) return "untitled";
   const trimmed = text.trim();
-  const afterRemoveInvalid = trimmed.split("").filter((c) => c.charCodeAt(0) >= 32).join("").replace(/[/\\:*?"<>|,()'!?、，。；：！？（）【】《》]/g, "");
+  const afterRemoveInvalid = trimmed.replace(/[\x00-\x1f]/g, "").replace(/[/\\:*?"<>|,()'!?、，。；：！？（）【】《》]/g, "");
   if (afterRemoveInvalid.length === 0) return "untitled-" + Date.now();
   const afterSpaceToDash = afterRemoveInvalid.replace(/[\s.]+/g, "-");
   const afterMergeDash = afterSpaceToDash.replace(/-+/g, "-");
@@ -4431,666 +6897,15 @@ function filterRedundantAliases(pagePath, candidateAliases) {
     return true;
   });
 }
-async function parseJsonResponse(response, repairFn) {
-  console.debug("parseJsonResponse parsing started... response length:", response.length);
-  try {
-    let normalized = response.trim();
-    normalized = normalized.replace(/<think\b[^>]*>[\s\S]*?<\/think>/gi, "");
-    normalized = normalized.replace(/<thinking\b[^>]*>[\s\S]*?<\/thinking>/gi, "");
-    normalized = normalized.trim();
-    normalized = normalized.replace(/^```(?:json|markdown|md)?\s*\n?/, "");
-    normalized = normalized.replace(/\n?```$/, "");
-    normalized = normalized.trim();
-    if (normalized.startsWith("{{")) {
-      normalized = normalized.substring(1);
-      console.debug('Prefill echo "{{" detected, removing leading {');
-    } else if (normalized.length > 1 && normalized[0] === "{") {
-      const afterFirst = normalized.substring(1).trimStart();
-      if (afterFirst.startsWith("{") || afterFirst.startsWith("```")) {
-        normalized = afterFirst;
-        console.debug('Newline-separated "{\n{" detected {\\n{\uFF0Cremoving leading {');
-      }
-    }
-    if (normalized.length > 0 && normalized[0] !== "{") {
-      const withBrace = "{" + normalized;
-      try {
-        console.debug("first char not '{', prepended '{' and parsed successfully");
-        return JSON.parse(withBrace);
-      } catch (e) {
-        console.debug("prepending '{' still failed, continuing");
-      }
-    }
-    try {
-      return JSON.parse(normalized);
-    } catch (directError) {
-      const msg = directError instanceof SyntaxError ? directError.message : "";
-      const afterMatch = msg.match(/after JSON at position (\d+)/);
-      if (afterMatch) {
-        const endPos = parseInt(afterMatch[1], 10);
-        const prefix = normalized.substring(0, endPos);
-        console.debug("extra content after JSON detected (position %d)\uFF0Cprefix extracted (length %d)", endPos, prefix.length);
-        try {
-          console.debug("prefix parsed successfully");
-          return JSON.parse(prefix);
-        } catch (e) {
-          console.debug("prefix parse failed, continuing");
-        }
-      }
-    }
-    const firstBrace = normalized.indexOf("{");
-    if (firstBrace !== -1) {
-      const balanced = extractBalancedJson(normalized, firstBrace);
-      if (balanced) {
-        const fixed = fixCommonJsonIssues(balanced);
-        try {
-          return JSON.parse(fixed);
-        } catch (braceError) {
-          console.debug("brace-count extraction failed:", String(braceError).slice(0, 80));
-        }
-        if (repairFn) {
-          try {
-            const repaired = await repairFn(balanced);
-            const cleanedLlm = repaired.trim().replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```$/, "").trim();
-            const final = fixCommonJsonIssues(cleanedLlm);
-            return JSON.parse(final);
-          } catch (llmError) {
-            console.error("LLM repair also failed (brace-count):", String(llmError).slice(0, 80));
-          }
-        }
-      }
-    }
-    const jsonMatch = normalized.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      const candidate = jsonMatch[0];
-      const fixed = fixCommonJsonIssues(candidate);
-      try {
-        return JSON.parse(fixed);
-      } catch (regexError) {
-        console.debug("greedy regex extraction failed:", String(regexError).slice(0, 80));
-      }
-      if (repairFn) {
-        try {
-          const repaired = await repairFn(candidate);
-          const cleanedLlm = repaired.trim().replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```$/, "").trim();
-          const final = fixCommonJsonIssues(cleanedLlm);
-          return JSON.parse(final);
-        } catch (llmError) {
-          console.error("LLM repair also failed (greedy regex):", String(llmError).slice(0, 80));
-        }
-      }
-    }
-    console.error("JSON parse completely failed (length %d)", response.length);
-    console.error("first 200 chars after normalization:", normalized.substring(0, 200));
-    console.error("last 200 chars after normalization:", normalized.substring(Math.max(0, normalized.length - 200)));
-    return null;
-  } catch (error) {
-    console.error("parseJsonResponse exception:", error);
-    return null;
-  }
-}
-function extractBalancedJson(text, startPos) {
-  let depth = 0;
-  let inString = false;
-  let escape = false;
-  for (let i = startPos; i < text.length; i++) {
-    const ch = text[i];
-    if (escape) {
-      escape = false;
-      continue;
-    }
-    if (ch === "\\" && inString) {
-      escape = true;
-      continue;
-    }
-    if (ch === '"') {
-      inString = !inString;
-      continue;
-    }
-    if (inString) continue;
-    if (ch === "{") depth++;
-    if (ch === "}") {
-      depth--;
-      if (depth === 0) {
-        return text.substring(startPos, i + 1);
-      }
-    }
-  }
-  return null;
-}
-function fixCommonJsonIssues(json) {
-  let fixed = json.replace(/,\s*\}/g, "}").replace(/,\s*\]/g, "]");
-  fixed = escapeContentQuotes(fixed);
-  fixed = fixed.replace(/"\s*\n\s*"/g, '",\n"');
-  fixed = fixed.replace(/,\s*\}/g, "}").replace(/,\s*\]/g, "]");
-  return fixed;
-}
-function escapeContentQuotes(json) {
-  const out = [];
-  let inString = false;
-  let i = 0;
-  while (i < json.length) {
-    const ch = json[i];
-    if (ch === "\\" && inString) {
-      out.push(ch);
-      i++;
-      if (i < json.length) out.push(json[i]);
-      i++;
-      continue;
-    }
-    if (!inString && ch === '"') {
-      inString = true;
-      out.push(ch);
-      i++;
-      continue;
-    }
-    if (inString && ch === '"') {
-      let peek = i + 1;
-      while (peek < json.length && isJsonWhitespace(json[peek])) peek++;
-      const nextCh = peek < json.length ? json[peek] : "";
-      if (nextCh === ":" || nextCh === "," || nextCh === "}" || nextCh === "]" || peek >= json.length) {
-        inString = false;
-        out.push(ch);
-      } else {
-        out.push('\\"');
-      }
-      i++;
-      continue;
-    }
-    out.push(ch);
-    i++;
-  }
-  return out.join("");
-}
-function isJsonWhitespace(ch) {
-  return ch === " " || ch === "	" || ch === "\n" || ch === "\r";
-}
-function parseFrontmatter(content) {
-  var _a;
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return null;
-  const result = {};
-  const fmText = match[1];
-  const lines = fmText.split("\n");
-  let currentKey = null;
-  let arrayValues = [];
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const trimmed = line.trim();
-    if (!trimmed) {
-      if (currentKey && arrayValues.length > 0) {
-        result[currentKey] = arrayValues;
-        arrayValues = [];
-        currentKey = null;
-      }
-      continue;
-    }
-    if (trimmed.startsWith("- ") && currentKey) {
-      const value2 = trimmed.substring(2).trim();
-      arrayValues.push(value2.replace(/^["']|["']$/g, ""));
-      continue;
-    }
-    if (currentKey && arrayValues.length > 0 && !trimmed.startsWith("-")) {
-      result[currentKey] = arrayValues;
-      arrayValues = [];
-      currentKey = null;
-    }
-    const colonIdx = line.indexOf(":");
-    if (colonIdx === -1) continue;
-    const key = line.substring(0, colonIdx).trim();
-    const value = line.substring(colonIdx + 1).trim();
-    const nextLine = (_a = lines[i + 1]) == null ? void 0 : _a.trim();
-    if (nextLine && nextLine.startsWith("- ")) {
-      currentKey = key;
-      arrayValues = [];
-      continue;
-    }
-    if (key === "reviewed") {
-      result.reviewed = value === "true";
-    } else if (key === "type") {
-      result.type = value;
-    } else if (key === "created") {
-      result.created = value;
-    } else if (key === "updated") {
-      result.updated = value;
-    } else if (value.startsWith("[") && value.endsWith("]")) {
-      try {
-        result[key] = value.slice(1, -1).split(",").map((v) => v.trim().replace(/^["']|["']$/g, "")).filter((v) => v);
-      } catch (e) {
-        result[key] = value;
-      }
-    } else {
-      result[key] = value.replace(/^["']|["']$/g, "");
-    }
-  }
-  if (currentKey && arrayValues.length > 0) {
-    result[currentKey] = arrayValues;
-  }
-  const ARRAY_FIELDS = ["aliases", "sources", "tags"];
-  for (const field of ARRAY_FIELDS) {
-    const val = result[field];
-    if (typeof val === "string") {
-      result[field] = [val];
-    } else if (!Array.isArray(val)) {
-      delete result[field];
-    }
-  }
-  return result;
-}
-function yamlStringify(value) {
-  if (Array.isArray(value)) {
-    if (value.length === 0) return "[]";
-    return "\n" + value.map((v) => `  - "${v}"`).join("\n");
-  }
-  if (typeof value === "string") {
-    if (/[":[\]{}\n]/.test(value)) {
-      return `"${value.replace(/"/g, '\\"')}"`;
-    }
-    return value;
-  }
-  if (typeof value === "boolean") {
-    return String(value);
-  }
-  if (typeof value === "number") {
-    return String(value);
-  }
-  if (value === null || value === void 0) {
-    return "";
-  }
-  return "";
-}
-function extractBody(content) {
-  if (!content.startsWith("---")) return content;
-  const endIdx = content.indexOf("\n---", 3);
-  if (endIdx === -1) return content;
-  return content.substring(endIdx + 4).trim();
-}
-function mergeFrontmatter(existingContent, newSourcePath) {
-  const fm = parseFrontmatter(existingContent);
-  const body = extractBody(existingContent);
-  if (!fm) {
-    return {
-      frontmatter: "",
-      body: existingContent,
-      wasMerged: false
-    };
-  }
-  const normalizeSourcePath2 = (s) => {
-    const trimmed = s.trim();
-    if (trimmed.startsWith("[[") && trimmed.endsWith("]]")) {
-      return trimmed.slice(2, -2).trim();
-    }
-    return trimmed;
-  };
-  const existingSources = Array.isArray(fm.sources) ? fm.sources : [];
-  const sourceSet = /* @__PURE__ */ new Set();
-  for (const s of existingSources) {
-    sourceSet.add(normalizeSourcePath2(String(s)));
-  }
-  sourceSet.add(newSourcePath);
-  const mergedSources = Array.from(sourceSet).map((s) => `[[${s}]]`);
-  const created = fm.created || (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-  const updated = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-  const lines = ["---"];
-  if (fm.type) lines.push(`type: ${fm.type}`);
-  lines.push(`created: ${created}`);
-  lines.push(`updated: ${updated}`);
-  if (mergedSources.length > 0) {
-    lines.push(`sources:${yamlStringify(mergedSources)}`);
-  }
-  if (Array.isArray(fm.tags) && fm.tags.length > 0) {
-    lines.push(`tags:${yamlStringify(fm.tags)}`);
-  } else {
-    lines.push("tags:");
-  }
-  if (fm.reviewed) {
-    lines.push("reviewed: true");
-  }
-  if (Array.isArray(fm.aliases) && fm.aliases.length > 0) {
-    lines.push(`aliases:${yamlStringify(fm.aliases)}`);
-  }
-  lines.push("---");
-  return {
-    frontmatter: lines.join("\n"),
-    body,
-    wasMerged: true
-  };
-}
-function cleanMarkdownResponse(response) {
-  console.debug("cleanMarkdownResponse input length:", response.length);
-  let cleaned = response.trim();
-  cleaned = cleaned.replace(/<think\b[^>]*>[\s\S]*?<\/think>/gi, "");
-  cleaned = cleaned.replace(/<thinking\b[^>]*>[\s\S]*?<\/thinking>/gi, "");
-  if (cleaned.indexOf("\n---\n") === -1) {
-    const headerMatch = cleaned.match(/\n#{1,2} \S/);
-    if (headerMatch) {
-      const cutIdx = cleaned.indexOf(headerMatch[0]);
-      if (cutIdx > 0) {
-        cleaned = cleaned.slice(cutIdx + 1).replace(/^\s+/, "");
-      }
-    }
-  }
-  const codeBlockPatterns = [
-    /^```(?:markdown|md)?\s*\n([\s\S]*?)\n```$/gm,
-    // Complete code block (multiline)
-    /^```(?:markdown|md)?\s*([\s\S]*?)```$/gm,
-    // Complete code block (no newline)
-    /^```(?:markdown|md)?\s*\n([\s\S]*)$/gm,
-    // Opening code block, no closing
-    /^```(?:markdown|md)?\s*([\s\S]*)$/gm
-    // Opening code block marker
-  ];
-  for (const pattern of codeBlockPatterns) {
-    const match = cleaned.match(pattern);
-    if (match) {
-      cleaned = cleaned.replace(pattern, "$1").trim();
-      console.debug("code block wrapping detected, removed");
-      break;
-    }
-  }
-  if (cleaned.startsWith("```")) {
-    cleaned = cleaned.replace(/^```(?:markdown|md)?\s*\n?/, "");
-    console.debug("removed opening code block marker");
-  }
-  if (cleaned.endsWith("```")) {
-    cleaned = cleaned.replace(/\n?```$/, "");
-    console.debug("removed closing code block marker");
-  }
-  console.debug("cleanMarkdownResponse output length:", cleaned.length);
-  console.debug("first 50 chars:", cleaned.substring(0, 50));
-  if (!cleaned.startsWith("---")) {
-    const fmEnd = cleaned.indexOf("\n---\n");
-    if (fmEnd !== -1) {
-      const beforeFm = cleaned.substring(0, fmEnd);
-      const looksLikeFrontmatter = beforeFm.includes(":") && !beforeFm.startsWith("#") && !beforeFm.startsWith("```") && beforeFm.split("\n").filter((l) => l.trim()).every((l) => l.includes(":") || l.trim() === "");
-      if (looksLikeFrontmatter) {
-        cleaned = "---\n" + cleaned;
-        console.debug("added missing opening ---");
-      } else {
-        cleaned = cleaned.substring(fmEnd + 1);
-        console.debug("removed preamble text before frontmatter");
-      }
-    }
-  }
-  return cleaned.trim();
-}
-function enforceFrontmatterConstraints(content, pageType, settings) {
-  if (!content.startsWith("---")) return content;
-  const fmEnd = content.indexOf("\n---\n", 3);
-  if (fmEnd === -1) return content;
-  const fmText = content.substring(3, fmEnd);
-  if (/^reviewed:\s*true\s*$/m.test(fmText)) {
-    const today2 = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-    return content.replace(/^created:\s*\d{4}-\d{2}-\d{2}\s*$/m, `created: ${today2}`).replace(/^updated:\s*\d{4}-\d{2}-\d{2}\s*$/m, `updated: ${today2}`);
-  }
-  let body = content.substring(fmEnd + 5);
-  const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-  const lines = fmText.split("\n");
-  const newLines = [];
-  let typeLine = "";
-  let collectedTags = [];
-  let foundType = false;
-  let foundTags = false;
-  let foundAliases = false;
-  let collectedAliases = [];
-  let createdValue = "";
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (!line) continue;
-    if (line.startsWith("created:")) {
-      createdValue = line.substring(8).trim();
-      continue;
-    }
-    if (line.startsWith("updated:")) {
-      continue;
-    }
-    if (line.startsWith("type:")) {
-      foundType = true;
-      const currentType = line.substring(5).trim();
-      if (pageType === "entity" || pageType === "concept") {
-        typeLine = `type: ${pageType}`;
-        if (currentType && currentType !== "entity" && currentType !== "concept" && currentType !== pageType) {
-          collectedTags.push(currentType);
-        }
-      } else {
-        typeLine = `type: ${pageType}`;
-      }
-    } else if (line.startsWith("tags:")) {
-      foundTags = true;
-      const tagsValue = line.substring(5).trim();
-      if (tagsValue.startsWith("[") && tagsValue.endsWith("]")) {
-        const inner = tagsValue.slice(1, -1).trim();
-        if (inner) {
-          collectedTags.push(...inner.split(",").map((t) => t.trim().replace(/^["']|["']$/g, "")));
-        }
-      }
-      let j = i + 1;
-      while (j < lines.length && lines[j].trim().startsWith("- ")) {
-        const tagVal = lines[j].trim().substring(2).trim().replace(/^["']|["']$/g, "");
-        if (tagVal) collectedTags.push(tagVal);
-        j++;
-      }
-      if (j > i + 1) i = j - 1;
-    } else if (line.startsWith("aliases:")) {
-      foundAliases = true;
-      const aliasesValue = line.substring(8).trim();
-      if (aliasesValue.startsWith("[") && aliasesValue.endsWith("]")) {
-        const inner = aliasesValue.slice(1, -1).trim();
-        if (inner) {
-          collectedAliases.push(...inner.split(",").map((t) => t.trim().replace(/^["']|["']$/g, "")));
-        }
-      }
-      let j = i + 1;
-      while (j < lines.length && lines[j].trim().startsWith("- ")) {
-        const aliasVal = lines[j].trim().substring(2).trim().replace(/^["']|["']$/g, "");
-        if (aliasVal) collectedAliases.push(aliasVal);
-        j++;
-      }
-      if (j > i + 1) i = j - 1;
-    } else if (!line.startsWith("- ")) {
-      newLines.push(line);
-    }
-  }
-  const result = ["---"];
-  if (foundType) {
-    result.push(typeLine);
-  }
-  result.push(`created: ${createdValue || today}`);
-  result.push(`updated: ${today}`);
-  for (const line of newLines) {
-    if (!line.startsWith("type:") && !line.startsWith("tags:") && !line.startsWith("aliases:") && !line.startsWith("created:") && !line.startsWith("updated:")) {
-      result.push(line);
-    }
-  }
-  if (foundTags || collectedTags.length > 0) {
-    const validSubtypes = pageType === "entity" ? settings ? getActiveEntityTags(settings) : VALID_ENTITY_TAGS : pageType === "concept" ? settings ? getActiveConceptTags(settings) : VALID_CONCEPT_TAGS : pageType === "source" ? settings ? getActiveSourceTags(settings) : VALID_SOURCE_TAGS : [];
-    const dedupedTags = [];
-    const outOfVocab = [];
-    for (const tag of collectedTags) {
-      if (!tag || tag === pageType) continue;
-      if (dedupedTags.includes(tag)) continue;
-      dedupedTags.push(tag);
-      if (!validSubtypes.includes(tag)) outOfVocab.push(tag);
-    }
-    if (outOfVocab.length > 0) {
-      console.debug(
-        `[enforceFrontmatterConstraints] ${pageType} page retained ${outOfVocab.length} tag(s) not in active vocabulary (${validSubtypes.length} entries):`,
-        outOfVocab
-      );
-    }
-    if (dedupedTags.length > 0) {
-      result.push(`tags: [${dedupedTags.join(", ")}]`);
-    } else {
-      result.push("tags:");
-    }
-  }
-  if (foundAliases || collectedAliases.length > 0) {
-    const validAliases = collectedAliases.filter((v, i, a) => a.indexOf(v) === i && v);
-    if (validAliases.length > 0) {
-      result.push(`aliases:${yamlStringify(validAliases)}`);
-    }
-  }
-  result.push("---");
-  return result.join("\n") + "\n\n" + body;
-}
-function detectRateLimitFailures(failedItems, currentConcurrency, currentBatchDelay) {
-  const rateLimitFailures = failedItems.filter(
-    (f) => /429|rate.?limit|too many requests|throttl/i.test(f.reason || "")
-  );
-  if (rateLimitFailures.length === 0) return null;
-  return {
-    count: rateLimitFailures.length,
-    rateLimitNames: rateLimitFailures.map((f) => f.name || f.reason || "unknown"),
-    suggestedConcurrency: Math.max(1, currentConcurrency - 1),
-    suggestedDelay: currentBatchDelay < 100 ? 500 : Math.min(2e3, Math.round(currentBatchDelay * 2))
-  };
-}
-function formatRateLimitNotice(info, language) {
-  return getText(language, "rateLimitDetected").replace("{count}", String(info.count)).replace("{suggestedConcurrency}", String(info.suggestedConcurrency)).replace("{suggestedDelay}", String(info.suggestedDelay));
-}
-function nestReportUnderParent(report) {
-  const lines = report.split("\n");
-  let h1Stripped = false;
-  const out = [];
-  for (const line of lines) {
-    const m = /^(#+)\s/.exec(line);
-    if (m) {
-      if (!h1Stripped && m[1].length === 1) {
-        h1Stripped = true;
-        continue;
-      }
-      out.push("#" + line);
-      h1Stripped = true;
-      continue;
-    }
-    out.push(line);
-  }
-  return out.join("\n");
-}
-function truncateMentions(mentions, maxChars = 500, sourcePath) {
-  if (!mentions || mentions.length === 0) return "";
-  let result = "";
-  if (sourcePath) {
-    const leftPath = sourcePath.replace(/\.md$/, "");
-    const displayName = leftPath.split("/").pop() || leftPath;
-    for (const m of mentions) {
-      const line = `- ${m} \u2014 [[${leftPath}|${displayName}]]`;
-      if (result.length + line.length + 1 > maxChars) {
-        if (result.length > 0) break;
-        const head = Math.max(0, maxChars - ` \u2014 [[${leftPath}|${displayName}]]`.length - 3);
-        return `- ${m.substring(0, head)}... \u2014 [[${leftPath}|${displayName}]]`;
-      }
-      result += (result ? "\n" : "") + line;
-    }
-    return result;
-  }
-  for (const m of mentions) {
-    const line = `- ${m}`;
-    if (result.length + line.length + 1 > maxChars) {
-      if (result.length > 0) break;
-      return `- ${m.substring(0, Math.max(0, maxChars - 3))}...`;
-    }
-    result += (result ? "\n" : "") + line;
-  }
-  return result;
-}
-function extractSourceTags(content) {
-  const fm = parseFrontmatter(content);
-  if (!fm) return [];
-  const raw = fm.tags;
-  if (Array.isArray(raw)) {
-    return raw.map((t) => String(t).trim()).filter((t) => t.length > 0);
-  }
-  return [];
-}
-function getActiveEntityTags(settings) {
-  var _a;
-  const custom = ((_a = settings.customEntityTags) != null ? _a : "").trim();
-  if (settings.tagVocabularyMode === "custom" && custom.length > 0) {
-    const userTags = custom.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
-    return Array.from(new Set(userTags));
-  }
-  return [...VALID_ENTITY_TAGS];
-}
-function getActiveConceptTags(settings) {
-  var _a;
-  const custom = ((_a = settings.customConceptTags) != null ? _a : "").trim();
-  if (settings.tagVocabularyMode === "custom" && custom.length > 0) {
-    const userTags = custom.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
-    return Array.from(new Set(userTags));
-  }
-  return [...VALID_CONCEPT_TAGS];
-}
-function getActiveSourceTags(settings) {
-  return [...VALID_SOURCE_TAGS];
-}
-function normalizeVocabularyCsv(csv) {
-  if (!csv) return "";
-  const seen = /* @__PURE__ */ new Set();
-  const result = [];
-  for (const raw of csv.split(",")) {
-    const trimmed = raw.trim();
-    if (!trimmed) continue;
-    const key = trimmed.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    result.push(trimmed);
-  }
-  return result.join(", ");
-}
-function parseIndexForPages(indexContent) {
-  const pages = [];
-  const lineRegex = /- \[\[([^\]|]+)(?:\|[^\]]+)?\]\]\s*(?:`aliases:\s*([^`]+)`)?/g;
-  let match;
-  while ((match = lineRegex.exec(indexContent)) !== null) {
-    const path = match[1];
-    const aliasStr = match[2] || "";
-    const title = path.split("/").pop() || path;
-    const aliases = aliasStr.split(",").map((a) => a.trim()).filter(Boolean);
-    pages.push({ path, title, aliases });
-  }
-  return pages;
-}
-function localKeywordMatch(query, pages) {
-  const keywords = query.toLowerCase().split(/\s+/).filter((k) => k.length > 0);
-  const scored = [];
-  for (const page of pages) {
-    let score = 0;
-    const titleLower = page.title.toLowerCase();
-    for (const kw of keywords) {
-      if (titleLower.includes(kw)) score += 3;
-      for (const alias of page.aliases) {
-        if (alias.toLowerCase().includes(kw)) score += 2;
-      }
-    }
-    if (score > 0) scored.push({ ...page, score });
-  }
-  return scored.sort((a, b) => b.score - a.score);
-}
-function matchExtractedToExisting(extractedNames, existingPages) {
-  const pageSlugs = existingPages.map((p) => ({
-    title: p.title,
-    slug: computeSlug(p.title),
-    aliasSlugs: (p.aliases || []).map((a) => computeSlug(a))
-  }));
-  const matched = /* @__PURE__ */ new Set();
-  for (const name of extractedNames) {
-    const targetSlug = computeSlug(name);
-    const match = pageSlugs.find(
-      (p) => p.slug === targetSlug || p.aliasSlugs.some((a) => a === targetSlug)
-    );
-    if (match) matched.add(match.title);
-  }
-  return [...matched];
-}
-function coerceToArray(value) {
-  if (Array.isArray(value)) {
-    return value;
-  }
-  return [];
-}
+
+// src/main.ts
+init_frontmatter();
+init_tag_vocab();
 
 // src/ui/settings.ts
+init_constants();
 var import_obsidian4 = require("obsidian");
+init_types();
 
 // src/ui/modals.ts
 var import_obsidian3 = require("obsidian");
@@ -5557,14 +7372,23 @@ var LLMWikiSettingTab = class extends import_obsidian4.PluginSettingTab {
       watchedFolders: [...plugin.settings.watchedFolders || []]
     };
   }
+  // Issue #137: merge tempSettings → plugin.settings, preserving any
+  // fields the form does not track but Test Connection mutates
+  // (currently: thinkingControlCache). Called by hide() (auto-save) and
+  // the explicit Save button. Adding a new probe-mutated field only
+  // requires extending this one helper, not every save site.
+  commitTempSettings() {
+    this.plugin.settings = {
+      ...this.tempSettings,
+      watchedFolders: [...this.tempSettings.watchedFolders || []],
+      thinkingControlCache: this.plugin.settings.thinkingControlCache
+    };
+  }
   // Auto-save when user navigates away from settings tab
   hide() {
     const hasChanges = JSON.stringify(this.tempSettings) !== JSON.stringify(this.plugin.settings);
     if (hasChanges) {
-      this.plugin.settings = {
-        ...this.tempSettings,
-        watchedFolders: [...this.tempSettings.watchedFolders || []]
-      };
+      this.commitTempSettings();
       void this.plugin.saveSettings();
       console.debug("Settings auto-saved on tab close");
     }
@@ -5602,10 +7426,7 @@ var LLMWikiSettingTab = class extends import_obsidian4.PluginSettingTab {
       });
     }).addButton((button) => button.setButtonText(this.getText("saveButton")).setCta().onClick(() => {
       void (async () => {
-        this.plugin.settings = {
-          ...this.tempSettings,
-          watchedFolders: [...this.tempSettings.watchedFolders || []]
-        };
+        this.commitTempSettings();
         await this.plugin.saveSettings();
         new import_obsidian4.Notice(this.getText("savedNotice"), NOTICE_SHORT);
       })();
@@ -5842,6 +7663,80 @@ var LLMWikiSettingTab = class extends import_obsidian4.PluginSettingTab {
         });
       });
     }
+    new import_obsidian4.Setting(containerEl).setName(this.getText("advancedSettingsModeName")).setDesc(this.getText("advancedSettingsModeDesc")).addDropdown((dropdown) => {
+      dropdown.addOption("default", this.getText("advancedSettingsDefault")).addOption("custom", this.getText("advancedSettingsCustom")).setValue(this.tempSettings.advancedSettingsMode || "default").onChange((value) => {
+        this.tempSettings.advancedSettingsMode = value;
+        if (value === "default") {
+          this.tempSettings.disableThinking = false;
+          this.tempSettings.extractionTemperature = void 0;
+          this.tempSettings.chatTemperature = void 0;
+          this.tempSettings.repetitionPenalty = void 0;
+        }
+        this.display();
+      });
+    });
+    if (this.tempSettings.advancedSettingsMode === "custom") {
+      new import_obsidian4.Setting(containerEl).setName(this.getText("disableThinkingName")).setDesc(this.getText("disableThinkingDesc")).addToggle((toggle) => toggle.setValue(this.tempSettings.disableThinking === true).onChange((value) => {
+        this.tempSettings.disableThinking = value;
+      }));
+      new import_obsidian4.Setting(containerEl).setName(this.getText("extractionTemperatureName")).setDesc(this.getText("extractionTemperatureDesc")).addText((text) => {
+        var _a2, _b2;
+        text.setPlaceholder(this.getText("temperaturePlaceholder")).setValue((_b2 = (_a2 = this.tempSettings.extractionTemperature) == null ? void 0 : _a2.toString()) != null ? _b2 : "").onChange((value) => {
+          const trimmed = value.trim();
+          if (trimmed === "") {
+            this.tempSettings.extractionTemperature = void 0;
+          } else {
+            const parsed = parseFloat(trimmed);
+            if (!isNaN(parsed)) {
+              this.tempSettings.extractionTemperature = parsed;
+            }
+          }
+        });
+        text.inputEl.type = "number";
+        text.inputEl.min = "0";
+        text.inputEl.max = "2";
+        text.inputEl.step = "0.05";
+        text.inputEl.classList.add("llm-wiki-number-input");
+      });
+      new import_obsidian4.Setting(containerEl).setName(this.getText("chatTemperatureName")).setDesc(this.getText("chatTemperatureDesc")).addText((text) => {
+        var _a2, _b2;
+        text.setPlaceholder(this.getText("temperaturePlaceholder")).setValue((_b2 = (_a2 = this.tempSettings.chatTemperature) == null ? void 0 : _a2.toString()) != null ? _b2 : "").onChange((value) => {
+          const trimmed = value.trim();
+          if (trimmed === "") {
+            this.tempSettings.chatTemperature = void 0;
+          } else {
+            const parsed = parseFloat(trimmed);
+            if (!isNaN(parsed)) {
+              this.tempSettings.chatTemperature = parsed;
+            }
+          }
+        });
+        text.inputEl.type = "number";
+        text.inputEl.min = "0";
+        text.inputEl.max = "2";
+        text.inputEl.step = "0.05";
+        text.inputEl.classList.add("llm-wiki-number-input");
+      });
+      new import_obsidian4.Setting(containerEl).setName(this.getText("repetitionPenaltyName")).setDesc(this.getText("repetitionPenaltyDesc")).addText((text) => {
+        var _a2, _b2;
+        text.setPlaceholder(this.getText("temperaturePlaceholder")).setValue((_b2 = (_a2 = this.tempSettings.repetitionPenalty) == null ? void 0 : _a2.toString()) != null ? _b2 : "").onChange((value) => {
+          const trimmed = value.trim();
+          if (trimmed === "") {
+            this.tempSettings.repetitionPenalty = void 0;
+          } else {
+            const parsed = parseFloat(trimmed);
+            if (!isNaN(parsed)) {
+              this.tempSettings.repetitionPenalty = parsed;
+            }
+          }
+        });
+        text.inputEl.type = "number";
+        text.inputEl.min = "0";
+        text.inputEl.max = "2";
+        text.inputEl.step = "0.05";
+        text.inputEl.classList.add("llm-wiki-number-input");
+      });
+    }
     new import_obsidian4.Setting(containerEl).setName(this.getText("testConnectionName")).setDesc(this.getText("testConnectionDesc")).addButton((button) => button.setButtonText(this.getText("testButton")).onClick(async () => {
       var _a2, _b2;
       button.setButtonText(this.getText("testing"));
@@ -5857,6 +7752,8 @@ var LLMWikiSettingTab = class extends import_obsidian4.PluginSettingTab {
         this.plugin.initializeLLMClient();
         (_b2 = this.plugin.wikiEngine) == null ? void 0 : _b2.updateSettings(oldSettings);
         await this.plugin.saveSettings();
+      } else {
+        this.tempSettings.thinkingControlCache = this.plugin.settings.thinkingControlCache;
       }
       this.tempSettings.llmReady = result.success;
       button.setButtonText(this.getText("testButton"));
@@ -6113,1166 +8010,286 @@ ${this.getText("tagVocabularyModeDescDefault").replace("{}", defaultListDesc)}`;
         this.tempSettings.periodicLint = value;
       });
     });
+    new import_obsidian4.Setting(containerEl).setName(this.getText("autoSmartFixName")).setDesc(this.getText("autoSmartFixDesc")).addToggle((toggle) => toggle.setValue(this.tempSettings.autoSmartFix).onChange((value) => {
+      this.tempSettings.autoSmartFix = value;
+    }));
   }
 };
 
 // src/wiki/wiki-engine.ts
 var import_obsidian6 = require("obsidian");
-
-// src/wiki/prompts/ingestion.ts
-var INGESTION_PROMPTS = {
-  analyzeSource: `You are a Wiki knowledge base maintainer. Analyze the following source file and output structured JSON.
-
-**Source File Content:**
-{{content}}
-
-{{batch_context}}
-
-**Extraction Scope:**
-{{granularity_instruction}}
-
-**Task Requirements:**
-0. [FIRST ROUND ONLY] Write a 100-200 word source summary (field: summary) and extract the source title (field: source_title). These fields must NOT appear in later rounds.
-1. In EVERY round (including the first), output both "entities" and "concepts" arrays. Use [] when a category has no items. Never omit either array.
-2. Optionally generate 1-2 aliases per entity/concept \u2014 alternative names, acronyms, translations, or common phrasings. Aliases serve as seeds for page generation and help the model avoid duplicate extractions in later rounds. The aliases field is OPTIONAL in extraction; skip it when no natural alias exists.
-3. Output at most {{batch_size}} items (entities + concepts total) this round
-3. Write a detailed, informative summary for each item (target 4-6 sentences). Include concrete information: what the entity/concept is, its role/significance in the source, key factual details, and how it relates to other items. Provide enough substance that the summary alone can seed a quality Wiki page
-4. For mentions_in_source: quote 2-4 verbatim sentences from the source where this entity/concept appears or is discussed. These quotes are critical \u2014 they provide the downstream page generator with source-grounded evidence. Include surrounding context, not just the name mention
-5. For related_entities and related_concepts: identify entities/concepts mentioned in the same context as this item. These should be other items extracted from this same source file
-6. Identify contradictions or conflicts with the existing Wiki (only output contradictions in the first round)
-7. Identify related existing Wiki pages (only output related_pages in the first round)
-8. Generate key points from the source file (only output key_points in the first round)
-
-**Output Format (strict JSON, output only JSON, no explanatory text):**
-{
-  "source_title": "Source file title",
-  "summary": "150-250 word source summary (first round only, omitted thereafter)",
-  "entities": [
-    {
-      "name": "Entity name \u2014 MUST be in the source's original language, NEVER translate",
-      "type": "person|organization|project|product|event|place|other",
-      "aliases": ["Optional: 1-2 alternative names, abbreviations, or translations. Helps prevent duplicate extractions in later rounds.", "If provided, these will seed the page aliases."],
-      "summary": "Detailed 4-6 sentence description with concrete facts: identity, role/significance, key attributes",
-      "mentions_in_source": ["Verbatim sentence from source: '...'.", "Another verbatim quote: '...'."],
-      "related_entities": ["Related entity names from this source"],
-      "related_concepts": ["Related concept names from this source"]
-    }
-  ],
-  "concepts": [
-    {
-      "name": "Concept name \u2014 MUST be in the source's original language, NEVER translate",
-      "type": "theory|method|field|phenomenon|standard|term|other",
-      "aliases": ["Optional: 1-2 alternative names, abbreviations, or translations. Helps prevent duplicate extractions in later rounds.", "If provided, these will seed the page aliases."],
-      "summary": "Detailed 4-6 sentence description with concrete facts: definition, importance, relationships",
-      "mentions_in_source": ["Verbatim sentence from source: '...'.", "Another verbatim quote: '...'."],
-      "related_concepts": ["Related concept names from this source"],
-      "related_entities": ["Related entity names from this source"]
-    }
-  ],
-  "contradictions": [
-    {
-      "claim": "What the source file claims",
-      "source_page": "Conflicting existing Wiki page [[page-name]]",
-      "contradicted_by": "What that page claims",
-      "resolution": "Suggested resolution"
-    }
-  ],
-  "related_pages": ["Related existing Wiki page names \u2014 use ONLY the plain page name, NOT wiki-link format. Example: 'Machine Learning' not [[concepts/Machine Learning|Machine Learning]]"],
-  "key_points": ["Key point 1", "Key point 2"]
-}
-
-**Entity Recognition Guide:**
-- person: individual who is a significant SUBJECT of the source. Authors cited only as evidence sources ("Smith et al. found...") are NOT wiki-worthy entities
-- organization: organization/institution (company, school, team, department, etc.)
-- project: project/initiative/program
-- product: product/tool/software/service. Publications only when they are the primary subject of analysis, not when cited as evidence sources
-- event: event/conference/milestone/historical occurrence
-- location: place/region/geographic concept
-- other: observable, instantiable concrete things (a specific dataset, benchmark, physical instrument) that do not fit any category above. NOT for abstract ideas, paradigms, or techniques \u2014 those are concepts
-
-**Classification Decision Tree (Entity vs. Concept) \u2014 apply in order, stop at first match:**
-1. Named PERSON \u2192 entity (person)
-2. Named ORGANIZATION, institution, company, team, lab \u2192 entity (organization)
-3. Named PROJECT or named initiative \u2192 entity (project)
-4. Named LOCATION, place, region \u2192 entity (location)
-5. Named EVENT, conference, competition, release milestone \u2192 entity (event)
-6. Named PRODUCT with its own vendor/release cycle (specific software package, hardware device, hosted service) \u2192 entity (product). Examples: PyTorch, GPT-4, BERT, TensorFlow. BUT if the source is not primarily ABOUT this product, extract its key ideas as concepts instead
-7. Abstract THEORY, principle, hypothesis, cognitive/scientific model \u2192 concept (theory)
-8. Procedural METHOD, algorithm, technique, protocol, training procedure \u2192 concept (method). Examples: gradient descent, RLHF, fine-tuning, chain-of-thought prompting, backpropagation
-9. Broad TECHNOLOGY paradigm or architectural pattern \u2192 concept (technology). Examples: transformer architecture, deep learning, attention mechanism, retrieval-augmented generation
-10. Any TERM, definition, or construct explaining how something works \u2192 concept (term)
-11. A concrete named thing that does not fit rules 1\u20136 \u2192 entity (other). Reserve for observable/instantiable things only
-12. If still uncertain \u2192 **prefer concept over entity**
-
-**Key boundary**: Named AI models and named frameworks are entities (product). Architectural ideas and learning techniques are concepts (method/technology). When a source mentions a product only as a tool used for something else, extract its role/capabilities as a concept, not the product as an entity.
-
-**Important Rules:**
-- Output ONLY JSON, nothing else
-- **CRITICAL: Entity and concept "name" MUST use the ORIGINAL language from the source file. NEVER translate names.** If the source says "Yinmin Zhong", the name MUST be "Yinmin Zhong", NOT "\u949F\u80E4\u654F". If the source says "Conditional Memory", the name MUST be "Conditional Memory", NOT "\u6761\u4EF6\u8BB0\u5FC6". If the source says "Cache-Compute Ratio", the name MUST be "Cache-Compute Ratio". Translation of names is FORBIDDEN. Summaries and descriptions may use the wiki language, but the name field is inviolable
-- "mentions_in_source" MUST contain 2-4 verbatim quotes from the source text. Do NOT paraphrase \u2014 copy the actual sentences where the entity/concept appears. Include full sentences with context, not fragments
-- Each entity and concept should have its own independent Wiki page
-- Carefully compare against existing content when detecting contradictions
-- related_pages should be pages that actually exist in the current Wiki
-- Output must be valid JSON format
-- Do NOT repeat any item already in the "extracted list". If no unextracted items remain in the source, return empty arrays [] for entities and concepts
-- Apply the wiki-link test to every candidate: if an entity/concept would not be linked from other notes, do not extract it. Knowledge claims and findings are more valuable than evidence containers`,
-  // Semantic entity resolution: when slug-based matching fails, use LLM to determine
-  // whether a newly extracted entity/concept is semantically equivalent to an existing page.
-  resolveEntityDedup: `You are an entity resolution engine. Given a newly extracted entity/concept and a list of existing wiki pages, determine if it is semantically equivalent to any existing page.
-
-**New entity/concept:**
-- Name: {{entity_name}}
-- Type: {{entity_type}}
-- Summary: {{entity_summary}}
-
-**Existing {{page_type}} pages:**
-{{existing_pages}}
-
-**Task:** Determine whether the new entity/concept is semantically the SAME as any existing page. Consider:
-- Translations between languages (e.g. "\u6E05\u534E\u5927\u5B66" = "Tsinghua University")
-- Abbreviations and full names (e.g. "MIT" = "Massachusetts Institute of Technology")
-- Alternative phrasings (e.g. "Supervised Learning" = "Supervised ML")
-- Spelling variations
-
-**Output JSON:**
-- If it matches an existing page, output: {"match": true, "path": "wiki/entities/existing-slug.md"}
-- If no match exists, output: {"match": false, "path": null}
-
-Do NOT create a new name \u2014 only match against the existing pages listed above.`
-};
-
-// src/wiki/prompts/generation.ts
-var GENERATION_PROMPTS = {
-  generateEntityPage: `You are a Wiki knowledge base maintainer. Create a Wiki page for the following entity.
-
-**Entity Information:**
-- Name: {{entity_name}}
-- Type: {{entity_type}}
-- Summary: {{entity_summary}}
-- Mentions in source (VERBATIM \u2014 preserve original language): {{mentions}}
-- Related entities: {{related_entities}}
-- Related concepts: {{related_concepts}}
-- Extraction aliases (seeds): {{extraction_aliases}}
-
-**Existing Wiki Pages (use these exact full paths when referencing):**
-{{existing_pages}}
-
-**Existing Related Content in Wiki:**
-{{related_content}}
-
-{{merge_strategy}}
-
-**Task Requirements:**
-1. Create an entity page with basic and key information
-2. When referencing other pages, copy the wiki-link format EXACTLY from the "Existing Wiki Pages" list. The LEFT side of | is the full path (entities/Page-Name), the RIGHT side is the DISPLAY NAME ONLY. NEVER duplicate folder prefixes like entities/ or concepts/ in the display name. Example: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
-3. IMPORTANT: All related entities and concepts MUST be formatted as wiki-links using the [[path|display]] format \u2014 even if the target page does not yet exist in the Wiki. This allows the Lint system to detect dead links and create stub pages later. Never output a related entity/concept name as plain text.
-4. If the entity already exists in the Wiki, use the merge strategy above for intelligent merging
-4. Be objective, accurate, and concise
-5. **Generate aliases for this page** \u2014 provide 1-3 alternative names. This field is REQUIRED:
-   - Include acronyms, abbreviations, and same-language alternative names
-   - English is universally acceptable as a "linker language" \u2014 when a term originates in English
-     (e.g. "Transformer", "DNA", "API", "RoPE", "CUDA"), keep it as-is even in non-English wikis
-   - **CRITICAL: do NOT invent translations for established technical terms.** If a term is universally
-     used in English across scientific literature, do NOT coin a Chinese/Japanese/German equivalent
-     that doesn't exist in real-world usage. Real-world convention always wins over linguistic purity.
-   - **If no natural alias exists**, use the page title itself as the first alias. The aliases field MUST NOT be left empty \u2014 always provide at least one alias
-
-   Examples:
-   - \u7EF4\u751F\u7D20 B2 (Chinese wiki) \u2192 ["\u7EF4\u4ED6\u547D B2", "Vitamin B2", "VB2"]
-   - Transformer (Chinese wiki) \u2192 ["Transformers", "BERT"]      \u2190 NO \u53D8\u6362\u5668 (no such usage in Chinese)
-   - Rotary Position Embedding (Japanese wiki) \u2192 ["RoPE", "\u56DE\u8EE2\u4F4D\u7F6E\u57CB\u3081\u8FBC\u307F"]
-   - Neural Network (Chinese wiki) \u2192 ["\u795E\u7ECF\u7F51\u7EDC", "NN"]
-6. In "Mentions in Source" section: preserve the VERBATIM quotes in their ORIGINAL language. You may ADD a brief translation in parentheses if the wiki language differs, but the original text must be preserved exactly
-
-**Output Format:**
----
-type: entity  # MUST be exactly "entity" - do not change this value
-created: {{date}}
-updated: {{date}}
-sources: ["[[{{source_file}}]]"]
-tags: [{{entity_type}}]  # Use entity_type (e.g., product, person, organization) as a tag
-aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
----
-
-# {{entity_name}}
-
-## {{section_basic_information}}
-- Type: {{entity_type}}
-- Source: [[{{source_file}}]]
-
-## {{section_description}}
-[Detailed description of the entity with bidirectional links]
-
-## {{section_related_entities}}
-[Reference related entities using full paths from the list above]
-
-## {{section_related_concepts}}
-[Reference related concepts using full paths from the list above]
-
-## {{section_mentions_in_source}}
-[Each verbatim quote as an academic-footnote style entry. The provided mentions in the input already include the source wiki-link \u2014 keep them as-is. If you need to add more quotes, use the same format:
-- "Verbatim quote in original language (optional translation)" \u2014 [[source-name]]]
-
----`,
-  generateConceptPage: `You are a Wiki knowledge base maintainer. Create a Wiki page for the following concept.
-
-**Concept Information:**
-- Name: {{concept_name}}
-- Type: {{concept_type}}
-- Summary: {{concept_summary}}
-- Mentions in source (VERBATIM \u2014 preserve original language): {{mentions}}
-- Related concepts: {{related_concepts}}
-- Related entities: {{related_entities}}
-- Extraction aliases (seeds): {{extraction_aliases}}
-
-**Existing Wiki Pages (use these exact full paths when referencing):**
-{{existing_pages}}
-
-**Existing Related Content in Wiki:**
-{{related_content}}
-
-{{merge_strategy}}
-
-**Task Requirements:**
-1. Create a concept page including definition, characteristics, and applications
-2. When referencing other pages, copy the wiki-link format EXACTLY from the "Existing Wiki Pages" list. The LEFT side of | is the full path (concepts/Page-Name), the RIGHT side is the DISPLAY NAME ONLY. NEVER duplicate folder prefixes like entities/ or concepts/ in the display name. Example: [[concepts/Attention|Attention]] is CORRECT, [[concepts/Attention|concepts/Attention]] is WRONG
-3. IMPORTANT: All related entities and concepts MUST use [[wiki-link]] format even if the target page does not yet exist \u2014 this allows the Lint system to detect and fix them later. Never output a related entity/concept name as plain text.
-4. If the concept already exists in the Wiki, use the merge strategy above for intelligent merging
-4. Be objective, accurate, and concise
-5. **Generate aliases for this page** \u2014 provide 1-3 alternative names. This field is REQUIRED:
-   - Include acronyms, abbreviations, and same-language alternative names
-   - English is universally acceptable as a "linker language" \u2014 when a term originates in English
-     (e.g. "Transformer", "DNA", "API", "RoPE", "CUDA"), keep it as-is even in non-English wikis
-   - **CRITICAL: do NOT invent translations for established technical terms.** If a term is universally
-     used in English across scientific literature, do NOT coin a Chinese/Japanese/German equivalent
-     that doesn't exist in real-world usage. Real-world convention always wins over linguistic purity.
-   - **If no natural alias exists**, use the page title itself as the first alias. The aliases field MUST NOT be left empty \u2014 always provide at least one alias
-
-   Examples:
-   - \u7EF4\u751F\u7D20 B2 (Chinese wiki) \u2192 ["\u7EF4\u4ED6\u547D B2", "Vitamin B2", "VB2"]
-   - Transformer (Chinese wiki) \u2192 ["Transformers", "BERT"]      \u2190 NO \u53D8\u6362\u5668 (no such usage in Chinese)
-   - Rotary Position Embedding (Japanese wiki) \u2192 ["RoPE", "\u56DE\u8EE2\u4F4D\u7F6E\u57CB\u3081\u8FBC\u307F"]
-   - Neural Network (Chinese wiki) \u2192 ["\u795E\u7ECF\u7F51\u7EDC", "NN"]
-6. In "Mentions in Source" section: preserve the VERBATIM quotes in their ORIGINAL language. You may ADD a brief translation in parentheses if the wiki language differs, but the original text must be preserved exactly
-
-**Output Format:**
----
-type: concept  # MUST be exactly "concept" - do not change this value
-created: {{date}}
-updated: {{date}}
-sources: ["[[{{source_file}}]]"]
-tags: [{{concept_type}}]  # Use concept_type (e.g., theory, method, field) as a tag
-aliases: ["Alternative name or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
----
-
-# {{concept_name}}
-
-## {{section_definition}}
-[Clear definition of the concept]
-
-## {{section_key_characteristics}}
-- Characteristic 1
-- Characteristic 2
-
-## {{section_applications}}
-[Application scenarios for the concept]
-
-## {{section_related_concepts}}
-[Reference related concepts using full paths from the list above]
-
-## {{section_related_entities}}
-[Reference related entities using full paths from the list above]
-
-## {{section_mentions_in_source}}
-[Each verbatim quote as an academic-footnote style entry. The provided mentions in the input already include the source wiki-link \u2014 keep them as-is. If you need to add more quotes, use the same format:
-- "Verbatim quote in original language (optional translation)" \u2014 [[source-name]]]
-
----`,
-  generateSummaryPage: `You are a Wiki knowledge base maintainer. Create a summary page for the following source file.
-
-**Source File Information:**
-- Title: {{source_title}}
-- Content: {{content}}
-- Analysis Results: {{analysis}}
-
-**All Created Wiki Pages (use these exact full paths when referencing):**
-{{created_pages_list}}
-
-**Task Requirements:**
-1. Create a concise summary page
-2. When referencing entities and concepts, use the exact full path format from the "All Created Wiki Pages" list above
-3. {{constraints}}
-4. Highlight key points
-5. Be objective and accurate
-6. **Generate aliases for this page** \u2014 provide 1-2 alternative names for the source. This field is REQUIRED:
-   - Include alternative titles, abbreviations, or common alternative names for the source
-   - English is universally acceptable as a "linker language" \u2014 when a term originates in English
-     (e.g. "Transformer", "DNA", "API", "RoPE"), keep it as-is even in non-English wikis
-   - **CRITICAL: do NOT invent translations for established technical terms.** Real-world usage
-     always wins over linguistic purity. Only include translations that actually exist in the target language.
-   - **If no natural alias exists**, use the source file name or the page title itself. The aliases field MUST NOT be left empty \u2014 always provide at least one alias
-
-**Output Format:**
----
-type: source
-created: {{date}}
-updated: {{date}}
-source_file: "[[{{source_file}}]]"
-tags: [{{tags}}]
-aliases: ["Alternative title or translation"]  # REQUIRED: at least 1 alias, must NOT be empty
----
-
-# {{source_title}} - Summary
-
-## {{section_source}}
-- Original file: [[{{source_file}}]]
-- Ingested: {{date}}
-
-## {{section_core_content}}
-[100-200 word summary with bidirectional links]
-
-## {{section_key_entities}}
-[Reference entities using full paths from the list above]
-
-## {{section_key_concepts}}
-[Reference concepts using full paths from the list above]
-
-## {{section_main_points}}
-- Point 1
-- Point 2
-
----`,
-  // Variant used when the existing page has `reviewed: true` in frontmatter.
-  preserveReviewedEntityPage: `You are a Wiki knowledge base maintainer. The following entity page has been manually reviewed by the user (reviewed: true).
-
-**\u26A0\uFE0F Important: User-reviewed content must be fully preserved. Do NOT delete or rewrite.**
-
-**Entity Information (from new source file):**
-- Name: {{entity_name}}
-- Type: {{entity_type}}
-- Summary: {{entity_summary}}
-- Mentions in source: {{mentions}}
-
-**Existing Wiki Pages (use these exact full paths when referencing):**
-{{existing_pages}}
-
-**User-Reviewed Existing Page Content (MUST be fully preserved):**
-{{related_content}}
-
-**Task Requirements:**
-1. **Fully preserve** all user-reviewed content \u2014 do not delete or rewrite any paragraph
-2. Only add non-duplicate information from the new source at the end in a "New Information" section
-3. If new information duplicates or contradicts existing content, do NOT add it; keep the user's version
-4. The frontmatter MUST retain reviewed: true
-5. When referencing other pages, copy the wiki-link format EXACTLY from the list above. NEVER duplicate folder prefixes in the display name. Example: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
-
-**Output Format:**
----
-type: entity
-created: {{date}}
-updated: {{date}}
-sources: ["[[{{source_file}}]]"]
-tags: [{{tags}}]
-aliases: []
-reviewed: true
----
-
-[Fully preserve user-reviewed existing content here]
-
-## {{section_new_information}} ({{date}})
-[Only add non-duplicate new information; write "No new information" if none]
-
----`,
-  // Variant used when the existing concept page has `reviewed: true` in frontmatter.
-  preserveReviewedConceptPage: `You are a Wiki knowledge base maintainer. The following concept page has been manually reviewed by the user (reviewed: true).
-
-**\u26A0\uFE0F Important: User-reviewed content must be fully preserved. Do NOT delete or rewrite.**
-
-**Concept Information (from new source file):**
-- Name: {{concept_name}}
-- Type: {{concept_type}}
-- Summary: {{concept_summary}}
-- Mentions in source: {{mentions}}
-- Related concepts: {{related_concepts}}
-
-**Existing Wiki Pages (use these exact full paths when referencing):**
-{{existing_pages}}
-
-**User-Reviewed Existing Page Content (MUST be fully preserved):**
-{{related_content}}
-
-**Task Requirements:**
-1. **Fully preserve** all user-reviewed content \u2014 do not delete or rewrite any paragraph
-2. Only add non-duplicate information from the new source at the end in a "New Information" section
-3. If new information duplicates or contradicts existing content, do NOT add it; keep the user's version
-4. The frontmatter MUST retain reviewed: true
-5. When referencing other pages, copy the wiki-link format EXACTLY from the list above. NEVER duplicate folder prefixes in the display name. Example: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
-
-**Output Format:**
----
-type: concept
-created: {{date}}
-updated: {{date}}
-sources: ["[[{{source_file}}]]"]
-tags: [{{tags}}]
-aliases: []
-reviewed: true
----
-
-[Fully preserve user-reviewed existing content here]
-
-## {{section_new_information}} ({{date}})
-[Only add non-duplicate new information; write "No new information" if none]
-
----`,
-  suggestSchemaUpdate: `You are a Wiki Schema advisor. Review the current schema and the latest ingestion analysis.
-
-Current Schema:
-{{schema_content}}
-
-Analysis Context:
-{{analysis_context}}
-
-Task: Determine if the schema needs updating to better accommodate recent content.
-Consider:
-1. Are there new entity types that should be added to the classification rules?
-2. Are there new concept types that should be added?
-3. Should naming conventions be adjusted?
-4. Should page templates be updated (missing sections, better structure)?
-5. Should maintenance policies be revised (stale thresholds, severity levels)?
-
-Output JSON format:
-{
-  "changes_needed": true,
-  "suggestions": "Markdown description of suggested schema changes with reasoning"
-}
-
-If no changes are needed:
-{
-  "changes_needed": false,
-  "suggestions": ""
-}
-
-Output ONLY the JSON, no other text.`
-};
-
-// src/wiki/prompts/merge.ts
-var MERGE_PROMPTS = {
-  // Multi-Source Knowledge Fusion: structured merge analysis
-  mergeAnalysis: `You are a Wiki knowledge fusion analyzer. Compare existing Wiki page content with new source file information, and output a structured merge strategy.
-
-**Page Name:** {{page_name}}
-**Page Type:** entity or concept
-
-**Existing Page Content:**
-{{existing_content}}
-
-**New Information from Source File:**
-{{new_info}}
-
-**Task:**
-1. Compare each piece of new information against the existing content
-2. Classify each piece of new information as:
-   - "new" \u2014 completely new information not in the existing page
-   - "duplicate" \u2014 duplicates existing content; no need to add
-   - "complementary" \u2014 supplements existing content (additional detail on the same topic)
-   - "contradictory" \u2014 contradicts existing content
-3. For "complementary" information, specify which section of the existing page it should be inserted after
-4. For "contradictory" information, document the specific contradiction
-
-Output JSON format:
-{
-  "merge_items": [
-    {
-      "content": "Specific content of the new information",
-      "classification": "new|duplicate|complementary|contradictory",
-      "target_section": "Section name to insert after (only for new and complementary)",
-      "reason": "Reason for classification (one sentence)"
-    }
-  ],
-  "contradictions": [
-    {
-      "claim": "What the new information claims",
-      "existing_claim": "Contradictory content in the existing page",
-      "resolution": "Suggested resolution"
-    }
-  ],
-  "merge_summary": "Merge strategy summary (one sentence)"
-}
-
-Rules:
-- Output ONLY JSON, nothing else
-- Existing content takes priority over new information (unless the new information is clearly more accurate)
-- Do NOT delete or rewrite any part of the existing content`,
-  mergeEntityPage: `You are a Wiki editor performing intelligent content integration. Merge new source information into an existing page following the schema-defined structure.
-
-**Schema Rules (MUST follow this structure):**
-- ## Basic Information: Type, sources, key attributes
-- ## Description: Core definition and significance (3-6 sentences)
-- ## Related Entities: Links to related entities
-- ## Related Concepts: Links to related concepts
-- ## Mentions in Source: Chronological list of mentions with VERBATIM quotes in original language
-
-**Existing Page Content (the current version):**
-{{existing_body}}
-
-**New Information from Source "{{new_source}}":**
-- Summary: {{entity_summary}}
-- Mentions in source: {{mentions}}
-- Related entities: {{related_entities}}
-- Related concepts: {{related_concepts}}
-- Key details: {{key_details}}
-
-**Available Wiki Pages for linking (use exact [[path|name]] format):**
-{{existing_pages}}
-
-**Integration Requirements:**
-1. STRUCTURE: Follow the schema sections exactly. If a section exists, update it; if missing, create it.
-2. DESCRIPTION: Integrate new facts naturally. Do NOT duplicate existing information.
-3. RELATED: Update "Related Entities" and "Related Concepts" sections with new relationships.
-4. CONTRADICTIONS: If new info conflicts with existing, preserve BOTH with clear attribution.
-5. MENTIONS: Append new mentions to "Mentions in Source". Preserve VERBATIM quotes in original language. Translation optional in parentheses.
-6. LINKS: Use [[path|display]] format. LEFT side = full path, RIGHT side = display name ONLY. NEVER duplicate folder prefixes (entities/, concepts/) in display name. Verify paths exist.
-7. STYLE: Match existing writing style.
-8. NO REDUNDANCY: Do NOT restate existing facts.
-
-**Output Format:**
-Output ONLY the body content (no frontmatter):
-
-## Basic Information
-[Type, sources, key attributes \u2014 updated]
-
-## Description
-[Integrated description \u2014 merge existing + new, no duplication]
-
-## Related Entities
-[Updated entity links]
-
-## Related Concepts
-[Updated concept links]
-
-## Mentions in Source
-[ALL mentions \u2014 existing preserved with their source attribution blocks, new appended under a new source block:
-> **Source: [[source-name]]**
-> - "Verbatim quote in original language"]`,
-  mergeConceptPage: `You are a Wiki editor performing intelligent content integration. Merge new source information into an existing concept page following the schema-defined structure.
-
-**Schema Rules (MUST follow this structure):**
-- ## Basic Information: Type, sources, definition
-- ## Description: Detailed explanation with examples (3-6 sentences)
-- ## Related Concepts: Connected concepts using [[concepts/...]]
-- ## Related Entities: Connected entities using [[entities/...]]
-- ## Mentions in Source: VERBATIM quotes in original language with source attribution
-
-**Existing Page Content (the current version):**
-{{existing_body}}
-
-**New Information from Source "{{new_source}}":**
-- Summary: {{concept_summary}}
-- Mentions in source: {{mentions}}
-- Related concepts: {{related_concepts}}
-- Related entities: {{related_entities}}
-- Key details: {{key_details}}
-
-**Available Wiki Pages for linking (use exact [[path|name]] format):**
-{{existing_pages}}
-
-**Integration Requirements:**
-1. STRUCTURE: Follow the schema sections exactly. Update existing, create missing.
-2. DESCRIPTION: Integrate new understanding coherently with existing.
-3. RELATED CONCEPTS: Update links \u2014 add new ones, preserve existing.
-4. RELATED ENTITIES: Update links \u2014 add new ones from this source.
-5. CONTRADICTIONS: If new info conflicts, preserve both with attribution.
-6. MENTIONS: Append to "Mentions in Source". Preserve VERBATIM quotes in original language.
-7. LINKS: Use [[path|display]] format. LEFT side = full path, RIGHT side = display name ONLY. NEVER duplicate folder prefixes (entities/, concepts/) in display name. Verify paths exist.
-8. STYLE: Match existing writing style.
-9. NO REDUNDANCY: Do NOT restate existing facts.
-
-**Output Format:**
-Output ONLY the body content (no frontmatter):
-
-## Basic Information
-[Type, sources, definition \u2014 updated]
-
-## Description
-[Integrated description \u2014 merge existing + new]
-
-## Related Concepts
-[Updated concept links]
-
-## Related Entities
-[Updated entity links]
-
-## Mentions in Source
-[ALL mentions \u2014 existing preserved with their source attribution blocks, new appended under a new source block:
-> **Source: [[source-name]]**
-> - "Verbatim quote in original language"]`,
-  // Minimal append mode for reviewed pages
-  appendToReviewedPage: `You are a Wiki editor adding new information to a user-reviewed page. The existing content is AUTHORITATIVE and must be preserved exactly.
-
-**User-Reviewed Existing Content (MUST preserve completely):**
-{{existing_body}}
-
-**New Information from Source "{{new_source}}":**
-- Summary: {{entity_summary}}
-- Mentions: {{mentions}}
-- Key details: {{key_details}}
-
-**Task:**
-1. Compare new information against existing content
-2. If new info is COMPLETELY REDUNDANT with existing content \u2192 output "NO_NEW_CONTENT"
-3. If new info adds genuinely new facts \u2192 append them in a "New Information ({{new_source}})" section at the end
-4. DO NOT modify any existing content
-5. DO NOT remove or rewrite any existing sections
-6. {{constraints}}
-
-**Output Format:**
-If no new content: output exactly "NO_NEW_CONTENT"
-
-If new content exists:
-[existing content preserved exactly]
-
-## New Information ({{new_source}})
-[Only genuinely new facts, written to match existing style]`,
-  // Update related page with incremental information from a new source
-  updateRelatedPage: `Existing Wiki page: {{page_name}}
-
-Existing content:
-{{existing_body}}
-
-The new source file ("{{source_basename}}") provides additional information about {{page_name}}:
-{{new_info}}
-
-Update the page by adding the new information without deleting existing content.
-{{constraints}}
-Use wiki-link syntax [[page-name]].
-Output ONLY the updated page BODY content (without frontmatter), no other text.`
-};
-
-// src/wiki/prompts/fixes.ts
-var FIX_PROMPTS = {
-  fixDeadLink: `You are a Wiki dead link repair assistant. Analyze the dead link and repair it based on the situation.
-
-Dead Link Source Page:
-{{source_content}}
-
-Dead Link Target (link text):
-{{target_name}}
-
-Existing Wiki Page List:
-{{existing_pages}}
-
-Task:
-1. **FIRST, check aliases:** Look at the \`aliases:\` listed after each page. If the dead link target matches any page's title OR any page's aliases (case-insensitive), that page IS the correct target \u2014 use action=correct
-2. If no alias match, search for semantic similarity (translations, abbreviations, alternative phrasings)
-3. If a matching page is found: output the correct [[entities/page-name|Display Name]] or [[concepts/page-name|Display Name]] link. The display name after | must NOT include folder prefixes like entities/ or concepts/
-4. If no match is found after checking BOTH aliases and semantic similarity: output a concise name suitable as a new page title
-
-Output JSON format:
-{"action": "correct|create_stub", "correct_link": "Corrected link (when action=correct)", "stub_title": "New page title (when action=create_stub)", "stub_type": "entity|concept", "reason": "Reason for judgment (one sentence)"}`,
-  fillEmptyPage: `You are a Wiki page expansion assistant. Generate content for the following under-populated Wiki page.
-
-Page Type (entities/concepts/sources): {{page_type}}
-
-Existing Content:
-{{existing_content}}
-
-Wiki Index (background reference):
-{{wiki_index}}
-
-**Target Language Section Headers (use EXACTLY these headers):**
-{{section_labels}}
-
-Task:
-1. Generate appropriate content (150-300 words) based on the page type and title
-2. entities type: describe the entity's definition, relevant background, and relationships with other entities
-3. concepts type: explain the concept's definition, application scenarios, and related concepts
-4. sources type: summarize the source's core viewpoints and contributions
-5. Use [[wiki-links]] to link to related pages. Copy the link format EXACTLY from the Wiki Index \u2014 the LEFT side is the full path (folder/page-name), the RIGHT side after | is the DISPLAY NAME only. NEVER duplicate folder prefixes like entities/ or concepts/ in the display name. Example: [[entities/Qwen|Qwen]] is correct, [[entities/Qwen|entities/Qwen]] is WRONG
-6. **Related entities/concepts LIMIT:** Create at MOST {{max_entities}} related entity links and {{max_concepts}} related concept links. Focus on the most important connections only. Do NOT generate exhaustive lists
-7. **IMPORTANT \u2014 Source Mentions:** Only create a "Mentions in Source" section if the existing content already contains verbatim source quotes. If no source quotes exist in the existing content, do NOT fabricate a "Mentions in Source" section \u2014 instead, note "*(No source content available for this page)*" in the description. NEVER invent fake citations or source references
-8. Preserve any existing frontmatter fields exactly (type, created, sources, tags, reviewed). Do NOT remove or alter these fields
-9. **Aliases are REQUIRED:** If the existing content has non-empty aliases, keep them. If aliases are missing or empty, you MUST generate 1-2 meaningful aliases following the fallback hierarchy: translation in Wiki language \u2192 alternative names \u2192 abbreviations. The aliases field MUST NOT be left empty
-10. **Tags constraint:** entity pages MUST use tags from: [person, organization, project, product, event, place, other]. Concept pages MUST use tags from: [theory, method, field, phenomenon, standard, term, other]. Never invent new tags outside these lists
-
-Output format: directly output the complete Markdown page content (do not output explanatory text)`,
-  linkOrphanPage: `You are a Wiki link repair assistant. Establish backlinks to an orphan page from relevant pages.
-
-Orphan Page:
-{{orphan_content}}
-
-Wiki Index:
-{{wiki_index}}
-
-Task:
-1. Analyze the orphan page's topic
-2. Select 1-3 most relevant existing pages from the Wiki index
-3. For each relevant page, generate a suggested link text (one sentence description + wiki-link)
-
-Output JSON format:
-{"related_pages": [{"page_path": "wiki/entities/xxx.md", "link_text": "One sentence describing this connection", "link_target": "[[entities/orphan-name]]"}], "reason": "Connection rationale"}`,
-  resolveContradiction: `You are a Wiki contradiction resolution assistant. Generate a repaired page based on the contradiction record and affected page content.
-
-Affected Page Content:
-{{existing_content}}
-
-Contradiction Record:
-{{contradiction_content}}
-
-Task:
-1. Analyze both sides of the contradiction
-2. Reconcile: preserve correct information, annotate suspected incorrect information
-3. For factual contradictions, choose the more reliable or newer source
-4. For perspective differences, preserve both viewpoints and note the different standpoints
-
-Important Rules:
-- Do NOT delete any existing content
-- Add a "## {{section_resolved_contradictions}}" section at the end of the affected page, explaining the resolution approach and reasoning
-- Keep the overall page structure intact; only adjust contradiction-related parts
-- Output the complete repaired page content (not just the modified parts)
-- Do NOT output any explanatory text; directly output Markdown-formatted page content`
-};
-
-// src/wiki/prompts/lint.ts
-var LINT_PROMPTS = {
-  // First-pass LLM title scan to find cross-lingual/translation/abbreviation candidates.
-  lintTitleScanCandidates: `You are a Wiki duplicate scanner. Below is a list of ALL entity and concept wiki pages (path + title). Find pages that likely refer to the SAME underlying concept, even when named in different languages or formats.
-
-**Pages ({{total}} total):**
-{{title_list}}
-
-**Common duplicate patterns to look for:**
-- Translations: one Chinese title, one English title describing the same concept
-- Abbreviations: "CoT" vs "Chain of Thought", "MoE" vs "Mixture of Experts"
-- Alternate phrasings: same concept expressed with different wording
-- Partial matches: "KV\u7F13\u5B58" vs "\u952E\u503C\u7F13\u5B58" (KV = Key-Value = \u952E\u503C)
-
-**Rules:**
-- Only report pairs you are HIGHLY CONFIDENT refer to the same thing
-- Do NOT report pairs that are merely related concepts
-- Max 30 pairs
-- Prefer the page with the MORE descriptive/specific title as "target" (keep)
-
-**You MUST output ONLY a valid JSON object, no other text:**
-{"candidates": [["wiki/concepts/target-page.md", "wiki/concepts/source-page.md"], ...]}
-
-If no candidates found: {"candidates": []}`,
-  // Verify duplicate candidates with content analysis
-  lintDuplicateDetection: `You are a Wiki duplicate detection verifier. Review the candidate pairs below and confirm which are TRUE semantic duplicates.
-
-**Candidate pairs (from programmatic signals and title scan):**
-{{candidates}}
-
-**Total entity/concept pages in wiki:** {{total}}
-
-**Rules:**
-- Confirm a pair ONLY if both pages refer to the SAME underlying concept/entity
-- TRUE duplicates: translations (e.g. "CoT" = "\u601D\u7EF4\u94FE"), abbreviations, spelling variants, same thing named differently
-- NOT duplicates: related concepts, parent-child relationships, overlapping topics
-- Only confirm pairs you are HIGHLY CONFIDENT about (95%+ certainty)
-- Keep the candidate's target/source assignment (target = keep, source = merge into target)
-
-**You MUST output ONLY a valid JSON object, no other text:**
-{"duplicates": [{"target": "wiki/entities/page1.md", "source": "wiki/entities/page2.md", "reason": "Same concept: both refer to X because..."}]}
-
-If none of the candidates are true duplicates: {"duplicates": []}`,
-  // Merge two duplicate pages: intelligently fuse source into target.
-  mergeDuplicatePages: `You are a Wiki editor merging two duplicate pages. Intelligently fuse the source page body into the target page body to create the best single version. Also extract any alternative names found in either page.
-
-**Target page body (will be kept):**
-{{target_content}}
-
-**Source page body (will be merged then deleted):**
-{{source_content}}
-
-**IMPORTANT:** You are receiving ONLY the Markdown body content (frontmatter already stripped by the system). DO not include any frontmatter in your output. The system will handle frontmatter merging programmatically. Focus on merging the semantic content only.
-
-**Fusion rules:**
-1. Keep ALL information from the target page \u2014 it is the primary version
-2. Read the source page carefully. Add ONLY information from source that is GENUINELY NEW (not already in target in different words)
-3. If source has verbatim quotes (Mentions in Source) not in target, add them with the source's citation
-4. If source links to related entities/concepts that target doesn't, add those links in the appropriate sections
-5. If source describes applications, characteristics, or details not covered by target, weave them naturally into target's existing sections
-6. If there are factual contradictions, preserve both sides with source attribution in a "## Contradictions" section if one doesn't exist
-7. Do NOT duplicate information already present in target
-8. Preserve the target page's overall structure and section ordering
-
-**Aliases to extract (put in the "aliases" array):**
-- Alternative names, translations, abbreviations found in EITHER page's title or content
-- e.g. if source is "Mixture-of-Experts-MoE" and target is "\u6DF7\u5408\u4E13\u5BB6\u6A21\u578B", aliases might include: "MoE", "Mixture of Experts", "Sparse MoE"
-- Include names that someone might search for when looking for this concept
-- Do NOT include the target page's own title or filename as an alias
-
-**You MUST output ONLY a valid JSON object, no other text:**
-{
-  "body": "# Page Title\\n\\n## Section\\n\\n...merged content...",
-  "aliases": ["alias1", "alias2", "alias3"]
-}
-
-If source adds nothing new, still output the target body AND any aliases found.`,
-  // Generate aliases for a page by analyzing its content and title.
-  generateAliases: `You are a knowledge curator. Given a wiki page's title and body, suggest alternative names (aliases) someone might search for when looking for this concept.
-
-**Page title:** {{title}}
-
-**Page body:**
-{{body}}
-
-**What to generate:**
-- **CRITICAL: do NOT invent translations for established technical terms.** Only suggest
-  translations that genuinely exist in real-world usage (e.g. "Neural Network" \u2194 "\u795E\u7ECF\u7F51\u7EDC",
-  not "Transformer" \u2194 "\u53D8\u6362\u5668"). Real-world convention always wins.
-- English is universally acceptable as a "linker language" \u2014 established English technical terms
-  (e.g. "Transformer", "DNA", "API", "RoPE", "CUDA") may be kept as-is across all wikis
-- Abbreviations: e.g. "Chain of Thought" \u2192 "CoT", "Mixture of Experts" \u2192 "MoE"
-- Spelling variants: "Mixture-of-Experts", "Mixture of Experts", "Sparse MoE"
-- Common alternative names in the field
-- Full forms of abbreviations (e.g. "NTP" \u2192 "Next Token Prediction")
-
-**Rules:**
-- 3-8 aliases is ideal
-- Only include names that genuinely refer to THIS concept
-- Do NOT include the page title itself as an alias
-- Prefer commonly-used names in the field
-
-**You MUST output ONLY a valid JSON object, no other text:**
-{"aliases": ["alias1", "alias2", "alias3"]}
-
-If no meaningful aliases found: {"aliases": []}`
-};
-
-// src/wiki/prompts/conversation.ts
-var CONVERSATION_PROMPTS = {
-  evaluateConversationValue: `You are a Wiki knowledge evaluation assistant. Determine whether the following conversation contains substantive knowledge worth saving to the Wiki.
-
-Conversation Content:
-{{conversation}}
-
-Evaluation Criteria:
-- Contains specific concept explanations, analysis, or factual information (not just casual chat)
-- The conversation content can be distilled into structured Wiki entries
-- The information has reference value and may be consulted again in the future
-
-Output JSON format:
-{"valuable": true/false, "reason": "Reason for judgment (one sentence)"}`,
-  dedupCheck: `You are a Wiki knowledge deduplication assistant. Determine whether the conversation content is already covered by existing Wiki pages.
-
-Existing Wiki Page Index:
-{{wiki_index}}
-
-Conversation Summary:
-{{conversation_summary}}
-
-Task:
-1. Analyze the knowledge topics covered in the conversation
-2. Determine whether these topics already exist in the above Wiki pages
-3. If all topics are already covered (semantically identical or highly similar), mark as fully_redundant
-4. If some topics are new, mark as partially_new and list the new topics
-
-Output JSON format:
-{"status": "fully_redundant|partially_new|entirely_new", "new_topics": ["new topic 1"], "redundant_topics": ["covered topic 1"], "reason": "Reason for judgment (one sentence)"}`
-};
-
-// src/prompts.ts
-var PROMPTS = {
-  ...INGESTION_PROMPTS,
-  ...GENERATION_PROMPTS,
-  ...MERGE_PROMPTS,
-  ...FIX_PROMPTS,
-  ...LINT_PROMPTS,
-  ...CONVERSATION_PROMPTS
-};
-
-// src/wiki/system-prompts.ts
-function buildWikiLanguageDirective(settings) {
-  const lang = settings.wikiLanguage || "en";
-  const langName = WIKI_LANGUAGES[lang] || lang;
-  return `IMPORTANT: You MUST write ALL content in ${langName}. Every page title, summary, description, and label must be in ${langName}. Do NOT output any content in other languages.`;
-}
-var SECTION_LABELS = {
-  en: {
-    basic_information: "Basic Information",
-    description: "Description",
-    related_content: "Related Content",
-    mentions_in_source: "Mentions in Source",
-    new_information: "New Information",
-    definition: "Definition",
-    key_characteristics: "Key Characteristics",
-    applications: "Applications",
-    related_concepts: "Related Concepts",
-    related_entities: "Related Entities",
-    source: "Source",
-    core_content: "Core Content",
-    key_entities: "Key Entities",
-    key_concepts: "Key Concepts",
-    main_points: "Main Points",
-    resolved_contradictions: "Resolved Contradictions",
-    new_claim: "New Claim",
-    existing_knowledge: "Existing Knowledge",
-    resolution_suggestion: "Resolution Suggestion",
-    source_page: "Source Page",
-    related_pages: "Related Pages",
-    updated: "Updated"
-  },
-  zh: {
-    basic_information: "\u57FA\u672C\u4FE1\u606F",
-    description: "\u63CF\u8FF0",
-    related_content: "\u76F8\u5173\u5185\u5BB9",
-    mentions_in_source: "\u6765\u6E90\u63D0\u53CA",
-    new_information: "\u65B0\u4FE1\u606F",
-    definition: "\u5B9A\u4E49",
-    key_characteristics: "\u5173\u952E\u7279\u5F81",
-    applications: "\u5E94\u7528",
-    related_concepts: "\u76F8\u5173\u6982\u5FF5",
-    related_entities: "\u76F8\u5173\u5B9E\u4F53",
-    source: "\u6765\u6E90",
-    core_content: "\u6838\u5FC3\u5185\u5BB9",
-    key_entities: "\u5173\u952E\u5B9E\u4F53",
-    key_concepts: "\u5173\u952E\u6982\u5FF5",
-    main_points: "\u8981\u70B9",
-    resolved_contradictions: "\u5DF2\u89E3\u51B3\u7684\u77DB\u76FE",
-    new_claim: "\u65B0\u4E3B\u5F20",
-    existing_knowledge: "\u5DF2\u6709\u77E5\u8BC6",
-    resolution_suggestion: "\u89E3\u51B3\u5EFA\u8BAE",
-    source_page: "\u6765\u6E90\u9875\u9762",
-    related_pages: "\u76F8\u5173\u9875\u9762",
-    updated: "\u66F4\u65B0\u4E8E"
-  },
-  ja: {
-    basic_information: "\u57FA\u672C\u60C5\u5831",
-    description: "\u8AAC\u660E",
-    related_content: "\u95A2\u9023\u30B3\u30F3\u30C6\u30F3\u30C4",
-    mentions_in_source: "\u30BD\u30FC\u30B9\u3067\u306E\u8A00\u53CA",
-    new_information: "\u65B0\u60C5\u5831",
-    definition: "\u5B9A\u7FA9",
-    key_characteristics: "\u4E3B\u306A\u7279\u5FB4",
-    applications: "\u5FDC\u7528",
-    related_concepts: "\u95A2\u9023\u6982\u5FF5",
-    related_entities: "\u95A2\u9023\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3",
-    source: "\u30BD\u30FC\u30B9",
-    core_content: "\u6838\u5FC3\u5185\u5BB9",
-    key_entities: "\u4E3B\u8981\u30A8\u30F3\u30C6\u30A3\u30C6\u30A3",
-    key_concepts: "\u4E3B\u8981\u6982\u5FF5",
-    main_points: "\u8981\u70B9",
-    resolved_contradictions: "\u89E3\u6C7A\u6E08\u307F\u306E\u77DB\u76FE",
-    new_claim: "\u65B0\u3057\u3044\u4E3B\u5F35",
-    existing_knowledge: "\u65E2\u5B58\u306E\u77E5\u8B58",
-    resolution_suggestion: "\u89E3\u6C7A\u6848",
-    source_page: "\u30BD\u30FC\u30B9\u30DA\u30FC\u30B8",
-    related_pages: "\u95A2\u9023\u30DA\u30FC\u30B8",
-    updated: "\u66F4\u65B0\u65E5"
-  },
-  ko: {
-    basic_information: "\uAE30\uBCF8 \uC815\uBCF4",
-    description: "\uC124\uBA85",
-    related_content: "\uAD00\uB828 \uCF58\uD150\uCE20",
-    mentions_in_source: "\uCD9C\uCC98 \uC5B8\uAE09",
-    new_information: "\uC0C8 \uC815\uBCF4",
-    definition: "\uC815\uC758",
-    key_characteristics: "\uC8FC\uC694 \uD2B9\uC9D5",
-    applications: "\uC751\uC6A9",
-    related_concepts: "\uAD00\uB828 \uAC1C\uB150",
-    related_entities: "\uAD00\uB828 \uC5D4\uD2F0\uD2F0",
-    source: "\uCD9C\uCC98",
-    core_content: "\uD575\uC2EC \uB0B4\uC6A9",
-    key_entities: "\uC8FC\uC694 \uC5D4\uD2F0\uD2F0",
-    key_concepts: "\uC8FC\uC694 \uAC1C\uB150",
-    main_points: "\uC8FC\uC694 \uC0AC\uD56D",
-    resolved_contradictions: "\uD574\uACB0\uB41C \uBAA8\uC21C",
-    new_claim: "\uC0C8 \uC8FC\uC7A5",
-    existing_knowledge: "\uAE30\uC874 \uC9C0\uC2DD",
-    resolution_suggestion: "\uD574\uACB0 \uC81C\uC548",
-    source_page: "\uCD9C\uCC98 \uD398\uC774\uC9C0",
-    related_pages: "\uAD00\uB828 \uD398\uC774\uC9C0",
-    updated: "\uC5C5\uB370\uC774\uD2B8"
-  },
-  de: {
-    basic_information: "Grundlegende Informationen",
-    description: "Beschreibung",
-    related_content: "Verwandte Inhalte",
-    mentions_in_source: "Erw\xE4hnungen in der Quelle",
-    new_information: "Neue Informationen",
-    definition: "Definition",
-    key_characteristics: "Hauptmerkmale",
-    applications: "Anwendungen",
-    related_concepts: "Verwandte Konzepte",
-    related_entities: "Verwandte Entit\xE4ten",
-    source: "Quelle",
-    core_content: "Kerninhalt",
-    key_entities: "Wichtige Entit\xE4ten",
-    key_concepts: "Wichtige Konzepte",
-    main_points: "Hauptpunkte",
-    resolved_contradictions: "Aufgel\xF6ste Widerspr\xFCche",
-    new_claim: "Neue Behauptung",
-    existing_knowledge: "Bestehendes Wissen",
-    resolution_suggestion: "L\xF6sungsvorschlag",
-    source_page: "Quellseite",
-    related_pages: "Verwandte Seiten",
-    updated: "Aktualisiert"
-  },
-  fr: {
-    basic_information: "Informations de base",
-    description: "Description",
-    related_content: "Contenu associ\xE9",
-    mentions_in_source: "Mentions dans la source",
-    new_information: "Nouvelles informations",
-    definition: "D\xE9finition",
-    key_characteristics: "Caract\xE9ristiques principales",
-    applications: "Applications",
-    related_concepts: "Concepts associ\xE9s",
-    related_entities: "Entit\xE9s associ\xE9es",
-    source: "Source",
-    core_content: "Contenu principal",
-    key_entities: "Entit\xE9s cl\xE9s",
-    key_concepts: "Concepts cl\xE9s",
-    main_points: "Points principaux",
-    resolved_contradictions: "Contradictions r\xE9solues",
-    new_claim: "Nouvelle affirmation",
-    existing_knowledge: "Connaissances existantes",
-    resolution_suggestion: "Suggestion de r\xE9solution",
-    source_page: "Page source",
-    related_pages: "Pages associ\xE9es",
-    updated: "Mis \xE0 jour"
-  },
-  es: {
-    basic_information: "Informaci\xF3n b\xE1sica",
-    description: "Descripci\xF3n",
-    related_content: "Contenido relacionado",
-    mentions_in_source: "Menciones en la fuente",
-    new_information: "Nueva informaci\xF3n",
-    definition: "Definici\xF3n",
-    key_characteristics: "Caracter\xEDsticas clave",
-    applications: "Aplicaciones",
-    related_concepts: "Conceptos relacionados",
-    related_entities: "Entidades relacionadas",
-    source: "Fuente",
-    core_content: "Contenido principal",
-    key_entities: "Entidades clave",
-    key_concepts: "Conceptos clave",
-    main_points: "Puntos principales",
-    resolved_contradictions: "Contradicciones resueltas",
-    new_claim: "Nueva afirmaci\xF3n",
-    existing_knowledge: "Conocimiento existente",
-    resolution_suggestion: "Sugerencia de resoluci\xF3n",
-    source_page: "P\xE1gina de origen",
-    related_pages: "P\xE1ginas relacionadas",
-    updated: "Actualizado"
-  },
-  pt: {
-    basic_information: "Informa\xE7\xF5es b\xE1sicas",
-    description: "Descri\xE7\xE3o",
-    related_content: "Conte\xFAdo relacionado",
-    mentions_in_source: "Men\xE7\xF5es na fonte",
-    new_information: "Novas informa\xE7\xF5es",
-    definition: "Defini\xE7\xE3o",
-    key_characteristics: "Caracter\xEDsticas principais",
-    applications: "Aplica\xE7\xF5es",
-    related_concepts: "Conceitos relacionados",
-    related_entities: "Entidades relacionadas",
-    source: "Fonte",
-    core_content: "Conte\xFAdo principal",
-    key_entities: "Entidades principais",
-    key_concepts: "Conceitos principais",
-    main_points: "Pontos principais",
-    resolved_contradictions: "Contradi\xE7\xF5es resolvidas",
-    new_claim: "Nova afirma\xE7\xE3o",
-    existing_knowledge: "Conhecimento existente",
-    resolution_suggestion: "Sugest\xE3o de resolu\xE7\xE3o",
-    source_page: "P\xE1gina de origem",
-    related_pages: "P\xE1ginas relacionadas",
-    updated: "Atualizado"
+init_prompts();
+
+// src/core/source-slug.ts
+var DEFAULT_MAX_LEN = 80;
+var FINGERPRINT_LEN = 6;
+function sourceFingerprint(fullPath) {
+  let hash = 2166136261;
+  for (let i = 0; i < fullPath.length; i++) {
+    hash ^= fullPath.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
   }
-};
-function getSectionLabels(settings) {
-  const lang = settings.wikiLanguage || "en";
-  return SECTION_LABELS[lang] || SECTION_LABELS.en;
+  return (hash >>> 0).toString(16).padStart(8, "0").slice(0, FINGERPRINT_LEN);
 }
-var GRANULARITY_INSTRUCTIONS = {
-  fine: "Extract ALL entities and concepts worth recording from the source, including those mentioned only once or tangentially.",
-  standard: "Extract important and moderately important entities and concepts from the source. Ignore minor items mentioned only in passing.",
-  coarse: "Extract only the most essential entities and concepts from the source \u2014 those without which the text cannot be understood. Quality over quantity.",
-  minimal: "Extract only the most critical entities and concepts from the source \u2014 maximum 3 total items. Extreme selectivity for cost control.",
-  custom: ""
-  // placeholder — never used; getGranularityInstruction handles custom dynamically
-};
-var GRANULARITY_FIX_LIMITS = {
-  fine: { maxEntities: 6, maxConcepts: 6 },
-  standard: { maxEntities: 3, maxConcepts: 3 },
-  coarse: { maxEntities: 2, maxConcepts: 2 },
-  minimal: { maxEntities: 1, maxConcepts: 2 },
-  custom: { maxEntities: 0, maxConcepts: 0 }
-  // placeholder — never used
-};
-function getGranularityInstruction(settings) {
+function basenameNoExt(fullPath) {
+  const last = fullPath.split("/").pop() || fullPath;
+  return last.replace(/\.md$/i, "");
+}
+function sourceBaseSlug(fullPath, preserveCase = false) {
+  return computeSlug(basenameNoExt(fullPath), preserveCase);
+}
+function resolveSourceSlug(fullPath, options = {}) {
   var _a, _b;
-  const granularity = settings.extractionGranularity || "standard";
-  if (granularity === "custom") {
-    const entityLimit = (_a = settings.customEntityLimit) != null ? _a : 5;
-    const conceptLimit = (_b = settings.customConceptLimit) != null ? _b : 5;
-    return `Extract at most ${entityLimit} entities and at most ${conceptLimit} concepts from the source. If you reach either limit, stop extracting that type.`;
-  }
-  return GRANULARITY_INSTRUCTIONS[granularity] || GRANULARITY_INSTRUCTIONS.standard;
+  const maxLen = (_a = options.maxLen) != null ? _a : DEFAULT_MAX_LEN;
+  const preserveCase = (_b = options.preserveCase) != null ? _b : false;
+  const fp = sourceFingerprint(fullPath);
+  const tail = `_${fp}`;
+  const base = sourceBaseSlug(fullPath, preserveCase);
+  const trimmedBase = base.slice(0, Math.max(1, maxLen - tail.length));
+  return `${trimmedBase}${tail}`;
 }
-function appendGranularityToPrompt(prompt, settings) {
-  const instruction = getGranularityInstruction(settings);
-  if (!instruction) return prompt;
-  return `${prompt}
 
-${instruction}`;
-}
-function getGranularityFixLimits(settings) {
-  var _a, _b;
-  const granularity = settings.extractionGranularity || "standard";
-  if (granularity === "custom") {
-    return {
-      maxEntities: (_a = settings.customEntityLimit) != null ? _a : 5,
-      maxConcepts: (_b = settings.customConceptLimit) != null ? _b : 5
-    };
-  }
-  return GRANULARITY_FIX_LIMITS[granularity] || GRANULARITY_FIX_LIMITS.standard;
-}
-function applySectionLabels(prompt, settings) {
-  const labels = getSectionLabels(settings);
-  let result = prompt;
-  for (const [key, label] of Object.entries(labels)) {
-    result = result.replace(new RegExp(`\\{\\{section_${key}\\}\\}`, "g"), label);
-  }
-  return result;
-}
-function appendTagVocabularyToPrompt(prompt, settings) {
-  const section = buildActiveTagVocabularySection(settings);
-  return `${prompt}
+// src/wiki/wiki-engine.ts
+init_frontmatter();
 
-${section}`;
-}
-async function buildSystemPrompt(settings, getSchemaContext, task) {
-  const parts = [];
-  const langDirective = buildWikiLanguageDirective(settings);
-  if (langDirective) parts.push(langDirective);
-  const schemaContext = await getSchemaContext(task);
-  if (schemaContext) parts.push(schemaContext);
-  return parts.length > 0 ? parts.join("\n\n") : void 0;
-}
-function buildActiveTagVocabularySection(settings) {
-  const entities = getActiveEntityTags(settings);
-  const concepts = getActiveConceptTags(settings);
-  const lines = [];
-  lines.push("## Active Tag Vocabulary (Issue #85 \u2014 user-controlled)");
-  lines.push("");
-  lines.push(
-    "When assigning `type` to an entity or concept, you MUST use one of the following allowed values. Do NOT invent new types."
+// src/core/rate-limit.ts
+function detectRateLimitFailures(failedItems, currentConcurrency, currentBatchDelay) {
+  const rateLimitFailures = failedItems.filter(
+    (f) => /429|rate.?limit|too many requests|throttl/i.test(f.reason || "")
   );
-  lines.push("");
-  lines.push("**Entity types** (entity_type field \u2014 one of):");
-  for (const t of entities) lines.push(`- ${t}`);
-  lines.push("");
-  lines.push("**Concept types** (concept_type field \u2014 one of):");
-  for (const t of concepts) lines.push(`- ${t}`);
-  lines.push("");
-  lines.push(
-    "If a discovered item does not clearly fit any of the above, choose the closest match. Do NOT emit a free-form type string \u2014 the frontmatter validator will reject it."
+  if (rateLimitFailures.length === 0) return null;
+  return {
+    count: rateLimitFailures.length,
+    rateLimitNames: rateLimitFailures.map((f) => f.name || f.reason || "unknown"),
+    suggestedConcurrency: Math.max(1, currentConcurrency - 1),
+    suggestedDelay: currentBatchDelay < 100 ? 500 : Math.min(2e3, Math.round(currentBatchDelay * 2))
+  };
+}
+function formatRateLimitNotice(info, language) {
+  return getText(language, "rateLimitDetected").replace("{count}", String(info.count)).replace("{suggestedConcurrency}", String(info.suggestedConcurrency)).replace("{suggestedDelay}", String(info.suggestedDelay));
+}
+
+// src/core/arrays.ts
+init_frontmatter();
+function extractSourceTags(content) {
+  const fm = parseFrontmatter(content);
+  if (!fm) return [];
+  const raw = fm.tags;
+  if (Array.isArray(raw)) {
+    return raw.map((t) => String(t).trim()).filter((t) => t.length > 0);
+  }
+  return [];
+}
+function coerceToArray(value) {
+  if (Array.isArray(value)) {
+    return value;
+  }
+  return [];
+}
+
+// src/wiki/wiki-engine.ts
+init_markdown();
+init_system_prompts();
+
+// src/wiki/lint/get-existing-pages.ts
+init_frontmatter();
+async function getExistingWikiPages(app, wikiFolder) {
+  const wikiFiles = app.vault.getMarkdownFiles().filter(
+    (f) => f.path.startsWith(wikiFolder) && !f.path.includes("index.md") && !f.path.includes("log.md") && !f.path.includes("/schema/") && !f.path.includes("/contradictions/")
   );
-  return lines.join("\n");
+  const pages = [];
+  for (const f of wikiFiles) {
+    const relPath = f.path.replace(wikiFolder + "/", "").replace(".md", "");
+    const content = await app.vault.read(f);
+    const fm = parseFrontmatter(content);
+    pages.push({
+      path: f.path,
+      title: f.basename,
+      wikiLink: `[[${relPath}|${f.basename}]]`,
+      aliases: Array.isArray(fm == null ? void 0 : fm.aliases) ? fm.aliases : void 0
+    });
+  }
+  return pages;
+}
+
+// src/wiki/lint/fix-dead-link.ts
+init_prompts();
+init_constants();
+init_system_prompts();
+
+// src/core/json.ts
+async function parseJsonResponse(response, repairFn) {
+  console.debug("parseJsonResponse parsing started... response length:", response.length);
+  try {
+    let normalized = response.trim();
+    normalized = normalized.replace(/<think\b[^>]*>[\s\S]*?<\/think>/gi, "");
+    normalized = normalized.replace(/<thinking\b[^>]*>[\s\S]*?<\/thinking>/gi, "");
+    normalized = normalized.trim();
+    normalized = normalized.replace(/^```(?:json|markdown|md)?\s*\n?/, "");
+    normalized = normalized.replace(/\n?```$/, "");
+    normalized = normalized.trim();
+    if (normalized.startsWith("{{")) {
+      normalized = normalized.substring(1);
+      console.debug('Prefill echo "{{" detected, removing leading {');
+    } else if (normalized.length > 1 && normalized[0] === "{") {
+      const afterFirst = normalized.substring(1).trimStart();
+      if (afterFirst.startsWith("{") || afterFirst.startsWith("```")) {
+        normalized = afterFirst;
+        console.debug('Newline-separated "{\\n{" detected {\\n{\uFF0Cremoving leading {');
+      }
+    }
+    if (normalized.length > 0 && normalized[0] !== "{") {
+      const withBrace = "{" + normalized;
+      try {
+        console.debug("first char not '{', prepended '{' and parsed successfully");
+        return JSON.parse(withBrace);
+      } catch (e) {
+        console.debug("prepending '{' still failed, continuing");
+      }
+    }
+    try {
+      return JSON.parse(normalized);
+    } catch (directError) {
+      const msg = directError instanceof SyntaxError ? directError.message : "";
+      const afterMatch = msg.match(/after JSON at position (\d+)/);
+      if (afterMatch) {
+        const endPos = parseInt(afterMatch[1], 10);
+        const prefix = normalized.substring(0, endPos);
+        console.debug("extra content after JSON detected (position %d)\uFF0Cprefix extracted (length %d)", endPos, prefix.length);
+        try {
+          console.debug("prefix parsed successfully");
+          return JSON.parse(prefix);
+        } catch (e) {
+          console.debug("prefix parse failed, continuing");
+        }
+      }
+    }
+    const firstBrace = normalized.indexOf("{");
+    if (firstBrace !== -1) {
+      const balanced = extractBalancedJson(normalized, firstBrace);
+      if (balanced) {
+        const fixed = fixCommonJsonIssues(balanced);
+        try {
+          return JSON.parse(fixed);
+        } catch (braceError) {
+          console.debug("brace-count extraction failed:", String(braceError).slice(0, 80));
+        }
+        if (repairFn) {
+          try {
+            const repaired = await repairFn(balanced);
+            const cleanedLlm = repaired.trim().replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```$/, "").trim();
+            const final = fixCommonJsonIssues(cleanedLlm);
+            return JSON.parse(final);
+          } catch (llmError) {
+            console.error("LLM repair also failed (brace-count):", String(llmError).slice(0, 80));
+          }
+        }
+      }
+    }
+    const jsonMatch = normalized.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const candidate = jsonMatch[0];
+      const fixed = fixCommonJsonIssues(candidate);
+      try {
+        return JSON.parse(fixed);
+      } catch (regexError) {
+        console.debug("greedy regex extraction failed:", String(regexError).slice(0, 80));
+      }
+      if (repairFn) {
+        try {
+          const repaired = await repairFn(candidate);
+          const cleanedLlm = repaired.trim().replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```$/, "").trim();
+          const final = fixCommonJsonIssues(cleanedLlm);
+          return JSON.parse(final);
+        } catch (llmError) {
+          console.error("LLM repair also failed (greedy regex):", String(llmError).slice(0, 80));
+        }
+      }
+    }
+    console.error("JSON parse completely failed (length %d)", response.length);
+    console.error("first 200 chars after normalization:", normalized.substring(0, 200));
+    console.error("last 200 chars after normalization:", normalized.substring(Math.max(0, normalized.length - 200)));
+    return null;
+  } catch (error) {
+    console.error("parseJsonResponse exception:", error);
+    return null;
+  }
+}
+function extractBalancedJson(text, startPos) {
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  for (let i = startPos; i < text.length; i++) {
+    const ch = text[i];
+    if (escape) {
+      escape = false;
+      continue;
+    }
+    if (ch === "\\" && inString) {
+      escape = true;
+      continue;
+    }
+    if (ch === '"') {
+      inString = !inString;
+      continue;
+    }
+    if (inString) continue;
+    if (ch === "{") depth++;
+    if (ch === "}") {
+      depth--;
+      if (depth === 0) {
+        return text.substring(startPos, i + 1);
+      }
+    }
+  }
+  return null;
+}
+function fixCommonJsonIssues(json) {
+  let fixed = json.replace(/,\s*\}/g, "}").replace(/,\s*\]/g, "]");
+  fixed = escapeContentQuotes(fixed);
+  fixed = fixed.replace(/"\s*\n\s*"/g, '",\n"');
+  fixed = fixed.replace(/,\s*\}/g, "}").replace(/,\s*\]/g, "]");
+  return fixed;
+}
+function escapeContentQuotes(json) {
+  const out = [];
+  let inString = false;
+  let i = 0;
+  while (i < json.length) {
+    const ch = json[i];
+    if (ch === "\\" && inString) {
+      out.push(ch);
+      i++;
+      if (i < json.length) out.push(json[i]);
+      i++;
+      continue;
+    }
+    if (!inString && ch === '"') {
+      inString = true;
+      out.push(ch);
+      i++;
+      continue;
+    }
+    if (inString && ch === '"') {
+      let peek = i + 1;
+      while (peek < json.length && isJsonWhitespace(json[peek])) peek++;
+      const nextCh = peek < json.length ? json[peek] : "";
+      if (nextCh === ":" || nextCh === "," || nextCh === "}" || nextCh === "]" || peek >= json.length) {
+        inString = false;
+        out.push(ch);
+      } else {
+        out.push('\\"');
+      }
+      i++;
+      continue;
+    }
+    out.push(ch);
+    i++;
+  }
+  return out.join("");
+}
+function isJsonWhitespace(ch) {
+  return ch === " " || ch === "	" || ch === "\n" || ch === "\r";
 }
 
 // src/core/dead-link-detector.ts
@@ -7305,49 +8322,213 @@ function replaceDeadLink(content, targetName, replacement) {
   );
 }
 
-// src/core/prompt-builders.ts
-function buildEmptyPagePrompt(template, context) {
-  const truncatedIndex = context.wikiIndex.substring(0, 2e3);
-  return template.replace(/\{\{page_type\}\}/g, context.pageType).replace(/\{\{existing_content\}\}/g, context.existingContent).replace(/\{\{wiki_index\}\}/g, truncatedIndex).replace(/\{\{section_labels\}\}/g, context.sectionLabelsHint).replace(/\{\{max_entities\}\}/g, String(context.maxEntities)).replace(/\{\{max_concepts\}\}/g, String(context.maxConcepts));
+// src/wiki/lint/fix-dead-link.ts
+var PLURAL_MAP = {
+  entity: WIKI_SUBFOLDERS.entities,
+  concept: WIKI_SUBFOLDERS.concepts
+};
+function makeRelPath(path, wikiFolder) {
+  return path.replace(wikiFolder + "/", "").replace(/\.md$/i, "");
 }
-function cleanWikiIndex(indexContent) {
-  return indexContent.split("\n").filter((line) => {
-    if (/\[\[(entities|concepts|sources)\/[^\]]*\/\1[^\s\-_|\]]/.test(line)) return false;
-    if (/\[\[(entities|concepts|sources)\/[^|\]]+\|(entities|concepts|sources)\//.test(line)) return false;
-    return true;
+function replaceTargetLink(sourceContent, targetName, newLink) {
+  const linkRegex = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
+  return sourceContent.replace(
+    linkRegex,
+    (fullMatch, capturedTarget) => {
+      if (capturedTarget.trim() === targetName) return newLink;
+      return fullMatch;
+    }
+  );
+}
+async function fixDeadLink(ctx, sourcePath, targetName) {
+  const existingPages = await getExistingWikiPages(
+    ctx.app,
+    ctx.settings.wikiFolder
+  );
+  const sourceContent = await ctx.tryReadFile(sourcePath) || "(empty)";
+  const targetBasename = targetName.includes("/") ? targetName.split("/").pop() : targetName;
+  const preMatch = findDeadLinkTarget(existingPages, targetBasename);
+  if (preMatch) {
+    const newLink2 = buildDeadLinkReplacement(preMatch, ctx.settings.wikiFolder);
+    const updatedContent2 = replaceDeadLink(sourceContent, targetName, newLink2);
+    await ctx.createOrUpdateFile(sourcePath, updatedContent2);
+    return `pre-check corrected (alias match): ${newLink2}`;
+  }
+  const pagesList = existingPages.filter((p) => {
+    const bn = p.title || "";
+    const hasPollutedBasename = /^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/.test(bn);
+    return !hasPollutedBasename;
+  }).map((p) => {
+    var _a;
+    const aliasSuffix = ((_a = p.aliases) == null ? void 0 : _a.length) ? ` \`aliases: ${p.aliases.join(", ")}\`` : "";
+    return `- ${p.wikiLink}${aliasSuffix}`;
   }).join("\n");
-}
-function correctLinkPollution(content) {
-  const DISPLAY_POLLUTION_REGEX = /\[\[(entities|concepts|sources)\/[^|\]]+\|(entities|concepts|sources)\/[^|\]]+\]\]/g;
-  const PATH_DUP_REGEX = /\[\[(entities|concepts|sources)\/\1([^\s\-_|\]]+)(\|[^\]]+)?\]\]/g;
-  let cleaned = content.replace(
-    DISPLAY_POLLUTION_REGEX,
-    (match) => {
-      const parts = match.match(/\[\[([^|\]]+)\|([^|\]]+)\]\]/);
-      if (parts) {
-        const path = parts[1];
-        const pollutedDisplay = parts[2];
-        const cleanDisplay = pollutedDisplay.replace(/^(entities|concepts|sources)\//, "");
-        return `[[${path}|${cleanDisplay}]]`;
+  const prompt = PROMPTS.fixDeadLink.replace("{{source_content}}", sourceContent.substring(0, 2e3)).replace("{{target_name}}", targetName).replace("{{existing_pages}}", pagesList.substring(0, 3e3));
+  const client = ctx.getClient();
+  if (!client) return "no action taken (no client)";
+  let response = await client.createMessage({
+    model: ctx.settings.model,
+    max_tokens: TOKENS_LINT_PAGE_FIX,
+    system: await buildSystemPrompt(
+      ctx.settings,
+      ctx.getSchemaContext,
+      "lint"
+    ),
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" },
+    ...ctx.settings.disableThinking ? { enableThinking: false } : {}
+  });
+  if (!response) {
+    console.debug(
+      `fixDeadLink: empty response for target "${targetName}", retrying without JSON mode`
+    );
+    response = await client.createMessage({
+      model: ctx.settings.model,
+      max_tokens: TOKENS_LINT_PAGE_FIX,
+      system: await buildSystemPrompt(
+        ctx.settings,
+        ctx.getSchemaContext,
+        "lint"
+      ),
+      messages: [{ role: "user", content: prompt }],
+      ...ctx.settings.disableThinking ? { enableThinking: false } : {}
+    });
+  }
+  const result = await parseJsonResponse(response);
+  if ((result == null ? void 0 : result.action) === "correct" && result.correct_link) {
+    let newLink2 = result.correct_link.trim();
+    if (!newLink2.startsWith("[[")) {
+      newLink2 = `[[${newLink2}]]`;
+    }
+    const updatedContent2 = replaceTargetLink(sourceContent, targetName, newLink2);
+    await ctx.createOrUpdateFile(sourcePath, updatedContent2);
+    return `corrected: ${newLink2}`;
+  }
+  if ((result == null ? void 0 : result.action) === "create_stub" && result.stub_title) {
+    const sanitizedTitle = result.stub_title.replace(/^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/, "$2");
+    const stubTitleLower = sanitizedTitle.toLowerCase();
+    const safetySlug = slugify(sanitizedTitle).toLowerCase();
+    const aliasMatch = existingPages.find(
+      (p) => {
+        var _a, _b;
+        return p.title.toLowerCase() === stubTitleLower || ((_a = p.aliases) == null ? void 0 : _a.some((a) => a.toLowerCase() === stubTitleLower)) || slugify(p.title).toLowerCase() === safetySlug || ((_b = p.aliases) == null ? void 0 : _b.some((a) => slugify(a).toLowerCase() === safetySlug));
       }
-      return match;
+    );
+    if (aliasMatch) {
+      const newLink3 = `[[${makeRelPath(aliasMatch.path, ctx.settings.wikiFolder)}|${aliasMatch.title}]]`;
+      const updatedContent3 = replaceTargetLink(sourceContent, targetName, newLink3);
+      await ctx.createOrUpdateFile(sourcePath, updatedContent3);
+      return `safety-net corrected (alias match for stub): ${newLink3}`;
     }
+    const stubType2 = result.stub_type || "entity";
+    const stubDir2 = PLURAL_MAP[stubType2] || `${stubType2}s`;
+    const stubSlug2 = slugify(sanitizedTitle, ctx.settings.slugCase === "preserve");
+    const stubPath2 = `${ctx.settings.wikiFolder}/${stubDir2}/${stubSlug2}.md`;
+    const sourceRel2 = makeRelPath(sourcePath, ctx.settings.wikiFolder);
+    const stubContent2 = `---
+type: ${stubType2}
+created: ${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}
+sources: ["[[${sourceRel2}]]"]
+tags: [${stubType2 === "entity" ? "other" : "term"}]
+---
+# ${sanitizedTitle}
+
+> Auto-generated stub page \u2014 referenced by [[${sourceRel2}]].
+`;
+    await ctx.createOrUpdateFile(stubPath2, stubContent2);
+    const { fillEmptyPage: fillEmptyPage3 } = await Promise.resolve().then(() => (init_fill_empty_page(), fill_empty_page_exports));
+    await fillEmptyPage3(ctx, stubPath2);
+    const newLink2 = `[[${stubDir2}/${stubSlug2}|${sanitizedTitle}]]`;
+    const updatedContent2 = replaceTargetLink(sourceContent, targetName, newLink2);
+    await ctx.createOrUpdateFile(sourcePath, updatedContent2);
+    return `stub created and expanded: ${stubPath2}`;
+  }
+  const lowerTarget = targetBasename.toLowerCase();
+  const targetSlug = slugify(targetBasename).toLowerCase();
+  let match = existingPages.find(
+    (p) => p.title.toLowerCase() === lowerTarget || slugify(p.title).toLowerCase() === targetSlug
   );
-  cleaned = cleaned.replace(
-    PATH_DUP_REGEX,
-    (_match, folder, rest, display) => {
-      const displayPart = display || "";
-      return `[[${folder}/${rest}${displayPart}]]`;
-    }
-  );
-  return cleaned;
+  if (!match) {
+    match = existingPages.find(
+      (p) => {
+        var _a;
+        return (_a = p.aliases) == null ? void 0 : _a.some(
+          (a) => a.toLowerCase() === lowerTarget || slugify(a).toLowerCase() === targetSlug
+        );
+      }
+    );
+  }
+  if (match) {
+    const newLink2 = `[[${makeRelPath(match.path, ctx.settings.wikiFolder)}|${match.title}]]`;
+    const updatedContent2 = replaceTargetLink(sourceContent, targetName, newLink2);
+    await ctx.createOrUpdateFile(sourcePath, updatedContent2);
+    return `fallback corrected: ${newLink2}`;
+  }
+  const cleanBasename = targetBasename.replace(/^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/, "$2");
+  const stubType = targetName.includes("/entities/") ? "entity" : "concept";
+  const stubDir = stubType === "entity" ? WIKI_SUBFOLDERS.entities : WIKI_SUBFOLDERS.concepts;
+  const stubSlug = slugify(cleanBasename, ctx.settings.slugCase === "preserve");
+  const stubPath = `${ctx.settings.wikiFolder}/${stubDir}/${stubSlug}.md`;
+  const sourceRel = makeRelPath(sourcePath, ctx.settings.wikiFolder);
+  const stubContent = `---
+type: ${stubType}
+created: ${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}
+sources: ["[[${sourceRel}]]"]
+tags: [${stubType === "entity" ? "other" : "term"}]
+---
+# ${cleanBasename}
+
+> Auto-generated stub page \u2014 referenced by [[${sourceRel}]].
+`;
+  await ctx.createOrUpdateFile(stubPath, stubContent);
+  const { fillEmptyPage: fillEmptyPage2 } = await Promise.resolve().then(() => (init_fill_empty_page(), fill_empty_page_exports));
+  await fillEmptyPage2(ctx, stubPath);
+  const newLink = `[[${stubDir}/${stubSlug}|${cleanBasename}]]`;
+  const updatedContent = replaceTargetLink(sourceContent, targetName, newLink);
+  await ctx.createOrUpdateFile(sourcePath, updatedContent);
+  return `fallback stub created and expanded: ${stubPath}`;
 }
+
+// src/wiki/wiki-engine.ts
+init_fill_empty_page();
+
+// src/wiki/lint/delete-empty-stubs.ts
+init_frontmatter();
+init_utils();
+async function deleteEmptyStubs(ctx, wikiFolder) {
+  const files = ctx.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(wikiFolder) && !f.path.endsWith("/index.md") && !f.path.includes("/schema/") && !f.path.includes("/sources/") && !f.path.includes("/contradictions/") && !f.path.includes("log.md"));
+  let deleted = 0;
+  let failed = 0;
+  const errors = [];
+  for (const file of files) {
+    try {
+      const content = await ctx.app.vault.read(file);
+      if (!isPageEmpty(content)) continue;
+      const fm = parseFrontmatter(content);
+      if ((fm == null ? void 0 : fm.reviewed) === true) continue;
+      await ctx.deleteFile(file.path);
+      deleted++;
+    } catch (e) {
+      failed++;
+      const errMsg2 = e instanceof Error ? e.message : String(e);
+      errors.push(`${file.path}: ${errMsg2}`);
+      console.error(`[deleteEmptyStubs] Failed: ${file.path}`, e);
+    }
+  }
+  return { deleted, failed, errors };
+}
+
+// src/wiki/lint/link-orphan.ts
+init_prompts();
+init_constants();
+init_system_prompts();
+init_prompt_builders();
 
 // src/core/orphan-matcher.ts
 function buildOrphanLinkPrompt(template, context) {
   const truncatedContent = context.orphanContent.substring(0, 2e3);
   const truncatedIndex = context.wikiIndex.substring(0, 3e3);
-  return template.replace(/\{\{orphan_content\}\}/g, truncatedContent).replace(/\{\{wiki_index\}\}/g, truncatedIndex);
+  return template.replace(/\{\{wikiFolder\}\}/g, context.wikiFolder).replace(/\{\{orphan_content\}\}/g, truncatedContent).replace(/\{\{wiki_index\}\}/g, truncatedIndex);
 }
 function validateOrphanLinkTarget(relatedContent, linkTarget) {
   return relatedContent.includes(linkTarget);
@@ -7364,626 +8545,262 @@ function normalizeOrphanPagePath(pagePath, wikiFolder) {
   return pagePath.startsWith(wikiFolder) ? pagePath : `${wikiFolder}/${pagePath}`;
 }
 
-// src/wiki/lint-fixes.ts
-var EMPTY_CONTENT_STRIP = /[#*\-_>\s\n[\]|—]/g;
-var MIN_SUBSTANTIVE_CHARS = 50;
-var STUB_MARKER = "Auto-generated stub page";
-async function getExistingWikiPages(app, wikiFolder) {
-  const wikiFiles = app.vault.getMarkdownFiles().filter(
-    (f) => f.path.startsWith(wikiFolder) && !f.path.includes("index.md") && !f.path.includes("log.md") && !f.path.includes("/schema/") && !f.path.includes("/contradictions/")
-  );
-  const pages = [];
-  for (const f of wikiFiles) {
-    const relPath = f.path.replace(wikiFolder + "/", "").replace(".md", "");
-    const content = await app.vault.read(f);
-    const fm = parseFrontmatter(content);
-    pages.push({
-      path: f.path,
-      title: f.basename,
-      wikiLink: `[[${relPath}|${f.basename}]]`,
-      // parseFrontmatter normalizes aliases to array, but guard anyway
-      aliases: Array.isArray(fm == null ? void 0 : fm.aliases) ? fm.aliases : void 0
-    });
-  }
-  return pages;
-}
-var LintFixer = class {
-  constructor(ctx) {
-    this.ctx = ctx;
-  }
-  async fixDeadLink(sourcePath, targetName) {
-    const existingPages = await getExistingWikiPages(
-      this.ctx.app,
-      this.ctx.settings.wikiFolder
+// src/wiki/lint/link-orphan.ts
+async function linkOrphanPage(ctx, orphanPath) {
+  var _a;
+  const orphanContent = await ctx.tryReadFile(orphanPath);
+  if (!orphanContent) return [];
+  const indexPath = `${ctx.settings.wikiFolder}/index.md`;
+  const rawWikiIndex = await ctx.tryReadFile(indexPath) || "";
+  const wikiIndex = cleanWikiIndex(rawWikiIndex);
+  const prompt = buildOrphanLinkPrompt(PROMPTS.linkOrphanPage, {
+    orphanContent,
+    wikiIndex,
+    wikiFolder: ctx.settings.wikiFolder
+  });
+  const client = ctx.getClient();
+  if (!client) return [];
+  const response = await client.createMessage({
+    model: ctx.settings.model,
+    max_tokens: TOKENS_LINT_ORPHAN_FIX,
+    system: await buildSystemPrompt(
+      ctx.settings,
+      ctx.getSchemaContext,
+      "lint"
+    ),
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" },
+    ...ctx.settings.disableThinking ? { enableThinking: false } : {}
+  });
+  const result = await parseJsonResponse(response);
+  if (!((_a = result == null ? void 0 : result.related_pages) == null ? void 0 : _a.length)) return [];
+  const linkedPages = [];
+  const labels = getSectionLabels(ctx.settings);
+  for (const related of result.related_pages) {
+    related.page_path = normalizeLLMPath(related.page_path, ctx.settings.wikiFolder);
+    const fullPath = normalizeOrphanPagePath(
+      related.page_path,
+      ctx.settings.wikiFolder
     );
-    const sourceContent = await this.ctx.tryReadFile(sourcePath) || "(empty)";
-    const targetBasename = targetName.includes("/") ? targetName.split("/").pop() : targetName;
-    const preMatch = findDeadLinkTarget(existingPages, targetBasename);
-    if (preMatch) {
-      const newLink = buildDeadLinkReplacement(preMatch, this.ctx.settings.wikiFolder);
-      const updatedContent = replaceDeadLink(sourceContent, targetName, newLink);
-      await this.ctx.createOrUpdateFile(sourcePath, updatedContent);
-      return `pre-check corrected (alias match): ${newLink}`;
-    }
-    const pagesList = existingPages.filter((p) => {
-      const bn = p.title || "";
-      const hasPollutedBasename = /^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/.test(bn);
-      return !hasPollutedBasename;
-    }).map((p) => {
-      var _a;
-      const aliasSuffix = ((_a = p.aliases) == null ? void 0 : _a.length) ? ` \`aliases: ${p.aliases.join(", ")}\`` : "";
-      return `- ${p.wikiLink}${aliasSuffix}`;
-    }).join("\n");
-    const prompt = PROMPTS.fixDeadLink.replace("{{source_content}}", sourceContent.substring(0, 2e3)).replace("{{target_name}}", targetName).replace("{{existing_pages}}", pagesList.substring(0, 3e3));
-    const client = this.ctx.getClient();
-    if (!client) return "no action taken (no client)";
-    let response = await client.createMessage({
-      model: this.ctx.settings.model,
-      max_tokens: TOKENS_LINT_PAGE_FIX,
-      system: await buildSystemPrompt(
-        this.ctx.settings,
-        this.ctx.getSchemaContext,
-        "lint"
-      ),
-      messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" },
-      disableThinking: this.ctx.settings.disableThinking
-    });
-    if (!response) {
-      console.debug(
-        `fixDeadLink: empty response for target "${targetName}", retrying without JSON mode`
+    const relatedContent = await ctx.tryReadFile(fullPath);
+    if (!relatedContent) continue;
+    if (!validateOrphanLinkTarget(relatedContent, related.link_target)) {
+      const updated = buildOrphanLinkUpdate(
+        relatedContent,
+        {
+          pagePath: related.page_path,
+          linkText: related.link_text,
+          linkTarget: related.link_target
+        },
+        labels.related_pages
       );
-      response = await client.createMessage({
-        model: this.ctx.settings.model,
+      await ctx.createOrUpdateFile(fullPath, updated);
+      linkedPages.push(related.page_path);
+    }
+  }
+  return linkedPages;
+}
+
+// src/wiki/lint/merge-duplicates.ts
+init_prompts();
+init_constants();
+init_system_prompts();
+init_frontmatter();
+init_markdown();
+init_utils();
+async function mergeDuplicatePages(ctx, targetPath, sourcePath) {
+  var _a, _b;
+  const targetContent = await ctx.tryReadFile(targetPath);
+  const sourceContent = await ctx.tryReadFile(sourcePath);
+  if (!targetContent || !sourceContent) {
+    throw new Error(`Cannot merge: target or source page not found (target=${targetPath}, source=${sourcePath})`);
+  }
+  const sourceFm = parseFrontmatter(sourceContent);
+  const targetFm = parseFrontmatter(targetContent);
+  const sourceTitle = ((_a = sourcePath.split("/").pop()) == null ? void 0 : _a.replace(".md", "")) || "";
+  const targetSources = Array.isArray(targetFm == null ? void 0 : targetFm.sources) ? targetFm.sources : [];
+  const sourceSources = Array.isArray(sourceFm == null ? void 0 : sourceFm.sources) ? sourceFm.sources : [];
+  const mergedSourcesSet = /* @__PURE__ */ new Set();
+  const mergedSourcesList = [];
+  for (const s of [...targetSources, ...sourceSources]) {
+    const key = s.trim().toLowerCase();
+    if (!mergedSourcesSet.has(key)) {
+      mergedSourcesSet.add(key);
+      mergedSourcesList.push(s);
+    }
+  }
+  const targetAliases = Array.isArray(targetFm == null ? void 0 : targetFm.aliases) ? targetFm.aliases : [];
+  const sourceAliases = Array.isArray(sourceFm == null ? void 0 : sourceFm.aliases) ? sourceFm.aliases : [];
+  const extractH1 = (content) => {
+    const bodyMatch = content.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
+    if (!bodyMatch) return null;
+    const h1Match = bodyMatch[1].trim().match(/^#\s+(.+?)(?:\n|$)/);
+    return h1Match ? h1Match[1].trim() : null;
+  };
+  const sourceH1 = extractH1(sourceContent);
+  const targetH1 = extractH1(targetContent);
+  const allAliases = [...targetAliases, sourceTitle, ...sourceAliases];
+  if (sourceH1 && sourceH1 !== sourceTitle) {
+    allAliases.push(sourceH1);
+  }
+  const targetFilename = ((_b = targetPath.split("/").pop()) == null ? void 0 : _b.replace(".md", "")) || "";
+  if (targetH1 && targetH1 !== targetFilename && !targetAliases.includes(targetH1)) {
+    allAliases.unshift(targetH1);
+  }
+  const wikiSubfolders = [WIKI_SUBFOLDERS.entities, WIKI_SUBFOLDERS.concepts, WIKI_SUBFOLDERS.sources];
+  const cleanAliases = allAliases.filter((a) => {
+    if (!a) return false;
+    for (const folder of wikiSubfolders) {
+      if (a.startsWith(folder) && a.length > folder.length) return false;
+    }
+    return true;
+  });
+  const targetTitle = (targetFm == null ? void 0 : targetFm.title) || targetFilename;
+  let dedupedAliases = cleanAliases.filter(
+    (a, i) => a && a !== targetTitle && cleanAliases.indexOf(a) === i
+  );
+  const targetBodyMatch = targetContent.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
+  const sourceBodyMatch = sourceContent.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
+  const targetBody = targetBodyMatch ? targetBodyMatch[1].trim() : targetContent;
+  const sourceBody = sourceBodyMatch ? sourceBodyMatch[1].trim() : sourceContent;
+  const client = ctx.getClient();
+  let mergedBody = "";
+  let llmMergeSucceeded = false;
+  if (client) {
+    try {
+      const prompt = PROMPTS.mergeDuplicatePages.replace("{{target_content}}", targetBody).replace("{{source_content}}", sourceBody);
+      const mergedContent = await client.createMessage({
+        model: ctx.settings.model,
         max_tokens: TOKENS_LINT_PAGE_FIX,
         system: await buildSystemPrompt(
-          this.ctx.settings,
-          this.ctx.getSchemaContext,
-          "lint"
+          ctx.settings,
+          ctx.getSchemaContext,
+          "merge"
         ),
         messages: [{ role: "user", content: prompt }],
-        disableThinking: this.ctx.settings.disableThinking
+        ...ctx.settings.disableThinking ? { enableThinking: false } : {}
       });
-    }
-    const result = await parseJsonResponse(response);
-    if ((result == null ? void 0 : result.action) === "correct" && result.correct_link) {
-      let newLink = result.correct_link.trim();
-      if (!newLink.startsWith("[[")) {
-        newLink = `[[${newLink}]]`;
-      }
-      const linkRegex = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
-      const updatedContent = sourceContent.replace(
-        linkRegex,
-        (fullMatch, capturedTarget) => {
-          if (capturedTarget.trim() === targetName) return newLink;
-          return fullMatch;
+      const cleaned = cleanMarkdownResponse(mergedContent);
+      if (cleaned && cleaned.length > 100) {
+        let parsed = null;
+        try {
+          parsed = await parseJsonResponse(cleaned);
+        } catch (parseErr) {
+          console.error(`mergeDuplicatePages: JSON parse failed for ${sourcePath} \u2192 ${targetPath}`, parseErr);
         }
-      );
-      await this.ctx.createOrUpdateFile(sourcePath, updatedContent);
-      return `corrected: ${newLink}`;
-    }
-    if ((result == null ? void 0 : result.action) === "create_stub" && result.stub_title) {
-      const sanitizedTitle = result.stub_title.replace(/^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/, "$2");
-      const stubTitleLower = sanitizedTitle.toLowerCase();
-      const safetySlug = slugify(sanitizedTitle).toLowerCase();
-      const aliasMatch = existingPages.find(
-        (p) => {
-          var _a, _b;
-          return p.title.toLowerCase() === stubTitleLower || ((_a = p.aliases) == null ? void 0 : _a.some((a) => a.toLowerCase() === stubTitleLower)) || slugify(p.title).toLowerCase() === safetySlug || ((_b = p.aliases) == null ? void 0 : _b.some((a) => slugify(a).toLowerCase() === safetySlug));
+        if (parsed == null ? void 0 : parsed.body) {
+          mergedBody = parsed.body.trim();
+          llmMergeSucceeded = true;
+        } else if (!parsed) {
+          console.warn(`mergeDuplicatePages: JSON parse returned null for ${sourcePath} \u2192 ${targetPath}, falling back to programmatic merge`);
+        } else {
+          console.warn(`mergeDuplicatePages: LLM response missing 'body' field for ${sourcePath} \u2192 ${targetPath}, falling back to programmatic merge`);
         }
-      );
-      if (aliasMatch) {
-        const newLink2 = `[[${aliasMatch.path.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "")}|${aliasMatch.title}]]`;
-        const linkRegex2 = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
-        const updatedContent2 = sourceContent.replace(
-          linkRegex2,
-          (fullMatch, capturedTarget) => {
-            if (capturedTarget.trim() === targetName) return newLink2;
-            return fullMatch;
-          }
-        );
-        await this.ctx.createOrUpdateFile(sourcePath, updatedContent2);
-        return `safety-net corrected (alias match for stub): ${newLink2}`;
-      }
-      const stubType = result.stub_type || "entity";
-      const pluralMap = {
-        entity: WIKI_SUBFOLDERS.entities,
-        concept: WIKI_SUBFOLDERS.concepts
-      };
-      const stubDir = pluralMap[stubType] || `${stubType}s`;
-      const stubSlug = slugify(sanitizedTitle, this.ctx.settings.slugCase === "preserve");
-      const stubPath = `${this.ctx.settings.wikiFolder}/${stubDir}/${stubSlug}.md`;
-      const sourceRel = sourcePath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
-      const stubContent = `---
-type: ${stubType}
-created: ${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}
-sources: ["[[${sourceRel}]]"]
-tags: [${stubType === "entity" ? "other" : "term"}]
----
-# ${sanitizedTitle}
-
-> Auto-generated stub page \u2014 referenced by [[${sourceRel}]].
-`;
-      await this.ctx.createOrUpdateFile(stubPath, stubContent);
-      await this.fillEmptyPage(stubPath);
-      const newLink = `[[${stubDir}/${stubSlug}|${sanitizedTitle}]]`;
-      const linkRegex = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
-      const updatedContent = sourceContent.replace(
-        linkRegex,
-        (fullMatch, capturedTarget) => {
-          if (capturedTarget.trim() === targetName) return newLink;
-          return fullMatch;
-        }
-      );
-      await this.ctx.createOrUpdateFile(sourcePath, updatedContent);
-      return `stub created and expanded: ${stubPath}`;
-    }
-    {
-      const targetBasename2 = targetName.includes("/") ? targetName.split("/").pop() : targetName;
-      const lowerTarget = targetBasename2.toLowerCase();
-      const targetSlug = slugify(targetBasename2).toLowerCase();
-      let match = existingPages.find(
-        (p) => p.title.toLowerCase() === lowerTarget || slugify(p.title).toLowerCase() === targetSlug
-      );
-      if (!match) {
-        match = existingPages.find(
-          (p) => {
-            var _a;
-            return (_a = p.aliases) == null ? void 0 : _a.some(
-              (a) => a.toLowerCase() === lowerTarget || slugify(a).toLowerCase() === targetSlug
-            );
-          }
-        );
-      }
-      if (match) {
-        const newLink2 = `[[${match.path.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "")}|${match.title}]]`;
-        const linkRegex2 = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
-        const updatedContent2 = sourceContent.replace(
-          linkRegex2,
-          (fullMatch, capturedTarget) => {
-            if (capturedTarget.trim() === targetName) return newLink2;
-            return fullMatch;
-          }
-        );
-        await this.ctx.createOrUpdateFile(sourcePath, updatedContent2);
-        return `fallback corrected: ${newLink2}`;
-      }
-      const cleanBasename = targetBasename2.replace(/^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/, "$2");
-      const stubType = targetName.includes("/entities/") ? "entity" : "concept";
-      const stubDir = stubType === "entity" ? "entities" : "concepts";
-      const stubSlug = slugify(cleanBasename, this.ctx.settings.slugCase === "preserve");
-      const stubPath = `${this.ctx.settings.wikiFolder}/${stubDir}/${stubSlug}.md`;
-      const sourceRel = sourcePath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
-      const stubContent = `---
-type: ${stubType}
-created: ${(/* @__PURE__ */ new Date()).toISOString().split("T")[0]}
-sources: ["[[${sourceRel}]]"]
-tags: [${stubType === "entity" ? "other" : "term"}]
----
-# ${cleanBasename}
-
-> Auto-generated stub page \u2014 referenced by [[${sourceRel}]].
-`;
-      await this.ctx.createOrUpdateFile(stubPath, stubContent);
-      await this.fillEmptyPage(stubPath);
-      const newLink = `[[${stubDir}/${stubSlug}|${cleanBasename}]]`;
-      const linkRegex = /\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]/g;
-      const updatedContent = sourceContent.replace(
-        linkRegex,
-        (fullMatch, capturedTarget) => {
-          if (capturedTarget.trim() === targetName) return newLink;
-          return fullMatch;
-        }
-      );
-      await this.ctx.createOrUpdateFile(sourcePath, updatedContent);
-      return `fallback stub created and expanded: ${stubPath}`;
-    }
-  }
-  async fillEmptyPage(pagePath, existingContent) {
-    const content = existingContent != null ? existingContent : await this.ctx.tryReadFile(pagePath);
-    if (content === null || content === void 0) {
-      throw new Error(
-        `Cannot expand empty page: file not found at "${pagePath}"`
-      );
-    }
-    const beforeLen = content.length;
-    const pageType = pagePath.includes(`/${WIKI_SUBFOLDERS.entities}/`) ? WIKI_SUBFOLDERS.entities : pagePath.includes(`/${WIKI_SUBFOLDERS.concepts}/`) ? WIKI_SUBFOLDERS.concepts : WIKI_SUBFOLDERS.sources;
-    const indexPath = `${this.ctx.settings.wikiFolder}/index.md`;
-    const rawWikiIndex = await this.ctx.tryReadFile(indexPath) || "";
-    const wikiIndex = cleanWikiIndex(rawWikiIndex);
-    const limits = getGranularityFixLimits(this.ctx.settings);
-    const prompt = buildEmptyPagePrompt(PROMPTS.fillEmptyPage, {
-      pageType,
-      existingContent: content,
-      wikiIndex,
-      sectionLabelsHint: buildSectionLabelsHint(this.ctx.settings),
-      maxEntities: limits.maxEntities,
-      maxConcepts: limits.maxConcepts
-    });
-    const finalPrompt = applySectionLabels(prompt, this.ctx.settings);
-    const client = this.ctx.getClient();
-    if (!client) throw new Error("LLM client not initialized");
-    const filledContent = await client.createMessage({
-      model: this.ctx.settings.model,
-      max_tokens: TOKENS_LINT_PAGE_FIX,
-      system: await buildSystemPrompt(
-        this.ctx.settings,
-        this.ctx.getSchemaContext,
-        "full"
-      ),
-      messages: [{ role: "user", content: finalPrompt }],
-      disableThinking: this.ctx.settings.disableThinking
-    });
-    const cleaned = cleanMarkdownResponse(filledContent);
-    const pollutionFree = correctLinkPollution(cleaned);
-    const stubFree = pollutionFree.includes(STUB_MARKER) ? pollutionFree.split("\n").filter((line) => !line.includes(STUB_MARKER)).join("\n").trim() : pollutionFree;
-    const textBody = stubFree.replace(/---[\s\S]*?---/, "").replace(EMPTY_CONTENT_STRIP, "").trim();
-    if (textBody.length < MIN_SUBSTANTIVE_CHARS) {
-      console.debug(
-        `fillEmptyPage: LLM output still below threshold (${textBody.length} chars), writing anyway`
-      );
-    }
-    const dateStr = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-    const withDates = normalizeFrontmatterDates(stubFree, dateStr);
-    const pageTypeSingular = pageType === WIKI_SUBFOLDERS.entities ? "entity" : pageType === WIKI_SUBFOLDERS.concepts ? "concept" : "source";
-    const enforced = enforceFrontmatterConstraints(withDates, pageTypeSingular, this.ctx.settings);
-    await this.ctx.createOrUpdateFile(pagePath, enforced);
-    const pageRel = pagePath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
-    return `${pageRel} (${beforeLen} \u2192 ${enforced.length} chars)`;
-  }
-  // Issue #103: Delete empty stubs without running the full lint pipeline.
-  // Scans wiki pages, deletes those that `isPageEmpty` considers empty,
-  // and skips pages that have been manually reviewed (reviewed: true).
-  //
-  // Issue #244: resilient against per-file errors. A single vault read or
-  // deleteFile failure must not abort the entire loop (which would leave
-  // the vault in a half-deleted state with no feedback). Returns a result
-  // object so the caller can surface a useful Notice to the user.
-  async deleteEmptyStubs(wikiFolder) {
-    const files = this.ctx.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(wikiFolder) && !f.path.endsWith("/index.md") && !f.path.includes("/schema/") && !f.path.includes("/sources/") && !f.path.includes("/contradictions/") && !f.path.includes("log.md"));
-    let deleted = 0;
-    let failed = 0;
-    const errors = [];
-    for (const file of files) {
-      try {
-        const content = await this.ctx.app.vault.read(file);
-        if (!isPageEmpty(content)) continue;
-        const fm = parseFrontmatter(content);
-        if ((fm == null ? void 0 : fm.reviewed) === true) continue;
-        await this.ctx.deleteFile(file.path);
-        deleted++;
-      } catch (e) {
-        failed++;
-        const errMsg2 = e instanceof Error ? e.message : String(e);
-        errors.push(`${file.path}: ${errMsg2}`);
-        console.error(`[deleteEmptyStubs] Failed: ${file.path}`, e);
-      }
-    }
-    return { deleted, failed, errors };
-  }
-  async linkOrphanPage(orphanPath) {
-    var _a;
-    const orphanContent = await this.ctx.tryReadFile(orphanPath);
-    if (!orphanContent) return [];
-    const indexPath = `${this.ctx.settings.wikiFolder}/index.md`;
-    const rawWikiIndex = await this.ctx.tryReadFile(indexPath) || "";
-    const wikiIndex = cleanWikiIndex(rawWikiIndex);
-    const prompt = buildOrphanLinkPrompt(PROMPTS.linkOrphanPage, {
-      orphanContent,
-      wikiIndex
-    });
-    const client = this.ctx.getClient();
-    if (!client) return [];
-    const response = await client.createMessage({
-      model: this.ctx.settings.model,
-      max_tokens: TOKENS_LINT_ORPHAN_FIX,
-      system: await buildSystemPrompt(
-        this.ctx.settings,
-        this.ctx.getSchemaContext,
-        "lint"
-      ),
-      messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" },
-      disableThinking: this.ctx.settings.disableThinking
-    });
-    const result = await parseJsonResponse(response);
-    if (!((_a = result == null ? void 0 : result.related_pages) == null ? void 0 : _a.length)) return [];
-    const linkedPages = [];
-    const labels = getSectionLabels(this.ctx.settings);
-    for (const related of result.related_pages) {
-      const fullPath = normalizeOrphanPagePath(
-        related.page_path,
-        this.ctx.settings.wikiFolder
-      );
-      const relatedContent = await this.ctx.tryReadFile(fullPath);
-      if (!relatedContent) continue;
-      if (!validateOrphanLinkTarget(relatedContent, related.link_target)) {
-        const updated = buildOrphanLinkUpdate(
-          relatedContent,
-          {
-            pagePath: related.page_path,
-            linkText: related.link_text,
-            linkTarget: related.link_target
-          },
-          labels.related_pages
-        );
-        await this.ctx.createOrUpdateFile(fullPath, updated);
-        linkedPages.push(related.page_path);
-      }
-    }
-    return linkedPages;
-  }
-  async mergeDuplicatePages(targetPath, sourcePath) {
-    var _a, _b;
-    const targetContent = await this.ctx.tryReadFile(targetPath);
-    const sourceContent = await this.ctx.tryReadFile(sourcePath);
-    if (!targetContent || !sourceContent) {
-      throw new Error(`Cannot merge: target or source page not found (target=${targetPath}, source=${sourcePath})`);
-    }
-    const sourceFm = parseFrontmatter(sourceContent);
-    const targetFm = parseFrontmatter(targetContent);
-    const sourceTitle = ((_a = sourcePath.split("/").pop()) == null ? void 0 : _a.replace(".md", "")) || "";
-    const targetSources = Array.isArray(targetFm == null ? void 0 : targetFm.sources) ? targetFm.sources : [];
-    const sourceSources = Array.isArray(sourceFm == null ? void 0 : sourceFm.sources) ? sourceFm.sources : [];
-    const mergedSourcesSet = /* @__PURE__ */ new Set();
-    const mergedSourcesList = [];
-    for (const s of [...targetSources, ...sourceSources]) {
-      const key = s.trim().toLowerCase();
-      if (!mergedSourcesSet.has(key)) {
-        mergedSourcesSet.add(key);
-        mergedSourcesList.push(s);
-      }
-    }
-    const targetAliases = Array.isArray(targetFm == null ? void 0 : targetFm.aliases) ? targetFm.aliases : [];
-    const sourceAliases = Array.isArray(sourceFm == null ? void 0 : sourceFm.aliases) ? sourceFm.aliases : [];
-    const extractH1 = (content) => {
-      const bodyMatch = content.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
-      if (!bodyMatch) return null;
-      const h1Match = bodyMatch[1].trim().match(/^#\s+(.+?)(?:\n|$)/);
-      return h1Match ? h1Match[1].trim() : null;
-    };
-    const sourceH1 = extractH1(sourceContent);
-    const targetH1 = extractH1(targetContent);
-    const allAliases = [...targetAliases, sourceTitle, ...sourceAliases];
-    if (sourceH1 && sourceH1 !== sourceTitle) {
-      allAliases.push(sourceH1);
-    }
-    const targetFilename = ((_b = targetPath.split("/").pop()) == null ? void 0 : _b.replace(".md", "")) || "";
-    if (targetH1 && targetH1 !== targetFilename && !targetAliases.includes(targetH1)) {
-      allAliases.unshift(targetH1);
-    }
-    const wikiSubfolders = [WIKI_SUBFOLDERS.entities, WIKI_SUBFOLDERS.concepts, WIKI_SUBFOLDERS.sources];
-    const cleanAliases = allAliases.filter((a) => {
-      if (!a) return false;
-      for (const folder of wikiSubfolders) {
-        if (a.startsWith(folder) && a.length > folder.length) return false;
-      }
-      return true;
-    });
-    const targetTitle = (targetFm == null ? void 0 : targetFm.title) || targetFilename;
-    let dedupedAliases = cleanAliases.filter(
-      (a, i) => a && a !== targetTitle && cleanAliases.indexOf(a) === i
-    );
-    const targetBodyMatch = targetContent.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
-    const sourceBodyMatch = sourceContent.match(/^---[\s\S]*?\n---\n?([\s\S]*)/);
-    const targetBody = targetBodyMatch ? targetBodyMatch[1].trim() : targetContent;
-    const sourceBody = sourceBodyMatch ? sourceBodyMatch[1].trim() : sourceContent;
-    const client = this.ctx.getClient();
-    let mergedBody = "";
-    let llmMergeSucceeded = false;
-    if (client) {
-      try {
-        const prompt = PROMPTS.mergeDuplicatePages.replace("{{target_content}}", targetBody).replace("{{source_content}}", sourceBody);
-        const mergedContent = await client.createMessage({
-          model: this.ctx.settings.model,
-          max_tokens: TOKENS_LINT_PAGE_FIX,
-          system: await buildSystemPrompt(
-            this.ctx.settings,
-            this.ctx.getSchemaContext,
-            "merge"
-          ),
-          messages: [{ role: "user", content: prompt }],
-          disableThinking: this.ctx.settings.disableThinking
-        });
-        const cleaned = cleanMarkdownResponse(mergedContent);
-        if (cleaned && cleaned.length > 100) {
-          let parsed = null;
-          try {
-            parsed = await parseJsonResponse(cleaned);
-          } catch (parseErr) {
-            console.error(`mergeDuplicatePages: JSON parse failed for ${sourcePath} \u2192 ${targetPath}`, parseErr);
-          }
-          if (parsed == null ? void 0 : parsed.body) {
-            mergedBody = parsed.body.trim();
-            llmMergeSucceeded = true;
-          } else if (!parsed) {
-            console.warn(`mergeDuplicatePages: JSON parse returned null for ${sourcePath} \u2192 ${targetPath}, falling back to programmatic merge`);
-          } else {
-            console.warn(`mergeDuplicatePages: LLM response missing 'body' field for ${sourcePath} \u2192 ${targetPath}, falling back to programmatic merge`);
-          }
-          if ((parsed == null ? void 0 : parsed.aliases) && Array.isArray(parsed.aliases)) {
-            for (const a of parsed.aliases) {
-              if (a && a !== targetTitle && !dedupedAliases.includes(a)) {
-                dedupedAliases.push(a);
-              }
+        if ((parsed == null ? void 0 : parsed.aliases) && Array.isArray(parsed.aliases)) {
+          for (const a of parsed.aliases) {
+            if (a && a !== targetTitle && !dedupedAliases.includes(a)) {
+              dedupedAliases.push(a);
             }
           }
         }
-      } catch (e) {
-        const errMsg2 = e instanceof Error ? e.message : String(e);
-        console.error(`LLM merge failed for ${sourcePath} \u2192 ${targetPath}: ${errMsg2}. Using programmatic merge.`, e);
       }
+    } catch (e) {
+      const errMsg2 = e instanceof Error ? e.message : String(e);
+      console.error(`LLM merge failed for ${sourcePath} \u2192 ${targetPath}: ${errMsg2}. Using programmatic merge.`, e);
     }
-    if (!mergedBody) {
-      if (llmMergeSucceeded) {
-        console.warn(`mergeDuplicatePages: LLM returned empty body for ${sourcePath} \u2192 ${targetPath}, using programmatic merge`);
-      }
-      mergedBody = targetBody;
-      if (sourceBody) {
-        mergedBody += "\n\n## From " + sourceTitle + "\n\n" + sourceBody;
-      }
-    }
-    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-    const fmLines = ["---"];
-    if (targetFm == null ? void 0 : targetFm.type) fmLines.push(`type: ${targetFm.type}`);
-    fmLines.push(`created: ${(targetFm == null ? void 0 : targetFm.created) || today}`);
-    fmLines.push(`updated: ${today}`);
-    if (mergedSourcesList.length > 0) {
-      fmLines.push(`${WIKI_SUBFOLDERS.sources}:`);
-      for (const s of mergedSourcesList) fmLines.push(`  - "${s}"`);
-    }
-    const tags = Array.isArray(targetFm == null ? void 0 : targetFm.tags) ? targetFm.tags : [];
-    if (tags.length > 0) {
-      fmLines.push("tags:");
-      for (const t of tags) fmLines.push(`  - ${t}`);
-    }
-    if (targetFm == null ? void 0 : targetFm.reviewed) fmLines.push("reviewed: true");
-    if (dedupedAliases.length > 0) {
-      fmLines.push("aliases:");
-      for (const a of dedupedAliases) fmLines.push(`  - "${a}"`);
-    }
-    fmLines.push("---");
-    const finalContent = fmLines.join("\n") + "\n\n" + mergedBody;
-    const pageType = (targetFm == null ? void 0 : targetFm.type) || "entity";
-    const validated = enforceFrontmatterConstraints(finalContent, pageType, this.ctx.settings);
-    await this.ctx.createOrUpdateFile(targetPath, validated);
-    const wikiFolder = this.ctx.settings.wikiFolder;
-    const sourceRel = sourcePath.replace(wikiFolder + "/", "").replace(".md", "");
-    const targetRel = targetPath.replace(wikiFolder + "/", "").replace(".md", "");
-    const allWikiFiles = this.ctx.app.vault.getMarkdownFiles().filter(
-      (f) => f.path.startsWith(wikiFolder) && f.path !== sourcePath
-    );
-    for (const file of allWikiFiles) {
-      const content = await this.ctx.app.vault.read(file);
-      if (content.includes(`[[${sourceRel}]]`) || content.includes(`[[${sourceRel}|`)) {
-        const updated = content.replace(new RegExp(`\\[\\[${escapeRegex(sourceRel)}\\]\\]`, "g"), `[[${targetRel}]]`).replace(new RegExp(`\\[\\[${escapeRegex(sourceRel)}\\|`, "g"), `[[${targetRel}|`);
-        if (updated !== content) {
-          await this.ctx.createOrUpdateFile(file.path, updated);
-        }
-      }
-    }
-    await this.ctx.deleteFile(sourcePath);
-    return `merged ${sourceRel} \u2192 ${targetRel}`;
   }
-  // Fix a single polluted page: rename file, update all incoming links,
-  // rebuild index. Returns a description of what was done.
-  async fixPollutedPage(oldPath, newBasename) {
-    const oldRel = oldPath.replace(this.ctx.settings.wikiFolder + "/", "").replace(".md", "");
-    const dir = oldRel.split("/").slice(0, -1).join("/");
-    const newPath = `${this.ctx.settings.wikiFolder}/${dir}/${newBasename}.md`;
-    const newRel = `${dir}/${newBasename}`;
-    const existingAtNew = await this.ctx.tryReadFile(newPath);
-    if (existingAtNew !== null) {
-      console.debug(`fixPollutedPage: clean path already exists, merging ${oldRel} \u2192 ${newRel}`);
-      await this.ctx.createOrUpdateFile(newPath, existingAtNew);
-      await this.ctx.deleteFile(oldPath);
-      return `merged ${oldRel} \u2192 ${newRel} (clean path existed)`;
+  if (!mergedBody) {
+    if (llmMergeSucceeded) {
+      console.warn(`mergeDuplicatePages: LLM returned empty body for ${sourcePath} \u2192 ${targetPath}, using programmatic merge`);
     }
-    const oldContent = await this.ctx.tryReadFile(oldPath);
-    if (oldContent === null) {
-      return `cannot fix ${oldRel}: file not found`;
+    mergedBody = targetBody;
+    if (sourceBody) {
+      mergedBody += "\n\n## From " + sourceTitle + "\n\n" + sourceBody;
     }
-    await this.ctx.createOrUpdateFile(newPath, oldContent);
-    await this.ctx.deleteFile(oldPath);
-    const allPages = await getExistingWikiPages(this.ctx.app, this.ctx.settings.wikiFolder);
-    let updatedCount = 0;
-    for (const page of allPages) {
-      const content = await this.ctx.tryReadFile(page.path);
-      if (!content) continue;
-      const newContent = content.replace(new RegExp(`\\[\\[${escapeRegex(oldRel)}\\|([^\\]]+)\\]\\]`, "g"), `[[${newRel}|$1]]`).replace(new RegExp(`\\[\\[${escapeRegex(oldRel)}\\]\\]`, "g"), `[[${newRel}]]`);
-      if (content !== newContent) {
-        await this.ctx.createOrUpdateFile(page.path, newContent);
-        updatedCount++;
+  }
+  const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+  const fmLines = ["---"];
+  if (targetFm == null ? void 0 : targetFm.type) fmLines.push(`type: ${targetFm.type}`);
+  fmLines.push(`created: ${(targetFm == null ? void 0 : targetFm.created) || today}`);
+  fmLines.push(`updated: ${today}`);
+  if (mergedSourcesList.length > 0) {
+    fmLines.push(`${WIKI_SUBFOLDERS.sources}:`);
+    for (const s of mergedSourcesList) fmLines.push(`  - "${s}"`);
+  }
+  const tags = Array.isArray(targetFm == null ? void 0 : targetFm.tags) ? targetFm.tags : [];
+  if (tags.length > 0) {
+    fmLines.push("tags:");
+    for (const t of tags) fmLines.push(`  - ${t}`);
+  }
+  if (targetFm == null ? void 0 : targetFm.reviewed) fmLines.push("reviewed: true");
+  if (dedupedAliases.length > 0) {
+    fmLines.push("aliases:");
+    for (const a of dedupedAliases) fmLines.push(`  - "${a}"`);
+  }
+  fmLines.push("---");
+  const newContent = fmLines.join("\n") + "\n\n" + mergedBody;
+  const pageType = targetPath.includes(`/${WIKI_SUBFOLDERS.entities}/`) ? "entity" : targetPath.includes(`/${WIKI_SUBFOLDERS.concepts}/`) ? "concept" : "source";
+  const enforced = enforceFrontmatterConstraints(newContent, pageType, ctx.settings);
+  await ctx.createOrUpdateFile(targetPath, enforced);
+  const wikiFolder = ctx.settings.wikiFolder;
+  const sourceRel = sourcePath.replace(wikiFolder + "/", "").replace(".md", "");
+  const targetRel = targetPath.replace(wikiFolder + "/", "").replace(".md", "");
+  const allWikiFiles = ctx.app.vault.getMarkdownFiles().filter(
+    (f) => f.path.startsWith(wikiFolder) && f.path !== sourcePath
+  );
+  for (const file of allWikiFiles) {
+    const content = await ctx.app.vault.read(file);
+    if (content.includes(`[[${sourceRel}]]`) || content.includes(`[[${sourceRel}|`)) {
+      const updated = content.replace(new RegExp(`\\[\\[${escapeRegex(sourceRel)}\\]\\]`, "g"), `[[${targetRel}]]`).replace(new RegExp(`\\[\\[${escapeRegex(sourceRel)}\\|`, "g"), `[[${targetRel}|`);
+      if (updated !== content) {
+        await ctx.createOrUpdateFile(file.path, updated);
       }
     }
-    return `renamed ${oldRel} \u2192 ${newRel} (${updatedCount} pages updated)`;
   }
-};
-function escapeRegex(s) {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  await ctx.deleteFile(sourcePath);
+  return `merged ${sourceRel} \u2192 ${targetRel}`;
 }
-function buildSectionLabelsHint(settings) {
-  const labels = getSectionLabels(settings);
-  const entityLabels = [
-    `- ${labels.basic_information}`,
-    `- ${labels.description}`,
-    `- ${labels.related_entities}`,
-    `- ${labels.related_concepts}`,
-    `- ${labels.mentions_in_source}`
-  ].join("\n");
-  const conceptLabels = [
-    `- ${labels.definition}`,
-    `- ${labels.key_characteristics}`,
-    `- ${labels.applications}`,
-    `- ${labels.related_concepts}`,
-    `- ${labels.related_entities}`,
-    `- ${labels.mentions_in_source}`
-  ].join("\n");
-  const sourceLabels = [
-    `- ${labels.source}`,
-    `- ${labels.core_content}`,
-    `- ${labels.key_entities}`,
-    `- ${labels.key_concepts}`,
-    `- ${labels.main_points}`
-  ].join("\n");
-  return `Entity pages use:
-${entityLabels}
 
-Concept pages use:
-${conceptLabels}
-
-Source pages use:
-${sourceLabels}`;
-}
-function normalizeFrontmatterDates(content, dateStr) {
-  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!fmMatch) return content;
-  const fmContent = fmMatch[1];
-  const hasUpdated = /^updated:\s*.+$/m.test(fmContent);
-  let newFm;
-  if (hasUpdated) {
-    newFm = fmContent.replace(/^updated:\s*.+$/m, `updated: ${dateStr}`);
-  } else {
-    newFm = fmContent + `
-updated: ${dateStr}`;
+// src/wiki/lint/fix-polluted-page.ts
+init_utils();
+async function fixPollutedPage(ctx, oldPath, newBasename) {
+  const oldRel = oldPath.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
+  const dir = oldRel.split("/").slice(0, -1).join("/");
+  const newPath = `${ctx.settings.wikiFolder}/${dir}/${newBasename}.md`;
+  const newRel = `${dir}/${newBasename}`;
+  const existingAtNew = await ctx.tryReadFile(newPath);
+  if (existingAtNew !== null) {
+    console.debug(`fixPollutedPage: clean path already exists, merging ${oldRel} \u2192 ${newRel}`);
+    await ctx.createOrUpdateFile(newPath, existingAtNew);
+    await ctx.deleteFile(oldPath);
+    return `merged ${oldRel} \u2192 ${newRel} (clean path existed)`;
   }
-  return content.replace(/^---\n[\s\S]*?\n---/, `---
-${newFm}
----`);
-}
-function fixDoubleNestedWikiLinks(content) {
-  let fixed = 0;
-  const doubleNestRegex = /\[\[\[\[([^\]|#]+)(?:[|#]([^\]]+))?\]\]\]\]/g;
-  const result = content.replace(doubleNestRegex, (_fullMatch, target, display) => {
-    fixed++;
-    if (display) {
-      return `[[${target}|${display}]]`;
-    }
-    return `[[${target}]]`;
-  });
-  return { fixed, content: result };
-}
-function isPageEmpty(content) {
-  if (content.includes(STUB_MARKER)) return true;
-  const textBody = content.replace(/---[\s\S]*?---/, "").replace(EMPTY_CONTENT_STRIP, "").trim();
-  return textBody.length < MIN_SUBSTANTIVE_CHARS;
-}
-function detectPollutedPages(pages) {
-  const polluted = [];
-  for (const p of pages) {
-    const match = /^(entities|concepts|sources)([^\s\-_a-zA-Z0-9])/.exec(p.title);
-    if (match) {
-      polluted.push({
-        path: p.path,
-        title: p.title,
-        cleanTitle: p.title.replace(/^(entities|concepts|sources)/, "")
-      });
+  const oldContent = await ctx.tryReadFile(oldPath);
+  if (oldContent === null) {
+    return `cannot fix ${oldRel}: file not found`;
+  }
+  await ctx.createOrUpdateFile(newPath, oldContent);
+  await ctx.deleteFile(oldPath);
+  const allPages = await getExistingWikiPages(ctx.app, ctx.settings.wikiFolder);
+  let updatedCount = 0;
+  for (const page of allPages) {
+    const content = await ctx.tryReadFile(page.path);
+    if (!content) continue;
+    const newContent = content.replace(new RegExp(`\\[\\[${escapeRegex(oldRel)}\\|([^\\]]+)\\]\\]`, "g"), `[[${newRel}|$1]]`).replace(new RegExp(`\\[\\[${escapeRegex(oldRel)}\\]\\]`, "g"), `[[${newRel}]]`);
+    if (content !== newContent) {
+      await ctx.createOrUpdateFile(page.path, newContent);
+      updatedCount++;
     }
   }
-  return polluted;
+  return `renamed ${oldRel} \u2192 ${newRel} (${updatedCount} pages updated)`;
 }
 
 // src/wiki/contradictions.ts
+init_frontmatter();
+init_markdown();
+init_constants();
+init_prompts();
+init_system_prompts();
 var ContradictionManager = class {
   constructor(ctx) {
     this.ctx = ctx;
@@ -8130,7 +8947,7 @@ resolved: ${resolvedDate}`
         "full"
       ),
       messages: [{ role: "user", content: finalPrompt }],
-      disableThinking: this.ctx.settings.disableThinking
+      ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
     });
     const cleaned = cleanMarkdownResponse(fixedContent);
     await this.ctx.createOrUpdateFile(pagePath, cleaned);
@@ -8138,13 +8955,165 @@ resolved: ${resolvedDate}`
   }
 };
 
+// src/core/sources-normalizer.ts
+function normalizeSourcePath(raw, wikiFolder, preserveCase = true) {
+  let s = raw.trim();
+  if (!s || s === "[[]]") return "";
+  if (s.startsWith("[[") && s.endsWith("]]")) {
+    s = s.slice(2, -2).trim();
+  }
+  if (!s) return "";
+  const pipeIdx = s.indexOf("|");
+  if (pipeIdx !== -1) s = s.substring(0, pipeIdx).trim();
+  if (!s) return "";
+  if (s.endsWith(".md")) s = s.slice(0, -3);
+  if (!s) return "";
+  const wikiPrefix = wikiFolder + "/";
+  if (s.startsWith(wikiPrefix)) {
+    s = s.substring(wikiPrefix.length);
+  } else if (s.startsWith("entities/") || s.startsWith("concepts/") || s.startsWith("sources/")) {
+  } else {
+    const filename = s.split("/").pop() || s;
+    s = `sources/${computeSlug(filename, preserveCase)}`;
+  }
+  return s;
+}
+function normalizeSourcesField(rawList, wikiFolder, preserveCase = true) {
+  const seen = /* @__PURE__ */ new Set();
+  const result = [];
+  for (const raw of rawList) {
+    const normalized = normalizeSourcePath(String(raw), wikiFolder, preserveCase);
+    if (!normalized) continue;
+    if (seen.has(normalized)) continue;
+    seen.add(normalized);
+    result.push(`[[${normalized}]]`);
+  }
+  return result;
+}
+function scanPollutedSources(content, wikiFolder, preserveCase = true) {
+  const entries = extractRawSourcesEntries(content);
+  if (entries.length === 0) return false;
+  return entries.some((e) => {
+    const canonical = normalizeSourcePath(e, wikiFolder, preserveCase);
+    if (!canonical) return true;
+    const stripped = e.replace(/^\[\[/, "").replace(/\]\]$/, "");
+    const changed = canonical !== stripped;
+    if (changed) console.debug(`[scanPollutedSources] entry changed: "${e}" \u2192 canonical="${canonical}"`);
+    return changed;
+  });
+}
+function extractRawSourcesEntries(content) {
+  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!fmMatch) return [];
+  const fmBody = fmMatch[1];
+  const inlineMatch = fmBody.match(/^sources:\s*\[(.*)\]\s*$/m);
+  if (inlineMatch) {
+    return inlineMatch[1].split(",").map((s) => s.trim().replace(/^"|"$/g, "")).filter(Boolean);
+  }
+  const lines = fmBody.split("\n");
+  const startIdx = lines.findIndex((l) => /^sources:\s*$/.test(l));
+  if (startIdx === -1) return [];
+  const result = [];
+  for (let i = startIdx + 1; i < lines.length; i++) {
+    const line = lines[i];
+    const m = line.match(/^\s*-\s*"([^"]*)"/);
+    if (m) result.push(m[1]);
+    else if (line.trim() && !/^\s*-\s*/.test(line)) break;
+  }
+  return result;
+}
+function fixPollutedSources(content, wikiFolder, preserveCase = true) {
+  const rawEntries = extractRawSourcesEntries(content);
+  if (rawEntries.length === 0) return { fixed: 0, content };
+  console.debug(`[fixPollutedSources] rawEntries (${rawEntries.length}): ${JSON.stringify(rawEntries)}`);
+  const normalized = normalizeSourcesField(rawEntries, wikiFolder, preserveCase);
+  console.debug(`[fixPollutedSources] normalized (${normalized.length}): ${JSON.stringify(normalized)}`);
+  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!fmMatch) return { fixed: 0, content };
+  const fmBody = fmMatch[1];
+  const isInline = /^[ \t]*sources:\s*\[.*\][ \t]*$/m.test(fmBody);
+  let newFmBody;
+  if (isInline) {
+    const newLine = `sources: [${normalized.map((n) => `"${n}"`).join(", ")}]`;
+    newFmBody = fmBody.replace(/^([ \t]*)sources:\s*\[(.*)\][ \t]*$/m, (_match, indent) => `${indent}${newLine}`);
+  } else {
+    const newBlock = `sources:
+${normalized.map((n) => `  - "${n}"`).join("\n")}
+`;
+    newFmBody = fmBody.replace(/^([ \t]*)sources:\s*\n((?:[ \t]*-\s*"[^"]*"\s*\n?)+)/m, (_match, indent) => `${indent}${newBlock}`);
+  }
+  if (newFmBody === fmBody) {
+    return { fixed: 0, content };
+  }
+  const newContent = content.substring(0, fmMatch.index) + `---
+${newFmBody}
+---` + content.substring(fmMatch.index + fmMatch[0].length);
+  return { fixed: 1, content: newContent };
+}
+
 // src/wiki/prompts/constraints.ts
 var UNIVERSAL_LINK_CONSTRAINTS = `LINK RULES (apply to ALL body text output):
 - NEVER use [[sources/...]] in body text \u2014 sources/ is ONLY valid in the YAML frontmatter sources: field
 - NEVER duplicate folder prefixes in display names: [[entities/Qwen|Qwen]] is CORRECT, [[entities/Qwen|entities/Qwen]] is WRONG
 - ALWAYS use [[path|display]] format when referencing entities and concepts`;
 
+// src/wiki/source-analyzer.ts
+init_types();
+init_prompts();
+
+// src/core/index-search.ts
+function parseIndexForPages(indexContent) {
+  const pages = [];
+  const lineRegex = /- \[\[([^\]|]+)(?:\|[^\]]+)?\]\]\s*(?:`aliases:\s*([^`]+)`)?/g;
+  let match;
+  while ((match = lineRegex.exec(indexContent)) !== null) {
+    const path = match[1];
+    const aliasStr = match[2] || "";
+    const title = path.split("/").pop() || path;
+    const aliases = aliasStr.split(",").map((a) => a.trim()).filter(Boolean);
+    pages.push({ path, title, aliases });
+  }
+  return pages;
+}
+function localKeywordMatch(query, pages) {
+  const keywords = query.toLowerCase().split(/\s+/).filter((k) => k.length > 0);
+  const scored = [];
+  for (const page of pages) {
+    let score = 0;
+    const titleLower = page.title.toLowerCase();
+    for (const kw of keywords) {
+      if (titleLower.includes(kw)) score += 3;
+      for (const alias of page.aliases) {
+        if (alias.toLowerCase().includes(kw)) score += 2;
+      }
+    }
+    if (score > 0) scored.push({ ...page, score });
+  }
+  return scored.sort((a, b) => b.score - a.score);
+}
+function matchExtractedToExisting(extractedNames, existingPages) {
+  const pageSlugs = existingPages.map((p) => ({
+    title: p.title,
+    slug: computeSlug(p.title),
+    aliasSlugs: (p.aliases || []).map((a) => computeSlug(a))
+  }));
+  const matched = /* @__PURE__ */ new Set();
+  for (const name of extractedNames) {
+    const targetSlug = computeSlug(name);
+    const match = pageSlugs.find(
+      (p) => p.slug === targetSlug || p.aliasSlugs.some((a) => a === targetSlug)
+    );
+    if (match) matched.add(match.title);
+  }
+  return [...matched];
+}
+
+// src/wiki/source-analyzer.ts
+init_constants();
+init_system_prompts();
+
 // src/core/batch-limits.ts
+init_constants();
 var GRANULARITY_CONFIG = {
   fine: { initialBatchSize: 30, maxBatchesBase: 12, maxTotalItems: 100 },
   standard: { initialBatchSize: 20, maxBatchesBase: 6, maxTotalItems: 50 },
@@ -8338,6 +9307,14 @@ function calculateBatchStats(batchNum, newItems, cumulative) {
 }
 
 // src/wiki/source-analyzer.ts
+function buildCompactSlugList(app, wikiFolder, sourcePath) {
+  const wikiPrefix = wikiFolder + "/";
+  const files = app.vault.getMarkdownFiles();
+  const slugs = files.filter(
+    (f) => f.path.startsWith(wikiPrefix) && !f.path.includes("/schema/") && !f.path.endsWith("/index.md") && f.path !== sourcePath
+  ).map((f) => f.path.replace(wikiPrefix, "").replace(/\.md$/, "")).sort();
+  return slugs.join("\n");
+}
 function normalizeBatchResponse(raw) {
   if (!raw) {
     return { validity: "unusable", data: emptyBatch() };
@@ -8407,7 +9384,8 @@ var SourceAnalyzer = class {
     let finalBatchNum = 0;
     const granularityInstruction = getGranularityInstruction(this.ctx.settings);
     const tagVocabularySection = buildActiveTagVocabularySection(this.ctx.settings);
-    const templateUntouched = PROMPTS.analyzeSource.replace("{{content}}", content).replace("{{existing_pages}}", "");
+    const existingSlugs = buildCompactSlugList(this.ctx.app, this.ctx.settings.wikiFolder, file.path);
+    const templateUntouched = PROMPTS.analyzeSource.replace("{{content}}", content).replace("{{existing_pages}}", "").replace("{{existing_slugs}}", existingSlugs);
     const batchMarker = "{{batch_context}}";
     const markerIdx = templateUntouched.indexOf(batchMarker);
     const staticPrefix = templateUntouched.substring(0, markerIdx);
@@ -8628,10 +9606,15 @@ ${malformedJson}`;
   }
 };
 
+// src/wiki/wiki-engine.ts
+init_constants();
+
 // src/wiki/page-factory.ts
 var import_obsidian5 = require("obsidian");
+init_prompts();
 
 // src/core/conflict-resolver.ts
+init_constants();
 function folderOf(pageType) {
   return pageType === "entity" ? WIKI_SUBFOLDERS.entities : WIKI_SUBFOLDERS.concepts;
 }
@@ -8716,6 +9699,62 @@ var ConflictResolver = class {
 };
 
 // src/wiki/page-factory.ts
+init_constants();
+init_constants();
+init_frontmatter();
+
+// src/core/report.ts
+function nestReportUnderParent(report) {
+  const lines = report.split("\n");
+  let h1Stripped = false;
+  const out = [];
+  for (const line of lines) {
+    const m = /^(#+)\s/.exec(line);
+    if (m) {
+      if (!h1Stripped && m[1].length === 1) {
+        h1Stripped = true;
+        continue;
+      }
+      out.push("#" + line);
+      h1Stripped = true;
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join("\n");
+}
+function truncateMentions(mentions, maxChars = 500, sourcePath) {
+  if (!mentions || mentions.length === 0) return "";
+  let result = "";
+  if (sourcePath) {
+    const leftPath = sourcePath.replace(/\.md$/, "");
+    const displayName = leftPath.split("/").pop() || leftPath;
+    for (const m of mentions) {
+      const line = `- ${m} \u2014 [[${leftPath}|${displayName}]]`;
+      if (result.length + line.length + 1 > maxChars) {
+        if (result.length > 0) break;
+        const head = Math.max(0, maxChars - ` \u2014 [[${leftPath}|${displayName}]]`.length - 3);
+        return `- ${m.substring(0, head)}... \u2014 [[${leftPath}|${displayName}]]`;
+      }
+      result += (result ? "\n" : "") + line;
+    }
+    return result;
+  }
+  for (const m of mentions) {
+    const line = `- ${m}`;
+    if (result.length + line.length + 1 > maxChars) {
+      if (result.length > 0) break;
+      return `- ${m.substring(0, Math.max(0, maxChars - 3))}...`;
+    }
+    result += (result ? "\n" : "") + line;
+  }
+  return result;
+}
+
+// src/wiki/page-factory.ts
+init_markdown();
+init_prompt_builders();
+init_system_prompts();
 function contextualizeError(error, name, pageType) {
   const msg = error instanceof Error ? error.message : String(error);
   return new Error(`Failed to create ${pageType} page "${name}": ${msg}`);
@@ -8812,17 +9851,18 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
       }).join("\n");
       const client = this.ctx.getClient();
       if (!client) return { path: slugPath };
-      const prompt = PROMPTS.resolveEntityDedup.replace("{{entity_name}}", name).replace("{{entity_type}}", pageType).replace("{{entity_summary}}", summary.substring(0, 300)).replace("{{page_type}}", pageType).replace("{{existing_pages}}", pagesList);
+      const prompt = PROMPTS.resolveEntityDedup.replace("{{wikiFolder}}", this.ctx.settings.wikiFolder).replace("{{entity_name}}", name).replace("{{entity_type}}", pageType).replace("{{entity_summary}}", summary.substring(0, 300)).replace("{{page_type}}", pageType).replace("{{existing_pages}}", pagesList);
       const response = await client.createMessage({
         model: this.ctx.settings.model,
         max_tokens: TOKENS_DEDUP_RESOLUTION,
         system: await this.ctx.buildSystemPrompt("full"),
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
-        disableThinking: this.ctx.settings.disableThinking
+        ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
       });
       const result = await parseJsonResponse(response);
       if ((result == null ? void 0 : result.match) && (result == null ? void 0 : result.path)) {
+        result.path = normalizeLLMPath(result.path, this.ctx.settings.wikiFolder);
         console.debug(`Entity resolution: "${name}" matched existing page "${result.path}"`);
         await this.appendAliases(result.path, [name]);
         return { path: result.path };
@@ -8875,14 +9915,14 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
     }
     return result;
   }
-  async createOrUpdateEntityPage(entity, _analysis, sourceFile, extraPagePaths = []) {
-    return this.createOrUpdatePage(entity, "entity", sourceFile, extraPagePaths);
+  async createOrUpdateEntityPage(entity, _analysis, sourceFile, extraPagePaths = [], sourceSlug) {
+    return this.createOrUpdatePage(entity, "entity", sourceFile, extraPagePaths, sourceSlug);
   }
-  async createOrUpdateConceptPage(concept, _analysis, sourceFile, extraPagePaths = []) {
-    return this.createOrUpdatePage(concept, "concept", sourceFile, extraPagePaths);
+  async createOrUpdateConceptPage(concept, _analysis, sourceFile, extraPagePaths = [], sourceSlug) {
+    return this.createOrUpdatePage(concept, "concept", sourceFile, extraPagePaths, sourceSlug);
   }
   // ── Generic page CRUD (entity/concept unified) ──────────────────────
-  async createOrUpdatePage(info, pageType, sourceFile, extraPagePaths = []) {
+  async createOrUpdatePage(info, pageType, sourceFile, extraPagePaths = [], sourceSlug) {
     var _a, _b;
     if (!info.name || info.name.trim().length === 0) {
       console.warn(`${pageType} name is empty, skipping creation`);
@@ -8899,9 +9939,9 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
         if (existingContent2) {
           const isReviewed2 = ((_a = parseFrontmatter(existingContent2)) == null ? void 0 : _a.reviewed) === true;
           if (isReviewed2) {
-            await this.appendToReviewedPage(info, sourceFile, existingContent2, targetPath);
+            await this.appendToReviewedPage(info, sourceFile, existingContent2, targetPath, sourceSlug);
           } else {
-            await this.mergePage(info, targetType, sourceFile, existingContent2, extraPagePaths, targetPath);
+            await this.mergePage(info, targetType, sourceFile, existingContent2, extraPagePaths, targetPath, sourceSlug);
           }
           console.debug(`Cross-type collision: merged "${info.name}" content into ${targetType} page ${targetPath}`);
         }
@@ -8911,32 +9951,32 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
     console.debug("Resolved path:", result.path);
     const existingContent = await this.ctx.tryReadFile(result.path);
     if (!existingContent) {
-      const createdPath = await this.createNewPage(info, pageType, sourceFile, extraPagePaths, result.path);
+      const createdPath = await this.createNewPage(info, pageType, sourceFile, extraPagePaths, result.path, sourceSlug);
       return { path: createdPath };
     }
     const isReviewed = ((_b = parseFrontmatter(existingContent)) == null ? void 0 : _b.reviewed) === true;
     if (isReviewed) {
       console.debug(`${pageType} page has reviewed: true, using minimal append mode:`, result.path);
-      const updatedPath = await this.appendToReviewedPage(info, sourceFile, existingContent, result.path);
+      const updatedPath = await this.appendToReviewedPage(info, sourceFile, existingContent, result.path, sourceSlug);
       return { path: updatedPath };
     }
-    const mergedPath = await this.mergePage(info, pageType, sourceFile, existingContent, extraPagePaths, result.path);
+    const mergedPath = await this.mergePage(info, pageType, sourceFile, existingContent, extraPagePaths, result.path, sourceSlug);
     return { path: mergedPath };
   }
-  async createNewPage(info, pageType, sourceFile, extraPagePaths, path) {
+  async createNewPage(info, pageType, sourceFile, extraPagePaths, path, sourceSlug) {
     var _a, _b, _c;
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     try {
       const generatePrompt = pageType === "entity" ? PROMPTS.generateEntityPage : PROMPTS.generateConceptPage;
-      const prompt = generatePrompt.replace("{{entity_name}}", info.name).replace("{{concept_name}}", info.name).replace("{{entity_type}}", info.type).replace("{{concept_type}}", info.type).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{extraction_aliases}}", ((_a = info.aliases) == null ? void 0 : _a.length) ? `[${info.aliases.join(", ")}]` : "None").replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path) || "No specific mentions").replace("{{related_entities}}", ((_b = info.related_entities) == null ? void 0 : _b.join(", ")) || "No related entities").replace("{{related_concepts}}", ((_c = info.related_concepts) == null ? void 0 : _c.join(", ")) || "No related concepts").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths)).replace("{{related_content}}", "No existing content").replace("{{merge_strategy}}", "New page, no merge needed.").replace("{{date}}", (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace("{{source_file}}", sourceFile.path);
+      const prompt = generatePrompt.replace("{{entity_name}}", info.name).replace("{{concept_name}}", info.name).replace("{{entity_type}}", info.type).replace("{{concept_type}}", info.type).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{extraction_aliases}}", ((_a = info.aliases) == null ? void 0 : _a.length) ? `[${info.aliases.join(", ")}]` : "None").replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path) || "No specific mentions").replace("{{related_entities}}", ((_b = info.related_entities) == null ? void 0 : _b.join(", ")) || "No related entities").replace("{{related_concepts}}", ((_c = info.related_concepts) == null ? void 0 : _c.join(", ")) || "No related concepts").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths)).replace("{{related_content}}", "No existing content").replace("{{merge_strategy}}", "New page, no merge needed.").replace("{{date}}", (/* @__PURE__ */ new Date()).toISOString().split("T")[0]).replace(/\{\{source_file\}\}/g, sourceSlug ? `sources/${sourceSlug}` : sourceFile.path);
       const finalPrompt = appendTagVocabularyToPrompt(applySectionLabels(prompt, this.ctx.settings), this.ctx.settings);
       const pageContent = await client.createMessage({
         model: this.ctx.settings.model,
         max_tokens: TOKENS_PAGE_GENERATION,
         system: await this.ctx.buildSystemPrompt(pageType),
         messages: [{ role: "user", content: finalPrompt }],
-        disableThinking: this.ctx.settings.disableThinking
+        ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
       });
       const cleanedContent = cleanMarkdownResponse(pageContent);
       const enforcedContent = enforceFrontmatterConstraints(cleanedContent, pageType, this.ctx.settings);
@@ -8946,12 +9986,12 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
       throw contextualizeError(error, info.name, pageType);
     }
   }
-  async mergePage(info, pageType, sourceFile, existingContent, extraPagePaths, path) {
+  async mergePage(info, pageType, sourceFile, existingContent, extraPagePaths, path, sourceSlug) {
     var _a, _b, _c;
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     try {
-      const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceFile.path);
+      const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceSlug ? `sources/${sourceSlug}` : sourceFile.path);
       const mergePrompt = pageType === "entity" ? PROMPTS.mergeEntityPage : PROMPTS.mergeConceptPage;
       const prompt = mergePrompt.replace("{{existing_body}}", existingBody).replace("{{new_source}}", sourceFile.basename).replace("{{entity_summary}}", info.summary).replace("{{concept_summary}}", info.summary).replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path)).replace("{{related_entities}}", ((_a = info.related_entities) == null ? void 0 : _a.join(", ")) || "").replace("{{related_concepts}}", ((_b = info.related_concepts) == null ? void 0 : _b.join(", ")) || "").replace("{{key_details}}", ((_c = info.mentions_in_source) == null ? void 0 : _c.slice(0, 2).join("; ")) || "").replace("{{existing_pages}}", await this.buildPagesListForPrompt(extraPagePaths));
       const finalPrompt = appendTagVocabularyToPrompt(applySectionLabels(prompt, this.ctx.settings), this.ctx.settings);
@@ -8960,7 +10000,7 @@ ${merged.map((a) => `  - "${a}"`).join("\n")}`;
         max_tokens: TOKENS_PAGE_GENERATION,
         system: await this.ctx.buildSystemPrompt("merge"),
         messages: [{ role: "user", content: finalPrompt }],
-        disableThinking: this.ctx.settings.disableThinking
+        ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
       });
       const cleanedBody = cleanMarkdownResponse(mergedBody);
       if (cleanedBody.trim() === "NO_NEW_CONTENT") {
@@ -8976,12 +10016,12 @@ ${cleanedBody}`;
       throw mergeError(error, info.name, pageType);
     }
   }
-  async appendToReviewedPage(info, sourceFile, existingContent, path) {
+  async appendToReviewedPage(info, sourceFile, existingContent, path, sourceSlug) {
     var _a;
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     try {
-      const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceFile.path);
+      const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceSlug ? `sources/${sourceSlug}` : sourceFile.path);
       const prompt = PROMPTS.appendToReviewedPage.replace("{{existing_body}}", existingBody).replace("{{new_source}}", sourceFile.basename).replace("{{entity_summary}}", info.summary).replace("{{mentions}}", truncateMentions(info.mentions_in_source, 500, sourceFile.path)).replace("{{key_details}}", ((_a = info.mentions_in_source) == null ? void 0 : _a.slice(0, 2).join("; ")) || "").replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
       const finalPrompt = appendTagVocabularyToPrompt(applySectionLabels(prompt, this.ctx.settings), this.ctx.settings);
       const newContent = await client.createMessage({
@@ -8989,7 +10029,7 @@ ${cleanedBody}`;
         max_tokens: TOKENS_APPEND_REVIEWED,
         system: await this.ctx.buildSystemPrompt("merge"),
         messages: [{ role: "user", content: finalPrompt }],
-        disableThinking: this.ctx.settings.disableThinking
+        ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
       });
       const cleanedContent = cleanMarkdownResponse(newContent);
       if (cleanedContent.trim() === "NO_NEW_CONTENT") {
@@ -9006,7 +10046,8 @@ ${cleanedContent}`;
       throw new Error(`Failed to update reviewed page "${info.name}": ${msg}`);
     }
   }
-  async updateRelatedPage(pageName, analysis, sourceFile) {
+  async updateRelatedPage(pageName, analysis, sourceFile, sourceSlug) {
+    var _a;
     const existingPages = await getExistingWikiPages(this.ctx.app, this.ctx.settings.wikiFolder);
     const page = existingPages.find((p) => p.title === pageName);
     if (!page) {
@@ -9019,8 +10060,19 @@ ${cleanedContent}`;
       return false;
     }
     const existingContent = await this.ctx.app.vault.read(abstractFile);
-    const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceFile.path);
-    const prompt = PROMPTS.updateRelatedPage.replace("{{page_name}}", pageName).replace("{{existing_body}}", existingBody).replace("{{source_basename}}", sourceFile.basename).replace("{{new_info}}", JSON.stringify(analysis.entities.find((e) => e.name === pageName) || analysis.concepts.find((c) => c.name === pageName) || "No directly relevant information")).replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
+    const { frontmatter, body: existingBody } = mergeFrontmatter(existingContent, sourceSlug ? `sources/${sourceSlug}` : sourceFile.path);
+    const newInfo = analysis.entities.find((e) => e.name === pageName) || analysis.concepts.find((c) => c.name === pageName);
+    if (!newInfo) {
+      await this.ctx.createOrUpdateFile(page.path, `${frontmatter}
+
+${existingBody}`);
+      return true;
+    }
+    if (((_a = parseFrontmatter(existingContent)) == null ? void 0 : _a.reviewed) === true) {
+      await this.appendToReviewedPage(newInfo, sourceFile, existingContent, page.path);
+      return true;
+    }
+    const prompt = PROMPTS.updateRelatedPage.replace("{{page_name}}", pageName).replace("{{existing_body}}", existingBody).replace("{{source_basename}}", sourceFile.basename).replace("{{new_info}}", JSON.stringify(newInfo)).replace("{{constraints}}", UNIVERSAL_LINK_CONSTRAINTS);
     const client = this.ctx.getClient();
     if (!client) throw new Error("LLM client not initialized");
     const updatedBody = await client.createMessage({
@@ -9028,7 +10080,7 @@ ${cleanedContent}`;
       max_tokens: TOKENS_PAGE_GENERATION,
       system: await this.ctx.buildSystemPrompt("related"),
       messages: [{ role: "user", content: prompt }],
-      disableThinking: this.ctx.settings.disableThinking
+      ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
     });
     const cleanedBody = cleanMarkdownResponse(updatedBody);
     const finalContent = `${frontmatter}
@@ -9040,6 +10092,10 @@ ${cleanedBody}`;
 };
 
 // src/wiki/conversation-ingest.ts
+init_prompts();
+init_markdown();
+init_system_prompts();
+init_constants();
 function formatConversation(history) {
   return history.messages.map((msg) => {
     const role = msg.role === "user" ? "\u{1F464} User" : "\u{1F916} Wiki";
@@ -9157,7 +10213,7 @@ CRITICAL RULES:
         content: analysisPrompt
       }],
       response_format: { type: "json_object" },
-      disableThinking: this.ctx.settings.disableThinking
+      ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
     });
     const parsed = await parseJsonResponse(analysis, async (malformedJson) => {
       const repairPrompt = `Fix the following malformed JSON. Only fix JSON syntax errors (unescaped quotes, trailing commas, missing brackets). Do NOT change any values or content. Output ONLY the fixed JSON, no other text.
@@ -9169,7 +10225,7 @@ ${malformedJson}`;
         system: await this.ctx.buildSystemPrompt("conversation"),
         messages: [{ role: "user", content: repairPrompt }],
         response_format: { type: "json_object" },
-        disableThinking: this.ctx.settings.disableThinking
+        ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
       });
     });
     if (!parsed) {
@@ -9204,7 +10260,7 @@ ${malformedJson}`;
       max_tokens: TOKENS_CONVERSATION_PAGE,
       system: await this.ctx.buildSystemPrompt("summary"),
       messages: [{ role: "user", content: finalSummaryPrompt }],
-      disableThinking: this.ctx.settings.disableThinking
+      ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
     });
     const cleanedSummary = cleanMarkdownResponse(summaryPageContent);
     await this.ctx.createOrUpdateFile(summaryPath, cleanedSummary);
@@ -9279,7 +10335,7 @@ ${malformedJson}`;
       system: await this.ctx.buildSystemPrompt("conversation"),
       messages: [{ role: "user", content: prompt }],
       response_format: { type: "json_object" },
-      disableThinking: this.ctx.settings.disableThinking
+      ...this.ctx.settings.disableThinking ? { enableThinking: false } : {}
     });
     const parsed = await parseJsonResponse(response);
     return (parsed == null ? void 0 : parsed.status) || "entirely_new";
@@ -9296,6 +10352,7 @@ var WikiEngine = class {
     this.onIngestionEnd = null;
     this.onLintStart = null;
     this.onLintEnd = null;
+    this.onStatusBarUpdate = null;
     this.pagesCache = null;
     this.pagesCacheTime = 0;
     this.PAGES_CACHE_TTL_MS = PAGES_CACHE_TTL_MS;
@@ -9322,17 +10379,13 @@ var WikiEngine = class {
         var _a;
         return (_a = this.onFileWrite) == null ? void 0 : _a.call(this, path);
       },
-      onProgress: (msg) => {
-        var _a;
-        return (_a = this.onProgress) == null ? void 0 : _a.call(this, msg);
-      },
+      onProgress: (msg) => this.notifyProgress(msg),
       onDone: (report) => {
         var _a;
         return (_a = this.onDone) == null ? void 0 : _a.call(this, report);
       }
     };
     this.ctx = ctx;
-    this.lintFixer = new LintFixer(ctx);
     this.contradictionManager = new ContradictionManager(ctx);
     this.sourceAnalyzer = new SourceAnalyzer(ctx);
     this.pageFactory = new PageFactory(ctx);
@@ -9352,6 +10405,18 @@ var WikiEngine = class {
   }
   getProgressCallback() {
     return this.onProgress;
+  }
+  setStatusBarUpdateCallback(cb) {
+    this.onStatusBarUpdate = cb;
+  }
+  updateStatusBar(text) {
+    var _a;
+    (_a = this.onStatusBarUpdate) == null ? void 0 : _a.call(this, text);
+  }
+  notifyProgress(msg) {
+    var _a;
+    (_a = this.onProgress) == null ? void 0 : _a.call(this, msg);
+    this.updateStatusBar(msg);
   }
   setDoneCallback(cb) {
     this.onDone = cb;
@@ -9408,8 +10473,12 @@ var WikiEngine = class {
   }
   // Proxy for lint-controller to access LintFixer methods without exposing the class
   async fixPollutedPage(oldPath, newBasename) {
-    return this.lintFixer.fixPollutedPage(oldPath, newBasename);
+    return fixPollutedPage(this.ctx, oldPath, newBasename);
   }
+  /** Issue #137: get the current LLM client. All consumers (page-factory,
+   * source-analyzer, conversation-ingestor, contradictions) get their client
+   * via this getter, which forwards through the shared closure `() => this.llmClient`
+   * that main.ts updates via `initializeLLMClient()`. */
   get client() {
     const c = this.getLLMClient();
     if (!c) throw new Error("LLM Client not initialized");
@@ -9471,8 +10540,9 @@ var WikiEngine = class {
       }
       (_c = this.onProgress) == null ? void 0 : _c.call(this, `[${step}/${totalSteps}] Creating summary...`);
       await this.apiDelay();
+      const sourceSlug = resolveSourceSlug(file.path, { preserveCase });
       const summaryStart = Date.now();
-      const summaryPage = await this.createSummaryPage(file, analysis, plannedPaths);
+      const summaryPage = await this.createSummaryPage(file, analysis, plannedPaths, sourceSlug);
       const summaryTime = Date.now() - summaryStart;
       console.debug(`[Time] Summary page generation: ${summaryTime}ms`);
       analysis.created_pages.push(summaryPage);
@@ -9500,7 +10570,7 @@ var WikiEngine = class {
             if (task.type === "entity") {
               const entity = analysis.entities[task.index];
               try {
-                const entityResult = await this.pageFactory.createOrUpdateEntityPage(entity, analysis, file);
+                const entityResult = await this.pageFactory.createOrUpdateEntityPage(entity, analysis, file, [], sourceSlug);
                 if (entityResult.path) {
                   analysis.created_pages.push(entityResult.path);
                 }
@@ -9515,7 +10585,7 @@ var WikiEngine = class {
                 failedItems.push({ type: "entity", name: entity.name, reason });
                 try {
                   await this.apiDelay(2e3);
-                  const retryResult = await this.pageFactory.createOrUpdateEntityPage(entity, analysis, file);
+                  const retryResult = await this.pageFactory.createOrUpdateEntityPage(entity, analysis, file, [], sourceSlug);
                   if (retryResult.path) {
                     analysis.created_pages.push(retryResult.path);
                     console.debug(`Entity "${entity.name}" recovered on retry`);
@@ -9532,7 +10602,7 @@ var WikiEngine = class {
             } else {
               const concept = analysis.concepts[task.index];
               try {
-                const conceptResult = await this.pageFactory.createOrUpdateConceptPage(concept, analysis, file);
+                const conceptResult = await this.pageFactory.createOrUpdateConceptPage(concept, analysis, file, [], sourceSlug);
                 if (conceptResult.path) {
                   analysis.created_pages.push(conceptResult.path);
                 }
@@ -9547,7 +10617,7 @@ var WikiEngine = class {
                 failedItems.push({ type: "concept", name: concept.name, reason });
                 try {
                   await this.apiDelay(2e3);
-                  const retryResult = await this.pageFactory.createOrUpdateConceptPage(concept, analysis, file);
+                  const retryResult = await this.pageFactory.createOrUpdateConceptPage(concept, analysis, file, [], sourceSlug);
                   if (retryResult.path) {
                     analysis.created_pages.push(retryResult.path);
                     console.debug(`Concept "${concept.name}" recovered on retry`);
@@ -9606,14 +10676,14 @@ var WikiEngine = class {
             var _a2;
             (_a2 = this.onProgress) == null ? void 0 : _a2.call(this, `[${task.stepNum}/${totalSteps}] Updating: ${task.name}`);
             try {
-              const updated2 = await this.pageFactory.updateRelatedPage(task.name, analysis, file);
+              const updated2 = await this.pageFactory.updateRelatedPage(task.name, analysis, file, sourceSlug);
               return { success: updated2, name: task.name };
             } catch (error) {
               const reason = error instanceof Error ? error.message : String(error);
               console.error(`Related page "${task.name}" update failed:`, reason);
               try {
                 await this.apiDelay(2e3);
-                const updated2 = await this.pageFactory.updateRelatedPage(task.name, analysis, file);
+                const updated2 = await this.pageFactory.updateRelatedPage(task.name, analysis, file, sourceSlug);
                 console.debug(`Related page "${task.name}" recovered on retry`);
                 return { success: updated2, name: task.name };
               } catch (e) {
@@ -9761,9 +10831,9 @@ var WikiEngine = class {
     }
     await this.schemaManager.ensureSchemaExists();
   }
-  async createSummaryPage(file, analysis, plannedPaths = []) {
+  async createSummaryPage(file, analysis, plannedPaths = [], sourceSlug) {
     const preserveCase = this.settings.slugCase === "preserve";
-    const slug = slugify(file.basename, preserveCase);
+    const slug = sourceSlug != null ? sourceSlug : slugify(file.basename, preserveCase);
     const path = (0, import_obsidian6.normalizePath)(`${this.settings.wikiFolder}/sources/${slug}.md`);
     const content = await this.app.vault.read(file);
     const existingSource = await this.tryReadFile(path);
@@ -9783,7 +10853,7 @@ var WikiEngine = class {
       max_tokens: TOKENS_PAGE_GENERATION,
       system: await this.buildSystemPrompt("summary"),
       messages: [{ role: "user", content: finalPrompt }],
-      disableThinking: this.settings.disableThinking
+      ...this.settings.disableThinking ? { enableThinking: false } : {}
     });
     const cleanedContent = cleanMarkdownResponse(pageContent);
     await this.createOrUpdateFile(path, cleanedContent);
@@ -9816,6 +10886,12 @@ var WikiEngine = class {
           return `[[${folder}/${rest}${displayPart}]]`;
         }
       );
+    }
+    const preserveCase = this.settings.slugCase === "preserve";
+    const sourcesFix = fixPollutedSources(content, this.settings.wikiFolder, preserveCase);
+    if (sourcesFix.fixed > 0) {
+      console.warn(`createOrUpdateFile: normalized polluted sources field in ${path}`);
+      content = sourcesFix.content;
     }
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
@@ -9948,17 +11024,17 @@ var WikiEngine = class {
     });
   }
   async fixDeadLink(sourcePath, targetName) {
-    return this.lintFixer.fixDeadLink(sourcePath, targetName);
+    return fixDeadLink(this.ctx, sourcePath, targetName);
   }
   async fillEmptyPage(pagePath, existingContent) {
-    return this.lintFixer.fillEmptyPage(pagePath, existingContent);
+    return fillEmptyPage(this.ctx, pagePath, existingContent);
   }
   // Issue #103: delete empty stubs without running full lint pipeline
   async deleteEmptyStubs(wikiFolder) {
-    return this.lintFixer.deleteEmptyStubs(wikiFolder);
+    return deleteEmptyStubs(this.ctx, wikiFolder);
   }
   async linkOrphanPage(orphanPath) {
-    return this.lintFixer.linkOrphanPage(orphanPath);
+    return linkOrphanPage(this.ctx, orphanPath);
   }
   // ---- Contradiction delegation ----
   async noteContradiction(contradiction) {
@@ -10090,7 +11166,7 @@ var WikiEngine = class {
   }
   /** Merge a duplicate source page into a target page. */
   async mergeDuplicatePages(targetPath, sourcePath) {
-    return this.lintFixer.mergeDuplicatePages(targetPath, sourcePath);
+    return mergeDuplicatePages(this.ctx, targetPath, sourcePath);
   }
   /** Append a lint-fix entry to the operation log. */
   async logLintFix(operation, details) {
@@ -10133,6 +11209,33 @@ ${details}
 
 // src/wiki/query-engine.ts
 var import_obsidian7 = require("obsidian");
+init_types();
+init_prompts();
+init_prompt_builders();
+init_markdown();
+init_constants();
+function renderThinkingBlocksUI(thinkingBlocks, language) {
+  var _a, _b, _c;
+  if (!thinkingBlocks || thinkingBlocks.length === 0) return null;
+  const langTexts = (_a = TEXTS[language]) != null ? _a : TEXTS.en;
+  const summaryLabel = (_b = langTexts == null ? void 0 : langTexts.queryThinkingSummary) != null ? _b : language === "zh" || language === "ja" || language === "ko" ? "\u601D\u8003\u8FC7\u7A0B" : "Thinking process";
+  const stepsLabel = (_c = langTexts == null ? void 0 : langTexts.queryThinkingSteps) != null ? _c : language === "zh" ? "\u6B65" : language === "ja" ? "\u30B9\u30C6\u30C3\u30D7" : "steps";
+  const doc2 = activeDocument;
+  if (!doc2) return null;
+  const details = doc2.createElement("details");
+  details.className = "llm-wiki-query-thinking-block";
+  const summary = doc2.createElement("summary");
+  const count = thinkingBlocks.length;
+  summary.textContent = count > 1 ? `\u{1F4AD} ${summaryLabel} (${count} ${stepsLabel})` : `\u{1F4AD} ${summaryLabel}`;
+  details.appendChild(summary);
+  for (const block of thinkingBlocks) {
+    const pre = doc2.createElement("pre");
+    pre.className = "llm-wiki-query-thinking-content";
+    pre.textContent = block;
+    details.appendChild(pre);
+  }
+  return details;
+}
 var SuggestSaveModal = class extends import_obsidian7.Modal {
   constructor(app, plugin, history, reason) {
     super(app);
@@ -10229,6 +11332,7 @@ var QueryModal = class extends import_obsidian7.Modal {
     this.history.messages.forEach((msg) => {
       this.renderHistoryMessage(msg.role, msg.content);
     });
+    this.scrollToBottom();
     const inputContainer = container.createDiv({
       cls: "llm-wiki-query-input-container"
     });
@@ -10317,7 +11421,7 @@ var QueryModal = class extends import_obsidian7.Modal {
         max_tokens: TOKENS_QUERY_SAVE_DEDUP,
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
-        disableThinking: this.plugin.settings.disableThinking
+        ...this.plugin.settings.disableThinking ? { enableThinking: false } : {}
       });
       const parsed = await parseJsonResponse(response);
       if (parsed == null ? void 0 : parsed.valuable) {
@@ -10403,7 +11507,8 @@ var QueryModal = class extends import_obsidian7.Modal {
               this.renderMarkdownContent(this.accumulatedResponse, contentDiv);
               this.scrollToBottom();
             },
-            disableThinking: this.plugin.settings.disableThinking
+            ...this.plugin.settings.disableThinking ? { enableThinking: false } : {},
+            ...this.plugin.settings.chatTemperature !== void 0 ? { temperature: this.plugin.settings.chatTemperature } : {}
           });
           cleanupTimer();
         } catch (streamErr) {
@@ -10420,7 +11525,9 @@ var QueryModal = class extends import_obsidian7.Modal {
                 model: this.plugin.settings.model,
                 max_tokens: TOKENS_QUERY_LLM_SELECT,
                 system: wikiContext,
-                messages: conversationMessages
+                messages: conversationMessages,
+                ...this.plugin.settings.disableThinking ? { enableThinking: false } : {},
+                ...this.plugin.settings.chatTemperature !== void 0 ? { temperature: this.plugin.settings.chatTemperature } : {}
               });
               if (this.aborted) {
                 cleanupTimer();
@@ -10452,6 +11559,10 @@ var QueryModal = class extends import_obsidian7.Modal {
           }
           cleanupTimer();
         }
+        if (fullResponse !== void 0 && fullResponse !== null) {
+          this.renderMarkdownContent(fullResponse, contentDiv);
+          this.scrollToBottom();
+        }
         if (!this.aborted) {
           this.history.messages.push({
             role: "assistant",
@@ -10466,7 +11577,8 @@ var QueryModal = class extends import_obsidian7.Modal {
           max_tokens: TOKENS_QUERY_LLM_SELECT,
           system: wikiContext,
           messages: conversationMessages,
-          disableThinking: this.plugin.settings.disableThinking
+          ...this.plugin.settings.disableThinking ? { enableThinking: false } : {},
+          ...this.plugin.settings.chatTemperature !== void 0 ? { temperature: this.plugin.settings.chatTemperature } : {}
         });
         if (this.aborted) {
           cleanupTimer();
@@ -10520,6 +11632,20 @@ var QueryModal = class extends import_obsidian7.Modal {
   }
   renderMarkdownContent(content, container) {
     container.empty();
+    const lower = content.toLowerCase();
+    const hasThinkTags = lower.includes("<think");
+    const { thinkingBlocks, visibleContent } = hasThinkTags ? extractThinkingBlocks(content) : { thinkingBlocks: [], visibleContent: content };
+    const normalizedContent = normalizeWikiLinkContent(
+      visibleContent,
+      this.plugin.settings.wikiFolder
+    );
+    if (thinkingBlocks.length > 0) {
+      const thinkingEl = renderThinkingBlocksUI(
+        thinkingBlocks,
+        this.plugin.settings.language
+      );
+      if (thinkingEl) container.appendChild(thinkingEl);
+    }
     if (this.activeRenderComponent) {
       this.activeRenderComponent.unload();
       this.activeRenderComponent = null;
@@ -10529,7 +11655,7 @@ var QueryModal = class extends import_obsidian7.Modal {
     const sourcePath = this.plugin.settings.wikiFolder;
     void import_obsidian7.MarkdownRenderer.render(
       this.app,
-      content,
+      normalizedContent,
       container,
       sourcePath,
       this.activeRenderComponent
@@ -10771,7 +11897,7 @@ Important:
         max_tokens: TOKENS_QUERY_PAGE_SELECT,
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
-        disableThinking: this.plugin.settings.disableThinking
+        ...this.plugin.settings.disableThinking ? { enableThinking: false } : {}
       });
       console.debug("[LLM] Raw response:", response);
       const parsed = await parseJsonResponse(response);
@@ -10818,6 +11944,9 @@ ${body}`);
 
 // src/schema/schema-manager.ts
 var import_obsidian8 = require("obsidian");
+init_types();
+init_prompts();
+init_constants();
 var SCHEMA_FILENAME = "schema/config.md";
 var SUGGESTIONS_FILENAME = "schema/suggestions.md";
 var TASK_SECTIONS = {
@@ -11160,105 +12289,8 @@ ${suggestion.suggestions}
 };
 
 // src/schema/auto-maintain.ts
+init_constants();
 var import_obsidian9 = require("obsidian");
-
-// src/core/sources-normalizer.ts
-function normalizeSourcePath(raw, wikiFolder) {
-  let s = raw.trim();
-  if (!s || s === "[[]]") return "";
-  if (s.startsWith("[[") && s.endsWith("]]")) {
-    s = s.slice(2, -2).trim();
-  }
-  if (!s) return "";
-  const pipeIdx = s.indexOf("|");
-  if (pipeIdx !== -1) s = s.substring(0, pipeIdx).trim();
-  if (!s) return "";
-  if (s.endsWith(".md")) s = s.slice(0, -3);
-  if (!s) return "";
-  const wikiPrefix = wikiFolder + "/";
-  if (s.startsWith(wikiPrefix)) {
-    s = s.substring(wikiPrefix.length);
-  } else if (s.startsWith("entities/") || s.startsWith("concepts/") || s.startsWith("sources/")) {
-  } else {
-    const filename = s.split("/").pop() || s;
-    s = `sources/${filename}`;
-  }
-  return s;
-}
-function normalizeSourcesField(rawList, wikiFolder) {
-  const seen = /* @__PURE__ */ new Set();
-  const result = [];
-  for (const raw of rawList) {
-    const normalized = normalizeSourcePath(String(raw), wikiFolder);
-    if (!normalized) continue;
-    if (seen.has(normalized)) continue;
-    seen.add(normalized);
-    result.push(`[[${normalized}]]`);
-  }
-  return result;
-}
-function scanPollutedSources(content, wikiFolder) {
-  const entries = extractRawSourcesEntries(content);
-  if (entries.length === 0) return false;
-  return entries.some((e) => {
-    const canonical = normalizeSourcePath(e, wikiFolder);
-    if (!canonical) return true;
-    const stripped = e.replace(/^\[\[/, "").replace(/\]\]$/, "");
-    const changed = canonical !== stripped;
-    if (changed) console.debug(`[scanPollutedSources] entry changed: "${e}" \u2192 canonical="${canonical}"`);
-    return changed;
-  });
-}
-function extractRawSourcesEntries(content) {
-  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!fmMatch) return [];
-  const fmBody = fmMatch[1];
-  const inlineMatch = fmBody.match(/^sources:\s*\[(.*)\]\s*$/m);
-  if (inlineMatch) {
-    return inlineMatch[1].split(",").map((s) => s.trim().replace(/^"|"$/g, "")).filter(Boolean);
-  }
-  const lines = fmBody.split("\n");
-  const startIdx = lines.findIndex((l) => /^sources:\s*$/.test(l));
-  if (startIdx === -1) return [];
-  const result = [];
-  for (let i = startIdx + 1; i < lines.length; i++) {
-    const line = lines[i];
-    const m = line.match(/^\s*-\s*"([^"]*)"/);
-    if (m) result.push(m[1]);
-    else if (line.trim() && !/^\s*-\s*/.test(line)) break;
-  }
-  return result;
-}
-function fixPollutedSources(content, wikiFolder) {
-  const rawEntries = extractRawSourcesEntries(content);
-  if (rawEntries.length === 0) return { fixed: 0, content };
-  console.debug(`[fixPollutedSources] rawEntries (${rawEntries.length}): ${JSON.stringify(rawEntries)}`);
-  const normalized = normalizeSourcesField(rawEntries, wikiFolder);
-  console.debug(`[fixPollutedSources] normalized (${normalized.length}): ${JSON.stringify(normalized)}`);
-  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!fmMatch) return { fixed: 0, content };
-  const fmBody = fmMatch[1];
-  const isInline = /^[ \t]*sources:\s*\[.*\][ \t]*$/m.test(fmBody);
-  let newFmBody;
-  if (isInline) {
-    const newLine = `sources: [${normalized.map((n) => `"${n}"`).join(", ")}]`;
-    newFmBody = fmBody.replace(/^([ \t]*)sources:\s*\[(.*)\][ \t]*$/m, (_match, indent) => `${indent}${newLine}`);
-  } else {
-    const newBlock = `sources:
-${normalized.map((n) => `  - "${n}"`).join("\n")}
-`;
-    newFmBody = fmBody.replace(/^([ \t]*)sources:\s*\n((?:[ \t]*-\s*"[^"]*"\s*\n?)+)/m, (_match, indent) => `${indent}${newBlock}`);
-  }
-  if (newFmBody === fmBody) {
-    return { fixed: 0, content };
-  }
-  const newContent = content.substring(0, fmMatch.index) + `---
-${newFmBody}
----` + content.substring(fmMatch.index + fmMatch[0].length);
-  return { fixed: 1, content: newContent };
-}
-
-// src/schema/auto-maintain.ts
 var AutoMaintainManager = class {
   constructor(app, settings, wikiEngine, plugin, lintCallback) {
     // Watcher state
@@ -11528,13 +12560,14 @@ var AutoMaintainManager = class {
     try {
       const wikiFiles = this.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(wikiFolder));
       console.debug(`[QuickFixes] Phase 2: scanning ${wikiFiles.length} files in "${wikiFolder}"`);
+      const sourcesPreserveCase = this.settings.slugCase === "preserve";
       for (const file of wikiFiles) {
         sourcesFilesScanned += 1;
         const content = await this.app.vault.read(file);
-        if (!scanPollutedSources(content, wikiFolder)) continue;
+        if (!scanPollutedSources(content, wikiFolder, sourcesPreserveCase)) continue;
         sourcesFilesPolluted += 1;
         console.debug(`[QuickFixes] Polluted sources detected in ${file.path}`);
-        const { fixed, content: fixedContent } = fixPollutedSources(content, wikiFolder);
+        const { fixed, content: fixedContent } = fixPollutedSources(content, wikiFolder, sourcesPreserveCase);
         if (fixed > 0) {
           await this.app.vault.process(file, () => fixedContent);
           sourcesFilesCleaned += 1;
@@ -11559,15 +12592,11 @@ var AutoMaintainManager = class {
     const structureLabel = structureOk ? texts.startupCheckStructureOk : texts.startupCheckStructureMissing;
     const sourcesLabel = sourcesFilesCleaned > 0 ? texts.startupCheckSourcesCleaned.replace("{files}", String(sourcesFilesCleaned)).replace("{entries}", String(sourcesEntriesCleaned)) : texts.startupCheckSourcesClean;
     const summary = `${texts.startupCheckTitle}
-\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501
 ${texts.startupCheckStructureLabel}: ${structureLabel}
 ${texts.startupCheckSourcesLabel}: ${sourcesLabel}
-\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501
-${texts.wikiHealthStats.replace("{pages}", String(pages.length)).replace("{entities}", String(entities)).replace("{concepts}", String(concepts)).replace("{sources}", String(sources)).replace("{indexStatus}", indexStatus)}
-\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501
+${texts.startupCheckSummary.replace("{pages}", String(pages.length)).replace("{entities}", String(entities)).replace("{concepts}", String(concepts)).replace("{sources}", String(sources))}
 ${texts.startupCheckDisableHint}`;
-    console.debug(`[QuickFixes] Notice payload:
-${summary.split("\n").map((l) => "  " + l).join("\n")}`);
+    console.debug("[QuickFixes] Notice payload:\n" + summary.split("\n").map((l) => "  " + l).join("\n"));
     console.debug("[QuickFixes] ===== Startup quick fixes COMPLETE =====");
     new import_obsidian9.Notice(summary, 1e4);
   }
@@ -11580,10 +12609,17 @@ ${summary.split("\n").map((l) => "  " + l).join("\n")}`);
   }
 };
 
-// src/wiki/lint-controller.ts
+// src/wiki/lint/controller.ts
 var import_obsidian11 = require("obsidian");
+init_prompts();
+init_markdown();
+init_prompt_builders();
+init_system_prompts();
+init_constants();
+init_utils();
 
 // src/wiki/lint/duplicate-detection.ts
+init_frontmatter();
 function bigrams(s) {
   const result = /* @__PURE__ */ new Set();
   const normalized = s.toLowerCase().replace(/[^a-z0-9一-鿿]/g, "");
@@ -11780,10 +12816,28 @@ async function generateDuplicateCandidates(pages) {
 
 // src/wiki/lint/fix-runners.ts
 var import_obsidian10 = require("obsidian");
+init_prompts();
+init_tag_vocab();
+init_frontmatter();
+init_constants();
+init_system_prompts();
 function checkCancelled(signal) {
   if (signal == null ? void 0 : signal.aborted) {
     throw new DOMException("Lint cancelled by user", "AbortError");
   }
+}
+function makeMirroredNotice(ctx) {
+  const notice = new import_obsidian10.Notice("", 0);
+  return {
+    setMessage(msg) {
+      notice.setMessage(msg);
+      ctx.wikiEngine.updateStatusBar(msg);
+    },
+    hide() {
+      notice.hide();
+      ctx.wikiEngine.updateStatusBar("");
+    }
+  };
 }
 async function runAliasCompletion(ctx, signal, aliasDeficientPages) {
   var _a, _b, _c;
@@ -12107,7 +13161,98 @@ Task: Return a JSON object with a single field "tags" that is an array of string
   return { fixed, results };
 }
 
-// src/wiki/lint/scanners.ts
+// src/wiki/lint/phases/preparation.ts
+init_utils();
+async function runPreparationPhase(ctx) {
+  var _a, _b, _c;
+  const wikiFiles = ctx.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(ctx.settings.wikiFolder) && !f.path.includes("index.md") && !f.path.includes("log.md") && !f.path.includes("/schema/") && !f.path.includes("/contradictions/"));
+  const allVaultFiles = ctx.app.vault.getMarkdownFiles();
+  const { known: knownTargets, knownLower: knownTargetsLower } = buildKnownTargets(allVaultFiles);
+  const pageMap = /* @__PURE__ */ new Map();
+  (_a = ctx.stageNotice) == null ? void 0 : _a.setMessage(
+    getText(ctx.settings.language, "lintReadingPages").replace("{count}", String(wikiFiles.length))
+  );
+  ctx.wikiEngine.updateStatusBar(getText(ctx.settings.language, "lintStatusReading"));
+  console.debug(`lintWiki: reading ${wikiFiles.length} wiki pages in parallel`);
+  const BATCH_READ = 200;
+  for (let i = 0; i < wikiFiles.length; i += BATCH_READ) {
+    ctx.checkCancelled();
+    const batch = wikiFiles.slice(i, i + BATCH_READ);
+    const batchResults = await Promise.all(
+      batch.map(async (file) => {
+        const content = await ctx.app.vault.read(file);
+        return { path: file.path, content, basename: file.basename };
+      })
+    );
+    for (const r of batchResults) {
+      pageMap.set(r.path, r);
+    }
+  }
+  (_b = ctx.stageNotice) == null ? void 0 : _b.setMessage(
+    getText(ctx.settings.language, "lintReadingPagesProgress").replace("{current}", String(wikiFiles.length)).replace("{total}", String(wikiFiles.length))
+  );
+  console.debug(`lintWiki: read ${wikiFiles.length}/${wikiFiles.length} pages`);
+  (_c = ctx.stageNotice) == null ? void 0 : _c.setMessage(getText(ctx.settings.language, "lintScanningLinks"));
+  let doubleNestFixes = 0;
+  for (const [path, info] of pageMap) {
+    const abstractFile = ctx.app.vault.getAbstractFileByPath(path);
+    if (abstractFile) {
+      await ctx.app.vault.process(abstractFile, (data) => {
+        const { fixed, content } = fixDoubleNestedWikiLinks(data);
+        if (fixed > 0) {
+          doubleNestFixes += fixed;
+          info.content = content;
+          console.debug(`lintWiki: fixed ${fixed} double-nested link(s) in ${path}`);
+        }
+        return data;
+      });
+    }
+  }
+  const logPath = `${ctx.settings.wikiFolder}/log.md`;
+  const logFile = ctx.app.vault.getAbstractFileByPath(logPath);
+  if (logFile) {
+    await ctx.app.vault.process(logFile, (data) => {
+      const { fixed, content } = fixDoubleNestedWikiLinks(data);
+      if (fixed > 0) {
+        doubleNestFixes += fixed;
+        console.debug(`lintWiki: fixed ${fixed} double-nested link(s) in log.md`);
+      }
+      return fixed > 0 ? content : data;
+    });
+  }
+  if (doubleNestFixes > 0) {
+    console.debug(`lintWiki: total ${doubleNestFixes} double-nested link(s) fixed`);
+  }
+  let sourcesNormalizedFiles = 0;
+  let sourcesNormalizedEntries = 0;
+  const sourcesPreserveCase = ctx.settings.slugCase === "preserve";
+  for (const [path, info] of pageMap) {
+    if (!scanPollutedSources(info.content, ctx.settings.wikiFolder, sourcesPreserveCase)) continue;
+    const abstractFile = ctx.app.vault.getAbstractFileByPath(path);
+    if (abstractFile) {
+      const { fixed, content } = fixPollutedSources(info.content, ctx.settings.wikiFolder, sourcesPreserveCase);
+      if (fixed > 0) {
+        await ctx.app.vault.process(abstractFile, () => content);
+        sourcesNormalizedFiles += 1;
+        sourcesNormalizedEntries += fixed;
+        info.content = content;
+        console.debug(`lintWiki: normalized ${fixed} sources entry(ies) in ${path}`);
+      }
+    }
+  }
+  if (sourcesNormalizedFiles > 0) {
+    console.debug(`lintWiki: sources normalized in ${sourcesNormalizedFiles} files (${sourcesNormalizedEntries} entries)`);
+  }
+  return {
+    wikiFiles,
+    pageMap,
+    knownTargets,
+    knownTargetsLower,
+    doubleNestFixes,
+    sourcesNormalizedFiles,
+    sourcesNormalizedEntries
+  };
+}
 function buildKnownTargets(allVaultFiles) {
   const known = /* @__PURE__ */ new Set();
   const knownLower = /* @__PURE__ */ new Set();
@@ -12131,6 +13276,10 @@ function buildKnownTargets(allVaultFiles) {
   }
   return { known, knownLower };
 }
+
+// src/wiki/lint/scanners.ts
+init_frontmatter();
+init_tag_vocab();
 function detectAliasDeficiency(wikiFiles, pageMap) {
   const result = [];
   for (const file of wikiFiles) {
@@ -12205,6 +13354,68 @@ function scanOrphans(pageMap, wikiFolder) {
   }
   return orphans;
 }
+function normalizeQuote(text) {
+  return text.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, "").replace(/\s+/g, " ").trim();
+}
+function extractMentionsSection(content) {
+  const match = content.match(/##\s+Mentions\s+in\s+Source\s*\n([\s\S]*?)(?=\n##\s|\n*$)/i);
+  return match == null ? void 0 : match[1];
+}
+function extractSourceBody(content) {
+  return content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+}
+function isQuoteGrounded(quote, sourceBody) {
+  if (sourceBody.includes(quote)) return true;
+  const normalizedQuote = normalizeQuote(quote);
+  if (normalizedQuote.length === 0) return false;
+  return normalizeQuote(sourceBody).includes(normalizedQuote);
+}
+function scanQuoteGrounding(pageMap, sourceMap, wikiFolder) {
+  var _a;
+  const issues = [];
+  const sourceBodies = Array.from(sourceMap.values()).map((s) => extractSourceBody(s.content));
+  for (const [path, page] of pageMap) {
+    if (!path.startsWith(wikiFolder + "/")) continue;
+    const mentionsBlock = extractMentionsSection(page.content);
+    if (!mentionsBlock) continue;
+    const lineRegex = /^[-*]\s+"([^"]+)"(?:\s*[—-]\s*\[\[([^\]]+)\]\])?\s*$/gm;
+    let match;
+    while ((match = lineRegex.exec(mentionsBlock)) !== null) {
+      const quote = match[1].trim();
+      const linkTarget = (_a = match[2]) == null ? void 0 : _a.trim();
+      if (linkTarget) {
+        const sourcePath = linkTarget.endsWith(".md") ? linkTarget : `${linkTarget}.md`;
+        const resolvedPath = sourcePath.startsWith(wikiFolder + "/") ? sourcePath : `${wikiFolder}/${sourcePath}`;
+        const source = sourceMap.get(resolvedPath);
+        const body = source ? extractSourceBody(source.content) : "";
+        const grounded = source && isQuoteGrounded(quote, body);
+        if (!grounded) {
+          issues.push({
+            pagePath: path,
+            sourcePath: resolvedPath,
+            quote,
+            hasSourceLink: true
+          });
+        }
+      } else {
+        const grounded = sourceBodies.some((body) => isQuoteGrounded(quote, body));
+        if (!grounded) {
+          issues.push({
+            pagePath: path,
+            quote,
+            hasSourceLink: false
+          });
+        }
+      }
+    }
+  }
+  issues.sort((a, b) => {
+    const pathCmp = a.pagePath.localeCompare(b.pagePath);
+    if (pathCmp !== 0) return pathCmp;
+    return a.quote.localeCompare(b.quote);
+  });
+  return issues;
+}
 function scanTagViolations(pageMap, settings) {
   const validEntity = new Set(getActiveEntityTags(settings));
   const validConcept = new Set(getActiveConceptTags(settings));
@@ -12240,7 +13451,214 @@ function scanTagViolations(pageMap, settings) {
   return violations;
 }
 
-// src/wiki/lint-controller.ts
+// src/wiki/lint/phases/programmatic.ts
+init_utils();
+function runProgrammaticPhase(ctx, input) {
+  var _a, _b;
+  const aliasDeficientPages = detectAliasDeficiency(input.wikiFiles, input.pageMap);
+  console.debug(`lintWiki: ${aliasDeficientPages.length} entity/concept pages missing aliases`);
+  const orphans = scanOrphans(input.pageMap, ctx.settings.wikiFolder);
+  const tagViolations = scanTagViolations(input.pageMap, ctx.settings);
+  const allPages = Array.from(input.pageMap.values()).map(({ path, basename }) => ({
+    path,
+    title: basename
+  }));
+  const pollutedPages = detectPollutedPages(allPages);
+  if (pollutedPages.length > 0) {
+    console.warn(`[Lint] Detected ${pollutedPages.length} polluted page(s):`);
+    for (const pp of pollutedPages) {
+      console.warn(`  - ${pp.path} \u2192 should be "${pp.cleanTitle}"`);
+    }
+  }
+  (_a = ctx.stageNotice) == null ? void 0 : _a.setMessage(getText(ctx.settings.language, "lintScanningLinks"));
+  ctx.wikiEngine.updateStatusBar(getText(ctx.settings.language, "lintStatusScanningLinks"));
+  console.debug("lintWiki: scanning dead links");
+  const deadLinks = scanDeadLinks(
+    input.pageMap,
+    input.knownTargets,
+    input.knownTargetsLower,
+    ctx.settings.wikiFolder
+  );
+  (_b = ctx.stageNotice) == null ? void 0 : _b.setMessage(
+    getText(ctx.settings.language, "lintScanningLinksProgress").replace("{current}", String(input.wikiFiles.length)).replace("{total}", String(input.wikiFiles.length))
+  );
+  const sourceMap = /* @__PURE__ */ new Map();
+  for (const [path, page] of input.pageMap) {
+    if (path.includes("/sources/")) {
+      sourceMap.set(path, page);
+    }
+  }
+  const ungroundedQuotes = scanQuoteGrounding(input.pageMap, sourceMap, ctx.settings.wikiFolder);
+  console.debug(`lintWiki: ${ungroundedQuotes.length} ungrounded quote(s)`);
+  return {
+    aliasDeficientPages,
+    emptyPages: [],
+    orphans,
+    tagViolations,
+    pollutedPages,
+    deadLinks,
+    ungroundedQuotes,
+    sourcesNormalizedFiles: 0,
+    // populated by preparation phase caller
+    sourcesNormalizedEntries: 0,
+    doubleNestFixes: 0
+  };
+}
+
+// src/wiki/lint/report-builder.ts
+function buildLintReport(input) {
+  const { settings, findings, duplicates, contradictionsReport, cleanedLLM, elapsedSeconds, totalPages } = input;
+  const t = TEXTS[settings.language];
+  const folder = settings.wikiFolder;
+  const aliasDeficientPages = findings.aliasDeficientPages;
+  const deadLinks = findings.deadLinks;
+  const emptyPages = findings.emptyPages;
+  const orphans = findings.orphans;
+  const pollutedPages = findings.pollutedPages;
+  const tagViolations = findings.tagViolations;
+  const ungroundedQuotes = findings.ungroundedQuotes;
+  const sourcesNormalizedFiles = findings.sourcesNormalizedFiles;
+  const sourcesNormalizedEntries = findings.sourcesNormalizedEntries;
+  const duplicatePaths = /* @__PURE__ */ new Set();
+  for (const d of duplicates) {
+    duplicatePaths.add(d.target);
+    duplicatePaths.add(d.source);
+  }
+  let deadLinkFromDup = 0;
+  for (const dl of deadLinks) {
+    const sourcePath = `${folder}/${dl.source}.md`;
+    const targetPath = `${folder}/${dl.target}.md`;
+    if (duplicatePaths.has(sourcePath) || duplicatePaths.has(targetPath)) deadLinkFromDup++;
+  }
+  let orphanFromDup = 0;
+  for (const op of orphans) {
+    if (duplicatePaths.has(op)) orphanFromDup++;
+  }
+  let progReport = "";
+  if (aliasDeficientPages.length > 0) {
+    progReport += `## ${t.lintAliasesSection.replace("{count}", String(aliasDeficientPages.length))}
+
+`;
+    for (const p of aliasDeficientPages) {
+      const rel = p.path.replace(folder + "/", "").replace(".md", "");
+      progReport += t.lintAliasesItem.replace("{page}", rel) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (duplicates.length > 0) {
+    progReport += `## ${t.lintDuplicateSection.replace("{count}", String(duplicates.length))}
+
+`;
+    for (const d of duplicates) {
+      const targetRel = d.target.replace(folder + "/", "").replace(".md", "");
+      const sourceRel = d.source.replace(folder + "/", "").replace(".md", "");
+      progReport += t.lintDuplicateItem.replace("{target}", targetRel).replace("{source}", sourceRel).replace("{reason}", d.reason) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (deadLinks.length > 0) {
+    const lines = [];
+    for (const dl of deadLinks) {
+      const sourcePath = `${folder}/${dl.source}.md`;
+      const targetPath = `${folder}/${dl.target}.md`;
+      const involvesDup = duplicatePaths.has(sourcePath) || duplicatePaths.has(targetPath);
+      const dupFlag = involvesDup ? t.lintDeadLinkAffectedByDup : "";
+      lines.push(t.lintDeadLinkItem.replace("{source}", dl.source).replace("{target}", dl.target).replace("{dupFlag}", dupFlag));
+    }
+    progReport += `## ${t.lintDeadLinkSection.replace("{count}", String(deadLinks.length))}
+
+${lines.join("\n")}
+
+`;
+  }
+  if (ungroundedQuotes.length > 0) {
+    progReport += `## ${t.lintQuoteGroundingSection.replace("{count}", String(ungroundedQuotes.length))}
+
+`;
+    for (const q of ungroundedQuotes) {
+      const pageRel = q.pagePath.replace(folder + "/", "").replace(".md", "");
+      const sourceRel = q.sourcePath ? q.sourcePath.replace(folder + "/", "").replace(".md", "") : "";
+      const sourceHint = q.hasSourceLink ? ` \u2192 [[${sourceRel}]]` : "";
+      progReport += t.lintQuoteGroundingItem.replace("{page}", pageRel).replace("{source}", sourceRel).replace("{quote}", q.quote).replace("{sourceHint}", sourceHint) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (emptyPages.length > 0) {
+    progReport += `## ${t.lintEmptyPageSection.replace("{count}", String(emptyPages.length))}
+
+`;
+    for (const ep of emptyPages) {
+      const rel = ep.path.replace(folder + "/", "").replace(".md", "");
+      progReport += t.lintEmptyPageItem.replace("{page}", rel) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (tagViolations.length > 0) {
+    progReport += `## ${t.lintTagViolationSection.replace("{count}", String(tagViolations.length))}
+
+`;
+    for (const v of tagViolations) {
+      const rel = v.path.replace(folder + "/", "").replace(".md", "");
+      progReport += t.lintTagViolationItem.replace("{path}", rel).replace("{tags}", v.invalidTags.join(", ")) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (pollutedPages.length > 0) {
+    progReport += `## ${t.lintPollutedSection.replace("{count}", String(pollutedPages.length))}
+
+`;
+    for (const pp of pollutedPages) {
+      const rel = pp.path.replace(folder + "/", "").replace(".md", "");
+      progReport += t.lintPollutedItem.replace("{page}", rel).replace("{clean}", pp.cleanTitle) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (sourcesNormalizedFiles > 0) {
+    progReport += `## ${t.lintSourcesNormalizedSection}
+
+`;
+    progReport += t.lintSourcesNormalizedItem.replace("{files}", String(sourcesNormalizedFiles)).replace("{entries}", String(sourcesNormalizedEntries)) + "\n\n";
+  }
+  if (orphans.length > 0) {
+    progReport += `## ${t.lintOrphanSection.replace("{count}", String(orphans.length))}
+
+`;
+    for (const op of orphans) {
+      const rel = op.replace(folder + "/", "").replace(".md", "");
+      const isDup = duplicatePaths.has(op);
+      const dupFlag = isDup ? t.lintOrphanIsDuplicate : "";
+      progReport += t.lintOrphanItem.replace("{page}", rel).replace("{dupFlag}", dupFlag) + "\n";
+    }
+    progReport += "\n";
+  }
+  if (!duplicates.length && !deadLinks.length && !emptyPages.length && !orphans.length && !ungroundedQuotes.length) {
+    progReport += `${t.lintNoIssuesFound}
+
+`;
+  }
+  const summaryText = t.lintReportSummary.replace("{total}", String(totalPages)).replace("{aliasesMissing}", String(aliasDeficientPages.length)).replace("{duplicates}", String(duplicates.length)).replace("{deadLinks}", String(deadLinks.length)).replace("{deadLinkFromDup}", String(deadLinkFromDup)).replace("{orphans}", String(orphans.length)).replace("{orphanFromDup}", String(orphanFromDup)).replace("{emptyPages}", String(emptyPages.length)).replace("{ungroundedQuotes}", String(ungroundedQuotes.length)).replace("{tagViolations}", String(tagViolations.length)).replace("{elapsedSeconds}", String(elapsedSeconds));
+  if (aliasDeficientPages.length > 0) {
+    const aliasPre = `> ${t.lintAliasesMissing.replace("{count}", String(aliasDeficientPages.length))}
+
+`;
+    progReport = aliasPre + progReport;
+  }
+  const llmHeading = cleanedLLM.startsWith("##") ? "" : t.lintLLMAnalysisHeading + "\n\n";
+  return `# ${t.lintReportTitle}
+
+> ${summaryText}
+
+${progReport}${contradictionsReport}${llmHeading}${cleanedLLM}`;
+}
+
+// src/wiki/lint/controller.ts
+function extractProgReport(fullReport) {
+  const summaryEnd = fullReport.indexOf("\n\n", fullReport.indexOf("> "));
+  if (summaryEnd < 0) return fullReport;
+  const after = fullReport.indexOf("\n\n", summaryEnd + 2);
+  if (after < 0) return "";
+  return fullReport.slice(after + 2);
+}
 async function runLintWiki(ctx, signal) {
   var _a;
   if (!ctx.llmClient) {
@@ -12254,90 +13672,43 @@ async function runLintWiki(ctx, signal) {
   };
   new import_obsidian11.Notice(TEXTS[ctx.settings.language].lintWikiStart);
   const lintStartTime = Date.now();
-  let stageNotice = null;
+  const stageNotice = new import_obsidian11.Notice("", 0);
   try {
-    const wikiFiles = ctx.app.vault.getMarkdownFiles().filter((f) => f.path.startsWith(ctx.settings.wikiFolder) && !f.path.includes("index.md") && !f.path.includes("log.md") && !f.path.includes("/schema/") && !f.path.includes("/contradictions/"));
-    const allVaultFiles = ctx.app.vault.getMarkdownFiles();
-    const { known: knownTargets, knownLower: knownTargetsLower } = buildKnownTargets(allVaultFiles);
+    const phaseCtx = {
+      app: ctx.app,
+      settings: ctx.settings,
+      wikiEngine: ctx.wikiEngine,
+      checkCancelled: checkCancelled2,
+      stageNotice,
+      totalPages: 0
+    };
+    const prep = await runPreparationPhase(phaseCtx);
+    phaseCtx.totalPages = prep.wikiFiles.length;
+    const findings = runProgrammaticPhase(phaseCtx, {
+      wikiFiles: prep.wikiFiles,
+      pageMap: prep.pageMap,
+      knownTargets: prep.knownTargets,
+      knownTargetsLower: prep.knownTargetsLower
+    });
+    findings.sourcesNormalizedFiles = prep.sourcesNormalizedFiles;
+    findings.sourcesNormalizedEntries = prep.sourcesNormalizedEntries;
+    findings.doubleNestFixes = prep.doubleNestFixes;
+    const wikiFiles = prep.wikiFiles;
+    const pageMap = prep.pageMap;
     const t = TEXTS[ctx.settings.language];
-    const pageMap = /* @__PURE__ */ new Map();
-    stageNotice = new import_obsidian11.Notice("", 0);
-    stageNotice.setMessage(t.lintReadingPages.replace("{count}", String(wikiFiles.length)));
-    console.debug(`lintWiki: reading ${wikiFiles.length} wiki pages in parallel`);
-    const totalPages = wikiFiles.length;
-    const BATCH_READ = 200;
-    for (let i = 0; i < wikiFiles.length; i += BATCH_READ) {
-      checkCancelled2();
-      const batch = wikiFiles.slice(i, i + BATCH_READ);
-      const batchResults = await Promise.all(
-        batch.map(async (file) => {
-          const content = await ctx.app.vault.read(file);
-          return { path: file.path, content, basename: file.basename };
-        })
-      );
-      for (const r of batchResults) {
-        pageMap.set(r.path, r);
-      }
-    }
-    stageNotice.setMessage(t.lintReadingPagesProgress.replace("{current}", String(totalPages)).replace("{total}", String(totalPages)));
-    console.debug(`lintWiki: read ${totalPages}/${totalPages} pages`);
-    stageNotice.setMessage(t.lintScanningLinks);
-    let doubleNestFixes = 0;
-    for (const [path, info] of pageMap) {
-      const abstractFile = ctx.app.vault.getAbstractFileByPath(path);
-      if (abstractFile instanceof import_obsidian11.TFile) {
-        await ctx.app.vault.process(abstractFile, (data) => {
-          const { fixed, content } = fixDoubleNestedWikiLinks(data);
-          if (fixed > 0) {
-            doubleNestFixes += fixed;
-            info.content = content;
-            console.debug(`lintWiki: fixed ${fixed} double-nested link(s) in ${path}`);
-          }
-          return data;
-        });
-      }
-    }
-    const logPath = `${ctx.settings.wikiFolder}/log.md`;
-    const logFile = ctx.app.vault.getAbstractFileByPath(logPath);
-    if (logFile instanceof import_obsidian11.TFile) {
-      await ctx.app.vault.process(logFile, (data) => {
-        const { fixed, content } = fixDoubleNestedWikiLinks(data);
-        if (fixed > 0) {
-          doubleNestFixes += fixed;
-          console.debug(`lintWiki: fixed ${fixed} double-nested link(s) in log.md`);
-        }
-        return fixed > 0 ? content : data;
-      });
-    }
-    if (doubleNestFixes > 0) {
-      console.debug(`lintWiki: total ${doubleNestFixes} double-nested link(s) fixed`);
-    }
-    let sourcesNormalizedFiles = 0;
-    let sourcesNormalizedEntries = 0;
-    for (const [path, info] of pageMap) {
-      if (!scanPollutedSources(info.content, ctx.settings.wikiFolder)) continue;
-      const abstractFile = ctx.app.vault.getAbstractFileByPath(path);
-      if (abstractFile instanceof import_obsidian11.TFile) {
-        const { fixed, content } = fixPollutedSources(info.content, ctx.settings.wikiFolder);
-        if (fixed > 0) {
-          await ctx.app.vault.process(abstractFile, () => content);
-          sourcesNormalizedFiles += 1;
-          sourcesNormalizedEntries += fixed;
-          info.content = content;
-          console.debug(`lintWiki: normalized ${fixed} sources entry(ies) in ${path}`);
-        }
-      }
-    }
-    if (sourcesNormalizedFiles > 0) {
-      console.debug(`lintWiki: sources normalized in ${sourcesNormalizedFiles} files (${sourcesNormalizedEntries} entries)`);
-    }
-    const aliasDeficientPages = detectAliasDeficiency(wikiFiles, pageMap);
-    console.debug(`lintWiki: ${aliasDeficientPages.length} entity/concept pages missing aliases`);
+    const aliasDeficientPages = findings.aliasDeficientPages;
+    const orphans = findings.orphans;
+    const tagViolations = findings.tagViolations;
+    const pollutedPages = findings.pollutedPages;
+    const deadLinks = findings.deadLinks;
+    const ungroundedQuotes = findings.ungroundedQuotes;
+    const emptyPages = [];
     let duplicates = [];
     const entityConceptFiles = wikiFiles.filter(
       (f) => f.path.includes("/entities/") || f.path.includes("/concepts/")
     );
     if (entityConceptFiles.length >= 2 && ctx.llmClient) {
+      ctx.wikiEngine.updateStatusBar(getText(ctx.settings.language, "lintStatusDuplicates"));
       stageNotice.setMessage(t.lintCheckingDuplicates);
       try {
         const pagesForDedup = [];
@@ -12404,14 +13775,14 @@ async function runLintWiki(ctx, signal) {
   Candidate B: ${c.source}
   Signal: ${c.reason}`
                 ).join("\n");
-                const dedupPrompt = PROMPTS.lintDuplicateDetection.replace("{{candidates}}", candidateList).replace("{{total}}", String(pagesForDedup.length));
+                const dedupPrompt = PROMPTS.lintDuplicateDetection.replace("{{wikiFolder}}", ctx.settings.wikiFolder).replace("{{candidates}}", candidateList).replace("{{total}}", String(pagesForDedup.length));
                 console.debug(`lintWiki: batch ${batchNum}/${batches.length} \u2014 ${batch.length} candidates`);
                 const dedupResponse = await ctx.llmClient.createMessage({
                   model: ctx.settings.model,
                   max_tokens: TOKENS_LINT_DEDUP_LLM,
                   messages: [{ role: "user", content: dedupPrompt }],
                   response_format: { type: "json_object" },
-                  disableThinking: ctx.settings.disableThinking
+                  ...ctx.settings.disableThinking ? { enableThinking: false } : {}
                 });
                 const dedupResult = await parseJsonResponse(dedupResponse);
                 console.debug(`lintWiki: batch ${batchNum}/${batches.length} \u2192 ${((_a2 = dedupResult == null ? void 0 : dedupResult.duplicates) == null ? void 0 : _a2.length) || 0} duplicates confirmed`);
@@ -12424,7 +13795,11 @@ async function runLintWiki(ctx, signal) {
                 const rawDups = Array.isArray(result.value) ? result.value : [];
                 const validDups = rawDups.filter(
                   (d) => typeof d.target === "string" && d.target.length > 0 && typeof d.source === "string" && d.source.length > 0
-                );
+                ).map((d) => ({
+                  target: normalizeLLMPath(d.target, ctx.settings.wikiFolder),
+                  source: normalizeLLMPath(d.source, ctx.settings.wikiFolder),
+                  reason: d.reason
+                }));
                 allDuplicates.push(...validDups);
               } else {
                 const reason = result.reason instanceof Error ? result.reason.message : String(result.reason || "unknown");
@@ -12448,128 +13823,46 @@ async function runLintWiki(ctx, signal) {
         window.setTimeout(() => errNotice.hide(), NOTICE_RATE_LIMIT);
       }
     }
-    stageNotice.setMessage(t.lintScanningLinks);
-    console.debug("lintWiki: scanning dead links");
-    const deadLinks = scanDeadLinks(pageMap, knownTargets, knownTargetsLower, ctx.settings.wikiFolder);
-    stageNotice.setMessage(t.lintScanningLinksProgress.replace("{current}", String(totalPages)).replace("{total}", String(totalPages)));
+    const emptyPageDuplicates = /* @__PURE__ */ new Set();
+    for (const d of duplicates) {
+      emptyPageDuplicates.add(d.target);
+      emptyPageDuplicates.add(d.source);
+    }
+    for (const { path, content } of pageMap.values()) {
+      if (emptyPageDuplicates.has(path)) continue;
+      if (isPageEmpty(content)) {
+        emptyPages.push({ path, content });
+      }
+    }
     const duplicatePaths = /* @__PURE__ */ new Set();
     for (const d of duplicates) {
       duplicatePaths.add(d.target);
       duplicatePaths.add(d.source);
     }
-    const emptyPages = [];
-    for (const { path, content } of pageMap.values()) {
-      if (duplicatePaths.has(path)) continue;
-      if (isPageEmpty(content)) {
-        emptyPages.push({ path, content });
-      }
-    }
-    const orphans = scanOrphans(pageMap, ctx.settings.wikiFolder);
-    const tagViolations = scanTagViolations(pageMap, ctx.settings);
-    let progReport = "";
-    if (aliasDeficientPages.length > 0) {
-      progReport += `## ${t.lintAliasesSection.replace("{count}", String(aliasDeficientPages.length))}
-
-`;
-      for (const p of aliasDeficientPages) {
-        progReport += t.lintAliasesItem.replace("{page}", p.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "")) + "\n";
-      }
-      progReport += "\n";
-    }
-    if (duplicates.length > 0) {
-      progReport += `## ${t.lintDuplicateSection.replace("{count}", String(duplicates.length))}
-
-`;
-      for (const d of duplicates) {
-        const targetRel = d.target.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        const sourceRel = d.source.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        progReport += t.lintDuplicateItem.replace("{target}", targetRel).replace("{source}", sourceRel).replace("{reason}", d.reason) + "\n";
-      }
-      progReport += "\n";
-    }
     let deadLinkFromDup = 0;
-    if (deadLinks.length > 0) {
-      const deadLinkLines = [];
-      for (const dl of deadLinks) {
-        const sourcePath = `${ctx.settings.wikiFolder}/${dl.source}.md`;
-        const targetPath = `${ctx.settings.wikiFolder}/${dl.target}.md`;
-        const involvesDup = duplicatePaths.has(sourcePath) || duplicatePaths.has(targetPath);
-        if (involvesDup) deadLinkFromDup++;
-        const dupFlag = involvesDup ? t.lintDeadLinkAffectedByDup : "";
-        deadLinkLines.push(t.lintDeadLinkItem.replace("{source}", dl.source).replace("{target}", dl.target).replace("{dupFlag}", dupFlag));
-      }
-      progReport += `## ${t.lintDeadLinkSection.replace("{count}", String(deadLinks.length))}
-
-${deadLinkLines.join("\n")}
-
-`;
-    }
-    if (emptyPages.length > 0) {
-      progReport += `## ${t.lintEmptyPageSection.replace("{count}", String(emptyPages.length))}
-
-`;
-      for (const ep of emptyPages) {
-        const epRel = ep.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        progReport += t.lintEmptyPageItem.replace("{page}", epRel) + "\n";
-      }
-      progReport += "\n";
-    }
-    if (tagViolations.length > 0) {
-      progReport += `## ${t.lintTagViolationSection.replace("{count}", String(tagViolations.length))}
-
-`;
-      for (const v of tagViolations) {
-        const pathRel = v.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        progReport += t.lintTagViolationItem.replace("{path}", pathRel).replace("{tags}", v.invalidTags.join(", ")) + "\n";
-      }
-      progReport += "\n";
-    }
-    const allPages = Array.from(pageMap.values()).map(({ path, basename }) => ({
-      path,
-      title: basename
-    }));
-    const pollutedPages = detectPollutedPages(allPages);
-    if (pollutedPages.length > 0) {
-      console.warn(`[Lint] Detected ${pollutedPages.length} polluted page(s):`);
-      for (const pp of pollutedPages) {
-        console.warn(`  - ${pp.path} \u2192 should be "${pp.cleanTitle}"`);
-      }
-    }
-    if (pollutedPages.length > 0) {
-      progReport += `## ${t.lintPollutedSection.replace("{count}", String(pollutedPages.length))}
-
-`;
-      for (const pp of pollutedPages) {
-        const ppRel = pp.path.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        progReport += t.lintPollutedItem.replace("{page}", ppRel).replace("{clean}", pp.cleanTitle) + "\n";
-      }
-      progReport += "\n";
-    }
-    if (sourcesNormalizedFiles > 0) {
-      progReport += `## ${t.lintSourcesNormalizedSection}
-
-`;
-      progReport += t.lintSourcesNormalizedItem.replace("{files}", String(sourcesNormalizedFiles)).replace("{entries}", String(sourcesNormalizedEntries)) + "\n\n";
+    for (const dl of deadLinks) {
+      const sourcePath = `${ctx.settings.wikiFolder}/${dl.source}.md`;
+      const targetPath = `${ctx.settings.wikiFolder}/${dl.target}.md`;
+      if (duplicatePaths.has(sourcePath) || duplicatePaths.has(targetPath)) deadLinkFromDup++;
     }
     let orphanFromDup = 0;
-    if (orphans.length > 0) {
-      progReport += `## ${t.lintOrphanSection.replace("{count}", String(orphans.length))}
-
-`;
-      for (const op of orphans) {
-        const opRel = op.replace(ctx.settings.wikiFolder + "/", "").replace(".md", "");
-        const isDup = duplicatePaths.has(op);
-        if (isDup) orphanFromDup++;
-        const dupFlag = isDup ? t.lintOrphanIsDuplicate : "";
-        progReport += t.lintOrphanItem.replace("{page}", opRel).replace("{dupFlag}", dupFlag) + "\n";
-      }
-      progReport += "\n";
+    for (const op of orphans) {
+      if (duplicatePaths.has(op)) orphanFromDup++;
     }
-    if (!duplicates.length && !deadLinks.length && !emptyPages.length && !orphans.length) {
-      progReport += `${t.lintNoIssuesFound}
-
-`;
-    }
+    const findingsWithEmpty = {
+      ...findings,
+      emptyPages
+    };
+    let progReport = buildLintReport({
+      settings: ctx.settings,
+      findings: findingsWithEmpty,
+      duplicates,
+      contradictionsReport: "",
+      cleanedLLM: "",
+      elapsedSeconds: 0,
+      totalPages: wikiFiles.length
+    });
+    progReport = extractProgReport(progReport);
     const openContradictions = await ctx.wikiEngine.getOpenContradictions();
     let contradictionsReport = "";
     const reviewOkItems = openContradictions.filter((c) => c.status === "review_ok");
@@ -12622,16 +13915,17 @@ ${body}
       ctx.settings
     );
     stageNotice.setMessage(t.lintAnalyzingLLM);
+    ctx.wikiEngine.updateStatusBar(getText(ctx.settings.language, "lintStatusAnalyzing"));
     checkCancelled2();
     const llmReport = await ctx.llmClient.createMessage({
       model: ctx.settings.model,
       max_tokens: TOKENS_LINT_DEDUP_LLM,
       messages: [{ role: "user", content: prompt }],
-      disableThinking: ctx.settings.disableThinking
+      ...ctx.settings.disableThinking ? { enableThinking: false } : {}
     });
     const cleanedLLM = cleanMarkdownResponse(llmReport);
     const elapsedSeconds = Math.max(1, Math.round((Date.now() - lintStartTime) / 1e3));
-    const summaryText = t.lintReportSummary.replace("{total}", String(wikiFiles.length)).replace("{aliasesMissing}", String(aliasDeficientPages.length)).replace("{duplicates}", String(duplicates.length)).replace("{deadLinks}", String(deadLinks.length)).replace("{deadLinkFromDup}", String(deadLinkFromDup)).replace("{orphans}", String(orphans.length)).replace("{orphanFromDup}", String(orphanFromDup)).replace("{emptyPages}", String(emptyPages.length)).replace("{elapsedSeconds}", String(elapsedSeconds));
+    const summaryText = t.lintReportSummary.replace("{total}", String(wikiFiles.length)).replace("{aliasesMissing}", String(aliasDeficientPages.length)).replace("{duplicates}", String(duplicates.length)).replace("{deadLinks}", String(deadLinks.length)).replace("{deadLinkFromDup}", String(deadLinkFromDup)).replace("{orphans}", String(orphans.length)).replace("{orphanFromDup}", String(orphanFromDup)).replace("{emptyPages}", String(emptyPages.length)).replace("{ungroundedQuotes}", String(ungroundedQuotes.length)).replace("{tagViolations}", String(tagViolations.length)).replace("{elapsedSeconds}", String(elapsedSeconds));
     if (aliasDeficientPages.length > 0) {
       const aliasPre = `> ${t.lintAliasesMissing.replace("{count}", String(aliasDeficientPages.length))}
 
@@ -12650,7 +13944,8 @@ ${progReport}${contradictionsReport}${cleanedLLM.startsWith("##") ? "" : t.lintL
       orphans: orphans.length,
       duplicates: duplicates.length,
       pagesMissingAliases: aliasDeficientPages.length,
-      tagViolations: tagViolations.length
+      tagViolations: tagViolations.length,
+      ungroundedQuotes: ungroundedQuotes.length
     };
     const runFixPhase = async (fn) => {
       const signal2 = ctx.wikiEngine.startLintOperation();
@@ -12668,7 +13963,7 @@ ${progReport}${contradictionsReport}${cleanedLLM.startsWith("##") ? "" : t.lintL
       fixCallbacks.onFixPollutedPages = () => {
         void runFixPhase(async (signal2) => {
           let fixed = 0;
-          const fixNotice = new import_obsidian11.Notice("", 0);
+          const fixNotice = makeMirroredNotice(ctx);
           try {
             for (const pp of pollutedPages) {
               if (signal2 == null ? void 0 : signal2.aborted) break;
@@ -12797,7 +14092,7 @@ ${progReport}${contradictionsReport}${cleanedLLM.startsWith("##") ? "" : t.lintL
           const signal2 = ctx.wikiEngine.startLintOperation();
           try {
             const allResults = [];
-            const fixAllNotice = new import_obsidian11.Notice("", 0);
+            const fixAllNotice = makeMirroredNotice(ctx);
             let pollutedFixed = 0;
             let aliasesFilled = 0;
             let duplicatesMerged = 0;
@@ -12939,7 +14234,12 @@ ${results.join("\n")}`);
     stageNotice.hide();
     const logReport = nestReportUnderParent(fullReport);
     await ctx.wikiEngine.logLintFix(t.lintReportTitle, logReport);
-    new LintReportModal(ctx.app, fullReport, fixCallbacks, counts, ctx.settings.language).open();
+    if (ctx.settings.autoSmartFix && fixCallbacks.onFixAll) {
+      new import_obsidian11.Notice(getText(ctx.settings.language, "autoSmartFixNotice"));
+      void fixCallbacks.onFixAll();
+    } else {
+      new LintReportModal(ctx.app, fullReport, fixCallbacks, counts, ctx.settings.language).open();
+    }
     await ctx.wikiEngine.generateIndexFromEngine();
     new import_obsidian11.Notice(TEXTS[ctx.settings.language].lintWikiComplete);
   } catch (error) {
@@ -12961,7 +14261,7 @@ function getThinkingControlCacheKey(settings) {
   return ((_a = settings.baseUrl) == null ? void 0 : _a.trim()) || ((_b = PREDEFINED_PROVIDERS[settings.provider]) == null ? void 0 : _b.baseUrl) || "";
 }
 function createLLMClient(settings) {
-  var _a, _b, _c;
+  var _a, _b, _c, _d, _e;
   let client;
   if (settings.provider === "anthropic") {
     client = new AnthropicClient(settings.apiKey.trim());
@@ -12980,21 +14280,20 @@ function createLLMClient(settings) {
   }
   if (client instanceof OpenAICompatibleClient) {
     const cacheKey = getThinkingControlCacheKey(settings);
-    if (cacheKey && ((_c = settings.thinkingControlCache) == null ? void 0 : _c[cacheKey]) !== void 0) {
-      client.thinkingControlSupported = settings.thinkingControlCache[cacheKey];
+    console.debug("[CREATE-LLM] cacheKey:", cacheKey, "has cache?", cacheKey && ((_c = settings.thinkingControlCache) == null ? void 0 : _c[cacheKey]) !== void 0, "cache value:", (_d = settings.thinkingControlCache) == null ? void 0 : _d[cacheKey]);
+    if (cacheKey && ((_e = settings.thinkingControlCache) == null ? void 0 : _e[cacheKey]) !== void 0) {
+      const cached = settings.thinkingControlCache[cacheKey];
+      client.thinkingControlDialect = typeof cached === "boolean" ? cached ? "anthropic" : "none" : cached;
+      console.debug("[CREATE-LLM] set dialect to:", client.thinkingControlDialect);
     }
+    client.language = settings.language;
   }
-  if (settings.maxTokensPerCall > 0) {
-    const originalCreate = client.createMessage.bind(client);
-    client.createMessage = async (params) => {
-      return originalCreate({
-        ...params,
-        max_tokens: capMaxTokens(params.max_tokens, settings),
-        maxTokensPerCall: settings.maxTokensPerCall
-      });
-    };
-  }
-  return client;
+  return wrapWithAdvancedSettings(client, {
+    maxTokensPerCall: settings.maxTokensPerCall,
+    extractionTemperature: settings.extractionTemperature,
+    chatTemperature: settings.chatTemperature,
+    repetitionPenalty: settings.repetitionPenalty
+  });
 }
 var LLMWikiPlugin = class extends import_obsidian12.Plugin {
   constructor() {
@@ -13151,7 +14450,6 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
     var _a;
     const savedData = await this.loadData();
     this.settings = Object.assign({}, DEFAULT_SETTINGS, savedData || {});
-    console.debug("loadSettings: loaded watchedFolders =", JSON.stringify(this.settings.watchedFolders));
     if (savedData && !savedData.wikiLanguage) {
       this.settings.wikiLanguage = this.settings.language;
       await this.saveData(this.settings);
@@ -13159,6 +14457,14 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
     if (!Array.isArray(this.settings.watchedFolders)) {
       this.settings.watchedFolders = [];
       console.debug("loadSettings: watchedFolders was not an array, reset to []");
+    }
+    if (savedData && savedData.startupCheck === false) {
+      this.settings.startupCheck = true;
+    }
+    if (savedData && savedData.disableThinking === true) {
+      this.settings.disableThinking = false;
+      this.settings.advancedSettingsMode = "default";
+      console.debug("loadSettings: v1.20.0 migration \u2014 reset disableThinking to false, advancedSettingsMode to default");
     }
     if (savedData && !("llmReady" in savedData)) {
       const hasConfig = savedData.provider && (((_a = savedData.apiKey) == null ? void 0 : _a.trim()) || savedData.provider === "ollama") && savedData.model;
@@ -13194,9 +14500,7 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
   }
   async saveSettings() {
     var _a;
-    console.debug("saveSettings: watchedFolders =", JSON.stringify(this.settings.watchedFolders));
     await this.saveData(this.settings);
-    console.debug("saveSettings: data saved to data.json");
     this.initializeLLMClient();
     (_a = this.schemaManager) == null ? void 0 : _a.updateSettings(this.settings);
     if (this.wikiEngine) {
@@ -13444,7 +14748,7 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
   }
   // ==================== Connection Test ====================
   async testLLMConnection() {
-    var _a;
+    var _a, _b;
     const t = TEXTS[this.settings.language] || TEXTS.en;
     const isOllama = this.settings.provider === "ollama";
     if (!isOllama && (!this.settings.apiKey || this.settings.apiKey.trim() === "")) {
@@ -13462,36 +14766,79 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
       });
       console.debug("Test response:", testResponse);
       this.settings.llmReady = true;
-      if (testClient instanceof OpenAICompatibleClient || testClient instanceof AnthropicCompatibleClient || testClient instanceof AnthropicClient) {
+      if (this.settings.disableThinking && (testClient instanceof OpenAICompatibleClient || testClient instanceof AnthropicCompatibleClient || testClient instanceof AnthropicClient)) {
+        let detectedDialect = "anthropic";
+        let probeSucceeded = false;
         try {
           await testClient.createMessage({
             model: this.settings.model,
             max_tokens: 1,
             messages: [{ role: "user", content: "think" }],
-            disableThinking: true
+            enableThinking: false
           });
-          if (testClient instanceof OpenAICompatibleClient) {
-            testClient.thinkingControlSupported = true;
-          }
-          const cacheKey = getThinkingControlCacheKey(this.settings);
-          if (cacheKey) {
-            this.settings.thinkingControlCache = {
-              ...this.settings.thinkingControlCache,
-              [cacheKey]: true
-            };
-            console.debug("Thinking control supported by", cacheKey);
-          }
+          detectedDialect = "anthropic";
+          probeSucceeded = true;
         } catch (e) {
           if (testClient instanceof OpenAICompatibleClient) {
-            testClient.thinkingControlSupported = false;
+            const savedDialect = testClient.thinkingControlDialect;
+            testClient.thinkingControlDialect = "openai";
+            try {
+              await testClient.createMessage({
+                model: this.settings.model,
+                max_tokens: 1,
+                messages: [{ role: "user", content: "think" }],
+                enableThinking: false
+              });
+              detectedDialect = "openai";
+              probeSucceeded = true;
+            } catch (e2) {
+              detectedDialect = "none";
+            } finally {
+              testClient.thinkingControlDialect = savedDialect;
+            }
+          } else {
+            detectedDialect = "none";
           }
-          const cacheKey = getThinkingControlCacheKey(this.settings);
+        }
+        const cacheKey = getThinkingControlCacheKey(this.settings);
+        if (probeSucceeded) {
+          if (testClient instanceof OpenAICompatibleClient) {
+            testClient.thinkingControlDialect = detectedDialect;
+          }
           if (cacheKey) {
             this.settings.thinkingControlCache = {
               ...this.settings.thinkingControlCache,
-              [cacheKey]: false
+              [cacheKey]: detectedDialect
             };
-            console.debug("Thinking control NOT supported by", cacheKey);
+            console.debug(`Thinking control dialect for ${cacheKey}: ${detectedDialect}`);
+          }
+        } else {
+          if (testClient instanceof OpenAICompatibleClient) {
+            testClient.thinkingControlDialect = "none";
+          }
+          if (cacheKey) {
+            this.settings.thinkingControlCache = {
+              ...this.settings.thinkingControlCache,
+              [cacheKey]: "none"
+            };
+            console.debug(`Thinking control dialect for ${cacheKey}: none (both probed tiers failed)`);
+          }
+        }
+        if (probeSucceeded && testClient instanceof OpenAICompatibleClient && this.settings.advancedSettingsMode === "custom" && cacheKey && (this.settings.repetitionPenalty !== void 0 && this.settings.repetitionPenalty !== 0 || this.settings.extractionTemperature !== void 0 || this.settings.chatTemperature !== void 0)) {
+          try {
+            await testClient.createMessage({
+              model: this.settings.model,
+              max_tokens: 1,
+              messages: [{ role: "user", content: "param-probe" }],
+              enableThinking: false,
+              temperature: (_a = this.settings.extractionTemperature) != null ? _a : this.settings.chatTemperature,
+              repetition_penalty: this.settings.repetitionPenalty
+            });
+            console.debug("Advanced parameters accepted by", cacheKey);
+          } catch (probeErr) {
+            console.debug(
+              `Advanced parameters probe failed for ${cacheKey}; unsupported fields cached. Error: ${probeErr.message}`
+            );
           }
         }
       }
@@ -13507,7 +14854,8 @@ var LLMWikiPlugin = class extends import_obsidian12.Plugin {
           }
         }
       }
-      const providerName = ((_a = PREDEFINED_PROVIDERS[this.settings.provider]) == null ? void 0 : _a.nameEn) || this.settings.provider;
+      const providerName = ((_b = PREDEFINED_PROVIDERS[this.settings.provider]) == null ? void 0 : _b.nameEn) || this.settings.provider;
+      this.initializeLLMClient();
       return {
         success: true,
         message: `\u2705 ${t.testConnectionSuccessful || "Connection successful"}${t.testConnectionProvider ? ": " : ""}${providerName}`

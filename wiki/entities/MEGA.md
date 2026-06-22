@@ -1,13 +1,15 @@
 ---
 type: entity
 created: 2026-06-16
-updated: 2026-06-16
-sources: ["[[_raw/西哲/聂锦芳：马克思本人哲学思想的起点何在？.md]]"]
-tags: [other]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/聂锦芳马克思本人哲学思想的起点何在]]"
+tags:
+  - other
 aliases:
-  - "Marx·Engels Gesamtausgabe"
-  - "马克思恩格斯全集历史考证版"
-  - "马克思恩格斯著作历史考证版"
+  - Marx·Engels Gesamtausgabe
+  - 马克思恩格斯全集历史考证版
+  - 马克思恩格斯著作历史考证版
 ---
 
 

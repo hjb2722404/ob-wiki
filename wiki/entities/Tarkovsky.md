@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[_raw/西哲/齐泽克：黑格尔与海德格尔的对决.md]]"]
-tags: [person]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/齐泽克黑格尔与海德格尔的对决]]"
+tags:
+  - person
 aliases:
-  - "Andrei Tarkovsky"
-  - "安德烈·塔尔科夫斯基"
+  - Andrei Tarkovsky
+  - 安德烈·塔尔科夫斯基
 ---
 
 

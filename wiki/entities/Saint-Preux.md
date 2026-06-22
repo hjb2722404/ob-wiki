@@ -1,12 +1,14 @@
 ---
 type: entity
 created: 2026-06-17
-updated: 2026-06-17
-sources: ["[[sources/黑格尔论家庭婚姻和爱|黑格尔论家庭婚姻和爱]]"]
-tags: [person]
+updated: 2026-06-21T22:42
+sources:
+  - "[[sources/黑格尔论家庭婚姻和爱]]"
+tags:
+  - person
 aliases:
-  - "Saint-Preux"
-  - "圣普乐与朱丽的爱情"
+  - Saint-Preux
+  - 圣普乐与朱丽的爱情
 ---
 
 

@@ -1,15 +1,17 @@
 ---
 type: concept
 created: 2026-06-15
-updated: 2026-06-15
-sources: ["[[_raw/视频总结/视频总结/重新理解复杂性科学：定义、起源、核心问题，及与东方传统智慧的共鸣-2026年06月10日-来自【Get 笔记】.md]]"]
-tags: [method]
+updated: 2026-06-21T22:47
+sources:
+  - "[[sources/重新理解复杂性科学定义起源核心问题及与东方传统智慧的共鸣-2026年06月10日-来自get-笔记]]"
+tags:
+  - method
 aliases:
-  - "主体建模"
-  - "Multi-Agent Simulation"
-  - "ABM"
-  - "Multi-Agent System Modeling"
-  - "基于主体的建模"
+  - 主体建模
+  - Multi-Agent Simulation
+  - ABM
+  - Multi-Agent System Modeling
+  - 基于主体的建模
 ---
 
 
