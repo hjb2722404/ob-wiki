@@ -26,7 +26,7 @@ collapsed: false
 createdAt: 2026-06-22T08:21:15.057Z
 updatedAt: 2026-06-22T08:27:47.501Z
 created: 2026-06-22T16:21
-updated: 2026-06-22T23:02
+updated: 2026-06-25T17:46
 ---
 
 Project: [[国产化适配|国产化适配]]
@@ -37,6 +37,6 @@ Project: [[国产化适配|国产化适配]]
 - [x] [[bes--component_hot_msg-trs-cloud-cpt-top-mpjdhhqc|bes-\component_hot_msg\trs-cloud-cpt-topicalert]]
 - [x] [[bes--component_hot_msg-trs-cloud-hotconf-jyy4v9rh|bes-\component_hot_msg\trs-cloud-hotconfig]]
 - [x] [[bes--component_stream_search-stream_keyw-1yc5xxoe|bes-\component_stream_search\stream_keywords_user_search]]
-- [ ] [[bes--snapshot-trs-cloud-snapshot-client-9a30iv95|bes-\snapshot\trs-cloud-snapshot-client]]
-- [ ] [[bes--snapshot-trs-cloud-snapshot-server-7566h8bh|bes-\snapshot\trs-cloud-snapshot-server]]
-- [ ] [[bes--code-tool-trs-cloud-searchtool-e390hjci|bes-\code\tool\trs-cloud-searchtool]]
+- [x] [[bes--snapshot-trs-cloud-snapshot-client-9a30iv95|bes-\snapshot\trs-cloud-snapshot-client]]
+- [x] [[bes--snapshot-trs-cloud-snapshot-server-7566h8bh|bes-\snapshot\trs-cloud-snapshot-server]]
+- [x] [[bes--code-tool-trs-cloud-searchtool-e390hjci|bes-\code\tool\trs-cloud-searchtool]]

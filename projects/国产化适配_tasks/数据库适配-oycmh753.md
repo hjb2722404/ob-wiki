@@ -24,9 +24,9 @@ subtaskIds:
 dependencies: []
 collapsed: false
 createdAt: 2026-06-22T08:20:54.927Z
-updatedAt: 2026-06-22T08:29:02.177Z
+updatedAt: 2026-06-25T09:46:38.425Z
 created: 2026-06-22T16:21
-updated: 2026-06-22T23:02
+updated: 2026-06-25T17:46
 ---
 
 Project: [[国产化适配|国产化适配]]
@@ -36,7 +36,7 @@ Project: [[国产化适配|国产化适配]]
 - [x] [[db--component_hot_msg-trs-cloud-cpt-incr-9tu71oh7|db-\component_hot_msg\trs-cloud-cpt-incremsgs]]
 - [x] [[db--component_hot_msg-trs-cloud-cpt-topi-x1fdsfr9|db-\component_hot_msg\trs-cloud-cpt-topicalert]]
 - [x] [[db--component_hot_msg-trs-cloud-hotconfi-or9yomfv|db-\component_hot_msg\trs-cloud-hotconfig]]
-- [ ] [[db--component_stream_search-stream_keywo-e0z6qjxd|db-\component_stream_search\stream_keywords_user_search]]
-- [ ] [[db--snapshot-trs-cloud-snapshot-client-cfm0cvjp|db-\snapshot\trs-cloud-snapshot-client]]
-- [ ] [[db-snapshot-trs-cloud-snapshot-server-0juw7822|db-snapshot\trs-cloud-snapshot-server]]
-- [ ] [[db--tool-trs-cloud-searchtool-ffgopups|db-\tool\trs-cloud-searchtool]]
+- [x] [[db--component_stream_search-stream_keywo-e0z6qjxd|db-\component_stream_search\stream_keywords_user_search]]
+- [x] [[db--snapshot-trs-cloud-snapshot-client-cfm0cvjp|db-\snapshot\trs-cloud-snapshot-client]]
+- [x] [[db-snapshot-trs-cloud-snapshot-server-0juw7822|db-snapshot\trs-cloud-snapshot-server]]
+- [x] [[db--tool-trs-cloud-searchtool-ffgopups|db-\tool\trs-cloud-searchtool]]

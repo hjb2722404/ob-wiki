@@ -1,6 +1,6 @@
 ---
 created: 2026-05-28T16:51
-updated: 2026-06-22T22:21
+updated: 2026-06-26T10:01
 ---
 # Wiki 操作日志
 
@@ -3627,3 +3627,35 @@ updated: 2026-06-22T22:21
 - [[concepts/造物主信仰批判]]: added 6 aliases
 - [[concepts/反映知性]]: added 8 aliases
 - [[concepts/个人化]]: added 7 aliases
+
+
+## [2026-06-26] ingest | 历代学者对《庄子·胠箧篇》的评价研究
+
+**创建页面**：[[sources/历代学者对庄子·胠箧篇的评价研究.md]], [[entities/庄子.md]], [[entities/南华真经正义.md]], [[entities/陶弘景.md]], [[entities/焦竑.md]], [[entities/郭象.md]], [[concepts/批评类观点.md]], [[concepts/褒扬类观点.md]], [[concepts/绝圣弃智.md]], [[concepts/中立阐释类观点.md]], [[concepts/胠箧篇.md]], [[concepts/文本考证.md]], [[concepts/玄学.md]], [[concepts/义理疏通.md]], [[concepts/圣人不死大盗不止.md]], [[concepts/宋明理学.md]], [[concepts/阳明心学.md]], [[concepts/思想源流考证.md]]
+
+**更新页面**：[[庄子]], [[文本考证]], [[阳明心学]]
+
+
+
+## [2026-06-26] ingest | 郭象注《庄子》齐物论体系化阐释研究
+
+**创建页面**：[[sources/庄子·齐物论思想研究.md]], [[entities/郭象.md]], [[concepts/齐物.md]], [[entities/庄子.md]], [[entities/颜成子游.md]], [[entities/南郭子綦.md]], [[concepts/三籁说.md]], [[concepts/自生自化.md]], [[concepts/是非齐一.md]], [[concepts/成心.md]], [[concepts/吾丧我.md]], [[concepts/独化.md]], [[concepts/道通为一.md]], [[concepts/和之以天倪.md]], [[concepts/物无贵贱.md]], [[concepts/物化.md]], [[concepts/物我两忘.md]], [[concepts/天地与我并生万物与我为一.md]], [[concepts/性足.md]], [[concepts/万物一体.md]]
+
+**更新页面**：[[郭象]], [[庄子]], [[齐物]], [[物化]]
+
+
+
+## [2026-06-26] ingest | 《庄子·外篇·胠箧》深度解读
+
+**创建页面**：[[sources/庄子·外篇·胠箧思想研究.md]], [[entities/郭象.md]], [[entities/比干.md]], [[entities/庄子.md]], [[entities/田成子.md]], [[entities/关龙逢.md]], [[entities/齐国.md]], [[entities/伍子胥.md]], [[concepts/绝圣弃智.md]], [[concepts/胠箧篇.md]], [[concepts/圣智礼法.md]], [[concepts/圣人不死大盗不止.md]], [[concepts/窃钩者诛窃国者侯.md]], [[concepts/至德之世.md]], [[concepts/文明异化.md]], [[concepts/无为而治.md]]
+
+**更新页面**：[[庄子]], [[郭象]], [[圣人不死大盗不止]]
+
+
+
+## [2026-06-26] ingest | 历代学者对齐物论的接受史研究
+
+**创建页面**：[[sources/历代学者对齐物论的评价研究.md]], [[entities/谢汝韶.md]], [[entities/郭象.md]], [[entities/两程.md]], [[entities/罗勉道.md]], [[entities/邵弁.md]], [[entities/方潜在.md]], [[concepts/齐物.md]], [[entities/方应祥.md]], [[entities/王源.md]], [[entities/陈深.md]], [[concepts/玄学.md]], [[concepts/宋代理学.md]], [[concepts/明代心学.md]], [[concepts/物各自然.md]], [[concepts/清代考据学.md]], [[concepts/物我两忘.md]], [[concepts/无待而齐.md]], [[concepts/齐物论接受史.md]], [[concepts/庄学.md]], [[concepts/儒道思想碰撞.md]]
+
+**更新页面**：[[郭象]], [[齐物]], [[玄学]], [[物我两忘]]
+
