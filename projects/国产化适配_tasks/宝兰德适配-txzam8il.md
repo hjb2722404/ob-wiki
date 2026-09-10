@@ -5,7 +5,7 @@ parentId:
 id: txzam8ilmqoy4wq9
 title: 宝兰德适配
 type: task
-status: todo
+status: done
 priority: medium
 start: 2026-06-22
 due: ""
@@ -24,9 +24,9 @@ subtaskIds:
 dependencies: []
 collapsed: false
 createdAt: 2026-06-22T08:21:15.057Z
-updatedAt: 2026-06-22T08:27:47.501Z
+updatedAt: 2026-07-20T02:31:30.091Z
 created: 2026-06-22T16:21
-updated: 2026-06-25T17:46
+updated: 2026-08-04T10:31
 ---
 
 Project: [[国产化适配|国产化适配]]
